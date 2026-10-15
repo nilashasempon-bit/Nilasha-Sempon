@@ -1,0 +1,1175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="author" content="Nilasha Sempon">
+<meta name="description" content="Interactive Grade 6 Advanced Science lesson with the UAE Values Team.">
+<title>Resources in Ecosystems · Nilasha Sempon</title>
+<meta property="og:title" content="Resources in Ecosystems · Nilasha Sempon">
+<meta property="og:description" content="Grade 6 Advanced Science interactive lesson by Nilasha Sempon, with the UAE Values Team.">
+<meta property="og:image" content="https://nilashasempons.netlify.app/g6-resources-ecosystems/img/hook-scene.webp">
+<meta property="og:url" content="https://nilashasempons.netlify.app/g6-resources-ecosystems/">
+<meta property="og:site_name" content="Nilasha Sempon · Science &amp; Biology">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: an app frame (top bar · one slide at a time · bottom nav). Each slide is a page with its own #sN link.
+   Single bright classroom look, matching the teacher's deck, so colours are set explicitly. */
+:root{
+  --navy:#1b2470; --navy-2:#2a338f; --ink:#1c2340; --muted:#5b6385; --line:#dfe3f1;
+  --paper:#ffffff; --bg:#eef1f9; --sun:#ffc21a; --sun-ink:#3a2a00;
+  --green:#1fa75a; --green-bg:#e6f7ed; --red:#e5484d; --red-bg:#fdecec;
+  --orange:#f07f19; --orange-bg:#fff2e4; --purple:#7a3ff0; --purple-bg:#f1eafe;
+  --blue:#2563eb; --blue-bg:#e8effe; --teal:#0e9fa6; --sea:#2b8fd6; --sand:#f2dca6;
+  --c-shahin:#4b6b2f; --c-fahim:#1f5f8b; --c-maha:#a3343a; --c-ahmed:#1d6b5b; --c-hessa:#b07a0a;
+  --display:"Baloo Bhaijaan 2","Nunito",system-ui,sans-serif;
+  --body:"Nunito","Baloo Bhaijaan 2",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+html,body{height:100%}
+body{margin:0}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45}
+*{box-sizing:border-box}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.ar{font-family:"Baloo Bhaijaan 2",var(--body);direction:rtl}
+
+#app{height:100%;display:grid;grid-template-rows:auto 1fr auto}
+.topbar{background:var(--navy);color:#fff;display:flex;align-items:center;gap:12px;padding:8px 16px;flex-wrap:wrap}
+.topbar .crumb{font-weight:800;font-family:var(--display);font-size:1.05rem;white-space:nowrap}
+.topbar .unit{opacity:.8;font-size:.85rem;min-width:0;flex:1 1 220px}
+.topbar .date{background:rgba(255,255,255,.14);border-radius:999px;padding:3px 12px;font-size:.85rem;white-space:nowrap}
+.iconbtn{background:var(--sun);color:var(--sun-ink);border:0;border-radius:999px;width:36px;height:36px;display:grid;place-items:center;font-weight:800;flex:none}
+.iconbtn svg{width:18px;height:18px}
+.wavestrip{height:6px;background:repeating-linear-gradient(90deg,var(--sun) 0 40px,var(--green) 40px 80px,var(--red) 80px 120px,var(--blue) 120px 160px,var(--purple) 160px 200px)}
+
+main{overflow-y:auto;overflow-x:hidden;position:relative;-webkit-overflow-scrolling:touch}
+.slide{min-height:100%}
+.inner{max-width:1200px;margin:0 auto;padding-block:22px 28px;padding-inline:16px;display:flex;flex-direction:column;gap:18px}
+.head{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.head h2{font-family:var(--display);font-size:clamp(1.5rem,3.2vw,2.2rem);line-height:1.1;margin:0;flex:1 1 auto;text-wrap:balance;font-weight:800}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:2px solid var(--blue);border-radius:999px;padding:3px 12px 3px 4px;font-size:.82rem;font-weight:700;color:var(--navy)}
+.chip i{width:24px;height:24px;border-radius:50%;background:var(--blue);display:grid;place-items:center;color:#fff;font-style:normal;font-size:.8rem}
+.chip .ar{font-weight:600;color:var(--muted)}
+.lead{color:var(--muted);margin:0;max-width:75ch}
+.lead b{color:var(--purple)}
+
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px}
+.label{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;font-weight:800;color:var(--red)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+.g5{grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.cols{display:grid;gap:18px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:860px){.cols.split{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}.cols.split-r{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}}
+.stack{display:flex;flex-direction:column;gap:12px;min-width:0}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+img.fig{border-radius:14px;border:1px solid var(--line);display:block;width:100%;height:auto;background:#fff}
+
+.btn{border:0;border-radius:999px;padding:10px 20px;font-weight:800;background:var(--sun);color:var(--sun-ink);box-shadow:0 3px 0 #d79c00;transition:transform .1s}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 #d79c00}
+.btn.navy{background:var(--navy);color:#fff;box-shadow:0 3px 0 #0d1245}
+.btn.red{background:var(--red);color:#fff;box-shadow:0 3px 0 #a92d31}
+.btn.ghost{background:var(--paper);color:var(--navy);box-shadow:none;border:2px solid var(--line)}
+.btn.small{padding:6px 14px;font-size:.88rem}
+
+/* coach strip */
+.coach{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:center;background:var(--paper);border:2px solid var(--cc,var(--navy));border-radius:18px;padding:10px 14px}
+.coach img{width:64px;height:64px;border-radius:50%;border:3px solid var(--cc);background:#f5efe4}
+.coach .who{font-weight:800;color:var(--cc);font-size:.9rem}
+.coach .who span{font-weight:600;color:var(--muted)}
+.coach p{margin:2px 0}
+.coach .ns{font-size:.82rem;color:var(--muted)}
+.coach .ns b{color:var(--orange)}
+.lo{display:flex;gap:10px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:.88rem;color:var(--muted)}
+.lo b{color:var(--red)}
+.lo.lotop{color:var(--ink);font-size:.95rem;font-weight:600;border:2px solid #f3c2c4;background:#fff7f7}
+.hero .lo.lotop,.end .lo.lotop{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.35);color:#fff}.hero .lo.lotop b,.end .lo.lotop b{color:#ffc21a}
+.lo .tgt{flex:none;width:22px;height:22px;border-radius:50%;border:4px solid var(--red);box-shadow:inset 0 0 0 3px #fff,inset 0 0 0 8px var(--red)}
+
+/* bottom nav */
+.nav{background:var(--paper);border-top:1px solid var(--line);display:flex;align-items:center;gap:8px;padding:8px 16px calc(8px + env(safe-area-inset-bottom,0px));flex-wrap:wrap}
+.nav .count{font-weight:800;font-variant-numeric:tabular-nums;color:var(--navy);min-width:64px;text-align:center}
+.nav .title{flex:1 1 140px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--muted);font-size:.9rem}
+@media (max-width:700px){.topbar .unit{display:none}.nav .title{display:none}.nav{justify-content:space-between}}
+.progress{height:4px;background:var(--line)}
+.progress div{height:100%;background:var(--sun);transition:width .3s}
+.toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;z-index:50;max-width:calc(100% - 32px);text-align:center}
+.linkbox{font-size:.8rem;word-break:break-all;background:var(--bg);padding:6px 10px;border-radius:8px;user-select:all}
+
+/* menu overlay */
+.menu{position:fixed;inset:0;background:rgba(18,22,60,.55);z-index:40;display:grid;place-items:center;padding:16px}
+.menu .panel{background:var(--paper);border-radius:20px;max-width:900px;width:100%;max-height:85vh;overflow:auto;padding:18px}
+.menu ol{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:6px;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr))}
+.menu li button{width:100%;text-align:left;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:8px 10px;display:flex;gap:10px;align-items:center}
+.menu li button b{color:var(--navy);font-variant-numeric:tabular-nums;min-width:22px}
+.menu li button.cur{background:var(--sun)}
+
+/* title slide */
+.hero{background:linear-gradient(135deg,#1b2470 0%,#3a2fa3 60%,#6a2fb8 100%);color:#fff;min-height:100%;position:relative;overflow:hidden}
+.hero .inner{padding-block:36px}
+.hero h1{font-family:var(--display);font-size:clamp(2.4rem,7vw,4.6rem);line-height:1;margin:6px 0 0;font-weight:800}
+.hero .sub{font-family:var(--display);color:var(--sun);font-size:clamp(1.3rem,3vw,2rem);font-weight:700;margin:0}
+.hero .eyebrow{color:var(--sun);font-weight:800;letter-spacing:.08em;font-size:.82rem}
+.hero .teacher{font-family:var(--display);font-size:1.2rem}.hero .teacher b{color:var(--sun)}
+.hero .mystery{background:#fff;color:var(--ink);border-radius:14px;padding:14px 16px;max-width:620px}
+.hero .mystery b{color:var(--red)}
+.avatars{display:flex;flex-wrap:wrap;gap:12px}
+.avatars button{background:none;border:0;padding:0;text-align:center;color:#fff;font-size:.8rem;font-weight:700}
+.avatars img{width:72px;height:72px;border-radius:50%;border:3px solid var(--sun);display:block;margin-bottom:4px;background:#f5efe4;transition:transform .2s}
+.avatars button:hover img{transform:translateY(-4px) rotate(-4deg)}
+.hero canvas.waves{position:absolute;left:0;right:0;bottom:0;width:100%;height:120px;pointer-events:none;opacity:.9}
+
+/* flip cards */
+.flip{perspective:900px;background:none;border:0;padding:0;text-align:left;width:100%}
+.flip .fi{display:grid;transition:transform .5s;transform-style:preserve-3d;height:100%}
+.flip.on .fi{transform:rotateY(180deg)}
+.flip .face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;padding:14px;border:2px solid var(--line);background:var(--paper);min-height:100px;display:flex;flex-direction:column;justify-content:center;gap:4px}
+.flip .back{transform:rotateY(180deg)}
+.flip .tap{font-size:.75rem;color:var(--muted);font-weight:700}
+.kw .front{border-color:var(--purple)}
+.kw .front strong{font-family:var(--display);font-size:1.3rem;color:var(--purple)}
+.kw .back{background:var(--purple-bg);border-color:var(--purple)}
+@media (prefers-reduced-motion:reduce){.flip .fi{transition:none}}
+
+/* team cards */
+.team{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr))}
+.team .face{padding:0;overflow:hidden;justify-content:flex-start;border-color:var(--cc)}
+.team .front img{width:100%;height:auto;aspect-ratio:496/536;object-fit:cover;display:block}
+.team .front .tap{padding:8px 10px;text-align:center;color:var(--cc)}
+.team .back{background:var(--cc);color:#fff;padding:16px;justify-content:center;font-weight:700;font-size:1.02rem}
+.team .back h4{margin:0;font-family:var(--display);font-size:1.4rem}
+.nskills{display:flex;flex-wrap:wrap;gap:8px}
+.nskill{border:2px solid var(--orange);background:var(--paper);border-radius:12px;padding:6px 12px;font-weight:800;color:var(--navy);display:flex;flex-direction:column;align-items:flex-start;text-align:left;max-width:240px}
+.nskill small{font-weight:600;color:var(--orange);display:none}
+.nskill.on small{display:block}
+
+/* lesson map */
+.map{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr))}
+.map button{border:0;border-radius:16px;color:#fff;text-align:left;padding:14px;min-height:112px;display:flex;flex-direction:column;gap:2px;transition:transform .15s}
+.map button:hover{transform:translateY(-3px)}
+.map small{font-size:.7rem;letter-spacing:.07em;font-weight:800;opacity:.85}
+.map strong{font-family:var(--display);font-size:1.18rem;line-height:1.15}
+.map span{font-size:.85rem;opacity:.9}
+
+/* lists */
+.crit{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.crit li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;align-items:start}
+.crit li::before{content:"✓";width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:800}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;align-items:center;counter-increment:s}
+.steps li::before{content:counter(s);width:32px;height:32px;border-radius:50%;background:var(--sun);display:grid;place-items:center;font-weight:800}
+
+/* timer */
+.timer{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:2px solid var(--sun);border-radius:999px;padding:4px 6px 4px 4px}
+.timer .t{font-family:var(--display);font-weight:800;font-size:1.3rem;font-variant-numeric:tabular-nums;min-width:58px;text-align:center;color:var(--navy)}
+.timer.done{border-color:var(--red);background:var(--red);animation:shake .5s 3}
+.timer.done .t{color:#fff}
+.timer .rs{background:none;border:0;color:var(--muted);font-size:.8rem;font-weight:700;padding:4px 8px}
+.timer.done .rs{color:#fff}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+/* quizzes */
+.q{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:10px}
+.q .qt{font-weight:800}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{border:2px solid var(--line);background:var(--bg);border-radius:12px;padding:8px 14px;font-weight:700;text-align:left}
+.opt.ok{background:var(--green);border-color:var(--green);color:#fff}
+.opt.no{background:var(--red);border-color:var(--red);color:#fff}
+.opt.ok::before{content:"✓ "}.opt.no::before{content:"✗ "}
+.fb{font-size:.9rem;border-radius:10px;padding:8px 12px}
+.fb.ok{background:var(--green-bg);color:#11663a}
+.fb.no{background:var(--red-bg);color:#9b1c22}
+.score{font-family:var(--display);font-weight:800;font-size:1.25rem;color:var(--navy)}
+
+/* sort */
+.sorter{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.sitem{display:flex;align-items:center;justify-content:space-between;gap:10px;border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 12px;font-weight:700;text-align:left}
+.sitem .tag{border-radius:999px;padding:3px 12px;font-size:.82rem;font-weight:800;background:var(--bg);color:var(--muted);white-space:nowrap}
+.sitem[data-v="low"] .tag{background:var(--teal);color:#fff}
+.sitem[data-v="high"] .tag{background:var(--red);color:#fff}
+.bannerbtn{background:none;border:0;padding:0;display:block;width:100%;max-width:760px;cursor:pointer}.bannerbtn img{width:100%;height:auto;border-radius:14px;display:block;border:3px solid var(--sun);transition:transform .2s}.bannerbtn:hover img{transform:translateY(-3px)}
+.concert{display:grid;gap:8px}.concert .stadium{padding-top:14px}.stage{background:linear-gradient(90deg,#ffc21a,#ff8a1f);border-radius:10px;text-align:center;font-weight:800;padding:8px;color:#3a2a00;letter-spacing:.1em}
+.seat.saeed{outline:3px solid #ff3b3b;outline-offset:1px}
+.dbchip{border-radius:999px;padding:3px 10px;font-size:.8rem;font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
+.sitem[data-v="living"] .tag{background:var(--green);color:#fff}.sitem[data-v="NONLIVING"] .tag{background:#5b6385;color:#fff}
+.rbig{font-size:2.6rem;text-align:center;padding:14px 0;background:#fff;border-radius:14px}
+.sitem[data-v="uses"] .tag{background:var(--orange);color:#fff}.sitem[data-v="MAKES"] .tag{background:var(--green);color:#fff}
+.sitem[data-v="GAS"] .tag{background:#9aa3b5;color:#fff}.sitem[data-v="LIQUID"] .tag{background:var(--sea);color:#fff}.sitem[data-v="SOLID"] .tag{background:var(--navy);color:#fff}
+.sitem[data-v="REFLECT"] .tag{background:var(--red);color:#fff}.sitem[data-v="ABSORB"] .tag{background:var(--teal);color:#fff}.sitem[data-v="TRANSMIT"] .tag{background:var(--navy);color:#fff}
+.sitem.right{border-color:var(--green);box-shadow:0 0 0 2px var(--green)}
+.sitem.wrong{border-color:var(--red);box-shadow:0 0 0 2px var(--red)}
+
+/* energy bars */
+.erow{display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px;align-items:center}
+.erow .amp{background:var(--navy);color:#fff;border-radius:999px;padding:6px 12px;font-weight:800;text-align:center;font-size:.9rem}
+.ebar{border:2px dashed var(--line);border-radius:999px;height:40px;background:var(--paper);display:flex;align-items:center;padding:0 4px;text-align:left;font-weight:700;color:var(--muted);font-size:.85rem;width:100%;position:relative;overflow:hidden}
+.ebar .fill{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#ff8c8f,var(--red));border-radius:999px;width:0;transition:width .8s cubic-bezier(.2,.9,.3,1.2)}
+.ebar .v{position:relative;padding-left:10px}
+.ebar.on{border-style:solid;border-color:var(--red)}
+.ebar.on .v{color:#fff;font-family:var(--display);font-size:1.25rem}
+.rule{background:var(--purple-bg);border-radius:14px;padding:18px;text-align:center;font-family:var(--display);font-size:3rem;font-weight:800;color:var(--navy);line-height:1}
+.rule sup{font-size:.55em}
+
+/* sims */
+.sim{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:12px;display:grid;gap:10px}
+.sim>*,.medium>*{min-width:0}
+.sim canvas{width:100%;display:block;border-radius:10px}
+.stadium{background:#141a3e;border-radius:12px;padding:40px 14px 14px;display:grid;gap:6px;grid-template-columns:repeat(16,minmax(0,1fr));overflow:hidden}
+.seat{height:clamp(14px,3vw,30px);border-radius:40% 40% 18% 18%;background:var(--c,#5b7cfa);transition:background .2s}
+.seat.saeed{outline:3px solid #ff3b3b;outline-offset:1px}
+.medium{display:grid;gap:8px;border:2px solid var(--line);border-radius:14px;padding:10px;background:var(--paper)}
+.medium h4{margin:0;font-family:var(--display);font-size:1.15rem}
+.medium canvas{width:100%;max-width:100%;height:120px;background:#f6f8fd}
+.medium .res{font-size:.85rem;min-height:2.6em}
+.legend{font-size:.82rem;color:var(--muted)}
+
+/* table */
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:420px;font-size:.92rem}
+th{background:var(--navy);color:#fff;text-align:left;padding:8px 10px}
+td{border-bottom:1px solid var(--line);padding:8px 10px;vertical-align:top}
+select,input[type=text],textarea{font:inherit;border:2px solid var(--line);border-radius:10px;padding:6px 10px;background:#fff;color:var(--ink);max-width:100%}
+textarea{width:100%;min-height:84px;resize:vertical}
+.okf{border-color:var(--green)!important;background:var(--green-bg)!important}
+.nof{border-color:var(--red)!important;background:var(--red-bg)!important}
+.fillrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.wordbank{background:var(--blue-bg);border-radius:10px;padding:8px 12px;font-weight:700;color:var(--blue)}
+
+/* order */
+.order{display:grid;gap:8px}
+.oitem{display:flex;align-items:center;gap:12px;border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 12px;font-weight:700;text-align:left}
+.oitem .n{width:34px;height:34px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-family:var(--display);font-weight:800;flex:none;color:var(--muted)}
+.oitem.set .n{background:var(--sun);color:var(--sun-ink)}
+.oitem.right{border-color:var(--green)}.oitem.wrong{border-color:var(--red)}
+.chain{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.chain div{border-radius:12px;padding:10px;color:#fff;font-weight:700;font-size:.9rem}
+.traffic{display:flex;flex-wrap:wrap;gap:8px}
+.traffic button{border:0;border-radius:999px;padding:8px 16px;font-weight:800;color:#fff}
+
+/* levels */
+.level{border-radius:16px;overflow:hidden;border:2px solid var(--lc);background:var(--paper);display:flex;flex-direction:column}
+.level h3{margin:0;background:var(--lc);color:#fff;padding:10px 14px;font-family:var(--display)}
+.level ol{margin:0;padding:12px 14px 12px 32px;display:grid;gap:8px}
+.level .ans{background:var(--lbg);margin:0 12px 12px;border-radius:10px;padding:10px 12px;font-size:.9rem}
+.level .btn{margin:0 12px 12px;align-self:flex-start}
+
+/* stars */
+.stars{display:flex;gap:4px}
+.stars button{background:none;border:0;padding:0;font-size:1.7rem;line-height:1;color:#c7cde0}
+.stars button.on{color:#f6b500}
+.vcard{border:2px solid var(--cc);border-radius:16px;background:var(--paper);padding:10px;text-align:center;display:grid;gap:6px;position:relative;justify-items:center}
+.vcard img{width:min(120px,100%);aspect-ratio:1;border-radius:50%;border:3px solid var(--cc);background:#f5efe4}
+.vcard .star{position:absolute;top:8px;right:10px;font-size:2rem;color:#c7cde0;transition:transform .3s}
+.vcard.on .star{color:#f6b500;transform:scale(1.25) rotate(15deg)}
+.vcard .prompt{font-style:italic;color:var(--cc);border:1px dashed var(--cc);border-radius:10px;padding:6px 8px;font-size:.88rem;width:100%}
+.goal{font-size:2rem;letter-spacing:4px;color:#c7cde0}
+.goal span.on{color:#f6b500}
+
+.end{background:linear-gradient(135deg,#1b2470 0%,#3a2fa3 60%,#6a2fb8 100%);color:#fff;min-height:100%}
+.end h1{font-family:var(--display);font-size:clamp(2.2rem,6vw,4rem);margin:0;line-height:1.05}
+.end .eyebrow{color:var(--sun);font-weight:800;letter-spacing:.06em}
+.end .promise{background:#fff;color:var(--ink);border-radius:14px;padding:12px 16px}
+.end .promise b{color:var(--red)}
+.end .nsk{background:#fff;color:var(--navy);border-radius:999px;padding:6px 14px;font-weight:800}
+
+.note{background:var(--orange-bg);border-radius:12px;padding:10px 14px;font-size:.92rem}
+.note b{color:var(--orange)}
+.good{background:var(--green-bg);border-radius:12px;padding:10px 14px}
+.hl{color:var(--red);font-weight:800}
+video{width:100%;border-radius:14px;background:#000;display:block}
+
+/* party confetti + red wrong-answer feedback */
+.shake{animation:shk .45s}
+@keyframes shk{0%,100%{transform:translateX(0)}20%{transform:translateX(-9px)}40%{transform:translateX(9px)}60%{transform:translateX(-6px)}80%{transform:translateX(5px)}}
+#redFlash{position:fixed;inset:0;pointer-events:none;z-index:9998;box-shadow:inset 0 0 0 12px rgba(229,72,77,.92),inset 0 0 120px rgba(229,72,77,.55);opacity:0;transition:opacity .6s}
+#redFlash.on{opacity:1;transition:none}
+#fxCanvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999}
+.fbadge{position:fixed;z-index:10000;pointer-events:none;transform:translate(-50%,-50%);padding:10px 20px;border-radius:999px;font-weight:800;font-size:1.2rem;color:#fff;white-space:nowrap;box-shadow:0 10px 26px rgba(0,0,0,.22);animation:fbadge 1.4s ease-out forwards}
+.fbadge.good{background:#1fa75a}.fbadge.bad{background:#e5484d}
+@keyframes fbadge{0%{opacity:0;transform:translate(-50%,-30%) scale(.6)}15%{opacity:1;transform:translate(-50%,-70%) scale(1.12)}70%{opacity:1}100%{opacity:0;transform:translate(-50%,-170%) scale(1)}}
+.sitem.wrong,.oitem.wrong{background:var(--red-bg)!important}
+.sitem.right,.oitem.right{background:var(--green-bg)!important}
+</style>
+</head>
+<body>
+
+<div id="app">
+  <header class="topbar">
+    <a class="iconbtn" href="../" title="All lessons" aria-label="All lessons" style="text-decoration:none">◀</a>
+    <span class="crumb">Lesson 1 · Resources in Ecosystems</span>
+    <span class="unit">Unit 1: Interaction with Ecosystems · Module 2: Dynamic Ecosystems</span>
+    <span class="date" id="today">Today</span>
+    <button class="iconbtn" data-go="3" title="Lesson map" aria-label="Lesson map"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 2 11.5h3V21h5.5v-6h3v6H19v-9.5h3z"/></svg></button>
+  </header>
+  <main id="main">
+
+<!-- 1 · TITLE -->
+<section class="slide hero" id="s1" data-title="Resources in Ecosystems" data-bare>
+  <div class="inner">
+    <div class="eyebrow">GRADE 6 ADVANCED · SCIENCE · TERM 1 · WEEK 6</div>
+    <div><h1>Resources in Ecosystems</h1><p class="sub">Lesson 1 · Levels of organization in an environment</p></div>
+    <div style="opacity:.85">Unit 1: Interaction with Ecosystems · Module 2: Dynamic Ecosystems</div>
+    <div class="teacher">Teacher: <b>Nilasha Sempon</b> · Science &amp; Biology</div>
+    <div>
+      <div class="eyebrow" style="margin-bottom:8px">YOUR VALUES TEAM TODAY · tap to meet them</div>
+      <button class="bannerbtn" data-go="2"><img src="img/banner.webp" alt="Shahin (Leadership), Fahim (Knowledge), Maha (Respect), Ahmed (Responsibility) and Hessa (Tolerance) with the UAE national skills"></button>
+    </div>
+    <div class="mystery"><b>Today's mystery:</b> One pink flamingo stands in the water at Al Wathba. How is that one bird part of the whole planet?</div>
+    <div class="row" style="padding-bottom:110px">
+      <button class="btn" data-go="2">▶ Let's go!</button>
+      <button class="btn ghost" data-go="3">Lesson map</button>
+      <span style="opacity:.8;font-size:.9rem">45-minute interactive lesson</span>
+    </div>
+  </div>
+  <canvas class="waves" id="heroWaves"></canvas>
+</section>
+
+<!-- 2 · MEET TEAM -->
+<section class="slide" id="s2" data-title="Meet your UAE Values Team" data-skills="teamwork">
+  <div class="inner">
+    <div class="head"><h2>Meet your UAE Values Team</h2><button class="btn" data-confetti>★ We're ready!</button></div>
+    <p class="lead">Five friends will coach you through today's ecosystem mission. <b>Tap a character to discover their job today!</b></p>
+    <div class="team">
+      <button class="flip" style="--cc:var(--c-shahin)"><div class="fi"><div class="face front"><img src="img/fig-shahin.webp" alt="Shahin – Leadership"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Shahin</h4>Lead your team in the quadrat survey and guide the zoom-out order.</div></div></button>
+      <button class="flip" style="--cc:var(--c-fahim)"><div class="fi"><div class="face front"><img src="img/fig-fahim.webp" alt="Fahim – Knowledge"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Fahim</h4>Collect today's key words: species, population, community, ecosystem, biosphere.</div></div></button>
+      <button class="flip" style="--cc:var(--c-maha)"><div class="fi"><div class="face front"><img src="img/fig-maha.webp" alt="Maha – Respect"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Maha</h4>Respect living things: observe animals and plants without disturbing them.</div></div></button>
+      <button class="flip" style="--cc:var(--c-ahmed)"><div class="fi"><div class="face front"><img src="img/fig-ahmed.webp" alt="Ahmed – Responsibility"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Ahmed</h4>Count carefully, record your survey results and finish on time.</div></div></button>
+      <button class="flip" style="--cc:var(--c-hessa)"><div class="fi"><div class="face front"><img src="img/fig-hessa.webp" alt="Hessa – Tolerance"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Hessa</h4>Every answer is welcome here. Mistakes help us learn!</div></div></button>
+    </div>
+    <div class="stack">
+      <div class="label" style="color:var(--navy)">UAE national skills you will use today · tap a skill to see where</div>
+      <div class="nskills">
+        <button class="nskill">🇦🇪 National Identity<small>Flamingos at Al Wathba Wetland Reserve</small></button>
+        <button class="nskill">🌿 Sustainability<small>Protecting the Arabian oryx's home</small></button>
+        <button class="nskill">🤝 Cooperation<small>Team roles in the quadrat survey</small></button>
+        <button class="nskill">💡 Innovation<small>Build your own ecosystem in the simulation</small></button>
+        <button class="nskill">⭐ Excellence<small>Become today's Ecosystem Master!</small></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · LESSON MAP -->
+<section class="slide" id="s3" data-title="Lesson map">
+  <div class="inner">
+    <div class="head"><h2>Lesson map · 45 minutes · tap any activity</h2></div>
+    <div class="map">
+      <button style="background:#1593c9" data-go="5"><small>PRE-ASSESSMENT · min 0–5</small><strong>Starter + Attendance</strong><span>Kickoff &amp; pre-assessment</span></button>
+      <button style="background:#d23b8a" data-go="4"><small>OBJECTIVES</small><strong>Objectives &amp; vocabulary</strong><span>Flip the key words</span></button>
+      <button style="background:#ef5a5a" data-go="7"><small>HOOK · min 5–9</small><strong>The flamingo mystery</strong><span>UAE hook + narrated video</span></button>
+      <button style="background:#f07f19" data-go="9"><small>ACTIVITY · min 9–12</small><strong>Living or nonliving?</strong><span>Sort the examples</span></button>
+      <button style="background:#7a3ff0" data-go="10"><small>EXPLAIN · min 12–15</small><strong>Your ecosystem address</strong><span>The unconventional version + textbook</span></button>
+      <button style="background:#b0287a" data-go="14"><small>SIMULATION · min 15–18</small><strong>Zoom out!</strong><span>Individual → biosphere</span></button>
+      <button style="background:#118a7e" data-go="15"><small>SIMULATION · min 18–21</small><strong>Build an ecosystem</strong><span>Sir Bani Yas Island</span></button>
+      <button style="background:#2563eb" data-go="16"><small>EXPLORE · min 21–24</small><strong>Resources in ecosystems</strong><span>Food · water · shelter · space</span></button>
+      <button style="background:#1fa75a" data-go="17"><small>FIELD STUDY · min 24–29</small><strong>Quadrat survey</strong><span>Count the populations</span></button>
+      <button style="background:#e5484d" data-go="18"><small>FORMATIVE · min 29–33</small><strong>Pause &amp; check</strong><span>Formative quiz + level order</span></button>
+      <button style="background:#5b3fd0" data-go="20"><small>WORKSHEET · min 33–41</small><strong>Worksheet + levels</strong><span>Worksheet, then Green / Orange / Purple</span></button>
+      <button style="background:#c81e3a" data-go="23"><small>SUMMATIVE · min 41–45</small><strong>Ecosystem Master + exit</strong><span>Summative quiz &amp; mystery solved</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · OBJECTIVES -->
+<section class="slide" id="s4" data-title="Objectives, success criteria & key words" data-skills="reading" data-coach="fahim" data-ns="Excellence" data-says="Flip every key-word card and say the meaning out loud. Knowledge grows when you use it!">
+  <div class="inner">
+    <div class="head"><h2>Objectives, success criteria &amp; key words</h2></div>
+    <div class="cols split-r">
+      <div class="stack">
+        <div class="card"><div class="label">Learning objective</div><p style="margin:6px 0 0;font-weight:700">Describe the levels of organization in an environment (individual, population, community, ecosystem and biosphere) and identify the living and nonliving things that make up an ecosystem.</p></div>
+        <div class="card"><div class="label" style="color:var(--green)">Success criteria</div>
+          <ul class="crit" style="margin-top:10px">
+            <li>I can tell the difference between living and nonliving things in an environment.</li>
+            <li>I can define species, population and community, and give an example of each.</li>
+            <li>I can put the five levels of organization in order, from individual to biosphere.</li>
+            <li>I can explain which resources living things get from their ecosystem.</li>
+          </ul></div>
+      </div>
+      <div class="stack">
+        <div class="label" style="color:var(--purple)">Key words · tap a card to flip it</div>
+        <div class="grid g2" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr))">
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Individual</strong><span class="tap">tap to flip</span></div><div class="face back">A single member of a species, like one elephant.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Species</strong><span class="tap">tap to flip</span></div><div class="face back">A group of organisms with similar traits that can produce fertile offspring.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Population</strong><span class="tap">tap to flip</span></div><div class="face back">All the organisms of the same species living in the same area at the same time.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Community</strong><span class="tap">tap to flip</span></div><div class="face back">All the populations of different species living together in the same area at the same time.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Ecosystem</strong><span class="tap">tap to flip</span></div><div class="face back">All the living and nonliving things in an area.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Biosphere</strong><span class="tap">tap to flip</span></div><div class="face back">All the ecosystems on Earth: the parts of Earth and its atmosphere where there is life.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Living (biotic)</strong><span class="tap">tap to flip</span></div><div class="face back">Things that grow, need energy and reproduce: animals, plants, fungi, bacteria.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Nonliving (abiotic)</strong><span class="tap">tap to flip</span></div><div class="face back">Things that are not alive: water, rocks, soil, sunlight, air.</div></div></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · KICKOFF -->
+<section class="slide" id="s5" data-title="Kickoff: starter + attendance" data-skills="critical,integrity" data-coach="ahmed" data-ns="National Identity" data-says="Be ready before the timer ends: book open, pen out. Responsible learners make the UAE proud.">
+  <div class="inner">
+    <div class="head"><h2>Kickoff: starter + attendance</h2><div class="timer" data-sec="300"></div></div>
+    <div class="cols split-r">
+      <img class="fig" src="img/kickoff.webp" alt="Kickoff Activity" style="max-width:420px">
+      <div class="card stack"><div class="label" style="color:var(--navy)">While the register is taken (5 minutes)</div>
+        <ol class="steps">
+          <li>Say “present” and settle in your seat.</li>
+          <li>Think: list 3 living things and 3 nonliving things you can see from your classroom window.</li>
+          <li>Answer the 5 true/false questions on the next slide on your own: no peeking at a friend's answer!</li>
+        </ol>
+        <button class="btn small" data-go="6" style="justify-self:start">Go to the true/false questions ▸</button>
+      </div>
+    </div>
+    <div class="note"><b>Think about it:</b> one Arabian oryx, a herd of oryx, a desert full of animals and plants, the whole Earth… what is the difference?</div>
+  </div>
+</section>
+
+<!-- 6 · PRE-ASSESSMENT -->
+<section class="slide" id="s6" data-title="Pre-assessment: what do you know?" data-skills="integrity">
+  <div class="inner">
+    <div class="head"><h2>Pre-assessment: what do you know?</h2><div class="timer" data-sec="180"></div></div>
+    <div class="stack" id="tf">
+      <div class="q" data-a="F"><div class="qt">1. Rocks and water are living things.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Rocks and water are nonliving parts of an ecosystem."></div></div>
+      <div class="q" data-a="T"><div class="qt">2. A herd of elephants in one park is a population.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Same species, same area, same time = a population."></div></div>
+      <div class="q" data-a="F"><div class="qt">3. A community contains only one species.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="A community is ALL the populations of different species in an area."></div></div>
+      <div class="q" data-a="T"><div class="qt">4. An ecosystem includes living and nonliving things.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="An ecosystem is all the living and nonliving things in an area."></div></div>
+      <div class="q" data-a="T"><div class="qt">5. The biosphere is the biggest level of organization.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="The biosphere is all the ecosystems on Earth."></div></div>
+      <div class="score" id="tfScore">Score: 0 / 5</div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · HOOK -->
+<section class="slide" id="s7" data-title="Hook: the flamingo mystery" data-skills="critical,communication" data-coach="shahin" data-ns="National Identity" data-says="Lead your pair: one predicts, one explains. Al Wathba is one of our UAE treasures, so let's understand it!">
+  <div class="inner">
+    <div class="head"><h2>Hook: the flamingo mystery</h2></div>
+    <div class="cols split">
+      <img class="fig" src="img/hook-scene.webp" alt="Al Wathba Wetland Reserve: a flock of flamingos in a salty lagoon with fish, shrimp, plants, water and sunlight">
+      <div class="card stack">
+        <h3 style="margin:0;color:var(--orange);font-family:var(--display)">A winter morning at Al Wathba Wetland Reserve…</h3>
+        <p style="margin:0">Shamma looks through her binoculars and spots <b>one</b> pink flamingo. She zooms out: there are <b>hundreds</b> of flamingos! Then she notices fish, tiny shrimp, salt bushes and birds of other kinds… and the water, mud and sunshine around them.</p>
+        <p style="margin:0">“My teacher says this one flamingo is part of the whole planet. How can that be?”</p>
+        <p style="margin:0"><b style="color:var(--purple)">How do scientists describe these bigger and bigger groups?</b></p>
+        <div class="row"><button class="btn" data-show="tps">Think · Pair · Share</button><button class="btn red" data-show="clue">Reveal a clue</button></div>
+        <div id="tps" hidden class="good stack"><b>Predict:</b> what words could describe one flamingo, all the flamingos, and all the living things here? Talk with your partner for 1 minute. <div class="timer" data-sec="60"></div></div>
+        <div id="clue" hidden class="stack"><div class="fb no"><b>Clue:</b> scientists “zoom out” in five steps, from one living thing to the whole Earth.</div>
+          <img class="fig" src="img/tb-levels.webp" alt="Textbook diagram: individual, population, community, ecosystem, biosphere" style="max-width:460px"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · VIDEO + EXPLORE THE PARK -->
+<section class="slide" id="s8" data-title="Watch: from one flamingo to the whole planet" data-skills="communication,critical">
+  <div class="inner">
+    <div class="head"><h2>Watch: from one flamingo to the whole planet (2.5 min)</h2></div>
+    <div class="cols split">
+      <video controls preload="metadata" playsinline poster="img/video-poster.webp"><source src="media/levels-of-organization.mp4" type="video/mp4"><source src="media/levels-of-organization.webm" type="video/webm">Your browser cannot play this video.</video>
+      <div class="card stack"><div class="label" style="color:var(--blue)">While you watch</div>
+        <div><b>Q1. Name three living and three nonliving things in the park.</b><div class="fb ok vans" hidden>✓ Living: antelope, lions, birds, grasses. Nonliving: rocks, water, sunlight.</div></div>
+        <div><b>Q2. What is the difference between a population and a community?</b><div class="fb ok vans" hidden>✓ A population is ONE species; a community is ALL the populations of different species in an area.</div></div>
+        <div><b>Q3. What do all the ecosystems on Earth make up?</b><div class="fb ok vans" hidden>✓ The biosphere.</div></div>
+        <div class="row"><button class="btn" id="vidAns">Show answers</button><button class="btn navy" data-show="parkBox" id="parkOpen">🦓 Explore the park yourself</button></div>
+      </div>
+    </div>
+    <div class="sim" id="parkBox" hidden><b>Etosha National Park, Namibia · tap the things you notice: living or nonliving?</b>
+      <canvas id="park" height="320"></canvas>
+      <div class="row" style="justify-content:space-between"><button class="btn small ghost" id="parkReset">↺ Start again</button><span class="score" id="parkRead">Found: 0 / 12</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · SORT -->
+<section class="slide" id="s9" data-title="Encounter: living or nonliving?" data-skills="teamwork" data-coach="hessa" data-ns="Cooperation" data-says="Sorted it differently from your partner? Listen first, then compare. Different ideas help us learn.">
+  <div class="inner">
+    <div class="head"><h2>Encounter: living or nonliving?</h2><div class="timer" data-sec="180"></div></div>
+    <p class="lead"><b>Tap each example</b>: is it <b>living</b> or <b>NONLIVING</b>? Tap again to change.</p>
+    <div class="cols split-r">
+      <div class="card stack" style="background:var(--green-bg);border-color:#bfe8cf"><div class="label" style="color:var(--green)">How to tell · living things…</div>
+        <ul class="crit" style="margin:0"><li>grow and develop</li><li>need food or energy</li><li>reproduce (make more of their kind)</li><li>respond to their surroundings</li></ul>
+        <div class="note" style="margin:0"><b>Tricky!</b> Something that was once alive, like a fallen dead branch, is no longer living.</div></div>
+      <div class="stack">
+        <div class="sorter" id="sorter" data-labels="living|NONLIVING">
+          <button class="sitem" data-ans="living">A ghaf tree in the desert<span class="tag">?</span></button>
+          <button class="sitem" data-ans="NONLIVING">Sand dunes in Liwa<span class="tag">?</span></button>
+          <button class="sitem" data-ans="living">An Arabian oryx<span class="tag">?</span></button>
+          <button class="sitem" data-ans="NONLIVING">Sunlight<span class="tag">?</span></button>
+          <button class="sitem" data-ans="living">Mangrove trees in Abu Dhabi<span class="tag">?</span></button>
+          <button class="sitem" data-ans="NONLIVING">Sea water in the Arabian Gulf<span class="tag">?</span></button>
+          <button class="sitem" data-ans="living">A flamingo at Al Wathba<span class="tag">?</span></button>
+          <button class="sitem" data-ans="NONLIVING">Rocks in the Hajar Mountains<span class="tag">?</span></button>
+        </div>
+        <div class="row"><button class="btn navy" id="sortCheck">Check my sort</button><span class="score" id="sortScore"></span></div>
+        <div class="note" id="sortWhy" hidden><b>Why?</b> Trees, oryx, mangroves and flamingos grow, need energy and reproduce: they are <b>living</b>. Sand, sunlight, sea water and rocks are <b>nonliving</b>, but living things need them!<br><b>Advanced fact:</b> scientists call living parts <b>biotic</b> and nonliving parts <b>abiotic</b>.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · ECOSYSTEM ADDRESS -->
+<section class="slide" id="s10" data-title="Your ecosystem address (the unconventional version)" data-skills="critical" data-coach="fahim" data-ns="Innovation" data-says="Predict before you flip each card. Testing ideas is how inventors think!">
+  <div class="inner">
+    <div class="head"><h2>Your ecosystem address (the unconventional version)</h2></div>
+    <div class="grid g2">
+      <div class="card" style="background:var(--orange-bg);border-color:#ffd2a6"><div class="label" style="color:var(--orange)">Think of it like this</div><p style="margin:6px 0 0">The levels are like <b style="color:var(--purple)">your address</b>: <b>you</b> → your <b>class</b> (all Grade 6 students) → your whole <b>school</b> (students, teachers, the garden's plants and birds) → the school <b>plus</b> its buildings, air and sunlight → <b>planet Earth</b>. Each step zooms out!</p></div>
+      <div class="card" style="background:var(--blue-bg);border-color:#c7d7fb"><div class="label" style="color:var(--blue)">Textbook definition</div><p style="margin:6px 0 0">Living things are organized in levels: <b>individual → population → community → ecosystem → <span class="hl">biosphere</span></b>. All the ecosystems on Earth make up the biosphere.</p></div>
+    </div>
+    <div class="label" style="color:var(--navy)">Which level is each one? Predict, then tap the card to check!</div>
+    <div class="grid g3">
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--green)"><strong style="color:var(--green)">🦩 One flamingo</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--green-bg);border-color:var(--green)"><b>Individual</b><br>A single member of a species.</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--orange)"><strong style="color:var(--orange)">🦩🦩🦩 All the flamingos at Al Wathba</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--orange-bg);border-color:var(--orange)"><b>Population</b><br>Same species, same area, same time.</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--red)"><strong style="color:var(--red)">🦩🐟🦐🌿 Flamingos, fish, shrimp and plants</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--red-bg);border-color:var(--red)"><b>Community</b><br>All the populations of different species together.</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--purple)"><strong style="color:var(--purple)">🦩🌿 + 💧☀️🪨 Living things + water, sun and mud</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--purple-bg);border-color:var(--purple)"><b>Ecosystem</b><br>All the living and nonliving things in an area.</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--blue)"><strong style="color:var(--blue)">🌍 Every ecosystem on Earth</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--blue-bg);border-color:var(--blue)"><b>Biosphere</b><br>All the parts of Earth and its air where there is life.</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--sea)"><strong style="color:var(--sea)">🧒 Your own address</strong><span class="tap">tap to check</span></div><div class="face back" style="background:#e0f5f2;border-color:var(--sea)">You → your class → your school → school + air + sunlight → Earth. You are part of the biosphere too!</div></div></button>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · TB LEVELS PARAGRAPH -->
+<section class="slide" id="s11" data-title="Textbook: levels of organization" data-skills="reading" data-coach="maha" data-ns="Cooperation" data-says="Respect your classmates: listen quietly while someone reads the paragraph aloud.">
+  <div class="inner">
+    <div class="head"><h2>Textbook: what are the levels of organization?</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-levels-text.webp" alt="Textbook paragraph: What are the levels of organization in an environment?"></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 Which living things are named in the paragraph?</div><button class="btn small ghost" data-show="t11a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t11a" hidden>✓ Antelope, lions, grasses and birds (birds, mammals and grasses).</div></div>
+        <div class="q"><div class="qt">Q2 Which nonliving parts of the environment are named?</div><button class="btn small ghost" data-show="t11b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t11b" hidden>✓ The rocks and the water.</div></div>
+        <div class="q"><div class="qt">Q3 What is the biosphere?</div><button class="btn small ghost" data-show="t11c" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t11c" hidden>✓ All the ecosystems on Earth: the parts of Earth and the surrounding atmosphere where there is life.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 · TB DIAGRAM -->
+<section class="slide" id="s12" data-title="Textbook: the levels diagram" data-skills="reading" data-coach="ahmed" data-ns="Excellence" data-says="Copy the five levels into your Science Notebook. Responsible learners write it down!">
+  <div class="inner">
+    <div class="head"><h2>Textbook: from one elephant to the whole Earth</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-levels.webp" alt="Textbook diagram: individual elephant, population of elephants, community, ecosystem and biosphere"></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Look at the diagram, then answer</div>
+        <div class="q"><div class="qt">A · In the diagram, which picture shows a population?</div><button class="btn small ghost" data-show="t12a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t12a" hidden>✓ The group of elephants: all members of one species in an area at the same time.</div></div>
+        <div class="q"><div class="qt">B · What is added when we go from community to ecosystem?</div><button class="btn small ghost" data-show="t12b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t12b" hidden>✓ The nonliving things: water, sunlight, rocks, soil and air.</div></div>
+        <div class="q"><div class="qt">C · Write the five levels from smallest to largest.</div><button class="btn small ghost" data-show="t12c" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t12c" hidden>✓ Individual → population → community → ecosystem → biosphere</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 · TB ECOSYSTEMS -->
+<section class="slide" id="s13" data-title="Textbook: species, population and community" data-skills="reading,critical" data-coach="hessa" data-ns="Sustainability" data-says="Elephants keep each other safe in a herd. Living things need each other, just like a good team!">
+  <div class="inner">
+    <div class="head"><h2>Textbook: species, population and community</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-ecosystems.webp" alt="Textbook paragraph: Ecosystems, with the words population, species and community highlighted">
+        <div class="row" style="justify-content:center;gap:8px"><span class="btn small" style="background:var(--orange);color:#fff;box-shadow:none">Population = one species</span><span class="btn small navy" style="box-shadow:none">Community = many species</span></div></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 Why does an elephant rely on other elephants?</div><button class="btn small ghost" data-show="t13a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13a" hidden>✓ To survive: they move in herds and keep each other safe.</div></div>
+        <div class="q"><div class="qt">Q2 What makes a group of organisms one species?</div><button class="btn small ghost" data-show="t13b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13b" hidden>✓ They have similar traits and are able to produce fertile offspring.</div></div>
+        <div class="q"><div class="qt">Q3 Name the members of the Etosha community.</div><button class="btn small ghost" data-show="t13c" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13c" hidden>✓ Elephants, zebras, tortoises, lions, plus shrubs, grasses, small trees and other organisms.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 · ZOOM OUT -->
+<section class="slide" id="s14" data-title="Zoom out: the five levels in action" data-skills="teamwork" data-coach="shahin" data-ns="National Identity" data-says="Leaders keep the team moving. Say each level aloud together as you zoom out!">
+  <div class="inner">
+    <div class="head"><h2>Zoom out: the five levels in action</h2></div>
+    <div class="cols split-r">
+      <div class="sim">
+        <canvas id="zoom" height="300"></canvas>
+        <div class="row"><button class="btn small" data-zoom="1" style="background:var(--green);color:#fff">1 Individual</button><button class="btn small" data-zoom="2" style="background:var(--orange);color:#fff">2 Population</button><button class="btn small red" data-zoom="3">3 Community</button><button class="btn small" data-zoom="4" style="background:var(--purple);color:#fff">4 Ecosystem</button><button class="btn small" data-zoom="5" style="background:var(--blue);color:#fff">5 Biosphere</button></div>
+        <div class="legend" id="zoomRead">Tap 1 to 5 to zoom out from one Arabian oryx to the whole Earth.</div>
+      </div>
+      <div class="grid" style="gap:10px">
+        <button class="flip kw"><div class="fi"><div class="face front"><strong>What changes from 1 to 2?</strong><span class="tap">tap to reveal</span></div><div class="face back">One oryx becomes many oryx: the same species, in the same area, at the same time.</div></div></button>
+        <button class="flip kw"><div class="fi"><div class="face front"><strong>What changes from 3 to 4?</strong><span class="tap">tap to reveal</span></div><div class="face back">The nonliving things are added: sun, water, sand and rocks.</div></div></button>
+        <button class="flip kw"><div class="fi"><div class="face front"><strong>Your turn: act it out!</strong><span class="tap">tap to reveal</span></div><div class="face back">One student stands (individual). Their row stands (population). The class stands (community). Point to the window and lights (ecosystem). Spread your arms (biosphere)!</div></div></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 · BUILD AN ECOSYSTEM -->
+<section class="slide" id="s15" data-title="Build an ecosystem: Sir Bani Yas Island" data-skills="critical" data-coach="maha" data-ns="Sustainability" data-says="The Arabian oryx was saved by the UAE. Respect nature and protect the places animals call home!">
+  <div class="inner">
+    <div class="head"><h2>Build an ecosystem: Sir Bani Yas Island</h2></div>
+    <div class="cols split-r">
+      <div class="stack">
+        <div class="card" style="background:#fff8db;border-color:#f3e2a0"><p style="margin:0">The <b>Arabian oryx</b> nearly disappeared from the wild. Today, protected herds live on <b>Sir Bani Yas Island</b> in Abu Dhabi with gazelles, ghaf trees and many other living things.</p><p style="margin:8px 0 0">Add things to the island and watch which <b>level</b> you have built.</p></div>
+        <div class="card stack"><b>Predict, then tap to check</b>
+          <button class="btn small ghost" data-show="w1" style="justify-self:start">▶ You add 1 oryx, then 5 more oryx. What level?</button><div class="fb ok" id="w1" hidden>A population: many members of one species in one area.</div>
+          <button class="btn small ghost" data-show="w2" style="justify-self:start">▶ What must you add to make it an ecosystem?</button><div class="fb ok" id="w2" hidden>Other species (to make a community) AND nonliving things: sun, water, sand.</div></div>
+      </div>
+      <div class="sim"><b>Virtual island: tap to add</b>
+        <canvas id="island" height="280"></canvas>
+        <div class="row"><button class="btn small" data-add="oryx">+ Oryx</button><button class="btn small" data-add="gazelle" style="background:var(--orange);color:#fff">+ 🦌 Gazelle</button><button class="btn small" data-add="ghaf" style="background:var(--green);color:#fff">+ 🌳 Ghaf tree</button><button class="btn small navy" data-add="water">+ 💧 Water</button><button class="btn small" data-add="sun" style="background:#d9a400;color:#fff">+ ☀️ Sun</button><button class="btn small ghost" id="islandReset">↺</button></div>
+        <div class="score" id="islandRead">Level: nothing yet. Start by adding one oryx!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 16 · RESOURCES -->
+<section class="slide" id="s16" data-title="Resources: what does an ecosystem give?" data-skills="critical" data-coach="fahim" data-ns="Innovation" data-says="Scientists in the UAE plant mangroves to give fish and birds a home. Science helps us protect our resources!">
+  <div class="inner">
+    <div class="head"><h2>Resources: what does an ecosystem give?</h2></div>
+    <p class="lead">Living things get the <b>resources</b> they need from the living and nonliving parts of their ecosystem. <b>Think of an example for each, then tap Reveal.</b></p>
+    <div class="grid g4">
+      <div class="medium"><h4 style="color:var(--orange)">🍃 Food</h4><div class="rbig">🐐 → 🌿</div><div class="row" style="justify-content:space-between"><span class="legend">energy to live</span><button class="btn small" data-show="d1">Reveal</button></div><div class="fb ok" id="d1" hidden>The oryx eats desert grasses and ghaf leaves. Flamingos eat tiny shrimp and algae.</div></div>
+      <div class="medium"><h4 style="color:var(--sea)">💧 Water</h4><div class="rbig">🦩 → 💧</div><div class="row" style="justify-content:space-between"><span class="legend">a nonliving resource</span><button class="btn small" data-show="d2">Reveal</button></div><div class="fb ok" id="d2" hidden>Every living thing needs water. Wetlands like Al Wathba give birds water and food.</div></div>
+      <div class="medium"><h4 style="color:var(--green)">🏠 Shelter</h4><div class="rbig">🐟 → 🌳</div><div class="row" style="justify-content:space-between"><span class="legend">a safe place</span><button class="btn small" data-show="d3">Reveal</button></div><div class="fb ok" id="d3" hidden>Mangrove roots in Abu Dhabi shelter young fish and crabs. Ghaf trees give shade to animals.</div></div>
+      <div class="medium"><h4 style="color:var(--blue)">☀️ Sunlight, air &amp; space</h4><div class="rbig">🌱 → ☀️</div><div class="row" style="justify-content:space-between"><span class="legend">room to grow</span><button class="btn small" data-show="d4">Reveal</button></div><div class="fb ok" id="d4" hidden>Plants need sunlight and air to make food. Animals need space to find food and raise young.</div></div>
+    </div>
+    <div class="row"><button class="btn navy" data-show="space">🌿 UAE sustainability link</button></div>
+    <div class="card" id="space" hidden><b style="color:var(--red)">UAE sustainability link:</b> the UAE protects reserves like Al Wathba and Sir Bani Yas so every population keeps the food, water, shelter and space it needs.</div>
+  </div>
+</section>
+
+<!-- 17 · QUADRAT SURVEY -->
+<section class="slide" id="s17" data-title="Field study: quadrat survey" data-skills="teamwork,discipline" data-coach="ahmed" data-ns="Cooperation" data-says="Thrower, counter, recorder: everyone has a job. Step carefully and leave every living thing as you found it!">
+  <div class="inner">
+    <div class="head"><h2>Field study: quadrat survey</h2><div class="timer" data-sec="240"></div></div>
+    <div class="cols split">
+      <div class="stack">
+        <div class="good"><b>You need:</b> a 1 m × 1 m quadrat (a square frame) · a clipboard · a pencil · the school garden</div>
+        <ol style="margin:0;padding-left:20px;display:grid;gap:4px">
+          <li>Place the quadrat on the ground in the school garden.</li>
+          <li><b>Counter:</b> count the individuals of each species inside the square.</li>
+          <li><b>Recorder:</b> write each population in the table.</li>
+          <li>List the <b>nonliving</b> things you see in the square too.</li>
+        </ol>
+        <div class="tablewrap"><table>
+          <thead><tr><th>Species</th><th>Number of individuals (population)</th><th>Living or nonliving?</th></tr></thead>
+          <tbody>
+            <tr><td><b>Grass plants</b></td><td><input type="text" id="lab1" placeholder="count"><div class="exp" hidden>Many (e.g. 30)</div></td><td><input type="text" id="lab2" placeholder="your idea"><div class="exp" hidden>Living</div></td></tr>
+            <tr><td><b>Ants</b></td><td><input type="text" id="lab3" placeholder="count"><div class="exp" hidden>e.g. 12</div></td><td><input type="text" id="lab4" placeholder="your idea"><div class="exp" hidden>Living</div></td></tr>
+            <tr><td><b>Stones</b></td><td><input type="text" id="lab5" placeholder="count"><div class="exp" hidden>e.g. 6 (not a population!)</div></td><td><input type="text" id="lab6" placeholder="your idea"><div class="exp" hidden>Nonliving</div></td></tr>
+          </tbody></table></div>
+        <div class="row"><button class="btn" id="labExp">Expected results</button></div>
+        <div class="fb no"><b>Safety:</b> wash your hands afterwards. Do not touch insects that sting or plants you do not know.</div>
+      </div>
+      <div class="sim"><b>Virtual quadrat: throw it, then count</b>
+        <canvas id="quad" height="300"></canvas>
+        <div class="row" style="justify-content:space-between"><span class="row"><button class="btn small" id="quadThrow">🎯 Throw the quadrat</button><button class="btn ghost small" id="quadCount">🔍 Count for me</button></span><span class="score" id="quadRead"></span></div>
+        <button class="btn navy small" data-show="labQ" style="justify-self:start">▶ What should you notice?</button>
+        <div class="good" id="labQ" hidden>Each species in the square is a <b>population</b>. Together they make a <b>community</b>. Add the soil, stones, water and sunlight and you have an <b style="color:var(--purple)">ecosystem</b>!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 18 · PAUSE & CHECK -->
+<section class="slide" id="s18" data-title="Pause and check" data-skills="initiative" data-coach="hessa" data-ns="Excellence" data-says="Wrong answer? Read the hint and try again. Excellence means never giving up.">
+  <div class="inner">
+    <div class="head"><h2>Pause and check</h2><div class="timer" data-sec="240"></div></div>
+    <p class="lead">Formative check: tap an answer. <b>Wrong? Read the hint and try again!</b></p>
+    <div class="grid g2 mcqset" data-mode="retry">
+      <div class="q"><div class="qt">Q1 All the Arabian oryx on Sir Bani Yas Island are a…</div><div class="opts"><button class="opt">A. community</button><button class="opt" data-ok>B. population</button><button class="opt">C. biosphere</button></div><div class="fb no" hidden>Hint: only ONE species.</div></div>
+      <div class="q"><div class="qt">Q2 Which one is NONLIVING?</div><div class="opts"><button class="opt">A. grass</button><button class="opt">B. a lion</button><button class="opt" data-ok>C. a rock</button></div><div class="fb no" hidden>Hint: it does not grow or reproduce.</div></div>
+      <div class="q"><div class="qt">Q3 A species is a group of organisms that…</div><div class="opts"><button class="opt">A. live in the same place</button><button class="opt" data-ok>B. have similar traits and can produce fertile offspring</button><button class="opt">C. eat the same food</button></div><div class="fb no" hidden>Hint: think of the textbook's highlighted word.</div></div>
+      <div class="q"><div class="qt">Q4 Which level includes living AND nonliving things?</div><div class="opts"><button class="opt">A. population</button><button class="opt">B. community</button><button class="opt" data-ok>C. ecosystem</button><button class="opt">D. individual</button></div><div class="fb no" hidden>Hint: the textbook says “all the living and nonliving things in an area”.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 19 · ORDER -->
+<section class="slide" id="s19" data-title="Put the levels in order" data-skills="critical,initiative" data-coach="shahin" data-ns="Cooperation" data-says="Agree on the order as a team before you reveal it. Good leaders make sure everyone speaks.">
+  <div class="inner">
+    <div class="head"><h2>Put the levels in order</h2></div>
+    <p class="lead">Say the order with your partner, then <b>tap the levels from smallest to largest</b>. Tap a numbered level to undo.</p>
+    <div class="order" id="order">
+      <button class="oitem" data-p="3"><span class="n">?</span>Community: flamingos, fish, shrimp and plants at Al Wathba</button>
+      <button class="oitem" data-p="5"><span class="n">?</span>Biosphere: every ecosystem on Earth</button>
+      <button class="oitem" data-p="1"><span class="n">?</span>Individual: one flamingo</button>
+      <button class="oitem" data-p="4"><span class="n">?</span>Ecosystem: the community plus water, mud and sunlight</button>
+      <button class="oitem" data-p="2"><span class="n">?</span>Population: all the flamingos at Al Wathba</button>
+    </div>
+    <div class="row"><button class="btn navy" id="orderCheck">Check my order</button><button class="btn" id="orderReveal">Reveal the order</button><span class="score" id="orderScore"></span></div>
+    <div class="chain" id="chain" hidden>
+      <div style="background:#1fa75a">1 · Individual</div>
+      <div style="background:#f07f19">2 · Population</div>
+      <div style="background:#e5484d">3 · Community</div>
+      <div style="background:#7a3ff0">4 · Ecosystem</div>
+      <div style="background:#2563eb">5 · Biosphere</div>
+    </div>
+    <div class="card stack"><b>Traffic light: how sure are you?</b>
+      <div class="traffic"><button style="background:var(--green)" data-tl="Brilliant! Help a partner explain it using “population, community, ecosystem”.">I can teach it</button><button style="background:var(--orange)" data-tl="Good! Re-read the ecosystem address and zoom-out slides, then try again.">Mostly</button><button style="background:var(--red)" data-tl="That is OK! Your teacher will go through it with you now.">I need help</button></div>
+      <div id="tlMsg" class="note" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- 20 · WORKSHEET 1 -->
+<section class="slide" id="s20" data-title="Ecosystems worksheet (1/2)" data-skills="reading" data-coach="ahmed" data-ns="Excellence" data-says="Work on your own first, then check your answers. Own your learning!">
+  <div class="inner">
+    <div class="head"><h2>Ecosystems worksheet (1/2)</h2><div class="timer" data-sec="240"></div></div>
+    <div class="grid g2">
+      <div class="card stack"><div class="label" style="color:var(--navy)">A · Match each word · 5 marks</div>
+        <div style="font-size:.92rem;color:var(--muted)">A. All the populations of different species in an area<br>B. All the ecosystems on Earth<br>C. A single member of a species<br>D. All the living and nonliving things in an area<br>E. All the members of one species in an area at the same time</div>
+        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:8px" id="wsA">
+          <label class="fillrow">1. individual <select data-ans="C" id="wa1"></select></label>
+          <label class="fillrow">2. population <select data-ans="E" id="wa2"></select></label>
+          <label class="fillrow">3. community <select data-ans="A" id="wa3"></select></label>
+          <label class="fillrow">4. ecosystem <select data-ans="D" id="wa4"></select></label>
+          <label class="fillrow">5. biosphere <select data-ans="B" id="wa5"></select></label>
+        </div>
+        <div class="row"><button class="btn small navy" data-check="wsA">Check A</button><button class="btn small ghost" data-answers="wsA">Show answers (A)</button><span class="score" data-out="wsA"></span></div>
+      </div>
+      <div class="card stack"><div class="label" style="color:var(--navy)">B · Fill the gaps · 5 marks</div>
+        <div class="wordbank">Word bank: species · nonliving · fertile · community · biosphere</div>
+        <div class="stack" id="wsB" style="gap:8px">
+          <div class="fillrow">1. A <input type="text" size="12" data-ans="species" id="wb1" aria-label="gap 1"> has similar traits and can reproduce.</div>
+          <div class="fillrow">2. Members of a species can produce <input type="text" size="10" data-ans="fertile" id="wb2" aria-label="gap 2"> offspring.</div>
+          <div class="fillrow">3. Rocks, water and sunlight are <input type="text" size="12" data-ans="nonliving|non-living|abiotic" id="wb3" aria-label="gap 3"> things.</div>
+          <div class="fillrow">4. Zebras, lions and grasses together make a <input type="text" size="12" data-ans="community" id="wb4" aria-label="gap 4"> .</div>
+          <div class="fillrow">5. All of Earth's ecosystems make up the <input type="text" size="12" data-ans="biosphere" id="wb5" aria-label="gap 5"> .</div>
+        </div>
+        <div class="row"><button class="btn small navy" data-check="wsB">Check B</button><button class="btn small ghost" data-answers="wsB">Show answers (B)</button><span class="score" data-out="wsB"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 21 · WORKSHEET 2 -->
+<section class="slide" id="s21" data-title="Ecosystems worksheet (2/2)" data-skills="reading,critical" data-coach="maha" data-ns="Excellence" data-says="Respect your reader: write full sentences using population, community and ecosystem.">
+  <div class="inner">
+    <div class="head"><h2>Ecosystems worksheet (2/2)</h2></div>
+    <div class="card stack"><div class="label" style="color:var(--navy)">C · Name the level · 6 marks</div>
+      <div class="legend">Choose from: individual · population · community · ecosystem · biosphere</div>
+      <div class="tablewrap" id="wsC"><table>
+        <thead><tr><th>Example</th><th>Level</th></tr></thead>
+        <tbody>
+          <tr><td>One camel walking in the Liwa desert</td><td><select data-ans="Individual" data-opts="Individual|Population|Community|Ecosystem|Biosphere" id="wc1"></select></td></tr>
+          <tr><td>All the green turtles in the Arabian Gulf</td><td><select data-ans="Population" data-opts="Individual|Population|Community|Ecosystem|Biosphere" id="wc2"></select></td></tr>
+          <tr><td>The mangrove trees, crabs, fish and birds at Eastern Mangroves</td><td><select data-ans="Community" data-opts="Individual|Population|Community|Ecosystem|Biosphere" id="wc3"></select></td></tr>
+          <tr><td>The Hajar Mountains: plants, animals, rocks, streams and sunlight</td><td><select data-ans="Ecosystem" data-opts="Individual|Population|Community|Ecosystem|Biosphere" id="wc4"></select></td></tr>
+          <tr><td>All the places on Earth where life is found</td><td><select data-ans="Biosphere" data-opts="Individual|Population|Community|Ecosystem|Biosphere" id="wc5"></select></td></tr>
+          <tr><td>All the date palms in one Al Ain oasis</td><td><select data-ans="Population" data-opts="Individual|Population|Community|Ecosystem|Biosphere" id="wc6"></select></td></tr>
+        </tbody></table></div>
+      <div class="row"><button class="btn small navy" data-check="wsC">Check C</button><button class="btn small ghost" data-answers="wsC">Show answers (C)</button><span class="score" data-out="wsC"></span></div>
+    </div>
+    <div class="cols split">
+      <div class="card stack"><div class="label" style="color:var(--navy)">D · Explain · 3 marks</div>
+        <p style="margin:0">How is one flamingo at Al Wathba part of the whole biosphere? Use <b>population</b>, <b>community</b> and <b>ecosystem</b>.</p>
+        <textarea id="wd" placeholder="Write your explanation in full sentences…"></textarea>
+        <button class="btn small" data-show="model" style="justify-self:start">Show model answer (D)</button>
+      </div>
+      <div class="stack">
+        <div class="good" id="model" hidden><b>Model answer (1 mark each):</b><br>✓ The flamingo belongs to a <b>population</b>: all the flamingos at Al Wathba.<br>✓ That population lives with fish, shrimp and plants in a <b>community</b>.<br>✓ The community plus the water, mud and sunlight is an <b>ecosystem</b>, and all of Earth's ecosystems make up the biosphere.</div>
+        <div class="card"><span class="score" id="wsTotal">Total: A + B + C = 0 / 16 marks</span><div class="legend">Your teacher marks part D (3 marks) for a total out of 19.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 22 · LEVELS -->
+<section class="slide" id="s22" data-title="Choose your level" data-skills="respect" data-coach="maha" data-ns="Cooperation" data-says="Every level is respected here. Choose the one that stretches you, then help a friend.">
+  <div class="inner">
+    <div class="head"><h2>Green, orange or purple? Choose your level</h2></div>
+    <div class="grid g3">
+      <div class="level" style="--lc:var(--green);--lbg:var(--green-bg)"><h3>Green · Support</h3>
+        <ol><li>Complete: “A single member of a species is an ____.”</li><li>Circle the nonliving thing: oryx / sand / ghaf tree.</li><li>True or false: a population has many different species.</li><li>Which is bigger: a community or an ecosystem?</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. individual<br>2. sand<br>3. False (only one species)<br>4. an ecosystem</div><button class="btn small ghost lvl">Show answers</button></div>
+      <div class="level" style="--lc:var(--orange);--lbg:var(--orange-bg)"><h3>Orange · At level</h3>
+        <ol><li>Draw five boxes from individual to biosphere. Add a UAE example in each.</li><li>Explain the difference between a population and a community.</li><li>List three resources an Arabian oryx gets from its ecosystem.</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. e.g. one oryx → all oryx on Sir Bani Yas → oryx, gazelles and ghaf trees → + sun, water, sand → Earth.<br>2. A population is one species; a community is all the populations of different species in an area.<br>3. Food (grasses), water, shelter (shade of trees), space.</div><button class="btn small ghost lvl">Show answers</button></div>
+      <div class="level" style="--lc:var(--purple);--lbg:var(--purple-bg)"><h3>Purple · Challenge</h3>
+        <ol><li>A horse and a donkey can have a mule, but mules cannot reproduce. Are horses and donkeys one species? Explain.</li><li>Predict what happens to the flamingo population if Al Wathba's water dries up.</li><li>Design a fair survey to compare the ant populations in two parts of the school garden.</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. No: their offspring (the mule) is not fertile, so they are different species.<br>2. It would fall: flamingos lose water, food (shrimp, algae) and shelter, so they die or move away.<br>3. Same size quadrat, same time of day, several throws in each area; count ants and compare the averages.</div><button class="btn small ghost lvl">Show answers</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- 23 · SUMMATIVE -->
+<section class="slide" id="s23" data-title="Summative: Ecosystem Master quiz" data-skills="integrity" data-coach="ahmed" data-ns="Excellence" data-says="Count only your honest first try. Integrity is part of excellence!">
+  <div class="inner">
+    <div class="head"><h2>Summative: Ecosystem Master quiz</h2><div class="timer" data-sec="120"></div></div>
+    <div class="stack mcqset" data-mode="first" id="wm">
+      <div class="q"><div class="qt">1. The smallest level of organization is…</div><div class="opts"><button class="opt">A. population</button><button class="opt" data-ok>B. individual</button><button class="opt">C. community</button></div></div>
+      <div class="q"><div class="qt">2. All the zebras in Etosha National Park are a…</div><div class="opts"><button class="opt">A. community</button><button class="opt">B. biosphere</button><button class="opt" data-ok>C. population</button></div></div>
+      <div class="q"><div class="qt">3. Zebras, lions, tortoises and grasses living together are a…</div><div class="opts"><button class="opt" data-ok>A. community</button><button class="opt">B. population</button><button class="opt">C. species</button></div></div>
+      <div class="q"><div class="qt">4. An ecosystem is…</div><div class="opts"><button class="opt">A. only the animals in an area</button><button class="opt" data-ok>B. all the living and nonliving things in an area</button><button class="opt">C. one species</button></div></div>
+      <div class="q"><div class="qt">5. One flamingo is part of the biosphere because…</div><div class="opts"><button class="opt" data-ok>A. its ecosystem is one of all the ecosystems on Earth</button><button class="opt">B. it can fly very high</button><button class="opt">C. it is nonliving</button></div></div>
+    </div>
+    <div class="card row" style="justify-content:space-between"><span class="score" id="wmScore">First-try score: 0 / 5</span><span class="legend">5 = Ecosystem Master! · 4 = Ecosystem Expert · 3 = Ecosystem Explorer · 0–2 = let's review together</span></div>
+  </div>
+</section>
+
+<!-- 24 · MYSTERY SOLVED -->
+<section class="slide" id="s24" data-title="Mystery solved!" data-skills="critical,reading" data-coach="hessa" data-ns="National Identity" data-says="Be kind to yourself when you rate your stars. Every step forward counts!">
+  <div class="inner">
+    <div class="head"><h2>Mystery solved!</h2></div>
+    <div class="cols split">
+      <div class="stack">
+        <button class="btn" data-show="solved" data-confetti style="justify-self:start">Reveal the answer</button>
+        <div class="card" id="solved" hidden style="background:#fff8db;border-color:#f3e2a0"><b style="color:var(--orange)">How one flamingo is part of the whole planet</b><p style="margin:6px 0 0">Shamma's flamingo is an <b style="color:var(--green)">INDIVIDUAL</b>. All the flamingos at Al Wathba are a <b style="color:var(--orange)">POPULATION</b>. Add the fish, shrimp and plants and you have a <b class="hl">COMMUNITY</b>. Add the water, mud and sunshine and it becomes an <b style="color:var(--purple)">ECOSYSTEM</b>. And all the ecosystems on Earth together make the <b style="color:var(--blue)">BIOSPHERE</b>. One bird, five levels, one planet!</p></div>
+        <div class="card stack"><b>Exit ticket · 3 · 2 · 1</b>
+          <label>3 things I learned<textarea id="ex3" style="min-height:64px"></textarea></label>
+          <label>2 key words I can now explain<textarea id="ex2" style="min-height:48px"></textarea></label>
+          <label>1 question I still have<textarea id="ex1" style="min-height:48px"></textarea></label></div>
+      </div>
+      <div class="card stack"><b>Re-rate your success criteria (tap a star)</b>
+        <div><p style="margin:0 0 4px">I can tell the difference between living and nonliving things in an environment.</p><div class="stars" id="st1"></div></div>
+        <div><p style="margin:0 0 4px">I can define species, population and community, and give an example of each.</p><div class="stars" id="st2"></div></div>
+        <div><p style="margin:0 0 4px">I can put the five levels of organization in order, from individual to biosphere.</p><div class="stars" id="st3"></div></div>
+        <div><p style="margin:0 0 4px">I can explain which resources living things get from their ecosystem.</p><div class="stars" id="st4"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 25 · VALUES -->
+<section class="slide" id="s25" data-title="Which value did you show today?" data-skills="integrity">
+  <div class="inner">
+    <div class="head"><h2>Which value did you show today?</h2></div>
+    <p class="lead">Tap the character whose value you showed in this lesson. <b>Then tell your partner one real example!</b></p>
+    <div class="grid g5" id="values">
+      <button class="vcard" style="--cc:var(--c-shahin)"><span class="star">★</span><img src="img/av-shahin.webp" alt=""><b>Shahin</b><small>Leadership · <span class="ar">القيادة</span></small><span class="prompt">I led my team when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-fahim)"><span class="star">★</span><img src="img/av-fahim.webp" alt=""><b>Fahim</b><small>Knowledge · <span class="ar">المعرفة</span></small><span class="prompt">A new fact I learned is…</span></button>
+      <button class="vcard" style="--cc:var(--c-maha)"><span class="star">★</span><img src="img/av-maha.webp" alt=""><b>Maha</b><small>Respect · <span class="ar">الاحترام</span></small><span class="prompt">I showed respect when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-ahmed)"><span class="star">★</span><img src="img/av-ahmed.webp" alt=""><b>Ahmed</b><small>Responsibility · <span class="ar">المسؤولية</span></small><span class="prompt">I was responsible when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-hessa)"><span class="star">★</span><img src="img/av-hessa.webp" alt=""><b>Hessa</b><small>Tolerance · <span class="ar">التسامح</span></small><span class="prompt">I was patient and kind when…</span></button>
+    </div>
+    <div class="card row" style="justify-content:space-between"><b>Class goal: light up all five stars together!</b><span class="goal" id="goal"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span></div>
+  </div>
+</section>
+
+<!-- 26 · CELEBRATE -->
+<section class="slide end" id="s26" data-title="One of many, part of it all" data-bare>
+  <div class="inner">
+    <div class="eyebrow">YOU DID IT, GRADE 6! · <span class="ar">أحسنتم</span></div>
+    <h1>One of many, part of it all</h1>
+    <p style="font-style:italic;font-size:1.15rem;margin:0;opacity:.95">Like one flamingo in a flock, you belong to your class, your school, your UAE and our whole world. Every one of you counts!</p>
+    <img class="fig" src="img/banner.webp" alt="Shahin, Fahim, Maha, Ahmed and Hessa with the UAE national skills" style="border:0">
+    <div class="row"><span class="nsk">🇦🇪 National Identity</span><span class="nsk">🌿 Sustainability</span><span class="nsk">🤝 Cooperation</span><span class="nsk">💡 Innovation</span><span class="nsk">⭐ Excellence</span></div>
+    <div class="promise"><b>My promise:</b> I will lead, learn, respect, be responsible and tolerant, for my school and my UAE.</div>
+    <div><button class="btn" id="celebrate">★ Celebrate together!</button></div>
+  </div>
+</section>
+
+  </main>
+  <div>
+    <div class="progress"><div id="prog"></div></div>
+    <nav class="nav">
+      <button class="btn ghost small" id="prev" aria-label="Previous slide">◀ Back</button>
+      <span class="count" id="count">1 / 26</span>
+      <span class="title" id="navTitle"></span>
+      <button class="btn ghost small" id="menuBtn">☰ Slides</button>
+      <button class="btn ghost small" id="linkBtn" title="Copy a link that opens this slide">🔗 Link</button>
+      <button class="btn ghost small" id="soundBtn" title="Clapping sound on">🔊</button>
+      <button class="btn ghost small" id="fsBtn" title="Full screen">⛶</button>
+      <button class="btn small" id="next" aria-label="Next slide">Next ▶</button>
+    </nav>
+  </div>
+</div>
+
+<div class="menu" id="menu" hidden><div class="panel"><div class="row" style="justify-content:space-between"><b style="font-family:var(--display);font-size:1.3rem">All slides</b><button class="btn ghost small" id="menuClose">Close</button></div><ol id="menuList"></ol></div></div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+// Paste the published lesson link here so "Link" copies a shareable address for each slide.
+const LESSON_URL = "";
+
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const slides=$$('.slide'), N=slides.length;
+const COACH={shahin:['Shahin','Leadership','القيادة','--c-shahin'],fahim:['Fahim','Knowledge','المعرفة','--c-fahim'],maha:['Maha','Respect','الاحترام','--c-maha'],ahmed:['Ahmed','Responsibility','المسؤولية','--c-ahmed'],hessa:['Hessa','Tolerance','التسامح','--c-hessa']};
+const SKILL={teamwork:['Teamwork','العمل الجماعي','👥'],critical:['Critical Thinking','التفكير الناقد','🧠'],communication:['Effective Communication','التواصل الفعّال','💬'],reading:['Reading & Writing','القراءة والكتابة','📖'],integrity:['Integrity','النزاهة','🛡'],discipline:['Self-regulation & Discipline','الانضباط وتنظيم الذات','⏱'],initiative:['Initiative & Perseverance','المبادرة والمثابرة','⛰'],respect:['Respect & Kindness','الاحترام واللطف','💗']};
+const LO='Describe the levels of organization in an environment (individual, population, community, ecosystem and biosphere) and identify the living and nonliving things that make up an ecosystem.';
+const store={get(k){try{return localStorage.getItem('eco6:'+k)}catch(e){return null}},set(k,v){try{localStorage.setItem('eco6:'+k,v)}catch(e){}}};
+
+// date
+$('#today').textContent=new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+
+// shared chrome: skill chips, coach strip, objective footer
+slides.forEach(s=>{
+  const inner=$('.inner',s), head=$('.head',s);
+  if(s.dataset.skills&&head){const c=document.createElement('div');c.className='chips';
+    s.dataset.skills.split(',').forEach(k=>{const[en,ar,ic]=SKILL[k];c.insertAdjacentHTML('beforeend',`<span class="chip"><i>${ic}</i>${en} <span class="ar">${ar}</span></span>`)});head.appendChild(c)}
+  if(s.dataset.coach){const[n,v,ar,col]=COACH[s.dataset.coach];
+    inner.insertAdjacentHTML('beforeend',`<div class="coach" style="--cc:var(${col})"><img src="img/av-${s.dataset.coach}.webp" alt="${n}, ${v} coach"><div><div class="who">${n} says · ${v} <span class="ar">${ar}</span></div><p>${s.dataset.says}</p><div class="ns">UAE national skill: <b>${s.dataset.ns}</b></div></div></div>`)}
+  if(!('nolo' in s.dataset)) inner.insertAdjacentHTML('afterbegin',`<div class="lo lotop"><span class="tgt"></span><div><b>Learning objective:</b> ${LO}</div></div>`);
+});
+
+// navigation + deep links (#s1 … #s26)
+let cur=1; const enterHooks={};
+function go(n,push=true){
+  n=Math.max(1,Math.min(N,n|0)); cur=n;
+  slides.forEach((s,i)=>s.hidden=i!==n-1);document.querySelectorAll('.slide[hidden] video').forEach(v=>{try{v.pause()}catch(e){}});
+  $('#count').textContent=n+' / '+N; $('#navTitle').textContent=slides[n-1].dataset.title||'';
+  $('#prog').style.width=(n/N*100)+'%'; $('#main').scrollTop=0;
+  $('#prev').disabled=n===1; $('#next').disabled=n===N;
+  if(push){try{history.replaceState(null,'','#s'+n)}catch(e){}}
+  document.title='Resources in Ecosystems · '+n+' · Nilasha Sempon';
+  requestAnimationFrame(()=>enterHooks[n]&&enterHooks[n]());
+}
+function fromHash(){const m=(location.hash||'').match(/s(\d+)$/);return m?+m[1]:1}
+window.addEventListener('hashchange',()=>go(fromHash(),false));
+$('#prev').onclick=()=>go(cur-1); $('#next').onclick=()=>go(cur+1);
+document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g){go(+g.dataset.go);$('#menu').hidden=true}});
+document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea,select'))return;
+  if(['ArrowRight','PageDown'].includes(e.key))go(cur+1);if(['ArrowLeft','PageUp'].includes(e.key))go(cur-1);if(e.key==='Escape')$('#menu').hidden=true});
+let tx=0,ty=0;$('#main').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+$('#main').addEventListener('touchend',e=>{if(e.target.closest('canvas,input,textarea,select,.stadium'))return;const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;if(Math.abs(dx)>70&&Math.abs(dy)<40)go(cur+(dx<0?1:-1))});
+// menu
+$('#menuList').innerHTML=slides.map((s,i)=>`<li><button data-go="${i+1}"><b>${i+1}</b>${s.dataset.title}</button></li>`).join('');
+$('#menuBtn').onclick=()=>{$$('#menuList button').forEach((b,i)=>b.classList.toggle('cur',i+1===cur));$('#menu').hidden=false};
+$('#menuClose').onclick=()=>$('#menu').hidden=true;
+$('#menu').onclick=e=>{if(e.target.id==='menu')$('#menu').hidden=true};
+// toast + link
+let tt;function toast(html,ms=2600){const t=$('#toast');t.innerHTML=html;t.hidden=false;clearTimeout(tt);tt=setTimeout(()=>t.hidden=true,ms)}
+$('#linkBtn').onclick=()=>{const base=LESSON_URL||location.href.split('#')[0];const url=base+'#s'+cur;
+  const ok=()=>toast('Link to slide '+cur+' copied');
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(ok,()=>toast('<div>Copy this link:</div><div class="linkbox">'+url+'</div>',7000))}else toast('<div>Copy this link:</div><div class="linkbox">'+url+'</div>',7000)};
+$('#fsBtn').onclick=()=>{try{if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen().catch(()=>toast('Full screen is not available here'))}catch(e){toast('Full screen is not available here')}};
+
+// built-in party confetti (works without any outside library)
+window.confetti=(function(){let cv,cx,parts=[],raf=null;
+  function setup(){if(cv)return;cv=document.createElement('canvas');cv.id='fxCanvas';document.body.appendChild(cv);cx=cv.getContext('2d');size();addEventListener('resize',size)}
+  function size(){const d=devicePixelRatio||1;cv.width=innerWidth*d;cv.height=innerHeight*d;cx.setTransform(d,0,0,d,0,0)}
+  function frame(){cx.clearRect(0,0,innerWidth,innerHeight);parts=parts.filter(p=>p.t<p.T);
+    parts.forEach(p=>{p.t++;p.x+=Math.cos(p.a)*p.v+p.drift;p.y+=Math.sin(p.a)*p.v+p.g;p.v*=p.decay;p.w+=p.ws;p.tilt+=0.1;
+      const o=1-p.t/p.T;cx.globalAlpha=Math.max(0,o);cx.fillStyle=p.c;const s=p.s;
+      if(p.round){cx.beginPath();cx.ellipse(p.x,p.y,s*.6,s*.6*Math.abs(Math.cos(p.tilt)),0,0,7);cx.fill()}
+      else{cx.save();cx.translate(p.x,p.y);cx.rotate(p.w);cx.fillRect(-s/2,-s*.3*Math.abs(Math.cos(p.tilt))-1,s,s*.6*Math.abs(Math.cos(p.tilt))+2);cx.restore()}});
+    cx.globalAlpha=1;raf=parts.length?requestAnimationFrame(frame):(cx.clearRect(0,0,innerWidth,innerHeight),null)}
+  return function(o){o=o||{};setup();const n=o.particleCount||50,ang=(o.angle==null?90:o.angle)*Math.PI/180,spr=(o.spread==null?45:o.spread)*Math.PI/180,sv=o.startVelocity||45,
+      X=(o.origin&&o.origin.x!=null?o.origin.x:.5)*innerWidth,Y=(o.origin&&o.origin.y!=null?o.origin.y:.6)*innerHeight,cols=o.colors||['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0','#ff7ab6'],sc=o.scalar||1;
+    for(let i=0;i<Math.min(n,400);i++)parts.push({x:X,y:Y,a:-ang+(.5*spr-Math.random()*spr),v:sv*.5+Math.random()*sv,decay:.9,g:3*(o.gravity==null?1:o.gravity),drift:(Math.random()-.5)*.6,
+      c:cols[i%cols.length],s:(7+Math.random()*6)*sc,round:Math.random()<.3,w:Math.random()*6,ws:(Math.random()-.5)*.3,tilt:Math.random()*6,t:0,T:o.ticks||200});
+    if(!raf)raf=requestAnimationFrame(frame);return Promise.resolve()}})();
+// confetti
+function boom(big){if(typeof confetti!=='function')return;const c=['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0'];
+  confetti({particleCount:big?220:90,spread:big?120:70,origin:{y:.65},colors:c});
+  if(big){setTimeout(()=>confetti({particleCount:120,angle:60,spread:70,origin:{x:0,y:.7},colors:c}),250);setTimeout(()=>confetti({particleCount:120,angle:120,spread:70,origin:{x:1,y:.7},colors:c}),400)}}
+// cheer: confetti burst where the student tapped + a clapping sound for each correct answer
+let lastX=.5,lastY=.6,soundOn=true;try{soundOn=localStorage.getItem('cheerSound')!=='off'}catch(e){}
+document.addEventListener('pointerdown',e=>{lastX=e.clientX/innerWidth;lastY=e.clientY/innerHeight},true);
+let cheerCtx;function clap(n){if(!soundOn)return;try{cheerCtx=cheerCtx||new (window.AudioContext||window.webkitAudioContext)();const a=cheerCtx,now=a.currentTime;
+  const len=a.sampleRate*.05,buf=a.createBuffer(1,len,a.sampleRate),d=buf.getChannelData(0);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,3);
+  for(let k=0;k<n;k++){const t=now+k*0.11+Math.random()*0.05;for(let j=0;j<3;j++){const src=a.createBufferSource();src.buffer=buf;const f=a.createBiquadFilter();f.type='bandpass';f.frequency.value=1000+Math.random()*1500;f.Q.value=0.8;const g=a.createGain();g.gain.value=0.5;src.connect(f);f.connect(g);g.connect(a.destination);src.start(t+j*0.012+Math.random()*0.02)}}
+  [523.25,659.25,783.99].forEach((fr,i)=>{const o=a.createOscillator(),g=a.createGain();o.type='triangle';o.frequency.value=fr;o.connect(g);g.connect(a.destination);g.gain.setValueAtTime(0.0001,now+i*0.07);g.gain.exponentialRampToValueAtTime(0.12,now+i*0.07+0.02);g.gain.exponentialRampToValueAtTime(0.0001,now+i*0.07+0.3);o.start(now+i*0.07);o.stop(now+i*0.07+0.32)})}catch(e){}}
+function party(big,x,y){const c=['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0','#ff7ab6'];
+  confetti({particleCount:big?110:60,spread:big?110:80,startVelocity:big?42:34,origin:{x:x,y:y},colors:c});
+  confetti({particleCount:big?110:60,angle:62,spread:58,startVelocity:big?62:55,origin:{x:0,y:.95},colors:c});
+  confetti({particleCount:big?110:60,angle:118,spread:58,startVelocity:big?62:55,origin:{x:1,y:.95},colors:c})}
+function badge(txt,cls){const b=document.createElement('div');b.className='fbadge '+cls;b.textContent=txt;
+  b.style.left=Math.min(Math.max(lastX*innerWidth,110),innerWidth-110)+'px';b.style.top=Math.min(Math.max(lastY*innerHeight-64,70),innerHeight-40)+'px';document.body.appendChild(b);setTimeout(()=>b.remove(),1500)}
+let lastCheer=0,lastWrong=0,quietUntil=0;
+const PRAISE=['🎉 Correct!','⭐ Brilliant!','👏 Well done!','🎊 Great job!','🏆 Excellent!'];
+function cheer(big){lastCheer=Date.now();clap(big?14:9);party(big,lastX,lastY);badge(PRAISE[Math.floor(Math.random()*PRAISE.length)],'good')}
+function buzz(){if(!soundOn)return;try{cheerCtx=cheerCtx||new (window.AudioContext||window.webkitAudioContext)();const a=cheerCtx,now=a.currentTime;
+  [[0,233],[0.17,175]].forEach(([d,f])=>{const o=a.createOscillator(),g=a.createGain();o.type='square';o.frequency.value=f;o.connect(g);g.connect(a.destination);g.gain.setValueAtTime(0.0001,now+d);g.gain.exponentialRampToValueAtTime(0.07,now+d+0.02);g.gain.exponentialRampToValueAtTime(0.0001,now+d+0.16);o.start(now+d);o.stop(now+d+0.18)})}catch(e){}}
+function wrong(el){if(el){el.classList.remove('shake');void el.offsetWidth;el.classList.add('shake');setTimeout(()=>el.classList.remove('shake'),500)}
+  if(Date.now()-lastWrong<350)return;lastWrong=Date.now();buzz();
+  let f=document.getElementById('redFlash');if(!f){f=document.createElement('div');f.id='redFlash';document.body.appendChild(f)}
+  f.classList.add('on');setTimeout(()=>f.classList.remove('on'),120);badge('✗ Not quite. Try again!','bad')}
+// watch every answer: green = party confetti, red = red flash + shake
+document.addEventListener('click',e=>{if(e.target.closest('[data-answers],#orderReveal'))quietUntil=Date.now()+600},true);
+new MutationObserver(ms=>{if(Date.now()<quietUntil)return;let good=false;
+  ms.forEach(m=>{const el=m.target,old=' '+(m.oldValue||'')+' ';if(!el.classList)return;
+    if(['no','wrong','nof'].some(c=>el.classList.contains(c)&&!old.includes(' '+c+' '))&&!el.classList.contains('fb'))wrong(el);
+    if(['ok','right','okf'].some(c=>el.classList.contains(c)&&!old.includes(' '+c+' '))&&!el.classList.contains('fb'))good=true});
+  if(good&&Date.now()-lastCheer>500)cheer(false)}).observe(document.body,{subtree:true,attributes:true,attributeFilter:['class'],attributeOldValue:true});
+(function(){const b=document.getElementById('soundBtn');if(!b)return;const set=()=>{b.textContent=soundOn?'🔊':'🔇';b.title=soundOn?'Sound on':'Sound off'};set();
+  b.onclick=()=>{soundOn=!soundOn;try{localStorage.setItem('cheerSound',soundOn?'on':'off')}catch(e){}set();if(soundOn)clap(4)}})();
+document.addEventListener('click',e=>{if(e.target.closest('[data-confetti]'))boom(false)});
+
+// generic: flip, reveal
+document.addEventListener('click',e=>{
+  const f=e.target.closest('.flip');if(f)f.classList.toggle('on');
+  const r=e.target.closest('[data-show]');if(r){const t=document.getElementById(r.dataset.show);t.hidden=!t.hidden}
+  const ns=e.target.closest('.nskill');if(ns)ns.classList.toggle('on');
+});
+
+// timers
+let actx;function beep(){try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();[0,.25,.5].forEach(d=>{const o=actx.createOscillator(),g=actx.createGain();o.frequency.value=880;o.connect(g);g.connect(actx.destination);g.gain.setValueAtTime(.15,actx.currentTime+d);g.gain.exponentialRampToValueAtTime(.001,actx.currentTime+d+.2);o.start(actx.currentTime+d);o.stop(actx.currentTime+d+.22)})}catch(e){}}
+$$('.timer').forEach(el=>{const total=+el.dataset.sec;let left=total,iv=null;const fmt=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+  el.innerHTML=`<button class="btn small">▶ Start ${total>=60?total/60+'-min':total+'-s'}</button><span class="t">${fmt(total)}</span><button class="rs" title="Reset">↺</button>`;
+  const [b,t,rs]=el.children;
+  const stop=()=>{clearInterval(iv);iv=null};
+  b.onclick=()=>{if(iv){stop();b.textContent='▶ Resume';return}if(left<=0){left=total;el.classList.remove('done')}
+    b.textContent='❚❚ Pause';iv=setInterval(()=>{left--;t.textContent=fmt(Math.max(left,0));if(left<=0){stop();el.classList.add('done');t.textContent="TIME'S UP!";b.textContent='▶ Again';beep()}},1000)};
+  rs.onclick=()=>{stop();left=total;el.classList.remove('done');t.textContent=fmt(total);b.textContent=`▶ Start ${total>=60?total/60+'-min':total+'-s'}`};
+});
+
+// 7 · true/false
+$$('#tf .q').forEach(q=>{let done=false;$$('.opt',q).forEach(b=>b.onclick=()=>{if(done)return;done=true;const pick=b.textContent==='True'?'T':'F',ok=pick===q.dataset.a;
+  b.classList.add(ok?'ok':'no');if(ok)cheer(false);const fb=$('.fb',q);fb.hidden=false;fb.className='fb '+(ok?'ok':'no');fb.textContent=(ok?'✓ Correct! ':'✗ Not quite. ')+fb.dataset.why;
+  q.dataset.res=ok?1:0;const sc=$$('#tf .q').reduce((a,x)=>a+(+x.dataset.res||0),0),n=$$('#tf .q[data-res]').length;$('#tfScore').textContent='Score: '+sc+' / 5';if(n===5&&sc===5)boom(false)})});
+
+// 9 · video answers
+$('#vidAns')&&($('#vidAns').onclick=()=>$$('#s8 .vans').forEach(a=>a.hidden=false));
+
+// 11 · sort
+$$('#sorter .sitem').forEach(b=>b.onclick=()=>{b.classList.remove('right','wrong');const L=($('#sorter').dataset.labels||'low|HIGH').split('|');const i=(L.indexOf(b.dataset.v)+1)%L.length;b.dataset.v=L[i];$('.tag',b).textContent=L[i]});
+$('#sortCheck').onclick=()=>{let s=0;$$('#sorter .sitem').forEach(b=>{const ok=b.dataset.v===b.dataset.ans;b.classList.toggle('right',ok);b.classList.toggle('wrong',!ok);s+=ok});$('#sortScore').textContent=s+' / 8 correct';if(s>0&&s<8)cheer(false);$('#sortWhy').hidden=false;if(s===8)boom(false)};
+
+// MCQ sets (retry = formative with hints; first = first-try scoring)
+$$('.mcqset').forEach(set=>{const mode=set.dataset.mode;const qs=set.classList.contains('q')?[set]:$$('.q',set);
+  qs.forEach(q=>q.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(q.dataset.solved)return;const ok=b.hasAttribute('data-ok');
+    if(!('first' in q.dataset))q.dataset.first=ok?1:0;
+    b.classList.add(ok?'ok':'no');const fb=$('.fb',q);if(fb)fb.hidden=ok;
+    if(ok){q.dataset.solved=1;cheer(false);if(set.id==='dbq'){$('#dbLock').hidden=true;$('#dbOpen').hidden=false;boom(false)}}
+    if(set.id==='wm'){const s=qs.reduce((a,x)=>a+(+x.dataset.first||0),0),n=qs.filter(x=>'first' in x.dataset).length;
+      const lvl=s===5?'Ecosystem Master! 🏆':s===4?'Ecosystem Expert':s===3?'Ecosystem Explorer':"let's review together";
+      $('#wmScore').textContent='First-try score: '+s+' / 5'+(n===5?' · '+lvl:'');if(n===5&&s>=4)boom(s===5)}
+    if(mode==='retry'&&set.id!=='dbq'&&qs.every(x=>x.dataset.solved))boom(false);
+  }));
+});
+
+// 18 · order
+let nextN=1;$$('#order .oitem').forEach(b=>b.onclick=()=>{$$('#order .oitem').forEach(x=>x.classList.remove('right','wrong'));
+  if(b.dataset.n){const k=+b.dataset.n;$$('#order .oitem').forEach(x=>{if(+x.dataset.n>=k){delete x.dataset.n;x.classList.remove('set');$('.n',x).textContent='?'}});nextN=k;return}
+  if(nextN>5)return;b.dataset.n=nextN;b.classList.add('set');$('.n',b).textContent=nextN;nextN++});
+$('#orderCheck').onclick=()=>{let s=0;$$('#order .oitem').forEach(b=>{const ok=b.dataset.n===b.dataset.p;b.classList.toggle('right',ok);b.classList.toggle('wrong',!ok);s+=ok});$('#orderScore').textContent=s+' / 5 in the right place';if(s>0&&s<5)cheer(false);if(s===5)boom(false)};
+$('#orderReveal').onclick=()=>{$('#chain').hidden=false};
+$$('[data-tl]').forEach(b=>b.onclick=()=>{const m=$('#tlMsg');m.hidden=false;m.textContent=b.dataset.tl});
+
+// 20/21 · worksheet
+$$('#wsA select').forEach(s=>s.innerHTML='<option value="">–</option>'+'ABCDE'.split('').map(x=>`<option>${x}</option>`).join(''));
+$$('#wsC select').forEach(s=>s.innerHTML='<option value="">choose…</option>'+s.dataset.opts.split('|').map(x=>`<option>${x}</option>`).join(''));
+const norm=v=>v.trim().toLowerCase().replace(/[.\s]+$/,'');
+function mark(id){let s=0;$$('#'+id+' [data-ans]').forEach(f=>{const ok=f.dataset.ans.toLowerCase().split('|').includes(norm(f.value));f.classList.toggle('okf',ok);f.classList.toggle('nof',!ok&&f.value!=='');s+=ok});return s}
+const score={wsA:0,wsB:0,wsC:0};
+function total(){$('#wsTotal').textContent='Total: A + B + C = '+(score.wsA+score.wsB+score.wsC)+' / 16 marks'}
+$$('[data-check]').forEach(b=>b.onclick=()=>{const id=b.dataset.check,s=mark(id),max=$$('#'+id+' [data-ans]').length;score[id]=s;if(s>0)cheer(s===max);$(`[data-out="${id}"]`).textContent=s+' / '+max;total();if(s===max)boom(false)});
+$$('[data-answers]').forEach(b=>b.onclick=()=>{const id=b.dataset.answers;$$('#'+id+' [data-ans]').forEach(f=>{f.value=f.tagName==='SELECT'?f.dataset.ans:f.dataset.ans.split('|')[0]});mark(id)});
+$('#labExp').onclick=()=>$$('#s17 .exp').forEach(x=>{x.hidden=false;x.style.cssText='font-size:.82rem;color:#11663a;font-weight:700;margin-top:4px'});
+$$('.lvl').forEach(b=>b.onclick=()=>{const a=b.previousElementSibling;a.hidden=!a.hidden;b.textContent=a.hidden?'Show answers':'Hide answers'});
+
+// keep typed answers in this browser
+$$('input[type=text],textarea').forEach(f=>{const v=store.get(f.id);if(v)f.value=v;f.addEventListener('input',()=>store.set(f.id,f.value))});
+
+// 24 · stars
+$$('.stars').forEach(st=>{for(let i=1;i<=5;i++)st.insertAdjacentHTML('beforeend',`<button aria-label="${i} star${i>1?'s':''}">★</button>`);
+  const set=k=>$$('button',st).forEach((b,i)=>b.classList.toggle('on',i<k));set(+store.get(st.id)||0);
+  $$('button',st).forEach((b,i)=>b.onclick=()=>{set(i+1);store.set(st.id,i+1);if(i===4)boom(false)})});
+
+// 25 · values
+$$('#values .vcard').forEach(c=>c.onclick=()=>{c.classList.toggle('on');const n=$$('#values .vcard.on').length;$$('#goal span').forEach((s,i)=>s.classList.toggle('on',i<n));if(n===5){boom(true);toast('Class goal reached: all five stars!')}});
+
+// 26 · celebrate
+$('#celebrate').onclick=()=>boom(true);
+enterHooks[26]=()=>boom(true);
+
+/* ---------- canvases ---------- */
+function fit(c){const r=c.getBoundingClientRect(),d=window.devicePixelRatio||1;const h=+c.getAttribute('height')||r.height||120;
+  if(!c.dataset.h)c.dataset.h=h;const H=+c.dataset.h;c.style.height=H+'px';c.width=Math.round(r.width*d);c.height=Math.round(H*d);const x=c.getContext('2d');x.setTransform(d,0,0,d,0,0);return{x,w:r.width,h:H}}
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// hero waves
+(function(){const c=$('#heroWaves');let t=0,raf;function draw(){if(cur!==1){raf=null;return}const {x,w,h}=fit(c);
+  const cols=['#ffc21a','#e5484d','#1fa75a','#4f8cff','#c084fc'];cols.forEach((col,i)=>{x.beginPath();for(let px=0;px<=w;px+=6){const y=h*.35+i*14+Math.sin(px/90+t*(1+i*.15)+i)*(10+i*3);px?x.lineTo(px,y):x.moveTo(px,y)}x.strokeStyle=col;x.lineWidth=5;x.stroke()});
+  t+=.02;raf=reduce?null:requestAnimationFrame(draw)}enterHooks[1]=()=>{if(!raf)draw()};})();
+
+// shared drawing helpers
+function emo(x,ch,X,Y,size){x.font=`${size}px "Noto Color Emoji","Apple Color Emoji","Segoe UI Emoji",sans-serif`;x.textAlign='center';x.textBaseline='middle';x.fillText(ch,X,Y);x.textAlign='left';x.textBaseline='alphabetic'}
+function oryx(x,X,Y,s,flip){x.save();x.translate(X,Y);x.scale(flip?-s:s,s);
+  x.strokeStyle='#5b4a3a';x.lineWidth=2.2;[-14,-7,8,15].forEach(l=>{x.beginPath();x.moveTo(l,6);x.lineTo(l,26);x.stroke()});
+  x.fillStyle='#f4f1ea';x.beginPath();x.ellipse(0,0,22,11,0,0,7);x.fill();x.strokeStyle='#cfc7b8';x.lineWidth=1;x.stroke();
+  x.fillStyle='#f4f1ea';x.strokeStyle='#b9ae9a';x.lineWidth=1.2;x.beginPath();x.moveTo(14,-6);x.lineTo(24,-20);x.lineTo(31,-16);x.lineTo(24,4);x.closePath();x.fill();x.stroke();
+  x.fillStyle='#f4f1ea';x.beginPath();x.ellipse(30,-16,7,5,.5,0,7);x.fill();x.stroke();x.fillStyle='#3b3b3b';x.beginPath();x.ellipse(31,-15,6,2,.5,0,7);x.fill();x.beginPath();x.arc(28,-19,1.3,0,7);x.fill();
+  x.fillStyle='#8a7b6a';x.beginPath();x.ellipse(-2,8,16,3,0,0,7);x.fill();
+  x.strokeStyle='#2b2b2b';x.lineWidth=1.8;x.beginPath();x.moveTo(27,-19);x.lineTo(20,-44);x.moveTo(30,-19);x.lineTo(25,-44);x.stroke();
+  x.fillStyle='#3b3b3b';x.fillRect(-22,-2,6,4);x.restore()}
+function lbl(x,t,X,Y,bg,fg){x.font='bold 12px Nunito, sans-serif';const w=x.measureText(t).width+12;x.fillStyle=bg;x.beginPath();x.roundRect?x.roundRect(X-w/2,Y-10,w,20,10):x.rect(X-w/2,Y-10,w,20);x.fill();x.fillStyle=fg||'#fff';x.textAlign='center';x.fillText(t,X,Y+4);x.textAlign='left'}
+
+// 8 · explore the park: tap living and nonliving things
+(function(){const c=$('#park');const items=[
+  {k:'elephant',ch:'🐘',x:.62,y:.62,s:52,L:1},{k:'zebra',ch:'🦓',x:.36,y:.66,s:40,L:1},{k:'lion',ch:'🦁',x:.82,y:.8,s:38,L:1},{k:'antelope',ch:'🦌',x:.2,y:.78,s:36,L:1},
+  {k:'bird',ch:'🦅',x:.45,y:.2,s:30,L:1},{k:'tree',ch:'🌳',x:.1,y:.5,s:64,L:1},{k:'grass',ch:'🌾',x:.52,y:.88,s:34,L:1},{k:'tortoise',ch:'🐢',x:.66,y:.9,s:26,L:1},
+  {k:'water',x:.3,y:.86,L:0},{k:'rock',ch:'🪨',x:.9,y:.56,s:40,L:0},{k:'sun',ch:'☀️',x:.88,y:.14,s:44,L:0},{k:'soil',x:.08,y:.92,L:0}];
+  let found=new Set();
+  function draw(){const {x,w,h}=fit(c);const g=x.createLinearGradient(0,0,0,h);g.addColorStop(0,'#bfe6fb');g.addColorStop(.45,'#e9f6fc');g.addColorStop(.46,'#e8d39a');g.addColorStop(1,'#c9a861');x.fillStyle=g;x.fillRect(0,0,w,h);
+    x.fillStyle='#b8a06a';x.beginPath();x.ellipse(w*.08,h*.95,w*.12,h*.06,0,0,7);x.fill();
+    x.fillStyle='#5aa9d6';x.beginPath();x.ellipse(w*.3,h*.86,w*.14,h*.07,0,0,7);x.fill();x.fillStyle='rgba(255,255,255,.4)';x.beginPath();x.ellipse(w*.27,h*.84,w*.05,h*.015,0,0,7);x.fill();
+    items.forEach(it=>{if(it.ch)emo(x,it.ch,it.x*w,it.y*h,it.s)});
+    items.forEach(it=>{if(found.has(it.k))lbl(x,(it.L?'living: ':'nonliving: ')+it.k,it.x*w,it.y*h+(it.k==='sun'?30:-30),it.L?'#1fa75a':'#5b6385')});
+    $('#parkRead').textContent=`Found: ${found.size} / ${items.length}`+(found.size===items.length?' · All found!':'')}
+  c.addEventListener('click',e=>{const r=c.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;
+    let best=null,bd=1e9;items.forEach(it=>{const d=Math.hypot((it.x-px)*r.width,(it.y-py)*r.height);if(d<bd){bd=d;best=it}});
+    if(best&&bd<45&&!found.has(best.k)){found.add(best.k);cheer(false);if(found.size===items.length)boom(true)}draw()});
+  $('#parkReset').onclick=()=>{found=new Set();draw()};
+  enterHooks[8]=()=>{if(!$('#parkBox').hidden)draw()};$('#parkOpen').addEventListener('click',()=>setTimeout(()=>{draw();if(!$('#parkBox').hidden)$('#parkBox').scrollIntoView({behavior:'smooth',block:'nearest'})},30));})();
+
+// 14 · zoom out: individual → biosphere
+(function(){const c=$('#zoom');let stage=0,t0=0,raf;
+  const herd=[[.25,.55],[.45,.48],[.62,.6],[.35,.75],[.78,.5],[.56,.82]];
+  const say={1:'1 · Individual: a single member of a species. One Arabian oryx.',2:'2 · Population: all the oryx in the same area at the same time.',3:'3 · Community: all the populations of different species living together.',4:'4 · Ecosystem: the community PLUS the nonliving things: sun, water, sand and rocks.',5:'5 · Biosphere: all the ecosystems on Earth, wherever there is life.'};
+  function living(x,w,h,full){herd.forEach(([a,b],i)=>oryx(x,a*w,b*h,full?.85:1,i%2));}
+  function draw(now){const {x,w,h}=fit(c);const a=Math.min(1,(now-t0)/450);
+    x.fillStyle='#f3f1ea';x.fillRect(0,0,w,h);
+    if(stage===0){x.fillStyle='#5b6385';x.font='bold 15px Nunito, sans-serif';x.textAlign='center';x.fillText('Tap 1 to start zooming out',w/2,h/2);x.textAlign='left';raf=null;return}
+    x.globalAlpha=a;
+    if(stage>=4&&stage<5){const g=x.createLinearGradient(0,0,0,h);g.addColorStop(0,'#bfe6fb');g.addColorStop(.42,'#fdf3d8');g.addColorStop(.43,'#ecd29a');g.addColorStop(1,'#d9b56f');x.fillStyle=g;x.fillRect(0,0,w,h);
+      emo(x,'☀️',w*.88,h*.14,40);x.fillStyle='#5aa9d6';x.beginPath();x.ellipse(w*.18,h*.88,w*.13,h*.06,0,0,7);x.fill();emo(x,'🪨',w*.92,h*.85,30);
+      ['sun','water','sand','rocks'].forEach((t,i)=>lbl(x,t,[w*.88,w*.18,w*.5,w*.92][i],[h*.27,h*.78,h*.95,h*.72][i],'#5b6385'))}
+    if(stage===1){oryx(x,w*.45,h*.6,1.9,0);lbl(x,'one Arabian oryx',w*.45,h*.92,'#1fa75a')}
+    if(stage===2){living(x,w,h);lbl(x,'all the oryx here',w*.5,h*.95,'#f07f19')}
+    if(stage===3||stage===4){living(x,w,h,true);[['🦌',.12,.6],['🦌',.9,.66],['🌳',.08,.32],['🌳',.7,.3],['🐦',.4,.16],['🦎',.3,.92],['🌿',.68,.9]].forEach(([e,a2,b])=>emo(x,e,a2*w,b*h,stage===3?34:30));
+      if(stage===3)lbl(x,'oryx + gazelles + ghaf trees + birds + lizards',w*.5,h*.06,'#e5484d')}
+    if(stage===5){x.fillStyle='#0e1230';x.fillRect(0,0,w,h);for(let i=0;i<40;i++){x.fillStyle='rgba(255,255,255,.7)';x.fillRect((i*97)%w,(i*53)%h,2,2)}
+      const R=Math.min(w,h)*.38,cx=w*.5,cy=h*.5;x.fillStyle='#2f7fc1';x.beginPath();x.arc(cx,cy,R,0,7);x.fill();
+      x.fillStyle='#3fae5a';[[-.35,-.3,.32,.22],[.25,-.1,.28,.4],[-.1,.35,.25,.15],[.45,.4,.12,.1]].forEach(([a2,b,rw,rh])=>{x.beginPath();x.ellipse(cx+a2*R,cy+b*R,rw*R,rh*R,.4,0,7);x.fill()});
+      x.fillStyle='rgba(255,255,255,.55)';x.beginPath();x.ellipse(cx-R*.2,cy-R*.65,R*.4,R*.08,.2,0,7);x.fill();
+      x.strokeStyle='#ffc21a';x.lineWidth=3;x.strokeRect(cx+R*.12,cy-R*.12,16,16);lbl(x,'our ecosystem is here',cx+R*.12+8,cy-R*.12-16,'#ffc21a','#1b2470');
+      lbl(x,'the biosphere: every ecosystem on Earth',cx,h*.95,'#2563eb')}
+    x.globalAlpha=1;
+    if(a<1&&!c.closest('.slide').hidden)raf=requestAnimationFrame(draw);else raf=null}
+  $$('[data-zoom]').forEach(b=>b.onclick=()=>{stage=+b.dataset.zoom;t0=performance.now();$('#zoomRead').textContent=say[stage];if(stage===5)cheer(false);cancelAnimationFrame(raf);raf=requestAnimationFrame(draw)});
+  enterHooks[14]=()=>{t0=0;draw(performance.now())};})();
+
+// 15 · build an ecosystem on Sir Bani Yas Island
+(function(){const c=$('#island');let things=[],won=false;const MAX=8;
+  const rnd=(a,b)=>a+Math.random()*(b-a);
+  function level(){const n=k=>things.filter(t=>t.k===k).length;const kinds=['oryx','gazelle','ghaf'].filter(k=>n(k)>0),nl=n('water')+n('sun')>0;
+    if(!kinds.length)return nl?['Nonliving things only. Add a living thing!','#5b6385']:['Nothing yet. Start by adding one oryx!','#5b6385'];
+    if(kinds.length===1){const k=kinds[0],m=n(k);if(m===1)return[`Level: INDIVIDUAL · one ${k==='ghaf'?'ghaf tree':k}`+(nl?' (plus nonliving things)':''),'#1fa75a'];return[`Level: POPULATION · ${m} ${k==='ghaf'?'ghaf trees':k}`+(nl?'. Add another species to make a community!':''),'#f07f19']}
+    if(!nl)return[`Level: COMMUNITY · ${kinds.length} species living together. Now add water or sun!`,'#e5484d'];
+    return[`Level: ECOSYSTEM · ${kinds.length} species + nonliving things. You built an ecosystem!`,'#7a3ff0']}
+  function draw(){const {x,w,h}=fit(c);x.fillStyle='#bfe6fb';x.fillRect(0,0,w,h*.3);x.fillStyle='#4fa3d1';x.fillRect(0,h*.3,w,h*.7);
+    x.fillStyle='#ecd29a';x.beginPath();x.ellipse(w*.5,h*.66,w*.44,h*.3,0,0,7);x.fill();
+    things.filter(t=>t.k==='water').forEach(t=>{x.fillStyle='#5aa9d6';x.beginPath();x.ellipse(t.x*w,t.y*h,28,10,0,0,7);x.fill()});
+    things.filter(t=>t.k==='sun').forEach(t=>emo(x,'☀️',t.x*w,t.y*h,34));
+    things.filter(t=>t.k==='ghaf').forEach(t=>emo(x,'🌳',t.x*w,t.y*h,36));
+    things.filter(t=>t.k==='gazelle').forEach(t=>emo(x,'🦌',t.x*w,t.y*h,28));
+    things.filter(t=>t.k==='oryx').forEach(t=>oryx(x,t.x*w,t.y*h,.85,t.f));
+    lbl(x,'Sir Bani Yas Island, Abu Dhabi',w*.5,h*.12,'#1b2470');
+    const [txt,col]=level();$('#islandRead').textContent=txt;$('#islandRead').style.color=col}
+  $$('[data-add]').forEach(b=>b.onclick=()=>{const k=b.dataset.add;if(things.filter(t=>t.k===k).length>=MAX)return;
+    const p=k==='sun'?{x:rnd(.08,.92),y:rnd(.06,.2)}:{x:rnd(.18,.82),y:rnd(.5,.86)};things.push({k,...p,f:Math.random()<.5});draw();
+    if(level()[0].startsWith('Level: ECOSYSTEM')&&!won){won=true;boom(false);cheer(true)}});
+  $('#islandReset').onclick=()=>{things=[];won=false;draw()};
+  enterHooks[15]=draw;})();
+
+// 17 · virtual quadrat survey
+(function(){const c=$('#quad');let pts=null,q=null;
+  function gen(){pts=[];const add=(k,n)=>{for(let i=0;i<n;i++)pts.push({k,x:Math.random(),y:Math.random()})};add('grass',70);add('ant',30);add('flower',14);add('snail',6);add('stone',18)}
+  function draw(){if(!pts)gen();const {x,w,h}=fit(c);x.fillStyle='#a7cf7a';x.fillRect(0,0,w,h);x.fillStyle='rgba(120,90,50,.18)';for(let i=0;i<30;i++){x.beginPath();x.ellipse((i*137)%w,(i*71)%h,30,12,0,0,7);x.fill()}
+    pts.forEach(p=>{const X=p.x*w,Y=p.y*h;
+      if(p.k==='grass'){x.strokeStyle='#2f7d32';x.lineWidth=2;x.beginPath();x.moveTo(X,Y);x.lineTo(X-4,Y-12);x.moveTo(X,Y);x.lineTo(X,Y-14);x.moveTo(X,Y);x.lineTo(X+4,Y-12);x.stroke()}
+      if(p.k==='ant'){x.fillStyle='#2b1d12';x.beginPath();x.arc(X,Y,2.4,0,7);x.arc(X+4,Y,2,0,7);x.arc(X-4,Y,2.2,0,7);x.fill()}
+      if(p.k==='flower')emo(x,'🌼',X,Y,16);
+      if(p.k==='snail')emo(x,'🐌',X,Y,16);
+      if(p.k==='stone'){x.fillStyle='#9a9a9a';x.beginPath();x.ellipse(X,Y,6,4,.3,0,7);x.fill()}});
+    if(q){const S=Math.min(w,h)*.42,qx=q.x*(w-S),qy=q.y*(h-S);x.fillStyle='rgba(255,255,255,.18)';x.fillRect(qx,qy,S,S);x.strokeStyle='#ffc21a';x.lineWidth=4;x.strokeRect(qx,qy,S,S);
+      x.strokeStyle='rgba(255,194,26,.6)';x.lineWidth=1;for(let i=1;i<4;i++){x.beginPath();x.moveTo(qx+S*i/4,qy);x.lineTo(qx+S*i/4,qy+S);x.moveTo(qx,qy+S*i/4);x.lineTo(qx+S,qy+S*i/4);x.stroke()}}}
+  function count(){const {w,h}={w:c.getBoundingClientRect().width,h:+c.dataset.h||300};const S=Math.min(w,h)*.42,qx=q.x*(w-S),qy=q.y*(h-S);const n={grass:0,ant:0,flower:0,snail:0,stone:0};
+    pts.forEach(p=>{const X=p.x*w,Y=p.y*h;if(X>=qx&&X<=qx+S&&Y>=qy&&Y<=qy+S)n[p.k]++});return n}
+  $('#quadThrow').onclick=()=>{q={x:Math.random(),y:Math.random()};$('#quadRead').textContent='Count each species inside the square!';draw()};
+  $('#quadCount').onclick=()=>{if(!q){$('#quadThrow').onclick()}const n=count();$('#quadRead').textContent=`Grass ${n.grass} · Ants ${n.ant} · Flowers ${n.flower} · Snails ${n.snail} · Stones ${n.stone} (nonliving)`;cheer(false)};
+  enterHooks[17]=draw;})();
+
+window.addEventListener('resize',()=>enterHooks[cur]&&enterHooks[cur]());
+go(fromHash(),false);
+</script>
+
+</body>
+</html>

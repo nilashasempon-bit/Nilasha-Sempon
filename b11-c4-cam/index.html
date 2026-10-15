@@ -1,0 +1,1197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="author" content="Nilasha Sempon">
+<meta name="description" content="Interactive Grade 11 Advanced Biology lesson with the UAE Values Team.">
+<title>C4 and CAM Plants · Nilasha Sempon</title>
+<meta property="og:title" content="C4 and CAM Plants · Nilasha Sempon">
+<meta property="og:description" content="Grade 11 Advanced Biology interactive lesson by Nilasha Sempon, with the UAE Values Team.">
+<meta property="og:image" content="https://nilashasempons.netlify.app/b11-c4-cam/img/hook.webp">
+<meta property="og:url" content="https://nilashasempons.netlify.app/b11-c4-cam/">
+<meta property="og:site_name" content="Nilasha Sempon · Science &amp; Biology">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: an app frame (top bar · one slide at a time · bottom nav). Each slide is a page with its own #sN link.
+   Single bright classroom look, matching the teacher's deck, so colours are set explicitly. */
+:root{
+  --navy:#1b2470; --navy-2:#2a338f; --ink:#1c2340; --muted:#5b6385; --line:#dfe3f1;
+  --paper:#ffffff; --bg:#eef1f9; --sun:#ffc21a; --sun-ink:#3a2a00;
+  --green:#1fa75a; --green-bg:#e6f7ed; --red:#e5484d; --red-bg:#fdecec;
+  --orange:#f07f19; --orange-bg:#fff2e4; --purple:#7a3ff0; --purple-bg:#f1eafe;
+  --blue:#2563eb; --blue-bg:#e8effe; --teal:#0e9fa6; --sea:#2b8fd6; --sand:#f2dca6;
+  --c-shahin:#4b6b2f; --c-fahim:#1f5f8b; --c-maha:#a3343a; --c-ahmed:#1d6b5b; --c-hessa:#b07a0a;
+  --display:"Baloo Bhaijaan 2","Nunito",system-ui,sans-serif;
+  --body:"Nunito","Baloo Bhaijaan 2",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+html,body{height:100%}
+body{margin:0}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45}
+*{box-sizing:border-box}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.ar{font-family:"Baloo Bhaijaan 2",var(--body);direction:rtl}
+
+#app{height:100%;display:grid;grid-template-rows:auto 1fr auto}
+.topbar{background:var(--navy);color:#fff;display:flex;align-items:center;gap:12px;padding:8px 16px;flex-wrap:wrap}
+.topbar .crumb{font-weight:800;font-family:var(--display);font-size:1.05rem;white-space:nowrap;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.topbar .unit{opacity:.8;font-size:.85rem;min-width:0;flex:1 1 220px}
+.topbar .date{background:rgba(255,255,255,.14);border-radius:999px;padding:3px 12px;font-size:.85rem;white-space:nowrap}
+.iconbtn{background:var(--sun);color:var(--sun-ink);border:0;border-radius:999px;width:36px;height:36px;display:grid;place-items:center;font-weight:800;flex:none}
+.iconbtn svg{width:18px;height:18px}
+.wavestrip{height:6px;background:repeating-linear-gradient(90deg,var(--sun) 0 40px,var(--green) 40px 80px,var(--red) 80px 120px,var(--blue) 120px 160px,var(--purple) 160px 200px)}
+
+main{overflow-y:auto;overflow-x:hidden;position:relative;-webkit-overflow-scrolling:touch}
+.slide{min-height:100%}
+.inner{max-width:1200px;margin:0 auto;padding-block:22px 28px;padding-inline:16px;display:flex;flex-direction:column;gap:18px}
+.head{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.head h2{font-family:var(--display);font-size:clamp(1.5rem,3.2vw,2.2rem);line-height:1.1;margin:0;flex:1 1 auto;text-wrap:balance;font-weight:800}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:2px solid var(--blue);border-radius:999px;padding:3px 12px 3px 4px;font-size:.82rem;font-weight:700;color:var(--navy)}
+.chip i{width:24px;height:24px;border-radius:50%;background:var(--blue);display:grid;place-items:center;color:#fff;font-style:normal;font-size:.8rem}
+.chip .ar{font-weight:600;color:var(--muted)}
+.lead{color:var(--muted);margin:0;max-width:75ch}
+.lead b{color:var(--purple)}
+
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px}
+.label{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;font-weight:800;color:var(--red)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+.g5{grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.cols{display:grid;gap:18px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:860px){.cols.split{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}.cols.split-r{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}}
+.stack{display:flex;flex-direction:column;gap:12px;min-width:0}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+img.fig{border-radius:14px;border:1px solid var(--line);display:block;width:100%;height:auto;background:#fff}
+
+.btn{border:0;border-radius:999px;padding:10px 20px;font-weight:800;background:var(--sun);color:var(--sun-ink);box-shadow:0 3px 0 #d79c00;transition:transform .1s}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 #d79c00}
+.btn.navy{background:var(--navy);color:#fff;box-shadow:0 3px 0 #0d1245}
+.btn.red{background:var(--red);color:#fff;box-shadow:0 3px 0 #a92d31}
+.btn.ghost{background:var(--paper);color:var(--navy);box-shadow:none;border:2px solid var(--line)}
+.btn.small{padding:6px 14px;font-size:.88rem}
+
+/* coach strip */
+.coach{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:center;background:var(--paper);border:2px solid var(--cc,var(--navy));border-radius:18px;padding:10px 14px}
+.coach img{width:64px;height:64px;border-radius:50%;border:3px solid var(--cc);background:#f5efe4}
+.coach .who{font-weight:800;color:var(--cc);font-size:.9rem}
+.coach .who span{font-weight:600;color:var(--muted)}
+.coach p{margin:2px 0}
+.coach .ns{font-size:.82rem;color:var(--muted)}
+.coach .ns b{color:var(--orange)}
+.lo{display:flex;gap:10px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:.88rem;color:var(--muted)}
+.lo b{color:var(--red)}
+.lo.lotop{color:var(--ink);font-size:.95rem;font-weight:600;border:2px solid #f3c2c4;background:#fff7f7}
+.hero .lo.lotop,.end .lo.lotop{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.35);color:#fff}.hero .lo.lotop b,.end .lo.lotop b{color:#ffc21a}
+.lo .tgt{flex:none;width:22px;height:22px;border-radius:50%;border:4px solid var(--red);box-shadow:inset 0 0 0 3px #fff,inset 0 0 0 8px var(--red)}
+
+/* bottom nav */
+.nav{background:var(--paper);border-top:1px solid var(--line);display:flex;align-items:center;gap:8px;padding:8px 16px calc(8px + env(safe-area-inset-bottom,0px));flex-wrap:wrap}
+.nav .count{font-weight:800;font-variant-numeric:tabular-nums;color:var(--navy);min-width:64px;text-align:center}
+.nav .title{flex:1 1 140px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--muted);font-size:.9rem}
+@media (max-width:700px){.topbar .unit{display:none}.nav .title{display:none}.nav{justify-content:space-between}}
+.progress{height:4px;background:var(--line)}
+.progress div{height:100%;background:var(--sun);transition:width .3s}
+.toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;z-index:50;max-width:calc(100% - 32px);text-align:center}
+.linkbox{font-size:.8rem;word-break:break-all;background:var(--bg);padding:6px 10px;border-radius:8px;user-select:all}
+
+/* menu overlay */
+.menu{position:fixed;inset:0;background:rgba(18,22,60,.55);z-index:40;display:grid;place-items:center;padding:16px}
+.menu .panel{background:var(--paper);border-radius:20px;max-width:900px;width:100%;max-height:85vh;overflow:auto;padding:18px}
+.menu ol{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:6px;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr))}
+.menu li button{width:100%;text-align:left;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:8px 10px;display:flex;gap:10px;align-items:center}
+.menu li button b{color:var(--navy);font-variant-numeric:tabular-nums;min-width:22px}
+.menu li button.cur{background:var(--sun)}
+
+/* title slide */
+.hero{background:linear-gradient(135deg,#1b2470 0%,#3a2fa3 60%,#6a2fb8 100%);color:#fff;min-height:100%;position:relative;overflow:hidden}
+.hero .inner{padding-block:36px}
+.hero h1{font-family:var(--display);font-size:clamp(2.4rem,7vw,4.6rem);line-height:1;margin:6px 0 0;font-weight:800}
+.hero .sub{font-family:var(--display);color:var(--sun);font-size:clamp(1.3rem,3vw,2rem);font-weight:700;margin:0}
+.hero .eyebrow{color:var(--sun);font-weight:800;letter-spacing:.08em;font-size:.82rem}
+.hero .teacher{font-family:var(--display);font-size:1.2rem}.hero .teacher b{color:var(--sun)}
+.hero .mystery{background:#fff;color:var(--ink);border-radius:14px;padding:14px 16px;max-width:620px}
+.hero .mystery b{color:var(--red)}
+.avatars{display:flex;flex-wrap:wrap;gap:12px}
+.avatars button{background:none;border:0;padding:0;text-align:center;color:#fff;font-size:.8rem;font-weight:700}
+.avatars img{width:72px;height:72px;border-radius:50%;border:3px solid var(--sun);display:block;margin-bottom:4px;background:#f5efe4;transition:transform .2s}
+.avatars button:hover img{transform:translateY(-4px) rotate(-4deg)}
+.hero canvas.waves{position:absolute;left:0;right:0;bottom:0;width:100%;height:120px;pointer-events:none;opacity:.9}
+
+/* flip cards */
+.flip{perspective:900px;background:none;border:0;padding:0;text-align:left;width:100%}
+.flip .fi{display:grid;transition:transform .5s;transform-style:preserve-3d;height:100%}
+.flip.on .fi{transform:rotateY(180deg)}
+.flip .face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;padding:14px;border:2px solid var(--line);background:var(--paper);min-height:100px;display:flex;flex-direction:column;justify-content:center;gap:4px}
+.flip .back{transform:rotateY(180deg)}
+.flip .tap{font-size:.75rem;color:var(--muted);font-weight:700}
+.kw .front{border-color:var(--purple)}
+.kw .front strong{font-family:var(--display);font-size:1.3rem;color:var(--purple)}
+.kw .back{background:var(--purple-bg);border-color:var(--purple)}
+@media (prefers-reduced-motion:reduce){.flip .fi{transition:none}}
+
+/* team cards */
+.team{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr))}
+.team .face{padding:0;overflow:hidden;justify-content:flex-start;border-color:var(--cc)}
+.team .front img{width:100%;height:auto;aspect-ratio:496/536;object-fit:cover;display:block}
+.team .front .tap{padding:8px 10px;text-align:center;color:var(--cc)}
+.team .back{background:var(--cc);color:#fff;padding:16px;justify-content:center;font-weight:700;font-size:1.02rem}
+.team .back h4{margin:0;font-family:var(--display);font-size:1.4rem}
+.nskills{display:flex;flex-wrap:wrap;gap:8px}
+.nskill{border:2px solid var(--orange);background:var(--paper);border-radius:12px;padding:6px 12px;font-weight:800;color:var(--navy);display:flex;flex-direction:column;align-items:flex-start;text-align:left;max-width:240px}
+.nskill small{font-weight:600;color:var(--orange);display:none}
+.nskill.on small{display:block}
+
+/* lesson map */
+.map{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr))}
+.map button{border:0;border-radius:16px;color:#fff;text-align:left;padding:14px;min-height:112px;display:flex;flex-direction:column;gap:2px;transition:transform .15s}
+.map button:hover{transform:translateY(-3px)}
+.map small{font-size:.7rem;letter-spacing:.07em;font-weight:800;opacity:.85}
+.map strong{font-family:var(--display);font-size:1.18rem;line-height:1.15}
+.map span{font-size:.85rem;opacity:.9}
+
+/* lists */
+.crit{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.crit li{position:relative;padding-left:38px;min-height:28px;padding-top:3px}
+.crit li::before{position:absolute;left:0;top:0}
+.crit li::before{content:"✓";width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:800}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:s}
+.steps li{position:relative;padding-left:44px;min-height:34px;padding-top:6px;counter-increment:s}
+.steps li::before{position:absolute;left:0;top:0}
+.steps li::before{content:counter(s);width:32px;height:32px;border-radius:50%;background:var(--sun);display:grid;place-items:center;font-weight:800}
+
+/* timer */
+.timer{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:2px solid var(--sun);border-radius:999px;padding:4px 6px 4px 4px}
+.timer .t{font-family:var(--display);font-weight:800;font-size:1.3rem;font-variant-numeric:tabular-nums;min-width:58px;text-align:center;color:var(--navy)}
+.timer.done{border-color:var(--red);background:var(--red);animation:shake .5s 3}
+.timer.done .t{color:#fff}
+.timer .rs{background:none;border:0;color:var(--muted);font-size:.8rem;font-weight:700;padding:4px 8px}
+.timer.done .rs{color:#fff}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+/* quizzes */
+.q{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:10px}
+.q .qt{font-weight:800}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{border:2px solid var(--line);background:var(--bg);border-radius:12px;padding:8px 14px;font-weight:700;text-align:left}
+.opt.ok{background:var(--green);border-color:var(--green);color:#fff}
+.opt.no{background:var(--red);border-color:var(--red);color:#fff}
+.opt.ok::before{content:"✓ "}.opt.no::before{content:"✗ "}
+.fb{font-size:.9rem;border-radius:10px;padding:8px 12px}
+.fb.ok{background:var(--green-bg);color:#11663a}
+.fb.no{background:var(--red-bg);color:#9b1c22}
+.score{font-family:var(--display);font-weight:800;font-size:1.25rem;color:var(--navy)}
+
+/* sort */
+.sorter{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.sitem{display:flex;align-items:center;justify-content:space-between;gap:10px;border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 12px;font-weight:700;text-align:left}
+.sitem .tag{border-radius:999px;padding:3px 12px;font-size:.82rem;font-weight:800;background:var(--bg);color:var(--muted);white-space:nowrap}
+.sitem[data-v="low"] .tag{background:var(--teal);color:#fff}
+.sitem[data-v="high"] .tag{background:var(--red);color:#fff}
+.bannerbtn{background:none;border:0;padding:0;display:block;width:100%;max-width:760px;cursor:pointer}.bannerbtn img{width:100%;height:auto;border-radius:14px;display:block;border:3px solid var(--sun);transition:transform .2s}.bannerbtn:hover img{transform:translateY(-3px)}
+.concert{display:grid;gap:8px}.concert .stadium{padding-top:14px}.stage{background:linear-gradient(90deg,#ffc21a,#ff8a1f);border-radius:10px;text-align:center;font-weight:800;padding:8px;color:#3a2a00;letter-spacing:.1em}
+.seat.saeed{outline:3px solid #ff3b3b;outline-offset:1px}
+.dbchip{border-radius:999px;padding:3px 10px;font-size:.8rem;font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
+.sitem[data-v="extinct"] .tag{background:#5b6385;color:#fff}.sitem[data-v="ENDANGERED"] .tag{background:var(--red);color:#fff}.sitem[data-v="threatened"] .tag{background:var(--orange);color:#fff}
+.sitem[data-v="C4"] .tag{background:var(--green);color:#fff}.sitem[data-v="CAM"] .tag{background:var(--purple);color:#fff}.sitem[data-v="BOTH"] .tag{background:var(--orange);color:#fff}
+.sitem[data-v="living"] .tag{background:var(--green);color:#fff}.sitem[data-v="NONLIVING"] .tag{background:#5b6385;color:#fff}
+.rbig{font-size:2.6rem;text-align:center;padding:14px 0;background:#fff;border-radius:14px}
+.sitem[data-v="uses"] .tag{background:var(--orange);color:#fff}.sitem[data-v="MAKES"] .tag{background:var(--green);color:#fff}
+.sitem[data-v="GAS"] .tag{background:#9aa3b5;color:#fff}.sitem[data-v="LIQUID"] .tag{background:var(--sea);color:#fff}.sitem[data-v="SOLID"] .tag{background:var(--navy);color:#fff}
+.sitem[data-v="REFLECT"] .tag{background:var(--red);color:#fff}.sitem[data-v="ABSORB"] .tag{background:var(--teal);color:#fff}.sitem[data-v="TRANSMIT"] .tag{background:var(--navy);color:#fff}
+.sitem.right{border-color:var(--green);box-shadow:0 0 0 2px var(--green)}
+.sitem.wrong{border-color:var(--red);box-shadow:0 0 0 2px var(--red)}
+
+/* energy bars */
+.erow{display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px;align-items:center}
+.erow .amp{background:var(--navy);color:#fff;border-radius:999px;padding:6px 12px;font-weight:800;text-align:center;font-size:.9rem}
+.ebar{border:2px dashed var(--line);border-radius:999px;height:40px;background:var(--paper);display:flex;align-items:center;padding:0 4px;text-align:left;font-weight:700;color:var(--muted);font-size:.85rem;width:100%;position:relative;overflow:hidden}
+.ebar .fill{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#ff8c8f,var(--red));border-radius:999px;width:0;transition:width .8s cubic-bezier(.2,.9,.3,1.2)}
+.ebar .v{position:relative;padding-left:10px}
+.ebar.on{border-style:solid;border-color:var(--red)}
+.ebar.on .v{color:#fff;font-family:var(--display);font-size:1.25rem}
+.rule{background:var(--purple-bg);border-radius:14px;padding:18px;text-align:center;font-family:var(--display);font-size:3rem;font-weight:800;color:var(--navy);line-height:1}
+.rule sup{font-size:.55em}
+
+/* sims */
+.sim{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:12px;display:grid;gap:10px}
+.sim>*,.medium>*{min-width:0}
+.sim canvas{width:100%;display:block;border-radius:10px}
+.stadium{background:#141a3e;border-radius:12px;padding:40px 14px 14px;display:grid;gap:6px;grid-template-columns:repeat(16,minmax(0,1fr));overflow:hidden}
+.seat{height:clamp(14px,3vw,30px);border-radius:40% 40% 18% 18%;background:var(--c,#5b7cfa);transition:background .2s}
+.seat.saeed{outline:3px solid #ff3b3b;outline-offset:1px}
+.medium{display:grid;gap:8px;border:2px solid var(--line);border-radius:14px;padding:10px;background:var(--paper)}
+.medium h4{margin:0;font-family:var(--display);font-size:1.15rem}
+.medium canvas{width:100%;max-width:100%;height:120px;background:#f6f8fd}
+.medium .res{font-size:.85rem;min-height:2.6em}
+.legend{font-size:.82rem;color:var(--muted)}
+
+/* table */
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:420px;font-size:.92rem}
+th{background:var(--navy);color:#fff;text-align:left;padding:8px 10px}
+td{border-bottom:1px solid var(--line);padding:8px 10px;vertical-align:top}
+select,input[type=text],textarea{font:inherit;border:2px solid var(--line);border-radius:10px;padding:6px 10px;background:#fff;color:var(--ink);max-width:100%}
+textarea{width:100%;min-height:84px;resize:vertical}
+.okf{border-color:var(--green)!important;background:var(--green-bg)!important}
+.nof{border-color:var(--red)!important;background:var(--red-bg)!important}
+.fillrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#wsB .fillrow{display:block;line-height:2.3}#wsB .fillrow input{margin:0 4px}
+.wordbank{background:var(--blue-bg);border-radius:10px;padding:8px 12px;font-weight:700;color:var(--blue)}
+
+/* order */
+.order{display:grid;gap:8px}
+.oitem{display:flex;align-items:center;gap:12px;border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 12px;font-weight:700;text-align:left}
+.oitem .n{width:34px;height:34px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-family:var(--display);font-weight:800;flex:none;color:var(--muted)}
+.oitem.set .n{background:var(--sun);color:var(--sun-ink)}
+.oitem.right{border-color:var(--green)}.oitem.wrong{border-color:var(--red)}
+.chain{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.chain div{border-radius:12px;padding:10px;color:#fff;font-weight:700;font-size:.9rem}
+.traffic{display:flex;flex-wrap:wrap;gap:8px}
+.traffic button{border:0;border-radius:999px;padding:8px 16px;font-weight:800;color:#fff}
+
+/* levels */
+.level{border-radius:16px;overflow:hidden;border:2px solid var(--lc);background:var(--paper);display:flex;flex-direction:column}
+.level h3{margin:0;background:var(--lc);color:#fff;padding:10px 14px;font-family:var(--display)}
+.level ol{margin:0;padding:12px 14px 12px 32px;display:grid;gap:8px}
+.level .ans{background:var(--lbg);margin:0 12px 12px;border-radius:10px;padding:10px 12px;font-size:.9rem}
+.level .btn{margin:0 12px 12px;align-self:flex-start}
+
+/* stars */
+.stars{display:flex;gap:4px}
+.stars button{background:none;border:0;padding:0;font-size:1.7rem;line-height:1;color:#c7cde0}
+.stars button.on{color:#f6b500}
+.vcard{border:2px solid var(--cc);border-radius:16px;background:var(--paper);padding:10px;text-align:center;display:grid;gap:6px;position:relative;justify-items:center}
+.vcard img{width:min(120px,100%);aspect-ratio:1;border-radius:50%;border:3px solid var(--cc);background:#f5efe4}
+.vcard .star{position:absolute;top:8px;right:10px;font-size:2rem;color:#c7cde0;transition:transform .3s}
+.vcard.on .star{color:#f6b500;transform:scale(1.25) rotate(15deg)}
+.vcard .prompt{font-style:italic;color:var(--cc);border:1px dashed var(--cc);border-radius:10px;padding:6px 8px;font-size:.88rem;width:100%}
+.goal{font-size:2rem;letter-spacing:4px;color:#c7cde0}
+.goal span.on{color:#f6b500}
+
+.end{background:linear-gradient(135deg,#1b2470 0%,#3a2fa3 60%,#6a2fb8 100%);color:#fff;min-height:100%}
+.end h1{font-family:var(--display);font-size:clamp(2.2rem,6vw,4rem);margin:0;line-height:1.05}
+.end .eyebrow{color:var(--sun);font-weight:800;letter-spacing:.06em}
+.end .promise{background:#fff;color:var(--ink);border-radius:14px;padding:12px 16px}
+.end .promise b{color:var(--red)}
+.end .nsk{background:#fff;color:var(--navy);border-radius:999px;padding:6px 14px;font-weight:800}
+
+.note{background:var(--orange-bg);border-radius:12px;padding:10px 14px;font-size:.92rem}
+.note b{color:var(--orange)}
+.good{background:var(--green-bg);border-radius:12px;padding:10px 14px}
+.hl{color:var(--red);font-weight:800}
+video{width:100%;border-radius:14px;background:#000;display:block}
+
+/* party confetti + red wrong-answer feedback */
+.shake{animation:shk .45s}
+@keyframes shk{0%,100%{transform:translateX(0)}20%{transform:translateX(-9px)}40%{transform:translateX(9px)}60%{transform:translateX(-6px)}80%{transform:translateX(5px)}}
+#redFlash{position:fixed;inset:0;pointer-events:none;z-index:9998;box-shadow:inset 0 0 0 12px rgba(229,72,77,.92),inset 0 0 120px rgba(229,72,77,.55);opacity:0;transition:opacity .6s}
+#redFlash.on{opacity:1;transition:none}
+#fxCanvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999}
+.fbadge{position:fixed;z-index:10000;pointer-events:none;transform:translate(-50%,-50%);padding:10px 20px;border-radius:999px;font-weight:800;font-size:1.2rem;color:#fff;white-space:nowrap;box-shadow:0 10px 26px rgba(0,0,0,.22);animation:fbadge 1.4s ease-out forwards}
+.fbadge.good{background:#1fa75a}.fbadge.bad{background:#e5484d}
+@keyframes fbadge{0%{opacity:0;transform:translate(-50%,-30%) scale(.6)}15%{opacity:1;transform:translate(-50%,-70%) scale(1.12)}70%{opacity:1}100%{opacity:0;transform:translate(-50%,-170%) scale(1)}}
+.sitem.wrong,.oitem.wrong{background:var(--red-bg)!important}
+.sitem.right,.oitem.right{background:var(--green-bg)!important}
+</style>
+</head>
+<body>
+
+<div id="app">
+  <header class="topbar">
+    <a class="iconbtn" href="../" title="All lessons" aria-label="All lessons" style="text-decoration:none">◀</a>
+    <span class="crumb">C4 and CAM Plants</span>
+    <span class="unit">Unit 2: The Cell · Module 8: Cellular Energy</span>
+    <span class="date" id="today">Today</span>
+    <button class="iconbtn" data-go="3" title="Lesson map" aria-label="Lesson map"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 2 11.5h3V21h5.5v-6h3v6H19v-9.5h3z"/></svg></button>
+  </header>
+  <main id="main">
+
+<!-- 1 · TITLE -->
+<section class="slide hero" id="s1" data-title="C4 and CAM Plants" data-bare>
+  <div class="inner">
+    <div class="eyebrow">GRADE 11 ADVANCED · BIOLOGY · TERM 1 · LESSON 2</div>
+    <div><h1>C4 and CAM Plants</h1><p class="sub">Photosynthesis · alternative pathways in hot, dry climates</p></div>
+    <div style="opacity:.85">Unit 2: The Cell · Module 8: Cellular Energy · Lesson 2: Photosynthesis</div>
+    <div class="teacher">Teacher: <b>Nilasha Sempon</b> · Science &amp; Biology</div>
+    <div>
+      <div class="eyebrow" style="margin-bottom:8px">YOUR VALUES TEAM TODAY · tap to meet them</div>
+      <button class="bannerbtn" data-go="2"><img src="img/banner.webp" alt="Shahin (Leadership), Fahim (Knowledge), Maha (Respect), Ahmed (Responsibility) and Hessa (Tolerance) with the UAE national skills"></button>
+    </div>
+    <div class="mystery"><b>Today's mystery:</b> In a UAE summer, a pineapple plant and a field of maize both stay green at 45 °C. A normal plant would lose too much water or waste its energy. How are C4 and CAM plants different from normal plants in photosynthesis?</div>
+    <div class="row" style="padding-bottom:110px">
+      <button class="btn" data-go="2">▶ Let's go!</button>
+      <button class="btn ghost" data-go="3">Lesson map</button>
+      <span style="opacity:.8;font-size:.9rem">45-minute interactive lesson</span>
+    </div>
+  </div>
+  <canvas class="waves" id="heroWaves"></canvas>
+</section>
+
+<!-- 2 · MEET TEAM -->
+<section class="slide" id="s2" data-title="Meet your UAE Values Team" data-skills="teamwork">
+  <div class="inner">
+    <div class="head"><h2>Meet your UAE Values Team</h2><button class="btn" data-confetti>★ We're ready!</button></div>
+    <p class="lead">Five friends will coach you through today's desert-plant mission. <b>Tap a character to discover their job today!</b></p>
+    <div class="team">
+      <button class="flip" style="--cc:var(--c-shahin)"><div class="fi"><div class="face front"><img src="img/fig-shahin.webp" alt="Shahin – Leadership"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Shahin</h4>Lead your group in the stomata lab and the C4 or CAM debate.</div></div></button>
+      <button class="flip" style="--cc:var(--c-fahim)"><div class="fi"><div class="face front"><img src="img/fig-fahim.webp" alt="Fahim – Knowledge"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Fahim</h4>Collect today's key words: mesophyll, bundle sheath, oxaloacetate, vacuole, CAM.</div></div></button>
+      <button class="flip" style="--cc:var(--c-maha)"><div class="fi"><div class="face front"><img src="img/fig-maha.webp" alt="Maha – Respect"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Maha</h4>Respect every opinion in the debate: listen first, then reply.</div></div></button>
+      <button class="flip" style="--cc:var(--c-ahmed)"><div class="fi"><div class="face front"><img src="img/fig-ahmed.webp" alt="Ahmed – Responsibility"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Ahmed</h4>Save water like a CAM plant: use lab materials carefully and responsibly.</div></div></button>
+      <button class="flip" style="--cc:var(--c-hessa)"><div class="fi"><div class="face front"><img src="img/fig-hessa.webp" alt="Hessa – Tolerance"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Hessa</h4>Every answer is welcome here. Mistakes help us learn!</div></div></button>
+    </div>
+    <div class="stack">
+      <div class="label" style="color:var(--navy)">UAE national skills you will use today · tap a skill to see where</div>
+      <div class="nskills">
+        <button class="nskill">🇦🇪 National Identity<small>Desert plants of the UAE: ghaf, cacti, date palms</small></button>
+        <button class="nskill">🌿 Sustainability<small>Saving water, like CAM plants do</small></button>
+        <button class="nskill">🤝 Cooperation<small>Groups in the stomata lab and the debate</small></button>
+        <button class="nskill">💡 Innovation<small>Heat-tolerant crops for UAE food security</small></button>
+        <button class="nskill">⭐ Excellence<small>Become today's Desert Plant Master!</small></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · LESSON MAP -->
+<section class="slide" id="s3" data-title="Lesson map">
+  <div class="inner">
+    <div class="head"><h2>Lesson map · 45 minutes · tap any activity</h2></div>
+    <div class="map">
+      <button style="background:#1593c9" data-go="5"><small>STARTER · min 0–5</small><strong>Starter + Attendance</strong><span>Recap the Calvin cycle &amp; pre-assessment</span></button>
+      <button style="background:#d23b8a" data-go="4"><small>OBJECTIVES</small><strong>Objectives &amp; vocabulary</strong><span>Flip the key words</span></button>
+      <button style="background:#ef5a5a" data-go="7"><small>HOOK · min 5–9</small><strong>Green at 45 °C</strong><span>UAE hook + narrated video</span></button>
+      <button style="background:#f07f19" data-go="9"><small>ACTIVITY · min 9–12</small><strong>C4 or CAM?</strong><span>Sort the features</span></button>
+      <button style="background:#7a3ff0" data-go="10"><small>EXPLAIN · min 12–15</small><strong>Two kitchens, one cook</strong><span>The unconventional version + textbook</span></button>
+      <button style="background:#b0287a" data-go="14"><small>SIMULATION · min 15–18</small><strong>Hot day leaf</strong><span>Close the stomata: photorespiration</span></button>
+      <button style="background:#118a7e" data-go="15"><small>SIMULATION · min 18–21</small><strong>C4 relay</strong><span>Mesophyll → bundle sheath</span></button>
+      <button style="background:#2563eb" data-go="16"><small>SIMULATION · min 21–24</small><strong>CAM clock</strong><span>Night and day in a pineapple</span></button>
+      <button style="background:#1fa75a" data-go="17"><small>LAB · min 24–29</small><strong>Stomata peel lab</strong><span>Open or closed?</span></button>
+      <button style="background:#e5484d" data-go="18"><small>FORMATIVE · min 29–33</small><strong>Pause &amp; check</strong><span>Formative quiz + order the C4 steps</span></button>
+      <button style="background:#5b3fd0" data-go="20"><small>WORKSHEET · min 33–41</small><strong>Worksheet + levels</strong><span>Green / Blue / Orange</span></button>
+      <button style="background:#c81e3a" data-go="23"><small>SUMMATIVE · min 41–45</small><strong>Desert Plant Master + exit</strong><span>Summative quiz &amp; plenary</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · OBJECTIVES -->
+<section class="slide" id="s4" data-title="Objectives, success criteria & key words" data-skills="reading" data-coach="fahim" data-ns="Excellence" data-says="Flip every key-word card and say the meaning out loud. Knowledge grows when you use it!">
+  <div class="inner">
+    <div class="head"><h2>Objectives, success criteria &amp; key words</h2></div>
+    <div class="cols split-r">
+      <div class="stack">
+        <div class="card"><div class="label">Learning objective</div><p style="margin:6px 0 0;font-weight:700">Describe C4 and CAM plants (alternative ways of photosynthesis).</p></div>
+        <div class="card"><div class="label" style="color:var(--green)">Success criteria</div>
+          <ul class="crit" style="margin-top:10px">
+            <li><b>Foundation:</b> I can explain why stomata close in hot, dry conditions and name examples of C4 and CAM plants.</li>
+            <li><b>Secure:</b> I can describe how C4 plants separate the steps in space and CAM plants separate them in time.</li>
+            <li><b>Advanced:</b> I can explain photorespiration and evaluate which strategy suits the UAE best.</li>
+          </ul></div>
+      </div>
+      <div class="stack">
+        <div class="label" style="color:var(--purple)">Key words · tap a card to flip it</div>
+        <div class="grid g2" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr))">
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Stomata</strong><span class="tap">tap to flip</span></div><div class="face back">Tiny pores in the leaf that let CO₂ in and water vapour out.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Photorespiration</strong><span class="tap">tap to flip</span></div><div class="face back">Rubisco fixes O₂ instead of CO₂: no glucose is made and energy is wasted.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Mesophyll</strong><span class="tap">tap to flip</span></div><div class="face back">Leaf cells where C4 plants first fix CO₂.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Bundle sheath</strong><span class="tap">tap to flip</span></div><div class="face back">Cells around the veins where C4 plants run the Calvin cycle.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Oxaloacetate</strong><span class="tap">tap to flip</span></div><div class="face back">The 4-carbon compound C4 plants make when they fix CO₂.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Spatial separation</strong><span class="tap">tap to flip</span></div><div class="face back">Steps happen in different places (cells): the C4 strategy.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>CAM</strong><span class="tap">tap to flip</span></div><div class="face back">Crassulacean acid metabolism: stomata open at night; steps separated in time.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Vacuole</strong><span class="tap">tap to flip</span></div><div class="face back">Where CAM plants store CO₂ as organic acids overnight.</div></div></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · STARTER -->
+<section class="slide" id="s5" data-title="Starter + attendance" data-skills="discipline,integrity" data-coach="ahmed" data-ns="National Identity" data-says="Be ready before the timer ends: device on the LMS, pen out. Responsible learners make the UAE proud.">
+  <div class="inner">
+    <div class="head"><h2>Starter + attendance on the LMS</h2><div class="timer" data-sec="300"></div></div>
+    <div class="cols split-r">
+      <img class="fig" src="img/calvin.webp" alt="Recap: the Calvin cycle with carbon fixation by rubisco, reduction and regeneration of RuBP" style="max-width:460px">
+      <div class="card stack"><div class="label" style="color:var(--navy)">Task · 5 minutes</div>
+        <ol class="steps">
+          <li>Mark your attendance on the LMS and settle in your seat.</li>
+          <li><b>Recap the last lesson:</b> name the three stages of the Calvin cycle and the enzyme that fixes CO₂.</li>
+          <li>Try the interactive: <a href="https://peebedu.com/interactives/lightreactions/" target="_blank" rel="noopener">photosynthesis interactive</a> (Lesson 102: the light-independent reactions).</li>
+          <li>Then answer the true/false questions on the next slide on your own.</li>
+        </ol>
+        <button class="btn small" data-go="6" style="justify-self:start">Go to the true/false questions ▸</button>
+      </div>
+    </div>
+    <div class="note"><b>Focus question:</b> how are C4 and CAM plants different from normal plants in photosynthesis?</div>
+  </div>
+</section>
+
+<!-- 6 · PRE-ASSESSMENT -->
+<section class="slide" id="s6" data-title="Pre-assessment: what do you know?" data-skills="critical">
+  <div class="inner">
+    <div class="head"><h2>Pre-assessment: what do you already know?</h2><div class="timer" data-sec="180"></div></div>
+    <div class="cols split">
+      <img class="fig" src="img/leaf.webp" alt="Structure of a leaf: cuticle, upper epidermis, palisade layer, spongy layer, vein, lower epidermis and stomata">
+      <div class="stack" id="tf">
+        <div class="q" data-a="T"><div class="qt">1. CO₂ enters the leaf through the stomata.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Stomata are the leaf's pores for gas exchange."></div></div>
+        <div class="q" data-a="F"><div class="qt">2. Open stomata only let gases in; no water is lost.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Water vapour escapes through open stomata."></div></div>
+        <div class="q" data-a="T"><div class="qt">3. Rubisco is the enzyme that fixes CO₂ in the Calvin cycle.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Rubisco joins CO₂ to RuBP."></div></div>
+        <div class="q" data-a="F"><div class="qt">4. All plants photosynthesise in exactly the same way.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="C4 and CAM plants use alternative pathways."></div></div>
+        <div class="q" data-a="T"><div class="qt">5. Desert plants must balance getting CO₂ with saving water.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="That is exactly the problem C4 and CAM solve."></div></div>
+        <div class="score" id="tfScore">Score: 0 / 5</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · HOOK -->
+<section class="slide" id="s7" data-title="Hook: green at 45 °C" data-skills="critical,loyalty" data-coach="shahin" data-ns="National Identity" data-says="Lead your pair: one predicts, one explains. Our desert plants are UAE survivors!">
+  <div class="inner">
+    <div class="head"><h2>Hook: green at 45 °C</h2></div>
+    <img class="fig" src="img/hook.webp" alt="Maize, sugarcane, a pineapple plant and a jade plant">
+    <div class="cols split">
+      <div class="card stack">
+        <h3 style="margin:0;color:var(--orange);font-family:var(--display)">A UAE summer afternoon…</h3>
+        <p style="margin:0">Maize and sugarcane grow fast in strong sunlight. A pineapple and a jade plant survive with very little water. All four still need <b>CO₂</b> for the Calvin cycle.</p>
+        <p style="margin:0"><b style="color:var(--purple)">Focus question:</b> to get CO₂, a leaf must open its stomata, but then it loses water. How are C4 and CAM plants different from normal plants?</p>
+      </div>
+      <div class="card stack">
+        <div class="row"><button class="btn" data-show="tps">Think · Pair · Share</button><button class="btn red" data-show="clue">Reveal the thinking prompts</button></div>
+        <div id="tps" hidden class="good stack"><b>Talk with your partner for 1 minute.</b> <div class="timer" data-sec="60"></div></div>
+        <div id="clue" hidden class="stack"><div class="fb no">1. What happens to a leaf if its stomata stay open in the heat?<br>2. Could a plant take in CO₂ at a cooler time?<br>3. Could a plant do the steps in different cells?</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · VIDEO (narrated) -->
+<section class="slide" id="s8" data-title="Video: C4 and CAM plants" data-skills="critical,communication">
+  <div class="inner">
+    <div class="head"><h2>Video: C4 and CAM plants (narrated, 2 min 22 s, subtitles)</h2></div>
+    <div class="cols split">
+      <video controls preload="metadata" playsinline poster="img/video-poster.webp"><source src="media/c4-cam-plants.mp4" type="video/mp4"><source src="media/c4-cam-plants.webm" type="video/webm">Your browser cannot play this video.</video>
+      <div class="card stack"><div class="label" style="color:var(--blue)">Watch for</div>
+        <div><b>Q1. Why do stomata close on hot, dry days?</b><div class="fb ok vans" hidden>✓ To conserve water. But then CO₂ falls and O₂ builds up inside the leaf.</div></div>
+        <div><b>Q2. What is photorespiration?</b><div class="fb ok vans" hidden>✓ Rubisco reacts with O₂ instead of CO₂: no glucose is made and energy is wasted.</div></div>
+        <div><b>Q3. How do C4 plants separate the steps?</b><div class="fb ok vans" hidden>✓ In space: mesophyll cells fix CO₂ into a 4-C molecule; bundle sheath cells release it for the Calvin cycle.</div></div>
+        <div><b>Q4. How do CAM plants separate the steps?</b><div class="fb ok vans" hidden>✓ In time: stomata open at night, CO₂ is stored as organic acids in vacuoles and used in the day.</div></div>
+        <button class="btn" id="vidAns" style="justify-self:start">Show answers</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · SORT -->
+<section class="slide" id="s9" data-title="Activity 1: C4 or CAM?" data-skills="critical,teamwork" data-coach="hessa" data-ns="Cooperation" data-says="Sorted it differently from your partner? Listen first, then compare. Different ideas help us learn.">
+  <div class="inner">
+    <div class="head"><h2>Activity 1: C4 or CAM?</h2><div class="timer" data-sec="240"></div></div>
+    <p class="lead">Does each feature describe a <b>C4</b> plant or a <b>CAM</b> plant? <b>Tap to choose</b>, then check.</p>
+    <div class="cols split-r">
+      <img class="fig" src="img/hook.webp" alt="Maize and sugarcane (C4); pineapple and jade (CAM)">
+      <div class="stack">
+        <div class="sorter" id="sorter" data-labels="C4|CAM">
+          <button class="sitem" data-ans="C4">Steps separated in space<span class="tag">?</span></button>
+          <button class="sitem" data-ans="CAM">Steps separated in time<span class="tag">?</span></button>
+          <button class="sitem" data-ans="CAM">Stomata open at night<span class="tag">?</span></button>
+          <button class="sitem" data-ans="C4">Mesophyll and bundle sheath cells<span class="tag">?</span></button>
+          <button class="sitem" data-ans="C4">Maize, sugarcane, grasses<span class="tag">?</span></button>
+          <button class="sitem" data-ans="CAM">Pineapple, cacti, jade<span class="tag">?</span></button>
+          <button class="sitem" data-ans="CAM">CO₂ stored as organic acids in vacuoles<span class="tag">?</span></button>
+          <button class="sitem" data-ans="C4">Stomata partly close in the day<span class="tag">?</span></button>
+        </div>
+        <div class="row"><button class="btn navy" id="sortCheck">Check my sort</button><span class="score" id="sortScore"></span></div>
+        <div class="note" id="sortWhy" hidden><b>Why?</b> <b>C4</b> plants split the work between two cell types (space): mesophyll cells fix CO₂ into a 4-C molecule and bundle sheath cells run the Calvin cycle. <b>CAM</b> plants split the work between night and day (time): stomata open at night and CO₂ is stored as organic acids in vacuoles.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · TWO KITCHENS -->
+<section class="slide" id="s10" data-title="Activity 2: two kitchens, one cook" data-skills="teamwork,critical" data-coach="fahim" data-ns="Innovation" data-says="Plants invented clever solutions to the heat. Engineers learn from nature: that is innovation!">
+  <div class="inner">
+    <div class="head"><h2>Activity 2: two kitchens, one cook (the unconventional version)</h2></div>
+    <div class="grid g2">
+      <div class="card" style="background:var(--orange-bg);border-color:#ffd2a6"><div class="label" style="color:var(--orange)">Think of it like this</div><p style="margin:6px 0 0">Rubisco is a cook who gets confused when the kitchen fills with smoke (O₂). A <b style="color:var(--green)">C4 plant</b> is a restaurant with <b>two kitchens</b>: a helper in the front kitchen (mesophyll) packs CO₂ into boxes (4-C molecules) and sends them to the back kitchen (bundle sheath), so the cook always has plenty of CO₂. A <b style="color:var(--purple)">CAM plant</b> is a family that <b>shops at night</b> when it is cool, stores the food in the fridge (vacuole) and cooks during the day with the doors shut.</p></div>
+      <div class="card" style="background:var(--blue-bg);border-color:#c7d7fb"><div class="label" style="color:var(--blue)">Textbook definition</div><p style="margin:6px 0 0">Plants in hot, dry climates have evolved <b class="hl">alternative mechanisms of carbon fixation</b>. The <b>C4 pathway</b> keeps photosynthesis going while reducing water loss, using a special arrangement of leaf cells. <b>CAM</b> plants collect CO₂ at night, store it in organic compounds, and release it in the day for the Calvin cycle.</p></div>
+    </div>
+    <div class="label" style="color:var(--navy)">Think · Pair · Share: match the story to the science. Tap to check!</div>
+    <div class="grid g3">
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--red)"><strong style="color:var(--red)">😵 Confused cook</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--red-bg);border-color:var(--red)"><b>Rubisco + O₂</b> = photorespiration: no glucose, energy wasted.</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--green)"><strong style="color:var(--green)">📦 Front kitchen</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--green-bg);border-color:var(--green)"><b>Mesophyll cells</b> fix CO₂ into a 4-C molecule (oxaloacetate).</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--blue)"><strong style="color:var(--blue)">🍳 Back kitchen</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--blue-bg);border-color:var(--blue)"><b>Bundle sheath cells</b> release CO₂ for the Calvin cycle.</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--purple)"><strong style="color:var(--purple)">🌙 Night shopping</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--purple-bg);border-color:var(--purple)"><b>CAM</b>: stomata open at night to collect CO₂.</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--orange)"><strong style="color:var(--orange)">🧊 The fridge</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--orange-bg);border-color:var(--orange)"><b>Vacuole</b>: CO₂ stored as organic acids until the day.</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--sea)"><strong style="color:var(--sea)">🚪 Doors shut</strong><span class="tap">tap to check</span></div><div class="face back" style="background:#e0f5f2;border-color:var(--sea)"><b>Stomata closed in the day</b>, so very little water is lost.</div></div></button>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · TB PHOTORESPIRATION -->
+<section class="slide" id="s11" data-title="Textbook: the problem of photorespiration" data-skills="reading,critical" data-coach="maha" data-ns="Sustainability" data-says="Respect the reader: listen while a classmate reads, then answer together.">
+  <div class="inner">
+    <div class="head"><h2>Textbook: why do plants need another way?</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your lesson</div><img class="fig" src="img/leaf.webp" alt="Leaf structure with stomata in the lower epidermis">
+        <div class="note"><b>Remember:</b> stomata are in the lower epidermis. Open = CO₂ in and water out.</div></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 What happens to stomata in hot, dry conditions, and why?</div><button class="btn small ghost" data-show="t11a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t11a" hidden>✓ They close to conserve water. This reduces CO₂ and increases O₂ inside the leaf.</div></div>
+        <div class="q"><div class="qt">Q2 What is photorespiration?</div><button class="btn small ghost" data-show="t11b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t11b" hidden>✓ Rubisco reacts with oxygen instead of carbon dioxide.</div></div>
+        <div class="q"><div class="qt">Q3 Why is photorespiration bad for the plant?</div><button class="btn small ghost" data-show="t11c" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t11c" hidden>✓ No glucose is produced and energy is wasted. C4 and CAM plants reduce it.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 · TB C4 -->
+<section class="slide" id="s12" data-title="Textbook: C4 plants" data-skills="reading" data-coach="ahmed" data-ns="Excellence" data-says="Draw the two cells and the arrows in your notebook. Responsible learners write it down!">
+  <div class="inner">
+    <div class="head"><h2>Textbook: C4 plants · separation in space</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your lesson</div>
+        <div class="row" style="gap:10px;justify-content:center"><img src="img/corn.webp" alt="Maize field" style="height:170px;border-radius:10px"><img src="img/sugarcane.webp" alt="Sugarcane" style="height:170px;border-radius:10px"></div>
+        <p style="margin:0">The C4 pathway allows plants to maintain photosynthesis while reducing water loss. C4 plants have a <b class="hl">significant structural modification</b> in the arrangement of cells within the leaves.</p></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Tap each step to reveal it</div>
+        <div class="q"><div class="qt">STEP 1 · Stomata</div><button class="btn small ghost" data-show="t12a" style="justify-self:start">Reveal ▸</button><div class="fb ok" id="t12a" hidden>Stomata partially close to conserve water.</div></div>
+        <div class="q"><div class="qt">STEP 2 · Mesophyll cells</div><button class="btn small ghost" data-show="t12b" style="justify-self:start">Reveal ▸</button><div class="fb ok" id="t12b" hidden>Mesophyll cells fix CO₂ into a 4-C molecule (oxaloacetate).</div></div>
+        <div class="q"><div class="qt">STEP 3 · Bundle sheath cells</div><button class="btn small ghost" data-show="t12c" style="justify-self:start">Reveal ▸</button><div class="fb ok" id="t12c" hidden>The 4-C molecule is transferred to bundle sheath cells, which release CO₂ for the Calvin cycle. Examples: maize, grasses, sugarcane.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 · TB CAM -->
+<section class="slide" id="s13" data-title="Textbook: CAM plants" data-skills="reading,critical" data-coach="hessa" data-ns="National Identity" data-says="Many UAE desert plants save water just like this. Explain one step to your partner!">
+  <div class="inner">
+    <div class="head"><h2>Textbook: CAM plants · separation in time</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your lesson</div>
+        <div class="row" style="gap:10px;justify-content:center"><img src="img/pineapple.webp" alt="Pineapple plant" style="height:170px;border-radius:10px"><img src="img/jade.webp" alt="Jade plant" style="height:170px;border-radius:10px"></div>
+        <p style="margin:0"><b class="hl">Crassulacean acid metabolism (CAM)</b> is found in desert plants. These plants collect CO₂ at night and store it in organic compounds. During the day, they release CO₂ from these compounds for photosynthesis.</p></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 When are the stomata of a CAM plant open?</div><button class="btn small ghost" data-show="t13a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13a" hidden>✓ At night; they close during the day.</div></div>
+        <div class="q"><div class="qt">Q2 Where is the CO₂ stored, and in what form?</div><button class="btn small ghost" data-show="t13b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13b" hidden>✓ As organic acids, stored in the vacuoles.</div></div>
+        <div class="q"><div class="qt">Q3 What happens during the day?</div><button class="btn small ghost" data-show="t13c" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13c" hidden>✓ The light reactions occur, and CO₂ is released from the organic acids into the Calvin cycle. Examples: pineapples, cacti, succulents, jade.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 · SIM: HOT DAY LEAF -->
+<section class="slide" id="s14" data-title="Simulation: hot day leaf" data-skills="critical,numeracy" data-coach="shahin" data-ns="Sustainability" data-says="Leaders weigh the trade-off: water or carbon dioxide? Predict before you slide!">
+  <div class="inner">
+    <div class="head"><h2>Simulation: hot day leaf · close the stomata</h2></div>
+    <div class="cols split-r">
+      <div class="sim">
+        <canvas id="photo" height="300"></canvas>
+        <div class="row"><label class="legend" style="flex:1">🕳️ Stomata open ← → closed <input type="range" id="stoma" min="0" max="100" value="10" style="width:55%"></label></div>
+        <div class="row"><button class="btn small" data-leaf="c3" style="background:var(--blue);color:#fff">🌾 Normal (C3) leaf</button><button class="btn small" data-leaf="c4" style="background:var(--green);color:#fff">🌽 C4 leaf</button></div>
+        <div class="score" id="photoRead"></div>
+      </div>
+      <div class="grid" style="gap:10px">
+        <button class="flip kw"><div class="fi"><div class="face front"><strong>What happens to CO₂ and O₂ as stomata close?</strong><span class="tap">tap to reveal</span></div><div class="face back">CO₂ falls (no new CO₂ enters); O₂ from the light reactions builds up.</div></div></button>
+        <button class="flip kw"><div class="fi"><div class="face front"><strong>Why does photorespiration rise?</strong><span class="tap">tap to reveal</span></div><div class="face back">Rubisco grabs O₂ more often when O₂ is high and CO₂ is low.</div></div></button>
+        <button class="flip kw"><div class="fi"><div class="face front"><strong>Why does the C4 leaf do better?</strong><span class="tap">tap to reveal</span></div><div class="face back">It pumps CO₂ into the bundle sheath, so rubisco there always has plenty of CO₂.</div></div></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 · SIM: C4 RELAY -->
+<section class="slide" id="s15" data-title="Simulation: the C4 relay" data-skills="critical" data-coach="maha" data-ns="Cooperation" data-says="Two cell types working as a team: cooperation in nature! Follow each step carefully.">
+  <div class="inner">
+    <div class="head"><h2>Simulation: the C4 relay · mesophyll → bundle sheath</h2></div>
+    <div class="cols split-r">
+      <div class="stack">
+        <div class="card" style="background:#fff8db;border-color:#f3e2a0"><p style="margin:0">Press <b>Next step</b> to follow one CO₂ molecule through a C4 leaf, from the air to the Calvin cycle.</p></div>
+        <div class="card stack"><b>Predict, then tap to check</b>
+          <button class="btn small ghost" data-show="w1" style="justify-self:start">▶ Where is CO₂ first fixed?</button><div class="fb ok" id="w1" hidden>In the mesophyll cells, into a 4-carbon molecule (oxaloacetate).</div>
+          <button class="btn small ghost" data-show="w2" style="justify-self:start">▶ Where does the Calvin cycle happen?</button><div class="fb ok" id="w2" hidden>In the bundle sheath cells, around the vein.</div></div>
+      </div>
+      <div class="sim"><b>Inside a C4 leaf</b>
+        <canvas id="c4" height="260"></canvas>
+        <div class="row"><button class="btn small ghost" id="c4Prev">◀ Back</button><button class="btn small" id="c4Next" style="background:var(--green);color:#fff">Next step ▶</button><button class="btn small ghost" id="c4Reset">↺ Restart</button></div>
+        <div class="score" id="c4Read"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 16 · SIM: CAM CLOCK + UAE DEBATE -->
+<section class="slide" id="s16" data-title="Simulation: the CAM clock" data-skills="critical,loyalty" data-coach="fahim" data-ns="Innovation" data-says="UAE scientists study heat-tolerant crops for our food security. Think like a plant scientist!">
+  <div class="inner">
+    <div class="head"><h2>Simulation: the CAM clock · and which is better for the UAE?</h2></div>
+    <div class="cols split">
+      <div class="sim"><b>24 hours in a pineapple leaf</b>
+        <canvas id="camc" height="270"></canvas>
+        <div class="row"><label class="legend" style="flex:1">🕐 Time of day <input type="range" id="hour" min="0" max="23" value="2" style="width:60%"></label><button class="btn small" id="camPlay">▶ Play 24 h</button></div>
+        <div class="score" id="camRead"></div>
+      </div>
+      <div class="stack">
+        <div class="card stack"><div class="label">Let us think</div>
+          <p style="margin:0;font-weight:800;font-size:1.1rem">Which plant strategy is better for the UAE: C4 or CAM?</p>
+          <div class="row"><button class="btn small" style="background:var(--green);color:#fff" data-show="v1">🌽 Team C4</button><button class="btn small" style="background:var(--purple);color:#fff" data-show="v2">🌵 Team CAM</button></div>
+          <div class="fb ok" id="v1" hidden><b>C4 argument:</b> fast growth and high productivity in heat and strong sunlight; good for crops like maize and sugarcane on irrigated UAE farms.</div>
+          <div class="fb ok" id="v2" hidden><b>CAM argument:</b> saves the most water by keeping stomata closed in the day; perfect for very dry UAE deserts with little rain.</div>
+          <button class="btn small ghost" data-show="v3" style="justify-self:start">▶ Teacher's verdict</button><div class="good" id="v3" hidden>Both! For <b>water saving</b> in the open desert, CAM wins. For <b>fast-growing food crops</b> with some irrigation, C4 wins. Scientists choose the right plant for the right job.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 17 · LAB -->
+<section class="slide" id="s17" data-title="Lab: stomata peel" data-skills="numeracy,teamwork" data-coach="ahmed" data-ns="Cooperation" data-says="One paints, one peels, one records. Use the microscope carefully and responsibly!">
+  <div class="inner">
+    <div class="head"><h2>Lab: stomata peel · open or closed?</h2><div class="timer" data-sec="300"></div></div>
+    <div class="cols split">
+      <div class="stack">
+        <div class="good"><b>You need:</b> a grass or maize leaf (C4) · a succulent leaf, e.g. jade (CAM) · clear nail varnish · clear tape · slides · a light microscope</div>
+        <ol style="margin:0;padding-left:20px;display:grid;gap:4px">
+          <li>Paint a small patch of nail varnish on the underside of each leaf. Let it dry.</li>
+          <li>Press clear tape on the patch, peel it off and stick it to a slide.</li>
+          <li>Observe at 400×. Count the stomata in your field of view and note if they look open or closed.</li>
+          <li>Compare the two leaves (sampled during the school day).</li>
+        </ol>
+        <div class="tablewrap"><table>
+          <thead><tr><th>Leaf</th><th>Stomata in view</th><th>Open or closed (daytime)?</th></tr></thead>
+          <tbody>
+            <tr><td><b>Maize / grass (C4)</b></td><td><input type="text" id="lab1" placeholder="count"><div class="exp" hidden>many, in rows</div></td><td><input type="text" id="lab2" placeholder="open / closed"><div class="exp" hidden>partly open</div></td></tr>
+            <tr><td><b>Jade (CAM)</b></td><td><input type="text" id="lab3" placeholder="count"><div class="exp" hidden>fewer, scattered</div></td><td><input type="text" id="lab4" placeholder="open / closed"><div class="exp" hidden>mostly closed</div></td></tr>
+            <tr><td><b>Link</b></td><td><input type="text" id="lab5" placeholder="why closed in day?"><div class="exp" hidden>to save water</div></td><td><input type="text" id="lab6" placeholder="when do they open?"><div class="exp" hidden>at night</div></td></tr>
+          </tbody></table></div>
+        <div class="row"><button class="btn" id="labExp">Expected results</button></div>
+        <div class="fb no"><b>Safety:</b> use nail varnish in a ventilated room, away from flames. Carry the microscope with two hands.</div>
+      </div>
+      <div class="sim"><b>Virtual leaf peel (400×)</b>
+        <canvas id="lab" height="300"></canvas>
+        <div class="row" style="justify-content:space-between"><span class="row"><button class="btn small" data-plant="c4" style="background:var(--green);color:#fff">Maize (C4)</button><button class="btn small" data-plant="cam" style="background:var(--purple);color:#fff">Jade (CAM)</button></span><span class="row"><button class="btn small" data-time="day">☀️ Day</button><button class="btn small navy" data-time="night">🌙 Night</button></span></div>
+        <div class="score" id="labRead"></div>
+        <button class="btn navy small" data-show="labQ" style="justify-self:start">▶ What should you notice?</button>
+        <div class="good" id="labQ" hidden>In the day, the <b>CAM</b> leaf keeps its stomata <b>closed</b> to save water and opens them at night. The <b>C4</b> leaf keeps its stomata <b>partly open</b> in the day: it captures CO₂ so efficiently that it loses less water than a normal plant.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 18 · PAUSE & CHECK -->
+<section class="slide" id="s18" data-title="Formative check" data-skills="integrity" data-coach="hessa" data-ns="Excellence" data-says="Wrong answer? Read the hint and try again. Excellence means never giving up.">
+  <div class="inner">
+    <div class="head"><h2>Formative check</h2><div class="timer" data-sec="120"></div></div>
+    <p class="lead">Tap an answer. <b>Wrong? Read the hint and try again!</b></p>
+    <div class="grid g2 mcqset" data-mode="retry">
+      <div class="q"><div class="qt">1. In hot, dry conditions, stomata close to…</div><div class="opts"><button class="opt">A. take in more CO₂</button><button class="opt" data-ok>B. conserve water</button><button class="opt">C. release glucose</button><button class="opt">D. make more O₂</button></div><div class="fb no" hidden>Hint: what does the plant want to keep?</div></div>
+      <div class="q"><div class="qt">2. When rubisco reacts with O₂ instead of CO₂, it is called…</div><div class="opts"><button class="opt">A. carbon fixation</button><button class="opt">B. regeneration</button><button class="opt" data-ok>C. photorespiration</button><button class="opt">D. transpiration</button></div><div class="fb no" hidden>Hint: no glucose, energy wasted.</div></div>
+      <div class="q"><div class="qt">3. In C4 plants, CO₂ is first fixed into a 4-C molecule in the…</div><div class="opts"><button class="opt" data-ok>A. mesophyll cells</button><button class="opt">B. bundle sheath cells</button><button class="opt">C. vacuole</button><button class="opt">D. stomata</button></div><div class="fb no" hidden>Hint: the front kitchen.</div></div>
+      <div class="q"><div class="qt">4. CAM plants store CO₂ overnight as…</div><div class="opts"><button class="opt">A. glucose</button><button class="opt">B. starch</button><button class="opt">C. RuBP</button><button class="opt" data-ok>D. organic acids in vacuoles</button></div><div class="fb no" hidden>Hint: the fridge.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 19 · ORDER -->
+<section class="slide" id="s19" data-title="Order the C4 pathway" data-skills="critical,discipline" data-coach="shahin" data-ns="Cooperation" data-says="Agree on the order as a team before you reveal it. Good leaders make sure everyone speaks.">
+  <div class="inner">
+    <div class="head"><h2>Put the C4 pathway in order</h2></div>
+    <p class="lead"><b>Tap the steps from first to last</b>. Tap a numbered one to undo.</p>
+    <div class="order" id="order">
+      <button class="oitem" data-p="3"><span class="n">?</span>The 4-C molecule moves into a bundle sheath cell</button>
+      <button class="oitem" data-p="5"><span class="n">?</span>Rubisco fixes the CO₂ in the Calvin cycle, making sugar</button>
+      <button class="oitem" data-p="1"><span class="n">?</span>CO₂ enters through partly open stomata</button>
+      <button class="oitem" data-p="4"><span class="n">?</span>The 4-C molecule releases CO₂</button>
+      <button class="oitem" data-p="2"><span class="n">?</span>Mesophyll cells fix CO₂ into a 4-C molecule (oxaloacetate)</button>
+    </div>
+    <div class="row"><button class="btn navy" id="orderCheck">Check my order</button><button class="btn" id="orderReveal">Reveal the order</button><span class="score" id="orderScore"></span></div>
+    <div class="chain" id="chain" hidden>
+      <div style="background:#1593c9">1 · CO₂ enters</div>
+      <div style="background:#1fa75a">2 · Fixed into 4-C</div>
+      <div style="background:#f07f19">3 · Moves to bundle sheath</div>
+      <div style="background:#7a3ff0">4 · CO₂ released</div>
+      <div style="background:#e5484d">5 · Calvin cycle</div>
+    </div>
+    <div class="card stack"><b>Traffic light: how sure are you?</b>
+      <div class="traffic"><button style="background:var(--green)" data-tl="Brilliant! Help a partner explain the difference between C4 and CAM.">I can teach it</button><button style="background:var(--orange)" data-tl="Good! Re-read the C4 and CAM textbook slides, then try again.">Mostly</button><button style="background:var(--red)" data-tl="That is OK! Your teacher will go through it with you now.">I need help</button></div>
+      <div id="tlMsg" class="note" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- 20 · WORKSHEET 1 -->
+<section class="slide" id="s20" data-title="C4 and CAM worksheet (1/2)" data-skills="reading" data-coach="ahmed" data-ns="Excellence" data-says="Work on your own first, then check your answers. Own your learning!">
+  <div class="inner">
+    <div class="head"><h2>C4 and CAM worksheet (1/2)</h2><div class="timer" data-sec="240"></div></div>
+    <div class="grid g2">
+      <div class="card stack"><div class="label" style="color:var(--navy)">A · Match each word · 5 marks</div>
+        <div style="font-size:.92rem;color:var(--muted)">A. Rubisco fixes O₂ instead of CO₂<br>B. 4-C compound made in C4 plants<br>C. Cells where C4 plants run the Calvin cycle<br>D. Where CAM plants store organic acids<br>E. Pores that let CO₂ in and water out</div>
+        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:8px" id="wsA">
+          <label class="fillrow">1. Photorespiration <select data-ans="A" id="wa1"></select></label>
+          <label class="fillrow">2. Oxaloacetate <select data-ans="B" id="wa2"></select></label>
+          <label class="fillrow">3. Bundle sheath <select data-ans="C" id="wa3"></select></label>
+          <label class="fillrow">4. Vacuole <select data-ans="D" id="wa4"></select></label>
+          <label class="fillrow">5. Stomata <select data-ans="E" id="wa5"></select></label>
+        </div>
+        <div class="row"><button class="btn small navy" data-check="wsA">Check A</button><button class="btn small ghost" data-answers="wsA">Show answers (A)</button><span class="score" data-out="wsA"></span></div>
+      </div>
+      <div class="card stack"><div class="label" style="color:var(--navy)">B · Fill the gaps · 5 marks</div>
+        <div class="wordbank">Word bank: space · time · night · mesophyll · water</div>
+        <div class="stack" id="wsB" style="gap:8px">
+          <div class="fillrow">1. C4 plants separate the steps in <input type="text" size="6" data-ans="space" id="wb1" aria-label="gap 1">.</div>
+          <div class="fillrow">2. CAM plants separate the steps in <input type="text" size="6" data-ans="time" id="wb2" aria-label="gap 2">.</div>
+          <div class="fillrow">3. CAM plants open their stomata at <input type="text" size="6" data-ans="night" id="wb3" aria-label="gap 3">.</div>
+          <div class="fillrow">4. In C4 plants, <input type="text" size="9" data-ans="mesophyll|mesophyll cells" id="wb4" aria-label="gap 4"> cells fix CO₂ into a 4-C molecule.</div>
+          <div class="fillrow">5. Both pathways help plants reduce <input type="text" size="6" data-ans="water|water loss" id="wb5" aria-label="gap 5"> loss.</div>
+        </div>
+        <div class="row"><button class="btn small navy" data-check="wsB">Check B</button><button class="btn small ghost" data-answers="wsB">Show answers (B)</button><span class="score" data-out="wsB"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 21 · WORKSHEET 2 -->
+<section class="slide" id="s21" data-title="C4 and CAM worksheet (2/2)" data-skills="reading,critical" data-coach="maha" data-ns="Excellence" data-says="Respect your reader: write full sentences using stomata, space and time.">
+  <div class="inner">
+    <div class="head"><h2>C4 and CAM worksheet (2/2)</h2></div>
+    <div class="card stack"><div class="label" style="color:var(--navy)">C · C4, CAM or both? · 6 marks</div>
+      <div class="legend">Choose from: C4 · CAM · Both</div>
+      <div class="tablewrap" id="wsC"><table>
+        <thead><tr><th>Statement</th><th>Which plants?</th></tr></thead>
+        <tbody>
+          <tr><td>reduce water loss in hot, dry climates</td><td><select data-ans="Both" data-opts="C4|CAM|Both" id="wc1"></select></td></tr>
+          <tr><td>stomata open only at night</td><td><select data-ans="CAM" data-opts="C4|CAM|Both" id="wc2"></select></td></tr>
+          <tr><td>a special arrangement of leaf cells</td><td><select data-ans="C4" data-opts="C4|CAM|Both" id="wc3"></select></td></tr>
+          <tr><td>still use the Calvin cycle to make sugar</td><td><select data-ans="Both" data-opts="C4|CAM|Both" id="wc4"></select></td></tr>
+          <tr><td>maize and sugarcane</td><td><select data-ans="C4" data-opts="C4|CAM|Both" id="wc5"></select></td></tr>
+          <tr><td>pineapples and cacti</td><td><select data-ans="CAM" data-opts="C4|CAM|Both" id="wc6"></select></td></tr>
+        </tbody></table></div>
+      <div class="row"><button class="btn small navy" data-check="wsC">Check C</button><button class="btn small ghost" data-answers="wsC">Show answers (C)</button><span class="score" data-out="wsC"></span></div>
+    </div>
+    <div class="cols split">
+      <div class="card stack"><div class="label" style="color:var(--navy)">D · Explain · 3 marks</div>
+        <p style="margin:0">Why are C4 and CAM plants better adapted to hot, dry environments than normal plants?</p>
+        <textarea id="wd" placeholder="Write your explanation in full sentences…"></textarea>
+        <button class="btn small" data-show="model" style="justify-self:start">Show model answer (D)</button>
+      </div>
+      <div class="stack">
+        <div class="good" id="model" hidden><b>Model answer (1 mark each):</b><br>✓ In heat, normal plants close their stomata, CO₂ falls and rubisco wastes energy in photorespiration.<br>✓ C4 plants fix CO₂ in mesophyll cells and concentrate it in bundle sheath cells, so stomata can stay partly closed.<br>✓ CAM plants open stomata only at night and store CO₂ as acids, so they lose much less water in the hot day.</div>
+        <div class="card"><span class="score" id="wsTotal">Total: A + B + C = 0 / 16 marks</span><div class="legend">Your teacher marks part D (3 marks) for a total out of 19.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 22 · LEVELS -->
+<section class="slide" id="s22" data-title="Differentiated tasks: choose your level" data-skills="discipline,critical" data-coach="maha" data-ns="Cooperation" data-says="Every level is respected here. Finished early? Try the next level up!">
+  <div class="inner">
+    <div class="head"><h2>Main activity: visual questions · Green · Blue · Orange</h2><div class="timer" data-sec="240"></div></div>
+    <div class="grid g3">
+      <div class="level" style="--lc:var(--green);--lbg:var(--green-bg)"><h3>Green · Mandatory ★</h3>
+        <ol><li>Why do stomata close on hot days?</li><li>Name two C4 and two CAM plants.</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. To conserve water.<br>2. C4: maize, sugarcane (grasses). CAM: pineapple, cacti (jade).</div><button class="btn small ghost lvl">Show answers</button></div>
+      <div class="level" style="--lc:var(--blue);--lbg:var(--blue-bg)"><h3>Blue · Less mandatory ★★</h3>
+        <ol><li>Describe the C4 pathway in three steps.</li><li>Describe what a CAM plant does at night and in the day.</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. Mesophyll fixes CO₂ into 4-C → moves to bundle sheath → CO₂ released into the Calvin cycle.<br>2. Night: stomata open, CO₂ stored as organic acids. Day: stomata closed, CO₂ released to the Calvin cycle.</div><button class="btn small ghost lvl">Show answers</button></div>
+      <div class="level" style="--lc:var(--orange);--lbg:var(--orange-bg)"><h3>Orange · Optional ★★★</h3>
+        <ol><li>Explain how photorespiration wastes energy.</li><li>Which strategy is better for the UAE? Justify your answer.</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. Rubisco fixes O₂ instead of CO₂, so no glucose is made but ATP and NADPH are used.<br>2. CAM saves the most water in the open desert; C4 grows faster for irrigated crops. Any justified answer.</div><button class="btn small ghost lvl">Show answers</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- 23 · SUMMATIVE -->
+<section class="slide" id="s23" data-title="Summative: Desert Plant Master quiz" data-skills="integrity" data-coach="ahmed" data-ns="Excellence" data-says="Count only your honest first try. Integrity is part of excellence!">
+  <div class="inner">
+    <div class="head"><h2>Summative assessment: Desert Plant Master quiz</h2><div class="timer" data-sec="180"></div></div>
+    <div class="stack mcqset" data-mode="first" id="wm">
+      <div class="q"><div class="qt">1. What is one key difference between C4 and CAM plants?</div><div class="opts"><button class="opt">A. Only C4 plants use the Calvin cycle</button><button class="opt" data-ok>B. C4 separates steps in space; CAM separates them in time</button><button class="opt">C. CAM plants have no stomata</button><button class="opt">D. C4 plants only photosynthesise at night</button></div></div>
+      <div class="q"><div class="qt">2. Photorespiration happens when rubisco reacts with…</div><div class="opts"><button class="opt">A. CO₂</button><button class="opt">B. water</button><button class="opt" data-ok>C. O₂</button><button class="opt">D. glucose</button></div></div>
+      <div class="q"><div class="qt">3. Which is a CAM plant?</div><div class="opts"><button class="opt">A. maize</button><button class="opt">B. sugarcane</button><button class="opt" data-ok>C. pineapple</button><button class="opt">D. grass</button></div></div>
+      <div class="q"><div class="qt">4. In C4 plants, the Calvin cycle takes place in the…</div><div class="opts"><button class="opt">A. mesophyll cells</button><button class="opt" data-ok>B. bundle sheath cells</button><button class="opt">C. vacuole</button><button class="opt">D. stomata</button></div></div>
+      <div class="q"><div class="qt">5. How do CAM plants reduce water loss?</div><div class="opts"><button class="opt" data-ok>A. stomata open at night and close in the day</button><button class="opt">B. stomata stay open all day</button><button class="opt">C. they stop photosynthesis</button><button class="opt">D. they have no leaves</button></div></div>
+    </div>
+    <div class="card row" style="justify-content:space-between"><span class="score" id="wmScore">First-try score: 0 / 5</span><span class="legend">5 = Desert Plant Master! · 4 = Desert Plant Expert · 3 = Desert Plant Explorer · 0–2 = let's review together</span></div>
+  </div>
+</section>
+
+<!-- 24 · PLENARY -->
+<section class="slide" id="s24" data-title="Plenary: mystery solved!" data-skills="reading,loyalty" data-coach="hessa" data-ns="National Identity" data-says="Be kind to yourself when you rate your stars. Every step forward counts!">
+  <div class="inner">
+    <div class="head"><h2>Plenary: how are C4 and CAM plants different?</h2></div>
+    <div class="cols split">
+      <div class="stack">
+        <button class="btn" data-show="solved" data-confetti style="justify-self:start">Reveal the answer</button>
+        <div class="card" id="solved" hidden style="background:#fff8db;border-color:#f3e2a0"><b style="color:var(--orange)">Mystery solved!</b><p style="margin:6px 0 0">Normal plants close their stomata in the heat, so rubisco wastes energy in <b class="hl">photorespiration</b>. <b style="color:var(--green)">C4 plants</b> (maize, sugarcane) separate the steps in <b>space</b>: mesophyll cells fix CO₂ into a 4-C molecule and bundle sheath cells run the Calvin cycle. <b style="color:var(--purple)">CAM plants</b> (pineapple, cacti) separate the steps in <b>time</b>: stomata open at night and CO₂ is stored in vacuoles for the day. Both save water and keep photosynthesis going.</p></div>
+        <div class="card stack"><b>Plenary (LMS Course Home)</b>
+          <label>What is one key difference between C4 and CAM plants?<textarea id="ex3" style="min-height:56px"></textarea></label>
+          <label>How does each pathway help reduce water loss?<textarea id="ex2" style="min-height:48px"></textarea></label>
+          <label>Why are C4 and CAM plants better adapted to hot, dry environments?<textarea id="ex1" style="min-height:48px"></textarea></label></div>
+      </div>
+      <div class="card stack"><b>Re-rate your success criteria (tap a star)</b>
+        <div><p style="margin:0 0 4px"><b>Foundation:</b> I can explain why stomata close and name C4 and CAM plants.</p><div class="stars" id="st1"></div></div>
+        <div><p style="margin:0 0 4px"><b>Secure:</b> I can describe separation in space (C4) and in time (CAM).</p><div class="stars" id="st2"></div></div>
+        <div><p style="margin:0 0 4px"><b>Advanced:</b> I can explain photorespiration and evaluate the best strategy for the UAE.</p><div class="stars" id="st3"></div></div>
+        <div><p style="margin:0 0 4px">I can link both pathways back to the Calvin cycle.</p><div class="stars" id="st4"></div></div>
+        <div class="note" style="margin:0"><b>Next lesson:</b> cellular respiration.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 25 · VALUES -->
+<section class="slide" id="s25" data-title="Which value did you show today?" data-skills="integrity">
+  <div class="inner">
+    <div class="head"><h2>Which value did you show today?</h2></div>
+    <p class="lead">Tap the character whose value you showed in this lesson. <b>Then tell your partner one real example!</b></p>
+    <div class="grid g5" id="values">
+      <button class="vcard" style="--cc:var(--c-shahin)"><span class="star">★</span><img src="img/av-shahin.webp" alt=""><b>Shahin</b><small>Leadership · <span class="ar">القيادة</span></small><span class="prompt">I led my team when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-fahim)"><span class="star">★</span><img src="img/av-fahim.webp" alt=""><b>Fahim</b><small>Knowledge · <span class="ar">المعرفة</span></small><span class="prompt">A new fact I learned is…</span></button>
+      <button class="vcard" style="--cc:var(--c-maha)"><span class="star">★</span><img src="img/av-maha.webp" alt=""><b>Maha</b><small>Respect · <span class="ar">الاحترام</span></small><span class="prompt">I showed respect when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-ahmed)"><span class="star">★</span><img src="img/av-ahmed.webp" alt=""><b>Ahmed</b><small>Responsibility · <span class="ar">المسؤولية</span></small><span class="prompt">I was responsible when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-hessa)"><span class="star">★</span><img src="img/av-hessa.webp" alt=""><b>Hessa</b><small>Tolerance · <span class="ar">التسامح</span></small><span class="prompt">I was patient and kind when…</span></button>
+    </div>
+    <div class="card row" style="justify-content:space-between"><b>Class goal: light up all five stars together!</b><span class="goal" id="goal"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span></div>
+  </div>
+</section>
+
+<!-- 26 · CELEBRATE -->
+<section class="slide end" id="s26" data-title="Thrive where others can't" data-bare>
+  <div class="inner">
+    <div class="eyebrow">YOU DID IT, GRADE 11! · <span class="ar">أحسنتم</span></div>
+    <h1>Thrive where others can't</h1>
+    <p style="font-style:italic;font-size:1.15rem;margin:0;opacity:.95">Desert plants did not wait for easier weather. They found smarter ways to grow. When life gets hot and hard, adapt, be patient, and keep growing!</p>
+    <img class="fig" src="img/banner.webp" alt="Shahin, Fahim, Maha, Ahmed and Hessa with the UAE national skills" style="border:0">
+    <div class="row"><span class="nsk">🇦🇪 National Identity</span><span class="nsk">🌿 Sustainability</span><span class="nsk">🤝 Cooperation</span><span class="nsk">💡 Innovation</span><span class="nsk">⭐ Excellence</span></div>
+    <div class="promise"><b>My promise:</b> I will lead, learn, respect, be responsible and tolerant, for my school and my UAE.</div>
+    <div><button class="btn" id="celebrate">★ Celebrate together!</button></div>
+  </div>
+</section>
+
+
+  </main>
+  <div>
+    <div class="progress"><div id="prog"></div></div>
+    <nav class="nav">
+      <button class="btn ghost small" id="prev" aria-label="Previous slide">◀ Back</button>
+      <span class="count" id="count">1 / 26</span>
+      <span class="title" id="navTitle"></span>
+      <button class="btn ghost small" id="menuBtn">☰ Slides</button>
+      <button class="btn ghost small" id="linkBtn" title="Copy a link that opens this slide">🔗 Link</button>
+      <button class="btn ghost small" id="soundBtn" title="Clapping sound on">🔊</button>
+      <button class="btn ghost small" id="fsBtn" title="Full screen">⛶</button>
+      <button class="btn small" id="next" aria-label="Next slide">Next ▶</button>
+    </nav>
+  </div>
+</div>
+
+<div class="menu" id="menu" hidden><div class="panel"><div class="row" style="justify-content:space-between"><b style="font-family:var(--display);font-size:1.3rem">All slides</b><button class="btn ghost small" id="menuClose">Close</button></div><ol id="menuList"></ol></div></div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+// Paste the published lesson link here so "Link" copies a shareable address for each slide.
+const LESSON_URL = "";
+
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const slides=$$('.slide'), N=slides.length;
+const COACH={shahin:['Shahin','Leadership','القيادة','--c-shahin'],fahim:['Fahim','Knowledge','المعرفة','--c-fahim'],maha:['Maha','Respect','الاحترام','--c-maha'],ahmed:['Ahmed','Responsibility','المسؤولية','--c-ahmed'],hessa:['Hessa','Tolerance','التسامح','--c-hessa']};
+const SKILL={teamwork:['Teamwork','العمل الجماعي','👥'],critical:['Critical Thinking','التفكير الناقد','🧠'],communication:['Effective Communication','التواصل الفعّال','💬'],reading:['Reading & Writing','القراءة والكتابة','📖'],integrity:['Integrity','النزاهة','🛡'],discipline:['Self-regulation & Discipline','الانضباط وتنظيم الذات','⏱'],initiative:['Initiative & Perseverance','المبادرة والمثابرة','⛰'],respect:['Respect & Kindness','الاحترام واللطف','💗'],numeracy:['Numeracy Skills','المهارات العددية','🔢'],loyalty:['Loyalty & National Belonging','الولاء والانتماء الوطني','🇦🇪']};
+const LO='Describe C4 and CAM plants (alternative ways of photosynthesis).';
+const store={get(k){try{return localStorage.getItem('c4cam11:'+k)}catch(e){return null}},set(k,v){try{localStorage.setItem('c4cam11:'+k,v)}catch(e){}}};
+
+// date
+$('#today').textContent=new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+
+// shared chrome: skill chips, coach strip, objective footer
+slides.forEach(s=>{
+  const inner=$('.inner',s), head=$('.head',s);
+  if(s.dataset.skills&&head){const c=document.createElement('div');c.className='chips';
+    s.dataset.skills.split(',').forEach(k=>{const[en,ar,ic]=SKILL[k];c.insertAdjacentHTML('beforeend',`<span class="chip"><i>${ic}</i>${en} <span class="ar">${ar}</span></span>`)});head.appendChild(c)}
+  if(s.dataset.coach){const[n,v,ar,col]=COACH[s.dataset.coach];
+    inner.insertAdjacentHTML('beforeend',`<div class="coach" style="--cc:var(${col})"><img src="img/av-${s.dataset.coach}.webp" alt="${n}, ${v} coach"><div><div class="who">${n} says · ${v} <span class="ar">${ar}</span></div><p>${s.dataset.says}</p><div class="ns">UAE national skill: <b>${s.dataset.ns}</b></div></div></div>`)}
+  if(!('nolo' in s.dataset)) inner.insertAdjacentHTML('afterbegin',`<div class="lo lotop"><span class="tgt"></span><div><b>Learning objective:</b> ${LO}</div></div>`);
+});
+
+// navigation + deep links (#s1 … #s26)
+let cur=1; const enterHooks={};
+function go(n,push=true){
+  n=Math.max(1,Math.min(N,n|0)); cur=n;
+  slides.forEach((s,i)=>s.hidden=i!==n-1);document.querySelectorAll('.slide[hidden] video').forEach(v=>{try{v.pause()}catch(e){}});
+  $('#count').textContent=n+' / '+N; $('#navTitle').textContent=slides[n-1].dataset.title||'';
+  $('#prog').style.width=(n/N*100)+'%'; $('#main').scrollTop=0;
+  $('#prev').disabled=n===1; $('#next').disabled=n===N;
+  if(push){try{history.replaceState(null,'','#s'+n)}catch(e){}}
+  document.title='C4 and CAM Plants · '+n+' · Nilasha Sempon';
+  requestAnimationFrame(()=>enterHooks[n]&&enterHooks[n]());
+}
+function fromHash(){const m=(location.hash||'').match(/s(\d+)$/);return m?+m[1]:1}
+window.addEventListener('hashchange',()=>go(fromHash(),false));
+$('#prev').onclick=()=>go(cur-1); $('#next').onclick=()=>go(cur+1);
+document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g){go(+g.dataset.go);$('#menu').hidden=true}});
+document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea,select'))return;
+  if(['ArrowRight','PageDown'].includes(e.key))go(cur+1);if(['ArrowLeft','PageUp'].includes(e.key))go(cur-1);if(e.key==='Escape')$('#menu').hidden=true});
+let tx=0,ty=0;$('#main').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+$('#main').addEventListener('touchend',e=>{if(e.target.closest('canvas,input,textarea,select,.stadium'))return;const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;if(Math.abs(dx)>70&&Math.abs(dy)<40)go(cur+(dx<0?1:-1))});
+// menu
+$('#menuList').innerHTML=slides.map((s,i)=>`<li><button data-go="${i+1}"><b>${i+1}</b>${s.dataset.title}</button></li>`).join('');
+$('#menuBtn').onclick=()=>{$$('#menuList button').forEach((b,i)=>b.classList.toggle('cur',i+1===cur));$('#menu').hidden=false};
+$('#menuClose').onclick=()=>$('#menu').hidden=true;
+$('#menu').onclick=e=>{if(e.target.id==='menu')$('#menu').hidden=true};
+// toast + link
+let tt;function toast(html,ms=2600){const t=$('#toast');t.innerHTML=html;t.hidden=false;clearTimeout(tt);tt=setTimeout(()=>t.hidden=true,ms)}
+$('#linkBtn').onclick=()=>{const base=LESSON_URL||location.href.split('#')[0];const url=base+'#s'+cur;
+  const ok=()=>toast('Link to slide '+cur+' copied');
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(ok,()=>toast('<div>Copy this link:</div><div class="linkbox">'+url+'</div>',7000))}else toast('<div>Copy this link:</div><div class="linkbox">'+url+'</div>',7000)};
+$('#fsBtn').onclick=()=>{try{if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen().catch(()=>toast('Full screen is not available here'))}catch(e){toast('Full screen is not available here')}};
+
+// built-in party confetti (works without any outside library)
+window.confetti=(function(){let cv,cx,parts=[],raf=null;
+  function setup(){if(cv)return;cv=document.createElement('canvas');cv.id='fxCanvas';document.body.appendChild(cv);cx=cv.getContext('2d');size();addEventListener('resize',size)}
+  function size(){const d=devicePixelRatio||1;cv.width=innerWidth*d;cv.height=innerHeight*d;cx.setTransform(d,0,0,d,0,0)}
+  function frame(){cx.clearRect(0,0,innerWidth,innerHeight);parts=parts.filter(p=>p.t<p.T);
+    parts.forEach(p=>{p.t++;p.x+=Math.cos(p.a)*p.v+p.drift;p.y+=Math.sin(p.a)*p.v+p.g;p.v*=p.decay;p.w+=p.ws;p.tilt+=0.1;
+      const o=1-p.t/p.T;cx.globalAlpha=Math.max(0,o);cx.fillStyle=p.c;const s=p.s;
+      if(p.round){cx.beginPath();cx.ellipse(p.x,p.y,s*.6,s*.6*Math.abs(Math.cos(p.tilt)),0,0,7);cx.fill()}
+      else{cx.save();cx.translate(p.x,p.y);cx.rotate(p.w);cx.fillRect(-s/2,-s*.3*Math.abs(Math.cos(p.tilt))-1,s,s*.6*Math.abs(Math.cos(p.tilt))+2);cx.restore()}});
+    cx.globalAlpha=1;raf=parts.length?requestAnimationFrame(frame):(cx.clearRect(0,0,innerWidth,innerHeight),null)}
+  return function(o){o=o||{};setup();const n=o.particleCount||50,ang=(o.angle==null?90:o.angle)*Math.PI/180,spr=(o.spread==null?45:o.spread)*Math.PI/180,sv=o.startVelocity||45,
+      X=(o.origin&&o.origin.x!=null?o.origin.x:.5)*innerWidth,Y=(o.origin&&o.origin.y!=null?o.origin.y:.6)*innerHeight,cols=o.colors||['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0','#ff7ab6'],sc=o.scalar||1;
+    for(let i=0;i<Math.min(n,400);i++)parts.push({x:X,y:Y,a:-ang+(.5*spr-Math.random()*spr),v:sv*.5+Math.random()*sv,decay:.9,g:3*(o.gravity==null?1:o.gravity),drift:(Math.random()-.5)*.6,
+      c:cols[i%cols.length],s:(7+Math.random()*6)*sc,round:Math.random()<.3,w:Math.random()*6,ws:(Math.random()-.5)*.3,tilt:Math.random()*6,t:0,T:o.ticks||200});
+    if(!raf)raf=requestAnimationFrame(frame);return Promise.resolve()}})();
+// confetti
+function boom(big){if(typeof confetti!=='function')return;const c=['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0'];
+  confetti({particleCount:big?220:90,spread:big?120:70,origin:{y:.65},colors:c});
+  if(big){setTimeout(()=>confetti({particleCount:120,angle:60,spread:70,origin:{x:0,y:.7},colors:c}),250);setTimeout(()=>confetti({particleCount:120,angle:120,spread:70,origin:{x:1,y:.7},colors:c}),400)}}
+// cheer: confetti burst where the student tapped + a clapping sound for each correct answer
+let lastX=.5,lastY=.6,soundOn=true;try{soundOn=localStorage.getItem('cheerSound')!=='off'}catch(e){}
+document.addEventListener('pointerdown',e=>{lastX=e.clientX/innerWidth;lastY=e.clientY/innerHeight},true);
+let cheerCtx;function clap(n){if(!soundOn)return;try{cheerCtx=cheerCtx||new (window.AudioContext||window.webkitAudioContext)();const a=cheerCtx,now=a.currentTime;
+  const len=a.sampleRate*.05,buf=a.createBuffer(1,len,a.sampleRate),d=buf.getChannelData(0);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,3);
+  for(let k=0;k<n;k++){const t=now+k*0.11+Math.random()*0.05;for(let j=0;j<3;j++){const src=a.createBufferSource();src.buffer=buf;const f=a.createBiquadFilter();f.type='bandpass';f.frequency.value=1000+Math.random()*1500;f.Q.value=0.8;const g=a.createGain();g.gain.value=0.5;src.connect(f);f.connect(g);g.connect(a.destination);src.start(t+j*0.012+Math.random()*0.02)}}
+  [523.25,659.25,783.99].forEach((fr,i)=>{const o=a.createOscillator(),g=a.createGain();o.type='triangle';o.frequency.value=fr;o.connect(g);g.connect(a.destination);g.gain.setValueAtTime(0.0001,now+i*0.07);g.gain.exponentialRampToValueAtTime(0.12,now+i*0.07+0.02);g.gain.exponentialRampToValueAtTime(0.0001,now+i*0.07+0.3);o.start(now+i*0.07);o.stop(now+i*0.07+0.32)})}catch(e){}}
+function party(big,x,y){const c=['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0','#ff7ab6'];
+  confetti({particleCount:big?110:60,spread:big?110:80,startVelocity:big?42:34,origin:{x:x,y:y},colors:c});
+  confetti({particleCount:big?110:60,angle:62,spread:58,startVelocity:big?62:55,origin:{x:0,y:.95},colors:c});
+  confetti({particleCount:big?110:60,angle:118,spread:58,startVelocity:big?62:55,origin:{x:1,y:.95},colors:c})}
+function badge(txt,cls){const b=document.createElement('div');b.className='fbadge '+cls;b.textContent=txt;
+  b.style.left=Math.min(Math.max(lastX*innerWidth,110),innerWidth-110)+'px';b.style.top=Math.min(Math.max(lastY*innerHeight-64,70),innerHeight-40)+'px';document.body.appendChild(b);setTimeout(()=>b.remove(),1500)}
+let lastCheer=0,lastWrong=0,quietUntil=0;
+const PRAISE=['🎉 Correct!','⭐ Brilliant!','👏 Well done!','🎊 Great job!','🏆 Excellent!'];
+function cheer(big){lastCheer=Date.now();clap(big?14:9);party(big,lastX,lastY);badge(PRAISE[Math.floor(Math.random()*PRAISE.length)],'good')}
+function buzz(){if(!soundOn)return;try{cheerCtx=cheerCtx||new (window.AudioContext||window.webkitAudioContext)();const a=cheerCtx,now=a.currentTime;
+  [[0,233],[0.17,175]].forEach(([d,f])=>{const o=a.createOscillator(),g=a.createGain();o.type='square';o.frequency.value=f;o.connect(g);g.connect(a.destination);g.gain.setValueAtTime(0.0001,now+d);g.gain.exponentialRampToValueAtTime(0.07,now+d+0.02);g.gain.exponentialRampToValueAtTime(0.0001,now+d+0.16);o.start(now+d);o.stop(now+d+0.18)})}catch(e){}}
+function wrong(el){if(el){el.classList.remove('shake');void el.offsetWidth;el.classList.add('shake');setTimeout(()=>el.classList.remove('shake'),500)}
+  if(Date.now()-lastWrong<350)return;lastWrong=Date.now();buzz();
+  let f=document.getElementById('redFlash');if(!f){f=document.createElement('div');f.id='redFlash';document.body.appendChild(f)}
+  f.classList.add('on');setTimeout(()=>f.classList.remove('on'),120);badge('✗ Not quite. Try again!','bad')}
+// watch every answer: green = party confetti, red = red flash + shake
+document.addEventListener('click',e=>{if(e.target.closest('[data-answers],#orderReveal'))quietUntil=Date.now()+600},true);
+new MutationObserver(ms=>{if(Date.now()<quietUntil)return;let good=false;
+  ms.forEach(m=>{const el=m.target,old=' '+(m.oldValue||'')+' ';if(!el.classList)return;
+    if(['no','wrong','nof'].some(c=>el.classList.contains(c)&&!old.includes(' '+c+' '))&&!el.classList.contains('fb'))wrong(el);
+    if(['ok','right','okf'].some(c=>el.classList.contains(c)&&!old.includes(' '+c+' '))&&!el.classList.contains('fb'))good=true});
+  if(good&&Date.now()-lastCheer>500)cheer(false)}).observe(document.body,{subtree:true,attributes:true,attributeFilter:['class'],attributeOldValue:true});
+(function(){const b=document.getElementById('soundBtn');if(!b)return;const set=()=>{b.textContent=soundOn?'🔊':'🔇';b.title=soundOn?'Sound on':'Sound off'};set();
+  b.onclick=()=>{soundOn=!soundOn;try{localStorage.setItem('cheerSound',soundOn?'on':'off')}catch(e){}set();if(soundOn)clap(4)}})();
+document.addEventListener('click',e=>{if(e.target.closest('[data-confetti]'))boom(false)});
+
+// generic: flip, reveal
+document.addEventListener('click',e=>{
+  const f=e.target.closest('.flip');if(f)f.classList.toggle('on');
+  const r=e.target.closest('[data-show]');if(r){const t=document.getElementById(r.dataset.show);t.hidden=!t.hidden}
+  const ns=e.target.closest('.nskill');if(ns)ns.classList.toggle('on');
+});
+
+// timers
+let actx;function beep(){try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();[0,.25,.5].forEach(d=>{const o=actx.createOscillator(),g=actx.createGain();o.frequency.value=880;o.connect(g);g.connect(actx.destination);g.gain.setValueAtTime(.15,actx.currentTime+d);g.gain.exponentialRampToValueAtTime(.001,actx.currentTime+d+.2);o.start(actx.currentTime+d);o.stop(actx.currentTime+d+.22)})}catch(e){}}
+$$('.timer').forEach(el=>{const total=+el.dataset.sec;let left=total,iv=null;const fmt=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+  el.innerHTML=`<button class="btn small">▶ Start ${total>=60?total/60+'-min':total+'-s'}</button><span class="t">${fmt(total)}</span><button class="rs" title="Reset">↺</button>`;
+  const [b,t,rs]=el.children;
+  const stop=()=>{clearInterval(iv);iv=null};
+  b.onclick=()=>{if(iv){stop();b.textContent='▶ Resume';return}if(left<=0){left=total;el.classList.remove('done')}
+    b.textContent='❚❚ Pause';iv=setInterval(()=>{left--;t.textContent=fmt(Math.max(left,0));if(left<=0){stop();el.classList.add('done');t.textContent="TIME'S UP!";b.textContent='▶ Again';beep()}},1000)};
+  rs.onclick=()=>{stop();left=total;el.classList.remove('done');t.textContent=fmt(total);b.textContent=`▶ Start ${total>=60?total/60+'-min':total+'-s'}`};
+});
+
+// 7 · true/false
+$$('#tf .q').forEach(q=>{let done=false;$$('.opt',q).forEach(b=>b.onclick=()=>{if(done)return;done=true;const pick=b.textContent==='True'?'T':'F',ok=pick===q.dataset.a;
+  b.classList.add(ok?'ok':'no');if(ok)cheer(false);const fb=$('.fb',q);fb.hidden=false;fb.className='fb '+(ok?'ok':'no');fb.textContent=(ok?'✓ Correct! ':'✗ Not quite. ')+fb.dataset.why;
+  q.dataset.res=ok?1:0;const sc=$$('#tf .q').reduce((a,x)=>a+(+x.dataset.res||0),0),n=$$('#tf .q[data-res]').length;$('#tfScore').textContent='Score: '+sc+' / 5';if(n===5&&sc===5)boom(false)})});
+
+// 9 · video answers
+$('#vidAns')&&($('#vidAns').onclick=()=>$$('#s8 .vans').forEach(a=>a.hidden=false));
+
+// 11 · sort
+$$('#sorter .sitem').forEach(b=>b.onclick=()=>{b.classList.remove('right','wrong');const L=($('#sorter').dataset.labels||'low|HIGH').split('|');const i=(L.indexOf(b.dataset.v)+1)%L.length;b.dataset.v=L[i];$('.tag',b).textContent=L[i]});
+$('#sortCheck').onclick=()=>{let s=0;$$('#sorter .sitem').forEach(b=>{const ok=b.dataset.v===b.dataset.ans;b.classList.toggle('right',ok);b.classList.toggle('wrong',!ok);s+=ok});$('#sortScore').textContent=s+' / 8 correct';if(s>0&&s<8)cheer(false);$('#sortWhy').hidden=false;if(s===8)boom(false)};
+
+// MCQ sets (retry = formative with hints; first = first-try scoring)
+$$('.mcqset').forEach(set=>{const mode=set.dataset.mode;const qs=set.classList.contains('q')?[set]:$$('.q',set);
+  qs.forEach(q=>q.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(q.dataset.solved)return;const ok=b.hasAttribute('data-ok');
+    if(!('first' in q.dataset))q.dataset.first=ok?1:0;
+    b.classList.add(ok?'ok':'no');const fb=$('.fb',q);if(fb)fb.hidden=ok;
+    if(ok){q.dataset.solved=1;cheer(false);if(set.id==='dbq'){$('#dbLock').hidden=true;$('#dbOpen').hidden=false;boom(false)}}
+    if(set.id==='wm'){const s=qs.reduce((a,x)=>a+(+x.dataset.first||0),0),n=qs.filter(x=>'first' in x.dataset).length;
+      const lvl=s===5?'Desert Plant Master! 🏆':s===4?'Desert Plant Expert':s===3?'Desert Plant Explorer':"let's review together";
+      $('#wmScore').textContent='First-try score: '+s+' / 5'+(n===5?' · '+lvl:'');if(n===5&&s>=4)boom(s===5)}
+    if(mode==='retry'&&set.id!=='dbq'&&qs.every(x=>x.dataset.solved))boom(false);
+  }));
+});
+
+// 18 · order
+let nextN=1;$$('#order .oitem').forEach(b=>b.onclick=()=>{$$('#order .oitem').forEach(x=>x.classList.remove('right','wrong'));
+  if(b.dataset.n){const k=+b.dataset.n;$$('#order .oitem').forEach(x=>{if(+x.dataset.n>=k){delete x.dataset.n;x.classList.remove('set');$('.n',x).textContent='?'}});nextN=k;return}
+  if(nextN>5)return;b.dataset.n=nextN;b.classList.add('set');$('.n',b).textContent=nextN;nextN++});
+$('#orderCheck').onclick=()=>{let s=0;$$('#order .oitem').forEach(b=>{const ok=b.dataset.n===b.dataset.p;b.classList.toggle('right',ok);b.classList.toggle('wrong',!ok);s+=ok});$('#orderScore').textContent=s+' / 5 in the right place';if(s>0&&s<5)cheer(false);if(s===5)boom(false)};
+$('#orderReveal').onclick=()=>{$('#chain').hidden=false};
+$$('[data-tl]').forEach(b=>b.onclick=()=>{const m=$('#tlMsg');m.hidden=false;m.textContent=b.dataset.tl});
+
+// 20/21 · worksheet
+$$('#wsA select').forEach(s=>s.innerHTML='<option value="">–</option>'+'ABCDE'.split('').map(x=>`<option>${x}</option>`).join(''));
+$$('#wsC select').forEach(s=>s.innerHTML='<option value="">choose…</option>'+s.dataset.opts.split('|').map(x=>`<option>${x}</option>`).join(''));
+const norm=v=>v.trim().toLowerCase().replace(/[.\s]+$/,'');
+function mark(id){let s=0;$$('#'+id+' [data-ans]').forEach(f=>{const ok=f.dataset.ans.toLowerCase().split('|').includes(norm(f.value));f.classList.toggle('okf',ok);f.classList.toggle('nof',!ok&&f.value!=='');s+=ok});return s}
+const score={wsA:0,wsB:0,wsC:0};
+function total(){$('#wsTotal').textContent='Total: A + B + C = '+(score.wsA+score.wsB+score.wsC)+' / 16 marks'}
+$$('[data-check]').forEach(b=>b.onclick=()=>{const id=b.dataset.check,s=mark(id),max=$$('#'+id+' [data-ans]').length;score[id]=s;if(s>0)cheer(s===max);$(`[data-out="${id}"]`).textContent=s+' / '+max;total();if(s===max)boom(false)});
+$$('[data-answers]').forEach(b=>b.onclick=()=>{const id=b.dataset.answers;$$('#'+id+' [data-ans]').forEach(f=>{f.value=f.tagName==='SELECT'?f.dataset.ans:f.dataset.ans.split('|')[0]});mark(id)});
+$('#labExp').onclick=()=>$$('#s17 .exp').forEach(x=>{x.hidden=false;x.style.cssText='font-size:.82rem;color:#11663a;font-weight:700;margin-top:4px'});
+$$('.lvl').forEach(b=>b.onclick=()=>{const a=b.previousElementSibling;a.hidden=!a.hidden;b.textContent=a.hidden?'Show answers':'Hide answers'});
+
+// keep typed answers in this browser
+$$('input[type=text],textarea').forEach(f=>{const v=store.get(f.id);if(v)f.value=v;f.addEventListener('input',()=>store.set(f.id,f.value))});
+
+// 24 · stars
+$$('.stars').forEach(st=>{for(let i=1;i<=5;i++)st.insertAdjacentHTML('beforeend',`<button aria-label="${i} star${i>1?'s':''}">★</button>`);
+  const set=k=>$$('button',st).forEach((b,i)=>b.classList.toggle('on',i<k));set(+store.get(st.id)||0);
+  $$('button',st).forEach((b,i)=>b.onclick=()=>{set(i+1);store.set(st.id,i+1);if(i===4)boom(false)})});
+
+// 25 · values
+$$('#values .vcard').forEach(c=>c.onclick=()=>{c.classList.toggle('on');const n=$$('#values .vcard.on').length;$$('#goal span').forEach((s,i)=>s.classList.toggle('on',i<n));if(n===5){boom(true);toast('Class goal reached: all five stars!')}});
+
+// 26 · celebrate
+$('#celebrate').onclick=()=>boom(true);
+enterHooks[26]=()=>boom(true);
+
+/* ---------- canvases ---------- */
+function fit(c){const r=c.getBoundingClientRect(),d=window.devicePixelRatio||1;const h=+c.getAttribute('height')||r.height||120;
+  if(!c.dataset.h)c.dataset.h=h;const H=+c.dataset.h;c.style.height=H+'px';c.width=Math.round(r.width*d);c.height=Math.round(H*d);const x=c.getContext('2d');x.setTransform(d,0,0,d,0,0);return{x,w:r.width,h:H}}
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// hero waves
+(function(){const c=$('#heroWaves');let t=0,raf;function draw(){if(cur!==1){raf=null;return}const {x,w,h}=fit(c);
+  const cols=['#ffc21a','#e5484d','#1fa75a','#4f8cff','#c084fc'];cols.forEach((col,i)=>{x.beginPath();for(let px=0;px<=w;px+=6){const y=h*.35+i*14+Math.sin(px/90+t*(1+i*.15)+i)*(10+i*3);px?x.lineTo(px,y):x.moveTo(px,y)}x.strokeStyle=col;x.lineWidth=5;x.stroke()});
+  t+=.02;raf=reduce?null:requestAnimationFrame(draw)}enterHooks[1]=()=>{if(!raf)draw()};})();
+
+// shared drawing helpers
+function lbl(x,t,X,Y,bg,fg){x.font='bold 12px Nunito, sans-serif';const w=x.measureText(t).width+12;x.fillStyle=bg;x.beginPath();x.roundRect?x.roundRect(X-w/2,Y-10,w,20,10):x.rect(X-w/2,Y-10,w,20);x.fill();x.fillStyle=fg||'#fff';x.textAlign='center';x.fillText(t,X,Y+4);x.textAlign='left'}
+function box(x,X,Y,w,h,col,t1,t2){x.fillStyle=col;x.beginPath();x.roundRect?x.roundRect(X-w/2,Y-h/2,w,h,10):x.rect(X-w/2,Y-h/2,w,h);x.fill();x.fillStyle='#fff';x.textAlign='center';x.font='bold 13px Nunito, sans-serif';x.fillText(t1,X,Y-2);x.font='11px Nunito, sans-serif';if(t2)x.fillText(t2,X,Y+14);x.textAlign='left'}
+function bar(x,X,Y,W,v,col,name){x.fillStyle='#1c2340';x.font='bold 12px Nunito, sans-serif';x.fillText(name,X,Y-6);x.fillStyle='#e3e8f4';x.fillRect(X,Y,W,14);x.fillStyle=col;x.fillRect(X,Y,W*Math.max(0,Math.min(1,v)),14);x.fillStyle='#1c2340';x.font='11px Nunito, sans-serif';x.fillText(Math.round(v*100)+'%',X+W+6,Y+12)}
+function wrapT(x,s,X,Y,maxW,lh){const words=s.split(' ');let line='';words.forEach(wd=>{if(x.measureText(line+wd).width>maxW&&line){x.fillText(line,X,Y);line='';Y+=lh}line+=wd+' '});x.fillText(line,X,Y);return Y}
+
+// 14 · hot day leaf: stomata, CO2, O2, photorespiration
+(function(){const c=$('#photo'),sl=$('#stoma');let leaf='c3',t=0,raf=null,cheered={};
+  function vals(){const closed=+sl.value/100;const water=1-closed*.85;const co2=leaf==='c3'?0.9-closed*.75:0.9-closed*.15;const o2=leaf==='c3'?0.2+closed*.7:0.2+closed*.15;
+    const photoR=leaf==='c3'?Math.max(0,o2-co2)*.9+closed*.15:0.05;const sugar=Math.max(0.05,co2*(1-photoR*.7));return{closed,water,co2,o2,photoR:Math.min(1,photoR),sugar}}
+  function draw(){const {x,w,h}=fit(c);const v=vals();x.fillStyle='#fff6df';x.fillRect(0,0,w,h);
+    x.fillStyle='#ffc21a';x.beginPath();x.arc(30,28,16,0,7);x.fill();lbl(x,'☀️ 45 °C UAE afternoon',128,28,'#f07f19');
+    const lx=w*.3,ly=h*.56,LW=Math.min(w*.26,170),LH=h*.32;x.fillStyle=leaf==='c3'?'#5dbb63':'#3a9c45';x.beginPath();x.ellipse(lx,ly,LW,LH,-.15,0,7);x.fill();
+    if(leaf==='c4'){x.strokeStyle='#1f6e2a';x.lineWidth=3;for(let i=-2;i<=2;i++){x.beginPath();x.arc(lx+i*LW*.32,ly,14,0,7);x.stroke()}x.fillStyle='#1f6e2a';x.font='bold 11px Nunito, sans-serif';x.textAlign='center';x.fillText('bundle sheath rings (Kranz)',lx,ly+LH*.62);x.textAlign='left'}
+    // stoma at bottom of leaf
+    const sx=lx,sy=ly+LH*.78,op=1-v.closed;x.fillStyle='#2b7a37';x.beginPath();x.ellipse(sx,sy,26,14,0,0,7);x.fill();x.fillStyle='#fff6df';x.beginPath();x.ellipse(sx,sy,22*op+1,6*op+1,0,0,7);x.fill();
+    // particles
+    const n=14;for(let i=0;i<n;i++){const a=i*2.4+t*.6,r=(i%5)/5*LW*.8;const X=lx+Math.cos(a)*r,Y=ly+Math.sin(a)*r*.55;const isO=i<n*v.o2/(v.o2+v.co2);x.fillStyle=isO?'#e5484d':'#2563eb';x.beginPath();x.arc(X,Y,6,0,7);x.fill();x.fillStyle='#fff';x.font='bold 7px Nunito, sans-serif';x.textAlign='center';x.fillText(isO?'O₂':'CO₂',X,Y+3);x.textAlign='left'}
+    // water drops escaping
+    for(let i=0;i<Math.round(v.water*5);i++){const p=(t*.4+i/5)%1;x.fillStyle='rgba(37,99,235,'+(1-p)+')';x.beginPath();x.arc(sx-8+i*4,sy+10+p*30,3,0,7);x.fill()}
+    lbl(x,leaf==='c3'?'Normal (C3) leaf':'C4 leaf',lx,ly-LH-6,leaf==='c3'?'#2563eb':'#1fa75a');
+    const bx=w*.6,bw=w*.3;bar(x,bx,h*.14,bw,v.water,'#2563eb','💧 Water lost');bar(x,bx,h*.3,bw,v.co2,'#1b2470','CO₂ inside leaf');bar(x,bx,h*.46,bw,v.o2,'#e5484d','O₂ inside leaf');bar(x,bx,h*.62,bw,v.photoR,'#7a3ff0','⚠️ Photorespiration');bar(x,bx,h*.78,bw,v.sugar,'#1fa75a','🍬 Sugar made');
+    const R=$('#photoRead');
+    if(v.closed<.3)R.textContent='Stomata open: lots of CO₂ in… but lots of water lost too!';
+    else if(leaf==='c3'&&v.closed>.6)R.textContent='C3 leaf, stomata closed: CO₂ falls, O₂ builds up → rubisco grabs O₂ → PHOTORESPIRATION. No glucose, energy wasted!';
+    else if(leaf==='c4'&&v.closed>.6)R.textContent='C4 leaf: the 4-carbon pump keeps CO₂ high around rubisco, so photorespiration stays LOW while water is saved!';
+    else R.textContent='Stomata half closed: water saved, but CO₂ is starting to drop…';
+    const key=leaf+(v.closed>.6?'hi':'');if(v.closed>.6&&!cheered[key]){cheered[key]=1;if(leaf==='c4')cheer(false)}}
+  function loop(){t+=.03;draw();raf=(cur===14&&!reduce)?requestAnimationFrame(loop):null}
+  sl.oninput=draw;$$('[data-leaf]').forEach(b=>b.onclick=()=>{leaf=b.dataset.leaf;draw()});
+  enterHooks[14]=()=>{if(!raf)loop()};})();
+
+// 15 · the C4 relay (step-through)
+(function(){const c=$('#c4');let k=0;
+  const STEPS=['Stomata partly close to save water. A little CO₂ enters the leaf.','1 · In the MESOPHYLL cell, CO₂ is fixed into a 4-carbon molecule (oxaloacetate) by an enzyme that ignores O₂.','2 · The 4-carbon molecule is changed (to malate) and moves into the BUNDLE SHEATH cell.','3 · In the bundle sheath, the 4-C molecule RELEASES CO₂, so CO₂ is very concentrated around rubisco.','4 · The Calvin cycle uses the CO₂ to make sugar (G3P). Photorespiration is almost zero!','5 · The 3-carbon leftover returns to the mesophyll to collect more CO₂. Steps are split in SPACE!'];
+  function draw(){const {x,w,h}=fit(c);x.fillStyle='#f3f8f1';x.fillRect(0,0,w,h);
+    const mx=w*.24,bx=w*.66,cy=h*.5;
+    x.fillStyle='#b9e3a8';x.beginPath();x.roundRect?x.roundRect(mx-w*.17,cy-h*.32,w*.34,h*.64,18):x.rect(mx-w*.17,cy-h*.32,w*.34,h*.64);x.fill();
+    x.fillStyle='#7cc46e';x.beginPath();x.roundRect?x.roundRect(bx-w*.2,cy-h*.36,w*.4,h*.72,18):x.rect(bx-w*.2,cy-h*.36,w*.4,h*.72);x.fill();
+    lbl(x,'MESOPHYLL cell',mx,cy-h*.32-2,'#3a8c43');lbl(x,'BUNDLE SHEATH cell',bx,cy-h*.36-2,'#1f6e2a');
+    x.fillStyle='#e9d48a';x.beginPath();x.arc(bx,cy+h*.2,14,0,7);x.fill();x.fillStyle='#5b4a10';x.font='10px Nunito, sans-serif';x.textAlign='center';x.fillText('vein',bx,cy+h*.2+4);x.textAlign='left';
+    // CO2 entering
+    if(k>=0){x.fillStyle='#2563eb';x.beginPath();x.arc(12+Math.min(k,1)*(mx-w*.12-12),cy,9,0,7);x.fill();x.fillStyle='#fff';x.font='bold 8px Nunito, sans-serif';x.textAlign='center';x.fillText('CO₂',12+Math.min(k,1)*(mx-w*.12-12),cy+3);x.textAlign='left'}
+    if(k>=1)box(x,mx,cy-h*.08,w*.22,38,'#f07f19','4-C acid','oxaloacetate');
+    if(k>=2){x.strokeStyle='#f07f19';x.lineWidth=4;x.beginPath();x.moveTo(mx+w*.11,cy-h*.08);x.lineTo(bx-w*.14,cy-h*.08);x.stroke();x.fillStyle='#f07f19';x.beginPath();x.moveTo(bx-w*.14,cy-h*.08-7);x.lineTo(bx-w*.14+10,cy-h*.08);x.lineTo(bx-w*.14,cy-h*.08+7);x.fill();box(x,bx-w*.06,cy-h*.08,w*.12,30,'#f07f19','malate')}
+    if(k>=3){x.fillStyle='#2563eb';for(let i=0;i<6;i++){x.beginPath();x.arc(bx+w*.04+(i%3)*16,cy-h*.2+Math.floor(i/3)*16,6,0,7);x.fill()}x.fillStyle='#1b2470';x.font='bold 11px Nunito, sans-serif';x.fillText('CO₂ released',bx+w*.02,cy-h*.27)}
+    if(k>=4){x.strokeStyle='#1fa75a';x.lineWidth=6;x.beginPath();x.arc(bx+w*.06,cy+h*.06,h*.1,0,6);x.stroke();x.fillStyle='#11663a';x.font='bold 11px Nunito, sans-serif';x.textAlign='center';x.fillText('Calvin',bx+w*.06,cy+h*.05);x.fillText('cycle',bx+w*.06,cy+h*.09);x.textAlign='left';box(x,bx+w*.06,cy+h*.27,70,24,'#1fa75a','🍬 sugar')}
+    if(k>=5){x.strokeStyle='#5b6385';x.setLineDash([6,4]);x.lineWidth=3;x.beginPath();x.moveTo(bx-w*.14,cy+h*.16);x.lineTo(mx+w*.11,cy+h*.16);x.stroke();x.setLineDash([]);x.fillStyle='#5b6385';x.font='bold 11px Nunito, sans-serif';x.textAlign='center';x.fillText('3-C returns',(mx+bx)/2-w*.02,cy+h*.13);x.textAlign='left'}
+    $('#c4Read').textContent=STEPS[k]}
+  $('#c4Next').onclick=()=>{if(k<STEPS.length-1){k++;draw();if(k===STEPS.length-1)cheer(true)}};
+  $('#c4Prev').onclick=()=>{if(k>0){k--;draw()}};$('#c4Reset').onclick=()=>{k=0;draw()};
+  enterHooks[15]=draw;})();
+
+// 16 · the CAM clock (24 h)
+(function(){const c=$('#camc'),sl=$('#hour');let raf=null,played=false;
+  const acidAt=hr=>{// builds 19:00 -> 06:00, used 07:00 -> 18:00
+    if(hr>=19)return (hr-19)/11; if(hr<=6)return (hr+5)/11; return Math.max(0,1-(hr-6)/12)};
+  function draw(){const {x,w,h}=fit(c);const hr=+sl.value,day=hr>=7&&hr<=18;x.fillStyle=day?'#fff3d6':'#1b2148';x.fillRect(0,0,w,h);
+    const ink=day?'#1c2340':'#fff';
+    // clock
+    const cx=w*.17,cy=h*.5,R=Math.min(w*.13,h*.36);x.fillStyle=day?'#fff':'#2b3266';x.beginPath();x.arc(cx,cy,R,0,7);x.fill();x.strokeStyle=ink;x.lineWidth=3;x.stroke();
+    x.fillStyle=ink;x.font='bold 11px Nunito, sans-serif';x.textAlign='center';[0,6,12,18].forEach(q=>{const a=q/24*6.283-Math.PI/2;x.fillText(q+':00',cx+Math.cos(a)*(R-16),cy+Math.sin(a)*(R-16)+4)});
+    const a=hr/24*6.283-Math.PI/2;x.strokeStyle='#e5484d';x.lineWidth=4;x.beginPath();x.moveTo(cx,cy);x.lineTo(cx+Math.cos(a)*(R-26),cy+Math.sin(a)*(R-26));x.stroke();
+    x.fillText((hr<10?'0':'')+hr+':00',cx,cy+R+20);x.textAlign='left';
+    x.fillStyle=day?'#ffc21a':'#e8ecff';x.beginPath();x.arc(w-30,28,day?18:13,0,7);x.fill();
+    // cell with vacuole
+    const ox=w*.47,oy=h*.5,cw=w*.26,ch=h*.7;x.fillStyle='#7cc46e';x.beginPath();x.roundRect?x.roundRect(ox-cw/2,oy-ch/2,cw,ch,18):x.rect(ox-cw/2,oy-ch/2,cw,ch);x.fill();
+    const acid=acidAt(hr);x.fillStyle='#d9e8ff';x.beginPath();x.ellipse(ox,oy,cw*.33,ch*.32,0,0,7);x.fill();x.fillStyle='#f07f19';x.globalAlpha=.25+acid*.75;x.beginPath();x.ellipse(ox,oy+ch*.32*(1-acid),cw*.33*Math.max(.15,acid),ch*.32*Math.max(.1,acid),0,0,7);x.fill();x.globalAlpha=1;
+    lbl(x,'vacuole: organic acid '+Math.round(acid*100)+'%',ox,oy+ch/2+14,'#f07f19');
+    // stoma
+    const open=day?0:1;x.fillStyle='#2b7a37';x.beginPath();x.ellipse(ox,oy-ch/2-2,24,12,0,0,7);x.fill();x.fillStyle=day?'#fff3d6':'#1b2148';x.beginPath();x.ellipse(ox,oy-ch/2-2,20*open+1,5*open+1,0,0,7);x.fill();
+    if(!day){for(let i=0;i<3;i++){x.fillStyle='#2563eb';x.beginPath();x.arc(ox-14+i*14,oy-ch/2-26-i*4,6,0,7);x.fill()}}
+    if(day&&acid>0.02){x.strokeStyle='#1fa75a';x.lineWidth=5;x.beginPath();x.arc(ox,oy-ch*.18,18,0,5.6);x.stroke()}
+    // info text
+    const tx=w*.65;x.fillStyle=ink;x.font='bold 15px Nunito, sans-serif';x.fillText(day?'☀️ DAY':'🌙 NIGHT',tx,h*.16);x.font='13px Nunito, sans-serif';
+    const lines=day?['Stomata CLOSED → almost no water lost.','Organic acid releases CO₂ inside the leaf.','Light reactions make ATP + NADPH → Calvin cycle makes sugar.']:['Stomata OPEN (cool air → little water lost).','CO₂ is fixed into organic acids.','Acids are stored in the VACUOLE until morning.'];
+    let yy=h*.28;lines.forEach(s=>{yy=wrapT(x,'• '+s,tx,yy,w*.33,16)+24});
+    $('#camRead').textContent=day?`${hr}:00 · Day: stomata closed, Calvin cycle running on stored CO₂.`:`${hr}:00 · Night: stomata open, CO₂ stored as acid.`}
+  function play(){if(raf)return;let hh=+sl.value,acc=0;const step=()=>{acc++;if(acc%8===0){hh++;sl.value=hh%24;draw();if(hh-(+sl.dataset.start)>=24){raf=null;$('#camPlay').textContent='▶ Play 24 h';if(!played){played=true;cheer(true)}return}}raf=requestAnimationFrame(step)};sl.dataset.start=hh;$('#camPlay').textContent='⏸ Playing…';raf=requestAnimationFrame(step)}
+  sl.oninput=draw;$('#camPlay').onclick=()=>{if(raf){cancelAnimationFrame(raf);raf=null;$('#camPlay').textContent='▶ Play 24 h'}else play()};
+  enterHooks[16]=draw;})();
+
+// 17 · stomata peel microscope view
+(function(){const c=$('#lab');let plant='c4',time='day',seen={};
+  function draw(){const {x,w,h}=fit(c);x.fillStyle='#111';x.fillRect(0,0,w,h);const cx=w/2,cy=h/2,R=Math.min(w,h)*.46;
+    x.save();x.beginPath();x.arc(cx,cy,R,0,7);x.clip();x.fillStyle=plant==='c4'?'#cfe9c4':'#d9ecd2';x.fillRect(cx-R,cy-R,2*R,2*R);
+    // epidermal cells
+    x.strokeStyle='rgba(60,110,60,.35)';x.lineWidth=1.5;
+    if(plant==='c4'){for(let r=-5;r<=5;r++){x.beginPath();x.moveTo(cx-R,cy+r*R/5);x.lineTo(cx+R,cy+r*R/5);x.stroke()}for(let i=-8;i<=8;i++)for(let r=-5;r<5;r++){x.beginPath();x.moveTo(cx+i*R/4+(r%2)*R/8,cy+r*R/5);x.lineTo(cx+i*R/4+(r%2)*R/8,cy+(r+1)*R/5);x.stroke()}}
+    else{for(let i=0;i<40;i++){const X=cx-R+((i*53)%100)/100*2*R,Y=cy-R+((i*37)%100)/100*2*R;x.beginPath();x.ellipse(X,Y,R*.13,R*.1,i,0,7);x.stroke()}}
+    // stomata
+    const pos=[];if(plant==='c4'){for(let r=-4;r<=4;r+=2)for(let i=-3;i<=3;i++)pos.push([cx+i*R/3.2+(r%4?R/6:0),cy+r*R/5+R/10])}else{[[-.5,-.4],[.3,-.55],[.55,.1],[-.2,.15],[-.6,.45],[.2,.6],[0,-.1]].forEach(([a,b])=>pos.push([cx+a*R,cy+b*R]))}
+    const open=plant==='c4'?(time==='day'?.55:.15):(time==='day'?0:1);
+    pos.forEach(([X,Y])=>{x.fillStyle='#4f9b45';x.beginPath();x.ellipse(X,Y,14,9,plant==='c4'?0:.6,0,7);x.fill();x.fillStyle='#1d3b1a';x.beginPath();x.ellipse(X,Y,10*open+.8,3.5*open+.8,plant==='c4'?0:.6,0,7);x.fill()});
+    x.restore();x.strokeStyle='#444';x.lineWidth=8;x.beginPath();x.arc(cx,cy,R,0,7);x.stroke();
+    lbl(x,(plant==='c4'?'Maize (C4)':'Jade (CAM)')+' · '+(time==='day'?'☀️ day':'🌙 night')+' · ×400',cx,16,plant==='c4'?'#1fa75a':'#7a3ff0');
+    const st=open>.7?'OPEN':open>.3?'PARTLY OPEN':open>.05?'mostly CLOSED':'CLOSED';
+    $('#labRead').textContent=`Stomata counted in view: ${pos.length} · they look ${st}.`+(plant==='cam'&&time==='night'?' CAM opens at night to take in CO₂!':plant==='cam'?' CAM keeps them closed in the heat to save water.':'');
+    seen[plant+time]=1;if(Object.keys(seen).length===4&&!seen.done){seen.done=1;cheer(true)}}
+  $$('[data-plant]').forEach(b=>b.onclick=()=>{plant=b.dataset.plant;draw()});
+  $$('[data-time]').forEach(b=>b.onclick=()=>{time=b.dataset.time;draw()});
+  enterHooks[17]=draw;})();
+
+window.addEventListener('resize',()=>enterHooks[cur]&&enterHooks[cur]());
+go(fromHash(),false);
+</script>
+
+</body>
+</html>

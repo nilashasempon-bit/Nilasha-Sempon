@@ -1,0 +1,1218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="author" content="Nilasha Sempon">
+<meta name="description" content="Interactive Grade 8 Advanced Science lesson with the UAE Values Team.">
+<title>Reflection, Absorption and Transmission · Nilasha Sempon</title>
+<meta property="og:title" content="Reflection, Absorption and Transmission · Nilasha Sempon">
+<meta property="og:description" content="Grade 8 Advanced Science interactive lesson by Nilasha Sempon, with the UAE Values Team.">
+<meta property="og:image" content="https://nilashasempons.netlify.app/g8-wave-interactions/img/hook-scene.webp">
+<meta property="og:url" content="https://nilashasempons.netlify.app/g8-wave-interactions/">
+<meta property="og:site_name" content="Nilasha Sempon · Science &amp; Biology">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: an app frame (top bar · one slide at a time · bottom nav). Each slide is a page with its own #sN link.
+   Single bright classroom look, matching the teacher's deck, so colours are set explicitly. */
+:root{
+  --navy:#1b2470; --navy-2:#2a338f; --ink:#1c2340; --muted:#5b6385; --line:#dfe3f1;
+  --paper:#ffffff; --bg:#eef1f9; --sun:#ffc21a; --sun-ink:#3a2a00;
+  --green:#1fa75a; --green-bg:#e6f7ed; --red:#e5484d; --red-bg:#fdecec;
+  --orange:#f07f19; --orange-bg:#fff2e4; --purple:#7a3ff0; --purple-bg:#f1eafe;
+  --blue:#2563eb; --blue-bg:#e8effe; --teal:#0e9fa6; --sea:#2b8fd6; --sand:#f2dca6;
+  --c-shahin:#4b6b2f; --c-fahim:#1f5f8b; --c-maha:#a3343a; --c-ahmed:#1d6b5b; --c-hessa:#b07a0a;
+  --display:"Baloo Bhaijaan 2","Nunito",system-ui,sans-serif;
+  --body:"Nunito","Baloo Bhaijaan 2",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+html,body{height:100%}
+body{margin:0}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45}
+*{box-sizing:border-box}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.ar{font-family:"Baloo Bhaijaan 2",var(--body);direction:rtl}
+
+#app{height:100%;display:grid;grid-template-rows:auto 1fr auto}
+.topbar{background:var(--navy);color:#fff;display:flex;align-items:center;gap:12px;padding:8px 16px;flex-wrap:wrap}
+.topbar .crumb{font-weight:800;font-family:var(--display);font-size:1.05rem;white-space:nowrap}
+.topbar .unit{opacity:.8;font-size:.85rem;min-width:0;flex:1 1 220px}
+.topbar .date{background:rgba(255,255,255,.14);border-radius:999px;padding:3px 12px;font-size:.85rem;white-space:nowrap}
+.iconbtn{background:var(--sun);color:var(--sun-ink);border:0;border-radius:999px;width:36px;height:36px;display:grid;place-items:center;font-weight:800;flex:none}
+.iconbtn svg{width:18px;height:18px}
+.wavestrip{height:6px;background:repeating-linear-gradient(90deg,var(--sun) 0 40px,var(--green) 40px 80px,var(--red) 80px 120px,var(--blue) 120px 160px,var(--purple) 160px 200px)}
+
+main{overflow-y:auto;overflow-x:hidden;position:relative;-webkit-overflow-scrolling:touch}
+.slide{min-height:100%}
+.inner{max-width:1200px;margin:0 auto;padding-block:22px 28px;padding-inline:16px;display:flex;flex-direction:column;gap:18px}
+.head{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.head h2{font-family:var(--display);font-size:clamp(1.5rem,3.2vw,2.2rem);line-height:1.1;margin:0;flex:1 1 auto;text-wrap:balance;font-weight:800}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:2px solid var(--blue);border-radius:999px;padding:3px 12px 3px 4px;font-size:.82rem;font-weight:700;color:var(--navy)}
+.chip i{width:24px;height:24px;border-radius:50%;background:var(--blue);display:grid;place-items:center;color:#fff;font-style:normal;font-size:.8rem}
+.chip .ar{font-weight:600;color:var(--muted)}
+.lead{color:var(--muted);margin:0;max-width:75ch}
+.lead b{color:var(--purple)}
+
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px}
+.label{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;font-weight:800;color:var(--red)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+.g5{grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.cols{display:grid;gap:18px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:860px){.cols.split{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}.cols.split-r{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}}
+.stack{display:flex;flex-direction:column;gap:12px;min-width:0}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+img.fig{border-radius:14px;border:1px solid var(--line);display:block;width:100%;height:auto;background:#fff}
+
+.btn{border:0;border-radius:999px;padding:10px 20px;font-weight:800;background:var(--sun);color:var(--sun-ink);box-shadow:0 3px 0 #d79c00;transition:transform .1s}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 #d79c00}
+.btn.navy{background:var(--navy);color:#fff;box-shadow:0 3px 0 #0d1245}
+.btn.red{background:var(--red);color:#fff;box-shadow:0 3px 0 #a92d31}
+.btn.ghost{background:var(--paper);color:var(--navy);box-shadow:none;border:2px solid var(--line)}
+.btn.small{padding:6px 14px;font-size:.88rem}
+
+/* coach strip */
+.coach{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:center;background:var(--paper);border:2px solid var(--cc,var(--navy));border-radius:18px;padding:10px 14px}
+.coach img{width:64px;height:64px;border-radius:50%;border:3px solid var(--cc);background:#f5efe4}
+.coach .who{font-weight:800;color:var(--cc);font-size:.9rem}
+.coach .who span{font-weight:600;color:var(--muted)}
+.coach p{margin:2px 0}
+.coach .ns{font-size:.82rem;color:var(--muted)}
+.coach .ns b{color:var(--orange)}
+.lo{display:flex;gap:10px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:.88rem;color:var(--muted)}
+.lo b{color:var(--red)}
+.lo.lotop{color:var(--ink);font-size:.95rem;font-weight:600;border:2px solid #f3c2c4;background:#fff7f7}
+.hero .lo.lotop,.end .lo.lotop{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.35);color:#fff}.hero .lo.lotop b,.end .lo.lotop b{color:#ffc21a}
+.lo .tgt{flex:none;width:22px;height:22px;border-radius:50%;border:4px solid var(--red);box-shadow:inset 0 0 0 3px #fff,inset 0 0 0 8px var(--red)}
+
+/* bottom nav */
+.nav{background:var(--paper);border-top:1px solid var(--line);display:flex;align-items:center;gap:8px;padding:8px 16px calc(8px + env(safe-area-inset-bottom,0px));flex-wrap:wrap}
+.nav .count{font-weight:800;font-variant-numeric:tabular-nums;color:var(--navy);min-width:64px;text-align:center}
+.nav .title{flex:1 1 140px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--muted);font-size:.9rem}
+@media (max-width:700px){.topbar .unit{display:none}.nav .title{display:none}.nav{justify-content:space-between}}
+.progress{height:4px;background:var(--line)}
+.progress div{height:100%;background:var(--sun);transition:width .3s}
+.toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;z-index:50;max-width:calc(100% - 32px);text-align:center}
+.linkbox{font-size:.8rem;word-break:break-all;background:var(--bg);padding:6px 10px;border-radius:8px;user-select:all}
+
+/* menu overlay */
+.menu{position:fixed;inset:0;background:rgba(18,22,60,.55);z-index:40;display:grid;place-items:center;padding:16px}
+.menu .panel{background:var(--paper);border-radius:20px;max-width:900px;width:100%;max-height:85vh;overflow:auto;padding:18px}
+.menu ol{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:6px;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr))}
+.menu li button{width:100%;text-align:left;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:8px 10px;display:flex;gap:10px;align-items:center}
+.menu li button b{color:var(--navy);font-variant-numeric:tabular-nums;min-width:22px}
+.menu li button.cur{background:var(--sun)}
+
+/* title slide */
+.hero{background:linear-gradient(135deg,#1b2470 0%,#3a2fa3 60%,#6a2fb8 100%);color:#fff;min-height:100%;position:relative;overflow:hidden}
+.hero .inner{padding-block:36px}
+.hero h1{font-family:var(--display);font-size:clamp(2.4rem,7vw,4.6rem);line-height:1;margin:6px 0 0;font-weight:800}
+.hero .sub{font-family:var(--display);color:var(--sun);font-size:clamp(1.3rem,3vw,2rem);font-weight:700;margin:0}
+.hero .eyebrow{color:var(--sun);font-weight:800;letter-spacing:.08em;font-size:.82rem}
+.hero .teacher{font-family:var(--display);font-size:1.2rem}.hero .teacher b{color:var(--sun)}
+.hero .mystery{background:#fff;color:var(--ink);border-radius:14px;padding:14px 16px;max-width:620px}
+.hero .mystery b{color:var(--red)}
+.avatars{display:flex;flex-wrap:wrap;gap:12px}
+.avatars button{background:none;border:0;padding:0;text-align:center;color:#fff;font-size:.8rem;font-weight:700}
+.avatars img{width:72px;height:72px;border-radius:50%;border:3px solid var(--sun);display:block;margin-bottom:4px;background:#f5efe4;transition:transform .2s}
+.avatars button:hover img{transform:translateY(-4px) rotate(-4deg)}
+.hero canvas.waves{position:absolute;left:0;right:0;bottom:0;width:100%;height:120px;pointer-events:none;opacity:.9}
+
+/* flip cards */
+.flip{perspective:900px;background:none;border:0;padding:0;text-align:left;width:100%}
+.flip .fi{display:grid;transition:transform .5s;transform-style:preserve-3d;height:100%}
+.flip.on .fi{transform:rotateY(180deg)}
+.flip .face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;padding:14px;border:2px solid var(--line);background:var(--paper);min-height:100px;display:flex;flex-direction:column;justify-content:center;gap:4px}
+.flip .back{transform:rotateY(180deg)}
+.flip .tap{font-size:.75rem;color:var(--muted);font-weight:700}
+.kw .front{border-color:var(--purple)}
+.kw .front strong{font-family:var(--display);font-size:1.3rem;color:var(--purple)}
+.kw .back{background:var(--purple-bg);border-color:var(--purple)}
+@media (prefers-reduced-motion:reduce){.flip .fi{transition:none}}
+
+/* team cards */
+.team{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr))}
+.team .face{padding:0;overflow:hidden;justify-content:flex-start;border-color:var(--cc)}
+.team .front img{width:100%;height:auto;aspect-ratio:496/536;object-fit:cover;display:block}
+.team .front .tap{padding:8px 10px;text-align:center;color:var(--cc)}
+.team .back{background:var(--cc);color:#fff;padding:16px;justify-content:center;font-weight:700;font-size:1.02rem}
+.team .back h4{margin:0;font-family:var(--display);font-size:1.4rem}
+.nskills{display:flex;flex-wrap:wrap;gap:8px}
+.nskill{border:2px solid var(--orange);background:var(--paper);border-radius:12px;padding:6px 12px;font-weight:800;color:var(--navy);display:flex;flex-direction:column;align-items:flex-start;text-align:left;max-width:240px}
+.nskill small{font-weight:600;color:var(--orange);display:none}
+.nskill.on small{display:block}
+
+/* lesson map */
+.map{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr))}
+.map button{border:0;border-radius:16px;color:#fff;text-align:left;padding:14px;min-height:112px;display:flex;flex-direction:column;gap:2px;transition:transform .15s}
+.map button:hover{transform:translateY(-3px)}
+.map small{font-size:.7rem;letter-spacing:.07em;font-weight:800;opacity:.85}
+.map strong{font-family:var(--display);font-size:1.18rem;line-height:1.15}
+.map span{font-size:.85rem;opacity:.9}
+
+/* lists */
+.crit{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.crit li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;align-items:start}
+.crit li::before{content:"✓";width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:800}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;align-items:center;counter-increment:s}
+.steps li::before{content:counter(s);width:32px;height:32px;border-radius:50%;background:var(--sun);display:grid;place-items:center;font-weight:800}
+
+/* timer */
+.timer{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:2px solid var(--sun);border-radius:999px;padding:4px 6px 4px 4px}
+.timer .t{font-family:var(--display);font-weight:800;font-size:1.3rem;font-variant-numeric:tabular-nums;min-width:58px;text-align:center;color:var(--navy)}
+.timer.done{border-color:var(--red);background:var(--red);animation:shake .5s 3}
+.timer.done .t{color:#fff}
+.timer .rs{background:none;border:0;color:var(--muted);font-size:.8rem;font-weight:700;padding:4px 8px}
+.timer.done .rs{color:#fff}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+/* quizzes */
+.q{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:10px}
+.q .qt{font-weight:800}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{border:2px solid var(--line);background:var(--bg);border-radius:12px;padding:8px 14px;font-weight:700;text-align:left}
+.opt.ok{background:var(--green);border-color:var(--green);color:#fff}
+.opt.no{background:var(--red);border-color:var(--red);color:#fff}
+.opt.ok::before{content:"✓ "}.opt.no::before{content:"✗ "}
+.fb{font-size:.9rem;border-radius:10px;padding:8px 12px}
+.fb.ok{background:var(--green-bg);color:#11663a}
+.fb.no{background:var(--red-bg);color:#9b1c22}
+.score{font-family:var(--display);font-weight:800;font-size:1.25rem;color:var(--navy)}
+
+/* sort */
+.sorter{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.sitem{display:flex;align-items:center;justify-content:space-between;gap:10px;border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 12px;font-weight:700;text-align:left}
+.sitem .tag{border-radius:999px;padding:3px 12px;font-size:.82rem;font-weight:800;background:var(--bg);color:var(--muted);white-space:nowrap}
+.sitem[data-v="low"] .tag{background:var(--teal);color:#fff}
+.sitem[data-v="high"] .tag{background:var(--red);color:#fff}
+.bannerbtn{background:none;border:0;padding:0;display:block;width:100%;max-width:760px;cursor:pointer}.bannerbtn img{width:100%;height:auto;border-radius:14px;display:block;border:3px solid var(--sun);transition:transform .2s}.bannerbtn:hover img{transform:translateY(-3px)}
+.concert{display:grid;gap:8px}.concert .stadium{padding-top:14px}.stage{background:linear-gradient(90deg,#ffc21a,#ff8a1f);border-radius:10px;text-align:center;font-weight:800;padding:8px;color:#3a2a00;letter-spacing:.1em}
+.seat.saeed{outline:3px solid #ff3b3b;outline-offset:1px}
+.dbchip{border-radius:999px;padding:3px 10px;font-size:.8rem;font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
+.sitem[data-v="REFLECT"] .tag{background:var(--red);color:#fff}.sitem[data-v="ABSORB"] .tag{background:var(--teal);color:#fff}.sitem[data-v="TRANSMIT"] .tag{background:var(--navy);color:#fff}
+.sitem.right{border-color:var(--green);box-shadow:0 0 0 2px var(--green)}
+.sitem.wrong{border-color:var(--red);box-shadow:0 0 0 2px var(--red)}
+
+/* energy bars */
+.erow{display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px;align-items:center}
+.erow .amp{background:var(--navy);color:#fff;border-radius:999px;padding:6px 12px;font-weight:800;text-align:center;font-size:.9rem}
+.ebar{border:2px dashed var(--line);border-radius:999px;height:40px;background:var(--paper);display:flex;align-items:center;padding:0 4px;text-align:left;font-weight:700;color:var(--muted);font-size:.85rem;width:100%;position:relative;overflow:hidden}
+.ebar .fill{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#ff8c8f,var(--red));border-radius:999px;width:0;transition:width .8s cubic-bezier(.2,.9,.3,1.2)}
+.ebar .v{position:relative;padding-left:10px}
+.ebar.on{border-style:solid;border-color:var(--red)}
+.ebar.on .v{color:#fff;font-family:var(--display);font-size:1.25rem}
+.rule{background:var(--purple-bg);border-radius:14px;padding:18px;text-align:center;font-family:var(--display);font-size:3rem;font-weight:800;color:var(--navy);line-height:1}
+.rule sup{font-size:.55em}
+
+/* sims */
+.sim{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:12px;display:grid;gap:10px}
+.sim>*,.medium>*{min-width:0}
+.sim canvas{width:100%;display:block;border-radius:10px}
+.stadium{background:#141a3e;border-radius:12px;padding:40px 14px 14px;display:grid;gap:6px;grid-template-columns:repeat(16,minmax(0,1fr));overflow:hidden}
+.seat{height:clamp(14px,3vw,30px);border-radius:40% 40% 18% 18%;background:var(--c,#5b7cfa);transition:background .2s}
+.seat.saeed{outline:3px solid #ff3b3b;outline-offset:1px}
+.medium{display:grid;gap:8px;border:2px solid var(--line);border-radius:14px;padding:10px;background:var(--paper)}
+.medium h4{margin:0;font-family:var(--display);font-size:1.15rem}
+.medium canvas{width:100%;max-width:100%;height:120px;background:#f6f8fd}
+.medium .res{font-size:.85rem;min-height:2.6em}
+.legend{font-size:.82rem;color:var(--muted)}
+
+/* table */
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:420px;font-size:.92rem}
+th{background:var(--navy);color:#fff;text-align:left;padding:8px 10px}
+td{border-bottom:1px solid var(--line);padding:8px 10px;vertical-align:top}
+select,input[type=text],textarea{font:inherit;border:2px solid var(--line);border-radius:10px;padding:6px 10px;background:#fff;color:var(--ink);max-width:100%}
+textarea{width:100%;min-height:84px;resize:vertical}
+.okf{border-color:var(--green)!important;background:var(--green-bg)!important}
+.nof{border-color:var(--red)!important;background:var(--red-bg)!important}
+.fillrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.wordbank{background:var(--blue-bg);border-radius:10px;padding:8px 12px;font-weight:700;color:var(--blue)}
+
+/* order */
+.order{display:grid;gap:8px}
+.oitem{display:flex;align-items:center;gap:12px;border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 12px;font-weight:700;text-align:left}
+.oitem .n{width:34px;height:34px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-family:var(--display);font-weight:800;flex:none;color:var(--muted)}
+.oitem.set .n{background:var(--sun);color:var(--sun-ink)}
+.oitem.right{border-color:var(--green)}.oitem.wrong{border-color:var(--red)}
+.chain{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.chain div{border-radius:12px;padding:10px;color:#fff;font-weight:700;font-size:.9rem}
+.traffic{display:flex;flex-wrap:wrap;gap:8px}
+.traffic button{border:0;border-radius:999px;padding:8px 16px;font-weight:800;color:#fff}
+
+/* levels */
+.level{border-radius:16px;overflow:hidden;border:2px solid var(--lc);background:var(--paper);display:flex;flex-direction:column}
+.level h3{margin:0;background:var(--lc);color:#fff;padding:10px 14px;font-family:var(--display)}
+.level ol{margin:0;padding:12px 14px 12px 32px;display:grid;gap:8px}
+.level .ans{background:var(--lbg);margin:0 12px 12px;border-radius:10px;padding:10px 12px;font-size:.9rem}
+.level .btn{margin:0 12px 12px;align-self:flex-start}
+
+/* stars */
+.stars{display:flex;gap:4px}
+.stars button{background:none;border:0;padding:0;font-size:1.7rem;line-height:1;color:#c7cde0}
+.stars button.on{color:#f6b500}
+.vcard{border:2px solid var(--cc);border-radius:16px;background:var(--paper);padding:10px;text-align:center;display:grid;gap:6px;position:relative;justify-items:center}
+.vcard img{width:min(120px,100%);aspect-ratio:1;border-radius:50%;border:3px solid var(--cc);background:#f5efe4}
+.vcard .star{position:absolute;top:8px;right:10px;font-size:2rem;color:#c7cde0;transition:transform .3s}
+.vcard.on .star{color:#f6b500;transform:scale(1.25) rotate(15deg)}
+.vcard .prompt{font-style:italic;color:var(--cc);border:1px dashed var(--cc);border-radius:10px;padding:6px 8px;font-size:.88rem;width:100%}
+.goal{font-size:2rem;letter-spacing:4px;color:#c7cde0}
+.goal span.on{color:#f6b500}
+
+.end{background:linear-gradient(135deg,#1b2470 0%,#3a2fa3 60%,#6a2fb8 100%);color:#fff;min-height:100%}
+.end h1{font-family:var(--display);font-size:clamp(2.2rem,6vw,4rem);margin:0;line-height:1.05}
+.end .eyebrow{color:var(--sun);font-weight:800;letter-spacing:.06em}
+.end .promise{background:#fff;color:var(--ink);border-radius:14px;padding:12px 16px}
+.end .promise b{color:var(--red)}
+.end .nsk{background:#fff;color:var(--navy);border-radius:999px;padding:6px 14px;font-weight:800}
+
+.note{background:var(--orange-bg);border-radius:12px;padding:10px 14px;font-size:.92rem}
+.note b{color:var(--orange)}
+.good{background:var(--green-bg);border-radius:12px;padding:10px 14px}
+.hl{color:var(--red);font-weight:800}
+video{width:100%;border-radius:14px;background:#000;display:block}
+
+/* party confetti + red wrong-answer feedback */
+.shake{animation:shk .45s}
+@keyframes shk{0%,100%{transform:translateX(0)}20%{transform:translateX(-9px)}40%{transform:translateX(9px)}60%{transform:translateX(-6px)}80%{transform:translateX(5px)}}
+#redFlash{position:fixed;inset:0;pointer-events:none;z-index:9998;box-shadow:inset 0 0 0 12px rgba(229,72,77,.92),inset 0 0 120px rgba(229,72,77,.55);opacity:0;transition:opacity .6s}
+#redFlash.on{opacity:1;transition:none}
+#fxCanvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999}
+.fbadge{position:fixed;z-index:10000;pointer-events:none;transform:translate(-50%,-50%);padding:10px 20px;border-radius:999px;font-weight:800;font-size:1.2rem;color:#fff;white-space:nowrap;box-shadow:0 10px 26px rgba(0,0,0,.22);animation:fbadge 1.4s ease-out forwards}
+.fbadge.good{background:#1fa75a}.fbadge.bad{background:#e5484d}
+@keyframes fbadge{0%{opacity:0;transform:translate(-50%,-30%) scale(.6)}15%{opacity:1;transform:translate(-50%,-70%) scale(1.12)}70%{opacity:1}100%{opacity:0;transform:translate(-50%,-170%) scale(1)}}
+.sitem.wrong,.oitem.wrong{background:var(--red-bg)!important}
+.sitem.right,.oitem.right{background:var(--green-bg)!important}
+</style>
+</head>
+<body>
+
+<div id="app">
+  <header class="topbar">
+    <a class="iconbtn" href="../" title="All lessons" aria-label="All lessons" style="text-decoration:none">◀</a>
+    <span class="crumb">Lesson 2 · Mechanical Wave Interactions</span>
+    <span class="unit">Unit 1: Energy and Motion · Module 1: Introduction to Waves</span>
+    <span class="date" id="today">Today</span>
+    <button class="iconbtn" data-go="4" title="Lesson map" aria-label="Lesson map"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 2 11.5h3V21h5.5v-6h3v6H19v-9.5h3z"/></svg></button>
+  </header>
+  <main id="main">
+
+<!-- 1 · TITLE -->
+<section class="slide hero" id="s1" data-title="Reflection, Absorption & Transmission" data-bare>
+  <div class="inner">
+    <div class="eyebrow">GRADE 8 ADVANCED · SCIENCE · TERM 1 · WEEK 7</div>
+    <div><h1>Reflection, Absorption &amp; Transmission</h1><p class="sub">Lesson 2 · Mechanical Wave Interactions</p></div>
+    <div style="opacity:.85">Unit 1: Energy and Motion · Module 1: Introduction to Waves</div>
+    <div class="teacher">Teacher: <b>Nilasha Sempon</b> · Science &amp; Biology</div>
+    <div>
+      <div class="eyebrow" style="margin-bottom:8px">YOUR VALUES TEAM TODAY · tap to meet them</div>
+      <button class="bannerbtn" data-go="3"><img src="img/banner.webp" alt="Shahin (Leadership), Fahim (Knowledge), Maha (Respect), Ahmed (Responsibility) and Hessa (Tolerance) with the UAE national skills"></button>
+    </div>
+    <div class="mystery"><b>Today's mystery:</b> Why did Hamdan's voice echo in the empty majlis, but not after the carpets and cushions arrived?</div>
+    <div class="row" style="padding-bottom:110px">
+      <button class="btn" data-go="3">▶ Let's go!</button>
+      <button class="btn ghost" data-go="4">Lesson map</button>
+      <span style="opacity:.8;font-size:.9rem">45-minute interactive lesson</span>
+    </div>
+  </div>
+  <canvas class="waves" id="heroWaves"></canvas>
+</section>
+
+<!-- 2 · TERM 1 -->
+<section class="slide" id="s2" data-title="Term 1 overview" data-nolo>
+  <div class="inner">
+    <div class="head"><h2>Term 1 at a glance</h2></div>
+    <p class="lead">Grade 8 Advanced Science · We are in <b>Unit 1, Module 2: Introduction to Waves</b>, now on <b>Lesson 2: Mechanical Wave Interactions</b>.</p>
+    <img class="fig" src="img/term1.webp" alt="Term 1 plan: units, modules and lessons for Grade 8 Advanced Science" style="max-width:900px">
+  </div>
+</section>
+
+<!-- 3 · MEET TEAM -->
+<section class="slide" id="s3" data-title="Meet your UAE Values Team" data-skills="teamwork">
+  <div class="inner">
+    <div class="head"><h2>Meet your UAE Values Team</h2><button class="btn" data-confetti>★ We're ready!</button></div>
+    <p class="lead">Five friends will coach you through today's wave-interactions mission. <b>Tap a character to discover their job today!</b></p>
+    <div class="team">
+      <button class="flip" style="--cc:var(--c-shahin)"><div class="fi"><div class="face front"><img src="img/fig-shahin.webp" alt="Shahin – Leadership"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Shahin</h4>Lead your team in the Crashing Waves lab and guide the echo order.</div></div></button>
+      <button class="flip" style="--cc:var(--c-fahim)"><div class="fi"><div class="face front"><img src="img/fig-fahim.webp" alt="Fahim – Knowledge"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Fahim</h4>Collect today's key words: reflection, absorption, transmission, echo.</div></div></button>
+      <button class="flip" style="--cc:var(--c-maha)"><div class="fi"><div class="face front"><img src="img/fig-maha.webp" alt="Maha – Respect"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Maha</h4>Respect quiet voices: keep the noise down so everyone can hear.</div></div></button>
+      <button class="flip" style="--cc:var(--c-ahmed)"><div class="fi"><div class="face front"><img src="img/fig-ahmed.webp" alt="Ahmed – Responsibility"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Ahmed</h4>Handle the water tray carefully, record your results and finish on time.</div></div></button>
+      <button class="flip" style="--cc:var(--c-hessa)"><div class="fi"><div class="face front"><img src="img/fig-hessa.webp" alt="Hessa – Tolerance"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Hessa</h4>Every answer is welcome here. Mistakes help us learn!</div></div></button>
+    </div>
+    <div class="stack">
+      <div class="label" style="color:var(--navy)">UAE national skills you will use today · tap a skill to see where</div>
+      <div class="nskills">
+        <button class="nskill">🇦🇪 National Identity<small>The family majlis and echoes at Hatta Dam</small></button>
+        <button class="nskill">🌿 Sustainability<small>Quieter, healthier neighbourhoods</small></button>
+        <button class="nskill">🤝 Cooperation<small>Team roles in the Crashing Waves lab</small></button>
+        <button class="nskill">💡 Innovation<small>Acoustical engineers and highway sound barriers</small></button>
+        <button class="nskill">⭐ Excellence<small>Become today's Wave Master!</small></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · LESSON MAP -->
+<section class="slide" id="s4" data-title="Lesson map">
+  <div class="inner">
+    <div class="head"><h2>Lesson map · 45 minutes · tap any activity</h2></div>
+    <div class="map">
+      <button style="background:#1593c9" data-go="6"><small>PRE-ASSESSMENT · min 0–5</small><strong>Starter + Attendance</strong><span>Kickoff &amp; pre-assessment</span></button>
+      <button style="background:#d23b8a" data-go="5"><small>OBJECTIVES</small><strong>Objectives &amp; vocabulary</strong><span>Flip the key words</span></button>
+      <button style="background:#ef5a5a" data-go="8"><small>HOOK · min 5–9</small><strong>The echoing majlis</strong><span>UAE mystery + predict</span></button>
+      <button style="background:#f07f19" data-go="9"><small>ACTIVITY · min 9–12</small><strong>Reflect, absorb or transmit?</strong><span>Sort the situations</span></button>
+      <button style="background:#7a3ff0" data-go="10"><small>EXPLAIN · min 12–17</small><strong>Three things a wave can do</strong><span>The unconventional version + textbook</span></button>
+      <button style="background:#b0287a" data-go="15"><small>SIMULATION · min 17–20</small><strong>Angle of reflection</strong><span>Angle in = angle out</span></button>
+      <button style="background:#118a7e" data-go="16"><small>SIMULATION · min 20–23</small><strong>Wall tester</strong><span>Concrete · foam · thin wall · glass</span></button>
+      <button style="background:#2563eb" data-go="17"><small>SIMULATION · min 23–25</small><strong>Echoes &amp; sound barriers</strong><span>Hatta Dam · Sheikh Zayed Road</span></button>
+      <button style="background:#1fa75a" data-go="19"><small>LAB · min 25–30</small><strong>Crashing Waves lab</strong><span>Water tray &amp; barriers</span></button>
+      <button style="background:#e5484d" data-go="20"><small>FORMATIVE · min 30–33</small><strong>Pause &amp; check</strong><span>Formative quiz + echo order</span></button>
+      <button style="background:#5b3fd0" data-go="22"><small>WORKSHEET · min 33–41</small><strong>Worksheet + levels</strong><span>Worksheet, then Green / Orange / Purple</span></button>
+      <button style="background:#c81e3a" data-go="25"><small>SUMMATIVE · min 41–45</small><strong>Wave Master + exit</strong><span>Summative quiz &amp; mystery solved</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · OBJECTIVES -->
+<section class="slide" id="s5" data-title="Objectives, success criteria & key words" data-skills="reading" data-coach="fahim" data-ns="Excellence" data-says="Flip every key-word card and say the meaning out loud. Knowledge grows when you use it!">
+  <div class="inner">
+    <div class="head"><h2>Objectives, success criteria &amp; key words</h2></div>
+    <div class="cols split-r">
+      <div class="stack">
+        <div class="card"><div class="label">Learning objective</div><p style="margin:6px 0 0;font-weight:700">Describe how mechanical waves interact with matter through reflection, absorption and transmission, and explain how engineers choose materials to control sound.</p></div>
+        <div class="card"><div class="label" style="color:var(--green)">Success criteria</div>
+          <ul class="crit" style="margin-top:10px">
+            <li>I can define reflection and explain that a wave reflects at the same angle it strikes a barrier.</li>
+            <li>I can define absorption and explain why soft, porous materials absorb more sound energy.</li>
+            <li>I can define transmission and give examples of waves passing through a medium.</li>
+            <li>I can explain how acoustical engineers and highway sound barriers control sound.</li>
+          </ul></div>
+      </div>
+      <div class="stack">
+        <div class="label" style="color:var(--purple)">Key words · tap a card to flip it</div>
+        <div class="grid g2" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr))">
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Reflection</strong><span class="tap">tap to flip</span></div><div class="face back">The bouncing of a wave off a surface. All waves reflect.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Echo</strong><span class="tap">tap to flip</span></div><div class="face back">A sound wave that has reflected off a surface and comes back to you.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Absorption</strong><span class="tap">tap to flip</span></div><div class="face back">The transfer of energy by a wave to the medium through which it travels.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Transmission</strong><span class="tap">tap to flip</span></div><div class="face back">The passage of a wave through a medium.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Barrier</strong><span class="tap">tap to flip</span></div><div class="face back">An object or surface that a wave runs into.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Angle of reflection</strong><span class="tap">tap to flip</span></div><div class="face back">Always equal to the angle at which the wave strikes the barrier.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Insulation</strong><span class="tap">tap to flip</span></div><div class="face back">Soft material inside walls that absorbs sound energy.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Acoustical engineer</strong><span class="tap">tap to flip</span></div><div class="face back">An engineer who designs spaces and materials to control sound.</div></div></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · KICKOFF -->
+<section class="slide" id="s6" data-title="Kickoff: starter + attendance" data-skills="critical,integrity" data-coach="ahmed" data-ns="National Identity" data-says="Be ready before the timer ends: book open, pen out. Responsible learners make the UAE proud.">
+  <div class="inner">
+    <div class="head"><h2>Kickoff: starter + attendance</h2><div class="timer" data-sec="300"></div></div>
+    <div class="cols split-r">
+      <img class="fig" src="img/kickoff.webp" alt="Kickoff Activity" style="max-width:420px">
+      <div class="card stack"><div class="label" style="color:var(--navy)">While the register is taken (5 minutes)</div>
+        <ol class="steps">
+          <li>Say “present” and settle in your seat.</li>
+          <li>Think: why does your voice sound different in an empty room than in a room full of furniture?</li>
+          <li>Answer the 5 true/false questions on the next slide on your own: no peeking at a friend's answer!</li>
+        </ol>
+        <button class="btn small" data-go="7" style="justify-self:start">Go to the true/false questions ▸</button>
+      </div>
+    </div>
+    <div class="note"><b>Think about it:</b> shouting at Hatta Dam, the quiet of a carpeted library, hearing your neighbour's TV through a wall, waves bouncing off the pier at JBR… what happens when a wave hits something?</div>
+  </div>
+</section>
+
+<!-- 7 · PRE-ASSESSMENT -->
+<section class="slide" id="s7" data-title="Pre-assessment: what do you know?" data-skills="integrity">
+  <div class="inner">
+    <div class="head"><h2>Pre-assessment: what do you know?</h2><div class="timer" data-sec="180"></div></div>
+    <div class="stack" id="tf">
+      <div class="q" data-a="T"><div class="qt">1. All waves can reflect.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Sound, water and light waves all reflect."></div></div>
+      <div class="q" data-a="F"><div class="qt">2. An echo is a sound wave that has been absorbed.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="An echo is a sound wave that has been reflected."></div></div>
+      <div class="q" data-a="T"><div class="qt">3. Soft, fluffy materials are good at absorbing sound.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Soft, porous materials take in a lot of the sound energy."></div></div>
+      <div class="q" data-a="F"><div class="qt">4. Sound can never pass through walls.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Some energy is transmitted, which is why you hear sound through doors."></div></div>
+      <div class="q" data-a="T"><div class="qt">5. When a wave reflects, it changes direction.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="A reflected wave bounces off the surface in a new direction."></div></div>
+      <div class="score" id="tfScore">Score: 0 / 5</div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · HOOK -->
+<section class="slide" id="s8" data-title="Hook: the echoing majlis" data-skills="critical,communication" data-coach="shahin" data-ns="National Identity" data-says="Lead your pair: one predicts, one explains. The majlis brings our families together, so let's explain the science inside it!">
+  <div class="inner">
+    <div class="head"><h2>Hook: the echoing majlis</h2></div>
+    <div class="cols split">
+      <div class="card" style="padding:10px" id="hookArt">
+        <svg viewBox="0 0 640 300" width="100%" role="img" aria-label="Left: an empty majlis where sound waves bounce off bare walls. Right: the same majlis with carpet, cushions and curtains, where the waves fade away.">
+          <rect x="0" y="0" width="640" height="300" fill="#fbf6ec"/>
+          <g>
+            <rect x="12" y="34" width="296" height="230" fill="#f3e6cc" stroke="#c9b48a" stroke-width="4"/>
+            <rect x="12" y="246" width="296" height="18" fill="#d9c49c"/>
+            <text x="160" y="24" text-anchor="middle" font-family="Nunito, sans-serif" font-weight="800" font-size="15" fill="#1b2470">Empty majlis</text>
+            <circle cx="70" cy="190" r="12" fill="#f5d7b5"/><rect x="58" y="202" width="24" height="44" rx="8" fill="#ffffff" stroke="#c9b48a"/>
+            <text x="92" y="176" font-family="Nunito, sans-serif" font-weight="800" font-size="13" fill="#7a3ff0">“Marhaba!”</text>
+            <g fill="none" stroke="#e5484d" stroke-width="3">
+              <path d="M95 200 Q140 160 185 200"/><path d="M110 205 Q165 150 220 205"/><path d="M125 210 Q190 140 255 210"/>
+              <path d="M300 120 L240 90" stroke-dasharray="6 5"/><path d="M300 170 L230 150" stroke-dasharray="6 5"/>
+              <path d="M16 110 L70 90" stroke-dasharray="6 5"/>
+            </g>
+            <text x="200" y="70" font-family="Nunito, sans-serif" font-style="italic" font-size="13" fill="#e5484d">marhaba… marhaba…</text>
+          </g>
+          <g>
+            <rect x="332" y="34" width="296" height="230" fill="#f3e6cc" stroke="#c9b48a" stroke-width="4"/>
+            <rect x="336" y="40" width="34" height="206" fill="#7a3ff0" opacity=".75"/><rect x="590" y="40" width="34" height="206" fill="#7a3ff0" opacity=".75"/>
+            <rect x="370" y="236" width="220" height="24" fill="#b0287a" opacity=".85"/>
+            <rect x="380" y="206" width="70" height="30" rx="10" fill="#1593c9"/><rect x="510" y="206" width="70" height="30" rx="10" fill="#1593c9"/>
+            <text x="480" y="24" text-anchor="middle" font-family="Nunito, sans-serif" font-weight="800" font-size="15" fill="#1b2470">Majlis with carpets, cushions &amp; curtains</text>
+            <circle cx="470" cy="170" r="12" fill="#f5d7b5"/><rect x="458" y="182" width="24" height="44" rx="8" fill="#ffffff" stroke="#c9b48a"/>
+            <text x="440" y="150" font-family="Nunito, sans-serif" font-weight="800" font-size="13" fill="#7a3ff0">“Marhaba!”</text>
+            <g fill="none" stroke="#e5484d" stroke-width="3"><path d="M495 180 Q520 160 545 180" opacity=".8"/><path d="M505 185 Q540 150 575 185" opacity=".35"/></g>
+            <text x="480" y="100" text-anchor="middle" font-family="Nunito, sans-serif" font-style="italic" font-size="13" fill="#1fa75a">…silence. No echo!</text>
+          </g>
+        </svg>
+      </div>
+      <div class="card stack">
+        <h3 style="margin:0;color:var(--orange);font-family:var(--display)">Moving day in Al Ain…</h3>
+        <p style="margin:0">Hamdan and Shamma's family move into a new villa. In the empty majlis, Hamdan calls out “Marhaba!”, and the room calls back: <i>marhaba… marhaba…</i></p>
+        <p style="margin:0">A week later, the carpets, cushions and curtains arrive. Hamdan calls out again. This time there is no echo at all.</p>
+        <p style="margin:0">Same room, same voice. <b style="color:var(--purple)">So where did the echo go?</b></p>
+        <div class="row"><button class="btn" data-show="tps">Think · Pair · Share</button><button class="btn red" data-show="clue">Reveal a clue</button></div>
+        <div id="tps" hidden class="good stack"><b>Predict:</b> what happens to sound energy when it hits a bare wall, and when it hits a soft cushion? Talk with your partner for 1 minute. <div class="timer" data-sec="60"></div></div>
+        <div id="clue" hidden class="stack"><div class="fb no"><b>Clue:</b> a wave that hits matter can bounce back, be soaked up, or pass through.</div>
+          <div class="note"><b>Textbook:</b> read the question on your lesson opener. How did the sound waves interact with the glass?</div>
+          <img class="fig" src="img/tb-intro.webp" alt="Textbook: How do waves interact with matter?" style="max-width:360px"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · SORT -->
+<section class="slide" id="s9" data-title="Encounter: reflect, absorb or transmit?" data-skills="teamwork" data-coach="hessa" data-ns="Cooperation" data-says="Sorted it differently from your partner? Listen first, then compare. Some situations can do more than one thing!">
+  <div class="inner">
+    <div class="head"><h2>Encounter: reflect, absorb or transmit?</h2><div class="timer" data-sec="180"></div></div>
+    <p class="lead"><b>Tap a situation</b> to sort it. Each tap moves it on: REFLECT → ABSORB → TRANSMIT. Then check with your partner.</p>
+    <div class="sorter" id="sorter" data-labels="REFLECT|ABSORB|TRANSMIT">
+      <button class="sitem" data-ans="REFLECT">Shouting and hearing an echo at Hatta Dam<span class="tag">?</span></button>
+      <button class="sitem" data-ans="ABSORB">A thick carpet makes footsteps quiet in the majlis<span class="tag">?</span></button>
+      <button class="sitem" data-ans="TRANSMIT">Hearing your neighbour's TV through a thin wall<span class="tag">?</span></button>
+      <button class="sitem" data-ans="REFLECT">Ocean waves bouncing back off the pier at JBR<span class="tag">?</span></button>
+      <button class="sitem" data-ans="ABSORB">Foam panels in a recording studio<span class="tag">?</span></button>
+      <button class="sitem" data-ans="TRANSMIT">Hearing the adhan through a closed window<span class="tag">?</span></button>
+      <button class="sitem" data-ans="REFLECT">A ship's sonar bouncing off the seabed in the Gulf<span class="tag">?</span></button>
+      <button class="sitem" data-ans="ABSORB">Heavy curtains making a theatre quieter<span class="tag">?</span></button>
+    </div>
+    <div class="row"><button class="btn navy" id="sortCheck">Check my sort</button><span class="score" id="sortScore"></span></div>
+    <div class="note" id="sortWhy" hidden><b>Why?</b> Hard, smooth surfaces mostly <b>reflect</b> waves. Soft, porous materials mostly <b>absorb</b> the energy. Thin materials let some energy <b>transmit</b> (pass through).<br><b>Remember:</b> most real surfaces do a bit of all three. We sort by what happens <i>most</i>.</div>
+  </div>
+</section>
+
+<!-- 10 · UNCONVENTIONAL -->
+<section class="slide" id="s10" data-title="Three things a wave can do (the unconventional version)" data-skills="critical" data-coach="fahim" data-ns="Innovation" data-says="Predict before you flip each card. Testing ideas is how inventors think!">
+  <div class="inner">
+    <div class="head"><h2>Three things a wave can do (the unconventional version)</h2></div>
+    <div class="grid g2">
+      <div class="card" style="background:var(--orange-bg);border-color:#ffd2a6"><div class="label" style="color:var(--orange)">Think of it like this</div><p style="margin:6px 0 0">Throw a football at a <b>concrete wall</b>: it bounces back (<b style="color:var(--purple)">reflection</b>). Throw it into a soft <b>sand dune at Liwa</b>: it stops, and its energy goes into the sand (<b style="color:var(--purple)">absorption</b>). Kick it at a <b>loose curtain</b>: it pushes through to the other side, slower (<b style="color:var(--purple)">transmission</b>). Waves do all three!</p></div>
+      <div class="card" style="background:var(--blue-bg);border-color:#c7d7fb"><div class="label" style="color:var(--blue)">Textbook definitions</div><p style="margin:6px 0 0"><b>Reflection</b> is the bouncing of a wave off a surface.<br><b>Absorption</b> is the transfer of energy by a wave to the medium through which it travels.<br><b>Transmission</b> is the passage of a wave through a medium.</p></div>
+    </div>
+    <div class="label" style="color:var(--navy)">Predict what happens, then tap the card to check!</div>
+    <div class="grid g3">
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--red)"><strong style="color:var(--red)">⛰️ Shout at the cliffs of Hatta</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--red-bg);border-color:var(--red)"><b>Reflection.</b> Hard rock bounces the sound back to you as an echo.</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--teal)"><strong style="color:var(--teal)">🛋️ Clap in a room full of cushions</strong><span class="tap">tap to check</span></div><div class="face back" style="background:#e3f6f6;border-color:var(--teal)"><b>Absorption.</b> Soft cushions take in the sound energy, so the clap sounds dull and quiet.</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front"><strong>🚪 Knock on a thin door</strong><span class="tap">tap to check</span></div><div class="face back"><b>Transmission.</b> The wave passes through the door, so your friend on the other side hears it.</div></div></button>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · TB INTRO -->
+<section class="slide" id="s11" data-title="Textbook: how do waves interact with matter?" data-skills="reading" data-coach="maha" data-ns="Cooperation" data-says="Respect your classmates: listen quietly while someone reads the paragraph aloud.">
+  <div class="inner">
+    <div class="head"><h2>Textbook: how do waves interact with matter?</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/lesson-banner.webp" alt="Lesson 2: Mechanical Wave Interactions" style="max-width:420px"><img class="fig" src="img/tb-intro.webp" alt="Textbook: How do waves interact with matter?" style="max-width:420px"></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 Think of a water wave in a container. What happened when the wave hit the side?</div><button class="btn small ghost" data-show="t11a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t11a" hidden>✓ It bounced back off the side: it reflected.</div></div>
+        <div class="q"><div class="qt">Q2 Predict: what three things can happen when a wave hits matter?</div><button class="btn small ghost" data-show="t11b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t11b" hidden>✓ It can reflect (bounce back), be absorbed (energy taken in) or be transmitted (pass through).</div></div>
+        <div class="row" style="justify-content:center;gap:8px"><span class="btn small red" style="box-shadow:none">Reflect</span><span class="btn small" style="background:var(--teal);color:#fff;box-shadow:none">Absorb</span><span class="btn small navy" style="box-shadow:none">Transmit</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 · TB REFLECTION -->
+<section class="slide" id="s12" data-title="Textbook: reflection" data-skills="reading" data-coach="fahim" data-ns="Excellence" data-says="Point to where the wave hits the barrier, then trace the angle in and the angle out. They match!">
+  <div class="inner">
+    <div class="head"><h2>Textbook: reflection</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-reflection.webp" alt="Textbook: Interaction of Waves with Matter, reflection"></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 What is reflection? Give one example from the text.</div><button class="btn small ghost" data-show="t12a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t12a" hidden>✓ The bouncing of a wave off a surface. Examples: an echo; ocean waves reflecting off boats, islands and piers.</div></div>
+        <div class="q"><div class="qt">Q2 A wave strikes a barrier at 25°. At what angle does it reflect?</div><button class="btn small ghost" data-show="t12b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t12b" hidden>✓ 25°. The angle of reflection equals the angle the wave strikes the barrier.</div></div>
+        <div class="note"><b>Big idea:</b> when a wave reflects, it changes direction, but the angle in always equals the angle out.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 · TB ABSORPTION & TRANSMISSION -->
+<section class="slide" id="s13" data-title="Textbook: absorption and transmission" data-skills="reading" data-coach="ahmed" data-ns="Sustainability" data-says="Insulation keeps homes quiet and cool. Responsible choices save energy too!">
+  <div class="inner">
+    <div class="head"><h2>Textbook: absorption and transmission</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-absorption-transmission.webp" alt="Textbook: Absorption and Transmission, with a phone next to an insulated and an uninsulated wall"></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 In the lab Crashing Waves, why was the reflected wave smaller than the first wave?</div><button class="btn small ghost" data-show="t13a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13a" hidden>✓ Some of its energy was absorbed by the barrier, so less energy bounced back.</div></div>
+        <div class="q"><div class="qt">Q2 Which wall lets more of the phone's sound through: insulated or uninsulated? Why?</div><button class="btn small ghost" data-show="t13b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13b" hidden>✓ The uninsulated wall. Insulation absorbs sound energy, so less is transmitted to the other side.</div></div>
+        <div class="note"><b>Remember:</b> without transmission, we would not hear sound on the other side of a door!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 · TB MUSIC CONNECTION -->
+<section class="slide" id="s14" data-title="Textbook: music connection" data-skills="reading" data-coach="hessa" data-ns="Innovation" data-says="Engineers test many ideas before they find the best one. Every idea is welcome here!">
+  <div class="inner">
+    <div class="head"><h2>Textbook: music connection</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-music-connection.webp" alt="Textbook: Music Connection about acoustical engineers and highway sound barriers"></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 Why does a concert hall have a wooden stage and curved ceiling panels?</div><button class="btn small ghost" data-show="t14a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t14a" hidden>✓ The wooden floor improves vibrations; the curved panels reflect sound in different directions to fill the hall.</div></div>
+        <div class="q"><div class="qt">Q2 Why are highway sound barriers made of concrete, wood or metal, and built high?</div><button class="btn small ghost" data-show="t14b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t14b" hidden>✓ Hard surfaces reflect the highway noise away from homes. The higher the wall, the more sound it reflects.</div></div>
+        <div class="note"><b>UAE link:</b> look for sound barriers next to busy roads near homes, like parts of Sheikh Zayed Road.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 · REFLECTION SIM -->
+<section class="slide" id="s15" data-title="Angle of reflection" data-skills="critical" data-coach="shahin" data-ns="Innovation" data-says="Lead the prediction: guess the angle out before you send the wave!">
+  <div class="inner">
+    <div class="head"><h2>Angle of reflection: angle in = angle out</h2></div>
+    <div class="cols split-r">
+      <div class="stack">
+        <div class="card" style="background:#fff8db;border-color:#f3e2a0"><p style="margin:0">In the lab <b>Crashing Waves</b>, you changed the angle of the barrier and the wave bounced off in a new direction. Scientists measure both angles from the <b>normal</b>: an imaginary line at 90° to the barrier.</p></div>
+        <div class="card stack"><label for="angle"><b>Angle the wave strikes the barrier: <span id="angleVal">35</span>°</b></label><input type="range" id="angle" min="10" max="75" value="35" style="width:100%">
+          <div class="row"><button class="btn" id="sendWave">▶ Send a wave</button><span class="legend" id="reflRead">Predict the angle out, then send the wave.</span></div></div>
+      </div>
+      <div class="sim"><b>Top view of a wave tank</b><canvas id="refl" height="280"></canvas>
+        <button class="btn navy small" data-show="reflQ" style="justify-self:start">▶ What should you notice?</button>
+        <div class="good" id="reflQ" hidden>Whatever angle you choose, the reflected wave leaves at <b>exactly the same angle</b> on the other side of the normal. The wave changes direction, but the angles stay equal.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 16 · WALL TESTER -->
+<section class="slide" id="s16" data-title="Wall tester: reflect, absorb or transmit" data-skills="critical" data-coach="maha" data-ns="Sustainability" data-says="Respect your neighbours: choosing the right materials keeps the noise down for everyone.">
+  <div class="inner">
+    <div class="head"><h2>Wall tester: reflect, absorb or transmit?</h2></div>
+    <p class="lead">A phone plays music next to a wall. <b>Choose a wall</b> and watch what happens to the sound energy: some <b>reflects</b>, some is <b>absorbed</b>, some is <b>transmitted</b> to the room next door.</p>
+    <div class="cols split-r">
+      <div class="stack">
+        <div class="row" id="walls">
+          <button class="btn small" data-wall="concrete">🧱 Bare concrete</button>
+          <button class="btn small ghost" data-wall="foam">🟪 Insulated wall</button>
+          <button class="btn small ghost" data-wall="thin">🚪 Thin uninsulated wall</button>
+          <button class="btn small ghost" data-wall="glass">🪟 Glass window</button>
+        </div>
+        <div class="card stack" id="wallBars"></div>
+        <div class="legend">Percentages are approximate example values to compare the materials.</div>
+      </div>
+      <div class="sim"><canvas id="wall" height="260"></canvas><div class="legend" id="wallRead"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 17 · ECHO -->
+<section class="slide" id="s17" data-title="Echoes at Hatta Dam" data-skills="critical" data-coach="fahim" data-ns="National Identity" data-says="At Hatta Dam your voice comes back to you. Knowledge turns an echo into a measurement!">
+  <div class="inner">
+    <div class="head"><h2>Echoes at Hatta Dam</h2></div>
+    <div class="cols split-r">
+      <div class="stack">
+        <div class="card" style="background:#fff8db;border-color:#f3e2a0"><p style="margin:0">An <b>echo</b> is a reflected sound wave. Sound travels at about <b>343 m/s</b> in air. The sound must go <b>to</b> the cliff and <b>back</b>, so:</p><p style="margin:8px 0 0;font-family:var(--display);font-size:1.2rem;color:var(--navy)">echo time = 2 × distance ÷ 343</p></div>
+        <div class="card stack"><label for="cliff"><b>Distance to the cliff: <span id="cliffVal">170</span> m</b></label><input type="range" id="cliff" min="20" max="500" step="10" value="170" style="width:100%">
+          <div class="row"><button class="btn" id="shout">📣 Shout “Marhaba!”</button><span class="legend" id="echoRead">Predict: how long until you hear the echo?</span></div></div>
+      </div>
+      <div class="sim"><canvas id="echo" height="240"></canvas>
+        <button class="btn navy small" data-show="echoQ" style="justify-self:start">▶ Why don't we hear echoes in a small classroom?</button>
+        <div class="good" id="echoQ" hidden>The walls are so close that the reflection comes back almost instantly and mixes with your voice. Your brain hears a separate echo only when the cliff is roughly 17 m or more away (about 0.1 s delay).</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 18 · HIGHWAY BARRIER -->
+<section class="slide" id="s18" data-title="Highway sound barriers" data-skills="critical" data-coach="ahmed" data-ns="Sustainability" data-says="Quieter roads mean healthier neighbourhoods. Responsible engineers protect communities.">
+  <div class="inner">
+    <div class="head"><h2>Highway sound barriers: how high?</h2></div>
+    <div class="cols split-r">
+      <div class="stack">
+        <div class="card"><p style="margin:0">Traffic noise on a busy road can be about <b>75 dB</b>. A hard barrier <b>reflects</b> the sound back towards the road. The taller the barrier, the more sound it reflects away from the homes.</p></div>
+        <div class="card stack"><label for="barrierH"><b>Barrier height: <span id="barrierVal">3</span> m</b></label><input type="range" id="barrierH" min="0" max="6" step="0.5" value="3" style="width:100%">
+          <div class="score" id="houseDb"></div><div class="legend">Noise levels are example values to compare heights.</div></div>
+      </div>
+      <div class="sim"><canvas id="barrier" height="250"></canvas>
+        <button class="btn navy small" data-show="barQ" style="justify-self:start">▶ Think: why not use foam for a highway barrier?</button>
+        <div class="good" id="barQ" hidden>Foam would absorb some sound, but it is weak outdoors and wears away in sun, rain and dust. Concrete, wood and metal are strong and <b>reflect</b> the noise back towards the road.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 19 · LAB -->
+<section class="slide" id="s19" data-title="Crashing Waves lab" data-skills="teamwork,discipline" data-coach="shahin" data-ns="Cooperation" data-says="Holder, wave-maker, observer: lead your team so everyone has a job. Wipe up spills straight away!">
+  <div class="inner">
+    <div class="head"><h2>Crashing Waves lab: barriers and waves</h2><div class="timer" data-sec="300"></div></div>
+    <div class="cols split">
+      <div class="stack">
+        <div class="good"><b>You need:</b> a shallow tray of water · a wooden dowel or ruler · a block (barrier) · a sponge or folded towel · a protractor</div>
+        <ol style="margin:0;padding-left:20px;display:grid;gap:4px">
+          <li>Place the block across one end of the tray as a barrier.</li>
+          <li><b>Wave-maker:</b> gently roll the dowel once to make a straight wave.</li>
+          <li><b>Observer:</b> watch what the wave does when it hits the barrier.</li>
+          <li>Turn the barrier to an angle and repeat. Then cover the barrier with the sponge and repeat. Record below.</li>
+        </ol>
+        <div class="tablewrap"><table>
+          <thead><tr><th>Barrier</th><th>What happened to the wave?</th></tr></thead>
+          <tbody>
+            <tr><td><b>Straight block</b></td><td><input type="text" id="lab1" placeholder="your observation"><div class="exp" hidden>Reflected straight back towards you.</div></td></tr>
+            <tr><td><b>Block at an angle</b></td><td><input type="text" id="lab2" placeholder="your observation"><div class="exp" hidden>Reflected in a new direction, at the same angle it hit the block.</div></td></tr>
+            <tr><td><b>Block covered with sponge</b></td><td><input type="text" id="lab3" placeholder="your observation"><div class="exp" hidden>A much smaller reflection: the sponge absorbed most of the energy.</div></td></tr>
+          </tbody></table></div>
+        <div class="row"><button class="btn" id="labExp">Expected results</button></div>
+        <div class="fb no"><b>Safety:</b> keep water away from electrical sockets and wipe up spills straight away.</div>
+      </div>
+      <div class="stack">
+        <div class="card"><div class="label" style="color:var(--blue)">Roles</div>
+          <ul style="margin:8px 0 0;padding-left:20px;display:grid;gap:6px"><li><b>Wave-maker:</b> makes one gentle wave at a time.</li><li><b>Observer:</b> watches the barrier closely and describes the wave.</li><li><b>Recorder:</b> writes the results in the table.</li></ul></div>
+        <button class="btn navy small" data-show="labQ" style="justify-self:start">▶ What should you notice?</button>
+        <div class="good" id="labQ" hidden>Hard barriers <b>reflect</b> the wave, at the same angle it arrives. Soft barriers <b>absorb</b> energy, so the reflected wave is smaller. If you see a small wave behind the barrier, some energy was <b>transmitted</b>.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 20 · PAUSE & CHECK -->
+<section class="slide" id="s20" data-title="Pause and check" data-skills="initiative" data-coach="hessa" data-ns="Excellence" data-says="Wrong answer? Read the hint and try again. Excellence means never giving up.">
+  <div class="inner">
+    <div class="head"><h2>Pause and check</h2><div class="timer" data-sec="240"></div></div>
+    <p class="lead">Formative check: tap an answer. <b>Wrong? Read the hint and try again!</b></p>
+    <div class="grid g2 mcqset" data-mode="retry">
+      <div class="q"><div class="qt">Q1 Reflection is…</div><div class="opts"><button class="opt">A. a wave passing through a medium</button><button class="opt" data-ok>B. the bouncing of a wave off a surface</button><button class="opt">C. energy taken in by a material</button></div><div class="fb no" hidden>Hint: think of an echo.</div></div>
+      <div class="q"><div class="qt">Q2 A wave strikes a barrier at 30°. It reflects at…</div><div class="opts"><button class="opt">A. 60°</button><button class="opt" data-ok>B. 30°</button><button class="opt">C. 90°</button></div><div class="fb no" hidden>Hint: angle in = angle out.</div></div>
+      <div class="q"><div class="qt">Q3 Which material absorbs the most sound?</div><div class="opts"><button class="opt">A. concrete</button><button class="opt">B. glass</button><button class="opt" data-ok>C. foam panels</button><button class="opt">D. metal</button></div><div class="fb no" hidden>Hint: soft and full of tiny holes.</div></div>
+      <div class="q"><div class="qt">Q4 You hear music through a closed door because of…</div><div class="opts"><button class="opt">A. absorption</button><button class="opt" data-ok>B. transmission</button><button class="opt">C. reflection</button></div><div class="fb no" hidden>Hint: the wave passes through.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 21 · ORDER -->
+<section class="slide" id="s21" data-title="Put the echo events in order" data-skills="critical,initiative" data-coach="shahin" data-ns="Cooperation" data-says="Agree on the order as a team before you reveal it. Good leaders make sure everyone speaks.">
+  <div class="inner">
+    <div class="head"><h2>Put the echo events in order</h2></div>
+    <p class="lead">What happened in the <b>empty</b> majlis? Say the order with your partner, then <b>tap the events from first to last</b>. Tap a numbered event to undo.</p>
+    <div class="order" id="order">
+      <button class="oitem" data-p="3"><span class="n">?</span>The waves hit the bare, hard walls</button>
+      <button class="oitem" data-p="5"><span class="n">?</span>Hamdan hears an echo: “marhaba… marhaba…”</button>
+      <button class="oitem" data-p="1"><span class="n">?</span>Hamdan calls out “Marhaba!”</button>
+      <button class="oitem" data-p="4"><span class="n">?</span>Most of the sound energy reflects back</button>
+      <button class="oitem" data-p="2"><span class="n">?</span>Sound waves travel through the air</button>
+    </div>
+    <div class="row"><button class="btn navy" id="orderCheck">Check my order</button><button class="btn" id="orderReveal">Reveal the order</button><span class="score" id="orderScore"></span></div>
+    <div class="chain" id="chain" hidden>
+      <div style="background:#e5484d">1 · Hamdan calls out “Marhaba!”</div>
+      <div style="background:#f07f19">2 · Sound waves travel through the air</div>
+      <div style="background:#d9a400">3 · The waves hit the bare, hard walls</div>
+      <div style="background:#1593c9">4 · Most of the sound energy reflects back</div>
+      <div style="background:#7a3ff0">5 · Hamdan hears an echo</div>
+    </div>
+    <div class="card stack"><b>Traffic light: how sure are you?</b>
+      <div class="traffic"><button style="background:var(--green)" data-tl="Brilliant! Help a partner explain it using “reflection, absorption, transmission”.">I can teach it</button><button style="background:var(--orange)" data-tl="Good! Re-read the textbook slides and the wall tester, then try again.">Mostly</button><button style="background:var(--red)" data-tl="That is OK! Your teacher will go through it with you now.">I need help</button></div>
+      <div id="tlMsg" class="note" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- 22 · WORKSHEET 1 -->
+<section class="slide" id="s22" data-title="Wave interactions worksheet (1/2)" data-skills="reading" data-coach="ahmed" data-ns="Excellence" data-says="Work on your own first, then check your answers. Own your learning!">
+  <div class="inner">
+    <div class="head"><h2>Wave interactions worksheet (1/2)</h2><div class="timer" data-sec="240"></div></div>
+    <div class="grid g2">
+      <div class="card stack"><div class="label" style="color:var(--navy)">A · Match each word · 5 marks</div>
+        <div style="font-size:.92rem;color:var(--muted)">A. The passage of a wave through a medium<br>B. The bouncing of a wave off a surface<br>C. The transfer of a wave's energy to the medium<br>D. A reflected sound wave that you hear<br>E. Someone who designs spaces to control sound</div>
+        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:8px" id="wsA">
+          <label class="fillrow">1. reflection <select data-ans="B" id="wa1"></select></label>
+          <label class="fillrow">2. absorption <select data-ans="C" id="wa2"></select></label>
+          <label class="fillrow">3. transmission <select data-ans="A" id="wa3"></select></label>
+          <label class="fillrow">4. echo <select data-ans="D" id="wa4"></select></label>
+          <label class="fillrow">5. acoustical engineer <select data-ans="E" id="wa5"></select></label>
+        </div>
+        <div class="row"><button class="btn small navy" data-check="wsA">Check A</button><button class="btn small ghost" data-answers="wsA">Show answers (A)</button><span class="score" data-out="wsA"></span></div>
+      </div>
+      <div class="card stack"><div class="label" style="color:var(--navy)">B · Fill the gaps · 5 marks</div>
+        <div class="wordbank">Word bank: equal · absorbs · transmission · echo · higher</div>
+        <div class="stack" id="wsB" style="gap:8px">
+          <div class="fillrow">1. The angle of reflection is <input type="text" size="10" data-ans="equal" id="wb1" aria-label="gap 1"> to the angle the wave strikes the barrier.</div>
+          <div class="fillrow">2. A thick carpet <input type="text" size="10" data-ans="absorbs" id="wb2" aria-label="gap 2"> sound energy.</div>
+          <div class="fillrow">3. Hearing sound through a door is an example of <input type="text" size="12" data-ans="transmission" id="wb3" aria-label="gap 3"> .</div>
+          <div class="fillrow">4. A sound wave reflecting off a cliff is an <input type="text" size="10" data-ans="echo" id="wb4" aria-label="gap 4"> .</div>
+          <div class="fillrow">5. The <input type="text" size="10" data-ans="higher" id="wb5" aria-label="gap 5"> a highway barrier, the more sound it reflects.</div>
+        </div>
+        <div class="row"><button class="btn small navy" data-check="wsB">Check B</button><button class="btn small ghost" data-answers="wsB">Show answers (B)</button><span class="score" data-out="wsB"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 23 · WORKSHEET 2 -->
+<section class="slide" id="s23" data-title="Wave interactions worksheet (2/2)" data-skills="reading,critical" data-coach="maha" data-ns="Excellence" data-says="Respect your reader: write full sentences using reflection, absorption and energy.">
+  <div class="inner">
+    <div class="head"><h2>Wave interactions worksheet (2/2)</h2></div>
+    <div class="card stack"><div class="label" style="color:var(--navy)">C · What does the material mostly do? · 6 marks</div>
+      <div class="legend">Choose from: reflects · absorbs · transmits</div>
+      <div class="tablewrap" id="wsC"><table>
+        <thead><tr><th>Material or situation</th><th>Mostly…</th></tr></thead>
+        <tbody>
+          <tr><td>A bare concrete wall in an empty room</td><td><select data-ans="Reflects" data-opts="Reflects|Absorbs|Transmits" id="wc1"></select></td></tr>
+          <tr><td>Foam panels in a recording studio</td><td><select data-ans="Absorbs" data-opts="Reflects|Absorbs|Transmits" id="wc2"></select></td></tr>
+          <tr><td>A thin, uninsulated wall between two rooms</td><td><select data-ans="Transmits" data-opts="Reflects|Absorbs|Transmits" id="wc3"></select></td></tr>
+          <tr><td>A thick carpet in the majlis</td><td><select data-ans="Absorbs" data-opts="Reflects|Absorbs|Transmits" id="wc4"></select></td></tr>
+          <tr><td>A metal sound barrier beside a highway</td><td><select data-ans="Reflects" data-opts="Reflects|Absorbs|Transmits" id="wc5"></select></td></tr>
+          <tr><td>Air carrying your voice to a friend</td><td><select data-ans="Transmits" data-opts="Reflects|Absorbs|Transmits" id="wc6"></select></td></tr>
+        </tbody></table></div>
+      <div class="row"><button class="btn small navy" data-check="wsC">Check C</button><button class="btn small ghost" data-answers="wsC">Show answers (C)</button><span class="score" data-out="wsC"></span></div>
+    </div>
+    <div class="cols split">
+      <div class="card stack"><div class="label" style="color:var(--navy)">D · Explain · 3 marks</div>
+        <p style="margin:0">Why did the echo disappear after the carpets, cushions and curtains arrived? Use <b>reflection</b>, <b>absorption</b> and <b>energy</b>.</p>
+        <textarea id="wd" placeholder="Write your explanation in full sentences…"></textarea>
+        <button class="btn small" data-show="model" style="justify-self:start">Show model answer (D)</button>
+      </div>
+      <div class="stack">
+        <div class="good" id="model" hidden><b>Model answer (1 mark each):</b><br>✓ In the empty majlis, the hard, bare walls <b>reflected</b> most of the sound back: an echo.<br>✓ Carpets, cushions and curtains are soft and porous, so they <b>absorb</b> sound.<br>✓ Less <b>energy</b> was reflected, so the echo became too weak to hear.</div>
+        <div class="card"><span class="score" id="wsTotal">Total: A + B + C = 0 / 16 marks</span><div class="legend">Your teacher marks part D (3 marks) for a total out of 19.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 24 · LEVELS -->
+<section class="slide" id="s24" data-title="Green, orange or purple? Choose your level" data-skills="respect" data-coach="maha" data-ns="Cooperation" data-says="Every level is respected here. Choose the one that stretches you, then help a friend.">
+  <div class="inner">
+    <div class="head"><h2>Green, orange or purple? Choose your level</h2></div>
+    <div class="grid g3">
+      <div class="level" style="--lc:var(--green);--lbg:var(--green-bg)"><h3>Green · Support</h3>
+        <ol><li>Complete: “The bouncing of a wave off a surface is ____.”</li><li>Circle: foam absorbs / reflects sound.</li><li>True or false: an echo is a reflected sound wave.</li><li>Which lets more sound through: a thin door or a thick concrete wall?</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. reflection<br>2. absorbs<br>3. True<br>4. a thin door</div><button class="btn small ghost lvl">Show answers</button></div>
+      <div class="level" style="--lc:var(--orange);--lbg:var(--orange-bg)"><h3>Orange · At level</h3>
+        <ol><li>Draw a wave hitting a barrier at 40°. Draw the normal and label both angles.</li><li>Why do recording studios cover their walls with foam?</li><li>Give one example each of reflection, absorption and transmission in your home.</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. Both angles are 40°, measured from the normal; the reflected wave mirrors the incoming one.<br>2. Foam is soft and porous, so it absorbs sound energy instead of reflecting it as echoes.<br>3. e.g. an echo in an empty room; a carpet quietening footsteps; hearing the TV through a wall.</div><button class="btn small ghost lvl">Show answers</button></div>
+      <div class="level" style="--lc:var(--purple);--lbg:var(--purple-bg)"><h3>Purple · Challenge</h3>
+        <ol><li>You shout at a cliff and hear the echo 2 s later. Sound travels at 343 m/s. How far away is the cliff?</li><li>Design a quiet study room. Which materials would you use for the walls, floor and door? Explain.</li><li>Why are highway barriers built higher near homes, and from hard materials?</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. 343 × 2 = 686 m there and back, so the cliff is 343 m away.<br>2. Carpet, curtains and foam panels absorb sound; an insulated wall and a solid door reduce transmission.<br>3. A higher wall blocks and reflects more sound; hard surfaces reflect noise back towards the road instead of transmitting it.</div><button class="btn small ghost lvl">Show answers</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- 25 · SUMMATIVE -->
+<section class="slide" id="s25" data-title="Summative: Wave Master quiz" data-skills="integrity" data-coach="ahmed" data-ns="Excellence" data-says="Count only your honest first try. Integrity is part of excellence!">
+  <div class="inner">
+    <div class="head"><h2>Summative: Wave Master quiz</h2><div class="timer" data-sec="120"></div></div>
+    <div class="stack mcqset" data-mode="first" id="wm">
+      <div class="q"><div class="qt">1. Absorption is…</div><div class="opts"><button class="opt" data-ok>A. the transfer of a wave's energy to the medium</button><button class="opt">B. the bouncing of a wave off a surface</button><button class="opt">C. a wave passing through a medium</button></div></div>
+      <div class="q"><div class="qt">2. When a wave reflects, the angle of reflection is…</div><div class="opts"><button class="opt">A. bigger than the angle it strikes</button><button class="opt" data-ok>B. equal to the angle it strikes</button><button class="opt">C. smaller than the angle it strikes</button></div></div>
+      <div class="q"><div class="qt">3. Which is an example of transmission?</div><div class="opts"><button class="opt">A. an echo in a cave</button><button class="opt" data-ok>B. hearing a neighbour through a wall</button><button class="opt">C. foam in a recording studio</button></div></div>
+      <div class="q"><div class="qt">4. A concert hall stage has a wooden floor to…</div><div class="opts"><button class="opt">A. absorb all the sound</button><button class="opt" data-ok>B. improve vibrations</button><button class="opt">C. stop sound reaching the audience</button></div></div>
+      <div class="q"><div class="qt">5. The echo disappeared from the majlis because…</div><div class="opts"><button class="opt" data-ok>A. soft furnishings absorbed the sound energy</button><button class="opt">B. the sound travelled faster</button><button class="opt">C. the walls became thinner</button></div></div>
+    </div>
+    <div class="card row" style="justify-content:space-between"><span class="score" id="wmScore">First-try score: 0 / 5</span><span class="legend">5 = Wave Master! · 4 = Wave Expert · 3 = Wave Explorer · 0–2 = let's review together</span></div>
+  </div>
+</section>
+
+<!-- 26 · MYSTERY SOLVED -->
+<section class="slide" id="s26" data-title="Mystery solved!" data-skills="critical,reading" data-coach="hessa" data-ns="National Identity" data-says="Be kind to yourself when you rate your stars. Every step forward counts!">
+  <div class="inner">
+    <div class="head"><h2>Mystery solved!</h2></div>
+    <div class="cols split">
+      <div class="stack">
+        <button class="btn" data-show="solved" data-confetti style="justify-self:start">Reveal the answer</button>
+        <div class="card" id="solved" hidden style="background:#fff8db;border-color:#f3e2a0"><b style="color:var(--orange)">Where the echo went</b><p style="margin:6px 0 0">In the empty majlis, Hamdan's voice hit hard, bare walls that <b class="hl">REFLECTED</b> most of the sound energy back to him as an echo. The carpets, cushions and curtains are soft and porous, so they <b style="color:var(--purple)">ABSORBED</b> much of the sound <b class="hl">ENERGY</b>. With less energy reflected, the echo became too weak to hear!</p></div>
+        <div class="card stack"><b>Exit ticket · 3 · 2 · 1</b>
+          <label>3 things I learned<textarea id="ex3" style="min-height:64px"></textarea></label>
+          <label>2 key words I can now explain<textarea id="ex2" style="min-height:48px"></textarea></label>
+          <label>1 question I still have<textarea id="ex1" style="min-height:48px"></textarea></label></div>
+      </div>
+      <div class="card stack"><b>Re-rate your success criteria (tap a star)</b>
+        <div><p style="margin:0 0 4px">I can define reflection and explain that a wave reflects at the same angle it strikes a barrier.</p><div class="stars" id="st1"></div></div>
+        <div><p style="margin:0 0 4px">I can define absorption and explain why soft, porous materials absorb more sound energy.</p><div class="stars" id="st2"></div></div>
+        <div><p style="margin:0 0 4px">I can define transmission and give examples of waves passing through a medium.</p><div class="stars" id="st3"></div></div>
+        <div><p style="margin:0 0 4px">I can explain how acoustical engineers and highway sound barriers control sound.</p><div class="stars" id="st4"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 27 · VALUES -->
+<section class="slide" id="s27" data-title="Which value did you show today?" data-skills="integrity">
+  <div class="inner">
+    <div class="head"><h2>Which value did you show today?</h2></div>
+    <p class="lead">Tap the character whose value you showed in this lesson. <b>Then tell your partner one real example!</b></p>
+    <div class="grid g5" id="values">
+      <button class="vcard" style="--cc:var(--c-shahin)"><span class="star">★</span><img src="img/av-shahin.webp" alt=""><b>Shahin</b><small>Leadership · <span class="ar">القيادة</span></small><span class="prompt">I led my team when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-fahim)"><span class="star">★</span><img src="img/av-fahim.webp" alt=""><b>Fahim</b><small>Knowledge · <span class="ar">المعرفة</span></small><span class="prompt">A new fact I learned is…</span></button>
+      <button class="vcard" style="--cc:var(--c-maha)"><span class="star">★</span><img src="img/av-maha.webp" alt=""><b>Maha</b><small>Respect · <span class="ar">الاحترام</span></small><span class="prompt">I showed respect when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-ahmed)"><span class="star">★</span><img src="img/av-ahmed.webp" alt=""><b>Ahmed</b><small>Responsibility · <span class="ar">المسؤولية</span></small><span class="prompt">I was responsible when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-hessa)"><span class="star">★</span><img src="img/av-hessa.webp" alt=""><b>Hessa</b><small>Tolerance · <span class="ar">التسامح</span></small><span class="prompt">I was patient and kind when…</span></button>
+    </div>
+    <div class="card row" style="justify-content:space-between"><b>Class goal: light up all five stars together!</b><span class="goal" id="goal"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span></div>
+  </div>
+</section>
+
+<!-- 28 · CELEBRATE -->
+<section class="slide end" id="s28" data-title="Let your kindness travel" data-bare>
+  <div class="inner">
+    <div class="eyebrow">YOU DID IT, GRADE 8! · <span class="ar">أحسنتم</span></div>
+    <h1>Let your kindness travel</h1>
+    <p style="font-style:italic;font-size:1.15rem;margin:0;opacity:.95">Waves can bounce back, be absorbed or pass through. Let your kindness pass through to everyone you meet!</p>
+    <img class="fig" src="img/banner.webp" alt="Shahin, Fahim, Maha, Ahmed and Hessa with the UAE national skills" style="border:0">
+    <div class="row"><span class="nsk">🇦🇪 National Identity</span><span class="nsk">🌿 Sustainability</span><span class="nsk">🤝 Cooperation</span><span class="nsk">💡 Innovation</span><span class="nsk">⭐ Excellence</span></div>
+    <div class="promise"><b>My promise:</b> I will lead, learn, respect, be responsible and tolerant, for my school and my UAE.</div>
+    <div><button class="btn" id="celebrate">★ Celebrate together!</button></div>
+  </div>
+</section>
+
+  </main>
+  <div>
+    <div class="progress"><div id="prog"></div></div>
+    <nav class="nav">
+      <button class="btn ghost small" id="prev" aria-label="Previous slide">◀ Back</button>
+      <span class="count" id="count">1 / 28</span>
+      <span class="title" id="navTitle"></span>
+      <button class="btn ghost small" id="menuBtn">☰ Slides</button>
+      <button class="btn ghost small" id="linkBtn" title="Copy a link that opens this slide">🔗 Link</button>
+      <button class="btn ghost small" id="soundBtn" title="Clapping sound on">🔊</button>
+      <button class="btn ghost small" id="fsBtn" title="Full screen">⛶</button>
+      <button class="btn small" id="next" aria-label="Next slide">Next ▶</button>
+    </nav>
+  </div>
+</div>
+
+<div class="menu" id="menu" hidden><div class="panel"><div class="row" style="justify-content:space-between"><b style="font-family:var(--display);font-size:1.3rem">All slides</b><button class="btn ghost small" id="menuClose">Close</button></div><ol id="menuList"></ol></div></div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+// Paste the published lesson link here so "Link" copies a shareable address for each slide.
+const LESSON_URL = "";
+
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const slides=$$('.slide'), N=slides.length;
+const COACH={shahin:['Shahin','Leadership','القيادة','--c-shahin'],fahim:['Fahim','Knowledge','المعرفة','--c-fahim'],maha:['Maha','Respect','الاحترام','--c-maha'],ahmed:['Ahmed','Responsibility','المسؤولية','--c-ahmed'],hessa:['Hessa','Tolerance','التسامح','--c-hessa']};
+const SKILL={teamwork:['Teamwork','العمل الجماعي','👥'],critical:['Critical Thinking','التفكير الناقد','🧠'],communication:['Effective Communication','التواصل الفعّال','💬'],reading:['Reading & Writing','القراءة والكتابة','📖'],integrity:['Integrity','النزاهة','🛡'],discipline:['Self-regulation & Discipline','الانضباط وتنظيم الذات','⏱'],initiative:['Initiative & Perseverance','المبادرة والمثابرة','⛰'],respect:['Respect & Kindness','الاحترام واللطف','💗']};
+const LO='Describe how mechanical waves interact with matter through reflection, absorption and transmission, and explain how engineers choose materials to control sound.';
+const store={get(k){try{return localStorage.getItem('interact8:'+k)}catch(e){return null}},set(k,v){try{localStorage.setItem('interact8:'+k,v)}catch(e){}}};
+
+// date
+$('#today').textContent=new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+
+// shared chrome: skill chips, coach strip, objective footer
+slides.forEach(s=>{
+  const inner=$('.inner',s), head=$('.head',s);
+  if(s.dataset.skills&&head){const c=document.createElement('div');c.className='chips';
+    s.dataset.skills.split(',').forEach(k=>{const[en,ar,ic]=SKILL[k];c.insertAdjacentHTML('beforeend',`<span class="chip"><i>${ic}</i>${en} <span class="ar">${ar}</span></span>`)});head.appendChild(c)}
+  if(s.dataset.coach){const[n,v,ar,col]=COACH[s.dataset.coach];
+    inner.insertAdjacentHTML('beforeend',`<div class="coach" style="--cc:var(${col})"><img src="img/av-${s.dataset.coach}.webp" alt="${n}, ${v} coach"><div><div class="who">${n} says · ${v} <span class="ar">${ar}</span></div><p>${s.dataset.says}</p><div class="ns">UAE national skill: <b>${s.dataset.ns}</b></div></div></div>`)}
+  if(!('nolo' in s.dataset)) inner.insertAdjacentHTML('afterbegin',`<div class="lo lotop"><span class="tgt"></span><div><b>Learning objective:</b> ${LO}</div></div>`);
+});
+
+// navigation + deep links (#s1 … #s26)
+let cur=1; const enterHooks={};
+function go(n,push=true){
+  n=Math.max(1,Math.min(N,n|0)); cur=n;
+  slides.forEach((s,i)=>s.hidden=i!==n-1);document.querySelectorAll('.slide[hidden] video').forEach(v=>{try{v.pause()}catch(e){}});
+  $('#count').textContent=n+' / '+N; $('#navTitle').textContent=slides[n-1].dataset.title||'';
+  $('#prog').style.width=(n/N*100)+'%'; $('#main').scrollTop=0;
+  $('#prev').disabled=n===1; $('#next').disabled=n===N;
+  if(push){try{history.replaceState(null,'','#s'+n)}catch(e){}}
+  document.title='Reflection, Absorption and Transmission · '+n+' · Nilasha Sempon';
+  requestAnimationFrame(()=>enterHooks[n]&&enterHooks[n]());
+}
+function fromHash(){const m=(location.hash||'').match(/s(\d+)$/);return m?+m[1]:1}
+window.addEventListener('hashchange',()=>go(fromHash(),false));
+$('#prev').onclick=()=>go(cur-1); $('#next').onclick=()=>go(cur+1);
+document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g){go(+g.dataset.go);$('#menu').hidden=true}});
+document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea,select'))return;
+  if(['ArrowRight','PageDown'].includes(e.key))go(cur+1);if(['ArrowLeft','PageUp'].includes(e.key))go(cur-1);if(e.key==='Escape')$('#menu').hidden=true});
+let tx=0,ty=0;$('#main').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+$('#main').addEventListener('touchend',e=>{if(e.target.closest('canvas,input,textarea,select,.stadium'))return;const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;if(Math.abs(dx)>70&&Math.abs(dy)<40)go(cur+(dx<0?1:-1))});
+// menu
+$('#menuList').innerHTML=slides.map((s,i)=>`<li><button data-go="${i+1}"><b>${i+1}</b>${s.dataset.title}</button></li>`).join('');
+$('#menuBtn').onclick=()=>{$$('#menuList button').forEach((b,i)=>b.classList.toggle('cur',i+1===cur));$('#menu').hidden=false};
+$('#menuClose').onclick=()=>$('#menu').hidden=true;
+$('#menu').onclick=e=>{if(e.target.id==='menu')$('#menu').hidden=true};
+// toast + link
+let tt;function toast(html,ms=2600){const t=$('#toast');t.innerHTML=html;t.hidden=false;clearTimeout(tt);tt=setTimeout(()=>t.hidden=true,ms)}
+$('#linkBtn').onclick=()=>{const base=LESSON_URL||location.href.split('#')[0];const url=base+'#s'+cur;
+  const ok=()=>toast('Link to slide '+cur+' copied');
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(ok,()=>toast('<div>Copy this link:</div><div class="linkbox">'+url+'</div>',7000))}else toast('<div>Copy this link:</div><div class="linkbox">'+url+'</div>',7000)};
+$('#fsBtn').onclick=()=>{try{if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen().catch(()=>toast('Full screen is not available here'))}catch(e){toast('Full screen is not available here')}};
+
+// built-in party confetti (works without any outside library)
+window.confetti=(function(){let cv,cx,parts=[],raf=null;
+  function setup(){if(cv)return;cv=document.createElement('canvas');cv.id='fxCanvas';document.body.appendChild(cv);cx=cv.getContext('2d');size();addEventListener('resize',size)}
+  function size(){const d=devicePixelRatio||1;cv.width=innerWidth*d;cv.height=innerHeight*d;cx.setTransform(d,0,0,d,0,0)}
+  function frame(){cx.clearRect(0,0,innerWidth,innerHeight);parts=parts.filter(p=>p.t<p.T);
+    parts.forEach(p=>{p.t++;p.x+=Math.cos(p.a)*p.v+p.drift;p.y+=Math.sin(p.a)*p.v+p.g;p.v*=p.decay;p.w+=p.ws;p.tilt+=0.1;
+      const o=1-p.t/p.T;cx.globalAlpha=Math.max(0,o);cx.fillStyle=p.c;const s=p.s;
+      if(p.round){cx.beginPath();cx.ellipse(p.x,p.y,s*.6,s*.6*Math.abs(Math.cos(p.tilt)),0,0,7);cx.fill()}
+      else{cx.save();cx.translate(p.x,p.y);cx.rotate(p.w);cx.fillRect(-s/2,-s*.3*Math.abs(Math.cos(p.tilt))-1,s,s*.6*Math.abs(Math.cos(p.tilt))+2);cx.restore()}});
+    cx.globalAlpha=1;raf=parts.length?requestAnimationFrame(frame):(cx.clearRect(0,0,innerWidth,innerHeight),null)}
+  return function(o){o=o||{};setup();const n=o.particleCount||50,ang=(o.angle==null?90:o.angle)*Math.PI/180,spr=(o.spread==null?45:o.spread)*Math.PI/180,sv=o.startVelocity||45,
+      X=(o.origin&&o.origin.x!=null?o.origin.x:.5)*innerWidth,Y=(o.origin&&o.origin.y!=null?o.origin.y:.6)*innerHeight,cols=o.colors||['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0','#ff7ab6'],sc=o.scalar||1;
+    for(let i=0;i<Math.min(n,400);i++)parts.push({x:X,y:Y,a:-ang+(.5*spr-Math.random()*spr),v:sv*.5+Math.random()*sv,decay:.9,g:3*(o.gravity==null?1:o.gravity),drift:(Math.random()-.5)*.6,
+      c:cols[i%cols.length],s:(7+Math.random()*6)*sc,round:Math.random()<.3,w:Math.random()*6,ws:(Math.random()-.5)*.3,tilt:Math.random()*6,t:0,T:o.ticks||200});
+    if(!raf)raf=requestAnimationFrame(frame);return Promise.resolve()}})();
+// confetti
+function boom(big){if(typeof confetti!=='function')return;const c=['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0'];
+  confetti({particleCount:big?220:90,spread:big?120:70,origin:{y:.65},colors:c});
+  if(big){setTimeout(()=>confetti({particleCount:120,angle:60,spread:70,origin:{x:0,y:.7},colors:c}),250);setTimeout(()=>confetti({particleCount:120,angle:120,spread:70,origin:{x:1,y:.7},colors:c}),400)}}
+// cheer: confetti burst where the student tapped + a clapping sound for each correct answer
+let lastX=.5,lastY=.6,soundOn=true;try{soundOn=localStorage.getItem('cheerSound')!=='off'}catch(e){}
+document.addEventListener('pointerdown',e=>{lastX=e.clientX/innerWidth;lastY=e.clientY/innerHeight},true);
+let cheerCtx;function clap(n){if(!soundOn)return;try{cheerCtx=cheerCtx||new (window.AudioContext||window.webkitAudioContext)();const a=cheerCtx,now=a.currentTime;
+  const len=a.sampleRate*.05,buf=a.createBuffer(1,len,a.sampleRate),d=buf.getChannelData(0);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,3);
+  for(let k=0;k<n;k++){const t=now+k*0.11+Math.random()*0.05;for(let j=0;j<3;j++){const src=a.createBufferSource();src.buffer=buf;const f=a.createBiquadFilter();f.type='bandpass';f.frequency.value=1000+Math.random()*1500;f.Q.value=0.8;const g=a.createGain();g.gain.value=0.5;src.connect(f);f.connect(g);g.connect(a.destination);src.start(t+j*0.012+Math.random()*0.02)}}
+  [523.25,659.25,783.99].forEach((fr,i)=>{const o=a.createOscillator(),g=a.createGain();o.type='triangle';o.frequency.value=fr;o.connect(g);g.connect(a.destination);g.gain.setValueAtTime(0.0001,now+i*0.07);g.gain.exponentialRampToValueAtTime(0.12,now+i*0.07+0.02);g.gain.exponentialRampToValueAtTime(0.0001,now+i*0.07+0.3);o.start(now+i*0.07);o.stop(now+i*0.07+0.32)})}catch(e){}}
+function party(big,x,y){const c=['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0','#ff7ab6'];
+  confetti({particleCount:big?110:60,spread:big?110:80,startVelocity:big?42:34,origin:{x:x,y:y},colors:c});
+  confetti({particleCount:big?110:60,angle:62,spread:58,startVelocity:big?62:55,origin:{x:0,y:.95},colors:c});
+  confetti({particleCount:big?110:60,angle:118,spread:58,startVelocity:big?62:55,origin:{x:1,y:.95},colors:c})}
+function badge(txt,cls){const b=document.createElement('div');b.className='fbadge '+cls;b.textContent=txt;
+  b.style.left=Math.min(Math.max(lastX*innerWidth,110),innerWidth-110)+'px';b.style.top=Math.min(Math.max(lastY*innerHeight-64,70),innerHeight-40)+'px';document.body.appendChild(b);setTimeout(()=>b.remove(),1500)}
+let lastCheer=0,lastWrong=0,quietUntil=0;
+const PRAISE=['🎉 Correct!','⭐ Brilliant!','👏 Well done!','🎊 Great job!','🏆 Excellent!'];
+function cheer(big){lastCheer=Date.now();clap(big?14:9);party(big,lastX,lastY);badge(PRAISE[Math.floor(Math.random()*PRAISE.length)],'good')}
+function buzz(){if(!soundOn)return;try{cheerCtx=cheerCtx||new (window.AudioContext||window.webkitAudioContext)();const a=cheerCtx,now=a.currentTime;
+  [[0,233],[0.17,175]].forEach(([d,f])=>{const o=a.createOscillator(),g=a.createGain();o.type='square';o.frequency.value=f;o.connect(g);g.connect(a.destination);g.gain.setValueAtTime(0.0001,now+d);g.gain.exponentialRampToValueAtTime(0.07,now+d+0.02);g.gain.exponentialRampToValueAtTime(0.0001,now+d+0.16);o.start(now+d);o.stop(now+d+0.18)})}catch(e){}}
+function wrong(el){if(el){el.classList.remove('shake');void el.offsetWidth;el.classList.add('shake');setTimeout(()=>el.classList.remove('shake'),500)}
+  if(Date.now()-lastWrong<350)return;lastWrong=Date.now();buzz();
+  let f=document.getElementById('redFlash');if(!f){f=document.createElement('div');f.id='redFlash';document.body.appendChild(f)}
+  f.classList.add('on');setTimeout(()=>f.classList.remove('on'),120);badge('✗ Not quite. Try again!','bad')}
+// watch every answer: green = party confetti, red = red flash + shake
+document.addEventListener('click',e=>{if(e.target.closest('[data-answers],#orderReveal'))quietUntil=Date.now()+600},true);
+new MutationObserver(ms=>{if(Date.now()<quietUntil)return;let good=false;
+  ms.forEach(m=>{const el=m.target,old=' '+(m.oldValue||'')+' ';if(!el.classList)return;
+    if(['no','wrong','nof'].some(c=>el.classList.contains(c)&&!old.includes(' '+c+' '))&&!el.classList.contains('fb'))wrong(el);
+    if(['ok','right','okf'].some(c=>el.classList.contains(c)&&!old.includes(' '+c+' '))&&!el.classList.contains('fb'))good=true});
+  if(good&&Date.now()-lastCheer>500)cheer(false)}).observe(document.body,{subtree:true,attributes:true,attributeFilter:['class'],attributeOldValue:true});
+(function(){const b=document.getElementById('soundBtn');if(!b)return;const set=()=>{b.textContent=soundOn?'🔊':'🔇';b.title=soundOn?'Sound on':'Sound off'};set();
+  b.onclick=()=>{soundOn=!soundOn;try{localStorage.setItem('cheerSound',soundOn?'on':'off')}catch(e){}set();if(soundOn)clap(4)}})();
+document.addEventListener('click',e=>{if(e.target.closest('[data-confetti]'))boom(false)});
+
+// generic: flip, reveal
+document.addEventListener('click',e=>{
+  const f=e.target.closest('.flip');if(f)f.classList.toggle('on');
+  const r=e.target.closest('[data-show]');if(r){const t=document.getElementById(r.dataset.show);t.hidden=!t.hidden}
+  const ns=e.target.closest('.nskill');if(ns)ns.classList.toggle('on');
+});
+
+// timers
+let actx;function beep(){try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();[0,.25,.5].forEach(d=>{const o=actx.createOscillator(),g=actx.createGain();o.frequency.value=880;o.connect(g);g.connect(actx.destination);g.gain.setValueAtTime(.15,actx.currentTime+d);g.gain.exponentialRampToValueAtTime(.001,actx.currentTime+d+.2);o.start(actx.currentTime+d);o.stop(actx.currentTime+d+.22)})}catch(e){}}
+$$('.timer').forEach(el=>{const total=+el.dataset.sec;let left=total,iv=null;const fmt=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+  el.innerHTML=`<button class="btn small">▶ Start ${total>=60?total/60+'-min':total+'-s'}</button><span class="t">${fmt(total)}</span><button class="rs" title="Reset">↺</button>`;
+  const [b,t,rs]=el.children;
+  const stop=()=>{clearInterval(iv);iv=null};
+  b.onclick=()=>{if(iv){stop();b.textContent='▶ Resume';return}if(left<=0){left=total;el.classList.remove('done')}
+    b.textContent='❚❚ Pause';iv=setInterval(()=>{left--;t.textContent=fmt(Math.max(left,0));if(left<=0){stop();el.classList.add('done');t.textContent="TIME'S UP!";b.textContent='▶ Again';beep()}},1000)};
+  rs.onclick=()=>{stop();left=total;el.classList.remove('done');t.textContent=fmt(total);b.textContent=`▶ Start ${total>=60?total/60+'-min':total+'-s'}`};
+});
+
+// 7 · true/false
+$$('#tf .q').forEach(q=>{let done=false;$$('.opt',q).forEach(b=>b.onclick=()=>{if(done)return;done=true;const pick=b.textContent==='True'?'T':'F',ok=pick===q.dataset.a;
+  b.classList.add(ok?'ok':'no');if(ok)cheer(false);const fb=$('.fb',q);fb.hidden=false;fb.className='fb '+(ok?'ok':'no');fb.textContent=(ok?'✓ Correct! ':'✗ Not quite. ')+fb.dataset.why;
+  q.dataset.res=ok?1:0;const sc=$$('#tf .q').reduce((a,x)=>a+(+x.dataset.res||0),0),n=$$('#tf .q[data-res]').length;$('#tfScore').textContent='Score: '+sc+' / 5';if(n===5&&sc===5)boom(false)})});
+
+// 9 · video answers
+$('#vidAns')&&($('#vidAns').onclick=()=>$$('#s9 .vans').forEach(a=>a.hidden=false));
+
+// 11 · sort
+$$('#sorter .sitem').forEach(b=>b.onclick=()=>{b.classList.remove('right','wrong');const L=($('#sorter').dataset.labels||'low|HIGH').split('|');const i=(L.indexOf(b.dataset.v)+1)%L.length;b.dataset.v=L[i];$('.tag',b).textContent=L[i]});
+$('#sortCheck').onclick=()=>{let s=0;$$('#sorter .sitem').forEach(b=>{const ok=b.dataset.v===b.dataset.ans;b.classList.toggle('right',ok);b.classList.toggle('wrong',!ok);s+=ok});$('#sortScore').textContent=s+' / 8 correct';if(s>0&&s<8)cheer(false);$('#sortWhy').hidden=false;if(s===8)boom(false)};
+
+// MCQ sets (retry = formative with hints; first = first-try scoring)
+$$('.mcqset').forEach(set=>{const mode=set.dataset.mode;const qs=set.classList.contains('q')?[set]:$$('.q',set);
+  qs.forEach(q=>q.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(q.dataset.solved)return;const ok=b.hasAttribute('data-ok');
+    if(!('first' in q.dataset))q.dataset.first=ok?1:0;
+    b.classList.add(ok?'ok':'no');const fb=$('.fb',q);if(fb)fb.hidden=ok;
+    if(ok){q.dataset.solved=1;cheer(false);if(set.id==='dbq'){$('#dbLock').hidden=true;$('#dbOpen').hidden=false;boom(false)}}
+    if(set.id==='wm'){const s=qs.reduce((a,x)=>a+(+x.dataset.first||0),0),n=qs.filter(x=>'first' in x.dataset).length;
+      const lvl=s===5?'Wave Master! 🏆':s===4?'Wave Expert':s===3?'Wave Explorer':"let's review together";
+      $('#wmScore').textContent='First-try score: '+s+' / 5'+(n===5?' · '+lvl:'');if(n===5&&s>=4)boom(s===5)}
+    if(mode==='retry'&&set.id!=='dbq'&&qs.every(x=>x.dataset.solved))boom(false);
+  }));
+});
+
+// 18 · order
+let nextN=1;$$('#order .oitem').forEach(b=>b.onclick=()=>{$$('#order .oitem').forEach(x=>x.classList.remove('right','wrong'));
+  if(b.dataset.n){const k=+b.dataset.n;$$('#order .oitem').forEach(x=>{if(+x.dataset.n>=k){delete x.dataset.n;x.classList.remove('set');$('.n',x).textContent='?'}});nextN=k;return}
+  if(nextN>5)return;b.dataset.n=nextN;b.classList.add('set');$('.n',b).textContent=nextN;nextN++});
+$('#orderCheck').onclick=()=>{let s=0;$$('#order .oitem').forEach(b=>{const ok=b.dataset.n===b.dataset.p;b.classList.toggle('right',ok);b.classList.toggle('wrong',!ok);s+=ok});$('#orderScore').textContent=s+' / 5 in the right place';if(s>0&&s<5)cheer(false);if(s===5)boom(false)};
+$('#orderReveal').onclick=()=>{$('#chain').hidden=false};
+$$('[data-tl]').forEach(b=>b.onclick=()=>{const m=$('#tlMsg');m.hidden=false;m.textContent=b.dataset.tl});
+
+// 20/21 · worksheet
+$$('#wsA select').forEach(s=>s.innerHTML='<option value="">–</option>'+'ABCDE'.split('').map(x=>`<option>${x}</option>`).join(''));
+$$('#wsC select').forEach(s=>s.innerHTML='<option value="">choose…</option>'+s.dataset.opts.split('|').map(x=>`<option>${x}</option>`).join(''));
+const norm=v=>v.trim().toLowerCase().replace(/[.\s]+$/,'');
+function mark(id){let s=0;$$('#'+id+' [data-ans]').forEach(f=>{const ok=f.dataset.ans.toLowerCase().split('|').includes(norm(f.value));f.classList.toggle('okf',ok);f.classList.toggle('nof',!ok&&f.value!=='');s+=ok});return s}
+const score={wsA:0,wsB:0,wsC:0};
+function total(){$('#wsTotal').textContent='Total: A + B + C = '+(score.wsA+score.wsB+score.wsC)+' / 16 marks'}
+$$('[data-check]').forEach(b=>b.onclick=()=>{const id=b.dataset.check,s=mark(id),max=$$('#'+id+' [data-ans]').length;score[id]=s;if(s>0)cheer(s===max);$(`[data-out="${id}"]`).textContent=s+' / '+max;total();if(s===max)boom(false)});
+$$('[data-answers]').forEach(b=>b.onclick=()=>{const id=b.dataset.answers;$$('#'+id+' [data-ans]').forEach(f=>{f.value=f.tagName==='SELECT'?f.dataset.ans:f.dataset.ans.split('|')[0]});mark(id)});
+$('#labExp').onclick=()=>$$('#s19 .exp').forEach(x=>{x.hidden=false;x.style.cssText='font-size:.82rem;color:#11663a;font-weight:700;margin-top:4px'});
+$$('.lvl').forEach(b=>b.onclick=()=>{const a=b.previousElementSibling;a.hidden=!a.hidden;b.textContent=a.hidden?'Show answers':'Hide answers'});
+
+// keep typed answers in this browser
+$$('input[type=text],textarea').forEach(f=>{const v=store.get(f.id);if(v)f.value=v;f.addEventListener('input',()=>store.set(f.id,f.value))});
+
+// 24 · stars
+$$('.stars').forEach(st=>{for(let i=1;i<=5;i++)st.insertAdjacentHTML('beforeend',`<button aria-label="${i} star${i>1?'s':''}">★</button>`);
+  const set=k=>$$('button',st).forEach((b,i)=>b.classList.toggle('on',i<k));set(+store.get(st.id)||0);
+  $$('button',st).forEach((b,i)=>b.onclick=()=>{set(i+1);store.set(st.id,i+1);if(i===4)boom(false)})});
+
+// 25 · values
+$$('#values .vcard').forEach(c=>c.onclick=()=>{c.classList.toggle('on');const n=$$('#values .vcard.on').length;$$('#goal span').forEach((s,i)=>s.classList.toggle('on',i<n));if(n===5){boom(true);toast('Class goal reached: all five stars!')}});
+
+// 26 · celebrate
+$('#celebrate').onclick=()=>boom(true);
+enterHooks[28]=()=>boom(true);
+
+/* ---------- canvases ---------- */
+function fit(c){const r=c.getBoundingClientRect(),d=window.devicePixelRatio||1;const h=+c.getAttribute('height')||r.height||120;
+  if(!c.dataset.h)c.dataset.h=h;const H=+c.dataset.h;c.style.height=H+'px';c.width=Math.round(r.width*d);c.height=Math.round(H*d);const x=c.getContext('2d');x.setTransform(d,0,0,d,0,0);return{x,w:r.width,h:H}}
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// hero waves
+(function(){const c=$('#heroWaves');let t=0,raf;function draw(){if(cur!==1){raf=null;return}const {x,w,h}=fit(c);
+  const cols=['#ffc21a','#e5484d','#1fa75a','#4f8cff','#c084fc'];cols.forEach((col,i)=>{x.beginPath();for(let px=0;px<=w;px+=6){const y=h*.35+i*14+Math.sin(px/90+t*(1+i*.15)+i)*(10+i*3);px?x.lineTo(px,y):x.moveTo(px,y)}x.strokeStyle=col;x.lineWidth=5;x.stroke()});
+  t+=.02;raf=reduce?null:requestAnimationFrame(draw)}enterHooks[1]=()=>{if(!raf)draw()};})();
+
+// 15 · angle of reflection
+(function(){const c=$('#refl'),rng=$('#angle');let t0=null,raf;
+  const deg=()=>+rng.value;
+  function draw(now){const {x,w,h}=fit(c),th=deg()*Math.PI/180,P={x:w/2,y:h-36},L=Math.min(w*.45,h-60),t=t0==null?-1:(now-t0)/1000;
+    x.fillStyle='#d6eefb';x.fillRect(0,0,w,h);
+    // barrier
+    x.fillStyle='#8a6b4a';x.fillRect(20,P.y,w-40,14);x.fillStyle='#fff';x.font='bold 12px Nunito, sans-serif';x.fillText('barrier',28,P.y+11);
+    // normal
+    x.setLineDash([6,6]);x.strokeStyle='#5b6385';x.lineWidth=1.5;x.beginPath();x.moveTo(P.x,P.y);x.lineTo(P.x,P.y-L-10);x.stroke();x.setLineDash([]);
+    x.fillStyle='#5b6385';x.font='12px Nunito, sans-serif';x.fillText('normal',P.x+6,P.y-L);
+    const S={x:P.x-L*Math.sin(th),y:P.y-L*Math.cos(th)},E={x:P.x+L*Math.sin(th),y:P.y-L*Math.cos(th)};
+    // rays
+    x.strokeStyle='#2563eb';x.lineWidth=3;x.beginPath();x.moveTo(S.x,S.y);x.lineTo(P.x,P.y);x.stroke();
+    const showOut=t>1.2||t0==null;
+    x.strokeStyle=showOut?'#e5484d':'rgba(229,72,77,.25)';x.setLineDash(t0==null?[6,6]:[]);x.beginPath();x.moveTo(P.x,P.y);x.lineTo(E.x,E.y);x.stroke();x.setLineDash([]);
+    // angle arcs
+    const r=46;x.lineWidth=2;x.strokeStyle='#2563eb';x.beginPath();x.arc(P.x,P.y,r,-Math.PI/2-th,-Math.PI/2);x.stroke();
+    x.strokeStyle='#e5484d';x.beginPath();x.arc(P.x,P.y,r+8,-Math.PI/2,-Math.PI/2+th);x.stroke();
+    x.font='bold 13px Nunito, sans-serif';x.fillStyle='#2563eb';x.fillText(`in: ${deg()}°`,P.x-r-62,P.y-r+4);
+    if(showOut&&t0!=null){x.fillStyle='#e5484d';x.fillText(`out: ${deg()}°`,P.x+r+14,P.y-r+4)}
+    // moving wavefronts
+    if(t>=0){const u=Math.min(t/1.2,1),v=Math.max(0,Math.min((t-1.2)/1.2,1));
+      const front=(px,py,dx,dy,col)=>{const nx=-dy,ny=dx;x.strokeStyle=col;x.lineWidth=4;for(let k=0;k<3;k++){const ox=px-dx*k*12,oy=py-dy*k*12;x.globalAlpha=1-k*.3;x.beginPath();x.moveTo(ox-nx*22,oy-ny*22);x.lineTo(ox+nx*22,oy+ny*22);x.stroke()}x.globalAlpha=1};
+      const d1={x:(P.x-S.x)/L,y:(P.y-S.y)/L},d2={x:(E.x-P.x)/L,y:(E.y-P.y)/L};
+      if(u<1)front(S.x+(P.x-S.x)*u,S.y+(P.y-S.y)*u,d1.x,d1.y,'#2563eb');else if(v<1)front(P.x+(E.x-P.x)*v,P.y+(E.y-P.y)*v,d2.x,d2.y,'#e5484d')}
+    if(t>=0&&t<2.6&&!c.closest('.slide').hidden)raf=requestAnimationFrame(draw);else{raf=null;if(t>=2.4)$('#reflRead').textContent=`The wave hit at ${deg()}° and reflected at ${deg()}°. Angle in = angle out!`}}
+  rng.oninput=()=>{$('#angleVal').textContent=rng.value;t0=null;$('#reflRead').textContent='Predict the angle out, then send the wave.';draw(performance.now())};
+  $('#sendWave').onclick=()=>{t0=performance.now();cancelAnimationFrame(raf);raf=requestAnimationFrame(draw)};
+  enterHooks[15]=()=>draw(performance.now());})();
+
+// 16 · wall tester: reflect / absorb / transmit
+(function(){const c=$('#wall');const M={
+  concrete:{name:'Bare concrete',R:85,A:10,T:5,col:'#9aa3b5',tex:'brick',say:'Hard, smooth and dense: it mostly REFLECTS the sound. That is why empty rooms echo.'},
+  foam:{name:'Insulated wall',R:10,A:80,T:10,col:'#c26bd6',tex:'foam',say:'Soft and porous insulation ABSORBS most of the energy. Very little bounces back or gets through.'},
+  thin:{name:'Thin uninsulated wall',R:30,A:15,T:55,col:'#e8d3a8',tex:'plain',say:'A thin wall TRANSMITS a lot of the sound, so the next room can hear the music.'},
+  glass:{name:'Glass window',R:55,A:10,T:35,col:'#bfe3f7',tex:'glass',say:'Hard glass reflects a lot, but it is thin, so some sound is TRANSMITTED through it.'}};
+  let mat='concrete',parts=[],raf,last=0,glow=0;
+  function bars(){const m=M[mat];$('#wallBars').innerHTML=`<b>${m.name}</b>`+[['Reflected','R','#e5484d'],['Absorbed','A','#0e9fa6'],['Transmitted','T','#1b2470']].map(([lab,k,col])=>`<div><div style="display:flex;justify-content:space-between;font-weight:700;font-size:.9rem"><span>${lab}</span><span>${m[k]}%</span></div><div style="height:14px;background:var(--bg);border-radius:99px;overflow:hidden"><div style="height:100%;width:${m[k]}%;background:${col};border-radius:99px;transition:width .5s"></div></div></div>`).join('');$('#wallRead').textContent=m.say}
+  function draw(now){const {x,w,h}=fit(c),t=now/1000,wx=w*.55,ww=26,cy=h/2,m=M[mat];
+    x.fillStyle='#f6f8fd';x.fillRect(0,0,w,h);x.fillStyle='#eef1f9';x.fillRect(wx+ww,0,w-wx-ww,h);
+    x.fillStyle='#5b6385';x.font='bold 12px Nunito, sans-serif';x.fillText('Your room',10,18);x.fillText('Next room',wx+ww+10,18);
+    // phone
+    x.fillStyle='#1b2470';x.fillRect(18,cy-26,26,52);x.fillStyle='#7dd3fc';x.fillRect(21,cy-22,20,36);x.fillStyle='#fff';x.font='16px sans-serif';x.fillText('♪',26,cy+2);
+    // wall
+    x.fillStyle=m.col;x.fillRect(wx,10,ww,h-20);
+    if(m.tex==='brick'){x.strokeStyle='rgba(0,0,0,.18)';for(let y=10;y<h-10;y+=12){x.beginPath();x.moveTo(wx,y);x.lineTo(wx+ww,y);x.stroke()}}
+    if(m.tex==='foam'){x.fillStyle='rgba(255,255,255,.35)';for(let y=14;y<h-14;y+=10)for(let k=0;k<3;k++){x.beginPath();x.arc(wx+5+k*8,y+(k%2)*5,2.2,0,7);x.fill()}}
+    if(m.tex==='glass'){x.strokeStyle='rgba(255,255,255,.9)';x.lineWidth=2;x.beginPath();x.moveTo(wx+6,40);x.lineTo(wx+18,20);x.stroke()}
+    if(glow>0){x.fillStyle=`rgba(255,194,26,${glow})`;x.fillRect(wx,10,ww,h-20);glow=Math.max(0,glow-.01)}
+    // emit
+    if(t-last>0.06){last=t;const r=Math.random()*100;const fate=r<m.R?'R':r<m.R+m.A?'A':'T';parts.push({x:48,y:cy+(Math.random()-.5)*90,vx:150+Math.random()*30,vy:(Math.random()-.5)*20,fate,hit:false,a:1})}
+    const dt=1/60;parts.forEach(p=>{p.x+=p.vx*dt;p.y+=p.vy*dt;
+      if(!p.hit&&p.x>=wx-3){p.hit=true;if(p.fate==='R'){p.vx=-p.vx;p.vy=-p.vy+(Math.random()-.5)*40}else if(p.fate==='A'){p.vx=12;glow=Math.min(.35,glow+.02)}else{p.a=.55}}
+      if(p.hit&&p.fate==='A'){p.a-=.04}
+      x.globalAlpha=Math.max(0,p.a);x.fillStyle=!p.hit?'#2563eb':p.fate==='R'?'#e5484d':p.fate==='A'?'#0e9fa6':'#1b2470';x.beginPath();x.arc(p.x,p.y,3.2,0,7);x.fill();x.globalAlpha=1});
+    parts=parts.filter(p=>p.a>0&&p.x>-10&&p.x<w+10);
+    // ear in next room
+    x.font='22px sans-serif';x.fillText('👂',w-34,cy+8);
+    if(!c.closest('.slide').hidden)raf=requestAnimationFrame(draw);else raf=null}
+  $$('[data-wall]').forEach(b=>b.onclick=()=>{mat=b.dataset.wall;parts=[];$$('[data-wall]').forEach(x=>x.classList.toggle('ghost',x!==b));bars();if(!raf)raf=requestAnimationFrame(draw)});
+  bars();enterHooks[16]=()=>{if(!raf)raf=requestAnimationFrame(draw)};})();
+
+// 17 · echo at Hatta Dam
+(function(){const c=$('#echo'),rng=$('#cliff');let t0=null,raf;const VS=343;
+  function draw(now){const {x,w,h}=fit(c),d=+rng.value,T=2*d/VS,t=t0==null?-1:(now-t0)/1000,px=40,cx=px+(w-110)*(d/500)+30,gy=h-30;
+    x.fillStyle='#cfe8f7';x.fillRect(0,0,w,h);x.fillStyle='#3d9ad1';x.fillRect(0,gy,w,30);
+    // cliff
+    x.fillStyle='#a06b3d';x.beginPath();x.moveTo(cx,gy);x.lineTo(cx+6,40);x.lineTo(w,30);x.lineTo(w,gy);x.closePath();x.fill();
+    x.fillStyle='#fff';x.font='bold 12px Nunito, sans-serif';x.fillText('cliff',cx+14,60);
+    // person on a boat
+    x.fillStyle='#8a5a2b';x.fillRect(px-18,gy-8,44,10);x.fillStyle='#f5d7b5';x.beginPath();x.arc(px,gy-34,8,0,7);x.fill();x.fillStyle='#fff';x.fillRect(px-7,gy-26,14,18);
+    // distance label
+    x.strokeStyle='#1b2470';x.lineWidth=1.5;x.beginPath();x.moveTo(px,gy+14);x.lineTo(cx,gy+14);x.stroke();x.fillStyle='#fff';x.font='bold 12px Nunito, sans-serif';x.fillText(`${d} m`,(px+cx)/2-12,gy+26);
+    if(t>=0){const half=T/2;
+      if(t<half){const r=(cx-px)*(t/half);x.strokeStyle='#e5484d';x.lineWidth=3;for(let k=0;k<3;k++){const rr=r-k*14;if(rr>0){x.beginPath();x.arc(px,gy-34,rr,-.6,.6);x.stroke()}}}
+      else if(t<T){const r=(cx-px)*((t-half)/half);x.strokeStyle='#7a3ff0';x.lineWidth=3;for(let k=0;k<3;k++){const rr=r-k*14;if(rr>0){x.beginPath();x.arc(cx,gy-34,rr,Math.PI-.6,Math.PI+.6);x.stroke()}}}
+      x.fillStyle='#1b2470';x.font='bold 14px Nunito, sans-serif';x.fillText(`time: ${Math.min(t,T).toFixed(2)} s`,12,22);
+      if(t>=T){x.fillStyle='#7a3ff0';x.fillText('…marhaba!',px+12,gy-52)}}
+    if(t>=0&&t<T+.4&&!c.closest('.slide').hidden)raf=requestAnimationFrame(draw);else{raf=null;if(t>=T)$('#echoRead').innerHTML=`Echo heard after <b>${T.toFixed(2)} s</b> (2 × ${d} ÷ 343). ${T<0.1?'Too quick to hear as a separate echo!':''}`}}
+  rng.oninput=()=>{$('#cliffVal').textContent=rng.value;t0=null;$('#echoRead').textContent='Predict: how long until you hear the echo?';draw(performance.now())};
+  $('#shout').onclick=()=>{t0=performance.now();cancelAnimationFrame(raf);raf=requestAnimationFrame(draw)};
+  enterHooks[17]=()=>draw(performance.now());})();
+
+// 18 · highway sound barrier
+(function(){const c=$('#barrier'),rng=$('#barrierH');
+  function draw(){const {x,w,h}=fit(c),H=+rng.value,gy=h-36,sx=60,bx=w*.45,hx=w*.82,mpx=(h-90)/7,bh=H*mpx;
+    x.fillStyle='#e3f1fb';x.fillRect(0,0,w,h);x.fillStyle='#c9b48a';x.fillRect(0,gy,w,36);x.fillStyle='#4b4f5c';x.fillRect(0,gy,bx-10,10);
+    // car
+    x.fillStyle='#e5484d';x.fillRect(sx-24,gy-18,48,16);x.fillStyle='#1b2470';x.beginPath();x.arc(sx-12,gy-2,6,0,7);x.arc(sx+12,gy-2,6,0,7);x.fill();
+    // house
+    x.fillStyle='#fff';x.fillRect(hx-30,gy-50,60,50);x.fillStyle='#b0287a';x.beginPath();x.moveTo(hx-38,gy-50);x.lineTo(hx,gy-80);x.lineTo(hx+38,gy-50);x.fill();x.font='18px sans-serif';x.fillText('👂',hx-9,gy-18);
+    // barrier
+    if(H>0){x.fillStyle='#5b6385';x.fillRect(bx,gy-bh,12,bh);x.fillStyle='#1b2470';x.font='bold 12px Nunito, sans-serif';x.fillText(`${H} m`,bx+16,gy-bh+12)}
+    // sound rays from car to house
+    const src={x:sx,y:gy-14},top={x:bx+6,y:gy-bh};
+    for(let k=0;k<9;k++){const ty=gy-12-k*24;const target={x:hx,y:ty};
+      const yAtB=src.y+(target.y-src.y)*((bx-src.x)/(target.x-src.x));const blocked=H>0&&yAtB>gy-bh;
+      x.strokeStyle=blocked?'rgba(229,72,77,.85)':'rgba(37,99,235,.8)';x.lineWidth=2;x.setLineDash(blocked?[]:[6,5]);x.beginPath();x.moveTo(src.x,src.y);
+      if(blocked){x.lineTo(bx,yAtB);x.lineTo(bx-(bx-src.x)*.45,yAtB-(src.y-yAtB)*.45-20)}else x.lineTo(target.x,target.y);x.stroke();x.setLineDash([])}
+    const db=Math.round(75-2.5*H);$('#houseDb').innerHTML=`Noise at the house: <span style="color:${db>65?'var(--red)':'var(--green)'}">≈ ${db} dB</span>`;
+    x.fillStyle='#1b2470';x.font='bold 12px Nunito, sans-serif';x.fillText('blue = reaches the house · red = reflected back',10,18)}
+  rng.oninput=()=>{$('#barrierVal').textContent=rng.value;draw()};enterHooks[18]=draw;})();
+
+window.addEventListener('resize',()=>enterHooks[cur]&&enterHooks[cur]());
+go(fromHash(),false);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="author" content="Nilasha Sempon">
+<meta name="description" content="Interactive Grade 11 Advanced Biology lesson with the UAE Values Team.">
+<title>Multiple Alleles · Nilasha Sempon</title>
+<meta property="og:title" content="Multiple Alleles · Nilasha Sempon">
+<meta property="og:description" content="Grade 11 Advanced Biology interactive lesson by Nilasha Sempon, with the UAE Values Team.">
+<meta property="og:image" content="https://nilashasempons.netlify.app/b12-multiple-alleles/img/hook.webp">
+<meta property="og:url" content="https://nilashasempons.netlify.app/b12-multiple-alleles/">
+<meta property="og:site_name" content="Nilasha Sempon · Science &amp; Biology">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: an app frame (top bar · one slide at a time · bottom nav). Each slide is a page with its own #sN link.
+   Single bright classroom look, matching the teacher's deck, so colours are set explicitly. */
+:root{
+  --navy:#1b2470; --navy-2:#2a338f; --ink:#1c2340; --muted:#5b6385; --line:#dfe3f1;
+  --paper:#ffffff; --bg:#eef1f9; --sun:#ffc21a; --sun-ink:#3a2a00;
+  --green:#1fa75a; --green-bg:#e6f7ed; --red:#e5484d; --red-bg:#fdecec;
+  --orange:#f07f19; --orange-bg:#fff2e4; --purple:#7a3ff0; --purple-bg:#f1eafe;
+  --blue:#2563eb; --blue-bg:#e8effe; --teal:#0e9fa6; --sea:#2b8fd6; --sand:#f2dca6;
+  --c-shahin:#4b6b2f; --c-fahim:#1f5f8b; --c-maha:#a3343a; --c-ahmed:#1d6b5b; --c-hessa:#b07a0a;
+  --display:"Baloo Bhaijaan 2","Nunito",system-ui,sans-serif;
+  --body:"Nunito","Baloo Bhaijaan 2",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+html,body{height:100%}
+body{margin:0}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45}
+*{box-sizing:border-box}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.ar{font-family:"Baloo Bhaijaan 2",var(--body);direction:rtl}
+
+#app{height:100%;display:grid;grid-template-rows:auto 1fr auto}
+.topbar{background:var(--navy);color:#fff;display:flex;align-items:center;gap:12px;padding:8px 16px;flex-wrap:wrap}
+.topbar .crumb{font-weight:800;font-family:var(--display);font-size:1.05rem;white-space:nowrap;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.topbar .unit{opacity:.8;font-size:.85rem;min-width:0;flex:1 1 220px}
+.topbar .date{background:rgba(255,255,255,.14);border-radius:999px;padding:3px 12px;font-size:.85rem;white-space:nowrap}
+.iconbtn{background:var(--sun);color:var(--sun-ink);border:0;border-radius:999px;width:36px;height:36px;display:grid;place-items:center;font-weight:800;flex:none}
+.iconbtn svg{width:18px;height:18px}
+.wavestrip{height:6px;background:repeating-linear-gradient(90deg,var(--sun) 0 40px,var(--green) 40px 80px,var(--red) 80px 120px,var(--blue) 120px 160px,var(--purple) 160px 200px)}
+
+main{overflow-y:auto;overflow-x:hidden;position:relative;-webkit-overflow-scrolling:touch}
+.slide{min-height:100%}
+.inner{max-width:1200px;margin:0 auto;padding-block:22px 28px;padding-inline:16px;display:flex;flex-direction:column;gap:18px}
+.head{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.head h2{font-family:var(--display);font-size:clamp(1.5rem,3.2vw,2.2rem);line-height:1.1;margin:0;flex:1 1 auto;text-wrap:balance;font-weight:800}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:2px solid var(--blue);border-radius:999px;padding:3px 12px 3px 4px;font-size:.82rem;font-weight:700;color:var(--navy)}
+.chip i{width:24px;height:24px;border-radius:50%;background:var(--blue);display:grid;place-items:center;color:#fff;font-style:normal;font-size:.8rem}
+.chip .ar{font-weight:600;color:var(--muted)}
+.lead{color:var(--muted);margin:0;max-width:75ch}
+.lead b{color:var(--purple)}
+
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px}
+.label{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;font-weight:800;color:var(--red)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+.g5{grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.cols{display:grid;gap:18px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:860px){.cols.split{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}.cols.split-r{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}}
+.stack{display:flex;flex-direction:column;gap:12px;min-width:0}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+img.fig{border-radius:14px;border:1px solid var(--line);display:block;width:100%;height:auto;background:#fff}
+
+.btn{border:0;border-radius:999px;padding:10px 20px;font-weight:800;background:var(--sun);color:var(--sun-ink);box-shadow:0 3px 0 #d79c00;transition:transform .1s}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 #d79c00}
+.btn.navy{background:var(--navy);color:#fff;box-shadow:0 3px 0 #0d1245}
+.btn.red{background:var(--red);color:#fff;box-shadow:0 3px 0 #a92d31}
+.btn.ghost{background:var(--paper);color:var(--navy);box-shadow:none;border:2px solid var(--line)}
+.btn.small{padding:6px 14px;font-size:.88rem}
+
+/* coach strip */
+.coach{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:center;background:var(--paper);border:2px solid var(--cc,var(--navy));border-radius:18px;padding:10px 14px}
+.coach img{width:64px;height:64px;border-radius:50%;border:3px solid var(--cc);background:#f5efe4}
+.coach .who{font-weight:800;color:var(--cc);font-size:.9rem}
+.coach .who span{font-weight:600;color:var(--muted)}
+.coach p{margin:2px 0}
+.coach .ns{font-size:.82rem;color:var(--muted)}
+.coach .ns b{color:var(--orange)}
+.lo{display:flex;gap:10px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:.88rem;color:var(--muted)}
+.lo b{color:var(--red)}
+.lo.lotop{color:var(--ink);font-size:.95rem;font-weight:600;border:2px solid #f3c2c4;background:#fff7f7}
+.hero .lo.lotop,.end .lo.lotop{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.35);color:#fff}.hero .lo.lotop b,.end .lo.lotop b{color:#ffc21a}
+.lo .tgt{flex:none;width:22px;height:22px;border-radius:50%;border:4px solid var(--red);box-shadow:inset 0 0 0 3px #fff,inset 0 0 0 8px var(--red)}
+
+/* bottom nav */
+.nav{background:var(--paper);border-top:1px solid var(--line);display:flex;align-items:center;gap:8px;padding:8px 16px calc(8px + env(safe-area-inset-bottom,0px));flex-wrap:wrap}
+.nav .count{font-weight:800;font-variant-numeric:tabular-nums;color:var(--navy);min-width:64px;text-align:center}
+.nav .title{flex:1 1 140px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--muted);font-size:.9rem}
+@media (max-width:700px){.topbar .unit{display:none}.nav .title{display:none}.nav{justify-content:space-between}}
+.progress{height:4px;background:var(--line)}
+.progress div{height:100%;background:var(--sun);transition:width .3s}
+.toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;z-index:50;max-width:calc(100% - 32px);text-align:center}
+.linkbox{font-size:.8rem;word-break:break-all;background:var(--bg);padding:6px 10px;border-radius:8px;user-select:all}
+
+/* menu overlay */
+.menu{position:fixed;inset:0;background:rgba(18,22,60,.55);z-index:40;display:grid;place-items:center;padding:16px}
+.menu .panel{background:var(--paper);border-radius:20px;max-width:900px;width:100%;max-height:85vh;overflow:auto;padding:18px}
+.menu ol{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:6px;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr))}
+.menu li button{width:100%;text-align:left;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:8px 10px;display:flex;gap:10px;align-items:center}
+.menu li button b{color:var(--navy);font-variant-numeric:tabular-nums;min-width:22px}
+.menu li button.cur{background:var(--sun)}
+
+/* title slide */
+.hero{background:linear-gradient(135deg,#1b2470 0%,#3a2fa3 60%,#6a2fb8 100%);color:#fff;min-height:100%;position:relative;overflow:hidden}
+.hero .inner{padding-block:36px}
+.hero h1{font-family:var(--display);font-size:clamp(2.4rem,7vw,4.6rem);line-height:1;margin:6px 0 0;font-weight:800}
+.hero .sub{font-family:var(--display);color:var(--sun);font-size:clamp(1.3rem,3vw,2rem);font-weight:700;margin:0}
+.hero .eyebrow{color:var(--sun);font-weight:800;letter-spacing:.08em;font-size:.82rem}
+.hero .teacher{font-family:var(--display);font-size:1.2rem}.hero .teacher b{color:var(--sun)}
+.hero .mystery{background:#fff;color:var(--ink);border-radius:14px;padding:14px 16px;max-width:620px}
+.hero .mystery b{color:var(--red)}
+.avatars{display:flex;flex-wrap:wrap;gap:12px}
+.avatars button{background:none;border:0;padding:0;text-align:center;color:#fff;font-size:.8rem;font-weight:700}
+.avatars img{width:72px;height:72px;border-radius:50%;border:3px solid var(--sun);display:block;margin-bottom:4px;background:#f5efe4;transition:transform .2s}
+.avatars button:hover img{transform:translateY(-4px) rotate(-4deg)}
+.hero canvas.waves{position:absolute;left:0;right:0;bottom:0;width:100%;height:120px;pointer-events:none;opacity:.9}
+
+/* flip cards */
+.flip{perspective:900px;background:none;border:0;padding:0;text-align:left;width:100%}
+.flip .fi{display:grid;transition:transform .5s;transform-style:preserve-3d;height:100%}
+.flip.on .fi{transform:rotateY(180deg)}
+.flip .face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;padding:14px;border:2px solid var(--line);background:var(--paper);min-height:100px;display:flex;flex-direction:column;justify-content:center;gap:4px}
+.flip .back{transform:rotateY(180deg)}
+.flip .tap{font-size:.75rem;color:var(--muted);font-weight:700}
+.kw .front{border-color:var(--purple)}
+.kw .front strong{font-family:var(--display);font-size:1.3rem;color:var(--purple)}
+.kw .back{background:var(--purple-bg);border-color:var(--purple)}
+@media (prefers-reduced-motion:reduce){.flip .fi{transition:none}}
+
+/* team cards */
+.team{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr))}
+.team .face{padding:0;overflow:hidden;justify-content:flex-start;border-color:var(--cc)}
+.team .front img{width:100%;height:auto;aspect-ratio:496/536;object-fit:cover;display:block}
+.team .front .tap{padding:8px 10px;text-align:center;color:var(--cc)}
+.team .back{background:var(--cc);color:#fff;padding:16px;justify-content:center;font-weight:700;font-size:1.02rem}
+.team .back h4{margin:0;font-family:var(--display);font-size:1.4rem}
+.nskills{display:flex;flex-wrap:wrap;gap:8px}
+.nskill{border:2px solid var(--orange);background:var(--paper);border-radius:12px;padding:6px 12px;font-weight:800;color:var(--navy);display:flex;flex-direction:column;align-items:flex-start;text-align:left;max-width:240px}
+.nskill small{font-weight:600;color:var(--orange);display:none}
+.nskill.on small{display:block}
+
+/* lesson map */
+.map{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr))}
+.map button{border:0;border-radius:16px;color:#fff;text-align:left;padding:14px;min-height:112px;display:flex;flex-direction:column;gap:2px;transition:transform .15s}
+.map button:hover{transform:translateY(-3px)}
+.map small{font-size:.7rem;letter-spacing:.07em;font-weight:800;opacity:.85}
+.map strong{font-family:var(--display);font-size:1.18rem;line-height:1.15}
+.map span{font-size:.85rem;opacity:.9}
+
+/* lists */
+.crit{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.crit li{position:relative;padding-left:38px;min-height:28px;padding-top:3px}
+.crit li::before{position:absolute;left:0;top:0}
+.crit li::before{content:"✓";width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:800}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:s}
+.steps li{position:relative;padding-left:44px;min-height:34px;padding-top:6px;counter-increment:s}
+.steps li::before{position:absolute;left:0;top:0}
+.steps li::before{content:counter(s);width:32px;height:32px;border-radius:50%;background:var(--sun);display:grid;place-items:center;font-weight:800}
+
+/* timer */
+.timer{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:2px solid var(--sun);border-radius:999px;padding:4px 6px 4px 4px}
+.timer .t{font-family:var(--display);font-weight:800;font-size:1.3rem;font-variant-numeric:tabular-nums;min-width:58px;text-align:center;color:var(--navy)}
+.timer.done{border-color:var(--red);background:var(--red);animation:shake .5s 3}
+.timer.done .t{color:#fff}
+.timer .rs{background:none;border:0;color:var(--muted);font-size:.8rem;font-weight:700;padding:4px 8px}
+.timer.done .rs{color:#fff}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+/* quizzes */
+.q{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:10px}
+.q .qt{font-weight:800}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{border:2px solid var(--line);background:var(--bg);border-radius:12px;padding:8px 14px;font-weight:700;text-align:left}
+.opt.ok{background:var(--green);border-color:var(--green);color:#fff}
+.opt.no{background:var(--red);border-color:var(--red);color:#fff}
+.opt.ok::before{content:"✓ "}.opt.no::before{content:"✗ "}
+.fb{font-size:.9rem;border-radius:10px;padding:8px 12px}
+.fb.ok{background:var(--green-bg);color:#11663a}
+.fb.no{background:var(--red-bg);color:#9b1c22}
+.score{font-family:var(--display);font-weight:800;font-size:1.25rem;color:var(--navy)}
+
+/* sort */
+.sorter{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.sitem{display:flex;align-items:center;justify-content:space-between;gap:10px;border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 12px;font-weight:700;text-align:left}
+.sitem .tag{border-radius:999px;padding:3px 12px;font-size:.82rem;font-weight:800;background:var(--bg);color:var(--muted);white-space:nowrap}
+.sitem[data-v="low"] .tag{background:var(--teal);color:#fff}
+.sitem[data-v="high"] .tag{background:var(--red);color:#fff}
+.bannerbtn{background:none;border:0;padding:0;display:block;width:100%;max-width:760px;cursor:pointer}.bannerbtn img{width:100%;height:auto;border-radius:14px;display:block;border:3px solid var(--sun);transition:transform .2s}.bannerbtn:hover img{transform:translateY(-3px)}
+.concert{display:grid;gap:8px}.concert .stadium{padding-top:14px}.stage{background:linear-gradient(90deg,#ffc21a,#ff8a1f);border-radius:10px;text-align:center;font-weight:800;padding:8px;color:#3a2a00;letter-spacing:.1em}
+.seat.saeed{outline:3px solid #ff3b3b;outline-offset:1px}
+.dbchip{border-radius:999px;padding:3px 10px;font-size:.8rem;font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
+.sitem[data-v="extinct"] .tag{background:#5b6385;color:#fff}.sitem[data-v="ENDANGERED"] .tag{background:var(--red);color:#fff}.sitem[data-v="threatened"] .tag{background:var(--orange);color:#fff}
+.sitem[data-v="ABO"] .tag{background:var(--red);color:#fff}.sitem[data-v="Rabbit"] .tag{background:#b07a0a;color:#fff}
+.sitem[data-v="living"] .tag{background:var(--green);color:#fff}.sitem[data-v="NONLIVING"] .tag{background:#5b6385;color:#fff}
+.rbig{font-size:2.6rem;text-align:center;padding:14px 0;background:#fff;border-radius:14px}
+.sitem[data-v="uses"] .tag{background:var(--orange);color:#fff}.sitem[data-v="MAKES"] .tag{background:var(--green);color:#fff}
+.sitem[data-v="GAS"] .tag{background:#9aa3b5;color:#fff}.sitem[data-v="LIQUID"] .tag{background:var(--sea);color:#fff}.sitem[data-v="SOLID"] .tag{background:var(--navy);color:#fff}
+.sitem[data-v="REFLECT"] .tag{background:var(--red);color:#fff}.sitem[data-v="ABSORB"] .tag{background:var(--teal);color:#fff}.sitem[data-v="TRANSMIT"] .tag{background:var(--navy);color:#fff}
+.sitem.right{border-color:var(--green);box-shadow:0 0 0 2px var(--green)}
+.sitem.wrong{border-color:var(--red);box-shadow:0 0 0 2px var(--red)}
+
+/* energy bars */
+.erow{display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px;align-items:center}
+.erow .amp{background:var(--navy);color:#fff;border-radius:999px;padding:6px 12px;font-weight:800;text-align:center;font-size:.9rem}
+.ebar{border:2px dashed var(--line);border-radius:999px;height:40px;background:var(--paper);display:flex;align-items:center;padding:0 4px;text-align:left;font-weight:700;color:var(--muted);font-size:.85rem;width:100%;position:relative;overflow:hidden}
+.ebar .fill{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#ff8c8f,var(--red));border-radius:999px;width:0;transition:width .8s cubic-bezier(.2,.9,.3,1.2)}
+.ebar .v{position:relative;padding-left:10px}
+.ebar.on{border-style:solid;border-color:var(--red)}
+.ebar.on .v{color:#fff;font-family:var(--display);font-size:1.25rem}
+.rule{background:var(--purple-bg);border-radius:14px;padding:18px;text-align:center;font-family:var(--display);font-size:3rem;font-weight:800;color:var(--navy);line-height:1}
+.rule sup{font-size:.55em}
+
+/* sims */
+.sim{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:12px;display:grid;gap:10px}
+.sim>*,.medium>*{min-width:0}
+.sim canvas{width:100%;display:block;border-radius:10px}
+.stadium{background:#141a3e;border-radius:12px;padding:40px 14px 14px;display:grid;gap:6px;grid-template-columns:repeat(16,minmax(0,1fr));overflow:hidden}
+.seat{height:clamp(14px,3vw,30px);border-radius:40% 40% 18% 18%;background:var(--c,#5b7cfa);transition:background .2s}
+.seat.saeed{outline:3px solid #ff3b3b;outline-offset:1px}
+.medium{display:grid;gap:8px;border:2px solid var(--line);border-radius:14px;padding:10px;background:var(--paper)}
+.medium h4{margin:0;font-family:var(--display);font-size:1.15rem}
+.medium canvas{width:100%;max-width:100%;height:120px;background:#f6f8fd}
+.medium .res{font-size:.85rem;min-height:2.6em}
+.legend{font-size:.82rem;color:var(--muted)}
+
+/* table */
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:420px;font-size:.92rem}
+th{background:var(--navy);color:#fff;text-align:left;padding:8px 10px}
+td{border-bottom:1px solid var(--line);padding:8px 10px;vertical-align:top}
+select,input[type=text],textarea{font:inherit;border:2px solid var(--line);border-radius:10px;padding:6px 10px;background:#fff;color:var(--ink);max-width:100%}
+textarea{width:100%;min-height:84px;resize:vertical}
+.okf{border-color:var(--green)!important;background:var(--green-bg)!important}
+.nof{border-color:var(--red)!important;background:var(--red-bg)!important}
+.fillrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#wsB .fillrow{display:block;line-height:2.3}#wsB .fillrow input{margin:0 4px}
+.wordbank{background:var(--blue-bg);border-radius:10px;padding:8px 12px;font-weight:700;color:var(--blue)}
+
+/* order */
+.order{display:grid;gap:8px}
+.oitem{display:flex;align-items:center;gap:12px;border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 12px;font-weight:700;text-align:left}
+.oitem .n{width:34px;height:34px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-family:var(--display);font-weight:800;flex:none;color:var(--muted)}
+.oitem.set .n{background:var(--sun);color:var(--sun-ink)}
+.oitem.right{border-color:var(--green)}.oitem.wrong{border-color:var(--red)}
+.chain{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.chain div{border-radius:12px;padding:10px;color:#fff;font-weight:700;font-size:.9rem}
+.traffic{display:flex;flex-wrap:wrap;gap:8px}
+.traffic button{border:0;border-radius:999px;padding:8px 16px;font-weight:800;color:#fff}
+
+/* levels */
+.level{border-radius:16px;overflow:hidden;border:2px solid var(--lc);background:var(--paper);display:flex;flex-direction:column}
+.level h3{margin:0;background:var(--lc);color:#fff;padding:10px 14px;font-family:var(--display)}
+.level ol{margin:0;padding:12px 14px 12px 32px;display:grid;gap:8px}
+.level .ans{background:var(--lbg);margin:0 12px 12px;border-radius:10px;padding:10px 12px;font-size:.9rem}
+.level .btn{margin:0 12px 12px;align-self:flex-start}
+
+/* stars */
+.stars{display:flex;gap:4px}
+.stars button{background:none;border:0;padding:0;font-size:1.7rem;line-height:1;color:#c7cde0}
+.stars button.on{color:#f6b500}
+.vcard{border:2px solid var(--cc);border-radius:16px;background:var(--paper);padding:10px;text-align:center;display:grid;gap:6px;position:relative;justify-items:center}
+.vcard img{width:min(120px,100%);aspect-ratio:1;border-radius:50%;border:3px solid var(--cc);background:#f5efe4}
+.vcard .star{position:absolute;top:8px;right:10px;font-size:2rem;color:#c7cde0;transition:transform .3s}
+.vcard.on .star{color:#f6b500;transform:scale(1.25) rotate(15deg)}
+.vcard .prompt{font-style:italic;color:var(--cc);border:1px dashed var(--cc);border-radius:10px;padding:6px 8px;font-size:.88rem;width:100%}
+.goal{font-size:2rem;letter-spacing:4px;color:#c7cde0}
+.goal span.on{color:#f6b500}
+
+.end{background:linear-gradient(135deg,#1b2470 0%,#3a2fa3 60%,#6a2fb8 100%);color:#fff;min-height:100%}
+.end h1{font-family:var(--display);font-size:clamp(2.2rem,6vw,4rem);margin:0;line-height:1.05}
+.end .eyebrow{color:var(--sun);font-weight:800;letter-spacing:.06em}
+.end .promise{background:#fff;color:var(--ink);border-radius:14px;padding:12px 16px}
+.end .promise b{color:var(--red)}
+.end .nsk{background:#fff;color:var(--navy);border-radius:999px;padding:6px 14px;font-weight:800}
+
+.note{background:var(--orange-bg);border-radius:12px;padding:10px 14px;font-size:.92rem}
+.note b{color:var(--orange)}
+.good{background:var(--green-bg);border-radius:12px;padding:10px 14px}
+.hl{color:var(--red);font-weight:800}
+video{width:100%;border-radius:14px;background:#000;display:block}
+
+/* party confetti + red wrong-answer feedback */
+.shake{animation:shk .45s}
+@keyframes shk{0%,100%{transform:translateX(0)}20%{transform:translateX(-9px)}40%{transform:translateX(9px)}60%{transform:translateX(-6px)}80%{transform:translateX(5px)}}
+#redFlash{position:fixed;inset:0;pointer-events:none;z-index:9998;box-shadow:inset 0 0 0 12px rgba(229,72,77,.92),inset 0 0 120px rgba(229,72,77,.55);opacity:0;transition:opacity .6s}
+#redFlash.on{opacity:1;transition:none}
+#fxCanvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999}
+.fbadge{position:fixed;z-index:10000;pointer-events:none;transform:translate(-50%,-50%);padding:10px 20px;border-radius:999px;font-weight:800;font-size:1.2rem;color:#fff;white-space:nowrap;box-shadow:0 10px 26px rgba(0,0,0,.22);animation:fbadge 1.4s ease-out forwards}
+.fbadge.good{background:#1fa75a}.fbadge.bad{background:#e5484d}
+@keyframes fbadge{0%{opacity:0;transform:translate(-50%,-30%) scale(.6)}15%{opacity:1;transform:translate(-50%,-70%) scale(1.12)}70%{opacity:1}100%{opacity:0;transform:translate(-50%,-170%) scale(1)}}
+.sitem.wrong,.oitem.wrong{background:var(--red-bg)!important}
+.sitem.right,.oitem.right{background:var(--green-bg)!important}
+</style>
+</head>
+<body>
+
+<div id="app">
+  <header class="topbar">
+    <a class="iconbtn" href="../" title="All lessons" aria-label="All lessons" style="text-decoration:none">◀</a>
+    <span class="crumb">Multiple Alleles</span>
+    <span class="unit">Unit 3: Genetics · Module 10: Patterns of Inheritance</span>
+    <span class="date" id="today">Today</span>
+    <button class="iconbtn" data-go="3" title="Lesson map" aria-label="Lesson map"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 2 11.5h3V21h5.5v-6h3v6H19v-9.5h3z"/></svg></button>
+  </header>
+  <main id="main">
+
+<!-- 1 · TITLE -->
+<section class="slide hero" id="s1" data-title="Multiple Alleles" data-bare>
+  <div class="inner">
+    <div class="eyebrow">GRADE 12 ADVANCED · BIOLOGY · WEEK 6 · LESSON 4</div>
+    <div><h1>Multiple Alleles</h1><p class="sub">ABO blood groups · coat colour in rabbits</p></div>
+    <div style="opacity:.85">Unit 3: Genetics · Module 10: Introduction to Genetics and Patterns of Inheritance · Lesson 5: Complex patterns of inheritance</div>
+    <div class="teacher">Teacher: <b>Nilasha Sempon</b> · Science &amp; Biology</div>
+    <div>
+      <div class="eyebrow" style="margin-bottom:8px">YOUR VALUES TEAM TODAY · tap to meet them</div>
+      <button class="bannerbtn" data-go="2"><img src="img/banner.webp" alt="Shahin (Leadership), Fahim (Knowledge), Maha (Respect), Ahmed (Responsibility) and Hessa (Tolerance) with the UAE national skills"></button>
+    </div>
+    <div class="mystery"><b>Today's mystery:</b> Dad has blood type A and Mum has blood type B. Their four children have blood types A, AB, B and O. How can one family have all four blood groups?</div>
+    <div class="row" style="padding-bottom:110px">
+      <button class="btn" data-go="2">▶ Let's go!</button>
+      <button class="btn ghost" data-go="3">Lesson map</button>
+      <span style="opacity:.8;font-size:.9rem">45-minute interactive lesson</span>
+    </div>
+  </div>
+  <canvas class="waves" id="heroWaves"></canvas>
+</section>
+
+<!-- 2 · MEET TEAM -->
+<section class="slide" id="s2" data-title="Meet your UAE Values Team" data-skills="teamwork">
+  <div class="inner">
+    <div class="head"><h2>Meet your UAE Values Team</h2><button class="btn" data-confetti>★ We're ready!</button></div>
+    <p class="lead">Five friends will coach you through today's genetics mission. <b>Tap a character to discover their job today!</b></p>
+    <div class="team">
+      <button class="flip" style="--cc:var(--c-shahin)"><div class="fi"><div class="face front"><img src="img/fig-shahin.webp" alt="Shahin – Leadership"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Shahin</h4>Lead your group in the allele-draw lab and the Punnett square challenges.</div></div></button>
+      <button class="flip" style="--cc:var(--c-fahim)"><div class="fi"><div class="face front"><img src="img/fig-fahim.webp" alt="Fahim – Knowledge"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Fahim</h4>Collect today's key words: multiple alleles, codominance, chinchilla, Himalayan, albino.</div></div></button>
+      <button class="flip" style="--cc:var(--c-maha)"><div class="fi"><div class="face front"><img src="img/fig-maha.webp" alt="Maha – Respect"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Maha</h4>Blood types are private health information. Respect everyone's privacy: use the examples, not classmates.</div></div></button>
+      <button class="flip" style="--cc:var(--c-ahmed)"><div class="fi"><div class="face front"><img src="img/fig-ahmed.webp" alt="Ahmed – Responsibility"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Ahmed</h4>Check every Punnett square twice: genotypes first, then phenotypes and ratios.</div></div></button>
+      <button class="flip" style="--cc:var(--c-hessa)"><div class="fi"><div class="face front"><img src="img/fig-hessa.webp" alt="Hessa – Tolerance"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Hessa</h4>Every family is different, and every answer is welcome here. Mistakes help us learn!</div></div></button>
+    </div>
+    <div class="stack">
+      <div class="label" style="color:var(--navy)">UAE national skills you will use today · tap a skill to see where</div>
+      <div class="nskills">
+        <button class="nskill">🇦🇪 National Identity<small>Blood donation campaigns that unite the UAE</small></button>
+        <button class="nskill">🌿 Sustainability<small>Healthy, varied animal populations</small></button>
+        <button class="nskill">🤝 Cooperation<small>Pairs in the allele-draw lab</small></button>
+        <button class="nskill">💡 Innovation<small>Genetic testing in UAE hospitals</small></button>
+        <button class="nskill">⭐ Excellence<small>Become today's Allele Master!</small></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · LESSON MAP -->
+<section class="slide" id="s3" data-title="Lesson map">
+  <div class="inner">
+    <div class="head"><h2>Lesson map · 45 minutes · tap any activity</h2></div>
+    <div class="map">
+      <button style="background:#1593c9" data-go="5"><small>STARTER · min 0–5</small><strong>Starter + Attendance</strong><span>Review vocabulary &amp; pre-assessment</span></button>
+      <button style="background:#d23b8a" data-go="4"><small>OBJECTIVES</small><strong>Objectives &amp; vocabulary</strong><span>Flip the key words</span></button>
+      <button style="background:#ef5a5a" data-go="7"><small>HOOK · min 5–9</small><strong>One family, four blood types</strong><span>Mystery + narrated video</span></button>
+      <button style="background:#f07f19" data-go="9"><small>ACTIVITY · min 9–11</small><strong>ABO or rabbit?</strong><span>Sort the features</span></button>
+      <button style="background:#7a3ff0" data-go="10"><small>EXPLAIN · min 11–14</small><strong>Paint pots &amp; a team captain</strong><span>The unconventional version + textbook</span></button>
+      <button style="background:#b0287a" data-go="14"><small>SIMULATION · min 14–19</small><strong>ABO Punnett builder</strong><span>Any parents, any children</span></button>
+      <button style="background:#118a7e" data-go="15"><small>SIMULATION · min 19–24</small><strong>Rabbit breeder</strong><span>Hierarchy of dominance</span></button>
+      <button style="background:#2563eb" data-go="16"><small>SIMULATION · min 24–26</small><strong>More alleles, more variety</strong><span>+ UAE blood donation</span></button>
+      <button style="background:#1fa75a" data-go="17"><small>LAB · min 26–30</small><strong>Allele-draw lab</strong><span>Chance and ratios</span></button>
+      <button style="background:#e5484d" data-go="18"><small>FORMATIVE · min 30–33</small><strong>Pause &amp; check</strong><span>Quiz + order the steps</span></button>
+      <button style="background:#5b3fd0" data-go="20"><small>WORKSHEET · min 33–41</small><strong>Worksheet + levels</strong><span>Green / Blue / Orange</span></button>
+      <button style="background:#c81e3a" data-go="23"><small>SUMMATIVE · min 41–45</small><strong>Allele Master + exit</strong><span>Summative quiz &amp; plenary</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · OBJECTIVES -->
+<section class="slide" id="s4" data-title="Objectives, success criteria & key words" data-skills="reading" data-coach="fahim" data-ns="Excellence" data-says="Flip every key-word card and say the meaning out loud. Knowledge grows when you use it!">
+  <div class="inner">
+    <div class="head"><h2>Objectives, success criteria &amp; key words</h2></div>
+    <div class="cols split-r">
+      <div class="stack">
+        <div class="card"><div class="label">Learning objective</div><p style="margin:6px 0 0;font-weight:700">Describe multiple alleles.</p></div>
+        <div class="card"><div class="label" style="color:var(--green)">Success criteria</div>
+          <ul class="crit" style="margin-top:10px">
+            <li><b>Foundation:</b> I can define multiple alleles and give two examples (ABO blood groups, rabbit coat colour).</li>
+            <li><b>Secure:</b> I can write the genotypes for each ABO blood group and use the rabbit hierarchy of dominance.</li>
+            <li><b>Advanced:</b> I can use Punnett squares to predict genotype and phenotype ratios for multiple allele crosses.</li>
+          </ul></div>
+      </div>
+      <div class="stack">
+        <div class="label" style="color:var(--purple)">Key words · tap a card to flip it</div>
+        <div class="grid g2" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr))">
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Allele</strong><span class="tap">tap to flip</span></div><div class="face back">A different form of the same gene.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Multiple alleles</strong><span class="tap">tap to flip</span></div><div class="face back">One gene with more than two alleles in a population.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Codominance</strong><span class="tap">tap to flip</span></div><div class="face back">Both alleles are fully expressed in the heterozygote (e.g. I<sup>A</sup>I<sup>B</sup> = AB).</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Incomplete dominance</strong><span class="tap">tap to flip</span></div><div class="face back">The heterozygote shows an intermediate (blended) phenotype.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>ABO blood group system</strong><span class="tap">tap to flip</span></div><div class="face back">Three alleles: I<sup>A</sup>, I<sup>B</sup> and i give blood types A, B, AB and O.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Full coat colour</strong><span class="tap">tap to flip</span></div><div class="face back">Rabbit phenotype from allele C, dominant over all the others.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Chinchilla · Himalayan</strong><span class="tap">tap to flip</span></div><div class="face back">Grey rabbit (c<sup>ch</sup>) · white rabbit with dark ears, nose and feet (c<sup>h</sup>).</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Albino</strong><span class="tap">tap to flip</span></div><div class="face back">White rabbit with pink eyes: genotype cc (c is recessive to all).</div></div></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · STARTER -->
+<section class="slide" id="s5" data-title="Starter + attendance" data-skills="discipline,integrity" data-coach="ahmed" data-ns="National Identity" data-says="Be ready before the timer ends: device on the LMS, pen out. Responsible learners make the UAE proud.">
+  <div class="inner">
+    <div class="head"><h2>Starter + attendance on the LMS</h2><div class="timer" data-sec="300"></div></div>
+    <div class="cols split-r">
+      <img class="fig" src="img/punnett.webp" alt="Punnett square of the ABO alleles IA, IB and i from both parents" style="max-width:360px">
+      <div class="card stack"><div class="label" style="color:var(--navy)">Task · 5 minutes</div>
+        <ol class="steps">
+          <li>Mark your attendance on the LMS and settle in your seat.</li>
+          <li><b>Review vocabulary:</b> a <b>gamete</b> is a mature sex cell (sperm or egg) with a haploid number of chromosomes. How many alleles of each gene does a gamete carry?</li>
+          <li><b>Recall:</b> what is the difference between incomplete dominance and codominance?</li>
+          <li>Then answer the true/false questions on the next slide on your own.</li>
+        </ol>
+        <button class="btn small" data-go="6" style="justify-self:start">Go to the true/false questions ▸</button>
+      </div>
+    </div>
+    <div class="note"><b>Focus question:</b> what happens when one gene has more than two alleles?</div>
+  </div>
+</section>
+
+<!-- 6 · PRE-ASSESSMENT -->
+<section class="slide" id="s6" data-title="Pre-assessment: what do you know?" data-skills="critical">
+  <div class="inner">
+    <div class="head"><h2>Pre-assessment: what do you already know?</h2><div class="timer" data-sec="180"></div></div>
+    <div class="cols split">
+      <img class="fig" src="img/abo-table.webp" alt="Blood types A, B, AB and O with their antigens and possible genotypes">
+      <div class="stack" id="tf">
+        <div class="q" data-a="T"><div class="qt">1. A gamete carries only one allele of each gene.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Gametes are haploid: one allele per gene."></div></div>
+        <div class="q" data-a="F"><div class="qt">2. Every gene has only two possible alleles in a population.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Some genes have three or more alleles: multiple alleles."></div></div>
+        <div class="q" data-a="T"><div class="qt">3. In codominance, both alleles are fully expressed.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Example: IAIB gives blood type AB."></div></div>
+        <div class="q" data-a="F"><div class="qt">4. A person can carry three different ABO alleles.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Each person carries only TWO alleles, one from each parent."></div></div>
+        <div class="q" data-a="T"><div class="qt">5. Blood type O is caused by two recessive alleles (ii).</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="i is recessive to both IA and IB."></div></div>
+        <div class="score" id="tfScore">Score: 0 / 5</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · HOOK -->
+<section class="slide" id="s7" data-title="Hook: one family, four blood types" data-skills="critical,loyalty" data-coach="shahin" data-ns="National Identity" data-says="Lead your pair: one predicts, one explains. Then we solve the mystery together!">
+  <div class="inner">
+    <div class="head"><h2>Hook: one family, four blood types</h2></div>
+    <div class="cols split">
+      <img class="fig" src="img/family.webp" alt="Dad with blood type A and Mum with blood type B have four children with blood types A, AB, B and O" style="max-width:440px">
+      <div class="stack">
+        <div class="card stack">
+          <h3 style="margin:0;color:var(--orange);font-family:var(--display)">A family in Abu Dhabi…</h3>
+          <p style="margin:0">At a family blood-donation day, Dad learns he is <b>type A</b> and Mum is <b>type B</b>. Their four children are <b>A, AB, B and O</b>.</p>
+          <p style="margin:0"><b style="color:var(--purple)">Focus question:</b> how can one family have all four blood groups? And how can a child be type O when neither parent is?</p>
+        </div>
+        <div class="card stack">
+          <div class="row"><button class="btn" data-show="tps">Think · Pair · Share</button><button class="btn red" data-show="clue">Reveal the thinking prompts</button></div>
+          <div id="tps" hidden class="good stack"><b>Talk with your partner for 1 minute.</b> <div class="timer" data-sec="60"></div></div>
+          <div id="clue" hidden class="stack"><div class="fb no">1. How many ABO alleles could there be, if there are four blood types?<br>2. Could Dad be carrying a "hidden" allele?<br>3. What does a child get from each parent?</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · VIDEO (narrated) -->
+<section class="slide" id="s8" data-title="Video: multiple alleles" data-skills="critical,communication">
+  <div class="inner">
+    <div class="head"><h2>Video: multiple alleles (narrated, 2 min 25 s, subtitles)</h2></div>
+    <div class="cols split">
+      <video controls preload="metadata" playsinline poster="img/video-poster.webp"><source src="media/multiple-alleles.mp4" type="video/mp4"><source src="media/multiple-alleles.webm" type="video/webm">Your browser cannot play this video.</video>
+      <div class="card stack"><div class="label" style="color:var(--blue)">Watch for</div>
+        <div><b>Q1. What are multiple alleles?</b><div class="fb ok vans" hidden>✓ One gene with more than two alleles. Each person still carries only two.</div></div>
+        <div><b>Q2. Name the three ABO alleles. Which two are codominant?</b><div class="fb ok vans" hidden>✓ I<sup>A</sup>, I<sup>B</sup> and i. I<sup>A</sup> and I<sup>B</sup> are codominant (type AB); both are dominant over i.</div></div>
+        <div><b>Q3. What is the hierarchy of dominance in rabbits?</b><div class="fb ok vans" hidden>✓ C &gt; c<sup>ch</sup> &gt; c<sup>h</sup> &gt; c (full colour &gt; chinchilla &gt; Himalayan &gt; albino).</div></div>
+        <div><b>Q4. Mystery: how can the family have a type O child?</b><div class="fb ok vans" hidden>✓ Dad is I<sup>A</sup>i and Mum is I<sup>B</sup>i. Each passes on i, so the child is ii = type O.</div></div>
+        <button class="btn" id="vidAns" style="justify-self:start">Show answers</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · SORT -->
+<section class="slide" id="s9" data-title="Activity 1: ABO or rabbit?" data-skills="critical,teamwork" data-coach="hessa" data-ns="Cooperation" data-says="Sorted it differently from your partner? Listen first, then compare. Different ideas help us learn.">
+  <div class="inner">
+    <div class="head"><h2>Activity 1: ABO blood groups or rabbit coat colour?</h2><div class="timer" data-sec="120"></div></div>
+    <p class="lead">Both are multiple allele traits. Does each feature belong to <b>ABO</b> blood groups or <b>Rabbit</b> coat colour? <b>Tap to choose</b>, then check.</p>
+    <div class="cols split-r">
+      <img class="fig" src="img/rabbits.webp" alt="Rabbit coat colour alleles C, cch, ch and c with full-colour, chinchilla, Himalayan and albino rabbits">
+      <div class="stack">
+        <div class="sorter" id="sorter" data-labels="ABO|Rabbit">
+          <button class="sitem" data-ans="ABO"><span>Three alleles</span><span class="tag">?</span></button>
+          <button class="sitem" data-ans="Rabbit"><span>Four alleles</span><span class="tag">?</span></button>
+          <button class="sitem" data-ans="ABO"><span>Two alleles are codominant</span><span class="tag">?</span></button>
+          <button class="sitem" data-ans="Rabbit"><span>A hierarchy: C &gt; c<sup>ch</sup> &gt; c<sup>h</sup> &gt; c</span><span class="tag">?</span></button>
+          <button class="sitem" data-ans="ABO"><span>Alleles I<sup>A</sup>, I<sup>B</sup> and i</span><span class="tag">?</span></button>
+          <button class="sitem" data-ans="Rabbit"><span>Chinchilla and Himalayan phenotypes</span><span class="tag">?</span></button>
+          <button class="sitem" data-ans="ABO"><span>6 genotypes, 4 phenotypes</span><span class="tag">?</span></button>
+          <button class="sitem" data-ans="Rabbit"><span>10 genotypes, 4 phenotypes</span><span class="tag">?</span></button>
+        </div>
+        <div class="row"><button class="btn navy" id="sortCheck">Check my sort</button><span class="score" id="sortScore"></span></div>
+        <div class="note" id="sortWhy" hidden><b>Why?</b> <b>ABO</b> has 3 alleles (I<sup>A</sup>, I<sup>B</sup>, i) → 6 genotypes and 4 blood types; I<sup>A</sup> and I<sup>B</sup> are codominant. <b>Rabbit</b> coat colour has 4 alleles (C, c<sup>ch</sup>, c<sup>h</sup>, c) → 10 genotypes and 4 phenotypes, in a hierarchy of dominance.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · UNCONVENTIONAL -->
+<section class="slide" id="s10" data-title="Activity 2: paint pots and a team captain" data-skills="teamwork,critical" data-coach="fahim" data-ns="Innovation" data-says="A good model helps you remember a big idea. Can you invent a better one? That is innovation!">
+  <div class="inner">
+    <div class="head"><h2>Activity 2: paint pots and a team captain (the unconventional version)</h2></div>
+    <div class="grid g2">
+      <div class="card" style="background:var(--orange-bg);border-color:#ffd2a6"><div class="label" style="color:var(--orange)">Think of it like this</div><p style="margin:6px 0 0"><b style="color:var(--red)">ABO = paint pots.</b> You get two pots, one from each parent. I<sup>A</sup> is <b>red</b> paint, I<sup>B</sup> is <b>blue</b> paint, and i is an <b>empty pot</b>. Red + empty looks red (A). Red + blue gives <b>red AND blue stripes</b>: both show (AB). Two empty pots: no paint (O).<br><b style="color:var(--sea)">Rabbits = a team captain list.</b> Captain C, vice-captain c<sup>ch</sup>, then c<sup>h</sup>, then c. Whoever is higher on the list leads the coat colour.</p></div>
+      <div class="card" style="background:var(--blue-bg);border-color:#c7d7fb"><div class="label" style="color:var(--blue)">Textbook definition</div><p style="margin:6px 0 0">Some forms of inheritance are determined by more than two alleles, referred to as <b class="hl">multiple alleles</b>. The ABO blood group has three forms of alleles, sometimes called AB markers. Multiple alleles can demonstrate a <b>hierarchy of dominance</b>: in rabbits, four alleles code for coat colour, C &gt; c<sup>ch</sup> &gt; c<sup>h</sup> &gt; c. The presence of multiple alleles increases the possible number of genotypes and phenotypes.</p></div>
+    </div>
+    <div class="label" style="color:var(--navy)">Think · Pair · Share: match the story to the science. Tap to check!</div>
+    <div class="grid g3">
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--red)"><strong style="color:var(--red)">🔴 Red paint</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--red-bg);border-color:var(--red)"><b>I<sup>A</sup></b>: makes A antigens (type A).</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--blue)"><strong style="color:var(--blue)">🔵 Blue paint</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--blue-bg);border-color:var(--blue)"><b>I<sup>B</sup></b>: makes B antigens (type B).</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--muted)"><strong style="color:var(--muted)">⚪ Empty pot</strong><span class="tap">tap to check</span></div><div class="face back" style="background:#eef1f9;border-color:var(--muted)"><b>i</b>: no antigen; recessive (type O only if ii).</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--purple)"><strong style="color:var(--purple)">🎨 Red and blue stripes</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--purple-bg);border-color:var(--purple)"><b>Codominance</b>: I<sup>A</sup>I<sup>B</sup> shows both = type AB.</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--green)"><strong style="color:var(--green)">🧢 The captain</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--green-bg);border-color:var(--green)"><b>C</b>: dominant over all the other coat alleles.</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--sea)"><strong style="color:var(--sea)">🪑 Last on the list</strong><span class="tap">tap to check</span></div><div class="face back" style="background:#e0f5f2;border-color:var(--sea)"><b>c</b> (albino): recessive to all; shows only as cc.</div></div></button>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · TB ABO -->
+<section class="slide" id="s11" data-title="Textbook: the ABO blood group system" data-skills="reading,critical" data-coach="maha" data-ns="Sustainability" data-says="Respect the reader: listen while a classmate reads, then answer together.">
+  <div class="inner">
+    <div class="head"><h2>Textbook: the ABO blood group system</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your lesson</div><img class="fig" src="img/punnett.webp" alt="Punnett square: possible gametes IA, IB or i from each parent give blood types A, AB, B and O" style="max-width:340px;justify-self:center">
+        <div class="note">The ABO system has three alleles, called AB markers: <b>I<sup>A</sup></b> for type A, <b>I<sup>B</sup></b> for type B and <b>i</b> for type O.</div></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 How are I<sup>A</sup> and I<sup>B</sup> related to i?</div><button class="btn small ghost" data-show="t11a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t11a" hidden>✓ I<sup>A</sup> and I<sup>B</sup> are both dominant over i.</div></div>
+        <div class="q"><div class="qt">Q2 How are I<sup>A</sup> and I<sup>B</sup> related to each other?</div><button class="btn small ghost" data-show="t11b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t11b" hidden>✓ They are codominant: I<sup>A</sup>I<sup>B</sup> shows both, so the blood type is AB.</div></div>
+        <div class="q"><div class="qt">Q3 Give the possible genotypes for type A, type B, type AB and type O.</div><button class="btn small ghost" data-show="t11c" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t11c" hidden>✓ A: I<sup>A</sup>I<sup>A</sup> or I<sup>A</sup>i · B: I<sup>B</sup>I<sup>B</sup> or I<sup>B</sup>i · AB: I<sup>A</sup>I<sup>B</sup> · O: ii</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 · TB ABO ACTIVITY TABLE -->
+<section class="slide" id="s12" data-title="Activity: identify the blood group" data-skills="reading,numeracy" data-coach="ahmed" data-ns="Excellence" data-says="Copy the table into your notebook and fill it in. Responsible learners write it down!">
+  <div class="inner">
+    <div class="head"><h2>Activity: identify the blood group</h2><div class="timer" data-sec="120"></div></div>
+    <p class="lead">Identify the blood group that results from each combination of alleles. The first one has been done for you. <b>Tap each row to check.</b></p>
+    <div class="cols split">
+      <div class="tablewrap"><table>
+        <thead><tr><th>Possible genotype combination</th><th>Phenotype (blood group)</th></tr></thead>
+        <tbody>
+          <tr><td>A and A (I<sup>A</sup>I<sup>A</sup>)</td><td><b>A</b></td></tr>
+          <tr><td>A and B (I<sup>A</sup>I<sup>B</sup>)</td><td><button class="btn small ghost" data-show="g2">Check ▸</button><b id="g2" hidden style="color:var(--green)">AB</b></td></tr>
+          <tr><td>A and O (I<sup>A</sup>i)</td><td><button class="btn small ghost" data-show="g3">Check ▸</button><b id="g3" hidden style="color:var(--green)">A</b></td></tr>
+          <tr><td>B and B (I<sup>B</sup>I<sup>B</sup>)</td><td><button class="btn small ghost" data-show="g4">Check ▸</button><b id="g4" hidden style="color:var(--green)">B</b></td></tr>
+          <tr><td>B and O (I<sup>B</sup>i)</td><td><button class="btn small ghost" data-show="g5">Check ▸</button><b id="g5" hidden style="color:var(--green)">B</b></td></tr>
+          <tr><td>O and O (ii)</td><td><button class="btn small ghost" data-show="g6">Check ▸</button><b id="g6" hidden style="color:var(--green)">O</b></td></tr>
+        </tbody></table></div>
+      <div class="stack">
+        <img class="fig" src="img/abo-genotypes.webp" alt="Blood type phenotype, genotype and inheritance pattern: A and B dominant, AB codominant, O recessive">
+        <div class="note"><b>Remember:</b> three alleles → <b>6 genotypes</b> → <b>4 phenotypes</b>. Multiple alleles increase the number of possible genotypes and phenotypes.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 · TB RABBITS -->
+<section class="slide" id="s13" data-title="Textbook: coat colour in rabbits" data-skills="reading,critical" data-coach="hessa" data-ns="Sustainability" data-says="Every rabbit is different, and that variety keeps populations healthy. Explain one step to your partner!">
+  <div class="inner">
+    <div class="head"><h2>Textbook: coat colour in rabbits · a hierarchy of dominance</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your lesson</div>
+        <img class="fig" src="img/rabbits-drawn.webp" alt="Table of rabbit phenotypes, alleles, possible genotypes and order of dominance">
+        <p style="margin:0">The gene for coat colour is called the <b class="hl">C gene</b>. It has four alleles: <b>C, c<sup>ch</sup>, c<sup>h</sup> and c</b>, expressed in a hierarchy of dominance: <b>C &gt; c<sup>ch</sup> &gt; c<sup>h</sup> &gt; c</b>.</p></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 Which allele is dominant over all the others?</div><button class="btn small ghost" data-show="t13a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13a" hidden>✓ C (full colour): CC, Cc<sup>ch</sup>, Cc<sup>h</sup> and Cc are all full colour.</div></div>
+        <div class="q"><div class="qt">Q2 Give the genotypes of a chinchilla rabbit.</div><button class="btn small ghost" data-show="t13b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13b" hidden>✓ c<sup>ch</sup>c<sup>ch</sup>, c<sup>ch</sup>c<sup>h</sup> or c<sup>ch</sup>c.</div></div>
+        <div class="q"><div class="qt">Q3 Why does an albino rabbit always have the genotype cc?</div><button class="btn small ghost" data-show="t13c" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13c" hidden>✓ c is recessive to all the other alleles, so it only shows when there is no other allele.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 · SIM: ABO PUNNETT -->
+<section class="slide" id="s14" data-title="Simulation: ABO Punnett builder" data-skills="critical,numeracy" data-coach="shahin" data-ns="Excellence" data-says="Leaders predict first, then test. Say the ratio before you press Cross!">
+  <div class="inner">
+    <div class="head"><h2>Simulation: ABO Punnett square builder</h2></div>
+    <div class="cols split-r">
+      <div class="sim">
+        <canvas id="abo" height="300"></canvas>
+        <div class="row"><label class="legend">👨 Dad <select id="dadG"></select></label><label class="legend">👩 Mum <select id="momG"></select></label></div>
+        <div class="row"><button class="btn small" data-pair="Ai|Bi" style="background:var(--red);color:#fff">Mystery family</button><button class="btn small" data-pair="AB|ii" style="background:var(--purple);color:#fff">AB × O</button><button class="btn small" data-pair="AB|AB" style="background:var(--blue);color:#fff">AB × AB</button></div>
+        <div class="score" id="aboRead"></div>
+      </div>
+      <div class="grid" style="gap:10px">
+        <button class="flip kw"><div class="fi"><div class="face front"><strong>Parents AB × O: possible children?</strong><span class="tap">tap to reveal</span></div><div class="face back">I<sup>A</sup>I<sup>B</sup> × ii → I<sup>A</sup>i and I<sup>B</sup>i: 50% type A, 50% type B. No AB or O children!</div></div></button>
+        <button class="flip kw"><div class="fi"><div class="face front"><strong>Can two AB parents have a type O child?</strong><span class="tap">tap to reveal</span></div><div class="face back">No. Neither parent has an i allele, so a child can never be ii. Children: 1 A : 2 AB : 1 B.</div></div></button>
+        <button class="flip kw"><div class="fi"><div class="face front"><strong>Which parents can have all four blood types?</strong><span class="tap">tap to reveal</span></div><div class="face back">Only I<sup>A</sup>i × I<sup>B</sup>i: children AB, A, B and O in a 1 : 1 : 1 : 1 ratio. Mystery solved!</div></div></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 · SIM: RABBIT BREEDER -->
+<section class="slide" id="s15" data-title="Simulation: rabbit breeder" data-skills="critical,numeracy" data-coach="maha" data-ns="Sustainability" data-says="Treat animals with kindness and respect. Breeders who care keep rabbit populations healthy!">
+  <div class="inner">
+    <div class="head"><h2>Simulation: rabbit breeder · hierarchy of dominance</h2></div>
+    <div class="cols split-r">
+      <div class="stack">
+        <div class="card" style="background:#fff8db;border-color:#f3e2a0"><p style="margin:0"><b>Your notebook task:</b> draw a Punnett square for a cross between a male rabbit with a full-colour coat (<b>Cc<sup>h</sup></b>) and a female chinchilla (<b>c<sup>ch</sup>c<sup>h</sup></b>). Show the genotypic and phenotypic ratios. Then check with the breeder.</p></div>
+        <div class="card stack"><b>Predict, then tap to check</b>
+          <button class="btn small ghost" data-show="w1" style="justify-self:start">▶ Cc<sup>h</sup> × c<sup>ch</sup>c<sup>h</sup>: ratios?</button><div class="fb ok" id="w1" hidden>Genotypes Cc<sup>ch</sup> : Cc<sup>h</sup> : c<sup>ch</sup>c<sup>h</sup> : c<sup>h</sup>c<sup>h</sup> = 1 : 1 : 1 : 1. Phenotypes 2 full colour : 1 chinchilla : 1 Himalayan.</div>
+          <button class="btn small ghost" data-show="w2" style="justify-self:start">▶ Can two Himalayan rabbits have an albino baby?</button><div class="fb ok" id="w2" hidden>Yes, if both parents carry c (c<sup>h</sup>c × c<sup>h</sup>c): 25% albino (cc).</div></div>
+      </div>
+      <div class="sim"><b>Rabbit breeder</b>
+        <canvas id="rab" height="280"></canvas>
+        <div class="row"><label class="legend">♂ Male <select id="maleG"></select></label><label class="legend">♀ Female <select id="femG"></select></label></div>
+        <div class="row"><button class="btn small" data-rpair="Ch|chch" style="background:var(--navy);color:#fff">Notebook cross</button><button class="btn small" data-rpair="hc|hc" style="background:#b07a0a;color:#fff">Himalayan × Himalayan</button><button class="btn small" data-rpair="chc|hc" style="background:var(--purple);color:#fff">Chinchilla × Himalayan</button></div>
+        <div class="score" id="rabRead"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 16 · SIM: MORE ALLELES + UAE -->
+<section class="slide" id="s16" data-title="Simulation: more alleles, more variety" data-skills="numeracy,loyalty" data-coach="fahim" data-ns="National Identity" data-says="Knowing your blood type can help save a life. The UAE community donates blood together!">
+  <div class="inner">
+    <div class="head"><h2>Simulation: more alleles, more variety</h2></div>
+    <div class="cols split">
+      <div class="sim"><b>How many genotypes can one gene make?</b>
+        <canvas id="allc" height="270"></canvas>
+        <div class="row"><label class="legend" style="flex:1">🧬 Number of alleles <input type="range" id="nAl" min="2" max="6" value="2" style="width:55%"></label></div>
+        <div class="score" id="allRead"></div>
+      </div>
+      <div class="stack">
+        <div class="card stack"><div class="label">Let us think</div>
+          <p style="margin:0;font-weight:800;font-size:1.1rem">Why do hospitals in the UAE need to know your blood group before a transfusion?</p>
+          <button class="btn small" style="background:var(--red);color:#fff;justify-self:start" data-show="v1">🩸 Reveal the science</button>
+          <div class="fb ok" id="v1" hidden>Type A blood has A antigens, type B has B antigens, AB has both and O has none. Receiving the wrong antigens can make the immune system attack the donated blood. So the ABO alleles really matter!</div>
+          <button class="btn small ghost" data-show="v2" style="justify-self:start">▶ Who is the "universal donor"?</button><div class="good" id="v2" hidden>Type <b>O</b> red cells (no A or B antigens) can be given to most people in emergencies. Type <b>AB</b> people can receive red cells of any ABO type.</div>
+          <button class="btn small ghost" data-show="v3" style="justify-self:start">▶ How does this link to the UAE?</button><div class="good" id="v3" hidden>Blood donation drives across the UAE bring people of every background together to save lives. One community, many blood types: that is our national spirit.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 17 · LAB -->
+<section class="slide" id="s17" data-title="Lab: allele-draw" data-skills="numeracy,teamwork" data-coach="ahmed" data-ns="Cooperation" data-says="One draws, one records, one checks. Share the jobs fairly and responsibly!">
+  <div class="inner">
+    <div class="head"><h2>Lab: allele-draw · chance and ratios</h2><div class="timer" data-sec="240"></div></div>
+    <div class="cols split">
+      <div class="stack">
+        <div class="good"><b>You need:</b> 2 paper bags or cups · 4 cards: Dad's bag <b>I<sup>A</sup></b> + <b>i</b>, Mum's bag <b>I<sup>B</sup></b> + <b>i</b> · a tally sheet</div>
+        <ol style="margin:0;padding-left:20px;display:grid;gap:4px">
+          <li>Without looking, draw one card from each bag: this is one child's genotype.</li>
+          <li>Record the blood type, then put the cards back.</li>
+          <li>Repeat 20 times. Count each blood type.</li>
+          <li>Compare with the Punnett square prediction (1 : 1 : 1 : 1).</li>
+        </ol>
+        <div class="tablewrap"><table>
+          <thead><tr><th>Blood type</th><th>Your count (of 20)</th><th>Blood type</th><th>Your count (of 20)</th></tr></thead>
+          <tbody>
+            <tr><td><b>A</b></td><td><input type="text" id="lab1" placeholder="count"><div class="exp" hidden>about 5</div></td><td><b>B</b></td><td><input type="text" id="lab2" placeholder="count"><div class="exp" hidden>about 5</div></td></tr>
+            <tr><td><b>AB</b></td><td><input type="text" id="lab3" placeholder="count"><div class="exp" hidden>about 5</div></td><td><b>O</b></td><td><input type="text" id="lab4" placeholder="count"><div class="exp" hidden>about 5</div></td></tr>
+            <tr><td><b>Expected ratio</b></td><td><input type="text" id="lab5" placeholder="ratio"><div class="exp" hidden>1 : 1 : 1 : 1</div></td><td><b>Why different?</b></td><td><input type="text" id="lab6" placeholder="reason"><div class="exp" hidden>chance; more trials → closer</div></td></tr>
+          </tbody></table></div>
+        <div class="row"><button class="btn" id="labExp">Expected results</button></div>
+      </div>
+      <div class="sim"><b>Virtual allele draw: I<sup>A</sup>i × I<sup>B</sup>i</b>
+        <canvas id="lab" height="280"></canvas>
+        <div class="row"><button class="btn small" id="draw1" style="background:var(--red);color:#fff">Draw 1 child</button><button class="btn small" id="draw20" style="background:var(--navy);color:#fff">Draw 20</button><button class="btn small" id="draw200" style="background:var(--purple);color:#fff">Draw 200</button><button class="btn small ghost" id="drawReset">↺ Reset</button></div>
+        <div class="score" id="labRead"></div>
+        <button class="btn navy small" data-show="labQ" style="justify-self:start">▶ What should you notice?</button>
+        <div class="good" id="labQ" hidden>Each child has a 1 in 4 chance of each blood type. With only 20 children the counts are uneven because of <b>chance</b>, but with 200 they get very close to <b>1 : 1 : 1 : 1</b>. Punnett squares predict probabilities, not exact numbers.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 18 · PAUSE & CHECK -->
+<section class="slide" id="s18" data-title="Formative check" data-skills="integrity" data-coach="hessa" data-ns="Excellence" data-says="Wrong answer? Read the hint and try again. Excellence means never giving up.">
+  <div class="inner">
+    <div class="head"><h2>Formative check</h2><div class="timer" data-sec="120"></div></div>
+    <p class="lead">Tap an answer. <b>Wrong? Read the hint and try again!</b></p>
+    <div class="grid g2 mcqset" data-mode="retry">
+      <div class="q"><div class="qt">1. Multiple allele traits are controlled by…</div><div class="opts"><button class="opt">A. many genes with two alleles</button><button class="opt" data-ok>B. one gene with more than two alleles</button><button class="opt">C. one gene with one allele</button><button class="opt">D. genes on the Y chromosome</button></div><div class="fb no" hidden>Hint: ONE gene, MANY alleles.</div></div>
+      <div class="q"><div class="qt">2. What is the genotype of a person with blood type O?</div><div class="opts"><button class="opt">A. I<sup>A</sup>i</button><button class="opt">B. I<sup>A</sup>I<sup>B</sup></button><button class="opt" data-ok>C. ii</button><button class="opt">D. I<sup>B</sup>i</button></div><div class="fb no" hidden>Hint: O is recessive.</div></div>
+      <div class="q"><div class="qt">3. A rabbit with genotype c<sup>ch</sup>c<sup>h</sup> is…</div><div class="opts"><button class="opt">A. full colour</button><button class="opt" data-ok>B. chinchilla</button><button class="opt">C. Himalayan</button><button class="opt">D. albino</button></div><div class="fb no" hidden>Hint: c<sup>ch</sup> is above c<sup>h</sup> in the hierarchy.</div></div>
+      <div class="q"><div class="qt">4. Blood type AB shows that I<sup>A</sup> and I<sup>B</sup> are…</div><div class="opts"><button class="opt">A. recessive</button><button class="opt">B. incompletely dominant</button><button class="opt">C. sex-linked</button><button class="opt" data-ok>D. codominant</button></div><div class="fb no" hidden>Hint: red AND blue stripes.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 19 · ORDER -->
+<section class="slide" id="s19" data-title="Order the Punnett square steps" data-skills="critical,discipline" data-coach="shahin" data-ns="Cooperation" data-says="Agree on the order as a team before you reveal it. Good leaders make sure everyone speaks.">
+  <div class="inner">
+    <div class="head"><h2>Put the steps for solving a cross in order</h2></div>
+    <p class="lead"><b>Tap the steps from first to last</b>. Tap a numbered one to undo.</p>
+    <div class="order" id="order">
+      <button class="oitem" data-p="3"><span class="n">?</span><span>Draw the Punnett square with the gametes on the sides</span></button>
+      <button class="oitem" data-p="5"><span class="n">?</span><span>Use the dominance rules to write phenotypes and the ratio</span></button>
+      <button class="oitem" data-p="1"><span class="n">?</span><span>Write each parent's genotype (e.g. I<sup>A</sup>i × I<sup>B</sup>i)</span></button>
+      <button class="oitem" data-p="4"><span class="n">?</span><span>Fill in the offspring genotypes in each box</span></button>
+      <button class="oitem" data-p="2"><span class="n">?</span><span>List the gametes each parent can make (one allele each)</span></button>
+    </div>
+    <div class="row"><button class="btn navy" id="orderCheck">Check my order</button><button class="btn" id="orderReveal">Reveal the order</button><span class="score" id="orderScore"></span></div>
+    <div class="chain" id="chain" hidden>
+      <div style="background:#1593c9">1 · Parent genotypes</div>
+      <div style="background:#1fa75a">2 · Gametes</div>
+      <div style="background:#f07f19">3 · Draw the square</div>
+      <div style="background:#7a3ff0">4 · Offspring genotypes</div>
+      <div style="background:#e5484d">5 · Phenotypes + ratio</div>
+    </div>
+    <div class="card stack"><b>Traffic light: how sure are you?</b>
+      <div class="traffic"><button style="background:var(--green)" data-tl="Brilliant! Help a partner solve the rabbit cross.">I can teach it</button><button style="background:var(--orange)" data-tl="Good! Try the ABO Punnett builder again with different parents.">Mostly</button><button style="background:var(--red)" data-tl="That is OK! Your teacher will go through a cross with you now.">I need help</button></div>
+      <div id="tlMsg" class="note" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- 20 · WORKSHEET 1 -->
+<section class="slide" id="s20" data-title="Multiple alleles worksheet (1/2)" data-skills="reading" data-coach="ahmed" data-ns="Excellence" data-says="Work on your own first, then check your answers. Own your learning!">
+  <div class="inner">
+    <div class="head"><h2>Multiple alleles worksheet (1/2)</h2><div class="timer" data-sec="240"></div></div>
+    <div class="grid g2">
+      <div class="card stack"><div class="label" style="color:var(--navy)">A · Match each genotype · 5 marks</div>
+        <div style="font-size:.92rem;color:var(--muted)">A. Blood type AB<br>B. Blood type O<br>C. Albino rabbit<br>D. Himalayan rabbit<br>E. Blood type B</div>
+        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:8px" id="wsA">
+          <label class="fillrow"><span>1. I<sup>A</sup>I<sup>B</sup></span> <select data-ans="A" id="wa1"></select></label>
+          <label class="fillrow"><span>2. ii</span> <select data-ans="B" id="wa2"></select></label>
+          <label class="fillrow"><span>3. cc</span> <select data-ans="C" id="wa3"></select></label>
+          <label class="fillrow"><span>4. c<sup>h</sup>c</span> <select data-ans="D" id="wa4"></select></label>
+          <label class="fillrow"><span>5. I<sup>B</sup>i</span> <select data-ans="E" id="wa5"></select></label>
+        </div>
+        <div class="row"><button class="btn small navy" data-check="wsA">Check A</button><button class="btn small ghost" data-answers="wsA">Show answers (A)</button><span class="score" data-out="wsA"></span></div>
+      </div>
+      <div class="card stack"><div class="label" style="color:var(--navy)">B · Fill the gaps · 5 marks</div>
+        <div class="wordbank">Word bank: three · four · codominant · recessive · hierarchy</div>
+        <div class="stack" id="wsB" style="gap:8px">
+          <div class="fillrow">1. The ABO gene has <input type="text" size="6" data-ans="three|3" id="wb1" aria-label="gap 1"> alleles.</div>
+          <div class="fillrow">2. The rabbit C gene has <input type="text" size="6" data-ans="four|4" id="wb2" aria-label="gap 2"> alleles.</div>
+          <div class="fillrow">3. I<sup>A</sup> and I<sup>B</sup> are <input type="text" size="9" data-ans="codominant" id="wb3" aria-label="gap 3">.</div>
+          <div class="fillrow">4. The albino allele c is <input type="text" size="8" data-ans="recessive" id="wb4" aria-label="gap 4"> to all the others.</div>
+          <div class="fillrow">5. Rabbit coat colour shows a <input type="text" size="8" data-ans="hierarchy" id="wb5" aria-label="gap 5"> of dominance.</div>
+        </div>
+        <div class="row"><button class="btn small navy" data-check="wsB">Check B</button><button class="btn small ghost" data-answers="wsB">Show answers (B)</button><span class="score" data-out="wsB"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 21 · WORKSHEET 2 -->
+<section class="slide" id="s21" data-title="Multiple alleles worksheet (2/2)" data-skills="reading,critical" data-coach="maha" data-ns="Excellence" data-says="Respect your reader: show the parents, the Punnett square and the ratio clearly.">
+  <div class="inner">
+    <div class="head"><h2>Multiple alleles worksheet (2/2)</h2></div>
+    <div class="card stack"><div class="label" style="color:var(--navy)">C · ABO, rabbit or both? · 6 marks</div>
+      <div class="legend">Choose from: ABO · Rabbit · Both</div>
+      <div class="tablewrap" id="wsC"><table>
+        <thead><tr><th>Statement</th><th>Which trait?</th></tr></thead>
+        <tbody>
+          <tr><td>controlled by one gene with more than two alleles</td><td><select data-ans="Both" data-opts="ABO|Rabbit|Both" id="wc1"></select></td></tr>
+          <tr><td>shows codominance</td><td><select data-ans="ABO" data-opts="ABO|Rabbit|Both" id="wc2"></select></td></tr>
+          <tr><td>has a hierarchy of four alleles</td><td><select data-ans="Rabbit" data-opts="ABO|Rabbit|Both" id="wc3"></select></td></tr>
+          <tr><td>each individual carries only two alleles</td><td><select data-ans="Both" data-opts="ABO|Rabbit|Both" id="wc4"></select></td></tr>
+          <tr><td>phenotypes A, B, AB and O</td><td><select data-ans="ABO" data-opts="ABO|Rabbit|Both" id="wc5"></select></td></tr>
+          <tr><td>chinchilla and Himalayan phenotypes</td><td><select data-ans="Rabbit" data-opts="ABO|Rabbit|Both" id="wc6"></select></td></tr>
+        </tbody></table></div>
+      <div class="row"><button class="btn small navy" data-check="wsC">Check C</button><button class="btn small ghost" data-answers="wsC">Show answers (C)</button><span class="score" data-out="wsC"></span></div>
+    </div>
+    <div class="cols split">
+      <div class="card stack"><div class="label" style="color:var(--navy)">D · Explain · 3 marks</div>
+        <p style="margin:0">Can two parents with blood group AB have a child with blood group O? Explain using a Punnett square.</p>
+        <textarea id="wd" placeholder="Write your explanation in full sentences…"></textarea>
+        <button class="btn small" data-show="model" style="justify-self:start">Show model answer (D)</button>
+      </div>
+      <div class="stack">
+        <div class="good" id="model" hidden><b>Model answer (1 mark each):</b><br>✓ Both parents are I<sup>A</sup>I<sup>B</sup>, so their gametes carry I<sup>A</sup> or I<sup>B</sup> only.<br>✓ Children: I<sup>A</sup>I<sup>A</sup> (A), I<sup>A</sup>I<sup>B</sup> (AB) ×2, I<sup>B</sup>I<sup>B</sup> (B): ratio 1 A : 2 AB : 1 B.<br>✓ No parent carries i, so a child cannot be ii: type O is impossible.</div>
+        <div class="card"><span class="score" id="wsTotal">Total: A + B + C = 0 / 16 marks</span><div class="legend">Your teacher marks part D (3 marks) for a total out of 19.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 22 · LEVELS -->
+<section class="slide" id="s22" data-title="Differentiated tasks: choose your level" data-skills="discipline,critical" data-coach="maha" data-ns="Cooperation" data-says="Every level is respected here. Finished early? Try the next level up!">
+  <div class="inner">
+    <div class="head"><h2>Main activity: choose your level · Green · Blue · Orange</h2><div class="timer" data-sec="240"></div></div>
+    <div class="grid g3">
+      <div class="level" style="--lc:var(--green);--lbg:var(--green-bg)"><h3>Green · Mandatory ★</h3>
+        <ol><li>Define multiple alleles and give two examples.</li><li>What are the possible children if one parent is AB and the other is O?</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. One gene with more than two alleles: ABO blood groups and rabbit coat colour.<br>2. I<sup>A</sup>I<sup>B</sup> × ii → I<sup>A</sup>i and I<sup>B</sup>i: 50% A, 50% B.</div><button class="btn small ghost lvl">Show answers</button></div>
+      <div class="level" style="--lc:var(--blue);--lbg:var(--blue-bg)"><h3>Blue · Less mandatory ★★</h3>
+        <ol><li>Cross a full-colour male (Cc<sup>h</sup>) with a chinchilla female (c<sup>ch</sup>c<sup>h</sup>). Give both ratios.</li><li>Can two Himalayan rabbits have an albino baby?</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. Genotypes 1 : 1 : 1 : 1; phenotypes 2 full colour : 1 chinchilla : 1 Himalayan.<br>2. Yes, if both are c<sup>h</sup>c: 25% albino (cc).</div><button class="btn small ghost lvl">Show answers</button></div>
+      <div class="level" style="--lc:var(--orange);--lbg:var(--orange-bg)"><h3>Orange · Optional ★★★</h3>
+        <ol><li>Mohammed crosses a chinchilla rabbit (c<sup>ch</sup>c) with a Himalayan rabbit (c<sup>h</sup>c). What phenotypes can he expect?</li><li>Which term best describes rabbit fur colour inheritance?</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. c<sup>ch</sup>c<sup>h</sup>, c<sup>ch</sup>c, c<sup>h</sup>c, cc → 2 chinchilla : 1 Himalayan : 1 albino.<br>2. Multiple alleles (with a hierarchy of dominance).</div><button class="btn small ghost lvl">Show answers</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- 23 · SUMMATIVE -->
+<section class="slide" id="s23" data-title="Summative: Allele Master quiz" data-skills="integrity" data-coach="ahmed" data-ns="Excellence" data-says="Count only your honest first try. Integrity is part of excellence!">
+  <div class="inner">
+    <div class="head"><h2>Summative assessment: Allele Master quiz</h2><div class="timer" data-sec="180"></div></div>
+    <div class="stack mcqset" data-mode="first" id="wm">
+      <div class="q"><div class="qt">1. Which two terms best describe the inheritance of human blood types?</div><div class="opts"><button class="opt">A. incomplete dominance and codominance</button><button class="opt" data-ok>B. codominance and multiple alleles</button><button class="opt">C. incomplete dominance and multiple alleles</button><button class="opt">D. codominance and epistasis</button></div></div>
+      <div class="q"><div class="qt">2. Parents I<sup>A</sup>i × I<sup>B</sup>i. What fraction of their children are expected to be type O?</div><div class="opts"><button class="opt">A. 0</button><button class="opt" data-ok>B. 1/4</button><button class="opt">C. 1/2</button><button class="opt">D. 3/4</button></div></div>
+      <div class="q"><div class="qt">3. The order of dominance for rabbit coat colour is…</div><div class="opts"><button class="opt">A. c &gt; c<sup>h</sup> &gt; c<sup>ch</sup> &gt; C</button><button class="opt">B. C &gt; c<sup>h</sup> &gt; c<sup>ch</sup> &gt; c</button><button class="opt" data-ok>C. C &gt; c<sup>ch</sup> &gt; c<sup>h</sup> &gt; c</button><button class="opt">D. all four are codominant</button></div></div>
+      <div class="q"><div class="qt">4. Chinchilla (c<sup>ch</sup>c) × Himalayan (c<sup>h</sup>c). Which phenotypes can the offspring have?</div><div class="opts"><button class="opt">A. only chinchilla</button><button class="opt">B. full colour and albino</button><button class="opt" data-ok>C. 2 chinchilla : 1 Himalayan : 1 albino</button><button class="opt">D. 1 chinchilla : 1 Himalayan</button></div></div>
+      <div class="q"><div class="qt">5. Which statement about multiple alleles is true?</div><div class="opts"><button class="opt">A. Each person carries all three ABO alleles</button><button class="opt" data-ok>B. More alleles increase the number of possible genotypes and phenotypes</button><button class="opt">C. Multiple alleles are always codominant</button><button class="opt">D. Multiple alleles are only found in animals</button></div></div>
+    </div>
+    <div class="card row" style="justify-content:space-between"><span class="score" id="wmScore">First-try score: 0 / 5</span><span class="legend">5 = Allele Master! · 4 = Allele Expert · 3 = Allele Explorer · 0–2 = let's review together</span></div>
+  </div>
+</section>
+
+<!-- 24 · PLENARY -->
+<section class="slide" id="s24" data-title="Plenary: mystery solved!" data-skills="reading,loyalty" data-coach="hessa" data-ns="National Identity" data-says="Be kind to yourself when you rate your stars. Every step forward counts!">
+  <div class="inner">
+    <div class="head"><h2>Plenary: mystery solved!</h2></div>
+    <div class="cols split">
+      <div class="stack">
+        <button class="btn" data-show="solved" data-confetti style="justify-self:start">Reveal the answer</button>
+        <div class="card" id="solved" hidden style="background:#fff8db;border-color:#f3e2a0"><b style="color:var(--orange)">Mystery solved!</b><p style="margin:6px 0 0">The ABO gene has <b class="hl">multiple alleles</b>: I<sup>A</sup>, I<sup>B</sup> and i. Dad (type A) is I<sup>A</sup>i and Mum (type B) is I<sup>B</sup>i. Each child gets one allele from each parent, so the children can be I<sup>A</sup>I<sup>B</sup> (AB, codominant), I<sup>A</sup>i (A), I<sup>B</sup>i (B) or ii (O), in a 1 : 1 : 1 : 1 ratio. Rabbit coat colour works the same way with four alleles in a hierarchy: C &gt; c<sup>ch</sup> &gt; c<sup>h</sup> &gt; c.</p></div>
+        <div class="card stack"><b>Exit ticket</b>
+          <label>Define multiple alleles in one sentence.<textarea id="ex1" style="min-height:48px"></textarea></label>
+          <label>Why can two type AB parents never have a type O child?<textarea id="ex2" style="min-height:48px"></textarea></label>
+          <label>Homework: create your own example of codominance (an animal, a flower or an imaginary creature). Show the genotypes and phenotypes. Then complete the <a href="https://www.liveworksheets.com/cs1719211th" target="_blank" rel="noopener">live worksheet</a> and the lesson on Alef.<textarea id="ex3" style="min-height:48px"></textarea></label></div>
+      </div>
+      <div class="card stack"><b>Re-rate your success criteria (tap a star)</b>
+        <div><p style="margin:0 0 4px"><b>Foundation:</b> I can define multiple alleles and give two examples.</p><div class="stars" id="st1"></div></div>
+        <div><p style="margin:0 0 4px"><b>Secure:</b> I can write ABO genotypes and use the rabbit hierarchy.</p><div class="stars" id="st2"></div></div>
+        <div><p style="margin:0 0 4px"><b>Advanced:</b> I can predict ratios for multiple allele crosses.</p><div class="stars" id="st3"></div></div>
+        <div><p style="margin:0 0 4px">I can explain why more alleles give more genotypes.</p><div class="stars" id="st4"></div></div>
+        <div class="note" style="margin:0"><b>Next lesson:</b> more complex patterns of inheritance (epistasis and sex-linked traits).</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 25 · VALUES -->
+<section class="slide" id="s25" data-title="Which value did you show today?" data-skills="integrity">
+  <div class="inner">
+    <div class="head"><h2>Which value did you show today?</h2></div>
+    <p class="lead">Tap the character whose value you showed in this lesson. <b>Then tell your partner one real example!</b></p>
+    <div class="grid g5" id="values">
+      <button class="vcard" style="--cc:var(--c-shahin)"><span class="star">★</span><img src="img/av-shahin.webp" alt=""><b>Shahin</b><small>Leadership · <span class="ar">القيادة</span></small><span class="prompt">I led my team when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-fahim)"><span class="star">★</span><img src="img/av-fahim.webp" alt=""><b>Fahim</b><small>Knowledge · <span class="ar">المعرفة</span></small><span class="prompt">A new fact I learned is…</span></button>
+      <button class="vcard" style="--cc:var(--c-maha)"><span class="star">★</span><img src="img/av-maha.webp" alt=""><b>Maha</b><small>Respect · <span class="ar">الاحترام</span></small><span class="prompt">I showed respect when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-ahmed)"><span class="star">★</span><img src="img/av-ahmed.webp" alt=""><b>Ahmed</b><small>Responsibility · <span class="ar">المسؤولية</span></small><span class="prompt">I was responsible when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-hessa)"><span class="star">★</span><img src="img/av-hessa.webp" alt=""><b>Hessa</b><small>Tolerance · <span class="ar">التسامح</span></small><span class="prompt">I was patient and kind when…</span></button>
+    </div>
+    <div class="card row" style="justify-content:space-between"><b>Class goal: light up all five stars together!</b><span class="goal" id="goal"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span></div>
+  </div>
+</section>
+
+<!-- 26 · CELEBRATE -->
+<section class="slide end" id="s26" data-title="Different, and all valuable" data-bare>
+  <div class="inner">
+    <div class="eyebrow">YOU DID IT, GRADE 12! · <span class="ar">أحسنتم</span></div>
+    <h1>Different, and all valuable</h1>
+    <p style="font-style:italic;font-size:1.15rem;margin:0;opacity:.95">One gene can have many alleles, and one nation has many people. Like A, B, AB and O, each of us is different, and together we make the UAE strong. Be proud of who you are!</p>
+    <img class="fig" src="img/banner.webp" alt="Shahin, Fahim, Maha, Ahmed and Hessa with the UAE national skills" style="border:0">
+    <div class="row"><span class="nsk">🇦🇪 National Identity</span><span class="nsk">🌿 Sustainability</span><span class="nsk">🤝 Cooperation</span><span class="nsk">💡 Innovation</span><span class="nsk">⭐ Excellence</span></div>
+    <div class="promise"><b>My promise:</b> I will lead, learn, respect, be responsible and tolerant, for my school and my UAE.</div>
+    <div><button class="btn" id="celebrate">★ Celebrate together!</button></div>
+  </div>
+</section>
+
+
+  </main>
+  <div>
+    <div class="progress"><div id="prog"></div></div>
+    <nav class="nav">
+      <button class="btn ghost small" id="prev" aria-label="Previous slide">◀ Back</button>
+      <span class="count" id="count">1 / 26</span>
+      <span class="title" id="navTitle"></span>
+      <button class="btn ghost small" id="menuBtn">☰ Slides</button>
+      <button class="btn ghost small" id="linkBtn" title="Copy a link that opens this slide">🔗 Link</button>
+      <button class="btn ghost small" id="soundBtn" title="Clapping sound on">🔊</button>
+      <button class="btn ghost small" id="fsBtn" title="Full screen">⛶</button>
+      <button class="btn small" id="next" aria-label="Next slide">Next ▶</button>
+    </nav>
+  </div>
+</div>
+
+<div class="menu" id="menu" hidden><div class="panel"><div class="row" style="justify-content:space-between"><b style="font-family:var(--display);font-size:1.3rem">All slides</b><button class="btn ghost small" id="menuClose">Close</button></div><ol id="menuList"></ol></div></div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+// Paste the published lesson link here so "Link" copies a shareable address for each slide.
+const LESSON_URL = "";
+
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const slides=$$('.slide'), N=slides.length;
+const COACH={shahin:['Shahin','Leadership','القيادة','--c-shahin'],fahim:['Fahim','Knowledge','المعرفة','--c-fahim'],maha:['Maha','Respect','الاحترام','--c-maha'],ahmed:['Ahmed','Responsibility','المسؤولية','--c-ahmed'],hessa:['Hessa','Tolerance','التسامح','--c-hessa']};
+const SKILL={teamwork:['Teamwork','العمل الجماعي','👥'],critical:['Critical Thinking','التفكير الناقد','🧠'],communication:['Effective Communication','التواصل الفعّال','💬'],reading:['Reading & Writing','القراءة والكتابة','📖'],integrity:['Integrity','النزاهة','🛡'],discipline:['Self-regulation & Discipline','الانضباط وتنظيم الذات','⏱'],initiative:['Initiative & Perseverance','المبادرة والمثابرة','⛰'],respect:['Respect & Kindness','الاحترام واللطف','💗'],numeracy:['Numeracy Skills','المهارات العددية','🔢'],loyalty:['Loyalty & National Belonging','الولاء والانتماء الوطني','🇦🇪']};
+const LO='Describe multiple alleles.';
+const store={get(k){try{return localStorage.getItem('alleles12:'+k)}catch(e){return null}},set(k,v){try{localStorage.setItem('alleles12:'+k,v)}catch(e){}}};
+
+// date
+$('#today').textContent=new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+
+// shared chrome: skill chips, coach strip, objective footer
+slides.forEach(s=>{
+  const inner=$('.inner',s), head=$('.head',s);
+  if(s.dataset.skills&&head){const c=document.createElement('div');c.className='chips';
+    s.dataset.skills.split(',').forEach(k=>{const[en,ar,ic]=SKILL[k];c.insertAdjacentHTML('beforeend',`<span class="chip"><i>${ic}</i>${en} <span class="ar">${ar}</span></span>`)});head.appendChild(c)}
+  if(s.dataset.coach){const[n,v,ar,col]=COACH[s.dataset.coach];
+    inner.insertAdjacentHTML('beforeend',`<div class="coach" style="--cc:var(${col})"><img src="img/av-${s.dataset.coach}.webp" alt="${n}, ${v} coach"><div><div class="who">${n} says · ${v} <span class="ar">${ar}</span></div><p>${s.dataset.says}</p><div class="ns">UAE national skill: <b>${s.dataset.ns}</b></div></div></div>`)}
+  if(!('nolo' in s.dataset)) inner.insertAdjacentHTML('afterbegin',`<div class="lo lotop"><span class="tgt"></span><div><b>Learning objective:</b> ${LO}</div></div>`);
+});
+
+// navigation + deep links (#s1 … #s26)
+let cur=1; const enterHooks={};
+function go(n,push=true){
+  n=Math.max(1,Math.min(N,n|0)); cur=n;
+  slides.forEach((s,i)=>s.hidden=i!==n-1);document.querySelectorAll('.slide[hidden] video').forEach(v=>{try{v.pause()}catch(e){}});
+  $('#count').textContent=n+' / '+N; $('#navTitle').textContent=slides[n-1].dataset.title||'';
+  $('#prog').style.width=(n/N*100)+'%'; $('#main').scrollTop=0;
+  $('#prev').disabled=n===1; $('#next').disabled=n===N;
+  if(push){try{history.replaceState(null,'','#s'+n)}catch(e){}}
+  document.title='Multiple Alleles · '+n+' · Nilasha Sempon';
+  requestAnimationFrame(()=>enterHooks[n]&&enterHooks[n]());
+}
+function fromHash(){const m=(location.hash||'').match(/s(\d+)$/);return m?+m[1]:1}
+window.addEventListener('hashchange',()=>go(fromHash(),false));
+$('#prev').onclick=()=>go(cur-1); $('#next').onclick=()=>go(cur+1);
+document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g){go(+g.dataset.go);$('#menu').hidden=true}});
+document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea,select'))return;
+  if(['ArrowRight','PageDown'].includes(e.key))go(cur+1);if(['ArrowLeft','PageUp'].includes(e.key))go(cur-1);if(e.key==='Escape')$('#menu').hidden=true});
+let tx=0,ty=0;$('#main').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+$('#main').addEventListener('touchend',e=>{if(e.target.closest('canvas,input,textarea,select,.stadium'))return;const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;if(Math.abs(dx)>70&&Math.abs(dy)<40)go(cur+(dx<0?1:-1))});
+// menu
+$('#menuList').innerHTML=slides.map((s,i)=>`<li><button data-go="${i+1}"><b>${i+1}</b>${s.dataset.title}</button></li>`).join('');
+$('#menuBtn').onclick=()=>{$$('#menuList button').forEach((b,i)=>b.classList.toggle('cur',i+1===cur));$('#menu').hidden=false};
+$('#menuClose').onclick=()=>$('#menu').hidden=true;
+$('#menu').onclick=e=>{if(e.target.id==='menu')$('#menu').hidden=true};
+// toast + link
+let tt;function toast(html,ms=2600){const t=$('#toast');t.innerHTML=html;t.hidden=false;clearTimeout(tt);tt=setTimeout(()=>t.hidden=true,ms)}
+$('#linkBtn').onclick=()=>{const base=LESSON_URL||location.href.split('#')[0];const url=base+'#s'+cur;
+  const ok=()=>toast('Link to slide '+cur+' copied');
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(ok,()=>toast('<div>Copy this link:</div><div class="linkbox">'+url+'</div>',7000))}else toast('<div>Copy this link:</div><div class="linkbox">'+url+'</div>',7000)};
+$('#fsBtn').onclick=()=>{try{if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen().catch(()=>toast('Full screen is not available here'))}catch(e){toast('Full screen is not available here')}};
+
+// built-in party confetti (works without any outside library)
+window.confetti=(function(){let cv,cx,parts=[],raf=null;
+  function setup(){if(cv)return;cv=document.createElement('canvas');cv.id='fxCanvas';document.body.appendChild(cv);cx=cv.getContext('2d');size();addEventListener('resize',size)}
+  function size(){const d=devicePixelRatio||1;cv.width=innerWidth*d;cv.height=innerHeight*d;cx.setTransform(d,0,0,d,0,0)}
+  function frame(){cx.clearRect(0,0,innerWidth,innerHeight);parts=parts.filter(p=>p.t<p.T);
+    parts.forEach(p=>{p.t++;p.x+=Math.cos(p.a)*p.v+p.drift;p.y+=Math.sin(p.a)*p.v+p.g;p.v*=p.decay;p.w+=p.ws;p.tilt+=0.1;
+      const o=1-p.t/p.T;cx.globalAlpha=Math.max(0,o);cx.fillStyle=p.c;const s=p.s;
+      if(p.round){cx.beginPath();cx.ellipse(p.x,p.y,s*.6,s*.6*Math.abs(Math.cos(p.tilt)),0,0,7);cx.fill()}
+      else{cx.save();cx.translate(p.x,p.y);cx.rotate(p.w);cx.fillRect(-s/2,-s*.3*Math.abs(Math.cos(p.tilt))-1,s,s*.6*Math.abs(Math.cos(p.tilt))+2);cx.restore()}});
+    cx.globalAlpha=1;raf=parts.length?requestAnimationFrame(frame):(cx.clearRect(0,0,innerWidth,innerHeight),null)}
+  return function(o){o=o||{};setup();const n=o.particleCount||50,ang=(o.angle==null?90:o.angle)*Math.PI/180,spr=(o.spread==null?45:o.spread)*Math.PI/180,sv=o.startVelocity||45,
+      X=(o.origin&&o.origin.x!=null?o.origin.x:.5)*innerWidth,Y=(o.origin&&o.origin.y!=null?o.origin.y:.6)*innerHeight,cols=o.colors||['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0','#ff7ab6'],sc=o.scalar||1;
+    for(let i=0;i<Math.min(n,400);i++)parts.push({x:X,y:Y,a:-ang+(.5*spr-Math.random()*spr),v:sv*.5+Math.random()*sv,decay:.9,g:3*(o.gravity==null?1:o.gravity),drift:(Math.random()-.5)*.6,
+      c:cols[i%cols.length],s:(7+Math.random()*6)*sc,round:Math.random()<.3,w:Math.random()*6,ws:(Math.random()-.5)*.3,tilt:Math.random()*6,t:0,T:o.ticks||200});
+    if(!raf)raf=requestAnimationFrame(frame);return Promise.resolve()}})();
+// confetti
+function boom(big){if(typeof confetti!=='function')return;const c=['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0'];
+  confetti({particleCount:big?220:90,spread:big?120:70,origin:{y:.65},colors:c});
+  if(big){setTimeout(()=>confetti({particleCount:120,angle:60,spread:70,origin:{x:0,y:.7},colors:c}),250);setTimeout(()=>confetti({particleCount:120,angle:120,spread:70,origin:{x:1,y:.7},colors:c}),400)}}
+// cheer: confetti burst where the student tapped + a clapping sound for each correct answer
+let lastX=.5,lastY=.6,soundOn=true;try{soundOn=localStorage.getItem('cheerSound')!=='off'}catch(e){}
+document.addEventListener('pointerdown',e=>{lastX=e.clientX/innerWidth;lastY=e.clientY/innerHeight},true);
+let cheerCtx;function clap(n){if(!soundOn)return;try{cheerCtx=cheerCtx||new (window.AudioContext||window.webkitAudioContext)();const a=cheerCtx,now=a.currentTime;
+  const len=a.sampleRate*.05,buf=a.createBuffer(1,len,a.sampleRate),d=buf.getChannelData(0);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,3);
+  for(let k=0;k<n;k++){const t=now+k*0.11+Math.random()*0.05;for(let j=0;j<3;j++){const src=a.createBufferSource();src.buffer=buf;const f=a.createBiquadFilter();f.type='bandpass';f.frequency.value=1000+Math.random()*1500;f.Q.value=0.8;const g=a.createGain();g.gain.value=0.5;src.connect(f);f.connect(g);g.connect(a.destination);src.start(t+j*0.012+Math.random()*0.02)}}
+  [523.25,659.25,783.99].forEach((fr,i)=>{const o=a.createOscillator(),g=a.createGain();o.type='triangle';o.frequency.value=fr;o.connect(g);g.connect(a.destination);g.gain.setValueAtTime(0.0001,now+i*0.07);g.gain.exponentialRampToValueAtTime(0.12,now+i*0.07+0.02);g.gain.exponentialRampToValueAtTime(0.0001,now+i*0.07+0.3);o.start(now+i*0.07);o.stop(now+i*0.07+0.32)})}catch(e){}}
+function party(big,x,y){const c=['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0','#ff7ab6'];
+  confetti({particleCount:big?110:60,spread:big?110:80,startVelocity:big?42:34,origin:{x:x,y:y},colors:c});
+  confetti({particleCount:big?110:60,angle:62,spread:58,startVelocity:big?62:55,origin:{x:0,y:.95},colors:c});
+  confetti({particleCount:big?110:60,angle:118,spread:58,startVelocity:big?62:55,origin:{x:1,y:.95},colors:c})}
+function badge(txt,cls){const b=document.createElement('div');b.className='fbadge '+cls;b.textContent=txt;
+  b.style.left=Math.min(Math.max(lastX*innerWidth,110),innerWidth-110)+'px';b.style.top=Math.min(Math.max(lastY*innerHeight-64,70),innerHeight-40)+'px';document.body.appendChild(b);setTimeout(()=>b.remove(),1500)}
+let lastCheer=0,lastWrong=0,quietUntil=0;
+const PRAISE=['🎉 Correct!','⭐ Brilliant!','👏 Well done!','🎊 Great job!','🏆 Excellent!'];
+function cheer(big){lastCheer=Date.now();clap(big?14:9);party(big,lastX,lastY);badge(PRAISE[Math.floor(Math.random()*PRAISE.length)],'good')}
+function buzz(){if(!soundOn)return;try{cheerCtx=cheerCtx||new (window.AudioContext||window.webkitAudioContext)();const a=cheerCtx,now=a.currentTime;
+  [[0,233],[0.17,175]].forEach(([d,f])=>{const o=a.createOscillator(),g=a.createGain();o.type='square';o.frequency.value=f;o.connect(g);g.connect(a.destination);g.gain.setValueAtTime(0.0001,now+d);g.gain.exponentialRampToValueAtTime(0.07,now+d+0.02);g.gain.exponentialRampToValueAtTime(0.0001,now+d+0.16);o.start(now+d);o.stop(now+d+0.18)})}catch(e){}}
+function wrong(el){if(el){el.classList.remove('shake');void el.offsetWidth;el.classList.add('shake');setTimeout(()=>el.classList.remove('shake'),500)}
+  if(Date.now()-lastWrong<350)return;lastWrong=Date.now();buzz();
+  let f=document.getElementById('redFlash');if(!f){f=document.createElement('div');f.id='redFlash';document.body.appendChild(f)}
+  f.classList.add('on');setTimeout(()=>f.classList.remove('on'),120);badge('✗ Not quite. Try again!','bad')}
+// watch every answer: green = party confetti, red = red flash + shake
+document.addEventListener('click',e=>{if(e.target.closest('[data-answers],#orderReveal'))quietUntil=Date.now()+600},true);
+new MutationObserver(ms=>{if(Date.now()<quietUntil)return;let good=false;
+  ms.forEach(m=>{const el=m.target,old=' '+(m.oldValue||'')+' ';if(!el.classList)return;
+    if(['no','wrong','nof'].some(c=>el.classList.contains(c)&&!old.includes(' '+c+' '))&&!el.classList.contains('fb'))wrong(el);
+    if(['ok','right','okf'].some(c=>el.classList.contains(c)&&!old.includes(' '+c+' '))&&!el.classList.contains('fb'))good=true});
+  if(good&&Date.now()-lastCheer>500)cheer(false)}).observe(document.body,{subtree:true,attributes:true,attributeFilter:['class'],attributeOldValue:true});
+(function(){const b=document.getElementById('soundBtn');if(!b)return;const set=()=>{b.textContent=soundOn?'🔊':'🔇';b.title=soundOn?'Sound on':'Sound off'};set();
+  b.onclick=()=>{soundOn=!soundOn;try{localStorage.setItem('cheerSound',soundOn?'on':'off')}catch(e){}set();if(soundOn)clap(4)}})();
+document.addEventListener('click',e=>{if(e.target.closest('[data-confetti]'))boom(false)});
+
+// generic: flip, reveal
+document.addEventListener('click',e=>{
+  const f=e.target.closest('.flip');if(f)f.classList.toggle('on');
+  const r=e.target.closest('[data-show]');if(r){const t=document.getElementById(r.dataset.show);t.hidden=!t.hidden}
+  const ns=e.target.closest('.nskill');if(ns)ns.classList.toggle('on');
+});
+
+// timers
+let actx;function beep(){try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();[0,.25,.5].forEach(d=>{const o=actx.createOscillator(),g=actx.createGain();o.frequency.value=880;o.connect(g);g.connect(actx.destination);g.gain.setValueAtTime(.15,actx.currentTime+d);g.gain.exponentialRampToValueAtTime(.001,actx.currentTime+d+.2);o.start(actx.currentTime+d);o.stop(actx.currentTime+d+.22)})}catch(e){}}
+$$('.timer').forEach(el=>{const total=+el.dataset.sec;let left=total,iv=null;const fmt=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+  el.innerHTML=`<button class="btn small">▶ Start ${total>=60?total/60+'-min':total+'-s'}</button><span class="t">${fmt(total)}</span><button class="rs" title="Reset">↺</button>`;
+  const [b,t,rs]=el.children;
+  const stop=()=>{clearInterval(iv);iv=null};
+  b.onclick=()=>{if(iv){stop();b.textContent='▶ Resume';return}if(left<=0){left=total;el.classList.remove('done')}
+    b.textContent='❚❚ Pause';iv=setInterval(()=>{left--;t.textContent=fmt(Math.max(left,0));if(left<=0){stop();el.classList.add('done');t.textContent="TIME'S UP!";b.textContent='▶ Again';beep()}},1000)};
+  rs.onclick=()=>{stop();left=total;el.classList.remove('done');t.textContent=fmt(total);b.textContent=`▶ Start ${total>=60?total/60+'-min':total+'-s'}`};
+});
+
+// 7 · true/false
+$$('#tf .q').forEach(q=>{let done=false;$$('.opt',q).forEach(b=>b.onclick=()=>{if(done)return;done=true;const pick=b.textContent==='True'?'T':'F',ok=pick===q.dataset.a;
+  b.classList.add(ok?'ok':'no');if(ok)cheer(false);const fb=$('.fb',q);fb.hidden=false;fb.className='fb '+(ok?'ok':'no');fb.textContent=(ok?'✓ Correct! ':'✗ Not quite. ')+fb.dataset.why;
+  q.dataset.res=ok?1:0;const sc=$$('#tf .q').reduce((a,x)=>a+(+x.dataset.res||0),0),n=$$('#tf .q[data-res]').length;$('#tfScore').textContent='Score: '+sc+' / 5';if(n===5&&sc===5)boom(false)})});
+
+// 9 · video answers
+$('#vidAns')&&($('#vidAns').onclick=()=>$$('#s8 .vans').forEach(a=>a.hidden=false));
+
+// 11 · sort
+$$('#sorter .sitem').forEach(b=>b.onclick=()=>{b.classList.remove('right','wrong');const L=($('#sorter').dataset.labels||'low|HIGH').split('|');const i=(L.indexOf(b.dataset.v)+1)%L.length;b.dataset.v=L[i];$('.tag',b).textContent=L[i]});
+$('#sortCheck').onclick=()=>{let s=0;$$('#sorter .sitem').forEach(b=>{const ok=b.dataset.v===b.dataset.ans;b.classList.toggle('right',ok);b.classList.toggle('wrong',!ok);s+=ok});$('#sortScore').textContent=s+' / 8 correct';if(s>0&&s<8)cheer(false);$('#sortWhy').hidden=false;if(s===8)boom(false)};
+
+// MCQ sets (retry = formative with hints; first = first-try scoring)
+$$('.mcqset').forEach(set=>{const mode=set.dataset.mode;const qs=set.classList.contains('q')?[set]:$$('.q',set);
+  qs.forEach(q=>q.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(q.dataset.solved)return;const ok=b.hasAttribute('data-ok');
+    if(!('first' in q.dataset))q.dataset.first=ok?1:0;
+    b.classList.add(ok?'ok':'no');const fb=$('.fb',q);if(fb)fb.hidden=ok;
+    if(ok){q.dataset.solved=1;cheer(false);if(set.id==='dbq'){$('#dbLock').hidden=true;$('#dbOpen').hidden=false;boom(false)}}
+    if(set.id==='wm'){const s=qs.reduce((a,x)=>a+(+x.dataset.first||0),0),n=qs.filter(x=>'first' in x.dataset).length;
+      const lvl=s===5?'Allele Master! 🏆':s===4?'Allele Expert':s===3?'Allele Explorer':"let's review together";
+      $('#wmScore').textContent='First-try score: '+s+' / 5'+(n===5?' · '+lvl:'');if(n===5&&s>=4)boom(s===5)}
+    if(mode==='retry'&&set.id!=='dbq'&&qs.every(x=>x.dataset.solved))boom(false);
+  }));
+});
+
+// 18 · order
+let nextN=1;$$('#order .oitem').forEach(b=>b.onclick=()=>{$$('#order .oitem').forEach(x=>x.classList.remove('right','wrong'));
+  if(b.dataset.n){const k=+b.dataset.n;$$('#order .oitem').forEach(x=>{if(+x.dataset.n>=k){delete x.dataset.n;x.classList.remove('set');$('.n',x).textContent='?'}});nextN=k;return}
+  if(nextN>5)return;b.dataset.n=nextN;b.classList.add('set');$('.n',b).textContent=nextN;nextN++});
+$('#orderCheck').onclick=()=>{let s=0;$$('#order .oitem').forEach(b=>{const ok=b.dataset.n===b.dataset.p;b.classList.toggle('right',ok);b.classList.toggle('wrong',!ok);s+=ok});$('#orderScore').textContent=s+' / 5 in the right place';if(s>0&&s<5)cheer(false);if(s===5)boom(false)};
+$('#orderReveal').onclick=()=>{$('#chain').hidden=false};
+$$('[data-tl]').forEach(b=>b.onclick=()=>{const m=$('#tlMsg');m.hidden=false;m.textContent=b.dataset.tl});
+
+// 20/21 · worksheet
+$$('#wsA select').forEach(s=>s.innerHTML='<option value="">–</option>'+'ABCDE'.split('').map(x=>`<option>${x}</option>`).join(''));
+$$('#wsC select').forEach(s=>s.innerHTML='<option value="">choose…</option>'+s.dataset.opts.split('|').map(x=>`<option>${x}</option>`).join(''));
+const norm=v=>v.trim().toLowerCase().replace(/[.\s]+$/,'');
+function mark(id){let s=0;$$('#'+id+' [data-ans]').forEach(f=>{const ok=f.dataset.ans.toLowerCase().split('|').includes(norm(f.value));f.classList.toggle('okf',ok);f.classList.toggle('nof',!ok&&f.value!=='');s+=ok});return s}
+const score={wsA:0,wsB:0,wsC:0};
+function total(){$('#wsTotal').textContent='Total: A + B + C = '+(score.wsA+score.wsB+score.wsC)+' / 16 marks'}
+$$('[data-check]').forEach(b=>b.onclick=()=>{const id=b.dataset.check,s=mark(id),max=$$('#'+id+' [data-ans]').length;score[id]=s;if(s>0)cheer(s===max);$(`[data-out="${id}"]`).textContent=s+' / '+max;total();if(s===max)boom(false)});
+$$('[data-answers]').forEach(b=>b.onclick=()=>{const id=b.dataset.answers;$$('#'+id+' [data-ans]').forEach(f=>{f.value=f.tagName==='SELECT'?f.dataset.ans:f.dataset.ans.split('|')[0]});mark(id)});
+$('#labExp').onclick=()=>$$('#s17 .exp').forEach(x=>{x.hidden=false;x.style.cssText='font-size:.82rem;color:#11663a;font-weight:700;margin-top:4px'});
+$$('.lvl').forEach(b=>b.onclick=()=>{const a=b.previousElementSibling;a.hidden=!a.hidden;b.textContent=a.hidden?'Show answers':'Hide answers'});
+
+// keep typed answers in this browser
+$$('input[type=text],textarea').forEach(f=>{const v=store.get(f.id);if(v)f.value=v;f.addEventListener('input',()=>store.set(f.id,f.value))});
+
+// 24 · stars
+$$('.stars').forEach(st=>{for(let i=1;i<=5;i++)st.insertAdjacentHTML('beforeend',`<button aria-label="${i} star${i>1?'s':''}">★</button>`);
+  const set=k=>$$('button',st).forEach((b,i)=>b.classList.toggle('on',i<k));set(+store.get(st.id)||0);
+  $$('button',st).forEach((b,i)=>b.onclick=()=>{set(i+1);store.set(st.id,i+1);if(i===4)boom(false)})});
+
+// 25 · values
+$$('#values .vcard').forEach(c=>c.onclick=()=>{c.classList.toggle('on');const n=$$('#values .vcard.on').length;$$('#goal span').forEach((s,i)=>s.classList.toggle('on',i<n));if(n===5){boom(true);toast('Class goal reached: all five stars!')}});
+
+// 26 · celebrate
+$('#celebrate').onclick=()=>boom(true);
+enterHooks[26]=()=>boom(true);
+
+/* ---------- canvases ---------- */
+function fit(c){const r=c.getBoundingClientRect(),d=window.devicePixelRatio||1;const h=+c.getAttribute('height')||r.height||120;
+  if(!c.dataset.h)c.dataset.h=h;const H=+c.dataset.h;c.style.height=H+'px';c.width=Math.round(r.width*d);c.height=Math.round(H*d);const x=c.getContext('2d');x.setTransform(d,0,0,d,0,0);return{x,w:r.width,h:H}}
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// hero waves
+(function(){const c=$('#heroWaves');let t=0,raf;function draw(){if(cur!==1){raf=null;return}const {x,w,h}=fit(c);
+  const cols=['#ffc21a','#e5484d','#1fa75a','#4f8cff','#c084fc'];cols.forEach((col,i)=>{x.beginPath();for(let px=0;px<=w;px+=6){const y=h*.35+i*14+Math.sin(px/90+t*(1+i*.15)+i)*(10+i*3);px?x.lineTo(px,y):x.moveTo(px,y)}x.strokeStyle=col;x.lineWidth=5;x.stroke()});
+  t+=.02;raf=reduce?null:requestAnimationFrame(draw)}enterHooks[1]=()=>{if(!raf)draw()};})();
+
+// shared drawing helpers
+function lbl(x,t,X,Y,bg,fg){x.font='bold 12px Nunito, sans-serif';const w=x.measureText(t).width+12;x.fillStyle=bg;x.beginPath();x.roundRect?x.roundRect(X-w/2,Y-10,w,20,10):x.rect(X-w/2,Y-10,w,20);x.fill();x.fillStyle=fg||'#fff';x.textAlign='center';x.fillText(t,X,Y+4);x.textAlign='left'}
+function rr(x,X,Y,w,h,r,fill,stroke){x.beginPath();x.roundRect?x.roundRect(X,Y,w,h,r):x.rect(X,Y,w,h);if(fill){x.fillStyle=fill;x.fill()}if(stroke){x.strokeStyle=stroke;x.lineWidth=2;x.stroke()}}
+// draw allele text with superscript, e.g. ['I','A'] or ['c','ch']; centred at X
+function allele(x,parts,X,Y,size,col){const base=`bold ${size}px Nunito, sans-serif`,sup=`bold ${Math.round(size*.62)}px Nunito, sans-serif`;let w=0;parts.forEach(([b,s])=>{x.font=base;w+=x.measureText(b).width;if(s){x.font=sup;w+=x.measureText(s).width+1}});let cx=X-w/2;x.fillStyle=col||'#1c2340';x.textAlign='left';parts.forEach(([b,s])=>{x.font=base;x.fillText(b,cx,Y);cx+=x.measureText(b).width;if(s){x.font=sup;x.fillText(s,cx+1,Y-size*.38);cx+=x.measureText(s).width+1}})}
+function grid2(x,X0,Y0,cs,top,left,cell){// top/left: arrays of 2 allele-part arrays; cell(i,j)->{parts,fill,label}
+  top.forEach((a,j)=>allele(x,[a],X0+cs*(j+1)+cs/2,Y0+cs*.62,18,'#8b1e3f'));left.forEach((a,i)=>allele(x,[a],X0+cs/2,Y0+cs*(i+1)+cs*.58,18,'#8b1e3f'));
+  for(let i=0;i<2;i++)for(let j=0;j<2;j++){const c=cell(i,j);const X=X0+cs*(j+1)+3,Y=Y0+cs*(i+1)+3;rr(x,X,Y,cs-6,cs-6,10,c.fill,'#e5484d');allele(x,c.parts,X+(cs-6)/2,Y+(cs-6)*.45,17);x.font='bold 11px Nunito, sans-serif';x.fillStyle='#1c2340';x.textAlign='center';x.fillText(c.label,X+(cs-6)/2,Y+(cs-6)*.8);x.textAlign='left'}}
+
+// 14 · ABO Punnett builder
+(function(){const c=$('#abo');const G={AA:[['I','A'],['I','A']],Ai:[['I','A'],['i','']],BB:[['I','B'],['I','B']],Bi:[['I','B'],['i','']],AB:[['I','A'],['I','B']],ii:[['i',''],['i','']]};
+  const NAME={AA:'IᴬIᴬ (type A)',Ai:'Iᴬi (type A)',BB:'IᴮIᴮ (type B)',Bi:'Iᴮi (type B)',AB:'IᴬIᴮ (type AB)',ii:'ii (type O)'};
+  const COL={A:'#e5484d',B:'#f6a5a8',AB:'#f2828a',O:'#ffffff'};
+  const dad=$('#dadG'),mom=$('#momG');[dad,mom].forEach((s,k)=>{Object.keys(NAME).forEach(g=>{const o=document.createElement('option');o.value=g;o.textContent=NAME[g];s.appendChild(o)});s.value=k?'Bi':'Ai'});
+  const key=a=>a[0]==='i'?'i':a[1];
+  function type(a,b){const s=[key(a),key(b)];const hasA=s.includes('A'),hasB=s.includes('B');return hasA&&hasB?'AB':hasA?'A':hasB?'B':'O'}
+  let seen={};
+  function draw(){const {x,w,h}=fit(c);x.fillStyle='#fff7f8';x.fillRect(0,0,w,h);const d=G[dad.value],m=G[mom.value];
+    const cs=Math.min(78,(h-20)/3,w*.17);const X0=12,Y0=8;
+    x.font='bold 11px Nunito, sans-serif';x.fillStyle='#5b6385';x.fillText('Mum’s gametes →',X0+cs+4,Y0+10);x.save();x.translate(X0+8,Y0+cs*1.2);x.fillText('Dad ↓',0,0);x.restore();
+    const counts={A:0,B:0,AB:0,O:0},gt={};
+    grid2(x,X0,Y0,cs,m,d,(i,j)=>{const a=d[i],b=m[j];const t=type(a,b);counts[t]++;const p=key(a)==='i'&&key(b)!=='i'?[b,a]:(key(a)==='B'&&key(b)==='A'?[b,a]:[a,b]);const gk=p.map(z=>z[0]+(z[1]||'')).join('');gt[gk]=(gt[gk]||0)+1;return{parts:p,fill:COL[t],label:'type '+t}});
+    // bars
+    const bx=X0+cs*3+30,bw=w-bx-16;x.fillStyle='#1c2340';x.font='bold 14px Nunito, sans-serif';x.fillText('Children (out of 4)',bx,Y0+18);
+    ['A','B','AB','O'].forEach((t,k)=>{const y=Y0+40+k*44;x.fillStyle='#1c2340';x.font='bold 13px Nunito, sans-serif';x.fillText('Type '+t,bx,y+14);x.fillStyle='#f0e6e8';x.fillRect(bx+70,y,bw-110,20);x.fillStyle=t==='O'?'#5b6385':COL[t];x.fillRect(bx+70,y,(bw-110)*counts[t]/4,20);x.fillStyle='#1c2340';x.fillText(counts[t]*25+'%',bx+bw-34,y+15)});
+    const ratio=['A','B','AB','O'].filter(t=>counts[t]).map(t=>counts[t]+' '+t).join(' : ');
+    $('#aboRead').textContent='Phenotype ratio: '+ratio+(counts.O&&counts.A&&counts.B&&counts.AB?' · All four blood types! Mystery solved 🎉':'');
+    const k=dad.value+'|'+mom.value;if(!seen[k]&&counts.A&&counts.B&&counts.AB&&counts.O){seen[k]=1;cheer(true)}}
+  dad.onchange=mom.onchange=draw;
+  $$('[data-pair]').forEach(b=>b.onclick=()=>{const [a,m]=b.dataset.pair.split('|');dad.value=a;mom.value=m;draw();if(b.dataset.pair!=='Ai|Bi')cheer(false)});
+  enterHooks[14]=draw;})();
+
+// 15 · Rabbit breeder
+(function(){const c=$('#rab');const AL={C:['C',''],ch:['c','ch'],h:['c','h'],c:['c','']};const RANK={C:0,ch:1,h:2,c:3};
+  const PH=['Full colour','Chinchilla','Himalayan','Albino'],PC=['#3b2a20','#9aa0ad','#f3efe6','#ffffff'],EAR=['#3b2a20','#7d8391','#2a2a2a','#f7c6d4'];
+  const GT=[['C','C'],['C','ch'],['C','h'],['C','c'],['ch','ch'],['ch','h'],['ch','c'],['h','h'],['h','c'],['c','c']];
+  const sup={C:'C',ch:'cᶜʰ',h:'cʰ',c:'c'};const nm=g=>sup[g[0]]+sup[g[1]]+' ('+PH[Math.min(RANK[g[0]],RANK[g[1]])]+')';
+  const mS=$('#maleG'),fS=$('#femG');[mS,fS].forEach((s,k)=>{GT.forEach(g=>{const o=document.createElement('option');o.value=g.join('-');o.textContent=nm(g);s.appendChild(o)});s.value=k?'ch-h':'C-h'});
+  function bunny(x,X,Y,s,ph){x.fillStyle=PC[ph];x.strokeStyle='#666';x.lineWidth=1;x.beginPath();x.ellipse(X,Y,s*1.1,s*.75,0,0,7);x.fill();x.stroke();x.beginPath();x.ellipse(X+s*.95,Y-s*.45,s*.48,s*.42,0,0,7);x.fill();x.stroke();
+    x.fillStyle=ph===2?'#2a2a2a':EAR[ph];[0,1].forEach(k=>{x.beginPath();x.ellipse(X+s*(.82+k*.25),Y-s*1.15,s*.13,s*.42,-.2+k*.3,0,7);x.fill()});
+    if(ph===2){x.beginPath();x.arc(X+s*1.38,Y-s*.4,s*.12,0,7);x.fill();x.beginPath();x.ellipse(X-s*.6,Y+s*.65,s*.25,s*.1,0,0,7);x.fill()}
+    x.fillStyle=ph===3?'#e5484d':'#111';x.beginPath();x.arc(X+s*1.08,Y-s*.52,s*.07,0,7);x.fill()}
+  let seen={};
+  function draw(){const {x,w,h}=fit(c);x.fillStyle='#f6faf3';x.fillRect(0,0,w,h);const m=mS.value.split('-'),f=fS.value.split('-');
+    const cs=Math.min(76,(h-16)/3,w*.17);const X0=10,Y0=6;const cnt=[0,0,0,0],gtc={};
+    x.font='bold 11px Nunito, sans-serif';x.fillStyle='#5b6385';x.fillText('♀ gametes →',X0+cs+4,Y0+10);x.fillText('♂ ↓',X0+6,Y0+cs*1.15);
+    const BG=['#d9cfc6','#d5d8df','#f5e3b8','#fbe0ee'];
+    grid2(x,X0,Y0,cs,f.map(a=>AL[a]),m.map(a=>AL[a]),(i,j)=>{let p=[m[i],f[j]].sort((a,b)=>RANK[a]-RANK[b]);const ph=RANK[p[0]];cnt[ph]++;const k=p.join('');gtc[k]=(gtc[k]||0)+1;return{parts:p.map(a=>AL[a]),fill:BG[ph],label:PH[ph]}});
+    const bx=X0+cs*3+24,bw=w-bx-8;x.fillStyle='#1c2340';x.font='bold 14px Nunito, sans-serif';x.fillText('Babies (out of 4)',bx,Y0+16);
+    let row=0;cnt.forEach((n,ph)=>{if(!n)return;const y=Y0+38+row*56;bunny(x,bx+24,y+18,16,ph);x.fillStyle='#1c2340';x.font='bold 15px Nunito, sans-serif';x.fillText(n+' × '+PH[ph],bx+62,y+22);row++});
+    const gr=Object.values(gtc).join(' : '),pr=cnt.map((n,i)=>n?n+' '+PH[i].toLowerCase():'').filter(Boolean).join(' : ');
+    $('#rabRead').textContent='Genotypic ratio '+gr+' · Phenotypic ratio '+pr;
+    const k=mS.value+'|'+fS.value;if(cnt[3]&&!seen[k]&&m[0]!=='c'){seen[k]=1;cheer(false)}}
+  mS.onchange=fS.onchange=draw;
+  const MAP={Ch:'C-h',chch:'ch-h',hc:'h-c',chc:'ch-c'};
+  $$('[data-rpair]').forEach(b=>b.onclick=()=>{const [a,f]=b.dataset.rpair.split('|');mS.value=MAP[a];fS.value=MAP[f];draw();cheer(false)});
+  enterHooks[15]=draw;})();
+
+// 16 · more alleles, more genotypes
+(function(){const c=$('#allc'),sl=$('#nAl');const COLS=['#e5484d','#2563eb','#1fa75a','#f07f19','#7a3ff0','#0e9fa6'];let maxSeen=2;
+  function draw(){const {x,w,h}=fit(c);const n=+sl.value;x.fillStyle='#fff';x.fillRect(0,0,w,h);const L='ABCDEF'.slice(0,n).split('');
+    const g=n*(n+1)/2,hom=n,het=g-n;
+    // allele chips
+    L.forEach((a,i)=>{const X=20+i*44;rr(x,X,12,36,36,18,COLS[i]);x.fillStyle='#fff';x.font='bold 16px Nunito, sans-serif';x.textAlign='center';x.fillText(a,X+18,36);x.textAlign='left'});
+    x.fillStyle='#1c2340';x.font='bold 14px Nunito, sans-serif';x.fillText(n+' alleles',30+n*44,36);
+    // genotype grid
+    const cw=Math.min(46,(w-40)/6),Y0=64;let k=0;
+    for(let i=0;i<n;i++)for(let j=i;j<n;j++){const X=20+(k%8)*(cw+6),Y=Y0+Math.floor(k/8)*(cw*0.7+8);x.fillStyle=COLS[i];x.fillRect(X,Y,cw/2,cw*.7);x.fillStyle=COLS[j];x.fillRect(X+cw/2,Y,cw/2,cw*.7);x.fillStyle='#fff';x.font='bold 13px Nunito, sans-serif';x.textAlign='center';x.fillText(L[i]+L[j],X+cw/2,Y+cw*.45);x.textAlign='left';k++}
+    const by=h-46;x.fillStyle='#1c2340';x.font='bold 15px Nunito, sans-serif';x.fillText(`Genotypes = n(n+1)/2 = ${g}   (${hom} homozygous + ${het} heterozygous)`,20,by);
+    x.font='12px Nunito, sans-serif';x.fillStyle='#5b6385';x.fillText(n===3?'= the ABO gene: 6 genotypes, 4 blood types':n===4?'= the rabbit C gene: 10 genotypes, 4 coat colours':n===2?'= a simple gene like T / t: 3 genotypes':'Real genes can have dozens of alleles in a population!',20,by+20);
+    $('#allRead').textContent=`${n} alleles → ${g} possible genotypes`;
+    if(n>maxSeen&&(n===3||n===4)){cheer(false)}maxSeen=Math.max(maxSeen,n)}
+  sl.oninput=draw;enterHooks[16]=draw;})();
+
+// 17 · allele-draw lab (IAi x IBi)
+(function(){const c=$('#lab');let n={A:0,B:0,AB:0,O:0},last=[],total=0,celebrated=false;const COL={A:'#e5484d',B:'#2563eb',AB:'#7a3ff0',O:'#5b6385'};
+  function child(){const d=Math.random()<.5?'A':'i',m=Math.random()<.5?'B':'i';const t=d==='A'&&m==='B'?'AB':d==='A'?'A':m==='B'?'B':'O';n[t]++;total++;last=[d,m,t]}
+  function draw(){const {x,w,h}=fit(c);x.fillStyle='#f7f8fc';x.fillRect(0,0,w,h);
+    // bags
+    [['Dad’s bag','I','A','#e5484d',0],['Mum’s bag','I','B','#2563eb',1]].forEach(([nm,b,s,col,k])=>{const X=16+k*120,Y=14;rr(x,X,Y,104,74,12,'#fff','#c9cfe3');x.fillStyle='#1c2340';x.font='bold 12px Nunito, sans-serif';x.fillText(nm,X+10,Y+18);allele(x,[[b,s]],X+32,Y+54,18,col);allele(x,[['i','']],X+74,Y+54,18,'#5b6385');
+      if(last.length){const pick=last[k];x.strokeStyle='#f6b500';x.lineWidth=3;x.beginPath();x.arc(pick==='i'?X+74:X+32,Y+48,17,0,7);x.stroke()}});
+    if(last.length){x.fillStyle='#1c2340';x.font='bold 15px Nunito, sans-serif';x.fillText('Last child: type '+last[2],260,58)}
+    const bx=16,bw=w-150,y0=110;['A','B','AB','O'].forEach((t,k)=>{const y=y0+k*40;x.fillStyle='#1c2340';x.font='bold 13px Nunito, sans-serif';x.fillText('Type '+t,bx,y+15);x.fillStyle='#e3e8f4';x.fillRect(bx+64,y,bw,20);x.fillStyle=COL[t];x.fillRect(bx+64,y,total?bw*n[t]/total:0,20);
+      x.strokeStyle='#1c2340';x.setLineDash([4,3]);x.beginPath();x.moveTo(bx+64+bw*.25,y-3);x.lineTo(bx+64+bw*.25,y+23);x.stroke();x.setLineDash([]);x.fillStyle='#1c2340';x.fillText(n[t]+(total?' ('+Math.round(100*n[t]/total)+'%)':''),bx+72+bw,y+15)});
+    x.font='11px Nunito, sans-serif';x.fillStyle='#5b6385';x.fillText('dashed line = expected 25%',bx+64,y0+164);
+    $('#labRead').textContent=total?`${total} children: A ${n.A} · B ${n.B} · AB ${n.AB} · O ${n.O}`:'Press Draw to make children from Iᴬi × Iᴮi.';
+    if(total>=200&&!celebrated){celebrated=true;cheer(true)}}
+  const go=k=>{for(let i=0;i<k;i++)child();draw()};
+  $('#draw1').onclick=()=>go(1);$('#draw20').onclick=()=>go(20);$('#draw200').onclick=()=>go(200);$('#drawReset').onclick=()=>{n={A:0,B:0,AB:0,O:0};last=[];total=0;draw()};
+  enterHooks[17]=draw;})();
+
+window.addEventListener('resize',()=>enterHooks[cur]&&enterHooks[cur]());
+go(fromHash(),false);
+</script>
+
+</body>
+</html>

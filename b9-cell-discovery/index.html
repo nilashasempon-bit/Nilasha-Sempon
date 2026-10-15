@@ -1,0 +1,1135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="author" content="Nilasha Sempon">
+<meta name="description" content="Interactive Grade 9 Advanced Biology lesson with the UAE Values Team.">
+<title>Cell Discovery and Theory · Nilasha Sempon</title>
+<meta property="og:title" content="Cell Discovery and Theory · Nilasha Sempon">
+<meta property="og:description" content="Grade 9 Advanced Biology interactive lesson by Nilasha Sempon, with the UAE Values Team.">
+<meta property="og:image" content="https://nilashasempons.netlify.app/b9-cell-discovery/img/hook.webp">
+<meta property="og:url" content="https://nilashasempons.netlify.app/b9-cell-discovery/">
+<meta property="og:site_name" content="Nilasha Sempon · Science &amp; Biology">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: an app frame (top bar · one slide at a time · bottom nav). Each slide is a page with its own #sN link.
+   Single bright classroom look, matching the teacher's deck, so colours are set explicitly. */
+:root{
+  --navy:#1b2470; --navy-2:#2a338f; --ink:#1c2340; --muted:#5b6385; --line:#dfe3f1;
+  --paper:#ffffff; --bg:#eef1f9; --sun:#ffc21a; --sun-ink:#3a2a00;
+  --green:#1fa75a; --green-bg:#e6f7ed; --red:#e5484d; --red-bg:#fdecec;
+  --orange:#f07f19; --orange-bg:#fff2e4; --purple:#7a3ff0; --purple-bg:#f1eafe;
+  --blue:#2563eb; --blue-bg:#e8effe; --teal:#0e9fa6; --sea:#2b8fd6; --sand:#f2dca6;
+  --c-shahin:#4b6b2f; --c-fahim:#1f5f8b; --c-maha:#a3343a; --c-ahmed:#1d6b5b; --c-hessa:#b07a0a;
+  --display:"Baloo Bhaijaan 2","Nunito",system-ui,sans-serif;
+  --body:"Nunito","Baloo Bhaijaan 2",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+html,body{height:100%}
+body{margin:0}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45}
+*{box-sizing:border-box}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.ar{font-family:"Baloo Bhaijaan 2",var(--body);direction:rtl}
+
+#app{height:100%;display:grid;grid-template-rows:auto 1fr auto}
+.topbar{background:var(--navy);color:#fff;display:flex;align-items:center;gap:12px;padding:8px 16px;flex-wrap:wrap}
+.topbar .crumb{font-weight:800;font-family:var(--display);font-size:1.05rem;white-space:nowrap;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.topbar .unit{opacity:.8;font-size:.85rem;min-width:0;flex:1 1 220px}
+.topbar .date{background:rgba(255,255,255,.14);border-radius:999px;padding:3px 12px;font-size:.85rem;white-space:nowrap}
+.iconbtn{background:var(--sun);color:var(--sun-ink);border:0;border-radius:999px;width:36px;height:36px;display:grid;place-items:center;font-weight:800;flex:none}
+.iconbtn svg{width:18px;height:18px}
+.wavestrip{height:6px;background:repeating-linear-gradient(90deg,var(--sun) 0 40px,var(--green) 40px 80px,var(--red) 80px 120px,var(--blue) 120px 160px,var(--purple) 160px 200px)}
+
+main{overflow-y:auto;overflow-x:hidden;position:relative;-webkit-overflow-scrolling:touch}
+.slide{min-height:100%}
+.inner{max-width:1200px;margin:0 auto;padding-block:22px 28px;padding-inline:16px;display:flex;flex-direction:column;gap:18px}
+.head{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.head h2{font-family:var(--display);font-size:clamp(1.5rem,3.2vw,2.2rem);line-height:1.1;margin:0;flex:1 1 auto;text-wrap:balance;font-weight:800}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:2px solid var(--blue);border-radius:999px;padding:3px 12px 3px 4px;font-size:.82rem;font-weight:700;color:var(--navy)}
+.chip i{width:24px;height:24px;border-radius:50%;background:var(--blue);display:grid;place-items:center;color:#fff;font-style:normal;font-size:.8rem}
+.chip .ar{font-weight:600;color:var(--muted)}
+.lead{color:var(--muted);margin:0;max-width:75ch}
+.lead b{color:var(--purple)}
+
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px}
+.label{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;font-weight:800;color:var(--red)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+.g5{grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.cols{display:grid;gap:18px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:860px){.cols.split{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}.cols.split-r{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}}
+.stack{display:flex;flex-direction:column;gap:12px;min-width:0}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+img.fig{border-radius:14px;border:1px solid var(--line);display:block;width:100%;height:auto;background:#fff}
+
+.btn{border:0;border-radius:999px;padding:10px 20px;font-weight:800;background:var(--sun);color:var(--sun-ink);box-shadow:0 3px 0 #d79c00;transition:transform .1s}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 #d79c00}
+.btn.navy{background:var(--navy);color:#fff;box-shadow:0 3px 0 #0d1245}
+.btn.red{background:var(--red);color:#fff;box-shadow:0 3px 0 #a92d31}
+.btn.ghost{background:var(--paper);color:var(--navy);box-shadow:none;border:2px solid var(--line)}
+.btn.small{padding:6px 14px;font-size:.88rem}
+
+/* coach strip */
+.coach{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:center;background:var(--paper);border:2px solid var(--cc,var(--navy));border-radius:18px;padding:10px 14px}
+.coach img{width:64px;height:64px;border-radius:50%;border:3px solid var(--cc);background:#f5efe4}
+.coach .who{font-weight:800;color:var(--cc);font-size:.9rem}
+.coach .who span{font-weight:600;color:var(--muted)}
+.coach p{margin:2px 0}
+.coach .ns{font-size:.82rem;color:var(--muted)}
+.coach .ns b{color:var(--orange)}
+.lo{display:flex;gap:10px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:.88rem;color:var(--muted)}
+.lo b{color:var(--red)}
+.lo.lotop{color:var(--ink);font-size:.95rem;font-weight:600;border:2px solid #f3c2c4;background:#fff7f7}
+.hero .lo.lotop,.end .lo.lotop{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.35);color:#fff}.hero .lo.lotop b,.end .lo.lotop b{color:#ffc21a}
+.lo .tgt{flex:none;width:22px;height:22px;border-radius:50%;border:4px solid var(--red);box-shadow:inset 0 0 0 3px #fff,inset 0 0 0 8px var(--red)}
+
+/* bottom nav */
+.nav{background:var(--paper);border-top:1px solid var(--line);display:flex;align-items:center;gap:8px;padding:8px 16px calc(8px + env(safe-area-inset-bottom,0px));flex-wrap:wrap}
+.nav .count{font-weight:800;font-variant-numeric:tabular-nums;color:var(--navy);min-width:64px;text-align:center}
+.nav .title{flex:1 1 140px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--muted);font-size:.9rem}
+@media (max-width:700px){.topbar .unit{display:none}.nav .title{display:none}.nav{justify-content:space-between}}
+.progress{height:4px;background:var(--line)}
+.progress div{height:100%;background:var(--sun);transition:width .3s}
+.toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;z-index:50;max-width:calc(100% - 32px);text-align:center}
+.linkbox{font-size:.8rem;word-break:break-all;background:var(--bg);padding:6px 10px;border-radius:8px;user-select:all}
+
+/* menu overlay */
+.menu{position:fixed;inset:0;background:rgba(18,22,60,.55);z-index:40;display:grid;place-items:center;padding:16px}
+.menu .panel{background:var(--paper);border-radius:20px;max-width:900px;width:100%;max-height:85vh;overflow:auto;padding:18px}
+.menu ol{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:6px;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr))}
+.menu li button{width:100%;text-align:left;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:8px 10px;display:flex;gap:10px;align-items:center}
+.menu li button b{color:var(--navy);font-variant-numeric:tabular-nums;min-width:22px}
+.menu li button.cur{background:var(--sun)}
+
+/* title slide */
+.hero{background:linear-gradient(135deg,#1b2470 0%,#3a2fa3 60%,#6a2fb8 100%);color:#fff;min-height:100%;position:relative;overflow:hidden}
+.hero .inner{padding-block:36px}
+.hero h1{font-family:var(--display);font-size:clamp(2.4rem,7vw,4.6rem);line-height:1;margin:6px 0 0;font-weight:800}
+.hero .sub{font-family:var(--display);color:var(--sun);font-size:clamp(1.3rem,3vw,2rem);font-weight:700;margin:0}
+.hero .eyebrow{color:var(--sun);font-weight:800;letter-spacing:.08em;font-size:.82rem}
+.hero .teacher{font-family:var(--display);font-size:1.2rem}.hero .teacher b{color:var(--sun)}
+.hero .mystery{background:#fff;color:var(--ink);border-radius:14px;padding:14px 16px;max-width:620px}
+.hero .mystery b{color:var(--red)}
+.avatars{display:flex;flex-wrap:wrap;gap:12px}
+.avatars button{background:none;border:0;padding:0;text-align:center;color:#fff;font-size:.8rem;font-weight:700}
+.avatars img{width:72px;height:72px;border-radius:50%;border:3px solid var(--sun);display:block;margin-bottom:4px;background:#f5efe4;transition:transform .2s}
+.avatars button:hover img{transform:translateY(-4px) rotate(-4deg)}
+.hero canvas.waves{position:absolute;left:0;right:0;bottom:0;width:100%;height:120px;pointer-events:none;opacity:.9}
+
+/* flip cards */
+.flip{perspective:900px;background:none;border:0;padding:0;text-align:left;width:100%}
+.flip .fi{display:grid;transition:transform .5s;transform-style:preserve-3d;height:100%}
+.flip.on .fi{transform:rotateY(180deg)}
+.flip .face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;padding:14px;border:2px solid var(--line);background:var(--paper);min-height:100px;display:flex;flex-direction:column;justify-content:center;gap:4px}
+.flip .back{transform:rotateY(180deg)}
+.flip .tap{font-size:.75rem;color:var(--muted);font-weight:700}
+.kw .front{border-color:var(--purple)}
+.kw .front strong{font-family:var(--display);font-size:1.3rem;color:var(--purple)}
+.kw .back{background:var(--purple-bg);border-color:var(--purple)}
+@media (prefers-reduced-motion:reduce){.flip .fi{transition:none}}
+
+/* team cards */
+.team{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr))}
+.team .face{padding:0;overflow:hidden;justify-content:flex-start;border-color:var(--cc)}
+.team .front img{width:100%;height:auto;aspect-ratio:496/536;object-fit:cover;display:block}
+.team .front .tap{padding:8px 10px;text-align:center;color:var(--cc)}
+.team .back{background:var(--cc);color:#fff;padding:16px;justify-content:center;font-weight:700;font-size:1.02rem}
+.team .back h4{margin:0;font-family:var(--display);font-size:1.4rem}
+.nskills{display:flex;flex-wrap:wrap;gap:8px}
+.nskill{border:2px solid var(--orange);background:var(--paper);border-radius:12px;padding:6px 12px;font-weight:800;color:var(--navy);display:flex;flex-direction:column;align-items:flex-start;text-align:left;max-width:240px}
+.nskill small{font-weight:600;color:var(--orange);display:none}
+.nskill.on small{display:block}
+
+/* lesson map */
+.map{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr))}
+.map button{border:0;border-radius:16px;color:#fff;text-align:left;padding:14px;min-height:112px;display:flex;flex-direction:column;gap:2px;transition:transform .15s}
+.map button:hover{transform:translateY(-3px)}
+.map small{font-size:.7rem;letter-spacing:.07em;font-weight:800;opacity:.85}
+.map strong{font-family:var(--display);font-size:1.18rem;line-height:1.15}
+.map span{font-size:.85rem;opacity:.9}
+
+/* lists */
+.crit{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.crit li{position:relative;padding-left:38px;min-height:28px;padding-top:3px}
+.crit li::before{position:absolute;left:0;top:0}
+.crit li::before{content:"✓";width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:800}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:s}
+.steps li{position:relative;padding-left:44px;min-height:34px;padding-top:6px;counter-increment:s}
+.steps li::before{position:absolute;left:0;top:0}
+.steps li::before{content:counter(s);width:32px;height:32px;border-radius:50%;background:var(--sun);display:grid;place-items:center;font-weight:800}
+
+/* timer */
+.timer{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:2px solid var(--sun);border-radius:999px;padding:4px 6px 4px 4px}
+.timer .t{font-family:var(--display);font-weight:800;font-size:1.3rem;font-variant-numeric:tabular-nums;min-width:58px;text-align:center;color:var(--navy)}
+.timer.done{border-color:var(--red);background:var(--red);animation:shake .5s 3}
+.timer.done .t{color:#fff}
+.timer .rs{background:none;border:0;color:var(--muted);font-size:.8rem;font-weight:700;padding:4px 8px}
+.timer.done .rs{color:#fff}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+/* quizzes */
+.q{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:10px}
+.q .qt{font-weight:800}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{border:2px solid var(--line);background:var(--bg);border-radius:12px;padding:8px 14px;font-weight:700;text-align:left}
+.opt.ok{background:var(--green);border-color:var(--green);color:#fff}
+.opt.no{background:var(--red);border-color:var(--red);color:#fff}
+.opt.ok::before{content:"✓ "}.opt.no::before{content:"✗ "}
+.fb{font-size:.9rem;border-radius:10px;padding:8px 12px}
+.fb.ok{background:var(--green-bg);color:#11663a}
+.fb.no{background:var(--red-bg);color:#9b1c22}
+.score{font-family:var(--display);font-weight:800;font-size:1.25rem;color:var(--navy)}
+
+/* sort */
+.sorter{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.sitem{display:flex;align-items:center;justify-content:space-between;gap:10px;border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 12px;font-weight:700;text-align:left}
+.sitem .tag{border-radius:999px;padding:3px 12px;font-size:.82rem;font-weight:800;background:var(--bg);color:var(--muted);white-space:nowrap}
+.sitem[data-v="low"] .tag{background:var(--teal);color:#fff}
+.sitem[data-v="high"] .tag{background:var(--red);color:#fff}
+.bannerbtn{background:none;border:0;padding:0;display:block;width:100%;max-width:760px;cursor:pointer}.bannerbtn img{width:100%;height:auto;border-radius:14px;display:block;border:3px solid var(--sun);transition:transform .2s}.bannerbtn:hover img{transform:translateY(-3px)}
+.concert{display:grid;gap:8px}.concert .stadium{padding-top:14px}.stage{background:linear-gradient(90deg,#ffc21a,#ff8a1f);border-radius:10px;text-align:center;font-weight:800;padding:8px;color:#3a2a00;letter-spacing:.1em}
+.seat.saeed{outline:3px solid #ff3b3b;outline-offset:1px}
+.dbchip{border-radius:999px;padding:3px 10px;font-size:.8rem;font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
+.sitem[data-v="extinct"] .tag{background:#5b6385;color:#fff}.sitem[data-v="ENDANGERED"] .tag{background:var(--red);color:#fff}.sitem[data-v="threatened"] .tag{background:var(--orange);color:#fff}
+.sitem[data-v="LIGHT"] .tag{background:var(--green);color:#fff}.sitem[data-v="electron"] .tag{background:#1b2470;color:#fff}
+.sitem[data-v="living"] .tag{background:var(--green);color:#fff}.sitem[data-v="NONLIVING"] .tag{background:#5b6385;color:#fff}
+.rbig{font-size:2.6rem;text-align:center;padding:14px 0;background:#fff;border-radius:14px}
+.sitem[data-v="uses"] .tag{background:var(--orange);color:#fff}.sitem[data-v="MAKES"] .tag{background:var(--green);color:#fff}
+.sitem[data-v="GAS"] .tag{background:#9aa3b5;color:#fff}.sitem[data-v="LIQUID"] .tag{background:var(--sea);color:#fff}.sitem[data-v="SOLID"] .tag{background:var(--navy);color:#fff}
+.sitem[data-v="REFLECT"] .tag{background:var(--red);color:#fff}.sitem[data-v="ABSORB"] .tag{background:var(--teal);color:#fff}.sitem[data-v="TRANSMIT"] .tag{background:var(--navy);color:#fff}
+.sitem.right{border-color:var(--green);box-shadow:0 0 0 2px var(--green)}
+.sitem.wrong{border-color:var(--red);box-shadow:0 0 0 2px var(--red)}
+
+/* energy bars */
+.erow{display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px;align-items:center}
+.erow .amp{background:var(--navy);color:#fff;border-radius:999px;padding:6px 12px;font-weight:800;text-align:center;font-size:.9rem}
+.ebar{border:2px dashed var(--line);border-radius:999px;height:40px;background:var(--paper);display:flex;align-items:center;padding:0 4px;text-align:left;font-weight:700;color:var(--muted);font-size:.85rem;width:100%;position:relative;overflow:hidden}
+.ebar .fill{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#ff8c8f,var(--red));border-radius:999px;width:0;transition:width .8s cubic-bezier(.2,.9,.3,1.2)}
+.ebar .v{position:relative;padding-left:10px}
+.ebar.on{border-style:solid;border-color:var(--red)}
+.ebar.on .v{color:#fff;font-family:var(--display);font-size:1.25rem}
+.rule{background:var(--purple-bg);border-radius:14px;padding:18px;text-align:center;font-family:var(--display);font-size:3rem;font-weight:800;color:var(--navy);line-height:1}
+.rule sup{font-size:.55em}
+
+/* sims */
+.sim{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:12px;display:grid;gap:10px}
+.sim>*,.medium>*{min-width:0}
+.sim canvas{width:100%;display:block;border-radius:10px}
+.stadium{background:#141a3e;border-radius:12px;padding:40px 14px 14px;display:grid;gap:6px;grid-template-columns:repeat(16,minmax(0,1fr));overflow:hidden}
+.seat{height:clamp(14px,3vw,30px);border-radius:40% 40% 18% 18%;background:var(--c,#5b7cfa);transition:background .2s}
+.seat.saeed{outline:3px solid #ff3b3b;outline-offset:1px}
+.medium{display:grid;gap:8px;border:2px solid var(--line);border-radius:14px;padding:10px;background:var(--paper)}
+.medium h4{margin:0;font-family:var(--display);font-size:1.15rem}
+.medium canvas{width:100%;max-width:100%;height:120px;background:#f6f8fd}
+.medium .res{font-size:.85rem;min-height:2.6em}
+.legend{font-size:.82rem;color:var(--muted)}
+
+/* table */
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:420px;font-size:.92rem}
+th{background:var(--navy);color:#fff;text-align:left;padding:8px 10px}
+td{border-bottom:1px solid var(--line);padding:8px 10px;vertical-align:top}
+select,input[type=text],textarea{font:inherit;border:2px solid var(--line);border-radius:10px;padding:6px 10px;background:#fff;color:var(--ink);max-width:100%}
+textarea{width:100%;min-height:84px;resize:vertical}
+.okf{border-color:var(--green)!important;background:var(--green-bg)!important}
+.nof{border-color:var(--red)!important;background:var(--red-bg)!important}
+.fillrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.wordbank{background:var(--blue-bg);border-radius:10px;padding:8px 12px;font-weight:700;color:var(--blue)}
+
+/* order */
+.order{display:grid;gap:8px}
+.oitem{display:flex;align-items:center;gap:12px;border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 12px;font-weight:700;text-align:left}
+.oitem .n{width:34px;height:34px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-family:var(--display);font-weight:800;flex:none;color:var(--muted)}
+.oitem.set .n{background:var(--sun);color:var(--sun-ink)}
+.oitem.right{border-color:var(--green)}.oitem.wrong{border-color:var(--red)}
+.chain{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.chain div{border-radius:12px;padding:10px;color:#fff;font-weight:700;font-size:.9rem}
+.traffic{display:flex;flex-wrap:wrap;gap:8px}
+.traffic button{border:0;border-radius:999px;padding:8px 16px;font-weight:800;color:#fff}
+
+/* levels */
+.level{border-radius:16px;overflow:hidden;border:2px solid var(--lc);background:var(--paper);display:flex;flex-direction:column}
+.level h3{margin:0;background:var(--lc);color:#fff;padding:10px 14px;font-family:var(--display)}
+.level ol{margin:0;padding:12px 14px 12px 32px;display:grid;gap:8px}
+.level .ans{background:var(--lbg);margin:0 12px 12px;border-radius:10px;padding:10px 12px;font-size:.9rem}
+.level .btn{margin:0 12px 12px;align-self:flex-start}
+
+/* stars */
+.stars{display:flex;gap:4px}
+.stars button{background:none;border:0;padding:0;font-size:1.7rem;line-height:1;color:#c7cde0}
+.stars button.on{color:#f6b500}
+.vcard{border:2px solid var(--cc);border-radius:16px;background:var(--paper);padding:10px;text-align:center;display:grid;gap:6px;position:relative;justify-items:center}
+.vcard img{width:min(120px,100%);aspect-ratio:1;border-radius:50%;border:3px solid var(--cc);background:#f5efe4}
+.vcard .star{position:absolute;top:8px;right:10px;font-size:2rem;color:#c7cde0;transition:transform .3s}
+.vcard.on .star{color:#f6b500;transform:scale(1.25) rotate(15deg)}
+.vcard .prompt{font-style:italic;color:var(--cc);border:1px dashed var(--cc);border-radius:10px;padding:6px 8px;font-size:.88rem;width:100%}
+.goal{font-size:2rem;letter-spacing:4px;color:#c7cde0}
+.goal span.on{color:#f6b500}
+
+.end{background:linear-gradient(135deg,#1b2470 0%,#3a2fa3 60%,#6a2fb8 100%);color:#fff;min-height:100%}
+.end h1{font-family:var(--display);font-size:clamp(2.2rem,6vw,4rem);margin:0;line-height:1.05}
+.end .eyebrow{color:var(--sun);font-weight:800;letter-spacing:.06em}
+.end .promise{background:#fff;color:var(--ink);border-radius:14px;padding:12px 16px}
+.end .promise b{color:var(--red)}
+.end .nsk{background:#fff;color:var(--navy);border-radius:999px;padding:6px 14px;font-weight:800}
+
+.note{background:var(--orange-bg);border-radius:12px;padding:10px 14px;font-size:.92rem}
+.note b{color:var(--orange)}
+.good{background:var(--green-bg);border-radius:12px;padding:10px 14px}
+.hl{color:var(--red);font-weight:800}
+video{width:100%;border-radius:14px;background:#000;display:block}
+
+/* party confetti + red wrong-answer feedback */
+.shake{animation:shk .45s}
+@keyframes shk{0%,100%{transform:translateX(0)}20%{transform:translateX(-9px)}40%{transform:translateX(9px)}60%{transform:translateX(-6px)}80%{transform:translateX(5px)}}
+#redFlash{position:fixed;inset:0;pointer-events:none;z-index:9998;box-shadow:inset 0 0 0 12px rgba(229,72,77,.92),inset 0 0 120px rgba(229,72,77,.55);opacity:0;transition:opacity .6s}
+#redFlash.on{opacity:1;transition:none}
+#fxCanvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999}
+.fbadge{position:fixed;z-index:10000;pointer-events:none;transform:translate(-50%,-50%);padding:10px 20px;border-radius:999px;font-weight:800;font-size:1.2rem;color:#fff;white-space:nowrap;box-shadow:0 10px 26px rgba(0,0,0,.22);animation:fbadge 1.4s ease-out forwards}
+.fbadge.good{background:#1fa75a}.fbadge.bad{background:#e5484d}
+@keyframes fbadge{0%{opacity:0;transform:translate(-50%,-30%) scale(.6)}15%{opacity:1;transform:translate(-50%,-70%) scale(1.12)}70%{opacity:1}100%{opacity:0;transform:translate(-50%,-170%) scale(1)}}
+.sitem.wrong,.oitem.wrong{background:var(--red-bg)!important}
+.sitem.right,.oitem.right{background:var(--green-bg)!important}
+</style>
+</head>
+<body>
+
+<div id="app">
+  <header class="topbar">
+    <a class="iconbtn" href="../" title="All lessons" aria-label="All lessons" style="text-decoration:none">◀</a>
+    <span class="crumb">Cell Discovery and Theory</span>
+    <span class="unit">Unit 2: The Cell · Module 7: Cellular Structure and Function</span>
+    <span class="date" id="today">Today</span>
+    <button class="iconbtn" data-go="3" title="Lesson map" aria-label="Lesson map"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 2 11.5h3V21h5.5v-6h3v6H19v-9.5h3z"/></svg></button>
+  </header>
+  <main id="main">
+
+<!-- 1 · TITLE -->
+<section class="slide hero" id="s1" data-title="Cell Discovery and Theory" data-bare>
+  <div class="inner">
+    <div class="eyebrow">GRADE 9 ADVANCED · BIOLOGY · TERM 1 · WEEK 6</div>
+    <div><h1>Cell Discovery and Theory</h1><p class="sub">The cell theory and the types of microscopes</p></div>
+    <div style="opacity:.85">Unit 2: The Cell · Module 7: Cellular Structure and Function</div>
+    <div class="teacher">Teacher: <b>Nilasha Sempon</b> · Science &amp; Biology</div>
+    <div>
+      <div class="eyebrow" style="margin-bottom:8px">YOUR VALUES TEAM TODAY · tap to meet them</div>
+      <button class="bannerbtn" data-go="2"><img src="img/banner.webp" alt="Shahin (Leadership), Fahim (Knowledge), Maha (Respect), Ahmed (Responsibility) and Hessa (Tolerance) with the UAE national skills"></button>
+    </div>
+    <div class="mystery"><b>Today's mystery:</b> A tiny drop of blood in a UAE hospital lab holds thousands of cells. For most of history nobody knew cells existed. What tool changed that, and how do we see things even smaller, like viruses?</div>
+    <div class="row" style="padding-bottom:110px">
+      <button class="btn" data-go="2">▶ Let's go!</button>
+      <button class="btn ghost" data-go="3">Lesson map</button>
+      <span style="opacity:.8;font-size:.9rem">45-minute interactive lesson</span>
+    </div>
+  </div>
+  <canvas class="waves" id="heroWaves"></canvas>
+</section>
+
+<!-- 2 · MEET TEAM -->
+<section class="slide" id="s2" data-title="Meet your UAE Values Team" data-skills="teamwork">
+  <div class="inner">
+    <div class="head"><h2>Meet your UAE Values Team</h2><button class="btn" data-confetti>★ We're ready!</button></div>
+    <p class="lead">Five friends will coach you through today's cell mission. <b>Tap a character to discover their job today!</b></p>
+    <div class="team">
+      <button class="flip" style="--cc:var(--c-shahin)"><div class="fi"><div class="face front"><img src="img/fig-shahin.webp" alt="Shahin – Leadership"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Shahin</h4>Lead your pair in the microscope lab and keep everyone on task.</div></div></button>
+      <button class="flip" style="--cc:var(--c-fahim)"><div class="fi"><div class="face front"><img src="img/fig-fahim.webp" alt="Fahim – Knowledge"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Fahim</h4>Collect today's key words: cell theory, magnification, resolution, TEM, SEM.</div></div></button>
+      <button class="flip" style="--cc:var(--c-maha)"><div class="fi"><div class="face front"><img src="img/fig-maha.webp" alt="Maha – Respect"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Maha</h4>Respect the scientists before us and handle the microscopes with care.</div></div></button>
+      <button class="flip" style="--cc:var(--c-ahmed)"><div class="fi"><div class="face front"><img src="img/fig-ahmed.webp" alt="Ahmed – Responsibility"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Ahmed</h4>Calculate every total magnification carefully and record it.</div></div></button>
+      <button class="flip" style="--cc:var(--c-hessa)"><div class="fi"><div class="face front"><img src="img/fig-hessa.webp" alt="Hessa – Tolerance"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Hessa</h4>Every answer is welcome here. Mistakes help us learn!</div></div></button>
+    </div>
+    <div class="stack">
+      <div class="label" style="color:var(--navy)">UAE national skills you will use today · tap a skill to see where</div>
+      <div class="nskills">
+        <button class="nskill">🇦🇪 National Identity<small>Hospital labs that care for UAE families</small></button>
+        <button class="nskill">🌿 Sustainability<small>Looking after lab equipment and resources</small></button>
+        <button class="nskill">🤝 Cooperation<small>Pairs in the microscope lab</small></button>
+        <button class="nskill">💡 Innovation<small>Electron microscopes in UAE research</small></button>
+        <button class="nskill">⭐ Excellence<small>Become today's Cell Master!</small></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · LESSON MAP -->
+<section class="slide" id="s3" data-title="Lesson map">
+  <div class="inner">
+    <div class="head"><h2>Lesson map · 45 minutes · tap any activity</h2></div>
+    <div class="map">
+      <button style="background:#1593c9" data-go="5"><small>STARTER · min 0–5</small><strong>Starter + Attendance</strong><span>LMS task &amp; pre-assessment</span></button>
+      <button style="background:#d23b8a" data-go="4"><small>OBJECTIVES</small><strong>Objectives &amp; vocabulary</strong><span>Flip the key words</span></button>
+      <button style="background:#ef5a5a" data-go="7"><small>HOOK · min 5–9</small><strong>The invisible visitors</strong><span>UAE hook + narrated video</span></button>
+      <button style="background:#f07f19" data-go="9"><small>ACTIVITY · min 9–12</small><strong>Light or electron?</strong><span>Sort the microscope features</span></button>
+      <button style="background:#7a3ff0" data-go="10"><small>EXPLAIN · min 12–15</small><strong>Who discovered what?</strong><span>The unconventional version + textbook</span></button>
+      <button style="background:#b0287a" data-go="14"><small>SIMULATION · min 15–18</small><strong>Virtual microscope</strong><span>Magnification &amp; resolution</span></button>
+      <button style="background:#118a7e" data-go="15"><small>SIMULATION · min 18–21</small><strong>Light, TEM or SEM?</strong><span>Can you see a virus?</span></button>
+      <button style="background:#2563eb" data-go="16"><small>EXPLORE · min 21–24</small><strong>Microscopes in the UAE</strong><span>Choose the right microscope</span></button>
+      <button style="background:#1fa75a" data-go="17"><small>LAB · min 24–29</small><strong>Onion cell lab</strong><span>Total magnification</span></button>
+      <button style="background:#e5484d" data-go="18"><small>FORMATIVE · min 29–33</small><strong>Pause &amp; check</strong><span>Formative quiz + timeline</span></button>
+      <button style="background:#5b3fd0" data-go="20"><small>WORKSHEET · min 33–41</small><strong>Worksheet + levels</strong><span>Foundation / Secure / Advanced</span></button>
+      <button style="background:#c81e3a" data-go="23"><small>SUMMATIVE · min 41–45</small><strong>Cell Master + exit</strong><span>Summative quiz &amp; mystery solved</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · OBJECTIVES -->
+<section class="slide" id="s4" data-title="Objectives, success criteria & key words" data-skills="reading" data-coach="fahim" data-ns="Excellence" data-says="Flip every key-word card and say the meaning out loud. Knowledge grows when you use it!">
+  <div class="inner">
+    <div class="head"><h2>Objectives, success criteria &amp; key words</h2></div>
+    <div class="cols split-r">
+      <div class="stack">
+        <div class="card"><div class="label">Learning objective</div><p style="margin:6px 0 0;font-weight:700">Explain the cell theory and compare the types of microscopes.</p></div>
+        <div class="card"><div class="label" style="color:var(--green)">Success criteria</div>
+          <ul class="crit" style="margin-top:10px">
+            <li><b>Foundation:</b> I can state the three ideas of the cell theory and name the scientists who discovered cells.</li>
+            <li><b>Secure:</b> I can compare light and electron microscopes (TEM and SEM) and calculate total magnification.</li>
+            <li><b>Advanced:</b> I can explain how better microscopes led to the cell theory and why resolution matters.</li>
+          </ul></div>
+      </div>
+      <div class="stack">
+        <div class="label" style="color:var(--purple)">Key words · tap a card to flip it</div>
+        <div class="grid g2" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr))">
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Cell</strong><span class="tap">tap to flip</span></div><div class="face back">The basic structural and functional unit of all living things.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Cell theory</strong><span class="tap">tap to flip</span></div><div class="face back">All living things are made of cells; the cell is the basic unit of life; cells come from pre-existing cells.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Microscope</strong><span class="tap">tap to flip</span></div><div class="face back">An instrument that magnifies things too small to see with the eye.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Compound light microscope</strong><span class="tap">tap to flip</span></div><div class="face back">Uses glass lenses and visible light; magnifies up to about 1000×.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Electron microscope</strong><span class="tap">tap to flip</span></div><div class="face back">Uses a beam of electrons; magnifies up to about 500,000×.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Magnification</strong><span class="tap">tap to flip</span></div><div class="face back">How large an image appears compared with its actual size.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Resolution</strong><span class="tap">tap to flip</span></div><div class="face back">The clarity and detail of an image.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>TEM and SEM</strong><span class="tap">tap to flip</span></div><div class="face back">Transmission (2D, inside) and scanning (3D, surface) electron microscopes.</div></div></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · STARTER -->
+<section class="slide" id="s5" data-title="Starter + attendance" data-skills="discipline,integrity" data-coach="ahmed" data-ns="National Identity" data-says="Be ready before the timer ends: device on the LMS, pen out. Responsible learners make the UAE proud.">
+  <div class="inner">
+    <div class="head"><h2>Starter + attendance on the LMS</h2><div class="timer" data-sec="420"></div></div>
+    <div class="cols split-r">
+      <img class="fig" src="img/kickoff.webp" alt="Kickoff Activity" style="max-width:420px">
+      <div class="card stack"><div class="label" style="color:var(--navy)">Task · 7 minutes</div>
+        <ol class="steps">
+          <li>Mark your attendance on the LMS and settle in your seat.</li>
+          <li>Complete the starter worksheets: <a href="https://www.liveworksheets.com/w/en/science/586309" target="_blank" rel="noopener">Cell theory starter</a> and <a href="https://www.liveworksheets.com/w/en/biology/1433435" target="_blank" rel="noopener">Light and electron microscope activity</a>.</li>
+          <li>Then answer the true/false questions on the next slide on your own.</li>
+        </ol>
+        <button class="btn small" data-go="6" style="justify-self:start">Go to the true/false questions ▸</button>
+      </div>
+    </div>
+    <div class="note"><b>Think about it:</b> a magnifying glass can make a word bigger. Why can't it show us the cells in our skin?</div>
+  </div>
+</section>
+
+<!-- 6 · PRE-ASSESSMENT -->
+<section class="slide" id="s6" data-title="Pre-assessment: what do you know?" data-skills="critical">
+  <div class="inner">
+    <div class="head"><h2>Pre-assessment: what do you already know?</h2><div class="timer" data-sec="180"></div></div>
+    <div class="stack" id="tf">
+      <div class="q" data-a="T"><div class="qt">1. All living things are made of cells.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="This is the first idea of the cell theory."></div></div>
+      <div class="q" data-a="F"><div class="qt">2. A magnifying glass can show human body cells.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Cells are too small; we need a microscope."></div></div>
+      <div class="q" data-a="F"><div class="qt">3. Robert Hooke was the first to see bacteria.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Hooke named cells in cork; Leeuwenhoek first saw bacteria."></div></div>
+      <div class="q" data-a="T"><div class="qt">4. Electron microscopes can magnify much more than light microscopes.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Up to about 500,000× compared with about 1000×."></div></div>
+      <div class="q" data-a="F"><div class="qt">5. New cells can appear from non-living matter.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="All cells come only from pre-existing cells."></div></div>
+      <div class="score" id="tfScore">Score: 0 / 5</div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · HOOK -->
+<section class="slide" id="s7" data-title="Hook: the invisible visitors" data-skills="critical,loyalty" data-coach="shahin" data-ns="National Identity" data-says="Lead your pair: one predicts, one explains. Our UAE hospitals depend on this science every day!">
+  <div class="inner">
+    <div class="head"><h2>Hook: the invisible visitors</h2></div>
+    <div class="cols split">
+      <img class="fig" src="img/hook.webp" alt="Cells seen up close">
+      <div class="card stack">
+        <h3 style="margin:0;color:var(--orange);font-family:var(--display)">In a hospital lab in the UAE…</h3>
+        <p style="margin:0">Dr. Shamma takes a tiny drop of blood from a patient. To our eyes it is just red liquid, but it holds <b>thousands of cells</b>, and maybe the bacteria making the patient ill.</p>
+        <p style="margin:0"><b style="color:var(--purple)">The mystery:</b> for most of history nobody knew cells existed. What tool changed that, and how do scientists see things even smaller than bacteria, like viruses?</p>
+        <div class="row"><button class="btn" data-show="tps">Think · Pair · Share</button><button class="btn red" data-show="clue">Reveal the thinking prompts</button></div>
+        <div id="tps" hidden class="good stack"><b>Talk with your partner for 1 minute.</b> <div class="timer" data-sec="60"></div></div>
+        <div id="clue" hidden class="stack"><div class="fb no">1. Who might have first seen cells?<br>2. Why can't a magnifying glass show cells?<br>3. What could we use instead of light to see tiny things?</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · VIDEO (her narrated video, unchanged) -->
+<section class="slide" id="s8" data-title="Video: cells, cell theory & microscopes" data-skills="critical,communication">
+  <div class="inner">
+    <div class="head"><h2>Video: cells, cell theory &amp; microscopes (2 min 44 s, subtitles)</h2></div>
+    <div class="cols split">
+      <video controls preload="metadata" playsinline poster="img/video-poster.webp"><source src="media/cell-discovery.mp4" type="video/mp4"><source src="media/cell-discovery.webm" type="video/webm">Your browser cannot play this video.</video>
+      <div class="card stack"><div class="label" style="color:var(--blue)">Watch for</div>
+        <div><b>Q1. Which scientists discovered cells?</b><div class="fb ok vans" hidden>✓ Hooke named cells; Leeuwenhoek saw bacteria; Schleiden and Schwann; Virchow.</div></div>
+        <div><b>Q2. What are the three ideas of the cell theory?</b><div class="fb ok vans" hidden>✓ All living things are made of cells; the cell is the basic unit; cells come from pre-existing cells.</div></div>
+        <div><b>Q3. Light vs electron microscopes: one difference?</b><div class="fb ok vans" hidden>✓ Light uses lenses and light (~1000×); electron uses electrons (up to 500,000×).</div></div>
+        <div><b>Q4. Why are microscopes important?</b><div class="fb ok vans" hidden>✓ They let us see cells, bacteria and viruses, to understand life and fight disease.</div></div>
+        <button class="btn" id="vidAns" style="justify-self:start">Show answers</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · SORT -->
+<section class="slide" id="s9" data-title="Activity 1: light or electron microscope?" data-skills="numeracy,teamwork" data-coach="hessa" data-ns="Cooperation" data-says="Sorted it differently from your partner? Listen first, then compare. Different ideas help us learn.">
+  <div class="inner">
+    <div class="head"><h2>Activity 1: light or electron microscope?</h2><div class="timer" data-sec="240"></div></div>
+    <p class="lead">Does each feature belong to a compound <b>LIGHT</b> microscope or an <b>electron</b> microscope? <b>Tap to choose</b>, then check.</p>
+    <div class="cols split-r">
+      <img class="fig" src="img/lvse.webp" alt="Light microscope vs electron microscope">
+      <div class="stack">
+        <div class="sorter" id="sorter" data-labels="LIGHT|electron">
+          <button class="sitem" data-ans="LIGHT">Glass lenses<span class="tag">?</span></button>
+          <button class="sitem" data-ans="electron">Beam of electrons<span class="tag">?</span></button>
+          <button class="sitem" data-ans="LIGHT">Can show living specimens<span class="tag">?</span></button>
+          <button class="sitem" data-ans="electron">Up to 500,000×<span class="tag">?</span></button>
+          <button class="sitem" data-ans="LIGHT">Up to about 1000×<span class="tag">?</span></button>
+          <button class="sitem" data-ans="electron">3D surface image (SEM)<span class="tag">?</span></button>
+          <button class="sitem" data-ans="electron">Specimen must be dead<span class="tag">?</span></button>
+          <button class="sitem" data-ans="LIGHT">Uses visible light<span class="tag">?</span></button>
+        </div>
+        <div class="row"><button class="btn navy" id="sortCheck">Check my sort</button><span class="score" id="sortScore"></span></div>
+        <div class="note" id="sortWhy" hidden><b>Why?</b> <b>Light</b> microscopes use glass lenses and visible light, magnify up to about 1000× and can show living cells. <b>Electron</b> microscopes use a beam of electrons, magnify up to 500,000×, need dead specimens, and the SEM gives 3D surface images.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · WHO DISCOVERED WHAT -->
+<section class="slide" id="s10" data-title="Activity 2: who discovered what?" data-skills="teamwork,critical" data-coach="fahim" data-ns="Innovation" data-says="Every scientist built on the work of others. That is how innovation grows!">
+  <div class="inner">
+    <div class="head"><h2>Activity 2: who discovered what? (the unconventional version)</h2></div>
+    <div class="grid g2">
+      <div class="card" style="background:var(--orange-bg);border-color:#ffd2a6"><div class="label" style="color:var(--orange)">Think of it like this</div><p style="margin:6px 0 0">Living things are like <b style="color:var(--purple)">LEGO models</b>: every model is built from bricks (idea 1), and the brick is the smallest building unit (idea 2). But cells are special: a new cell can only come from a cell that already exists, just like <b>every person has parents</b> (idea 3).</p></div>
+      <div class="card" style="background:var(--blue-bg);border-color:#c7d7fb"><div class="label" style="color:var(--blue)">Textbook definition</div><p style="margin:6px 0 0">The <b class="hl">cell theory</b>: all living organisms are made of one or more cells; the cell is the basic unit of structure and organization; all cells come only from pre-existing cells.</p></div>
+    </div>
+    <div class="label" style="color:var(--navy)">Think · Pair · Share: what did each scientist discover? Tap to check!</div>
+    <div class="grid g3">
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--orange)"><strong style="color:var(--orange)">🔬 Robert Hooke</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--orange-bg);border-color:var(--orange)">1665 · saw and named “cells” (cellulae, small rooms) in cork.</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--red)"><strong style="color:var(--red)">🦠 Anton van Leeuwenhoek</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--red-bg);border-color:var(--red)">Built his own microscopes; first to see bacteria and protists.</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--green)"><strong style="color:var(--green)">🌿 Matthias Schleiden</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--green-bg);border-color:var(--green)">1838 · plants are made of cells.</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--blue)"><strong style="color:var(--blue)">🐾 Theodor Schwann</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--blue-bg);border-color:var(--blue)">1839 · animals are made of cells.</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--purple)"><strong style="color:var(--purple)">🧬 Rudolf Virchow</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--purple-bg);border-color:var(--purple)">All cells come from pre-existing cells.</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--sea)"><strong style="color:var(--sea)">🪰 Apply it!</strong><span class="tap">tap to check</span></div><div class="face back" style="background:#e0f5f2;border-color:var(--sea)">A friend says rotting garbage turns into flies. Reject it: all cells come from pre-existing cells, so flies come only from other flies.</div></div></button>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · TB SCIENTISTS -->
+<section class="slide" id="s11" data-title="Textbook: the scientists who discovered cells" data-skills="reading" data-coach="maha" data-ns="Cooperation" data-says="Respect the scientists before us: their curiosity gave us today's knowledge.">
+  <div class="inner">
+    <div class="head"><h2>Textbook: the scientists who discovered cells</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your lesson</div><img class="fig" src="img/hooke.webp" alt="Robert Hooke and his drawing of cork cells">
+        <div class="row" style="gap:10px;justify-content:center"><img src="img/leeuw.webp" alt="Anton van Leeuwenhoek" style="height:120px;border-radius:10px"><img src="img/schleiden.webp" alt="Matthias Schleiden" style="height:120px;border-radius:10px"><img src="img/schwann.webp" alt="Theodor Schwann" style="height:120px;border-radius:10px"><img src="img/virchow.webp" alt="Rudolf Virchow" style="height:120px;border-radius:10px"></div></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 What did Hooke see in cork, and what did he call it?</div><button class="btn small ghost" data-show="t11a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t11a" hidden>✓ Small regular boxes, which he called cellulae (small rooms).</div></div>
+        <div class="q"><div class="qt">Q2 Why was Leeuwenhoek important?</div><button class="btn small ghost" data-show="t11b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t11b" hidden>✓ He designed his own microscope and was the first to see bacteria and protists.</div></div>
+        <div class="q"><div class="qt">Q3 What did Schleiden, Schwann and Virchow add?</div><button class="btn small ghost" data-show="t11c" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t11c" hidden>✓ Plants and animals are made of cells (1839), and all cells come from pre-existing cells (Virchow).</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 · TB CELL THEORY -->
+<section class="slide" id="s12" data-title="The cell theory: three big ideas" data-skills="critical" data-coach="ahmed" data-ns="Excellence" data-says="Write the three ideas in your notebook. Responsible learners write it down!">
+  <div class="inner">
+    <div class="head"><h2>The cell theory: three big ideas</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your lesson</div><img class="fig" src="img/celltheory.webp" alt="Cell theory"><div class="note"><b>Back to the hook:</b> every blood cell in the sample came from another cell: idea 3 of the cell theory.</div></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Tap each idea to reveal it</div>
+        <div class="q"><div class="qt">IDEA 1</div><button class="btn small ghost" data-show="t12a" style="justify-self:start">Reveal ▸</button><div class="fb ok" id="t12a" hidden>All living organisms are made of one or more cells (Schleiden and Schwann, 1839).</div></div>
+        <div class="q"><div class="qt">IDEA 2</div><button class="btn small ghost" data-show="t12b" style="justify-self:start">Reveal ▸</button><div class="fb ok" id="t12b" hidden>The cell is the basic unit of structure and organization of all living things.</div></div>
+        <div class="q"><div class="qt">IDEA 3</div><button class="btn small ghost" data-show="t12c" style="justify-self:start">Reveal ▸</button><div class="fb ok" id="t12c" hidden>All cells come only from pre-existing cells (Virchow), passing on copies of their genetic material.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 · MICROSCOPE TECHNOLOGY + VIDEO 2 -->
+<section class="slide" id="s13" data-title="Microscope technology" data-skills="reading,critical" data-coach="hessa" data-ns="Sustainability" data-says="Microscopes are precious lab resources. Handle them gently so they last for future students!">
+  <div class="inner">
+    <div class="head"><h2>Microscope technology: light, TEM and SEM</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">Watch: microscopes and their types</div>
+        <video controls preload="metadata" playsinline poster="img/video-poster2.webp"><source src="media/microscopes.mp4" type="video/mp4"><source src="media/microscopes.webm" type="video/webm">Your browser cannot play this video.</video></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 How does a compound light microscope work, and how far can it magnify?</div><button class="btn small ghost" data-show="t13a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13a" hidden>✓ A series of glass lenses and visible light; up to about 1000× actual size.</div></div>
+        <div class="q"><div class="qt">Q2 What does a TEM need, and what image does it make?</div><button class="btn small ghost" data-show="t13b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13b" hidden>✓ Electrons pass through a dead, very thin specimen stained with heavy metals; a 2D black-and-white image, up to 500,000×.</div></div>
+        <div class="q"><div class="qt">Q3 What is the SEM used for?</div><button class="btn small ghost" data-show="t13c" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13c" hidden>✓ To study the surface of a specimen; it gives a 3D black-and-white image; the specimen must be dead.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 · VIRTUAL MICROSCOPE -->
+<section class="slide" id="s14" data-title="Simulation: virtual microscope" data-skills="numeracy" data-coach="shahin" data-ns="Innovation" data-says="Leaders check the numbers! Calculate the total magnification before you switch lenses.">
+  <div class="inner">
+    <div class="head"><h2>Simulation: virtual microscope</h2></div>
+    <div class="cols split-r">
+      <div class="sim">
+        <canvas id="scope" height="300"></canvas>
+        <div class="row"><b>Objective lens:</b><button class="btn small" data-obj="4">4×</button><button class="btn small" data-obj="10" style="background:var(--orange);color:#fff">10×</button><button class="btn small red" data-obj="40">40×</button><span class="legend">Eyepiece: 10×</span></div>
+        <div class="row"><label class="legend" style="flex:1">🔎 Focus (resolution) <input type="range" id="sFocus" min="0" max="10" value="4" style="width:55%"></label></div>
+        <div class="legend" id="scopeRead">Choose an objective lens, then turn the focus to make the onion cells sharp.</div>
+      </div>
+      <div class="grid" style="gap:10px">
+        <button class="flip kw"><div class="fi"><div class="face front"><strong>10× eyepiece and 40× objective?</strong><span class="tap">tap to reveal</span></div><div class="face back">Total magnification = 10 × 40 = 400×.</div></div></button>
+        <button class="flip kw"><div class="fi"><div class="face front"><strong>Magnification vs resolution?</strong><span class="tap">tap to reveal</span></div><div class="face back">Magnification makes the image bigger; resolution makes it clear and detailed. A blurry image at 400× is not useful!</div></div></button>
+        <button class="flip kw"><div class="fi"><div class="face front"><strong>Three lenses: 5×, 5× and 7×?</strong><span class="tap">tap to reveal</span></div><div class="face back">Multiply them: 5 × 5 × 7 = 175×.</div></div></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 · LIGHT / TEM / SEM VIEWER -->
+<section class="slide" id="s15" data-title="Simulation: light, TEM or SEM?" data-skills="critical" data-coach="maha" data-ns="National Identity" data-says="UAE scientists use these tools to protect our health. Respect science, it keeps us safe!">
+  <div class="inner">
+    <div class="head"><h2>Simulation: light, TEM or SEM?</h2></div>
+    <div class="cols split-r">
+      <div class="stack">
+        <div class="card" style="background:#fff8db;border-color:#f3e2a0"><p style="margin:0">Choose a <b>microscope</b> and a <b>specimen</b>. Can you see it? Is the image 2D or 3D? Can the specimen be alive?</p></div>
+        <div class="card stack"><b>Predict, then tap to check</b>
+          <button class="btn small ghost" data-show="w1" style="justify-self:start">▶ Which microscope can show a virus?</button><div class="fb ok" id="w1" hidden>Only electron microscopes: viruses are too small for light to resolve.</div>
+          <button class="btn small ghost" data-show="w2" style="justify-self:start">▶ Which one can watch LIVING cells?</button><div class="fb ok" id="w2" hidden>The compound light microscope. Electron microscopes need dead specimens.</div></div>
+      </div>
+      <div class="sim"><b>Virtual viewer</b>
+        <canvas id="em" height="250"></canvas>
+        <div class="row"><button class="btn small" data-mic="light" style="background:var(--green);color:#fff">💡 Light</button><button class="btn small navy" data-mic="tem">⚡ TEM</button><button class="btn small" data-mic="sem" style="background:var(--purple);color:#fff">⚡ SEM</button></div>
+        <div class="row"><button class="btn small ghost" data-spec="cheek">Cheek cell</button><button class="btn small ghost" data-spec="bacteria">Bacteria</button><button class="btn small ghost" data-spec="virus">Virus</button><button class="btn small ghost" data-spec="pollen">Pollen surface</button></div>
+        <div class="score" id="emRead"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 16 · MICROSCOPES IN THE UAE -->
+<section class="slide" id="s16" data-title="Microscopes in the UAE" data-skills="critical,loyalty" data-coach="fahim" data-ns="Innovation" data-says="UAE hospitals and universities use microscopes every day. Science protects our nation!">
+  <div class="inner">
+    <div class="head"><h2>Microscopes in the UAE: choose the right one</h2></div>
+    <p class="lead">Which microscope would you choose for each job? <b>Decide with your partner, then tap Reveal.</b></p>
+    <div class="grid g4">
+      <div class="medium"><h4 style="color:var(--red)">🩸 Hatta hospital</h4><div class="rbig">🩸🔬</div><div class="row" style="justify-content:space-between"><span class="legend">count blood cells</span><button class="btn small" data-show="d1">Reveal</button></div><div class="fb ok" id="d1" hidden>Compound light microscope: blood cells are big enough, and it is fast and cheap.</div></div>
+      <div class="medium"><h4 style="color:var(--purple)">🦠 Virus research lab</h4><div class="rbig">🦠⚡</div><div class="row" style="justify-content:space-between"><span class="legend">see a virus inside</span><button class="btn small" data-show="d2">Reveal</button></div><div class="fb ok" id="d2" hidden>TEM: viruses are too small for light; the TEM shows inside structures up to 500,000×.</div></div>
+      <div class="medium"><h4 style="color:var(--orange)">🏜️ Liwa sand grain</h4><div class="rbig">🏜️⚡</div><div class="row" style="justify-content:space-between"><span class="legend">study its surface</span><button class="btn small" data-show="d3">Reveal</button></div><div class="fb ok" id="d3" hidden>SEM: it gives a detailed 3D image of a surface.</div></div>
+      <div class="medium"><h4 style="color:var(--green)">💧 Hatta Dam water</h4><div class="rbig">💧🔬</div><div class="row" style="justify-content:space-between"><span class="legend">watch living protists</span><button class="btn small" data-show="d4">Reveal</button></div><div class="fb ok" id="d4" hidden>Compound light microscope: it is the only one that can show living specimens moving.</div></div>
+    </div>
+    <div class="row"><button class="btn navy" data-show="space">🇦🇪 UAE innovation link</button></div>
+    <div class="card" id="space" hidden><b style="color:var(--red)">UAE innovation link:</b> UAE universities and hospital laboratories use light and electron microscopes to study cells, materials and diseases, helping keep our communities healthy.</div>
+  </div>
+</section>
+
+<!-- 17 · LAB -->
+<section class="slide" id="s17" data-title="Lab: onion cells and total magnification" data-skills="numeracy,teamwork" data-coach="ahmed" data-ns="Cooperation" data-says="One handles the slide, one records. Carry the microscope with two hands, responsibly!">
+  <div class="inner">
+    <div class="head"><h2>Lab: onion cells and total magnification</h2><div class="timer" data-sec="300"></div></div>
+    <div class="cols split">
+      <div class="stack">
+        <div class="good"><b>You need:</b> a compound light microscope · a prepared onion cell slide · a pencil</div>
+        <ol style="margin:0;padding-left:20px;display:grid;gap:4px">
+          <li>Place the slide on the stage. Start with the <b>4×</b> objective.</li>
+          <li>Focus with the coarse knob, then the fine knob.</li>
+          <li>Switch to <b>10×</b>, then <b>40×</b>, using only the fine focus.</li>
+          <li>Calculate the total magnification (eyepiece × objective) and count the cells you can see.</li>
+        </ol>
+        <div class="tablewrap"><table>
+          <thead><tr><th>Objective</th><th>Total magnification</th><th>About how many cells?</th></tr></thead>
+          <tbody>
+            <tr><td><b>4×</b></td><td><input type="text" id="lab1" placeholder="10 × 4 ="><div class="exp" hidden>40×</div></td><td><input type="text" id="lab2" placeholder="count"><div class="exp" hidden>many (about 40), small</div></td></tr>
+            <tr><td><b>10×</b></td><td><input type="text" id="lab3" placeholder="10 × 10 ="><div class="exp" hidden>100×</div></td><td><input type="text" id="lab4" placeholder="count"><div class="exp" hidden>fewer (about 12), bigger</div></td></tr>
+            <tr><td><b>40×</b></td><td><input type="text" id="lab5" placeholder="10 × 40 ="><div class="exp" hidden>400×</div></td><td><input type="text" id="lab6" placeholder="count"><div class="exp" hidden>very few (about 2), very big</div></td></tr>
+          </tbody></table></div>
+        <div class="row"><button class="btn" id="labExp">Expected results</button></div>
+        <div class="fb no"><b>Safety:</b> carry the microscope with two hands. Never use the coarse focus at 40×; it can break the slide.</div>
+      </div>
+      <div class="sim"><b>Virtual field of view</b>
+        <canvas id="fov" height="300"></canvas>
+        <div class="row" style="justify-content:space-between"><span class="row"><button class="btn small" data-fov="4">4×</button><button class="btn small" data-fov="10" style="background:var(--orange);color:#fff">10×</button><button class="btn small red" data-fov="40">40×</button></span><span class="score" id="fovRead"></span></div>
+        <button class="btn navy small" data-show="labQ" style="justify-self:start">▶ What should you notice?</button>
+        <div class="good" id="labQ" hidden>Higher magnification makes each cell <b>bigger</b>, but you see <b>fewer</b> cells. Total magnification = eyepiece × objective: <b style="color:var(--purple)">40×, 100×, 400×</b>.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 18 · PAUSE & CHECK -->
+<section class="slide" id="s18" data-title="Formative check" data-skills="integrity" data-coach="hessa" data-ns="Excellence" data-says="Wrong answer? Read the hint and try again. Excellence means never giving up.">
+  <div class="inner">
+    <div class="head"><h2>Formative check</h2><div class="timer" data-sec="120"></div></div>
+    <p class="lead">Tap an answer. <b>Wrong? Read the hint and try again!</b></p>
+    <div class="grid g2 mcqset" data-mode="retry">
+      <div class="q"><div class="qt">1. Who first described “cells” in cork?</div><div class="opts"><button class="opt">A. Leeuwenhoek</button><button class="opt" data-ok>B. Robert Hooke</button><button class="opt">C. Virchow</button><button class="opt">D. Schwann</button></div><div class="fb no" hidden>Hint: he called them “small rooms”.</div></div>
+      <div class="q"><div class="qt">2. Who found that cells come from pre-existing cells?</div><div class="opts"><button class="opt">A. Schleiden</button><button class="opt">B. Robert Hooke</button><button class="opt" data-ok>C. Rudolf Virchow</button><button class="opt">D. Leeuwenhoek</button></div><div class="fb no" hidden>Hint: a German scientist, idea 3.</div></div>
+      <div class="q"><div class="qt">3. Which can magnify up to about 500,000×?</div><div class="opts"><button class="opt">A. magnifying glass</button><button class="opt">B. compound light</button><button class="opt">C. hand lens</button><button class="opt" data-ok>D. electron microscope</button></div><div class="fb no" hidden>Hint: it uses electrons, not light.</div></div>
+      <div class="q"><div class="qt">4. A 10× lens and another 10× lens give a total magnification of…</div><div class="opts"><button class="opt">A. 20×</button><button class="opt" data-ok>B. 100×</button><button class="opt">C. 10×</button><button class="opt">D. 1000×</button></div><div class="fb no" hidden>Hint: multiply, don't add.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 19 · ORDER -->
+<section class="slide" id="s19" data-title="Timeline: put the discoveries in order" data-skills="critical,discipline" data-coach="shahin" data-ns="Cooperation" data-says="Agree on the order as a team before you reveal it. Good leaders make sure everyone speaks.">
+  <div class="inner">
+    <div class="head"><h2>Timeline: put the discoveries in order</h2></div>
+    <p class="lead">How did the cell theory grow? <b>Tap the discoveries from first to last</b>. Tap a numbered one to undo.</p>
+    <div class="order" id="order">
+      <button class="oitem" data-p="3"><span class="n">?</span>Schleiden shows that plants are made of cells</button>
+      <button class="oitem" data-p="5"><span class="n">?</span>Virchow states that all cells come from pre-existing cells</button>
+      <button class="oitem" data-p="1"><span class="n">?</span>Hooke sees and names “cells” in cork</button>
+      <button class="oitem" data-p="4"><span class="n">?</span>Schwann shows that animals are made of cells</button>
+      <button class="oitem" data-p="2"><span class="n">?</span>Leeuwenhoek builds microscopes and sees bacteria</button>
+    </div>
+    <div class="row"><button class="btn navy" id="orderCheck">Check my order</button><button class="btn" id="orderReveal">Reveal the order</button><span class="score" id="orderScore"></span></div>
+    <div class="chain" id="chain" hidden>
+      <div style="background:#f07f19">1 · Hooke, 1665</div>
+      <div style="background:#e5484d">2 · Leeuwenhoek, 1670s</div>
+      <div style="background:#1fa75a">3 · Schleiden, 1838</div>
+      <div style="background:#2563eb">4 · Schwann, 1839</div>
+      <div style="background:#7a3ff0">5 · Virchow, 1855</div>
+    </div>
+    <div class="card stack"><b>Traffic light: how sure are you?</b>
+      <div class="traffic"><button style="background:var(--green)" data-tl="Brilliant! Help a partner explain the three ideas of the cell theory.">I can teach it</button><button style="background:var(--orange)" data-tl="Good! Re-read the scientists and cell theory slides, then try again.">Mostly</button><button style="background:var(--red)" data-tl="That is OK! Your teacher will go through it with you now.">I need help</button></div>
+      <div id="tlMsg" class="note" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- 20 · WORKSHEET 1 -->
+<section class="slide" id="s20" data-title="Cell theory worksheet (1/2)" data-skills="reading" data-coach="ahmed" data-ns="Excellence" data-says="Work on your own first, then check your answers. Own your learning!">
+  <div class="inner">
+    <div class="head"><h2>Cell theory worksheet (1/2)</h2><div class="timer" data-sec="240"></div></div>
+    <div class="grid g2">
+      <div class="card stack"><div class="label" style="color:var(--navy)">A · Match each scientist · 5 marks</div>
+        <div style="font-size:.92rem;color:var(--muted)">A. Animals are made of cells<br>B. Saw and named cells in cork<br>C. All cells come from pre-existing cells<br>D. First to see bacteria with his own microscope<br>E. Plants are made of cells</div>
+        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:8px" id="wsA">
+          <label class="fillrow">1. Hooke <select data-ans="B" id="wa1"></select></label>
+          <label class="fillrow">2. Leeuwenhoek <select data-ans="D" id="wa2"></select></label>
+          <label class="fillrow">3. Schleiden <select data-ans="E" id="wa3"></select></label>
+          <label class="fillrow">4. Schwann <select data-ans="A" id="wa4"></select></label>
+          <label class="fillrow">5. Virchow <select data-ans="C" id="wa5"></select></label>
+        </div>
+        <div class="row"><button class="btn small navy" data-check="wsA">Check A</button><button class="btn small ghost" data-answers="wsA">Show answers (A)</button><span class="score" data-out="wsA"></span></div>
+      </div>
+      <div class="card stack"><div class="label" style="color:var(--navy)">B · Fill the gaps · 5 marks</div>
+        <div class="wordbank">Word bank: cell · microscope · three · Hooke · resolution</div>
+        <div class="stack" id="wsB" style="gap:8px">
+          <div class="fillrow">1. The <input type="text" size="6" data-ans="cell" id="wb1" aria-label="gap 1"> is the smallest and basic unit of life.</div>
+          <div class="fillrow">2. The <input type="text" size="10" data-ans="microscope" id="wb2" aria-label="gap 2"> invention was necessary to discover cells.</div>
+          <div class="fillrow">3. The cell theory summarizes <input type="text" size="6" data-ans="three|3" id="wb3" aria-label="gap 3"> principles.</div>
+          <div class="fillrow">4. <input type="text" size="7" data-ans="hooke|robert hooke" id="wb4" aria-label="gap 4"> was the first to see cells.</div>
+          <div class="fillrow">5. <input type="text" size="10" data-ans="resolution" id="wb5" aria-label="gap 5"> is the clarity and detail of an image.</div>
+        </div>
+        <div class="row"><button class="btn small navy" data-check="wsB">Check B</button><button class="btn small ghost" data-answers="wsB">Show answers (B)</button><span class="score" data-out="wsB"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 21 · WORKSHEET 2 -->
+<section class="slide" id="s21" data-title="Cell theory worksheet (2/2)" data-skills="reading,critical" data-coach="maha" data-ns="Excellence" data-says="Respect your reader: write full sentences using microscope, cells and cell theory.">
+  <div class="inner">
+    <div class="head"><h2>Cell theory worksheet (2/2)</h2></div>
+    <div class="card stack"><div class="label" style="color:var(--navy)">C · Which microscope? · 6 marks</div>
+      <div class="legend">Choose from: Light · TEM · SEM</div>
+      <div class="tablewrap" id="wsC"><table>
+        <thead><tr><th>Feature</th><th>Microscope</th></tr></thead>
+        <tbody>
+          <tr><td>Can show living cells moving</td><td><select data-ans="Light" data-opts="Light|TEM|SEM" id="wc1"></select></td></tr>
+          <tr><td>3D black-and-white image of a surface</td><td><select data-ans="SEM" data-opts="Light|TEM|SEM" id="wc2"></select></td></tr>
+          <tr><td>Electrons pass through a very thin, stained specimen</td><td><select data-ans="TEM" data-opts="Light|TEM|SEM" id="wc3"></select></td></tr>
+          <tr><td>Glass lenses, up to about 1000×</td><td><select data-ans="Light" data-opts="Light|TEM|SEM" id="wc4"></select></td></tr>
+          <tr><td>2D black-and-white image, up to 500,000×</td><td><select data-ans="TEM" data-opts="Light|TEM|SEM" id="wc5"></select></td></tr>
+          <tr><td>Studying the surface of an insect's eye</td><td><select data-ans="SEM" data-opts="Light|TEM|SEM" id="wc6"></select></td></tr>
+        </tbody></table></div>
+      <div class="row"><button class="btn small navy" data-check="wsC">Check C</button><button class="btn small ghost" data-answers="wsC">Show answers (C)</button><span class="score" data-out="wsC"></span></div>
+    </div>
+    <div class="cols split">
+      <div class="card stack"><div class="label" style="color:var(--navy)">D · Explain · 3 marks</div>
+        <p style="margin:0">Explain how the invention of the microscope led to the cell theory.</p>
+        <textarea id="wd" placeholder="Write your explanation in full sentences…"></textarea>
+        <button class="btn small" data-show="model" style="justify-self:start">Show model answer (D)</button>
+      </div>
+      <div class="stack">
+        <div class="good" id="model" hidden><b>Model answer (1 mark each):</b><br>✓ Cells are too small to see with the eye, so microscopes were needed.<br>✓ With microscopes, Hooke saw cells in cork and Leeuwenhoek saw bacteria.<br>✓ Schleiden, Schwann and Virchow then gathered evidence to build the cell theory.</div>
+        <div class="card"><span class="score" id="wsTotal">Total: A + B + C = 0 / 16 marks</span><div class="legend">Your teacher marks part D (3 marks) for a total out of 19.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 22 · LEVELS -->
+<section class="slide" id="s22" data-title="Differentiated tasks: choose your level" data-skills="discipline,critical" data-coach="maha" data-ns="Cooperation" data-says="Every level is respected here. Finished early? Try the next level up!">
+  <div class="inner">
+    <div class="head"><h2>Differentiated tasks: choose your level</h2><div class="timer" data-sec="240"></div></div>
+    <div class="grid g3">
+      <div class="level" style="--lc:var(--green);--lbg:var(--green-bg)"><h3>Foundation ★</h3>
+        <ol><li>State the three ideas of the cell theory.</li><li>Who first saw bacteria?</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. All living things are made of cells; the cell is the basic unit of life; cells come from cells.<br>2. Leeuwenhoek.</div><button class="btn small ghost lvl">Show answers</button></div>
+      <div class="level" style="--lc:var(--orange);--lbg:var(--orange-bg)"><h3>Secure ★★</h3>
+        <ol><li>Compare light and electron microscopes.</li><li>Find the total magnification of a 10× eyepiece and a 40× objective.</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. Light: lenses, about 1000×, living cells. Electron: electron beam, up to 500,000×, dead specimens.<br>2. 10 × 40 = 400×.</div><button class="btn small ghost lvl">Show answers</button></div>
+      <div class="level" style="--lc:var(--purple);--lbg:var(--purple-bg)"><h3>Advanced ★★★</h3>
+        <ol><li>Explain why the cell theory needed microscopes.</li><li>Explain why viruses are studied with electron microscopes.</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. Cells are too small to see by eye; microscopes gave the evidence.<br>2. Viruses are too small for light to resolve; electron beams give far higher resolution.</div><button class="btn small ghost lvl">Show answers</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- 23 · SUMMATIVE -->
+<section class="slide" id="s23" data-title="Summative: Cell Master quiz" data-skills="integrity" data-coach="ahmed" data-ns="Excellence" data-says="Count only your honest first try. Integrity is part of excellence!">
+  <div class="inner">
+    <div class="head"><h2>Summative assessment: Cell Master quiz</h2><div class="timer" data-sec="180"></div></div>
+    <div class="stack mcqset" data-mode="first" id="wm">
+      <div class="q"><div class="qt">1. Total magnification: 10× eyepiece and 40× objective?</div><div class="opts"><button class="opt">A. 50×</button><button class="opt" data-ok>B. 400×</button><button class="opt">C. 4×</button><button class="opt">D. 30×</button></div></div>
+      <div class="q"><div class="qt">2. Which microscope can show LIVING cells?</div><div class="opts"><button class="opt" data-ok>A. compound light</button><button class="opt">B. TEM</button><button class="opt">C. SEM</button><button class="opt">D. any electron type</button></div></div>
+      <div class="q"><div class="qt">3. Which gives a 3D image of a surface?</div><div class="opts"><button class="opt">A. compound light</button><button class="opt">B. TEM</button><button class="opt" data-ok>C. SEM</button><button class="opt">D. magnifying glass</button></div></div>
+      <div class="q"><div class="qt">4. “Cells come only from pre-existing cells” was stated by…</div><div class="opts"><button class="opt">A. Hooke</button><button class="opt">B. Leeuwenhoek</button><button class="opt">C. Schleiden</button><button class="opt" data-ok>D. Virchow</button></div></div>
+      <div class="q"><div class="qt">5. Which needs a dead, thinly sliced specimen stained with heavy metals?</div><div class="opts"><button class="opt">A. SEM</button><button class="opt">B. compound light</button><button class="opt" data-ok>C. TEM</button><button class="opt">D. hand lens</button></div></div>
+    </div>
+    <div class="card row" style="justify-content:space-between"><span class="score" id="wmScore">First-try score: 0 / 5</span><span class="legend">5 = Cell Master! · 4 = Cell Expert · 3 = Cell Explorer · 0–2 = let's review together</span></div>
+  </div>
+</section>
+
+<!-- 24 · MYSTERY SOLVED -->
+<section class="slide" id="s24" data-title="Exit ticket: mystery solved!" data-skills="reading,loyalty" data-coach="hessa" data-ns="National Identity" data-says="Be kind to yourself when you rate your stars. Every step forward counts!">
+  <div class="inner">
+    <div class="head"><h2>Exit ticket: solve the invisible visitors mystery</h2></div>
+    <div class="cols split">
+      <div class="stack">
+        <button class="btn" data-show="solved" data-confetti style="justify-self:start">Reveal the answer</button>
+        <div class="card" id="solved" hidden style="background:#fff8db;border-color:#f3e2a0"><b style="color:var(--orange)">What tool let us discover cells?</b><p style="margin:6px 0 0">The <b class="hl">MICROSCOPE</b>. Hooke saw cork cells and Leeuwenhoek saw bacteria with light microscopes, which led to the <b style="color:var(--green)">CELL THEORY</b>. Viruses are too small for light, so scientists use <b style="color:var(--purple)">ELECTRON MICROSCOPES</b> (TEM, SEM) that magnify up to 500,000×.</p></div>
+        <div class="card stack"><b>Exit ticket · 3 · 2 · 1</b>
+          <label>3 ideas of the cell theory<textarea id="ex3" style="min-height:64px"></textarea></label>
+          <label>2 differences between light and electron microscopes<textarea id="ex2" style="min-height:48px"></textarea></label>
+          <label>1 question I still have<textarea id="ex1" style="min-height:48px"></textarea></label></div>
+      </div>
+      <div class="card stack"><b>Re-rate your success criteria (tap a star)</b>
+        <div><p style="margin:0 0 4px"><b>Foundation:</b> I can state the three ideas of the cell theory and name the scientists.</p><div class="stars" id="st1"></div></div>
+        <div><p style="margin:0 0 4px"><b>Secure:</b> I can compare light and electron microscopes and calculate total magnification.</p><div class="stars" id="st2"></div></div>
+        <div><p style="margin:0 0 4px"><b>Advanced:</b> I can explain how better microscopes led to the cell theory.</p><div class="stars" id="st3"></div></div>
+        <div><p style="margin:0 0 4px">I can explain why resolution matters.</p><div class="stars" id="st4"></div></div>
+        <div class="note" style="margin:0"><b>Next lesson:</b> prokaryotic and eukaryotic cells.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 25 · VALUES -->
+<section class="slide" id="s25" data-title="Which value did you show today?" data-skills="integrity">
+  <div class="inner">
+    <div class="head"><h2>Which value did you show today?</h2></div>
+    <p class="lead">Tap the character whose value you showed in this lesson. <b>Then tell your partner one real example!</b></p>
+    <div class="grid g5" id="values">
+      <button class="vcard" style="--cc:var(--c-shahin)"><span class="star">★</span><img src="img/av-shahin.webp" alt=""><b>Shahin</b><small>Leadership · <span class="ar">القيادة</span></small><span class="prompt">I led my team when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-fahim)"><span class="star">★</span><img src="img/av-fahim.webp" alt=""><b>Fahim</b><small>Knowledge · <span class="ar">المعرفة</span></small><span class="prompt">A new fact I learned is…</span></button>
+      <button class="vcard" style="--cc:var(--c-maha)"><span class="star">★</span><img src="img/av-maha.webp" alt=""><b>Maha</b><small>Respect · <span class="ar">الاحترام</span></small><span class="prompt">I showed respect when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-ahmed)"><span class="star">★</span><img src="img/av-ahmed.webp" alt=""><b>Ahmed</b><small>Responsibility · <span class="ar">المسؤولية</span></small><span class="prompt">I was responsible when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-hessa)"><span class="star">★</span><img src="img/av-hessa.webp" alt=""><b>Hessa</b><small>Tolerance · <span class="ar">التسامح</span></small><span class="prompt">I was patient and kind when…</span></button>
+    </div>
+    <div class="card row" style="justify-content:space-between"><b>Class goal: light up all five stars together!</b><span class="goal" id="goal"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span></div>
+  </div>
+</section>
+
+<!-- 26 · CELEBRATE -->
+<section class="slide end" id="s26" data-title="Small cells, big discoveries" data-bare>
+  <div class="inner">
+    <div class="eyebrow">YOU DID IT, GRADE 9! · <span class="ar">أحسنتم</span></div>
+    <h1>Small cells, big discoveries</h1>
+    <p style="font-style:italic;font-size:1.15rem;margin:0;opacity:.95">Every great discovery started with someone curious enough to look closer. Keep asking questions: the next big discovery could be yours!</p>
+    <img class="fig" src="img/banner.webp" alt="Shahin, Fahim, Maha, Ahmed and Hessa with the UAE national skills" style="border:0">
+    <div class="row"><span class="nsk">🇦🇪 National Identity</span><span class="nsk">🌿 Sustainability</span><span class="nsk">🤝 Cooperation</span><span class="nsk">💡 Innovation</span><span class="nsk">⭐ Excellence</span></div>
+    <div class="promise"><b>My promise:</b> I will lead, learn, respect, be responsible and tolerant, for my school and my UAE.</div>
+    <div><button class="btn" id="celebrate">★ Celebrate together!</button></div>
+  </div>
+</section>
+
+  </main>
+  <div>
+    <div class="progress"><div id="prog"></div></div>
+    <nav class="nav">
+      <button class="btn ghost small" id="prev" aria-label="Previous slide">◀ Back</button>
+      <span class="count" id="count">1 / 26</span>
+      <span class="title" id="navTitle"></span>
+      <button class="btn ghost small" id="menuBtn">☰ Slides</button>
+      <button class="btn ghost small" id="linkBtn" title="Copy a link that opens this slide">🔗 Link</button>
+      <button class="btn ghost small" id="soundBtn" title="Clapping sound on">🔊</button>
+      <button class="btn ghost small" id="fsBtn" title="Full screen">⛶</button>
+      <button class="btn small" id="next" aria-label="Next slide">Next ▶</button>
+    </nav>
+  </div>
+</div>
+
+<div class="menu" id="menu" hidden><div class="panel"><div class="row" style="justify-content:space-between"><b style="font-family:var(--display);font-size:1.3rem">All slides</b><button class="btn ghost small" id="menuClose">Close</button></div><ol id="menuList"></ol></div></div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+// Paste the published lesson link here so "Link" copies a shareable address for each slide.
+const LESSON_URL = "";
+
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const slides=$$('.slide'), N=slides.length;
+const COACH={shahin:['Shahin','Leadership','القيادة','--c-shahin'],fahim:['Fahim','Knowledge','المعرفة','--c-fahim'],maha:['Maha','Respect','الاحترام','--c-maha'],ahmed:['Ahmed','Responsibility','المسؤولية','--c-ahmed'],hessa:['Hessa','Tolerance','التسامح','--c-hessa']};
+const SKILL={teamwork:['Teamwork','العمل الجماعي','👥'],critical:['Critical Thinking','التفكير الناقد','🧠'],communication:['Effective Communication','التواصل الفعّال','💬'],reading:['Reading & Writing','القراءة والكتابة','📖'],integrity:['Integrity','النزاهة','🛡'],discipline:['Self-regulation & Discipline','الانضباط وتنظيم الذات','⏱'],initiative:['Initiative & Perseverance','المبادرة والمثابرة','⛰'],respect:['Respect & Kindness','الاحترام واللطف','💗'],numeracy:['Numeracy Skills','المهارات العددية','🔢'],loyalty:['Loyalty & National Belonging','الولاء والانتماء الوطني','🇦🇪']};
+const LO='Explain the cell theory and compare the types of microscopes.';
+const store={get(k){try{return localStorage.getItem('cell9:'+k)}catch(e){return null}},set(k,v){try{localStorage.setItem('cell9:'+k,v)}catch(e){}}};
+
+// date
+$('#today').textContent=new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+
+// shared chrome: skill chips, coach strip, objective footer
+slides.forEach(s=>{
+  const inner=$('.inner',s), head=$('.head',s);
+  if(s.dataset.skills&&head){const c=document.createElement('div');c.className='chips';
+    s.dataset.skills.split(',').forEach(k=>{const[en,ar,ic]=SKILL[k];c.insertAdjacentHTML('beforeend',`<span class="chip"><i>${ic}</i>${en} <span class="ar">${ar}</span></span>`)});head.appendChild(c)}
+  if(s.dataset.coach){const[n,v,ar,col]=COACH[s.dataset.coach];
+    inner.insertAdjacentHTML('beforeend',`<div class="coach" style="--cc:var(${col})"><img src="img/av-${s.dataset.coach}.webp" alt="${n}, ${v} coach"><div><div class="who">${n} says · ${v} <span class="ar">${ar}</span></div><p>${s.dataset.says}</p><div class="ns">UAE national skill: <b>${s.dataset.ns}</b></div></div></div>`)}
+  if(!('nolo' in s.dataset)) inner.insertAdjacentHTML('afterbegin',`<div class="lo lotop"><span class="tgt"></span><div><b>Learning objective:</b> ${LO}</div></div>`);
+});
+
+// navigation + deep links (#s1 … #s26)
+let cur=1; const enterHooks={};
+function go(n,push=true){
+  n=Math.max(1,Math.min(N,n|0)); cur=n;
+  slides.forEach((s,i)=>s.hidden=i!==n-1);document.querySelectorAll('.slide[hidden] video').forEach(v=>{try{v.pause()}catch(e){}});
+  $('#count').textContent=n+' / '+N; $('#navTitle').textContent=slides[n-1].dataset.title||'';
+  $('#prog').style.width=(n/N*100)+'%'; $('#main').scrollTop=0;
+  $('#prev').disabled=n===1; $('#next').disabled=n===N;
+  if(push){try{history.replaceState(null,'','#s'+n)}catch(e){}}
+  document.title='Cell Discovery and Theory · '+n+' · Nilasha Sempon';
+  requestAnimationFrame(()=>enterHooks[n]&&enterHooks[n]());
+}
+function fromHash(){const m=(location.hash||'').match(/s(\d+)$/);return m?+m[1]:1}
+window.addEventListener('hashchange',()=>go(fromHash(),false));
+$('#prev').onclick=()=>go(cur-1); $('#next').onclick=()=>go(cur+1);
+document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g){go(+g.dataset.go);$('#menu').hidden=true}});
+document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea,select'))return;
+  if(['ArrowRight','PageDown'].includes(e.key))go(cur+1);if(['ArrowLeft','PageUp'].includes(e.key))go(cur-1);if(e.key==='Escape')$('#menu').hidden=true});
+let tx=0,ty=0;$('#main').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+$('#main').addEventListener('touchend',e=>{if(e.target.closest('canvas,input,textarea,select,.stadium'))return;const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;if(Math.abs(dx)>70&&Math.abs(dy)<40)go(cur+(dx<0?1:-1))});
+// menu
+$('#menuList').innerHTML=slides.map((s,i)=>`<li><button data-go="${i+1}"><b>${i+1}</b>${s.dataset.title}</button></li>`).join('');
+$('#menuBtn').onclick=()=>{$$('#menuList button').forEach((b,i)=>b.classList.toggle('cur',i+1===cur));$('#menu').hidden=false};
+$('#menuClose').onclick=()=>$('#menu').hidden=true;
+$('#menu').onclick=e=>{if(e.target.id==='menu')$('#menu').hidden=true};
+// toast + link
+let tt;function toast(html,ms=2600){const t=$('#toast');t.innerHTML=html;t.hidden=false;clearTimeout(tt);tt=setTimeout(()=>t.hidden=true,ms)}
+$('#linkBtn').onclick=()=>{const base=LESSON_URL||location.href.split('#')[0];const url=base+'#s'+cur;
+  const ok=()=>toast('Link to slide '+cur+' copied');
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(ok,()=>toast('<div>Copy this link:</div><div class="linkbox">'+url+'</div>',7000))}else toast('<div>Copy this link:</div><div class="linkbox">'+url+'</div>',7000)};
+$('#fsBtn').onclick=()=>{try{if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen().catch(()=>toast('Full screen is not available here'))}catch(e){toast('Full screen is not available here')}};
+
+// built-in party confetti (works without any outside library)
+window.confetti=(function(){let cv,cx,parts=[],raf=null;
+  function setup(){if(cv)return;cv=document.createElement('canvas');cv.id='fxCanvas';document.body.appendChild(cv);cx=cv.getContext('2d');size();addEventListener('resize',size)}
+  function size(){const d=devicePixelRatio||1;cv.width=innerWidth*d;cv.height=innerHeight*d;cx.setTransform(d,0,0,d,0,0)}
+  function frame(){cx.clearRect(0,0,innerWidth,innerHeight);parts=parts.filter(p=>p.t<p.T);
+    parts.forEach(p=>{p.t++;p.x+=Math.cos(p.a)*p.v+p.drift;p.y+=Math.sin(p.a)*p.v+p.g;p.v*=p.decay;p.w+=p.ws;p.tilt+=0.1;
+      const o=1-p.t/p.T;cx.globalAlpha=Math.max(0,o);cx.fillStyle=p.c;const s=p.s;
+      if(p.round){cx.beginPath();cx.ellipse(p.x,p.y,s*.6,s*.6*Math.abs(Math.cos(p.tilt)),0,0,7);cx.fill()}
+      else{cx.save();cx.translate(p.x,p.y);cx.rotate(p.w);cx.fillRect(-s/2,-s*.3*Math.abs(Math.cos(p.tilt))-1,s,s*.6*Math.abs(Math.cos(p.tilt))+2);cx.restore()}});
+    cx.globalAlpha=1;raf=parts.length?requestAnimationFrame(frame):(cx.clearRect(0,0,innerWidth,innerHeight),null)}
+  return function(o){o=o||{};setup();const n=o.particleCount||50,ang=(o.angle==null?90:o.angle)*Math.PI/180,spr=(o.spread==null?45:o.spread)*Math.PI/180,sv=o.startVelocity||45,
+      X=(o.origin&&o.origin.x!=null?o.origin.x:.5)*innerWidth,Y=(o.origin&&o.origin.y!=null?o.origin.y:.6)*innerHeight,cols=o.colors||['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0','#ff7ab6'],sc=o.scalar||1;
+    for(let i=0;i<Math.min(n,400);i++)parts.push({x:X,y:Y,a:-ang+(.5*spr-Math.random()*spr),v:sv*.5+Math.random()*sv,decay:.9,g:3*(o.gravity==null?1:o.gravity),drift:(Math.random()-.5)*.6,
+      c:cols[i%cols.length],s:(7+Math.random()*6)*sc,round:Math.random()<.3,w:Math.random()*6,ws:(Math.random()-.5)*.3,tilt:Math.random()*6,t:0,T:o.ticks||200});
+    if(!raf)raf=requestAnimationFrame(frame);return Promise.resolve()}})();
+// confetti
+function boom(big){if(typeof confetti!=='function')return;const c=['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0'];
+  confetti({particleCount:big?220:90,spread:big?120:70,origin:{y:.65},colors:c});
+  if(big){setTimeout(()=>confetti({particleCount:120,angle:60,spread:70,origin:{x:0,y:.7},colors:c}),250);setTimeout(()=>confetti({particleCount:120,angle:120,spread:70,origin:{x:1,y:.7},colors:c}),400)}}
+// cheer: confetti burst where the student tapped + a clapping sound for each correct answer
+let lastX=.5,lastY=.6,soundOn=true;try{soundOn=localStorage.getItem('cheerSound')!=='off'}catch(e){}
+document.addEventListener('pointerdown',e=>{lastX=e.clientX/innerWidth;lastY=e.clientY/innerHeight},true);
+let cheerCtx;function clap(n){if(!soundOn)return;try{cheerCtx=cheerCtx||new (window.AudioContext||window.webkitAudioContext)();const a=cheerCtx,now=a.currentTime;
+  const len=a.sampleRate*.05,buf=a.createBuffer(1,len,a.sampleRate),d=buf.getChannelData(0);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,3);
+  for(let k=0;k<n;k++){const t=now+k*0.11+Math.random()*0.05;for(let j=0;j<3;j++){const src=a.createBufferSource();src.buffer=buf;const f=a.createBiquadFilter();f.type='bandpass';f.frequency.value=1000+Math.random()*1500;f.Q.value=0.8;const g=a.createGain();g.gain.value=0.5;src.connect(f);f.connect(g);g.connect(a.destination);src.start(t+j*0.012+Math.random()*0.02)}}
+  [523.25,659.25,783.99].forEach((fr,i)=>{const o=a.createOscillator(),g=a.createGain();o.type='triangle';o.frequency.value=fr;o.connect(g);g.connect(a.destination);g.gain.setValueAtTime(0.0001,now+i*0.07);g.gain.exponentialRampToValueAtTime(0.12,now+i*0.07+0.02);g.gain.exponentialRampToValueAtTime(0.0001,now+i*0.07+0.3);o.start(now+i*0.07);o.stop(now+i*0.07+0.32)})}catch(e){}}
+function party(big,x,y){const c=['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0','#ff7ab6'];
+  confetti({particleCount:big?110:60,spread:big?110:80,startVelocity:big?42:34,origin:{x:x,y:y},colors:c});
+  confetti({particleCount:big?110:60,angle:62,spread:58,startVelocity:big?62:55,origin:{x:0,y:.95},colors:c});
+  confetti({particleCount:big?110:60,angle:118,spread:58,startVelocity:big?62:55,origin:{x:1,y:.95},colors:c})}
+function badge(txt,cls){const b=document.createElement('div');b.className='fbadge '+cls;b.textContent=txt;
+  b.style.left=Math.min(Math.max(lastX*innerWidth,110),innerWidth-110)+'px';b.style.top=Math.min(Math.max(lastY*innerHeight-64,70),innerHeight-40)+'px';document.body.appendChild(b);setTimeout(()=>b.remove(),1500)}
+let lastCheer=0,lastWrong=0,quietUntil=0;
+const PRAISE=['🎉 Correct!','⭐ Brilliant!','👏 Well done!','🎊 Great job!','🏆 Excellent!'];
+function cheer(big){lastCheer=Date.now();clap(big?14:9);party(big,lastX,lastY);badge(PRAISE[Math.floor(Math.random()*PRAISE.length)],'good')}
+function buzz(){if(!soundOn)return;try{cheerCtx=cheerCtx||new (window.AudioContext||window.webkitAudioContext)();const a=cheerCtx,now=a.currentTime;
+  [[0,233],[0.17,175]].forEach(([d,f])=>{const o=a.createOscillator(),g=a.createGain();o.type='square';o.frequency.value=f;o.connect(g);g.connect(a.destination);g.gain.setValueAtTime(0.0001,now+d);g.gain.exponentialRampToValueAtTime(0.07,now+d+0.02);g.gain.exponentialRampToValueAtTime(0.0001,now+d+0.16);o.start(now+d);o.stop(now+d+0.18)})}catch(e){}}
+function wrong(el){if(el){el.classList.remove('shake');void el.offsetWidth;el.classList.add('shake');setTimeout(()=>el.classList.remove('shake'),500)}
+  if(Date.now()-lastWrong<350)return;lastWrong=Date.now();buzz();
+  let f=document.getElementById('redFlash');if(!f){f=document.createElement('div');f.id='redFlash';document.body.appendChild(f)}
+  f.classList.add('on');setTimeout(()=>f.classList.remove('on'),120);badge('✗ Not quite. Try again!','bad')}
+// watch every answer: green = party confetti, red = red flash + shake
+document.addEventListener('click',e=>{if(e.target.closest('[data-answers],#orderReveal'))quietUntil=Date.now()+600},true);
+new MutationObserver(ms=>{if(Date.now()<quietUntil)return;let good=false;
+  ms.forEach(m=>{const el=m.target,old=' '+(m.oldValue||'')+' ';if(!el.classList)return;
+    if(['no','wrong','nof'].some(c=>el.classList.contains(c)&&!old.includes(' '+c+' '))&&!el.classList.contains('fb'))wrong(el);
+    if(['ok','right','okf'].some(c=>el.classList.contains(c)&&!old.includes(' '+c+' '))&&!el.classList.contains('fb'))good=true});
+  if(good&&Date.now()-lastCheer>500)cheer(false)}).observe(document.body,{subtree:true,attributes:true,attributeFilter:['class'],attributeOldValue:true});
+(function(){const b=document.getElementById('soundBtn');if(!b)return;const set=()=>{b.textContent=soundOn?'🔊':'🔇';b.title=soundOn?'Sound on':'Sound off'};set();
+  b.onclick=()=>{soundOn=!soundOn;try{localStorage.setItem('cheerSound',soundOn?'on':'off')}catch(e){}set();if(soundOn)clap(4)}})();
+document.addEventListener('click',e=>{if(e.target.closest('[data-confetti]'))boom(false)});
+
+// generic: flip, reveal
+document.addEventListener('click',e=>{
+  const f=e.target.closest('.flip');if(f)f.classList.toggle('on');
+  const r=e.target.closest('[data-show]');if(r){const t=document.getElementById(r.dataset.show);t.hidden=!t.hidden}
+  const ns=e.target.closest('.nskill');if(ns)ns.classList.toggle('on');
+});
+
+// timers
+let actx;function beep(){try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();[0,.25,.5].forEach(d=>{const o=actx.createOscillator(),g=actx.createGain();o.frequency.value=880;o.connect(g);g.connect(actx.destination);g.gain.setValueAtTime(.15,actx.currentTime+d);g.gain.exponentialRampToValueAtTime(.001,actx.currentTime+d+.2);o.start(actx.currentTime+d);o.stop(actx.currentTime+d+.22)})}catch(e){}}
+$$('.timer').forEach(el=>{const total=+el.dataset.sec;let left=total,iv=null;const fmt=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+  el.innerHTML=`<button class="btn small">▶ Start ${total>=60?total/60+'-min':total+'-s'}</button><span class="t">${fmt(total)}</span><button class="rs" title="Reset">↺</button>`;
+  const [b,t,rs]=el.children;
+  const stop=()=>{clearInterval(iv);iv=null};
+  b.onclick=()=>{if(iv){stop();b.textContent='▶ Resume';return}if(left<=0){left=total;el.classList.remove('done')}
+    b.textContent='❚❚ Pause';iv=setInterval(()=>{left--;t.textContent=fmt(Math.max(left,0));if(left<=0){stop();el.classList.add('done');t.textContent="TIME'S UP!";b.textContent='▶ Again';beep()}},1000)};
+  rs.onclick=()=>{stop();left=total;el.classList.remove('done');t.textContent=fmt(total);b.textContent=`▶ Start ${total>=60?total/60+'-min':total+'-s'}`};
+});
+
+// 7 · true/false
+$$('#tf .q').forEach(q=>{let done=false;$$('.opt',q).forEach(b=>b.onclick=()=>{if(done)return;done=true;const pick=b.textContent==='True'?'T':'F',ok=pick===q.dataset.a;
+  b.classList.add(ok?'ok':'no');if(ok)cheer(false);const fb=$('.fb',q);fb.hidden=false;fb.className='fb '+(ok?'ok':'no');fb.textContent=(ok?'✓ Correct! ':'✗ Not quite. ')+fb.dataset.why;
+  q.dataset.res=ok?1:0;const sc=$$('#tf .q').reduce((a,x)=>a+(+x.dataset.res||0),0),n=$$('#tf .q[data-res]').length;$('#tfScore').textContent='Score: '+sc+' / 5';if(n===5&&sc===5)boom(false)})});
+
+// 9 · video answers
+$('#vidAns')&&($('#vidAns').onclick=()=>$$('#s8 .vans').forEach(a=>a.hidden=false));
+
+// 11 · sort
+$$('#sorter .sitem').forEach(b=>b.onclick=()=>{b.classList.remove('right','wrong');const L=($('#sorter').dataset.labels||'low|HIGH').split('|');const i=(L.indexOf(b.dataset.v)+1)%L.length;b.dataset.v=L[i];$('.tag',b).textContent=L[i]});
+$('#sortCheck').onclick=()=>{let s=0;$$('#sorter .sitem').forEach(b=>{const ok=b.dataset.v===b.dataset.ans;b.classList.toggle('right',ok);b.classList.toggle('wrong',!ok);s+=ok});$('#sortScore').textContent=s+' / 8 correct';if(s>0&&s<8)cheer(false);$('#sortWhy').hidden=false;if(s===8)boom(false)};
+
+// MCQ sets (retry = formative with hints; first = first-try scoring)
+$$('.mcqset').forEach(set=>{const mode=set.dataset.mode;const qs=set.classList.contains('q')?[set]:$$('.q',set);
+  qs.forEach(q=>q.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(q.dataset.solved)return;const ok=b.hasAttribute('data-ok');
+    if(!('first' in q.dataset))q.dataset.first=ok?1:0;
+    b.classList.add(ok?'ok':'no');const fb=$('.fb',q);if(fb)fb.hidden=ok;
+    if(ok){q.dataset.solved=1;cheer(false);if(set.id==='dbq'){$('#dbLock').hidden=true;$('#dbOpen').hidden=false;boom(false)}}
+    if(set.id==='wm'){const s=qs.reduce((a,x)=>a+(+x.dataset.first||0),0),n=qs.filter(x=>'first' in x.dataset).length;
+      const lvl=s===5?'Cell Master! 🏆':s===4?'Cell Expert':s===3?'Cell Explorer':"let's review together";
+      $('#wmScore').textContent='First-try score: '+s+' / 5'+(n===5?' · '+lvl:'');if(n===5&&s>=4)boom(s===5)}
+    if(mode==='retry'&&set.id!=='dbq'&&qs.every(x=>x.dataset.solved))boom(false);
+  }));
+});
+
+// 18 · order
+let nextN=1;$$('#order .oitem').forEach(b=>b.onclick=()=>{$$('#order .oitem').forEach(x=>x.classList.remove('right','wrong'));
+  if(b.dataset.n){const k=+b.dataset.n;$$('#order .oitem').forEach(x=>{if(+x.dataset.n>=k){delete x.dataset.n;x.classList.remove('set');$('.n',x).textContent='?'}});nextN=k;return}
+  if(nextN>5)return;b.dataset.n=nextN;b.classList.add('set');$('.n',b).textContent=nextN;nextN++});
+$('#orderCheck').onclick=()=>{let s=0;$$('#order .oitem').forEach(b=>{const ok=b.dataset.n===b.dataset.p;b.classList.toggle('right',ok);b.classList.toggle('wrong',!ok);s+=ok});$('#orderScore').textContent=s+' / 5 in the right place';if(s>0&&s<5)cheer(false);if(s===5)boom(false)};
+$('#orderReveal').onclick=()=>{$('#chain').hidden=false};
+$$('[data-tl]').forEach(b=>b.onclick=()=>{const m=$('#tlMsg');m.hidden=false;m.textContent=b.dataset.tl});
+
+// 20/21 · worksheet
+$$('#wsA select').forEach(s=>s.innerHTML='<option value="">–</option>'+'ABCDE'.split('').map(x=>`<option>${x}</option>`).join(''));
+$$('#wsC select').forEach(s=>s.innerHTML='<option value="">choose…</option>'+s.dataset.opts.split('|').map(x=>`<option>${x}</option>`).join(''));
+const norm=v=>v.trim().toLowerCase().replace(/[.\s]+$/,'');
+function mark(id){let s=0;$$('#'+id+' [data-ans]').forEach(f=>{const ok=f.dataset.ans.toLowerCase().split('|').includes(norm(f.value));f.classList.toggle('okf',ok);f.classList.toggle('nof',!ok&&f.value!=='');s+=ok});return s}
+const score={wsA:0,wsB:0,wsC:0};
+function total(){$('#wsTotal').textContent='Total: A + B + C = '+(score.wsA+score.wsB+score.wsC)+' / 16 marks'}
+$$('[data-check]').forEach(b=>b.onclick=()=>{const id=b.dataset.check,s=mark(id),max=$$('#'+id+' [data-ans]').length;score[id]=s;if(s>0)cheer(s===max);$(`[data-out="${id}"]`).textContent=s+' / '+max;total();if(s===max)boom(false)});
+$$('[data-answers]').forEach(b=>b.onclick=()=>{const id=b.dataset.answers;$$('#'+id+' [data-ans]').forEach(f=>{f.value=f.tagName==='SELECT'?f.dataset.ans:f.dataset.ans.split('|')[0]});mark(id)});
+$('#labExp').onclick=()=>$$('#s17 .exp').forEach(x=>{x.hidden=false;x.style.cssText='font-size:.82rem;color:#11663a;font-weight:700;margin-top:4px'});
+$$('.lvl').forEach(b=>b.onclick=()=>{const a=b.previousElementSibling;a.hidden=!a.hidden;b.textContent=a.hidden?'Show answers':'Hide answers'});
+
+// keep typed answers in this browser
+$$('input[type=text],textarea').forEach(f=>{const v=store.get(f.id);if(v)f.value=v;f.addEventListener('input',()=>store.set(f.id,f.value))});
+
+// 24 · stars
+$$('.stars').forEach(st=>{for(let i=1;i<=5;i++)st.insertAdjacentHTML('beforeend',`<button aria-label="${i} star${i>1?'s':''}">★</button>`);
+  const set=k=>$$('button',st).forEach((b,i)=>b.classList.toggle('on',i<k));set(+store.get(st.id)||0);
+  $$('button',st).forEach((b,i)=>b.onclick=()=>{set(i+1);store.set(st.id,i+1);if(i===4)boom(false)})});
+
+// 25 · values
+$$('#values .vcard').forEach(c=>c.onclick=()=>{c.classList.toggle('on');const n=$$('#values .vcard.on').length;$$('#goal span').forEach((s,i)=>s.classList.toggle('on',i<n));if(n===5){boom(true);toast('Class goal reached: all five stars!')}});
+
+// 26 · celebrate
+$('#celebrate').onclick=()=>boom(true);
+enterHooks[26]=()=>boom(true);
+
+/* ---------- canvases ---------- */
+function fit(c){const r=c.getBoundingClientRect(),d=window.devicePixelRatio||1;const h=+c.getAttribute('height')||r.height||120;
+  if(!c.dataset.h)c.dataset.h=h;const H=+c.dataset.h;c.style.height=H+'px';c.width=Math.round(r.width*d);c.height=Math.round(H*d);const x=c.getContext('2d');x.setTransform(d,0,0,d,0,0);return{x,w:r.width,h:H}}
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// hero waves
+(function(){const c=$('#heroWaves');let t=0,raf;function draw(){if(cur!==1){raf=null;return}const {x,w,h}=fit(c);
+  const cols=['#ffc21a','#e5484d','#1fa75a','#4f8cff','#c084fc'];cols.forEach((col,i)=>{x.beginPath();for(let px=0;px<=w;px+=6){const y=h*.35+i*14+Math.sin(px/90+t*(1+i*.15)+i)*(10+i*3);px?x.lineTo(px,y):x.moveTo(px,y)}x.strokeStyle=col;x.lineWidth=5;x.stroke()});
+  t+=.02;raf=reduce?null:requestAnimationFrame(draw)}enterHooks[1]=()=>{if(!raf)draw()};})();
+
+// shared drawing helpers
+function lbl(x,t,X,Y,bg,fg){x.font='bold 12px Nunito, sans-serif';const w=x.measureText(t).width+12;x.fillStyle=bg;x.beginPath();x.roundRect?x.roundRect(X-w/2,Y-10,w,20,10):x.rect(X-w/2,Y-10,w,20);x.fill();x.fillStyle=fg||'#fff';x.textAlign='center';x.fillText(t,X,Y+4);x.textAlign='left'}
+function onion(x,cx,cy,R,cellW,blur){x.save();x.beginPath();x.arc(cx,cy,R,0,7);x.clip();x.fillStyle='#f4f0d8';x.fillRect(cx-R,cy-R,2*R,2*R);
+  if(blur>0&&'filter' in x)x.filter=`blur(${blur}px)`;const cellH=cellW*0.42;let n=0;
+  for(let r=-Math.ceil(R/cellH)-1;r<=Math.ceil(R/cellH)+1;r++){const off=(r%2)*cellW*0.5;for(let c=-Math.ceil(R/cellW)-1;c<=Math.ceil(R/cellW)+1;c++){const X=cx+c*cellW+off,Y=cy+r*cellH;
+    x.strokeStyle='#8a6d3b';x.lineWidth=Math.max(1,cellW/40);x.strokeRect(X-cellW/2,Y-cellH/2,cellW,cellH);x.fillStyle='rgba(176,120,190,.75)';x.beginPath();x.ellipse(X+cellW*0.18,Y,cellH*0.16,cellH*0.13,0,0,7);x.fill();
+    if(Math.hypot(X-cx,Y-cy)<R)n++}}
+  x.filter='none';x.restore();x.strokeStyle='#1b2470';x.lineWidth=6;x.beginPath();x.arc(cx,cy,R,0,7);x.stroke();return n}
+
+// 14 · virtual microscope: magnification and focus
+(function(){const c=$('#scope');let obj=4;
+  function draw(){const {x,w,h}=fit(c);x.fillStyle='#0f1430';x.fillRect(0,0,w,h);const R=Math.min(w*.28,h*.44),cx=R+16,cy=h/2;
+    const focus=+$('#sFocus').value,blur=(10-focus)*0.9;onion(x,cx,cy,R,obj*9,blur);
+    const tx=cx+R+16;x.fillStyle='#fff';x.font='bold 13px Nunito, sans-serif';x.fillText('Eyepiece: 10×',tx,h*.25);x.fillText('Objective: '+obj+'×',tx,h*.25+24);
+    x.fillStyle='#ffc21a';x.font='bold 20px Nunito, sans-serif';x.fillText('Total: '+(10*obj)+'×',tx,h*.25+56);
+    x.fillStyle=focus>=8?'#7ee2a8':'#ff9a9a';x.font='bold 13px Nunito, sans-serif';x.fillText(focus>=8?'Sharp:':'Blurry:',tx,h*.25+86);x.fillText(focus>=8?'high resolution':'low resolution',tx,h*.25+104);
+    $('#scopeRead').textContent=`Total magnification = 10 × ${obj} = ${10*obj}×. ${focus>=8?'The image is sharp: good resolution!':'Turn the focus to improve the resolution.'}`}
+  $$('[data-obj]').forEach(b=>b.onclick=()=>{obj=+b.dataset.obj;draw()});
+  $('#sFocus').addEventListener('input',draw);
+  enterHooks[14]=draw;})();
+
+// 15 · light, TEM or SEM viewer
+(function(){const c=$('#em');let mic='light',spec='cheek';
+  const can={light:{cheek:1,bacteria:1,virus:0,pollen:1},tem:{cheek:1,bacteria:1,virus:1,pollen:1},sem:{cheek:1,bacteria:1,virus:1,pollen:1}};
+  function shape(x,cx,cy,s,kind,mode){const col=mode==='light'?{cheek:'#f2b8c6',bacteria:'#7a3ff0',virus:'#2563eb',pollen:'#f5c542'}[kind]:'#d9d9d9';
+    let g=col;if(mode==='sem'){g=x.createRadialGradient(cx-s*.3,cy-s*.3,s*.1,cx,cy,s*1.1);g.addColorStop(0,'#ffffff');g.addColorStop(1,'#505050')}
+    x.fillStyle=g;x.strokeStyle=mode==='light'?'#7a4b5a':mode==='sem'?'#bdbdbd':'#222';x.lineWidth=2;
+    if(kind==='cheek'){x.beginPath();for(let i=0;i<9;i++){const a=i/9*6.283,r=s*(0.85+0.15*Math.sin(i*2.3));x.lineTo(cx+Math.cos(a)*r,cy+Math.sin(a)*r*0.8)}x.closePath();x.fill();x.stroke();
+      if(mode!=='sem'){x.fillStyle=mode==='light'?'#8a3fb0':'#333';x.beginPath();x.arc(cx+s*.1,cy,s*.2,0,7);x.fill()}}
+    if(kind==='bacteria'){for(let i=0;i<5;i++){x.save();x.translate(cx-s*.6+i*s*.3,cy+(i%2?s*.3:-s*.3));x.rotate(i*.7);x.beginPath();x.roundRect?x.roundRect(-s*.25,-s*.09,s*.5,s*.18,s*.09):x.rect(-s*.25,-s*.09,s*.5,s*.18);
+      if(mode==='sem'){const gg=x.createLinearGradient(0,-s*.09,0,s*.09);gg.addColorStop(0,'#fff');gg.addColorStop(1,'#444');x.fillStyle=gg}x.fill();x.stroke();if(mode==='tem'){x.fillStyle='#555';x.fillRect(-s*.12,-s*.03,s*.24,s*.06);x.fillStyle=col}x.restore()}}
+    if(kind==='virus'){x.beginPath();for(let i=0;i<6;i++){const a=i/6*6.283;x.lineTo(cx+Math.cos(a)*s*.7,cy+Math.sin(a)*s*.7)}x.closePath();x.fill();x.stroke();
+      for(let i=0;i<12;i++){const a=i/12*6.283;x.beginPath();x.moveTo(cx+Math.cos(a)*s*.7,cy+Math.sin(a)*s*.7);x.lineTo(cx+Math.cos(a)*s*.95,cy+Math.sin(a)*s*.95);x.stroke();x.beginPath();x.arc(cx+Math.cos(a)*s,cy+Math.sin(a)*s,s*.06,0,7);x.fill()}
+      if(mode==='tem'){x.fillStyle='#333';x.beginPath();x.arc(cx,cy,s*.3,0,7);x.fill()}}
+    if(kind==='pollen'){x.beginPath();x.arc(cx,cy,s*.75,0,7);x.fill();x.stroke();for(let i=0;i<18;i++){const a=i/18*6.283;x.beginPath();x.moveTo(cx+Math.cos(a)*s*.75,cy+Math.sin(a)*s*.75);x.lineTo(cx+Math.cos(a)*s*1.0,cy+Math.sin(a)*s*1.0);x.stroke()}
+      if(mode==='tem'){x.fillStyle='#444';x.beginPath();x.arc(cx,cy,s*.35,0,7);x.fill()}}}
+  function draw(){const {x,w,h}=fit(c);x.fillStyle=mic==='light'?'#fdfbe8':'#2a2a2a';x.fillRect(0,0,w,h);const cx=w/2,cy=h/2+6,s=Math.min(w,h)*.32;
+    const ok=can[mic][spec];
+    if(ok){if(mic==='light'&&spec==='bacteria'){shape(x,cx,cy,s*.5,spec,mic)}else shape(x,cx,cy,s,spec,mic)}
+    else{x.fillStyle='#e5484d';x.font='bold 18px Nunito, sans-serif';x.textAlign='center';x.fillText('Nothing to see!',cx,cy-10);x.font='14px Nunito, sans-serif';x.fillStyle='#9b1c22';x.fillText('A virus is too small for light to resolve.',cx,cy+14);x.textAlign='left'}
+    const tag={light:'LIGHT · colour · can be living',tem:'TEM · 2D inside view · dead, thin, stained',sem:'SEM · 3D surface · dead specimen'}[mic];
+    lbl(x,tag,w/2,16,mic==='light'?'#1fa75a':mic==='tem'?'#1b2470':'#7a3ff0');
+    const name={cheek:'cheek cell',bacteria:'bacteria',virus:'virus',pollen:'pollen grain'}[spec];
+    $('#emRead').textContent=ok?`✓ The ${mic==='light'?'light microscope':mic.toUpperCase()} can show the ${name}${mic==='light'?' (alive, in colour, up to ~1000×)':mic==='tem'?' (2D view of the inside)':' (3D view of the surface)'}.`:`✗ The light microscope cannot show a ${name}. Try an electron microscope!`;
+    $('#emRead').style.color=ok?'#11663a':'#e5484d'}
+  $$('[data-mic]').forEach(b=>b.onclick=()=>{mic=b.dataset.mic;draw()});
+  $$('[data-spec]').forEach(b=>b.onclick=()=>{spec=b.dataset.spec;draw()});
+  enterHooks[15]=draw;})();
+
+// 17 · field of view at 40×, 100×, 400×
+(function(){const c=$('#fov');let o=4;
+  function draw(){const {x,w,h}=fit(c);x.fillStyle='#0f1430';x.fillRect(0,0,w,h);const R=Math.min(w*.36,h*.44),cx=w*.4,cy=h/2;
+    const n=onion(x,cx,cy,R,o*9.5,0);const tx=cx+R+20;x.fillStyle='#fff';x.font='bold 15px Nunito, sans-serif';x.fillText('10 × '+o+' =',tx,h*.35);x.fillStyle='#ffc21a';x.font='bold 24px Nunito, sans-serif';x.fillText((10*o)+'×',tx,h*.35+30);
+    x.fillStyle='#fff';x.font='14px Nunito, sans-serif';x.fillText('about '+n+' cells',tx,h*.35+56);
+    $('#fovRead').textContent=`${10*o}× · about ${n} cells in view`}
+  $$('[data-fov]').forEach(b=>b.onclick=()=>{o=+b.dataset.fov;draw()});
+  enterHooks[17]=draw;})();
+
+window.addEventListener('resize',()=>enterHooks[cur]&&enterHooks[cur]());
+go(fromHash(),false);
+</script>
+
+</body>
+</html>

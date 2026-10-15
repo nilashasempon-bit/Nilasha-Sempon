@@ -1,0 +1,1171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="author" content="Nilasha Sempon">
+<meta name="description" content="Interactive Grade 11 Advanced Biology lesson with the UAE Values Team.">
+<title>Epistasis and X Inactivation · Nilasha Sempon</title>
+<meta property="og:title" content="Epistasis and X Inactivation · Nilasha Sempon">
+<meta property="og:description" content="Grade 11 Advanced Biology interactive lesson by Nilasha Sempon, with the UAE Values Team.">
+<meta property="og:image" content="https://nilashasempons.netlify.app/b12-epistasis-x-inactivation/img/hook.webp">
+<meta property="og:url" content="https://nilashasempons.netlify.app/b12-epistasis-x-inactivation/">
+<meta property="og:site_name" content="Nilasha Sempon · Science &amp; Biology">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: an app frame (top bar · one slide at a time · bottom nav). Each slide is a page with its own #sN link.
+   Single bright classroom look, matching the teacher's deck, so colours are set explicitly. */
+:root{
+  --navy:#1b2470; --navy-2:#2a338f; --ink:#1c2340; --muted:#5b6385; --line:#dfe3f1;
+  --paper:#ffffff; --bg:#eef1f9; --sun:#ffc21a; --sun-ink:#3a2a00;
+  --green:#1fa75a; --green-bg:#e6f7ed; --red:#e5484d; --red-bg:#fdecec;
+  --orange:#f07f19; --orange-bg:#fff2e4; --purple:#7a3ff0; --purple-bg:#f1eafe;
+  --blue:#2563eb; --blue-bg:#e8effe; --teal:#0e9fa6; --sea:#2b8fd6; --sand:#f2dca6;
+  --c-shahin:#4b6b2f; --c-fahim:#1f5f8b; --c-maha:#a3343a; --c-ahmed:#1d6b5b; --c-hessa:#b07a0a;
+  --display:"Baloo Bhaijaan 2","Nunito",system-ui,sans-serif;
+  --body:"Nunito","Baloo Bhaijaan 2",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+html,body{height:100%}
+body{margin:0}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45}
+*{box-sizing:border-box}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.ar{font-family:"Baloo Bhaijaan 2",var(--body);direction:rtl}
+
+#app{height:100%;display:grid;grid-template-rows:auto 1fr auto}
+.topbar{background:var(--navy);color:#fff;display:flex;align-items:center;gap:12px;padding:8px 16px;flex-wrap:wrap}
+.topbar .crumb{font-weight:800;font-family:var(--display);font-size:1.05rem;white-space:nowrap;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.topbar .unit{opacity:.8;font-size:.85rem;min-width:0;flex:1 1 220px}
+.topbar .date{background:rgba(255,255,255,.14);border-radius:999px;padding:3px 12px;font-size:.85rem;white-space:nowrap}
+.iconbtn{background:var(--sun);color:var(--sun-ink);border:0;border-radius:999px;width:36px;height:36px;display:grid;place-items:center;font-weight:800;flex:none}
+.iconbtn svg{width:18px;height:18px}
+.wavestrip{height:6px;background:repeating-linear-gradient(90deg,var(--sun) 0 40px,var(--green) 40px 80px,var(--red) 80px 120px,var(--blue) 120px 160px,var(--purple) 160px 200px)}
+
+main{overflow-y:auto;overflow-x:hidden;position:relative;-webkit-overflow-scrolling:touch}
+.slide{min-height:100%}
+.inner{max-width:1200px;margin:0 auto;padding-block:22px 28px;padding-inline:16px;display:flex;flex-direction:column;gap:18px}
+.head{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.head h2{font-family:var(--display);font-size:clamp(1.5rem,3.2vw,2.2rem);line-height:1.1;margin:0;flex:1 1 auto;text-wrap:balance;font-weight:800}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:2px solid var(--blue);border-radius:999px;padding:3px 12px 3px 4px;font-size:.82rem;font-weight:700;color:var(--navy)}
+.chip i{width:24px;height:24px;border-radius:50%;background:var(--blue);display:grid;place-items:center;color:#fff;font-style:normal;font-size:.8rem}
+.chip .ar{font-weight:600;color:var(--muted)}
+.lead{color:var(--muted);margin:0;max-width:75ch}
+.lead b{color:var(--purple)}
+
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px}
+.label{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;font-weight:800;color:var(--red)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+.g5{grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.cols{display:grid;gap:18px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:860px){.cols.split{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}.cols.split-r{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}}
+.stack{display:flex;flex-direction:column;gap:12px;min-width:0}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+img.fig{border-radius:14px;border:1px solid var(--line);display:block;width:100%;height:auto;background:#fff}
+
+.btn{border:0;border-radius:999px;padding:10px 20px;font-weight:800;background:var(--sun);color:var(--sun-ink);box-shadow:0 3px 0 #d79c00;transition:transform .1s}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 #d79c00}
+.btn.navy{background:var(--navy);color:#fff;box-shadow:0 3px 0 #0d1245}
+.btn.red{background:var(--red);color:#fff;box-shadow:0 3px 0 #a92d31}
+.btn.ghost{background:var(--paper);color:var(--navy);box-shadow:none;border:2px solid var(--line)}
+.btn.small{padding:6px 14px;font-size:.88rem}
+
+/* coach strip */
+.coach{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:center;background:var(--paper);border:2px solid var(--cc,var(--navy));border-radius:18px;padding:10px 14px}
+.coach img{width:64px;height:64px;border-radius:50%;border:3px solid var(--cc);background:#f5efe4}
+.coach .who{font-weight:800;color:var(--cc);font-size:.9rem}
+.coach .who span{font-weight:600;color:var(--muted)}
+.coach p{margin:2px 0}
+.coach .ns{font-size:.82rem;color:var(--muted)}
+.coach .ns b{color:var(--orange)}
+.lo{display:flex;gap:10px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:.88rem;color:var(--muted)}
+.lo b{color:var(--red)}
+.lo.lotop{color:var(--ink);font-size:.95rem;font-weight:600;border:2px solid #f3c2c4;background:#fff7f7}
+.hero .lo.lotop,.end .lo.lotop{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.35);color:#fff}.hero .lo.lotop b,.end .lo.lotop b{color:#ffc21a}
+.lo .tgt{flex:none;width:22px;height:22px;border-radius:50%;border:4px solid var(--red);box-shadow:inset 0 0 0 3px #fff,inset 0 0 0 8px var(--red)}
+
+/* bottom nav */
+.nav{background:var(--paper);border-top:1px solid var(--line);display:flex;align-items:center;gap:8px;padding:8px 16px calc(8px + env(safe-area-inset-bottom,0px));flex-wrap:wrap}
+.nav .count{font-weight:800;font-variant-numeric:tabular-nums;color:var(--navy);min-width:64px;text-align:center}
+.nav .title{flex:1 1 140px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--muted);font-size:.9rem}
+@media (max-width:700px){.topbar .unit{display:none}.nav .title{display:none}.nav{justify-content:space-between}}
+.progress{height:4px;background:var(--line)}
+.progress div{height:100%;background:var(--sun);transition:width .3s}
+.toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;z-index:50;max-width:calc(100% - 32px);text-align:center}
+.linkbox{font-size:.8rem;word-break:break-all;background:var(--bg);padding:6px 10px;border-radius:8px;user-select:all}
+
+/* menu overlay */
+.menu{position:fixed;inset:0;background:rgba(18,22,60,.55);z-index:40;display:grid;place-items:center;padding:16px}
+.menu .panel{background:var(--paper);border-radius:20px;max-width:900px;width:100%;max-height:85vh;overflow:auto;padding:18px}
+.menu ol{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:6px;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr))}
+.menu li button{width:100%;text-align:left;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:8px 10px;display:flex;gap:10px;align-items:center}
+.menu li button b{color:var(--navy);font-variant-numeric:tabular-nums;min-width:22px}
+.menu li button.cur{background:var(--sun)}
+
+/* title slide */
+.hero{background:linear-gradient(135deg,#1b2470 0%,#3a2fa3 60%,#6a2fb8 100%);color:#fff;min-height:100%;position:relative;overflow:hidden}
+.hero .inner{padding-block:36px}
+.hero h1{font-family:var(--display);font-size:clamp(2.4rem,7vw,4.6rem);line-height:1;margin:6px 0 0;font-weight:800}
+.hero .sub{font-family:var(--display);color:var(--sun);font-size:clamp(1.3rem,3vw,2rem);font-weight:700;margin:0}
+.hero .eyebrow{color:var(--sun);font-weight:800;letter-spacing:.08em;font-size:.82rem}
+.hero .teacher{font-family:var(--display);font-size:1.2rem}.hero .teacher b{color:var(--sun)}
+.hero .mystery{background:#fff;color:var(--ink);border-radius:14px;padding:14px 16px;max-width:620px}
+.hero .mystery b{color:var(--red)}
+.avatars{display:flex;flex-wrap:wrap;gap:12px}
+.avatars button{background:none;border:0;padding:0;text-align:center;color:#fff;font-size:.8rem;font-weight:700}
+.avatars img{width:72px;height:72px;border-radius:50%;border:3px solid var(--sun);display:block;margin-bottom:4px;background:#f5efe4;transition:transform .2s}
+.avatars button:hover img{transform:translateY(-4px) rotate(-4deg)}
+.hero canvas.waves{position:absolute;left:0;right:0;bottom:0;width:100%;height:120px;pointer-events:none;opacity:.9}
+
+/* flip cards */
+.flip{perspective:900px;background:none;border:0;padding:0;text-align:left;width:100%}
+.flip .fi{display:grid;transition:transform .5s;transform-style:preserve-3d;height:100%}
+.flip.on .fi{transform:rotateY(180deg)}
+.flip .face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;padding:14px;border:2px solid var(--line);background:var(--paper);min-height:100px;display:flex;flex-direction:column;justify-content:center;gap:4px}
+.flip .back{transform:rotateY(180deg)}
+.flip .tap{font-size:.75rem;color:var(--muted);font-weight:700}
+.kw .front{border-color:var(--purple)}
+.kw .front strong{font-family:var(--display);font-size:1.3rem;color:var(--purple)}
+.kw .back{background:var(--purple-bg);border-color:var(--purple)}
+@media (prefers-reduced-motion:reduce){.flip .fi{transition:none}}
+
+/* team cards */
+.team{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr))}
+.team .face{padding:0;overflow:hidden;justify-content:flex-start;border-color:var(--cc)}
+.team .front img{width:100%;height:auto;aspect-ratio:496/536;object-fit:cover;display:block}
+.team .front .tap{padding:8px 10px;text-align:center;color:var(--cc)}
+.team .back{background:var(--cc);color:#fff;padding:16px;justify-content:center;font-weight:700;font-size:1.02rem}
+.team .back h4{margin:0;font-family:var(--display);font-size:1.4rem}
+.nskills{display:flex;flex-wrap:wrap;gap:8px}
+.nskill{border:2px solid var(--orange);background:var(--paper);border-radius:12px;padding:6px 12px;font-weight:800;color:var(--navy);display:flex;flex-direction:column;align-items:flex-start;text-align:left;max-width:240px}
+.nskill small{font-weight:600;color:var(--orange);display:none}
+.nskill.on small{display:block}
+
+/* lesson map */
+.map{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr))}
+.map button{border:0;border-radius:16px;color:#fff;text-align:left;padding:14px;min-height:112px;display:flex;flex-direction:column;gap:2px;transition:transform .15s}
+.map button:hover{transform:translateY(-3px)}
+.map small{font-size:.7rem;letter-spacing:.07em;font-weight:800;opacity:.85}
+.map strong{font-family:var(--display);font-size:1.18rem;line-height:1.15}
+.map span{font-size:.85rem;opacity:.9}
+
+/* lists */
+.crit{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.crit li{position:relative;padding-left:38px;min-height:28px;padding-top:3px}
+.crit li::before{position:absolute;left:0;top:0}
+.crit li::before{content:"✓";width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:800}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:s}
+.steps li{position:relative;padding-left:44px;min-height:34px;padding-top:6px;counter-increment:s}
+.steps li::before{position:absolute;left:0;top:0}
+.steps li::before{content:counter(s);width:32px;height:32px;border-radius:50%;background:var(--sun);display:grid;place-items:center;font-weight:800}
+
+/* timer */
+.timer{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:2px solid var(--sun);border-radius:999px;padding:4px 6px 4px 4px}
+.timer .t{font-family:var(--display);font-weight:800;font-size:1.3rem;font-variant-numeric:tabular-nums;min-width:58px;text-align:center;color:var(--navy)}
+.timer.done{border-color:var(--red);background:var(--red);animation:shake .5s 3}
+.timer.done .t{color:#fff}
+.timer .rs{background:none;border:0;color:var(--muted);font-size:.8rem;font-weight:700;padding:4px 8px}
+.timer.done .rs{color:#fff}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+/* quizzes */
+.q{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:10px}
+.q .qt{font-weight:800}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{border:2px solid var(--line);background:var(--bg);border-radius:12px;padding:8px 14px;font-weight:700;text-align:left}
+.opt.ok{background:var(--green);border-color:var(--green);color:#fff}
+.opt.no{background:var(--red);border-color:var(--red);color:#fff}
+.opt.ok::before{content:"✓ "}.opt.no::before{content:"✗ "}
+.fb{font-size:.9rem;border-radius:10px;padding:8px 12px}
+.fb.ok{background:var(--green-bg);color:#11663a}
+.fb.no{background:var(--red-bg);color:#9b1c22}
+.score{font-family:var(--display);font-weight:800;font-size:1.25rem;color:var(--navy)}
+
+/* sort */
+.sorter{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.sitem{display:flex;align-items:center;justify-content:space-between;gap:10px;border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 12px;font-weight:700;text-align:left}
+.sitem .tag{border-radius:999px;padding:3px 12px;font-size:.82rem;font-weight:800;background:var(--bg);color:var(--muted);white-space:nowrap}
+.sitem[data-v="low"] .tag{background:var(--teal);color:#fff}
+.sitem[data-v="high"] .tag{background:var(--red);color:#fff}
+.bannerbtn{background:none;border:0;padding:0;display:block;width:100%;max-width:760px;cursor:pointer}.bannerbtn img{width:100%;height:auto;border-radius:14px;display:block;border:3px solid var(--sun);transition:transform .2s}.bannerbtn:hover img{transform:translateY(-3px)}
+.concert{display:grid;gap:8px}.concert .stadium{padding-top:14px}.stage{background:linear-gradient(90deg,#ffc21a,#ff8a1f);border-radius:10px;text-align:center;font-weight:800;padding:8px;color:#3a2a00;letter-spacing:.1em}
+.seat.saeed{outline:3px solid #ff3b3b;outline-offset:1px}
+.dbchip{border-radius:999px;padding:3px 10px;font-size:.8rem;font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
+.sitem[data-v="extinct"] .tag{background:#5b6385;color:#fff}.sitem[data-v="ENDANGERED"] .tag{background:var(--red);color:#fff}.sitem[data-v="threatened"] .tag{background:var(--orange);color:#fff}
+.sitem[data-v="Epistasis"] .tag{background:var(--red);color:#fff}.sitem[data-v="X-inactivation"] .tag{background:var(--purple);color:#fff}
+.sitem[data-v="living"] .tag{background:var(--green);color:#fff}.sitem[data-v="NONLIVING"] .tag{background:#5b6385;color:#fff}
+.rbig{font-size:2.6rem;text-align:center;padding:14px 0;background:#fff;border-radius:14px}
+.sitem[data-v="uses"] .tag{background:var(--orange);color:#fff}.sitem[data-v="MAKES"] .tag{background:var(--green);color:#fff}
+.sitem[data-v="GAS"] .tag{background:#9aa3b5;color:#fff}.sitem[data-v="LIQUID"] .tag{background:var(--sea);color:#fff}.sitem[data-v="SOLID"] .tag{background:var(--navy);color:#fff}
+.sitem[data-v="REFLECT"] .tag{background:var(--red);color:#fff}.sitem[data-v="ABSORB"] .tag{background:var(--teal);color:#fff}.sitem[data-v="TRANSMIT"] .tag{background:var(--navy);color:#fff}
+.sitem.right{border-color:var(--green);box-shadow:0 0 0 2px var(--green)}
+.sitem.wrong{border-color:var(--red);box-shadow:0 0 0 2px var(--red)}
+
+/* energy bars */
+.erow{display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px;align-items:center}
+.erow .amp{background:var(--navy);color:#fff;border-radius:999px;padding:6px 12px;font-weight:800;text-align:center;font-size:.9rem}
+.ebar{border:2px dashed var(--line);border-radius:999px;height:40px;background:var(--paper);display:flex;align-items:center;padding:0 4px;text-align:left;font-weight:700;color:var(--muted);font-size:.85rem;width:100%;position:relative;overflow:hidden}
+.ebar .fill{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#ff8c8f,var(--red));border-radius:999px;width:0;transition:width .8s cubic-bezier(.2,.9,.3,1.2)}
+.ebar .v{position:relative;padding-left:10px}
+.ebar.on{border-style:solid;border-color:var(--red)}
+.ebar.on .v{color:#fff;font-family:var(--display);font-size:1.25rem}
+.rule{background:var(--purple-bg);border-radius:14px;padding:18px;text-align:center;font-family:var(--display);font-size:3rem;font-weight:800;color:var(--navy);line-height:1}
+.rule sup{font-size:.55em}
+
+/* sims */
+.sim{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:12px;display:grid;gap:10px}
+.sim>*,.medium>*{min-width:0}
+.sim canvas{width:100%;display:block;border-radius:10px}
+.stadium{background:#141a3e;border-radius:12px;padding:40px 14px 14px;display:grid;gap:6px;grid-template-columns:repeat(16,minmax(0,1fr));overflow:hidden}
+.seat{height:clamp(14px,3vw,30px);border-radius:40% 40% 18% 18%;background:var(--c,#5b7cfa);transition:background .2s}
+.seat.saeed{outline:3px solid #ff3b3b;outline-offset:1px}
+.medium{display:grid;gap:8px;border:2px solid var(--line);border-radius:14px;padding:10px;background:var(--paper)}
+.medium h4{margin:0;font-family:var(--display);font-size:1.15rem}
+.medium canvas{width:100%;max-width:100%;height:120px;background:#f6f8fd}
+.medium .res{font-size:.85rem;min-height:2.6em}
+.legend{font-size:.82rem;color:var(--muted)}
+
+/* table */
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:420px;font-size:.92rem}
+th{background:var(--navy);color:#fff;text-align:left;padding:8px 10px}
+td{border-bottom:1px solid var(--line);padding:8px 10px;vertical-align:top}
+select,input[type=text],textarea{font:inherit;border:2px solid var(--line);border-radius:10px;padding:6px 10px;background:#fff;color:var(--ink);max-width:100%}
+textarea{width:100%;min-height:84px;resize:vertical}
+.okf{border-color:var(--green)!important;background:var(--green-bg)!important}
+.nof{border-color:var(--red)!important;background:var(--red-bg)!important}
+.fillrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#wsB .fillrow{display:block;line-height:2.3}#wsB .fillrow input{margin:0 4px}
+.wordbank{background:var(--blue-bg);border-radius:10px;padding:8px 12px;font-weight:700;color:var(--blue)}
+
+/* order */
+.order{display:grid;gap:8px}
+.oitem{display:flex;align-items:center;gap:12px;border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 12px;font-weight:700;text-align:left}
+.oitem .n{width:34px;height:34px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-family:var(--display);font-weight:800;flex:none;color:var(--muted)}
+.oitem.set .n{background:var(--sun);color:var(--sun-ink)}
+.oitem.right{border-color:var(--green)}.oitem.wrong{border-color:var(--red)}
+.chain{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.chain div{border-radius:12px;padding:10px;color:#fff;font-weight:700;font-size:.9rem}
+.traffic{display:flex;flex-wrap:wrap;gap:8px}
+.traffic button{border:0;border-radius:999px;padding:8px 16px;font-weight:800;color:#fff}
+
+/* levels */
+.level{border-radius:16px;overflow:hidden;border:2px solid var(--lc);background:var(--paper);display:flex;flex-direction:column}
+.level h3{margin:0;background:var(--lc);color:#fff;padding:10px 14px;font-family:var(--display)}
+.level ol{margin:0;padding:12px 14px 12px 32px;display:grid;gap:8px}
+.level .ans{background:var(--lbg);margin:0 12px 12px;border-radius:10px;padding:10px 12px;font-size:.9rem}
+.level .btn{margin:0 12px 12px;align-self:flex-start}
+
+/* stars */
+.stars{display:flex;gap:4px}
+.stars button{background:none;border:0;padding:0;font-size:1.7rem;line-height:1;color:#c7cde0}
+.stars button.on{color:#f6b500}
+.vcard{border:2px solid var(--cc);border-radius:16px;background:var(--paper);padding:10px;text-align:center;display:grid;gap:6px;position:relative;justify-items:center}
+.vcard img{width:min(120px,100%);aspect-ratio:1;border-radius:50%;border:3px solid var(--cc);background:#f5efe4}
+.vcard .star{position:absolute;top:8px;right:10px;font-size:2rem;color:#c7cde0;transition:transform .3s}
+.vcard.on .star{color:#f6b500;transform:scale(1.25) rotate(15deg)}
+.vcard .prompt{font-style:italic;color:var(--cc);border:1px dashed var(--cc);border-radius:10px;padding:6px 8px;font-size:.88rem;width:100%}
+.goal{font-size:2rem;letter-spacing:4px;color:#c7cde0}
+.goal span.on{color:#f6b500}
+
+.end{background:linear-gradient(135deg,#1b2470 0%,#3a2fa3 60%,#6a2fb8 100%);color:#fff;min-height:100%}
+.end h1{font-family:var(--display);font-size:clamp(2.2rem,6vw,4rem);margin:0;line-height:1.05}
+.end .eyebrow{color:var(--sun);font-weight:800;letter-spacing:.06em}
+.end .promise{background:#fff;color:var(--ink);border-radius:14px;padding:12px 16px}
+.end .promise b{color:var(--red)}
+.end .nsk{background:#fff;color:var(--navy);border-radius:999px;padding:6px 14px;font-weight:800}
+
+.note{background:var(--orange-bg);border-radius:12px;padding:10px 14px;font-size:.92rem}
+.note b{color:var(--orange)}
+.good{background:var(--green-bg);border-radius:12px;padding:10px 14px}
+.hl{color:var(--red);font-weight:800}
+video{width:100%;border-radius:14px;background:#000;display:block}
+
+/* party confetti + red wrong-answer feedback */
+.shake{animation:shk .45s}
+@keyframes shk{0%,100%{transform:translateX(0)}20%{transform:translateX(-9px)}40%{transform:translateX(9px)}60%{transform:translateX(-6px)}80%{transform:translateX(5px)}}
+#redFlash{position:fixed;inset:0;pointer-events:none;z-index:9998;box-shadow:inset 0 0 0 12px rgba(229,72,77,.92),inset 0 0 120px rgba(229,72,77,.55);opacity:0;transition:opacity .6s}
+#redFlash.on{opacity:1;transition:none}
+#fxCanvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999}
+.fbadge{position:fixed;z-index:10000;pointer-events:none;transform:translate(-50%,-50%);padding:10px 20px;border-radius:999px;font-weight:800;font-size:1.2rem;color:#fff;white-space:nowrap;box-shadow:0 10px 26px rgba(0,0,0,.22);animation:fbadge 1.4s ease-out forwards}
+.fbadge.good{background:#1fa75a}.fbadge.bad{background:#e5484d}
+@keyframes fbadge{0%{opacity:0;transform:translate(-50%,-30%) scale(.6)}15%{opacity:1;transform:translate(-50%,-70%) scale(1.12)}70%{opacity:1}100%{opacity:0;transform:translate(-50%,-170%) scale(1)}}
+.sitem.wrong,.oitem.wrong{background:var(--red-bg)!important}
+.sitem.right,.oitem.right{background:var(--green-bg)!important}
+</style>
+</head>
+<body>
+
+<div id="app">
+  <header class="topbar">
+    <a class="iconbtn" href="../" title="All lessons" aria-label="All lessons" style="text-decoration:none">◀</a>
+    <span class="crumb">Epistasis and X Inactivation</span>
+    <span class="unit">Unit 3: Genetics · Module 10: Patterns of Inheritance</span>
+    <span class="date" id="today">Today</span>
+    <button class="iconbtn" data-go="3" title="Lesson map" aria-label="Lesson map"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 2 11.5h3V21h5.5v-6h3v6H19v-9.5h3z"/></svg></button>
+  </header>
+  <main id="main">
+
+<!-- 1 · TITLE -->
+<section class="slide hero" id="s1" data-title="Epistasis and X Inactivation" data-bare>
+  <div class="inner">
+    <div class="eyebrow">GRADE 12 ADVANCED · BIOLOGY · WEEK 6 · LESSON 5</div>
+    <div><h1>Epistasis and X Inactivation</h1><p class="sub">Labrador coat colour · calico cats · dosage compensation</p></div>
+    <div style="opacity:.85">Unit 3: Genetics · Module 10: Introduction to Genetics and Patterns of Inheritance · Lesson 5: Complex patterns of inheritance</div>
+    <div class="teacher">Teacher: <b>Nilasha Sempon</b> · Science &amp; Biology</div>
+    <div>
+      <div class="eyebrow" style="margin-bottom:8px">YOUR VALUES TEAM TODAY · tap to meet them</div>
+      <button class="bannerbtn" data-go="2"><img src="img/banner.webp" alt="Shahin (Leadership), Fahim (Knowledge), Maha (Respect), Ahmed (Responsibility) and Hessa (Tolerance) with the UAE national skills"></button>
+    </div>
+    <div class="mystery"><b>Today's mysteries:</b> Two black Labradors can have a <b>yellow</b> puppy. And a calico cat, with its patches of orange and black, is almost always <b>female</b>. Which hidden genes explain both?</div>
+    <div class="row" style="padding-bottom:110px">
+      <button class="btn" data-go="2">▶ Let's go!</button>
+      <button class="btn ghost" data-go="3">Lesson map</button>
+      <span style="opacity:.8;font-size:.9rem">45-minute interactive lesson</span>
+    </div>
+  </div>
+  <canvas class="waves" id="heroWaves"></canvas>
+</section>
+
+<!-- 2 · MEET TEAM -->
+<section class="slide" id="s2" data-title="Meet your UAE Values Team" data-skills="teamwork">
+  <div class="inner">
+    <div class="head"><h2>Meet your UAE Values Team</h2><button class="btn" data-confetti>★ We're ready!</button></div>
+    <p class="lead">Five friends will coach you through today's hidden-genes mission. <b>Tap a character to discover their job today!</b></p>
+    <div class="team">
+      <button class="flip" style="--cc:var(--c-shahin)"><div class="fi"><div class="face front"><img src="img/fig-shahin.webp" alt="Shahin – Leadership"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Shahin</h4>Lead your pair in the calico coin-flip lab and the Labrador crosses.</div></div></button>
+      <button class="flip" style="--cc:var(--c-fahim)"><div class="fi"><div class="face front"><img src="img/fig-fahim.webp" alt="Fahim – Knowledge"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Fahim</h4>Collect today's key words: epistasis, X inactivation, dosage compensation, Barr body.</div></div></button>
+      <button class="flip" style="--cc:var(--c-maha)"><div class="fi"><div class="face front"><img src="img/fig-maha.webp" alt="Maha – Respect"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Maha</h4>Respect animals: every dog and cat is special, whatever its colour.</div></div></button>
+      <button class="flip" style="--cc:var(--c-ahmed)"><div class="fi"><div class="face front"><img src="img/fig-ahmed.webp" alt="Ahmed – Responsibility"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Ahmed</h4>Record every coin flip honestly. Good scientists never change their data!</div></div></button>
+      <button class="flip" style="--cc:var(--c-hessa)"><div class="fi"><div class="face front"><img src="img/fig-hessa.webp" alt="Hessa – Tolerance"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Hessa</h4>Like a calico cat, we are all different patterns. Every answer is welcome here!</div></div></button>
+    </div>
+    <div class="stack">
+      <div class="label" style="color:var(--navy)">UAE national skills you will use today · tap a skill to see where</div>
+      <div class="nskills">
+        <button class="nskill">🇦🇪 National Identity<small>The Emirati Genome Programme</small></button>
+        <button class="nskill">🌿 Sustainability<small>Responsible animal breeding</small></button>
+        <button class="nskill">🤝 Cooperation<small>Pairs in the calico coin-flip lab</small></button>
+        <button class="nskill">💡 Innovation<small>Genetics for personalised healthcare</small></button>
+        <button class="nskill">⭐ Excellence<small>Become today's Gene Detective!</small></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · LESSON MAP -->
+<section class="slide" id="s3" data-title="Lesson map">
+  <div class="inner">
+    <div class="head"><h2>Lesson map · 45 minutes · tap any activity</h2></div>
+    <div class="map">
+      <button style="background:#1593c9" data-go="5"><small>STARTER · min 0–5</small><strong>Starter + Attendance</strong><span>Recap multiple alleles &amp; pre-assessment</span></button>
+      <button style="background:#d23b8a" data-go="4"><small>OBJECTIVES</small><strong>Objectives &amp; vocabulary</strong><span>Flip the key words</span></button>
+      <button style="background:#ef5a5a" data-go="7"><small>HOOK · min 5–9</small><strong>Yellow puppy, calico cat</strong><span>Mysteries + narrated video</span></button>
+      <button style="background:#f07f19" data-go="9"><small>ACTIVITY · min 9–11</small><strong>Epistasis or X inactivation?</strong><span>Sort the features</span></button>
+      <button style="background:#7a3ff0" data-go="10"><small>EXPLAIN · min 11–16</small><strong>Paint machine &amp; radios</strong><span>The unconventional version + textbook</span></button>
+      <button style="background:#b0287a" data-go="14"><small>SIMULATION · min 16–20</small><strong>Labrador breeder</strong><span>9 : 3 : 4</span></button>
+      <button style="background:#118a7e" data-go="15"><small>SIMULATION · min 20–23</small><strong>Calico mosaic</strong><span>Random X inactivation</span></button>
+      <button style="background:#2563eb" data-go="16"><small>SIMULATION · min 23–25</small><strong>Barr body counter</strong><span>+ the Emirati Genome Programme</span></button>
+      <button style="background:#1fa75a" data-go="17"><small>LAB · min 25–30</small><strong>Calico coin-flip lab</strong><span>Make your own calico</span></button>
+      <button style="background:#e5484d" data-go="18"><small>FORMATIVE · min 30–33</small><strong>Pause &amp; check</strong><span>Quiz + order the steps</span></button>
+      <button style="background:#5b3fd0" data-go="20"><small>WORKSHEET · min 33–41</small><strong>Worksheet + levels</strong><span>Green / Blue / Orange</span></button>
+      <button style="background:#c81e3a" data-go="23"><small>SUMMATIVE · min 41–45</small><strong>Gene Detective + exit</strong><span>Summative quiz &amp; plenary</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · OBJECTIVES -->
+<section class="slide" id="s4" data-title="Objectives, success criteria & key words" data-skills="reading" data-coach="fahim" data-ns="Excellence" data-says="Flip every key-word card and say the meaning out loud. Knowledge grows when you use it!">
+  <div class="inner">
+    <div class="head"><h2>Objectives, success criteria &amp; key words</h2></div>
+    <div class="cols split-r">
+      <div class="stack">
+        <div class="card"><div class="label">Learning objective</div><p style="margin:6px 0 0;font-weight:700">Describe epistasis and explain how it impacts trait expression; describe X inactivation (dosage compensation).</p></div>
+        <div class="card"><div class="label" style="color:var(--green)">Success criteria</div>
+          <ul class="crit" style="margin-top:10px">
+            <li><b>Foundation:</b> I can define epistasis and X inactivation and give an example of each.</li>
+            <li><b>Secure:</b> I can work out Labrador coat colours from genotypes and explain the calico pattern.</li>
+            <li><b>Advanced:</b> I can explain the 9 : 3 : 4 ratio and why calico cats are almost always female.</li>
+          </ul></div>
+      </div>
+      <div class="stack">
+        <div class="label" style="color:var(--purple)">Key words · tap a card to flip it</div>
+        <div class="grid g2" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr))">
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Epistasis</strong><span class="tap">tap to flip</span></div><div class="face back">Two different genes interact to affect one trait; one gene hides the effect of another.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Autosomes</strong><span class="tap">tap to flip</span></div><div class="face back">Chromosome pairs 1 to 22: not involved in sex determination.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Sex chromosomes</strong><span class="tap">tap to flip</span></div><div class="face back">Pair 23: X and Y. Females XX, males XY.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>X inactivation</strong><span class="tap">tap to flip</span></div><div class="face back">One X chromosome is randomly switched off in each female cell.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Dosage compensation</strong><span class="tap">tap to flip</span></div><div class="face back">Balancing X-gene dose between XX females and XY males by X inactivation.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Barr body</strong><span class="tap">tap to flip</span></div><div class="face back">The small, dense, darkly stained inactive X chromosome.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Sex-linked trait</strong><span class="tap">tap to flip</span></div><div class="face back">A trait controlled by a gene on a sex chromosome (mostly on X).</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Gamete</strong><span class="tap">tap to flip</span></div><div class="face back">A mature sex cell (sperm or egg) with a haploid number of chromosomes.</div></div></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · STARTER -->
+<section class="slide" id="s5" data-title="Starter + attendance" data-skills="discipline,integrity" data-coach="ahmed" data-ns="National Identity" data-says="Be ready before the timer ends: device on the LMS, pen out. Responsible learners make the UAE proud.">
+  <div class="inner">
+    <div class="head"><h2>Starter + attendance on the LMS</h2><div class="timer" data-sec="300"></div></div>
+    <div class="cols split-r">
+      <img class="fig" src="img/puppies.webp" alt="Three Labrador puppies: chocolate, yellow and black" style="max-width:460px">
+      <div class="card stack"><div class="label" style="color:var(--navy)">Task · 5 minutes</div>
+        <ol class="steps">
+          <li>Take attendance on the LMS (Almanhal) and settle in your seat.</li>
+          <li><b>Recap last lesson:</b> play the <a href="https://wordwall.net/resource/92903203/multiple-allele-inheritance-and-codominance" target="_blank" rel="noopener">multiple allele and codominance game</a>.</li>
+          <li><b>Recall:</b> which term best describes the inheritance of rabbit fur colour? (C &gt; c<sup>ch</sup> &gt; c<sup>h</sup> &gt; c)</li>
+          <li>Then answer the true/false questions on the next slide on your own.</li>
+        </ol>
+        <button class="btn small" data-show="rec" style="justify-self:start">Check the recall answer ▸</button><div class="fb ok" id="rec" hidden>✓ Multiple alleles (with a hierarchy of dominance).</div>
+      </div>
+    </div>
+    <div class="note"><b>Focus question:</b> can one gene hide another gene, or can a whole chromosome be switched off?</div>
+  </div>
+</section>
+
+<!-- 6 · PRE-ASSESSMENT -->
+<section class="slide" id="s6" data-title="Pre-assessment: what do you know?" data-skills="critical">
+  <div class="inner">
+    <div class="head"><h2>Pre-assessment: what do you already know?</h2><div class="timer" data-sec="180"></div></div>
+    <div class="cols split">
+      <img class="fig" src="img/xy.webp" alt="The large X chromosome and the much smaller Y chromosome" style="max-width:360px">
+      <div class="stack" id="tf">
+        <div class="q" data-a="F"><div class="qt">1. Every trait is controlled by only one gene.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Some traits depend on two or more genes interacting."></div></div>
+        <div class="q" data-a="T"><div class="qt">2. Human body cells have 23 pairs of chromosomes.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="22 pairs of autosomes + 1 pair of sex chromosomes."></div></div>
+        <div class="q" data-a="F"><div class="qt">3. Males have two X chromosomes.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Males are XY; females are XX."></div></div>
+        <div class="q" data-a="T"><div class="qt">4. The Y chromosome is smaller and carries fewer genes than the X.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Y mainly carries genes for male characteristics."></div></div>
+        <div class="q" data-a="T"><div class="qt">5. One gene can control whether another gene is expressed.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="That is epistasis, today's first topic!"></div></div>
+        <div class="score" id="tfScore">Score: 0 / 5</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · HOOK -->
+<section class="slide" id="s7" data-title="Hook: yellow puppy, calico cat" data-skills="critical,loyalty" data-coach="shahin" data-ns="National Identity" data-says="Lead your pair: one predicts, one explains. Then we solve both mysteries together!">
+  <div class="inner">
+    <div class="head"><h2>Hook: a yellow puppy and a calico cat</h2></div>
+    <img class="fig" src="img/hook.webp" alt="Three Labrador puppies and a calico cat with orange, black and white patches" style="max-width:760px">
+    <div class="cols split">
+      <div class="card stack">
+        <h3 style="margin:0;color:var(--orange);font-family:var(--display)">Two mysteries…</h3>
+        <p style="margin:0"><b>1.</b> Two <b>black</b> Labradors have a litter with black, chocolate <b>and yellow</b> puppies.</p>
+        <p style="margin:0"><b>2.</b> A calico cat has orange, black and white patches, and calico cats are almost always <b>female</b>.</p>
+      </div>
+      <div class="card stack">
+        <div class="row"><button class="btn" data-show="tps">Think · Pair · Share</button><button class="btn red" data-show="clue">Reveal the thinking prompts</button></div>
+        <div id="tps" hidden class="good stack"><b>Talk with your partner for 1 minute.</b> <div class="timer" data-sec="60"></div></div>
+        <div id="clue" hidden class="stack"><div class="fb no">1. Could a second gene "switch off" the black colour?<br>2. Females have two X chromosomes. What if a different X works in different cells?<br>3. Why might a male cat not have both colours?</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · VIDEO -->
+<section class="slide" id="s8" data-title="Video: epistasis and X inactivation" data-skills="critical,communication">
+  <div class="inner">
+    <div class="head"><h2>Video: epistasis and X inactivation (narrated, 2 min 23 s, subtitles)</h2></div>
+    <div class="cols split">
+      <video controls preload="metadata" playsinline poster="img/video-poster.webp"><source src="media/epistasis-x-inactivation.mp4" type="video/mp4"><source src="media/epistasis-x-inactivation.webm" type="video/webm">Your browser cannot play this video.</video>
+      <div class="card stack"><div class="label" style="color:var(--blue)">Watch for</div>
+        <div><b>Q1. What is epistasis?</b><div class="fb ok vans" hidden>✓ Two genes interact to affect one trait: one gene hides the effect of another.</div></div>
+        <div><b>Q2. Why is an ee Labrador always yellow?</b><div class="fb ok vans" hidden>✓ ee stops dark pigment being deposited, so it masks gene B.</div></div>
+        <div><b>Q3. What is dosage compensation?</b><div class="fb ok vans" hidden>✓ One X is randomly switched off in each female cell (X inactivation) and forms a Barr body.</div></div>
+        <div><b>Q4. How does a calico cat get its patches?</b><div class="fb ok vans" hidden>✓ Orange/black alleles are on the X; random X inactivation gives orange and black patches. White comes from another gene (epistasis).</div></div>
+        <button class="btn" id="vidAns" style="justify-self:start">Show answers</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · SORT -->
+<section class="slide" id="s9" data-title="Activity 1: epistasis or X inactivation?" data-skills="critical,teamwork" data-coach="hessa" data-ns="Cooperation" data-says="Sorted it differently from your partner? Listen first, then compare. Different ideas help us learn.">
+  <div class="inner">
+    <div class="head"><h2>Activity 1: epistasis or X inactivation?</h2><div class="timer" data-sec="120"></div></div>
+    <p class="lead">Does each feature belong to <b>Epistasis</b> or <b>X-inactivation</b>? <b>Tap to choose</b>, then check.</p>
+    <div class="cols split-r">
+      <img class="fig" src="img/calico-x.webp" alt="Random X inactivation in a calico cat: orange and black alleles on different X chromosomes">
+      <div class="stack">
+        <div class="sorter" id="sorter" data-labels="Epistasis|X-inactivation">
+          <button class="sitem" data-ans="Epistasis"><span>Two different genes affect one trait</span><span class="tag">?</span></button>
+          <button class="sitem" data-ans="X-inactivation"><span>One X is switched off in each female cell</span><span class="tag">?</span></button>
+          <button class="sitem" data-ans="Epistasis"><span>ee masks the B gene in Labradors</span><span class="tag">?</span></button>
+          <button class="sitem" data-ans="X-inactivation"><span>Forms a Barr body</span><span class="tag">?</span></button>
+          <button class="sitem" data-ans="Epistasis"><span>A 9 : 3 : 4 ratio</span><span class="tag">?</span></button>
+          <button class="sitem" data-ans="X-inactivation"><span>Also called dosage compensation</span><span class="tag">?</span></button>
+          <button class="sitem" data-ans="Epistasis"><span>Yellow, chocolate and black dogs</span><span class="tag">?</span></button>
+          <button class="sitem" data-ans="X-inactivation"><span>Orange and black patches in calico cats</span><span class="tag">?</span></button>
+        </div>
+        <div class="row"><button class="btn navy" id="sortCheck">Check my sort</button><span class="score" id="sortScore"></span></div>
+        <div class="note" id="sortWhy" hidden><b>Why?</b> <b>Epistasis</b> is about two <b>genes</b>: gene E decides whether the colour from gene B is shown (yellow ee dogs, 9 : 3 : 4). <b>X inactivation</b> is about a whole <b>chromosome</b>: one X in each female cell is switched off and becomes a Barr body, giving calico patches.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · UNCONVENTIONAL -->
+<section class="slide" id="s10" data-title="Activity 2: the paint machine and the two radios" data-skills="teamwork,critical" data-coach="fahim" data-ns="Innovation" data-says="A good model helps you remember a big idea. Can you invent a better one? That is innovation!">
+  <div class="inner">
+    <div class="head"><h2>Activity 2: the paint machine and the two radios (the unconventional version)</h2></div>
+    <div class="grid g2">
+      <div class="card" style="background:var(--orange-bg);border-color:#ffd2a6"><div class="label" style="color:var(--orange)">Think of it like this</div><p style="margin:6px 0 0"><b style="color:var(--red)">Epistasis = a paint machine.</b> Gene B chooses the paint colour (black or chocolate). Gene E is the machine's <b>power switch</b>. If the switch is off (ee), no dark paint comes out at all, and the dog is yellow, whatever paint was chosen.<br><b style="color:var(--purple)">X inactivation = two radios.</b> A female cell has two X "radios" playing. To avoid double volume, one radio is turned off in each room (cell), chosen at random. Different rooms play different songs: the calico patchwork!</p></div>
+      <div class="card" style="background:var(--blue-bg);border-color:#c7d7fb"><div class="label" style="color:var(--blue)">Textbook definition</div><p style="margin:6px 0 0"><b class="hl">Epistasis</b> occurs when two different genes interact to affect a single trait: one gene hides the effect of a second gene, or modifies its expression. Female mammals have two X chromosomes; to avoid a double dose of X genes, one X is turned off in each cell, a process called <b class="hl">X inactivation</b> or <b>dosage compensation</b>. The inactive X becomes a <b>Barr body</b>.</p></div>
+    </div>
+    <div class="label" style="color:var(--navy)">Think · Pair · Share: match the story to the science. Tap to check!</div>
+    <div class="grid g3">
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--blue)"><strong style="color:var(--blue)">🎨 Paint colour</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--blue-bg);border-color:var(--blue)"><b>Gene B</b>: B = black, b = chocolate.</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--red)"><strong style="color:var(--red)">🔌 Power switch</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--red-bg);border-color:var(--red)"><b>Gene E</b>: E_ lets dark pigment be deposited.</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--orange)"><strong style="color:var(--orange)">⛔ Switch off</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--orange-bg);border-color:var(--orange)"><b>ee</b>: yellow dog; e masks gene B (epistasis).</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--purple)"><strong style="color:var(--purple)">📻📻 Two radios</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--purple-bg);border-color:var(--purple)"><b>Two X chromosomes</b> in a female cell.</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--green)"><strong style="color:var(--green)">🔇 One radio off</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--green-bg);border-color:var(--green)"><b>Barr body</b>: the inactive X (dosage compensation).</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--sea)"><strong style="color:var(--sea)">🏠 Different rooms</strong><span class="tap">tap to check</span></div><div class="face back" style="background:#e0f5f2;border-color:var(--sea)"><b>Random</b> choice in each cell → calico patches.</div></div></button>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · TB EPISTASIS -->
+<section class="slide" id="s11" data-title="Textbook: epistasis in Labradors" data-skills="reading,critical" data-coach="maha" data-ns="Sustainability" data-says="Respect the reader: listen while a classmate reads, then answer together.">
+  <div class="inner">
+    <div class="head"><h2>Textbook: epistasis in Labrador retrievers</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your lesson</div>
+        <img class="fig" src="img/lab-flow.webp" alt="Gene 1 (E_ or ee) and gene 2 (B_ or bb) determine black, chocolate or yellow coat" style="max-width:240px;justify-self:center">
+        <p style="margin:0">Labradors can be black, chocolate brown or yellow. <b>Gene 2 (B)</b> controls the colour: B = black, b = chocolate. <b>Gene 1 (E)</b> controls the expression of gene 2: with at least one E, the B and b alleles show; with <b>ee</b>, the coat is yellow.</p></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 What does the dominant allele E determine?</div><button class="btn small ghost" data-show="t11a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t11a" hidden>✓ Whether the coat will have dark pigment.</div></div>
+        <div class="q"><div class="qt">Q2 What does allele B determine?</div><button class="btn small ghost" data-show="t11b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t11b" hidden>✓ How dark the coat will be: black (B_) or chocolate (bb).</div></div>
+        <div class="q"><div class="qt">Q3 Why is an eeBB dog yellow, not black?</div><button class="btn small ghost" data-show="t11c" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t11c" hidden>✓ The e allele masks the effect of the B allele: no dark pigment is deposited.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 · GENOTYPE CARDS -->
+<section class="slide" id="s12" data-title="Activity: which coat colour?" data-skills="reading,numeracy" data-coach="ahmed" data-ns="Excellence" data-says="Write the colour for each genotype before you flip. Responsible learners check their own work!">
+  <div class="inner">
+    <div class="head"><h2>Activity: which coat colour?</h2><div class="timer" data-sec="120"></div></div>
+    <p class="lead">Predict the coat colour for each genotype, then <b>tap to flip</b>. Which 3 are yellow? Which 2 are chocolate? Which 4 are black?</p>
+    <div class="cols split-r">
+      <div class="stack"><img class="fig" src="img/dogs3.webp" alt="Black B_E_, chocolate bbE_ and yellow __ee Labradors">
+        <div class="note"><b>Rule:</b> <b>ee</b> → yellow · <b>E_</b> + <b>B_</b> → black · <b>E_</b> + <b>bb</b> → chocolate</div></div>
+      <div class="grid g3">
+        <button class="flip kw"><div class="fi"><div class="face front"><strong>EEBB</strong><span class="tap">tap to flip</span></div><div class="face back">⚫ Black</div></div></button>
+        <button class="flip kw"><div class="fi"><div class="face front"><strong>EeBb</strong><span class="tap">tap to flip</span></div><div class="face back">⚫ Black</div></div></button>
+        <button class="flip kw"><div class="fi"><div class="face front"><strong>EEBb</strong><span class="tap">tap to flip</span></div><div class="face back">⚫ Black</div></div></button>
+        <button class="flip kw"><div class="fi"><div class="face front"><strong>EeBB</strong><span class="tap">tap to flip</span></div><div class="face back">⚫ Black</div></div></button>
+        <button class="flip kw"><div class="fi"><div class="face front"><strong>EEbb</strong><span class="tap">tap to flip</span></div><div class="face back">🟤 Chocolate</div></div></button>
+        <button class="flip kw"><div class="fi"><div class="face front"><strong>Eebb</strong><span class="tap">tap to flip</span></div><div class="face back">🟤 Chocolate</div></div></button>
+        <button class="flip kw"><div class="fi"><div class="face front"><strong>eeBB</strong><span class="tap">tap to flip</span></div><div class="face back">🟡 Yellow</div></div></button>
+        <button class="flip kw"><div class="fi"><div class="face front"><strong>eeBb</strong><span class="tap">tap to flip</span></div><div class="face back">🟡 Yellow</div></div></button>
+        <button class="flip kw"><div class="fi"><div class="face front"><strong>eebb</strong><span class="tap">tap to flip</span></div><div class="face back">🟡 Yellow</div></div></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 · TB X INACTIVATION -->
+<section class="slide" id="s13" data-title="Textbook: X inactivation" data-skills="reading,critical" data-coach="hessa" data-ns="Excellence" data-says="Take turns explaining each step to your partner. Patience helps everyone learn!">
+  <div class="inner">
+    <div class="head"><h2>Textbook: sex chromosomes and X inactivation</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your lesson</div>
+        <div class="row" style="gap:10px;justify-content:center"><img src="img/xinact.webp" alt="Random X inactivation: in some cells the paternal X is inactive, in others the maternal X" style="height:180px;border-radius:10px"><img src="img/barr.webp" alt="A female nucleus with a Barr body" style="height:150px;border-radius:10px"></div>
+        <p style="margin:0">Human body cells have 46 chromosomes in 23 pairs: pairs 1–22 are <b>autosomes</b>, pair 23 are the <b>sex chromosomes</b>. Females (XX) have two X chromosomes, males (XY) only one. To avoid a double dose, one X in each female cell is turned off: <b class="hl">X inactivation</b> (dosage compensation). It is <b>random</b> and happens during embryonic development. The inactive X becomes a <b>Barr body</b>, first seen by Canadian scientist Murray Barr in calico cat cells in 1949.</p></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 Why is it fine that males have only one X while females have two?</div><button class="btn small ghost" data-show="t13a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13a" hidden>✓ One of the X chromosomes in each female cell is inactivated.</div></div>
+        <div class="q"><div class="qt">Q2 When does X inactivation happen, and which X is switched off?</div><button class="btn small ghost" data-show="t13b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13b" hidden>✓ During early embryonic development; it is random (maternal X in some cells, paternal X in others).</div></div>
+        <div class="q"><div class="qt">Q3 What is a Barr body?</div><button class="btn small ghost" data-show="t13c" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13c" hidden>✓ The small, dense, darkly stained inactive X chromosome seen in female cells.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 · SIM: LABRADOR BREEDER -->
+<section class="slide" id="s14" data-title="Simulation: Labrador breeder" data-skills="critical,numeracy" data-coach="shahin" data-ns="Excellence" data-says="Leaders predict first, then test. Say the ratio before you choose the parents!">
+  <div class="inner">
+    <div class="head"><h2>Simulation: Labrador breeder · a 16-box Punnett square</h2></div>
+    <div class="cols split-r">
+      <div class="sim">
+        <canvas id="dog" height="330"></canvas>
+        <div class="row"><label class="legend">🐕 Parent 1 <select id="p1G"></select></label><label class="legend">🐕 Parent 2 <select id="p2G"></select></label></div>
+        <div class="row"><button class="btn small" data-dpair="EeBb|EeBb" style="background:var(--navy);color:#fff">Two black dogs (EeBb)</button><button class="btn small" data-dpair="EeBb|eebb" style="background:#d4a017;color:#fff">Test cross × eebb</button><button class="btn small" data-dpair="EEbb|eeBB" style="background:#7b4a2b;color:#fff">Chocolate × yellow</button></div>
+        <div class="score" id="dogRead"></div>
+      </div>
+      <div class="grid" style="gap:10px">
+        <button class="flip kw"><div class="fi"><div class="face front"><strong>EeBb × EeBb: what ratio?</strong><span class="tap">tap to reveal</span></div><div class="face back">9 black : 3 chocolate : 4 yellow. The usual 9 : 3 : 3 : 1 becomes 9 : 3 : 4 because ee hides B.</div></div></button>
+        <button class="flip kw"><div class="fi"><div class="face front"><strong>Which genotypes could a chocolate dog have?</strong><span class="tap">tap to reveal</span></div><div class="face back">EEbb or Eebb (bb with at least one E).</div></div></button>
+        <button class="flip kw"><div class="fi"><div class="face front"><strong>Chocolate EEbb × yellow eeBB: puppies?</strong><span class="tap">tap to reveal</span></div><div class="face back">All EeBb: 100% black! The yellow parent was hiding B alleles.</div></div></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 · SIM: CALICO MOSAIC -->
+<section class="slide" id="s15" data-title="Simulation: calico mosaic" data-skills="critical,numeracy" data-coach="maha" data-ns="Sustainability" data-says="Every cat is precious, whatever its pattern. Treat animals with kindness and respect!">
+  <div class="inner">
+    <div class="head"><h2>Simulation: grow a calico cat · random X inactivation</h2></div>
+    <div class="cols split-r">
+      <div class="stack">
+        <div class="card" style="background:#fff8db;border-color:#f3e2a0"><p style="margin:0">The fur-colour gene is on the <b>X chromosome</b>: X<sup>O</sup> = orange, X<sup>B</sup> = black. Press <b>Grow embryo</b> to divide the cells. In each early cell, one X is switched off at random, and all its daughter cells keep the same choice.</p></div>
+        <div class="card stack"><b>Predict, then tap to check</b>
+          <button class="btn small ghost" data-show="w1" style="justify-self:start">▶ Why is a X<sup>O</sup>X<sup>B</sup> female calico?</button><div class="fb ok" id="w1" hidden>Some patches have the X<sup>B</sup> switched off (orange fur); others have the X<sup>O</sup> switched off (black fur).</div>
+          <button class="btn small ghost" data-show="w2" style="justify-self:start">▶ Why is a male (X<sup>O</sup>Y) never calico?</button><div class="fb ok" id="w2" hidden>He has only one X, so all his cells make the same colour. (Rare XXY males can be calico.)</div>
+          <button class="btn small ghost" data-show="w3" style="justify-self:start">▶ Where does the white come from?</button><div class="fb ok" id="w3" hidden>A different gene stops cells making any pigment: one gene hiding another, which is <b>epistasis</b>!</div></div>
+      </div>
+      <div class="sim"><b>Cat skin cells</b>
+        <canvas id="mos" height="290"></canvas>
+        <div class="row"><button class="btn small" data-sex="F" style="background:var(--orange);color:#fff">♀ Female X<sup>O</sup>X<sup>B</sup></button><button class="btn small" data-sex="M" style="background:var(--navy);color:#fff">♂ Male X<sup>O</sup>Y</button><button class="btn small" id="grow" style="background:var(--green);color:#fff">Grow embryo ▶</button><button class="btn small ghost" id="mosReset">↺ Restart</button></div>
+        <div class="score" id="mosRead"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 16 · SIM: BARR BODY COUNTER + UAE -->
+<section class="slide" id="s16" data-title="Simulation: Barr body counter" data-skills="numeracy,loyalty" data-coach="fahim" data-ns="National Identity" data-says="UAE scientists use genetics to protect the health of our nation. Think like a genome scientist!">
+  <div class="inner">
+    <div class="head"><h2>Simulation: Barr body counter</h2></div>
+    <div class="cols split">
+      <div class="sim"><b>How many Barr bodies in each nucleus?</b>
+        <canvas id="barrc" height="260"></canvas>
+        <div class="row"><button class="btn small" data-k="XY" style="background:var(--blue);color:#fff">XY</button><button class="btn small" data-k="XX" style="background:var(--red);color:#fff">XX</button><button class="btn small" data-k="XXY" style="background:var(--purple);color:#fff">XXY</button><button class="btn small" data-k="XXX" style="background:var(--orange);color:#fff">XXX</button></div>
+        <div class="score" id="barrRead"></div>
+      </div>
+      <div class="stack">
+        <div class="card stack"><div class="label">Let us think</div>
+          <p style="margin:0;font-weight:800;font-size:1.1rem">What is the rule for the number of Barr bodies?</p>
+          <button class="btn small" style="background:var(--purple);color:#fff;justify-self:start" data-show="v1">🧬 Reveal the rule</button>
+          <div class="fb ok" id="v1" hidden>Barr bodies = number of X chromosomes − 1. Only one X stays active in each cell, so XY has 0, XX has 1, XXY has 1 and XXX has 2.</div>
+          <button class="btn small ghost" data-show="v2" style="justify-self:start">▶ How do doctors use this?</button><div class="good" id="v2" hidden>Counting Barr bodies in cells helped scientists study sex chromosome conditions, such as XXY, before modern DNA tests.</div>
+          <button class="btn small ghost" data-show="v3" style="justify-self:start">▶ How does this link to the UAE?</button><div class="good" id="v3" hidden>The <b>Emirati Genome Programme</b> studies the DNA of Emirati citizens to help prevent genetic diseases and support personalised healthcare. Understanding genes like these helps keep our nation healthy.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 17 · LAB -->
+<section class="slide" id="s17" data-title="Lab: calico coin-flip" data-skills="numeracy,teamwork" data-coach="ahmed" data-ns="Cooperation" data-says="One flips, one colours, one records. Record honestly: never change your data!">
+  <div class="inner">
+    <div class="head"><h2>Lab: make your own calico cat (coin flip)</h2><div class="timer" data-sec="300"></div></div>
+    <div class="cols split">
+      <div class="stack">
+        <div class="good"><b>You need:</b> a 4 × 4 grid on paper (16 "early cells") · a coin · orange and black pencils</div>
+        <ol style="margin:0;padding-left:20px;display:grid;gap:4px">
+          <li>Your cat is female X<sup>O</sup>X<sup>B</sup>. For each cell, flip the coin.</li>
+          <li>Heads: X<sup>B</sup> is switched off → colour the cell <b>orange</b>. Tails: X<sup>O</sup> is switched off → colour it <b>black</b>.</li>
+          <li>Count the orange and black cells. Compare your cat with another pair's cat.</li>
+        </ol>
+        <div class="tablewrap"><table>
+          <thead><tr><th>Result</th><th>Your answer</th><th>Question</th><th>Your answer</th></tr></thead>
+          <tbody>
+            <tr><td><b>Orange cells</b></td><td><input type="text" id="lab1" placeholder="count"><div class="exp" hidden>about 8</div></td><td><b>Black cells</b></td><td><input type="text" id="lab2" placeholder="count"><div class="exp" hidden>about 8</div></td></tr>
+            <tr><td><b>Expected ratio</b></td><td><input type="text" id="lab3" placeholder="ratio"><div class="exp" hidden>about 1 : 1</div></td><td><b>Same as another pair?</b></td><td><input type="text" id="lab4" placeholder="yes / no"><div class="exp" hidden>no: random each time</div></td></tr>
+            <tr><td><b>Male X<sup>O</sup>Y cat?</b></td><td><input type="text" id="lab5" placeholder="pattern"><div class="exp" hidden>all orange</div></td><td><b>What is the coin?</b></td><td><input type="text" id="lab6" placeholder="models…"><div class="exp" hidden>random X inactivation</div></td></tr>
+          </tbody></table></div>
+        <div class="row"><button class="btn" id="labExp">Expected results</button></div>
+      </div>
+      <div class="sim"><b>Virtual coin-flip calico</b>
+        <canvas id="lab" height="290"></canvas>
+        <div class="row"><button class="btn small" id="flip16" style="background:var(--orange);color:#fff">Flip 16 coins</button><button class="btn small" id="flip1" style="background:var(--navy);color:#fff">Flip 1 coin</button><button class="btn small ghost" id="flipReset">↺ Reset</button></div>
+        <div class="score" id="labRead"></div>
+        <button class="btn navy small" data-show="labQ" style="justify-self:start">▶ What should you notice?</button>
+        <div class="good" id="labQ" hidden>Every cat you make is <b>different</b>, because X inactivation is <b>random</b> in each early cell. On average, about half the cells are orange and half are black. This is why no two calico cats look the same, and even a cloned calico has a different pattern!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 18 · PAUSE & CHECK -->
+<section class="slide" id="s18" data-title="Formative check" data-skills="integrity" data-coach="hessa" data-ns="Excellence" data-says="Wrong answer? Read the hint and try again. Excellence means never giving up.">
+  <div class="inner">
+    <div class="head"><h2>Formative check</h2><div class="timer" data-sec="120"></div></div>
+    <p class="lead">Tap an answer. <b>Wrong? Read the hint and try again!</b></p>
+    <div class="grid g2 mcqset" data-mode="retry">
+      <div class="q"><div class="qt">1. Which statement is true about the X and Y chromosomes?</div><div class="opts"><button class="opt">A. They only exist in gametes</button><button class="opt" data-ok>B. The X has more genes than the Y</button><button class="opt">C. They are always a homologous pair</button><button class="opt">D. XX in male gametes, XY in female gametes</button></div><div class="fb no" hidden>Hint: think about their sizes.</div></div>
+      <div class="q"><div class="qt">2. Which is a feature of the Y chromosome?</div><div class="opts"><button class="opt">A. Genes not related to gender</button><button class="opt" data-ok>B. Genes related to male characteristics</button><button class="opt">C. Genes for male and female characteristics</button><button class="opt">D. Genes for female characteristics</button></div><div class="fb no" hidden>Hint: it is small, with a few genes.</div></div>
+      <div class="q"><div class="qt">3. Why is it fine that males have one X and females have two?</div><div class="opts"><button class="opt" data-ok>A. One X in females is inactivated</button><button class="opt">B. X genes code for both sexes</button><button class="opt">C. X has more genes than Y</button><button class="opt">D. X chromosomes are a homologous pair</button></div><div class="fb no" hidden>Hint: dosage compensation.</div></div>
+      <div class="q"><div class="qt">4. A yellow Labrador must have the genotype…</div><div class="opts"><button class="opt">A. E_B_</button><button class="opt">B. E_bb</button><button class="opt" data-ok>C. ee__</button><button class="opt">D. EEBB</button></div><div class="fb no" hidden>Hint: the power switch is off.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 19 · ORDER -->
+<section class="slide" id="s19" data-title="Order the steps: making a calico" data-skills="critical,discipline" data-coach="shahin" data-ns="Cooperation" data-says="Agree on the order as a team before you reveal it. Good leaders make sure everyone speaks.">
+  <div class="inner">
+    <div class="head"><h2>Put the steps in order: how a calico coat forms</h2></div>
+    <p class="lead"><b>Tap the steps from first to last</b>. Tap a numbered one to undo.</p>
+    <div class="order" id="order">
+      <button class="oitem" data-p="3"><span class="n">?</span><span>The inactive X condenses into a Barr body</span></button>
+      <button class="oitem" data-p="5"><span class="n">?</span><span>Groups of cells form orange and black patches of fur</span></button>
+      <button class="oitem" data-p="1"><span class="n">?</span><span>A female embryo inherits X<sup>O</sup> from one parent and X<sup>B</sup> from the other</span></button>
+      <button class="oitem" data-p="4"><span class="n">?</span><span>Each cell divides; its daughter cells keep the same X switched off</span></button>
+      <button class="oitem" data-p="2"><span class="n">?</span><span>Early in development, each cell randomly switches off one X</span></button>
+    </div>
+    <div class="row"><button class="btn navy" id="orderCheck">Check my order</button><button class="btn" id="orderReveal">Reveal the order</button><span class="score" id="orderScore"></span></div>
+    <div class="chain" id="chain" hidden>
+      <div style="background:#1593c9">1 · Two different X</div>
+      <div style="background:#1fa75a">2 · Random X off</div>
+      <div style="background:#f07f19">3 · Barr body</div>
+      <div style="background:#7a3ff0">4 · Cells divide</div>
+      <div style="background:#e5484d">5 · Patches</div>
+    </div>
+    <div class="card stack"><b>Traffic light: how sure are you?</b>
+      <div class="traffic"><button style="background:var(--green)" data-tl="Brilliant! Explain the calico pattern to a partner.">I can teach it</button><button style="background:var(--orange)" data-tl="Good! Try the calico mosaic simulation again.">Mostly</button><button style="background:var(--red)" data-tl="That is OK! Your teacher will go through X inactivation with you now.">I need help</button></div>
+      <div id="tlMsg" class="note" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- 20 · WORKSHEET 1 -->
+<section class="slide" id="s20" data-title="Worksheet (1/2)" data-skills="reading" data-coach="ahmed" data-ns="Excellence" data-says="Work on your own first, then check your answers. Own your learning!">
+  <div class="inner">
+    <div class="head"><h2>Epistasis and X inactivation worksheet (1/2)</h2><div class="timer" data-sec="240"></div></div>
+    <div class="grid g2">
+      <div class="card stack"><div class="label" style="color:var(--navy)">A · Match each word · 5 marks</div>
+        <div style="font-size:.92rem;color:var(--muted)">A. One gene hides the effect of another gene<br>B. The inactive, darkly stained X chromosome<br>C. Switching off one X to balance X genes<br>D. Chromosome pairs 1 to 22<br>E. Chromosome pair 23 (X and Y)</div>
+        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:8px" id="wsA">
+          <label class="fillrow"><span>1. Epistasis</span> <select data-ans="A" id="wa1"></select></label>
+          <label class="fillrow"><span>2. Barr body</span> <select data-ans="B" id="wa2"></select></label>
+          <label class="fillrow"><span>3. Dosage compensation</span> <select data-ans="C" id="wa3"></select></label>
+          <label class="fillrow"><span>4. Autosomes</span> <select data-ans="D" id="wa4"></select></label>
+          <label class="fillrow"><span>5. Sex chromosomes</span> <select data-ans="E" id="wa5"></select></label>
+        </div>
+        <div class="row"><button class="btn small navy" data-check="wsA">Check A</button><button class="btn small ghost" data-answers="wsA">Show answers (A)</button><span class="score" data-out="wsA"></span></div>
+      </div>
+      <div class="card stack"><div class="label" style="color:var(--navy)">B · Fill the gaps · 5 marks</div>
+        <div class="wordbank">Word bank: yellow · random · female · Y · 23</div>
+        <div class="stack" id="wsB" style="gap:8px">
+          <div class="fillrow">1. A Labrador with genotype eeBb is <input type="text" size="6" data-ans="yellow" id="wb1" aria-label="gap 1">.</div>
+          <div class="fillrow">2. Which X is inactivated in each cell is <input type="text" size="6" data-ans="random" id="wb2" aria-label="gap 2">.</div>
+          <div class="fillrow">3. Calico cats are almost always <input type="text" size="6" data-ans="female" id="wb3" aria-label="gap 3">.</div>
+          <div class="fillrow">4. The <input type="text" size="3" data-ans="y|y chromosome" id="wb4" aria-label="gap 4"> chromosome mainly carries genes for male characteristics.</div>
+          <div class="fillrow">5. Human body cells have <input type="text" size="3" data-ans="23|twenty-three" id="wb5" aria-label="gap 5"> pairs of chromosomes.</div>
+        </div>
+        <div class="row"><button class="btn small navy" data-check="wsB">Check B</button><button class="btn small ghost" data-answers="wsB">Show answers (B)</button><span class="score" data-out="wsB"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 21 · WORKSHEET 2 -->
+<section class="slide" id="s21" data-title="Worksheet (2/2)" data-skills="reading,critical" data-coach="maha" data-ns="Excellence" data-says="Respect your reader: use the words X chromosome, random and inactivated in your answer.">
+  <div class="inner">
+    <div class="head"><h2>Epistasis and X inactivation worksheet (2/2)</h2></div>
+    <div class="card stack"><div class="label" style="color:var(--navy)">C · Epistasis, X inactivation or both? · 6 marks</div>
+      <div class="legend">Choose from: Epistasis · X-inactivation · Both</div>
+      <div class="tablewrap" id="wsC"><table>
+        <thead><tr><th>Statement</th><th>Which one?</th></tr></thead>
+        <tbody>
+          <tr><td>yellow Labrador retrievers</td><td><select data-ans="Epistasis" data-opts="Epistasis|X-inactivation|Both" id="wc1"></select></td></tr>
+          <tr><td>a Barr body in female cells</td><td><select data-ans="X-inactivation" data-opts="Epistasis|X-inactivation|Both" id="wc2"></select></td></tr>
+          <tr><td>helps explain the coat of a calico cat</td><td><select data-ans="Both" data-opts="Epistasis|X-inactivation|Both" id="wc3"></select></td></tr>
+          <tr><td>a modified 9 : 3 : 4 ratio</td><td><select data-ans="Epistasis" data-opts="Epistasis|X-inactivation|Both" id="wc4"></select></td></tr>
+          <tr><td>something is hidden or not expressed</td><td><select data-ans="Both" data-opts="Epistasis|X-inactivation|Both" id="wc5"></select></td></tr>
+          <tr><td>random, early in embryo development</td><td><select data-ans="X-inactivation" data-opts="Epistasis|X-inactivation|Both" id="wc6"></select></td></tr>
+        </tbody></table></div>
+      <div class="row"><button class="btn small navy" data-check="wsC">Check C</button><button class="btn small ghost" data-answers="wsC">Show answers (C)</button><span class="score" data-out="wsC"></span></div>
+    </div>
+    <div class="cols split">
+      <div class="card stack"><div class="label" style="color:var(--navy)">D · Explain · 3 marks</div>
+        <p style="margin:0">Explain why calico cats (orange and black patches) are almost always female.</p>
+        <textarea id="wd" placeholder="Write your explanation in full sentences…"></textarea>
+        <button class="btn small" data-show="model" style="justify-self:start">Show model answer (D)</button>
+      </div>
+      <div class="stack">
+        <div class="good" id="model" hidden><b>Model answer (1 mark each):</b><br>✓ The orange/black fur gene is on the X chromosome, so a calico must have two X chromosomes (X<sup>O</sup>X<sup>B</sup>).<br>✓ In each female cell one X is randomly inactivated, so some patches express orange and others black.<br>✓ Males (XY) have only one X, so all their cells make the same colour (rare XXY males are the exception).</div>
+        <div class="card"><span class="score" id="wsTotal">Total: A + B + C = 0 / 16 marks</span><div class="legend">Your teacher marks part D (3 marks) for a total out of 19.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 22 · LEVELS -->
+<section class="slide" id="s22" data-title="Differentiated tasks: choose your level" data-skills="discipline,critical" data-coach="maha" data-ns="Cooperation" data-says="Every level is respected here. Finished early? Try the next level up!">
+  <div class="inner">
+    <div class="head"><h2>Main activity: choose your level · Green · Blue · Orange</h2><div class="timer" data-sec="240"></div></div>
+    <div class="grid g3">
+      <div class="level" style="--lc:var(--green);--lbg:var(--green-bg)"><h3>Green · Mandatory ★</h3>
+        <ol><li>Which could be the genotype of a chocolate Labrador: Eebb, EEbb, eeBb, EEBB?</li><li>What is the name of the process that makes one X inactive in female mammals?</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. Eebb and EEbb.<br>2. Dosage compensation (X inactivation).</div><button class="btn small ghost lvl">Show answers</button></div>
+      <div class="level" style="--lc:var(--blue);--lbg:var(--blue-bg)"><h3>Blue · Less mandatory ★★</h3>
+        <ol><li>Test cross: EeBb × eebb. Give the phenotype ratio.</li><li>Explain why the inactive X looks like a dark spot (Barr body) in a female nucleus.</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. EeBb, Eebb, eeBb, eebb → 1 black : 1 chocolate : 2 yellow.<br>2. The inactive X is tightly condensed (packed), so it stains darkly.</div><button class="btn small ghost lvl">Show answers</button></div>
+      <div class="level" style="--lc:var(--orange);--lbg:var(--orange-bg)"><h3>Orange · Optional ★★★</h3>
+        <ol><li>Explain why EeBb × EeBb gives 9 : 3 : 4, not 9 : 3 : 3 : 1.</li><li>A male calico cat is found. Suggest his sex chromosomes and explain.</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. The 3 eeB_ and 1 eebb dogs are all yellow because ee masks B, so 3 + 1 = 4 yellow.<br>2. XXY: two X chromosomes (X<sup>O</sup>X<sup>B</sup>), one randomly inactivated in each cell.</div><button class="btn small ghost lvl">Show answers</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- 23 · SUMMATIVE -->
+<section class="slide" id="s23" data-title="Summative: Gene Detective quiz" data-skills="integrity" data-coach="ahmed" data-ns="Excellence" data-says="Count only your honest first try. Integrity is part of excellence!">
+  <div class="inner">
+    <div class="head"><h2>Summative assessment: Gene Detective quiz</h2><div class="timer" data-sec="180"></div></div>
+    <div class="stack mcqset" data-mode="first" id="wm">
+      <div class="q"><div class="qt">1. What is epistasis?</div><div class="opts"><button class="opt">A. the intermediate phenotype of a heterozygote</button><button class="opt">B. the passing of a trait from mother to son</button><button class="opt">C. the inactivation of an X chromosome</button><button class="opt" data-ok>D. the hiding of one gene by another</button></div></div>
+      <div class="q"><div class="qt">2. Which genotype gives a chocolate Labrador?</div><div class="opts"><button class="opt">A. EeBb</button><button class="opt" data-ok>B. Eebb</button><button class="opt">C. eeBb</button><button class="opt">D. EEBB</button></div></div>
+      <div class="q"><div class="qt">3. What is the name of the process that makes one of the two X chromosomes in female mammals inactive?</div><div class="opts"><button class="opt">A. transcription</button><button class="opt">B. epistasis</button><button class="opt">C. DNA inactivation</button><button class="opt" data-ok>D. dosage compensation</button></div></div>
+      <div class="q"><div class="qt">4. The orange and black patches of a calico cat are caused by…</div><div class="opts"><button class="opt">A. codominance of two autosomal alleles</button><button class="opt" data-ok>B. random X inactivation</button><button class="opt">C. a Y-linked gene</button><button class="opt">D. incomplete dominance</button></div></div>
+      <div class="q"><div class="qt">5. How many Barr bodies are in a normal female (XX) body cell?</div><div class="opts"><button class="opt">A. 0</button><button class="opt" data-ok>B. 1</button><button class="opt">C. 2</button><button class="opt">D. 23</button></div></div>
+    </div>
+    <div class="card row" style="justify-content:space-between"><span class="score" id="wmScore">First-try score: 0 / 5</span><span class="legend">5 = Gene Detective Master! · 4 = Gene Detective Expert · 3 = Gene Detective Explorer · 0–2 = let's review together</span></div>
+  </div>
+</section>
+
+<!-- 24 · PLENARY -->
+<section class="slide" id="s24" data-title="Plenary: mysteries solved!" data-skills="reading,loyalty" data-coach="hessa" data-ns="National Identity" data-says="Be kind to yourself when you rate your stars. Every step forward counts!">
+  <div class="inner">
+    <div class="head"><h2>Plenary: both mysteries solved!</h2></div>
+    <div class="cols split">
+      <div class="stack">
+        <button class="btn" data-show="solved" data-confetti style="justify-self:start">Reveal the answer</button>
+        <div class="card" id="solved" hidden style="background:#fff8db;border-color:#f3e2a0"><b style="color:var(--orange)">Mysteries solved!</b><p style="margin:6px 0 0"><b>1. The yellow puppy:</b> both black parents were <b>EeBb</b>. A puppy that inherits <b>ee</b> cannot deposit dark pigment, so <b class="hl">epistasis</b> hides the B gene and the puppy is yellow (9 black : 3 chocolate : 4 yellow).<br><b>2. The calico cat:</b> the orange/black gene is on the X. A female X<sup>O</sup>X<sup>B</sup> randomly switches off one X in each cell (<b class="hl">X inactivation</b>), giving orange and black patches. Males have one X, so they cannot show both colours.</p></div>
+        <div class="card stack"><b>Exit ticket</b>
+          <label>At the early stages of female embryo development, ____________ occurs in each cell randomly. Fill the gap.<textarea id="ex1" style="min-height:44px"></textarea></label>
+          <label>Explain epistasis using the Labrador example.<textarea id="ex2" style="min-height:48px"></textarea></label>
+          <label>One question I still have…<textarea id="ex3" style="min-height:44px"></textarea></label></div>
+      </div>
+      <div class="card stack"><b>Re-rate your success criteria (tap a star)</b>
+        <div><p style="margin:0 0 4px"><b>Foundation:</b> I can define epistasis and X inactivation with examples.</p><div class="stars" id="st1"></div></div>
+        <div><p style="margin:0 0 4px"><b>Secure:</b> I can work out Labrador colours and explain the calico pattern.</p><div class="stars" id="st2"></div></div>
+        <div><p style="margin:0 0 4px"><b>Advanced:</b> I can explain 9 : 3 : 4 and why calico cats are female.</p><div class="stars" id="st3"></div></div>
+        <div><p style="margin:0 0 4px">I can explain what a Barr body is.</p><div class="stars" id="st4"></div></div>
+        <div class="note" style="margin:0"><b>Next lesson:</b> sex-linked traits (red-green colour blindness and haemophilia).</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 25 · VALUES -->
+<section class="slide" id="s25" data-title="Which value did you show today?" data-skills="integrity">
+  <div class="inner">
+    <div class="head"><h2>Which value did you show today?</h2></div>
+    <p class="lead">Tap the character whose value you showed in this lesson. <b>Then tell your partner one real example!</b></p>
+    <div class="grid g5" id="values">
+      <button class="vcard" style="--cc:var(--c-shahin)"><span class="star">★</span><img src="img/av-shahin.webp" alt=""><b>Shahin</b><small>Leadership · <span class="ar">القيادة</span></small><span class="prompt">I led my team when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-fahim)"><span class="star">★</span><img src="img/av-fahim.webp" alt=""><b>Fahim</b><small>Knowledge · <span class="ar">المعرفة</span></small><span class="prompt">A new fact I learned is…</span></button>
+      <button class="vcard" style="--cc:var(--c-maha)"><span class="star">★</span><img src="img/av-maha.webp" alt=""><b>Maha</b><small>Respect · <span class="ar">الاحترام</span></small><span class="prompt">I showed respect when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-ahmed)"><span class="star">★</span><img src="img/av-ahmed.webp" alt=""><b>Ahmed</b><small>Responsibility · <span class="ar">المسؤولية</span></small><span class="prompt">I was responsible when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-hessa)"><span class="star">★</span><img src="img/av-hessa.webp" alt=""><b>Hessa</b><small>Tolerance · <span class="ar">التسامح</span></small><span class="prompt">I was patient and kind when…</span></button>
+    </div>
+    <div class="card row" style="justify-content:space-between"><b>Class goal: light up all five stars together!</b><span class="goal" id="goal"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span></div>
+  </div>
+</section>
+
+<!-- 26 · CELEBRATE -->
+<section class="slide end" id="s26" data-title="Switch on your potential" data-bare>
+  <div class="inner">
+    <div class="eyebrow">YOU DID IT, GRADE 12! · <span class="ar">أحسنتم</span></div>
+    <h1>Switch on your potential</h1>
+    <p style="font-style:italic;font-size:1.15rem;margin:0;opacity:.95">Some genes stay quiet, some genes shine. You get to choose which talents you switch on: practise them every day, and your own unique pattern will make the UAE proud!</p>
+    <img class="fig" src="img/banner.webp" alt="Shahin, Fahim, Maha, Ahmed and Hessa with the UAE national skills" style="border:0">
+    <div class="row"><span class="nsk">🇦🇪 National Identity</span><span class="nsk">🌿 Sustainability</span><span class="nsk">🤝 Cooperation</span><span class="nsk">💡 Innovation</span><span class="nsk">⭐ Excellence</span></div>
+    <div class="promise"><b>My promise:</b> I will lead, learn, respect, be responsible and tolerant, for my school and my UAE.</div>
+    <div><button class="btn" id="celebrate">★ Celebrate together!</button></div>
+  </div>
+</section>
+
+
+  </main>
+  <div>
+    <div class="progress"><div id="prog"></div></div>
+    <nav class="nav">
+      <button class="btn ghost small" id="prev" aria-label="Previous slide">◀ Back</button>
+      <span class="count" id="count">1 / 26</span>
+      <span class="title" id="navTitle"></span>
+      <button class="btn ghost small" id="menuBtn">☰ Slides</button>
+      <button class="btn ghost small" id="linkBtn" title="Copy a link that opens this slide">🔗 Link</button>
+      <button class="btn ghost small" id="soundBtn" title="Clapping sound on">🔊</button>
+      <button class="btn ghost small" id="fsBtn" title="Full screen">⛶</button>
+      <button class="btn small" id="next" aria-label="Next slide">Next ▶</button>
+    </nav>
+  </div>
+</div>
+
+<div class="menu" id="menu" hidden><div class="panel"><div class="row" style="justify-content:space-between"><b style="font-family:var(--display);font-size:1.3rem">All slides</b><button class="btn ghost small" id="menuClose">Close</button></div><ol id="menuList"></ol></div></div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+// Paste the published lesson link here so "Link" copies a shareable address for each slide.
+const LESSON_URL = "";
+
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const slides=$$('.slide'), N=slides.length;
+const COACH={shahin:['Shahin','Leadership','القيادة','--c-shahin'],fahim:['Fahim','Knowledge','المعرفة','--c-fahim'],maha:['Maha','Respect','الاحترام','--c-maha'],ahmed:['Ahmed','Responsibility','المسؤولية','--c-ahmed'],hessa:['Hessa','Tolerance','التسامح','--c-hessa']};
+const SKILL={teamwork:['Teamwork','العمل الجماعي','👥'],critical:['Critical Thinking','التفكير الناقد','🧠'],communication:['Effective Communication','التواصل الفعّال','💬'],reading:['Reading & Writing','القراءة والكتابة','📖'],integrity:['Integrity','النزاهة','🛡'],discipline:['Self-regulation & Discipline','الانضباط وتنظيم الذات','⏱'],initiative:['Initiative & Perseverance','المبادرة والمثابرة','⛰'],respect:['Respect & Kindness','الاحترام واللطف','💗'],numeracy:['Numeracy Skills','المهارات العددية','🔢'],loyalty:['Loyalty & National Belonging','الولاء والانتماء الوطني','🇦🇪']};
+const LO='Describe epistasis and explain how it impacts trait expression; describe X inactivation (dosage compensation).';
+const store={get(k){try{return localStorage.getItem('epix12:'+k)}catch(e){return null}},set(k,v){try{localStorage.setItem('epix12:'+k,v)}catch(e){}}};
+
+// date
+$('#today').textContent=new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+
+// shared chrome: skill chips, coach strip, objective footer
+slides.forEach(s=>{
+  const inner=$('.inner',s), head=$('.head',s);
+  if(s.dataset.skills&&head){const c=document.createElement('div');c.className='chips';
+    s.dataset.skills.split(',').forEach(k=>{const[en,ar,ic]=SKILL[k];c.insertAdjacentHTML('beforeend',`<span class="chip"><i>${ic}</i>${en} <span class="ar">${ar}</span></span>`)});head.appendChild(c)}
+  if(s.dataset.coach){const[n,v,ar,col]=COACH[s.dataset.coach];
+    inner.insertAdjacentHTML('beforeend',`<div class="coach" style="--cc:var(${col})"><img src="img/av-${s.dataset.coach}.webp" alt="${n}, ${v} coach"><div><div class="who">${n} says · ${v} <span class="ar">${ar}</span></div><p>${s.dataset.says}</p><div class="ns">UAE national skill: <b>${s.dataset.ns}</b></div></div></div>`)}
+  if(!('nolo' in s.dataset)) inner.insertAdjacentHTML('afterbegin',`<div class="lo lotop"><span class="tgt"></span><div><b>Learning objective:</b> ${LO}</div></div>`);
+});
+
+// navigation + deep links (#s1 … #s26)
+let cur=1; const enterHooks={};
+function go(n,push=true){
+  n=Math.max(1,Math.min(N,n|0)); cur=n;
+  slides.forEach((s,i)=>s.hidden=i!==n-1);document.querySelectorAll('.slide[hidden] video').forEach(v=>{try{v.pause()}catch(e){}});
+  $('#count').textContent=n+' / '+N; $('#navTitle').textContent=slides[n-1].dataset.title||'';
+  $('#prog').style.width=(n/N*100)+'%'; $('#main').scrollTop=0;
+  $('#prev').disabled=n===1; $('#next').disabled=n===N;
+  if(push){try{history.replaceState(null,'','#s'+n)}catch(e){}}
+  document.title='Epistasis and X Inactivation · '+n+' · Nilasha Sempon';
+  requestAnimationFrame(()=>enterHooks[n]&&enterHooks[n]());
+}
+function fromHash(){const m=(location.hash||'').match(/s(\d+)$/);return m?+m[1]:1}
+window.addEventListener('hashchange',()=>go(fromHash(),false));
+$('#prev').onclick=()=>go(cur-1); $('#next').onclick=()=>go(cur+1);
+document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g){go(+g.dataset.go);$('#menu').hidden=true}});
+document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea,select'))return;
+  if(['ArrowRight','PageDown'].includes(e.key))go(cur+1);if(['ArrowLeft','PageUp'].includes(e.key))go(cur-1);if(e.key==='Escape')$('#menu').hidden=true});
+let tx=0,ty=0;$('#main').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+$('#main').addEventListener('touchend',e=>{if(e.target.closest('canvas,input,textarea,select,.stadium'))return;const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;if(Math.abs(dx)>70&&Math.abs(dy)<40)go(cur+(dx<0?1:-1))});
+// menu
+$('#menuList').innerHTML=slides.map((s,i)=>`<li><button data-go="${i+1}"><b>${i+1}</b>${s.dataset.title}</button></li>`).join('');
+$('#menuBtn').onclick=()=>{$$('#menuList button').forEach((b,i)=>b.classList.toggle('cur',i+1===cur));$('#menu').hidden=false};
+$('#menuClose').onclick=()=>$('#menu').hidden=true;
+$('#menu').onclick=e=>{if(e.target.id==='menu')$('#menu').hidden=true};
+// toast + link
+let tt;function toast(html,ms=2600){const t=$('#toast');t.innerHTML=html;t.hidden=false;clearTimeout(tt);tt=setTimeout(()=>t.hidden=true,ms)}
+$('#linkBtn').onclick=()=>{const base=LESSON_URL||location.href.split('#')[0];const url=base+'#s'+cur;
+  const ok=()=>toast('Link to slide '+cur+' copied');
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(ok,()=>toast('<div>Copy this link:</div><div class="linkbox">'+url+'</div>',7000))}else toast('<div>Copy this link:</div><div class="linkbox">'+url+'</div>',7000)};
+$('#fsBtn').onclick=()=>{try{if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen().catch(()=>toast('Full screen is not available here'))}catch(e){toast('Full screen is not available here')}};
+
+// built-in party confetti (works without any outside library)
+window.confetti=(function(){let cv,cx,parts=[],raf=null;
+  function setup(){if(cv)return;cv=document.createElement('canvas');cv.id='fxCanvas';document.body.appendChild(cv);cx=cv.getContext('2d');size();addEventListener('resize',size)}
+  function size(){const d=devicePixelRatio||1;cv.width=innerWidth*d;cv.height=innerHeight*d;cx.setTransform(d,0,0,d,0,0)}
+  function frame(){cx.clearRect(0,0,innerWidth,innerHeight);parts=parts.filter(p=>p.t<p.T);
+    parts.forEach(p=>{p.t++;p.x+=Math.cos(p.a)*p.v+p.drift;p.y+=Math.sin(p.a)*p.v+p.g;p.v*=p.decay;p.w+=p.ws;p.tilt+=0.1;
+      const o=1-p.t/p.T;cx.globalAlpha=Math.max(0,o);cx.fillStyle=p.c;const s=p.s;
+      if(p.round){cx.beginPath();cx.ellipse(p.x,p.y,s*.6,s*.6*Math.abs(Math.cos(p.tilt)),0,0,7);cx.fill()}
+      else{cx.save();cx.translate(p.x,p.y);cx.rotate(p.w);cx.fillRect(-s/2,-s*.3*Math.abs(Math.cos(p.tilt))-1,s,s*.6*Math.abs(Math.cos(p.tilt))+2);cx.restore()}});
+    cx.globalAlpha=1;raf=parts.length?requestAnimationFrame(frame):(cx.clearRect(0,0,innerWidth,innerHeight),null)}
+  return function(o){o=o||{};setup();const n=o.particleCount||50,ang=(o.angle==null?90:o.angle)*Math.PI/180,spr=(o.spread==null?45:o.spread)*Math.PI/180,sv=o.startVelocity||45,
+      X=(o.origin&&o.origin.x!=null?o.origin.x:.5)*innerWidth,Y=(o.origin&&o.origin.y!=null?o.origin.y:.6)*innerHeight,cols=o.colors||['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0','#ff7ab6'],sc=o.scalar||1;
+    for(let i=0;i<Math.min(n,400);i++)parts.push({x:X,y:Y,a:-ang+(.5*spr-Math.random()*spr),v:sv*.5+Math.random()*sv,decay:.9,g:3*(o.gravity==null?1:o.gravity),drift:(Math.random()-.5)*.6,
+      c:cols[i%cols.length],s:(7+Math.random()*6)*sc,round:Math.random()<.3,w:Math.random()*6,ws:(Math.random()-.5)*.3,tilt:Math.random()*6,t:0,T:o.ticks||200});
+    if(!raf)raf=requestAnimationFrame(frame);return Promise.resolve()}})();
+// confetti
+function boom(big){if(typeof confetti!=='function')return;const c=['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0'];
+  confetti({particleCount:big?220:90,spread:big?120:70,origin:{y:.65},colors:c});
+  if(big){setTimeout(()=>confetti({particleCount:120,angle:60,spread:70,origin:{x:0,y:.7},colors:c}),250);setTimeout(()=>confetti({particleCount:120,angle:120,spread:70,origin:{x:1,y:.7},colors:c}),400)}}
+// cheer: confetti burst where the student tapped + a clapping sound for each correct answer
+let lastX=.5,lastY=.6,soundOn=true;try{soundOn=localStorage.getItem('cheerSound')!=='off'}catch(e){}
+document.addEventListener('pointerdown',e=>{lastX=e.clientX/innerWidth;lastY=e.clientY/innerHeight},true);
+let cheerCtx;function clap(n){if(!soundOn)return;try{cheerCtx=cheerCtx||new (window.AudioContext||window.webkitAudioContext)();const a=cheerCtx,now=a.currentTime;
+  const len=a.sampleRate*.05,buf=a.createBuffer(1,len,a.sampleRate),d=buf.getChannelData(0);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,3);
+  for(let k=0;k<n;k++){const t=now+k*0.11+Math.random()*0.05;for(let j=0;j<3;j++){const src=a.createBufferSource();src.buffer=buf;const f=a.createBiquadFilter();f.type='bandpass';f.frequency.value=1000+Math.random()*1500;f.Q.value=0.8;const g=a.createGain();g.gain.value=0.5;src.connect(f);f.connect(g);g.connect(a.destination);src.start(t+j*0.012+Math.random()*0.02)}}
+  [523.25,659.25,783.99].forEach((fr,i)=>{const o=a.createOscillator(),g=a.createGain();o.type='triangle';o.frequency.value=fr;o.connect(g);g.connect(a.destination);g.gain.setValueAtTime(0.0001,now+i*0.07);g.gain.exponentialRampToValueAtTime(0.12,now+i*0.07+0.02);g.gain.exponentialRampToValueAtTime(0.0001,now+i*0.07+0.3);o.start(now+i*0.07);o.stop(now+i*0.07+0.32)})}catch(e){}}
+function party(big,x,y){const c=['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0','#ff7ab6'];
+  confetti({particleCount:big?110:60,spread:big?110:80,startVelocity:big?42:34,origin:{x:x,y:y},colors:c});
+  confetti({particleCount:big?110:60,angle:62,spread:58,startVelocity:big?62:55,origin:{x:0,y:.95},colors:c});
+  confetti({particleCount:big?110:60,angle:118,spread:58,startVelocity:big?62:55,origin:{x:1,y:.95},colors:c})}
+function badge(txt,cls){const b=document.createElement('div');b.className='fbadge '+cls;b.textContent=txt;
+  b.style.left=Math.min(Math.max(lastX*innerWidth,110),innerWidth-110)+'px';b.style.top=Math.min(Math.max(lastY*innerHeight-64,70),innerHeight-40)+'px';document.body.appendChild(b);setTimeout(()=>b.remove(),1500)}
+let lastCheer=0,lastWrong=0,quietUntil=0;
+const PRAISE=['🎉 Correct!','⭐ Brilliant!','👏 Well done!','🎊 Great job!','🏆 Excellent!'];
+function cheer(big){lastCheer=Date.now();clap(big?14:9);party(big,lastX,lastY);badge(PRAISE[Math.floor(Math.random()*PRAISE.length)],'good')}
+function buzz(){if(!soundOn)return;try{cheerCtx=cheerCtx||new (window.AudioContext||window.webkitAudioContext)();const a=cheerCtx,now=a.currentTime;
+  [[0,233],[0.17,175]].forEach(([d,f])=>{const o=a.createOscillator(),g=a.createGain();o.type='square';o.frequency.value=f;o.connect(g);g.connect(a.destination);g.gain.setValueAtTime(0.0001,now+d);g.gain.exponentialRampToValueAtTime(0.07,now+d+0.02);g.gain.exponentialRampToValueAtTime(0.0001,now+d+0.16);o.start(now+d);o.stop(now+d+0.18)})}catch(e){}}
+function wrong(el){if(el){el.classList.remove('shake');void el.offsetWidth;el.classList.add('shake');setTimeout(()=>el.classList.remove('shake'),500)}
+  if(Date.now()-lastWrong<350)return;lastWrong=Date.now();buzz();
+  let f=document.getElementById('redFlash');if(!f){f=document.createElement('div');f.id='redFlash';document.body.appendChild(f)}
+  f.classList.add('on');setTimeout(()=>f.classList.remove('on'),120);badge('✗ Not quite. Try again!','bad')}
+// watch every answer: green = party confetti, red = red flash + shake
+document.addEventListener('click',e=>{if(e.target.closest('[data-answers],#orderReveal'))quietUntil=Date.now()+600},true);
+new MutationObserver(ms=>{if(Date.now()<quietUntil)return;let good=false;
+  ms.forEach(m=>{const el=m.target,old=' '+(m.oldValue||'')+' ';if(!el.classList)return;
+    if(['no','wrong','nof'].some(c=>el.classList.contains(c)&&!old.includes(' '+c+' '))&&!el.classList.contains('fb'))wrong(el);
+    if(['ok','right','okf'].some(c=>el.classList.contains(c)&&!old.includes(' '+c+' '))&&!el.classList.contains('fb'))good=true});
+  if(good&&Date.now()-lastCheer>500)cheer(false)}).observe(document.body,{subtree:true,attributes:true,attributeFilter:['class'],attributeOldValue:true});
+(function(){const b=document.getElementById('soundBtn');if(!b)return;const set=()=>{b.textContent=soundOn?'🔊':'🔇';b.title=soundOn?'Sound on':'Sound off'};set();
+  b.onclick=()=>{soundOn=!soundOn;try{localStorage.setItem('cheerSound',soundOn?'on':'off')}catch(e){}set();if(soundOn)clap(4)}})();
+document.addEventListener('click',e=>{if(e.target.closest('[data-confetti]'))boom(false)});
+
+// generic: flip, reveal
+document.addEventListener('click',e=>{
+  const f=e.target.closest('.flip');if(f)f.classList.toggle('on');
+  const r=e.target.closest('[data-show]');if(r){const t=document.getElementById(r.dataset.show);t.hidden=!t.hidden}
+  const ns=e.target.closest('.nskill');if(ns)ns.classList.toggle('on');
+});
+
+// timers
+let actx;function beep(){try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();[0,.25,.5].forEach(d=>{const o=actx.createOscillator(),g=actx.createGain();o.frequency.value=880;o.connect(g);g.connect(actx.destination);g.gain.setValueAtTime(.15,actx.currentTime+d);g.gain.exponentialRampToValueAtTime(.001,actx.currentTime+d+.2);o.start(actx.currentTime+d);o.stop(actx.currentTime+d+.22)})}catch(e){}}
+$$('.timer').forEach(el=>{const total=+el.dataset.sec;let left=total,iv=null;const fmt=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+  el.innerHTML=`<button class="btn small">▶ Start ${total>=60?total/60+'-min':total+'-s'}</button><span class="t">${fmt(total)}</span><button class="rs" title="Reset">↺</button>`;
+  const [b,t,rs]=el.children;
+  const stop=()=>{clearInterval(iv);iv=null};
+  b.onclick=()=>{if(iv){stop();b.textContent='▶ Resume';return}if(left<=0){left=total;el.classList.remove('done')}
+    b.textContent='❚❚ Pause';iv=setInterval(()=>{left--;t.textContent=fmt(Math.max(left,0));if(left<=0){stop();el.classList.add('done');t.textContent="TIME'S UP!";b.textContent='▶ Again';beep()}},1000)};
+  rs.onclick=()=>{stop();left=total;el.classList.remove('done');t.textContent=fmt(total);b.textContent=`▶ Start ${total>=60?total/60+'-min':total+'-s'}`};
+});
+
+// 7 · true/false
+$$('#tf .q').forEach(q=>{let done=false;$$('.opt',q).forEach(b=>b.onclick=()=>{if(done)return;done=true;const pick=b.textContent==='True'?'T':'F',ok=pick===q.dataset.a;
+  b.classList.add(ok?'ok':'no');if(ok)cheer(false);const fb=$('.fb',q);fb.hidden=false;fb.className='fb '+(ok?'ok':'no');fb.textContent=(ok?'✓ Correct! ':'✗ Not quite. ')+fb.dataset.why;
+  q.dataset.res=ok?1:0;const sc=$$('#tf .q').reduce((a,x)=>a+(+x.dataset.res||0),0),n=$$('#tf .q[data-res]').length;$('#tfScore').textContent='Score: '+sc+' / 5';if(n===5&&sc===5)boom(false)})});
+
+// 9 · video answers
+$('#vidAns')&&($('#vidAns').onclick=()=>$$('#s8 .vans').forEach(a=>a.hidden=false));
+
+// 11 · sort
+$$('#sorter .sitem').forEach(b=>b.onclick=()=>{b.classList.remove('right','wrong');const L=($('#sorter').dataset.labels||'low|HIGH').split('|');const i=(L.indexOf(b.dataset.v)+1)%L.length;b.dataset.v=L[i];$('.tag',b).textContent=L[i]});
+$('#sortCheck').onclick=()=>{let s=0;$$('#sorter .sitem').forEach(b=>{const ok=b.dataset.v===b.dataset.ans;b.classList.toggle('right',ok);b.classList.toggle('wrong',!ok);s+=ok});$('#sortScore').textContent=s+' / 8 correct';if(s>0&&s<8)cheer(false);$('#sortWhy').hidden=false;if(s===8)boom(false)};
+
+// MCQ sets (retry = formative with hints; first = first-try scoring)
+$$('.mcqset').forEach(set=>{const mode=set.dataset.mode;const qs=set.classList.contains('q')?[set]:$$('.q',set);
+  qs.forEach(q=>q.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(q.dataset.solved)return;const ok=b.hasAttribute('data-ok');
+    if(!('first' in q.dataset))q.dataset.first=ok?1:0;
+    b.classList.add(ok?'ok':'no');const fb=$('.fb',q);if(fb)fb.hidden=ok;
+    if(ok){q.dataset.solved=1;cheer(false);if(set.id==='dbq'){$('#dbLock').hidden=true;$('#dbOpen').hidden=false;boom(false)}}
+    if(set.id==='wm'){const s=qs.reduce((a,x)=>a+(+x.dataset.first||0),0),n=qs.filter(x=>'first' in x.dataset).length;
+      const lvl=s===5?'Gene Detective Master! 🏆':s===4?'Gene Detective Expert':s===3?'Gene Detective Explorer':"let's review together";
+      $('#wmScore').textContent='First-try score: '+s+' / 5'+(n===5?' · '+lvl:'');if(n===5&&s>=4)boom(s===5)}
+    if(mode==='retry'&&set.id!=='dbq'&&qs.every(x=>x.dataset.solved))boom(false);
+  }));
+});
+
+// 18 · order
+let nextN=1;$$('#order .oitem').forEach(b=>b.onclick=()=>{$$('#order .oitem').forEach(x=>x.classList.remove('right','wrong'));
+  if(b.dataset.n){const k=+b.dataset.n;$$('#order .oitem').forEach(x=>{if(+x.dataset.n>=k){delete x.dataset.n;x.classList.remove('set');$('.n',x).textContent='?'}});nextN=k;return}
+  if(nextN>5)return;b.dataset.n=nextN;b.classList.add('set');$('.n',b).textContent=nextN;nextN++});
+$('#orderCheck').onclick=()=>{let s=0;$$('#order .oitem').forEach(b=>{const ok=b.dataset.n===b.dataset.p;b.classList.toggle('right',ok);b.classList.toggle('wrong',!ok);s+=ok});$('#orderScore').textContent=s+' / 5 in the right place';if(s>0&&s<5)cheer(false);if(s===5)boom(false)};
+$('#orderReveal').onclick=()=>{$('#chain').hidden=false};
+$$('[data-tl]').forEach(b=>b.onclick=()=>{const m=$('#tlMsg');m.hidden=false;m.textContent=b.dataset.tl});
+
+// 20/21 · worksheet
+$$('#wsA select').forEach(s=>s.innerHTML='<option value="">–</option>'+'ABCDE'.split('').map(x=>`<option>${x}</option>`).join(''));
+$$('#wsC select').forEach(s=>s.innerHTML='<option value="">choose…</option>'+s.dataset.opts.split('|').map(x=>`<option>${x}</option>`).join(''));
+const norm=v=>v.trim().toLowerCase().replace(/[.\s]+$/,'');
+function mark(id){let s=0;$$('#'+id+' [data-ans]').forEach(f=>{const ok=f.dataset.ans.toLowerCase().split('|').includes(norm(f.value));f.classList.toggle('okf',ok);f.classList.toggle('nof',!ok&&f.value!=='');s+=ok});return s}
+const score={wsA:0,wsB:0,wsC:0};
+function total(){$('#wsTotal').textContent='Total: A + B + C = '+(score.wsA+score.wsB+score.wsC)+' / 16 marks'}
+$$('[data-check]').forEach(b=>b.onclick=()=>{const id=b.dataset.check,s=mark(id),max=$$('#'+id+' [data-ans]').length;score[id]=s;if(s>0)cheer(s===max);$(`[data-out="${id}"]`).textContent=s+' / '+max;total();if(s===max)boom(false)});
+$$('[data-answers]').forEach(b=>b.onclick=()=>{const id=b.dataset.answers;$$('#'+id+' [data-ans]').forEach(f=>{f.value=f.tagName==='SELECT'?f.dataset.ans:f.dataset.ans.split('|')[0]});mark(id)});
+$('#labExp').onclick=()=>$$('#s17 .exp').forEach(x=>{x.hidden=false;x.style.cssText='font-size:.82rem;color:#11663a;font-weight:700;margin-top:4px'});
+$$('.lvl').forEach(b=>b.onclick=()=>{const a=b.previousElementSibling;a.hidden=!a.hidden;b.textContent=a.hidden?'Show answers':'Hide answers'});
+
+// keep typed answers in this browser
+$$('input[type=text],textarea').forEach(f=>{const v=store.get(f.id);if(v)f.value=v;f.addEventListener('input',()=>store.set(f.id,f.value))});
+
+// 24 · stars
+$$('.stars').forEach(st=>{for(let i=1;i<=5;i++)st.insertAdjacentHTML('beforeend',`<button aria-label="${i} star${i>1?'s':''}">★</button>`);
+  const set=k=>$$('button',st).forEach((b,i)=>b.classList.toggle('on',i<k));set(+store.get(st.id)||0);
+  $$('button',st).forEach((b,i)=>b.onclick=()=>{set(i+1);store.set(st.id,i+1);if(i===4)boom(false)})});
+
+// 25 · values
+$$('#values .vcard').forEach(c=>c.onclick=()=>{c.classList.toggle('on');const n=$$('#values .vcard.on').length;$$('#goal span').forEach((s,i)=>s.classList.toggle('on',i<n));if(n===5){boom(true);toast('Class goal reached: all five stars!')}});
+
+// 26 · celebrate
+$('#celebrate').onclick=()=>boom(true);
+enterHooks[26]=()=>boom(true);
+
+/* ---------- canvases ---------- */
+function fit(c){const r=c.getBoundingClientRect(),d=window.devicePixelRatio||1;const h=+c.getAttribute('height')||r.height||120;
+  if(!c.dataset.h)c.dataset.h=h;const H=+c.dataset.h;c.style.height=H+'px';c.width=Math.round(r.width*d);c.height=Math.round(H*d);const x=c.getContext('2d');x.setTransform(d,0,0,d,0,0);return{x,w:r.width,h:H}}
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// hero waves
+(function(){const c=$('#heroWaves');let t=0,raf;function draw(){if(cur!==1){raf=null;return}const {x,w,h}=fit(c);
+  const cols=['#ffc21a','#e5484d','#1fa75a','#4f8cff','#c084fc'];cols.forEach((col,i)=>{x.beginPath();for(let px=0;px<=w;px+=6){const y=h*.35+i*14+Math.sin(px/90+t*(1+i*.15)+i)*(10+i*3);px?x.lineTo(px,y):x.moveTo(px,y)}x.strokeStyle=col;x.lineWidth=5;x.stroke()});
+  t+=.02;raf=reduce?null:requestAnimationFrame(draw)}enterHooks[1]=()=>{if(!raf)draw()};})();
+
+// shared drawing helpers
+function lbl(x,t,X,Y,bg,fg){x.font='bold 12px Nunito, sans-serif';const w=x.measureText(t).width+12;x.fillStyle=bg;x.beginPath();x.roundRect?x.roundRect(X-w/2,Y-10,w,20,10):x.rect(X-w/2,Y-10,w,20);x.fill();x.fillStyle=fg||'#fff';x.textAlign='center';x.fillText(t,X,Y+4);x.textAlign='left'}
+function rr(x,X,Y,w,h,r,fill,stroke){x.beginPath();x.roundRect?x.roundRect(X,Y,w,h,r):x.rect(X,Y,w,h);if(fill){x.fillStyle=fill;x.fill()}if(stroke){x.strokeStyle=stroke;x.lineWidth=2;x.stroke()}}
+
+// 14 · Labrador breeder (16-box Punnett)
+(function(){const c=$('#dog');const GT=['EEBB','EEBb','EeBB','EeBb','EEbb','Eebb','eeBB','eeBb','eebb'];
+  const ph=g=>/E/.test(g.slice(0,2))?(/B/.test(g.slice(2))?0:1):2;const PH=['Black','Chocolate','Yellow'],COL=['#1c1c22','#7b4a2b','#e8c26a'],TXT=['#fff','#fff','#3a2a00'];
+  const p1=$('#p1G'),p2=$('#p2G');[p1,p2].forEach((s,k)=>{GT.forEach(g=>{const o=document.createElement('option');o.value=g;o.textContent=g+' ('+PH[ph(g)].toLowerCase()+')';s.appendChild(o)});s.value='EeBb'});
+  const gam=g=>{const out=[];[g[0],g[1]].forEach(e=>[g[2],g[3]].forEach(b=>out.push(e+b)));return out};
+  const norm=(a,b)=>{const e=[a[0],b[0]].sort().join(''),bb=[a[1],b[1]].sort().join('');return e+bb};
+  let seen={};
+  function draw(){const {x,w,h}=fit(c);x.fillStyle='#f8f6f1';x.fillRect(0,0,w,h);const g1=gam(p1.value),g2=gam(p2.value);
+    const cs=Math.min(58,(h-14)/5,(w*.62)/5);const X0=6,Y0=4;const cnt=[0,0,0];
+    x.font='bold 12px Nunito, sans-serif';x.textAlign='center';
+    g2.forEach((a,j)=>{x.fillStyle='#4a2c82';x.fillText(a,X0+cs*(j+1)+cs/2,Y0+cs*.6)});g1.forEach((a,i)=>{x.fillStyle='#4a2c82';x.fillText(a,X0+cs/2,Y0+cs*(i+1)+cs*.55)});
+    for(let i=0;i<4;i++)for(let j=0;j<4;j++){const g=norm(g1[i],g2[j]);const p=ph(g);cnt[p]++;rr(x,X0+cs*(j+1)+2,Y0+cs*(i+1)+2,cs-4,cs-4,7,COL[p]);x.fillStyle=TXT[p];x.font=`bold ${Math.round(cs*.22)}px Nunito, sans-serif`;x.fillText(g,X0+cs*(j+1)+cs/2,Y0+cs*(i+1)+cs*.58)}
+    x.textAlign='left';const bx=X0+cs*5+18;x.fillStyle='#1c2340';x.font='bold 14px Nunito, sans-serif';x.fillText('Puppies (out of 16)',bx,Y0+20);
+    cnt.forEach((n,k)=>{const y=Y0+44+k*58;rr(x,bx,y,34,34,17,COL[k],'#999');x.fillStyle='#1c2340';x.font='bold 16px Nunito, sans-serif';x.fillText(n+' '+PH[k].toLowerCase(),bx+44,y+16);x.font='12px Nunito, sans-serif';x.fillStyle='#5b6385';x.fillText(Math.round(n/16*100)+'%',bx+44,y+32)});
+    const r=cnt.map((n,k)=>n?n+' '+PH[k].toLowerCase():'').filter(Boolean).join(' : ');
+    $('#dogRead').textContent='Phenotype ratio: '+r+(cnt[0]===9&&cnt[1]===3&&cnt[2]===4?' · 9 : 3 : 4, the epistasis ratio!':'');
+    const k=p1.value+'|'+p2.value;if(cnt[0]===9&&cnt[2]===4&&!seen[k]){seen[k]=1;cheer(true)}}
+  p1.onchange=p2.onchange=draw;
+  $$('[data-dpair]').forEach(b=>b.onclick=()=>{const [a,d]=b.dataset.dpair.split('|');p1.value=a;p2.value=d;draw();if(b.dataset.dpair!=='EeBb|EeBb')cheer(false)});
+  enterHooks[14]=draw;})();
+
+// 15 · Calico mosaic: random X inactivation
+(function(){const c=$('#mos');let sex='F',gen=0,cells=null,raf=null;const N=16;
+  function seed(){cells=[];for(let i=0;i<N;i++)for(let j=0;j<N;j++)cells.push(null)}
+  function grow(){// generation 0: 1 cell, then 4, 16, 64, 256 blocks
+    gen=Math.min(4,gen+1);const blocks=Math.pow(2,gen),bs=N/blocks;
+    for(let bi=0;bi<blocks;bi++)for(let bj=0;bj<blocks;bj++){const cur=cells[bi*bs*N+bj*bs];
+      if(gen===3||(gen<3&&cur===null)){// choose at the 64-cell stage (early embryo)
+        const v=sex==='M'?'O':(Math.random()<.5?'O':'B');for(let i=0;i<bs;i++)for(let j=0;j<bs;j++)cells[(bi*bs+i)*N+bj*bs+j]=gen===3?v:null}}
+    if(gen===4){/* daughter cells keep choice; add white patch (epistasis) */for(let i=10;i<16;i++)for(let j=0;j<16;j++){if((i-10)*1.5+Math.abs(j-8)<6)cells[i*N+j]='W'}}
+    draw();if(gen===4){const o=cells.filter(v=>v==='O').length,b=cells.filter(v=>v==='B').length;if(sex==='F'&&o&&b)cheer(true)}}
+  function draw(){const {x,w,h}=fit(c);x.fillStyle='#f6f2ea';x.fillRect(0,0,w,h);const S=Math.min(h-30,w*.55),cs=S/N,X0=12,Y0=14;
+    const COL={O:'#f08a24',B:'#222',W:'#fff'};
+    if(gen===0){rr(x,X0+S/2-30,Y0+S/2-30,60,60,30,'#e9d8f0','#a77bc4');x.fillStyle='#4a2c82';x.font='bold 13px Nunito, sans-serif';x.textAlign='center';x.fillText('zygote',X0+S/2,Y0+S/2+5);x.textAlign='left'}
+    else if(gen<3){const blocks=Math.pow(2,gen),bs=S/blocks;for(let i=0;i<blocks;i++)for(let j=0;j<blocks;j++){rr(x,X0+j*bs+2,Y0+i*bs+2,bs-4,bs-4,bs/3,'#e9d8f0','#a77bc4')}x.fillStyle='#4a2c82';x.font='bold 12px Nunito, sans-serif';x.fillText('both X active…',X0,Y0+S+14)}
+    else{for(let i=0;i<N;i++)for(let j=0;j<N;j++){const v=cells[i*N+j];x.fillStyle=COL[v]||'#ddd';x.fillRect(X0+j*cs,Y0+i*cs,cs-1,cs-1)}}
+    const tx=X0+S+22;x.fillStyle='#1c2340';x.font='bold 15px Nunito, sans-serif';x.fillText(sex==='F'?'♀ Female XᴼXᴮ':'♂ Male XᴼY',tx,Y0+18);
+    x.font='13px Nunito, sans-serif';const stage=['1 cell','4 cells','16 cells','64 cells: X inactivation!','adult skin: patches + white'][gen];x.fillText('Stage: '+stage,tx,Y0+42);
+    if(gen>=3){const o=cells.filter(v=>v==='O').length,b=cells.filter(v=>v==='B').length,wh=cells.filter(v=>v==='W').length;[[COL.O,'orange (Xᴮ off)',o],[COL.B,'black (Xᴼ off)',b],['#fff','white (other gene)',wh]].forEach(([col,t,n],k)=>{const y=Y0+70+k*30;rr(x,tx,y,20,20,4,col,'#999');x.fillStyle='#1c2340';x.fillText(t+': '+n,tx+28,y+15)})}
+    $('#mosRead').textContent=gen<3?'Press Grow embryo to divide the cells.':sex==='F'?'Each early cell switched off one X at random → orange and black patches. Barr body in every cell!':'A male has one X (Xᴼ): every cell is orange. No Barr body, no calico.'}
+  $('#grow').onclick=()=>grow();$('#mosReset').onclick=()=>{gen=0;seed();draw()};
+  $$('[data-sex]').forEach(b=>b.onclick=()=>{sex=b.dataset.sex;gen=0;seed();draw()});
+  seed();enterHooks[15]=draw;})();
+
+// 16 · Barr body counter
+(function(){const c=$('#barrc');let k='XX';const seen={};
+  function draw(){const {x,w,h}=fit(c);x.fillStyle='#fff';x.fillRect(0,0,w,h);const nx=(k.match(/X/g)||[]).length,hasY=k.includes('Y');
+    const cx=w*.32,cy=h*.5,R=Math.min(w*.26,h*.42);const g=x.createRadialGradient(cx-R*.3,cy-R*.3,10,cx,cy,R);g.addColorStop(0,'#f3d9f0');g.addColorStop(1,'#c58ad0');x.fillStyle=g;x.beginPath();x.ellipse(cx,cy,R,R*.8,0,0,7);x.fill();
+    // active X (one) as thread, Barr bodies as dark dots on the edge
+    x.strokeStyle='#e5484d';x.lineWidth=5;x.beginPath();x.moveTo(cx-R*.4,cy-10);x.bezierCurveTo(cx-R*.1,cy-40,cx+R*.1,cy+20,cx+R*.35,cy-5);x.stroke();lbl(x,'active X',cx,cy-R*.45,'#e5484d');
+    if(hasY){x.strokeStyle='#2563eb';x.beginPath();x.moveTo(cx-R*.2,cy+30);x.lineTo(cx+R*.05,cy+40);x.stroke();lbl(x,'Y',cx-R*.05,cy+60,'#2563eb')}
+    for(let i=0;i<nx-1;i++){const a=-0.4+i*0.8,X=cx+Math.cos(a)*R*.82,Y=cy+Math.sin(a)*R*.66;x.fillStyle='#4a1450';x.beginPath();x.ellipse(X,Y,14,10,a,0,7);x.fill();lbl(x,'Barr body',X+40,Y-16,'#4a1450')}
+    x.fillStyle='#1c2340';x.font='bold 22px Nunito, sans-serif';x.fillText(k,w*.66,h*.3);x.font='bold 15px Nunito, sans-serif';x.fillText('X chromosomes: '+nx,w*.66,h*.45);x.fillText('Barr bodies: '+(nx-1),w*.66,h*.58);x.font='13px Nunito, sans-serif';x.fillStyle='#5b6385';x.fillText('Barr bodies = X − 1',w*.66,h*.72);
+    $('#barrRead').textContent=`${k}: ${nx} X → ${nx-1} Barr bod${nx-1===1?'y':'ies'}`;seen[k]=1;if(Object.keys(seen).length===4&&!seen.done){seen.done=1;cheer(true)}}
+  $$('[data-k]').forEach(b=>b.onclick=()=>{k=b.dataset.k;draw()});enterHooks[16]=draw;})();
+
+// 17 · calico coin-flip lab
+(function(){const c=$('#lab');let cells=[];const COL={O:'#f08a24',B:'#222'};let done=false;
+  function draw(){const {x,w,h}=fit(c);x.fillStyle='#f7f8fc';x.fillRect(0,0,w,h);const S=Math.min(h-24,w*.55),cs=S/4,X0=12,Y0=12;
+    for(let i=0;i<16;i++){const v=cells[i];const X=X0+(i%4)*cs,Y=Y0+Math.floor(i/4)*cs;rr(x,X+3,Y+3,cs-6,cs-6,10,v?COL[v]:'#e3e8f4','#c9cfe3');if(!v){x.fillStyle='#8b93b0';x.font='bold 13px Nunito, sans-serif';x.textAlign='center';x.fillText(i+1,X+cs/2,Y+cs/2+5);x.textAlign='left'}else{x.fillStyle=v==='O'?'#fff':'#ddd';x.font='bold 11px Nunito, sans-serif';x.textAlign='center';x.fillText(v==='O'?'heads':'tails',X+cs/2,Y+cs/2+4);x.textAlign='left'}}
+    const o=cells.filter(v=>v==='O').length,b=cells.filter(v=>v==='B').length,tx=X0+S+20;x.fillStyle='#1c2340';x.font='bold 15px Nunito, sans-serif';x.fillText('Your calico (XᴼXᴮ)',tx,Y0+18);
+    [[COL.O,'orange (heads: Xᴮ off)',o],[COL.B,'black (tails: Xᴼ off)',b]].forEach(([col,t,n],k)=>{const y=Y0+44+k*34;rr(x,tx,y,22,22,5,col);x.fillStyle='#1c2340';x.font='13px Nunito, sans-serif';x.fillText(t+': '+n,tx+30,y+16)});
+    $('#labRead').textContent=cells.length?`${cells.length} of 16 cells: ${o} orange, ${b} black`:'Flip coins to choose which X is switched off in each cell.'}
+  const flip=n=>{for(let i=0;i<n&&cells.length<16;i++)cells.push(Math.random()<.5?'O':'B');draw();if(cells.length===16&&!done){done=true;cheer(true)}};
+  $('#flip16').onclick=()=>{cells=[];done=false;flip(16)};$('#flip1').onclick=()=>flip(1);$('#flipReset').onclick=()=>{cells=[];done=false;draw()};
+  enterHooks[17]=draw;})();
+
+window.addEventListener('resize',()=>enterHooks[cur]&&enterHooks[cur]());
+go(fromHash(),false);
+</script>
+
+</body>
+</html>

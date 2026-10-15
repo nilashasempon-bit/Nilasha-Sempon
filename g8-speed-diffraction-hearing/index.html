@@ -1,0 +1,1159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="author" content="Nilasha Sempon">
+<meta name="description" content="Interactive Grade 8 Advanced Science lesson with the UAE Values Team.">
+<title>Speed of Sound, Diffraction and Hearing · Nilasha Sempon</title>
+<meta property="og:title" content="Speed of Sound, Diffraction and Hearing · Nilasha Sempon">
+<meta property="og:description" content="Grade 8 Advanced Science interactive lesson by Nilasha Sempon, with the UAE Values Team.">
+<meta property="og:image" content="https://nilashasempons.netlify.app/g8-speed-diffraction-hearing/img/hook-scene.webp">
+<meta property="og:url" content="https://nilashasempons.netlify.app/g8-speed-diffraction-hearing/">
+<meta property="og:site_name" content="Nilasha Sempon · Science &amp; Biology">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: an app frame (top bar · one slide at a time · bottom nav). Each slide is a page with its own #sN link.
+   Single bright classroom look, matching the teacher's deck, so colours are set explicitly. */
+:root{
+  --navy:#1b2470; --navy-2:#2a338f; --ink:#1c2340; --muted:#5b6385; --line:#dfe3f1;
+  --paper:#ffffff; --bg:#eef1f9; --sun:#ffc21a; --sun-ink:#3a2a00;
+  --green:#1fa75a; --green-bg:#e6f7ed; --red:#e5484d; --red-bg:#fdecec;
+  --orange:#f07f19; --orange-bg:#fff2e4; --purple:#7a3ff0; --purple-bg:#f1eafe;
+  --blue:#2563eb; --blue-bg:#e8effe; --teal:#0e9fa6; --sea:#2b8fd6; --sand:#f2dca6;
+  --c-shahin:#4b6b2f; --c-fahim:#1f5f8b; --c-maha:#a3343a; --c-ahmed:#1d6b5b; --c-hessa:#b07a0a;
+  --display:"Baloo Bhaijaan 2","Nunito",system-ui,sans-serif;
+  --body:"Nunito","Baloo Bhaijaan 2",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+html,body{height:100%}
+body{margin:0}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45}
+*{box-sizing:border-box}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.ar{font-family:"Baloo Bhaijaan 2",var(--body);direction:rtl}
+
+#app{height:100%;display:grid;grid-template-rows:auto 1fr auto}
+.topbar{background:var(--navy);color:#fff;display:flex;align-items:center;gap:12px;padding:8px 16px;flex-wrap:wrap}
+.topbar .crumb{font-weight:800;font-family:var(--display);font-size:1.05rem;white-space:nowrap}
+.topbar .unit{opacity:.8;font-size:.85rem;min-width:0;flex:1 1 220px}
+.topbar .date{background:rgba(255,255,255,.14);border-radius:999px;padding:3px 12px;font-size:.85rem;white-space:nowrap}
+.iconbtn{background:var(--sun);color:var(--sun-ink);border:0;border-radius:999px;width:36px;height:36px;display:grid;place-items:center;font-weight:800;flex:none}
+.iconbtn svg{width:18px;height:18px}
+.wavestrip{height:6px;background:repeating-linear-gradient(90deg,var(--sun) 0 40px,var(--green) 40px 80px,var(--red) 80px 120px,var(--blue) 120px 160px,var(--purple) 160px 200px)}
+
+main{overflow-y:auto;overflow-x:hidden;position:relative;-webkit-overflow-scrolling:touch}
+.slide{min-height:100%}
+.inner{max-width:1200px;margin:0 auto;padding-block:22px 28px;padding-inline:16px;display:flex;flex-direction:column;gap:18px}
+.head{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.head h2{font-family:var(--display);font-size:clamp(1.5rem,3.2vw,2.2rem);line-height:1.1;margin:0;flex:1 1 auto;text-wrap:balance;font-weight:800}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:2px solid var(--blue);border-radius:999px;padding:3px 12px 3px 4px;font-size:.82rem;font-weight:700;color:var(--navy)}
+.chip i{width:24px;height:24px;border-radius:50%;background:var(--blue);display:grid;place-items:center;color:#fff;font-style:normal;font-size:.8rem}
+.chip .ar{font-weight:600;color:var(--muted)}
+.lead{color:var(--muted);margin:0;max-width:75ch}
+.lead b{color:var(--purple)}
+
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px}
+.label{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;font-weight:800;color:var(--red)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+.g5{grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.cols{display:grid;gap:18px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:860px){.cols.split{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}.cols.split-r{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}}
+.stack{display:flex;flex-direction:column;gap:12px;min-width:0}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+img.fig{border-radius:14px;border:1px solid var(--line);display:block;width:100%;height:auto;background:#fff}
+
+.btn{border:0;border-radius:999px;padding:10px 20px;font-weight:800;background:var(--sun);color:var(--sun-ink);box-shadow:0 3px 0 #d79c00;transition:transform .1s}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 #d79c00}
+.btn.navy{background:var(--navy);color:#fff;box-shadow:0 3px 0 #0d1245}
+.btn.red{background:var(--red);color:#fff;box-shadow:0 3px 0 #a92d31}
+.btn.ghost{background:var(--paper);color:var(--navy);box-shadow:none;border:2px solid var(--line)}
+.btn.small{padding:6px 14px;font-size:.88rem}
+
+/* coach strip */
+.coach{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:center;background:var(--paper);border:2px solid var(--cc,var(--navy));border-radius:18px;padding:10px 14px}
+.coach img{width:64px;height:64px;border-radius:50%;border:3px solid var(--cc);background:#f5efe4}
+.coach .who{font-weight:800;color:var(--cc);font-size:.9rem}
+.coach .who span{font-weight:600;color:var(--muted)}
+.coach p{margin:2px 0}
+.coach .ns{font-size:.82rem;color:var(--muted)}
+.coach .ns b{color:var(--orange)}
+.lo{display:flex;gap:10px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:.88rem;color:var(--muted)}
+.lo b{color:var(--red)}
+.lo.lotop{color:var(--ink);font-size:.95rem;font-weight:600;border:2px solid #f3c2c4;background:#fff7f7}
+.hero .lo.lotop,.end .lo.lotop{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.35);color:#fff}.hero .lo.lotop b,.end .lo.lotop b{color:#ffc21a}
+.lo .tgt{flex:none;width:22px;height:22px;border-radius:50%;border:4px solid var(--red);box-shadow:inset 0 0 0 3px #fff,inset 0 0 0 8px var(--red)}
+
+/* bottom nav */
+.nav{background:var(--paper);border-top:1px solid var(--line);display:flex;align-items:center;gap:8px;padding:8px 16px calc(8px + env(safe-area-inset-bottom,0px));flex-wrap:wrap}
+.nav .count{font-weight:800;font-variant-numeric:tabular-nums;color:var(--navy);min-width:64px;text-align:center}
+.nav .title{flex:1 1 140px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--muted);font-size:.9rem}
+@media (max-width:700px){.topbar .unit{display:none}.nav .title{display:none}.nav{justify-content:space-between}}
+.progress{height:4px;background:var(--line)}
+.progress div{height:100%;background:var(--sun);transition:width .3s}
+.toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;z-index:50;max-width:calc(100% - 32px);text-align:center}
+.linkbox{font-size:.8rem;word-break:break-all;background:var(--bg);padding:6px 10px;border-radius:8px;user-select:all}
+
+/* menu overlay */
+.menu{position:fixed;inset:0;background:rgba(18,22,60,.55);z-index:40;display:grid;place-items:center;padding:16px}
+.menu .panel{background:var(--paper);border-radius:20px;max-width:900px;width:100%;max-height:85vh;overflow:auto;padding:18px}
+.menu ol{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:6px;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr))}
+.menu li button{width:100%;text-align:left;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:8px 10px;display:flex;gap:10px;align-items:center}
+.menu li button b{color:var(--navy);font-variant-numeric:tabular-nums;min-width:22px}
+.menu li button.cur{background:var(--sun)}
+
+/* title slide */
+.hero{background:linear-gradient(135deg,#1b2470 0%,#3a2fa3 60%,#6a2fb8 100%);color:#fff;min-height:100%;position:relative;overflow:hidden}
+.hero .inner{padding-block:36px}
+.hero h1{font-family:var(--display);font-size:clamp(2.4rem,7vw,4.6rem);line-height:1;margin:6px 0 0;font-weight:800}
+.hero .sub{font-family:var(--display);color:var(--sun);font-size:clamp(1.3rem,3vw,2rem);font-weight:700;margin:0}
+.hero .eyebrow{color:var(--sun);font-weight:800;letter-spacing:.08em;font-size:.82rem}
+.hero .teacher{font-family:var(--display);font-size:1.2rem}.hero .teacher b{color:var(--sun)}
+.hero .mystery{background:#fff;color:var(--ink);border-radius:14px;padding:14px 16px;max-width:620px}
+.hero .mystery b{color:var(--red)}
+.avatars{display:flex;flex-wrap:wrap;gap:12px}
+.avatars button{background:none;border:0;padding:0;text-align:center;color:#fff;font-size:.8rem;font-weight:700}
+.avatars img{width:72px;height:72px;border-radius:50%;border:3px solid var(--sun);display:block;margin-bottom:4px;background:#f5efe4;transition:transform .2s}
+.avatars button:hover img{transform:translateY(-4px) rotate(-4deg)}
+.hero canvas.waves{position:absolute;left:0;right:0;bottom:0;width:100%;height:120px;pointer-events:none;opacity:.9}
+
+/* flip cards */
+.flip{perspective:900px;background:none;border:0;padding:0;text-align:left;width:100%}
+.flip .fi{display:grid;transition:transform .5s;transform-style:preserve-3d;height:100%}
+.flip.on .fi{transform:rotateY(180deg)}
+.flip .face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;padding:14px;border:2px solid var(--line);background:var(--paper);min-height:100px;display:flex;flex-direction:column;justify-content:center;gap:4px}
+.flip .back{transform:rotateY(180deg)}
+.flip .tap{font-size:.75rem;color:var(--muted);font-weight:700}
+.kw .front{border-color:var(--purple)}
+.kw .front strong{font-family:var(--display);font-size:1.3rem;color:var(--purple)}
+.kw .back{background:var(--purple-bg);border-color:var(--purple)}
+@media (prefers-reduced-motion:reduce){.flip .fi{transition:none}}
+
+/* team cards */
+.team{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr))}
+.team .face{padding:0;overflow:hidden;justify-content:flex-start;border-color:var(--cc)}
+.team .front img{width:100%;height:auto;aspect-ratio:496/536;object-fit:cover;display:block}
+.team .front .tap{padding:8px 10px;text-align:center;color:var(--cc)}
+.team .back{background:var(--cc);color:#fff;padding:16px;justify-content:center;font-weight:700;font-size:1.02rem}
+.team .back h4{margin:0;font-family:var(--display);font-size:1.4rem}
+.nskills{display:flex;flex-wrap:wrap;gap:8px}
+.nskill{border:2px solid var(--orange);background:var(--paper);border-radius:12px;padding:6px 12px;font-weight:800;color:var(--navy);display:flex;flex-direction:column;align-items:flex-start;text-align:left;max-width:240px}
+.nskill small{font-weight:600;color:var(--orange);display:none}
+.nskill.on small{display:block}
+
+/* lesson map */
+.map{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr))}
+.map button{border:0;border-radius:16px;color:#fff;text-align:left;padding:14px;min-height:112px;display:flex;flex-direction:column;gap:2px;transition:transform .15s}
+.map button:hover{transform:translateY(-3px)}
+.map small{font-size:.7rem;letter-spacing:.07em;font-weight:800;opacity:.85}
+.map strong{font-family:var(--display);font-size:1.18rem;line-height:1.15}
+.map span{font-size:.85rem;opacity:.9}
+
+/* lists */
+.crit{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.crit li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;align-items:start}
+.crit li::before{content:"✓";width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:800}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;align-items:center;counter-increment:s}
+.steps li::before{content:counter(s);width:32px;height:32px;border-radius:50%;background:var(--sun);display:grid;place-items:center;font-weight:800}
+
+/* timer */
+.timer{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:2px solid var(--sun);border-radius:999px;padding:4px 6px 4px 4px}
+.timer .t{font-family:var(--display);font-weight:800;font-size:1.3rem;font-variant-numeric:tabular-nums;min-width:58px;text-align:center;color:var(--navy)}
+.timer.done{border-color:var(--red);background:var(--red);animation:shake .5s 3}
+.timer.done .t{color:#fff}
+.timer .rs{background:none;border:0;color:var(--muted);font-size:.8rem;font-weight:700;padding:4px 8px}
+.timer.done .rs{color:#fff}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+/* quizzes */
+.q{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:10px}
+.q .qt{font-weight:800}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{border:2px solid var(--line);background:var(--bg);border-radius:12px;padding:8px 14px;font-weight:700;text-align:left}
+.opt.ok{background:var(--green);border-color:var(--green);color:#fff}
+.opt.no{background:var(--red);border-color:var(--red);color:#fff}
+.opt.ok::before{content:"✓ "}.opt.no::before{content:"✗ "}
+.fb{font-size:.9rem;border-radius:10px;padding:8px 12px}
+.fb.ok{background:var(--green-bg);color:#11663a}
+.fb.no{background:var(--red-bg);color:#9b1c22}
+.score{font-family:var(--display);font-weight:800;font-size:1.25rem;color:var(--navy)}
+
+/* sort */
+.sorter{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.sitem{display:flex;align-items:center;justify-content:space-between;gap:10px;border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 12px;font-weight:700;text-align:left}
+.sitem .tag{border-radius:999px;padding:3px 12px;font-size:.82rem;font-weight:800;background:var(--bg);color:var(--muted);white-space:nowrap}
+.sitem[data-v="low"] .tag{background:var(--teal);color:#fff}
+.sitem[data-v="high"] .tag{background:var(--red);color:#fff}
+.bannerbtn{background:none;border:0;padding:0;display:block;width:100%;max-width:760px;cursor:pointer}.bannerbtn img{width:100%;height:auto;border-radius:14px;display:block;border:3px solid var(--sun);transition:transform .2s}.bannerbtn:hover img{transform:translateY(-3px)}
+.concert{display:grid;gap:8px}.concert .stadium{padding-top:14px}.stage{background:linear-gradient(90deg,#ffc21a,#ff8a1f);border-radius:10px;text-align:center;font-weight:800;padding:8px;color:#3a2a00;letter-spacing:.1em}
+.seat.saeed{outline:3px solid #ff3b3b;outline-offset:1px}
+.dbchip{border-radius:999px;padding:3px 10px;font-size:.8rem;font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
+.sitem[data-v="GAS"] .tag{background:#9aa3b5;color:#fff}.sitem[data-v="LIQUID"] .tag{background:var(--sea);color:#fff}.sitem[data-v="SOLID"] .tag{background:var(--navy);color:#fff}
+.sitem[data-v="REFLECT"] .tag{background:var(--red);color:#fff}.sitem[data-v="ABSORB"] .tag{background:var(--teal);color:#fff}.sitem[data-v="TRANSMIT"] .tag{background:var(--navy);color:#fff}
+.sitem.right{border-color:var(--green);box-shadow:0 0 0 2px var(--green)}
+.sitem.wrong{border-color:var(--red);box-shadow:0 0 0 2px var(--red)}
+
+/* energy bars */
+.erow{display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px;align-items:center}
+.erow .amp{background:var(--navy);color:#fff;border-radius:999px;padding:6px 12px;font-weight:800;text-align:center;font-size:.9rem}
+.ebar{border:2px dashed var(--line);border-radius:999px;height:40px;background:var(--paper);display:flex;align-items:center;padding:0 4px;text-align:left;font-weight:700;color:var(--muted);font-size:.85rem;width:100%;position:relative;overflow:hidden}
+.ebar .fill{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#ff8c8f,var(--red));border-radius:999px;width:0;transition:width .8s cubic-bezier(.2,.9,.3,1.2)}
+.ebar .v{position:relative;padding-left:10px}
+.ebar.on{border-style:solid;border-color:var(--red)}
+.ebar.on .v{color:#fff;font-family:var(--display);font-size:1.25rem}
+.rule{background:var(--purple-bg);border-radius:14px;padding:18px;text-align:center;font-family:var(--display);font-size:3rem;font-weight:800;color:var(--navy);line-height:1}
+.rule sup{font-size:.55em}
+
+/* sims */
+.sim{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:12px;display:grid;gap:10px}
+.sim>*,.medium>*{min-width:0}
+.sim canvas{width:100%;display:block;border-radius:10px}
+.stadium{background:#141a3e;border-radius:12px;padding:40px 14px 14px;display:grid;gap:6px;grid-template-columns:repeat(16,minmax(0,1fr));overflow:hidden}
+.seat{height:clamp(14px,3vw,30px);border-radius:40% 40% 18% 18%;background:var(--c,#5b7cfa);transition:background .2s}
+.seat.saeed{outline:3px solid #ff3b3b;outline-offset:1px}
+.medium{display:grid;gap:8px;border:2px solid var(--line);border-radius:14px;padding:10px;background:var(--paper)}
+.medium h4{margin:0;font-family:var(--display);font-size:1.15rem}
+.medium canvas{width:100%;max-width:100%;height:120px;background:#f6f8fd}
+.medium .res{font-size:.85rem;min-height:2.6em}
+.legend{font-size:.82rem;color:var(--muted)}
+
+/* table */
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:420px;font-size:.92rem}
+th{background:var(--navy);color:#fff;text-align:left;padding:8px 10px}
+td{border-bottom:1px solid var(--line);padding:8px 10px;vertical-align:top}
+select,input[type=text],textarea{font:inherit;border:2px solid var(--line);border-radius:10px;padding:6px 10px;background:#fff;color:var(--ink);max-width:100%}
+textarea{width:100%;min-height:84px;resize:vertical}
+.okf{border-color:var(--green)!important;background:var(--green-bg)!important}
+.nof{border-color:var(--red)!important;background:var(--red-bg)!important}
+.fillrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.wordbank{background:var(--blue-bg);border-radius:10px;padding:8px 12px;font-weight:700;color:var(--blue)}
+
+/* order */
+.order{display:grid;gap:8px}
+.oitem{display:flex;align-items:center;gap:12px;border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 12px;font-weight:700;text-align:left}
+.oitem .n{width:34px;height:34px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-family:var(--display);font-weight:800;flex:none;color:var(--muted)}
+.oitem.set .n{background:var(--sun);color:var(--sun-ink)}
+.oitem.right{border-color:var(--green)}.oitem.wrong{border-color:var(--red)}
+.chain{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.chain div{border-radius:12px;padding:10px;color:#fff;font-weight:700;font-size:.9rem}
+.traffic{display:flex;flex-wrap:wrap;gap:8px}
+.traffic button{border:0;border-radius:999px;padding:8px 16px;font-weight:800;color:#fff}
+
+/* levels */
+.level{border-radius:16px;overflow:hidden;border:2px solid var(--lc);background:var(--paper);display:flex;flex-direction:column}
+.level h3{margin:0;background:var(--lc);color:#fff;padding:10px 14px;font-family:var(--display)}
+.level ol{margin:0;padding:12px 14px 12px 32px;display:grid;gap:8px}
+.level .ans{background:var(--lbg);margin:0 12px 12px;border-radius:10px;padding:10px 12px;font-size:.9rem}
+.level .btn{margin:0 12px 12px;align-self:flex-start}
+
+/* stars */
+.stars{display:flex;gap:4px}
+.stars button{background:none;border:0;padding:0;font-size:1.7rem;line-height:1;color:#c7cde0}
+.stars button.on{color:#f6b500}
+.vcard{border:2px solid var(--cc);border-radius:16px;background:var(--paper);padding:10px;text-align:center;display:grid;gap:6px;position:relative;justify-items:center}
+.vcard img{width:min(120px,100%);aspect-ratio:1;border-radius:50%;border:3px solid var(--cc);background:#f5efe4}
+.vcard .star{position:absolute;top:8px;right:10px;font-size:2rem;color:#c7cde0;transition:transform .3s}
+.vcard.on .star{color:#f6b500;transform:scale(1.25) rotate(15deg)}
+.vcard .prompt{font-style:italic;color:var(--cc);border:1px dashed var(--cc);border-radius:10px;padding:6px 8px;font-size:.88rem;width:100%}
+.goal{font-size:2rem;letter-spacing:4px;color:#c7cde0}
+.goal span.on{color:#f6b500}
+
+.end{background:linear-gradient(135deg,#1b2470 0%,#3a2fa3 60%,#6a2fb8 100%);color:#fff;min-height:100%}
+.end h1{font-family:var(--display);font-size:clamp(2.2rem,6vw,4rem);margin:0;line-height:1.05}
+.end .eyebrow{color:var(--sun);font-weight:800;letter-spacing:.06em}
+.end .promise{background:#fff;color:var(--ink);border-radius:14px;padding:12px 16px}
+.end .promise b{color:var(--red)}
+.end .nsk{background:#fff;color:var(--navy);border-radius:999px;padding:6px 14px;font-weight:800}
+
+.note{background:var(--orange-bg);border-radius:12px;padding:10px 14px;font-size:.92rem}
+.note b{color:var(--orange)}
+.good{background:var(--green-bg);border-radius:12px;padding:10px 14px}
+.hl{color:var(--red);font-weight:800}
+video{width:100%;border-radius:14px;background:#000;display:block}
+
+/* party confetti + red wrong-answer feedback */
+.shake{animation:shk .45s}
+@keyframes shk{0%,100%{transform:translateX(0)}20%{transform:translateX(-9px)}40%{transform:translateX(9px)}60%{transform:translateX(-6px)}80%{transform:translateX(5px)}}
+#redFlash{position:fixed;inset:0;pointer-events:none;z-index:9998;box-shadow:inset 0 0 0 12px rgba(229,72,77,.92),inset 0 0 120px rgba(229,72,77,.55);opacity:0;transition:opacity .6s}
+#redFlash.on{opacity:1;transition:none}
+#fxCanvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999}
+.fbadge{position:fixed;z-index:10000;pointer-events:none;transform:translate(-50%,-50%);padding:10px 20px;border-radius:999px;font-weight:800;font-size:1.2rem;color:#fff;white-space:nowrap;box-shadow:0 10px 26px rgba(0,0,0,.22);animation:fbadge 1.4s ease-out forwards}
+.fbadge.good{background:#1fa75a}.fbadge.bad{background:#e5484d}
+@keyframes fbadge{0%{opacity:0;transform:translate(-50%,-30%) scale(.6)}15%{opacity:1;transform:translate(-50%,-70%) scale(1.12)}70%{opacity:1}100%{opacity:0;transform:translate(-50%,-170%) scale(1)}}
+.sitem.wrong,.oitem.wrong{background:var(--red-bg)!important}
+.sitem.right,.oitem.right{background:var(--green-bg)!important}
+</style>
+</head>
+<body>
+
+<div id="app">
+  <header class="topbar">
+    <a class="iconbtn" href="../" title="All lessons" aria-label="All lessons" style="text-decoration:none">◀</a>
+    <span class="crumb">Lesson 2 · Mechanical Wave Interactions</span>
+    <span class="unit">Unit 1: Energy and Motion · Module 1: Introduction to Waves</span>
+    <span class="date" id="today">Today</span>
+    <button class="iconbtn" data-go="4" title="Lesson map" aria-label="Lesson map"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 2 11.5h3V21h5.5v-6h3v6H19v-9.5h3z"/></svg></button>
+  </header>
+  <main id="main">
+
+<!-- 1 · TITLE -->
+<section class="slide hero" id="s1" data-title="Speed of Sound, Diffraction & Hearing" data-bare>
+  <div class="inner">
+    <div class="eyebrow">GRADE 8 ADVANCED · SCIENCE · TERM 1 · WEEK 7</div>
+    <div><h1>Speed of Sound, Diffraction &amp; Hearing</h1><p class="sub">Lesson 2 · Mechanical Wave Interactions</p></div>
+    <div style="opacity:.85">Unit 1: Energy and Motion · Module 1: Introduction to Waves</div>
+    <div class="teacher">Teacher: <b>Nilasha Sempon</b> · Science &amp; Biology</div>
+    <div>
+      <div class="eyebrow" style="margin-bottom:8px">YOUR VALUES TEAM TODAY · tap to meet them</div>
+      <button class="bannerbtn" data-go="3"><img src="img/banner.webp" alt="Shahin (Leadership), Fahim (Knowledge), Maha (Respect), Ahmed (Responsibility) and Hessa (Tolerance) with the UAE national skills"></button>
+    </div>
+    <div class="mystery"><b>Today's mystery:</b> On sports day, why did Hamdan, with his ear on the metal railing, hear the starter's bang before Saif did?</div>
+    <div class="row" style="padding-bottom:110px">
+      <button class="btn" data-go="3">▶ Let's go!</button>
+      <button class="btn ghost" data-go="4">Lesson map</button>
+      <span style="opacity:.8;font-size:.9rem">45-minute interactive lesson</span>
+    </div>
+  </div>
+  <canvas class="waves" id="heroWaves"></canvas>
+</section>
+
+<!-- 2 · TERM 1 -->
+<section class="slide" id="s2" data-title="Term 1 overview" data-nolo>
+  <div class="inner">
+    <div class="head"><h2>Term 1 at a glance</h2></div>
+    <p class="lead">Grade 8 Advanced Science · We are in <b>Unit 1, Module 2: Introduction to Waves</b>, continuing <b>Lesson 2: Mechanical Wave Interactions</b>.</p>
+    <img class="fig" src="img/term1.webp" alt="Term 1 plan: units, modules and lessons for Grade 8 Advanced Science" style="max-width:900px">
+  </div>
+</section>
+
+<!-- 3 · MEET TEAM -->
+<section class="slide" id="s3" data-title="Meet your UAE Values Team" data-skills="teamwork">
+  <div class="inner">
+    <div class="head"><h2>Meet your UAE Values Team</h2><button class="btn" data-confetti>★ We're ready!</button></div>
+    <p class="lead">Five friends will coach you through today's speed-of-sound mission. <b>Tap a character to discover their job today!</b></p>
+    <div class="team">
+      <button class="flip" style="--cc:var(--c-shahin)"><div class="fi"><div class="face front"><img src="img/fig-shahin.webp" alt="Shahin – Leadership"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Shahin</h4>Lead your team in the Breaking Waves lab and guide the ear-journey order.</div></div></button>
+      <button class="flip" style="--cc:var(--c-fahim)"><div class="fi"><div class="face front"><img src="img/fig-fahim.webp" alt="Fahim – Knowledge"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Fahim</h4>Collect today's key words: speed of sound, density, diffraction, cochlea.</div></div></button>
+      <button class="flip" style="--cc:var(--c-maha)"><div class="fi"><div class="face front"><img src="img/fig-maha.webp" alt="Maha – Respect"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Maha</h4>Respect everyone's ears: speak gently and take turns in the listening tests.</div></div></button>
+      <button class="flip" style="--cc:var(--c-ahmed)"><div class="fi"><div class="face front"><img src="img/fig-ahmed.webp" alt="Ahmed – Responsibility"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Ahmed</h4>Read the speed table carefully, record your results and finish on time.</div></div></button>
+      <button class="flip" style="--cc:var(--c-hessa)"><div class="fi"><div class="face front"><img src="img/fig-hessa.webp" alt="Hessa – Tolerance"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Hessa</h4>Every answer is welcome here. Mistakes help us learn!</div></div></button>
+    </div>
+    <div class="stack">
+      <div class="label" style="color:var(--navy)">UAE national skills you will use today · tap a skill to see where</div>
+      <div class="nskills">
+        <button class="nskill">🇦🇪 National Identity<small>Sports day at Zayed Sports City</small></button>
+        <button class="nskill">🌿 Sustainability<small>Dolphins in the Gulf rely on sound underwater</small></button>
+        <button class="nskill">🤝 Cooperation<small>Team roles in the Breaking Waves lab</small></button>
+        <button class="nskill">💡 Innovation<small>Sonar and hearing technology</small></button>
+        <button class="nskill">⭐ Excellence<small>Become today's Wave Master!</small></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · LESSON MAP -->
+<section class="slide" id="s4" data-title="Lesson map">
+  <div class="inner">
+    <div class="head"><h2>Lesson map · 45 minutes · tap any activity</h2></div>
+    <div class="map">
+      <button style="background:#1593c9" data-go="6"><small>PRE-ASSESSMENT · min 0–5</small><strong>Starter + Attendance</strong><span>Kickoff &amp; pre-assessment</span></button>
+      <button style="background:#d23b8a" data-go="5"><small>OBJECTIVES</small><strong>Objectives &amp; vocabulary</strong><span>Flip the key words</span></button>
+      <button style="background:#ef5a5a" data-go="8"><small>HOOK · min 5–9</small><strong>The sports day mystery</strong><span>UAE mystery + predict</span></button>
+      <button style="background:#f07f19" data-go="9"><small>ACTIVITY · min 9–12</small><strong>Gas, liquid or solid?</strong><span>Sort how the sound travels</span></button>
+      <button style="background:#7a3ff0" data-go="10"><small>EXPLAIN · min 12–17</small><strong>Speed, diffraction, hearing</strong><span>The unconventional version + textbook</span></button>
+      <button style="background:#b0287a" data-go="15"><small>SIMULATION · min 17–19</small><strong>Sound speed race</strong><span>Air · water · ice · iron · glass</span></button>
+      <button style="background:#118a7e" data-go="16"><small>SIMULATION · min 19–21</small><strong>Temperature &amp; thunder</strong><span>Hot UAE air vs cold air</span></button>
+      <button style="background:#2563eb" data-go="17"><small>SIMULATION · min 21–25</small><strong>Diffraction &amp; the ear</strong><span>Gaps, corners and the cochlea</span></button>
+      <button style="background:#1fa75a" data-go="19"><small>LAB · min 25–30</small><strong>Breaking Waves lab</strong><span>Water waves through gaps</span></button>
+      <button style="background:#e5484d" data-go="20"><small>FORMATIVE · min 30–33</small><strong>Pause &amp; check</strong><span>Formative quiz + ear order</span></button>
+      <button style="background:#5b3fd0" data-go="22"><small>WORKSHEET · min 33–41</small><strong>Worksheet + levels</strong><span>Worksheet, then Green / Orange / Purple</span></button>
+      <button style="background:#c81e3a" data-go="25"><small>SUMMATIVE · min 41–45</small><strong>Wave Master + exit</strong><span>Summative quiz &amp; mystery solved</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · OBJECTIVES -->
+<section class="slide" id="s5" data-title="Objectives, success criteria & key words" data-skills="reading" data-coach="fahim" data-ns="Excellence" data-says="Flip every key-word card and say the meaning out loud. Knowledge grows when you use it!">
+  <div class="inner">
+    <div class="head"><h2>Objectives, success criteria &amp; key words</h2></div>
+    <div class="cols split-r">
+      <div class="stack">
+        <div class="card"><div class="label">Learning objective</div><p style="margin:6px 0 0;font-weight:700">Explain how the density and temperature of a medium affect the speed of sound, describe diffraction of water and sound waves, and describe how sound waves travel through the ear.</p></div>
+        <div class="card"><div class="label" style="color:var(--green)">Success criteria</div>
+          <ul class="crit" style="margin-top:10px">
+            <li>I can use the speed of sound table to compare how fast sound travels in gases, liquids and solids.</li>
+            <li>I can explain how density and temperature change the speed of sound.</li>
+            <li>I can define diffraction and explain when it is greatest.</li>
+            <li>I can name the parts of the ear and describe how a sound wave travels through them.</li>
+          </ul></div>
+      </div>
+      <div class="stack">
+        <div class="label" style="color:var(--purple)">Key words · tap a card to flip it</div>
+        <div class="grid g2" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr))">
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Speed of sound</strong><span class="tap">tap to flip</span></div><div class="face back">How fast sound travels: about 343 m/s in air at 20°C.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Medium</strong><span class="tap">tap to flip</span></div><div class="face back">The material a wave travels through: a gas, liquid or solid.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Density</strong><span class="tap">tap to flip</span></div><div class="face back">How closely packed the particles of a material are.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Temperature</strong><span class="tap">tap to flip</span></div><div class="face back">How hot or cold a medium is. It changes how fast particles move.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Diffraction</strong><span class="tap">tap to flip</span></div><div class="face back">The change in direction of a wave at the edge of an object or through an opening.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Eardrum</strong><span class="tap">tap to flip</span></div><div class="face back">A thin membrane that vibrates when sound waves hit it.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Hammer, anvil, stirrup</strong><span class="tap">tap to flip</span></div><div class="face back">Three tiny bones in the middle ear that pass vibrations on.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Cochlea</strong><span class="tap">tap to flip</span></div><div class="face back">The snail-shaped, fluid-filled part of the inner ear.</div></div></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · KICKOFF -->
+<section class="slide" id="s6" data-title="Kickoff: starter + attendance" data-skills="critical,integrity" data-coach="ahmed" data-ns="National Identity" data-says="Be ready before the timer ends: book open, pen out. Responsible learners make the UAE proud.">
+  <div class="inner">
+    <div class="head"><h2>Kickoff: starter + attendance</h2><div class="timer" data-sec="300"></div></div>
+    <div class="cols split-r">
+      <img class="fig" src="img/kickoff.webp" alt="Kickoff Activity" style="max-width:420px">
+      <div class="card stack"><div class="label" style="color:var(--navy)">While the register is taken (5 minutes)</div>
+        <ol class="steps">
+          <li>Say “present” and settle in your seat.</li>
+          <li>Think: in a storm over Hatta, why do you see the lightning before you hear the thunder?</li>
+          <li>Answer the 5 true/false questions on the next slide on your own: no peeking at a friend's answer!</li>
+        </ol>
+        <button class="btn small" data-go="7" style="justify-self:start">Go to the true/false questions ▸</button>
+      </div>
+    </div>
+    <div class="note"><b>Think about it:</b> a knock heard through your desk, dolphins calling in the Gulf, voices drifting round the corridor corner, the adhan across the neighbourhood… does sound always travel the same way?</div>
+  </div>
+</section>
+
+<!-- 7 · PRE-ASSESSMENT -->
+<section class="slide" id="s7" data-title="Pre-assessment: what do you know?" data-skills="integrity">
+  <div class="inner">
+    <div class="head"><h2>Pre-assessment: what do you know?</h2><div class="timer" data-sec="180"></div></div>
+    <div class="stack" id="tf">
+      <div class="q" data-a="T"><div class="qt">1. Sound travels faster through solids than through gases.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Particles in a solid are packed close together and pass energy on quickly."></div></div>
+      <div class="q" data-a="F"><div class="qt">2. Sound travels at the same speed in every material.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="The medium changes the speed: from about 331 m/s in cold air to 5,640 m/s in glass."></div></div>
+      <div class="q" data-a="T"><div class="qt">3. Sound waves can bend around corners.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="This is diffraction: it is why you hear voices before you reach the door."></div></div>
+      <div class="q" data-a="T"><div class="qt">4. Sound travels faster in warm air than in cold air.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Warm gas particles move faster and collide more often: 343 m/s at 20°C vs 331 m/s at 0°C."></div></div>
+      <div class="q" data-a="F"><div class="qt">5. The cochlea is part of the outer ear.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="The cochlea is in the inner ear."></div></div>
+      <div class="score" id="tfScore">Score: 0 / 5</div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · HOOK -->
+<section class="slide" id="s8" data-title="Hook: the sports day mystery" data-skills="critical,communication" data-coach="shahin" data-ns="National Identity" data-says="Lead your pair: one predicts, one explains. Sports day brings the whole school together, so let's work it out together!">
+  <div class="inner">
+    <div class="head"><h2>Hook: the sports day mystery</h2></div>
+    <div class="cols split">
+      <div class="card" style="padding:10px" id="hookArt">
+        <svg viewBox="0 0 640 300" width="100%" role="img" aria-label="A running track: the starter fires at one end; Saif listens through the air at the other end while Hamdan presses his ear to the metal railing.">
+          <rect width="640" height="300" fill="#e3f1fb"/>
+          <rect y="200" width="640" height="100" fill="#c0503a"/>
+          <g stroke="#fff" stroke-width="2"><line x1="0" y1="225" x2="640" y2="225"/><line x1="0" y1="252" x2="640" y2="252"/><line x1="0" y1="279" x2="640" y2="279"/></g>
+          <rect x="20" y="168" width="600" height="8" fill="#8a8f9e"/><g fill="#8a8f9e"><rect x="40" y="168" width="6" height="34"/><rect x="200" y="168" width="6" height="34"/><rect x="360" y="168" width="6" height="34"/><rect x="520" y="168" width="6" height="34"/></g>
+          <text x="320" y="162" text-anchor="middle" font-family="Nunito, sans-serif" font-size="12" font-weight="800" fill="#5b6385">metal railing</text>
+          <g><circle cx="60" cy="120" r="10" fill="#f5d7b5"/><rect x="50" y="130" width="20" height="38" rx="6" fill="#1b2470"/><line x1="70" y1="138" x2="92" y2="118" stroke="#1b2470" stroke-width="4"/><circle cx="98" cy="108" r="14" fill="#e6e6e6" opacity=".9"/><circle cx="112" cy="98" r="10" fill="#e6e6e6" opacity=".8"/>
+            <text x="60" y="94" text-anchor="middle" font-family="Nunito, sans-serif" font-size="14" font-weight="800" fill="#e5484d">BANG!</text><text x="60" y="78" text-anchor="middle" font-family="Nunito, sans-serif" font-size="11" fill="#1b2470">starter</text></g>
+          <g fill="none" stroke="#2563eb" stroke-width="3" stroke-dasharray="7 6"><path d="M120 120 Q 330 40 540 120"/></g>
+          <text x="330" y="60" text-anchor="middle" font-family="Nunito, sans-serif" font-size="12" font-weight="800" fill="#2563eb">through the air… ≈ 1 second</text>
+          <g stroke="#e5484d" stroke-width="5"><line x1="60" y1="172" x2="560" y2="172"/></g>
+          <text x="330" y="194" text-anchor="middle" font-family="Nunito, sans-serif" font-size="12" font-weight="800" fill="#e5484d">through the metal… almost instantly!</text>
+          <g><circle cx="590" cy="120" r="10" fill="#f5d7b5"/><rect x="580" y="130" width="20" height="38" rx="6" fill="#fff" stroke="#c9b48a"/><text x="590" y="96" text-anchor="middle" font-family="Nunito, sans-serif" font-size="12" font-weight="800" fill="#1b2470">Saif</text></g>
+          <g><circle cx="556" cy="158" r="9" fill="#f5d7b5"/><rect x="530" y="152" width="22" height="16" rx="6" fill="#fff" stroke="#c9b48a"/><text x="530" y="146" text-anchor="middle" font-family="Nunito, sans-serif" font-size="12" font-weight="800" fill="#1b2470">Hamdan</text></g>
+          <text x="320" y="20" text-anchor="middle" font-family="Nunito, sans-serif" font-size="13" font-weight="800" fill="#1b2470">340 m</text>
+        </svg>
+      </div>
+      <div class="card stack">
+        <h3 style="margin:0;color:var(--orange);font-family:var(--display)">Sports day at Zayed Sports City…</h3>
+        <p style="margin:0">Saif stands at the far end of the track, 340 m from the starter. He sees the starter's flag drop, then about one second later he hears <b>BANG!</b></p>
+        <p style="margin:0">Hamdan is right next to him, with his ear pressed against the long metal railing. He hears the bang almost instantly.</p>
+        <p style="margin:0">Same bang, same distance. <b style="color:var(--purple)">So why did Hamdan hear it first?</b></p>
+        <div class="row"><button class="btn" data-show="tps">Think · Pair · Share</button><button class="btn red" data-show="clue">Reveal a clue</button></div>
+        <div id="tps" hidden class="good stack"><b>Predict:</b> what is different about the path the sound took to Saif and to Hamdan? Talk with your partner for 1 minute. <div class="timer" data-sec="60"></div></div>
+        <div id="clue" hidden class="stack"><div class="fb no"><b>Clue:</b> sound passes energy from particle to particle. How close are the particles in air, and in metal?</div>
+          <div class="note"><b>Textbook:</b> read “What affects how a wave travels through matter?”</div>
+          <img class="fig" src="img/tb-intro.webp" alt="Textbook: What affects how a wave travels through matter?" style="max-width:460px"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · SORT -->
+<section class="slide" id="s9" data-title="Encounter: gas, liquid or solid?" data-skills="teamwork" data-coach="hessa" data-ns="Cooperation" data-says="Sorted it differently from your partner? Listen first, then compare. Different ideas help us learn.">
+  <div class="inner">
+    <div class="head"><h2>Encounter: gas, liquid or solid?</h2><div class="timer" data-sec="180"></div></div>
+    <p class="lead">What is the sound mainly travelling through? <b>Tap each situation</b>: GAS → LIQUID → SOLID. Then rank: which medium carries sound fastest?</p>
+    <div class="sorter" id="sorter" data-labels="GAS|LIQUID|SOLID">
+      <button class="sitem" data-ans="SOLID">Hearing a friend knock on the other end of your desk<span class="tag">?</span></button>
+      <button class="sitem" data-ans="LIQUID">Dolphins calling to each other in the Gulf<span class="tag">?</span></button>
+      <button class="sitem" data-ans="GAS">Hearing the adhan across the neighbourhood<span class="tag">?</span></button>
+      <button class="sitem" data-ans="SOLID">Tapping on a metal water pipe<span class="tag">?</span></button>
+      <button class="sitem" data-ans="GAS">Thunder rumbling over Hatta<span class="tag">?</span></button>
+      <button class="sitem" data-ans="LIQUID">A diver hearing a boat engine underwater<span class="tag">?</span></button>
+      <button class="sitem" data-ans="SOLID">Hamdan's ear pressed to the metal railing<span class="tag">?</span></button>
+      <button class="sitem" data-ans="LIQUID">Hearing a friend call you while swimming underwater<span class="tag">?</span></button>
+    </div>
+    <div class="row"><button class="btn navy" id="sortCheck">Check my sort</button><span class="score" id="sortScore"></span></div>
+    <div class="note" id="sortWhy" hidden><b>Ranking:</b> sound travels fastest through <b>solids</b>, then <b>liquids</b>, and slowest through <b>gases</b>. In a solid the particles are packed tightly, so they collide and pass the energy on very quickly.</div>
+  </div>
+</section>
+
+<!-- 10 · UNCONVENTIONAL -->
+<section class="slide" id="s10" data-title="Speed and diffraction (the unconventional version)" data-skills="critical" data-coach="fahim" data-ns="Innovation" data-says="Predict before you flip each card. Testing ideas is how inventors think!">
+  <div class="inner">
+    <div class="head"><h2>Speed and diffraction (the unconventional version)</h2></div>
+    <div class="grid g2">
+      <div class="card" style="background:var(--orange-bg);border-color:#ffd2a6"><div class="label" style="color:var(--orange)">Think of it like this</div><p style="margin:6px 0 0">Pass a message along a line of students. If everyone stands <b>shoulder to shoulder</b> (a solid), the message flies along. If everyone stands <b>far apart</b> (a gas), it takes much longer. And when the message reaches an <b>open door</b>, it spreads out into the next room: that is <b style="color:var(--purple)">diffraction</b>.</p></div>
+      <div class="card" style="background:var(--blue-bg);border-color:#c7d7fb"><div class="label" style="color:var(--blue)">Textbook ideas</div><p style="margin:6px 0 0">Two factors change the <b>speed of sound</b>: the <b>density</b> and the <b>temperature</b> of the medium.<br><b>Diffraction</b> is the change in direction of a wave when it travels by the edge of an object or through an opening.</p></div>
+    </div>
+    <div class="label" style="color:var(--navy)">Predict what happens, then tap the card to check!</div>
+    <div class="grid g3">
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--red)"><strong style="color:var(--red)">👂 Ear on the desk while a friend taps it</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--red-bg);border-color:var(--red)">You hear it <b>louder and sooner</b>. The solid desk carries sound faster and better than the air.</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--teal)"><strong style="color:var(--teal)">🏊 A friend calls you underwater in the pool</strong><span class="tap">tap to check</span></div><div class="face back" style="background:#e3f6f6;border-color:var(--teal)">Sound in water travels about <b>4 times faster</b> than in air (about 1,481 m/s).</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front"><strong>🚪 Friends talking round the corridor corner</strong><span class="tap">tap to check</span></div><div class="face back">You hear them before you see them. Sound <b>diffracts</b> through the doorway and around the corner.</div></div></button>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · TB INTRO -->
+<section class="slide" id="s11" data-title="Textbook: what affects how a wave travels?" data-skills="reading" data-coach="maha" data-ns="Cooperation" data-says="Respect your classmates: listen quietly while someone reads the paragraph aloud.">
+  <div class="inner">
+    <div class="head"><h2>Textbook: what affects how a wave travels?</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-intro.webp" alt="Textbook: What affects how a wave travels through matter?"></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 A car horn is heard almost immediately, but a beach wave takes a while to reach the shore. What does this tell you?</div><button class="btn small ghost" data-show="t11a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t11a" hidden>✓ Different waves travel at different speeds. Sound in air is fast (about 343 m/s); water waves at the beach are much slower.</div></div>
+        <div class="q"><div class="qt">Q2 What would happen if you placed something between you and a microphone in a recording studio?</div><button class="btn small ghost" data-show="t11b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t11b" hidden>✓ Some sound would reflect off it or be absorbed, so less would reach the microphone. Some might also diffract around its edges.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 · TB SPEED -->
+<section class="slide" id="s12" data-title="Textbook: speed of sound" data-skills="reading" data-coach="fahim" data-ns="Excellence" data-says="Read the table like a scientist: find the fastest and slowest first, then look for patterns.">
+  <div class="inner">
+    <div class="head"><h2>Textbook: speed of sound</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-speed.webp" alt="Textbook: Speed of Sound, with a table of speeds in air, water, seawater, ice, iron and glass"></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 In the table, where does sound travel fastest, and where slowest?</div><button class="btn small ghost" data-show="t12a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t12a" hidden>✓ Fastest in glass (5,640 m/s). Slowest in air at 0°C (331 m/s).</div></div>
+        <div class="q"><div class="qt">Q2 Why does sound travel faster in a solid than in a gas?</div><button class="btn small ghost" data-show="t12b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t12b" hidden>✓ In a solid the particles are packed very close together, so they collide and transfer energy very quickly.</div></div>
+        <div class="q"><div class="qt">Q3 How does temperature change the speed of sound in air? And in water?</div><button class="btn small ghost" data-show="t12c" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t12c" hidden>✓ Warmer air: faster (343 m/s at 20°C vs 331 at 0°C). Liquids are the opposite: cooler water is faster (1,500 m/s at 0°C vs 1,481 at 20°C).</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 · TB DIFFRACTION -->
+<section class="slide" id="s13" data-title="Textbook: diffraction" data-skills="reading" data-coach="ahmed" data-ns="Innovation" data-says="Read carefully and underline the key word: diffraction. Responsible readers check every detail.">
+  <div class="inner">
+    <div class="head"><h2>Textbook: diffraction</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-diffraction.webp" alt="Textbook paragraph: Diffraction"></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 What is diffraction? Give an everyday example.</div><button class="btn small ghost" data-show="t13a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13a" hidden>✓ The change in direction of a wave when it travels by the edge of an object or through an opening. Example: hearing people talking in a room before you reach its open door.</div></div>
+        <div class="q"><div class="qt">Q2 When does the most diffraction happen?</div><button class="btn small ghost" data-show="t13b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13b" hidden>✓ When the size of the object or opening is similar to the wavelength of the wave.</div></div>
+        <div class="note"><b>Remember:</b> both water waves and sound waves diffract.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 · TB EAR -->
+<section class="slide" id="s14" data-title="Textbook: life science connection" data-skills="reading" data-coach="hessa" data-ns="Sustainability" data-says="Our ears are precious. Look after them, and look after the hearing of everyone around you.">
+  <div class="inner">
+    <div class="head"><h2>Textbook: life science connection</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-ear.webp" alt="Textbook: Life Science Connection, the human ear with outer, middle and inner ear labelled"></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 Name the three main parts of the ear.</div><button class="btn small ghost" data-show="t14a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t14a" hidden>✓ The outer ear, the middle ear and the inner ear.</div></div>
+        <div class="q"><div class="qt">Q2 Put these in the order sound reaches them: cochlea, ear canal, hammer–anvil–stirrup, eardrum.</div><button class="btn small ghost" data-show="t14b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t14b" hidden>✓ Ear canal → eardrum → hammer, anvil, stirrup → cochlea.</div></div>
+        <div class="note"><b>Big idea:</b> hearing is an interaction of waves with matter. Sound travels through air, then solid parts, then the liquid in the cochlea.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 · SPEED RACE -->
+<section class="slide" id="s15" data-title="Sound speed race" data-skills="critical" data-coach="shahin" data-ns="Innovation" data-says="Lead the prediction: which lane wins? Which comes last? Then press Race!">
+  <div class="inner">
+    <div class="head"><h2>Sound speed race: 1 km through each medium</h2></div>
+    <p class="lead">Each lane sends the same sound <b>1,000 m</b> through a different medium, using the speeds in your textbook table. <b>Predict the order</b>, then press Race!</p>
+    <div class="sim">
+      <canvas id="race" height="330"></canvas>
+      <div class="row" style="justify-content:space-between"><button class="btn" id="raceBtn">▶ Race!</button><span class="legend" id="raceRead">time = distance ÷ speed</span></div>
+    </div>
+    <button class="btn navy small" data-show="raceQ" style="justify-self:start">▶ What should you notice?</button>
+    <div class="good" id="raceQ" hidden>The solids (glass, iron, ice) win easily, liquids come next, and air is slowest. Sound crosses 1 km of glass in about <b>0.18 s</b>, but needs about <b>2.9 s</b> in air.</div>
+  </div>
+</section>
+
+<!-- 16 · TEMPERATURE -->
+<section class="slide" id="s16" data-title="Temperature and thunder" data-skills="critical" data-coach="maha" data-ns="National Identity" data-says="Respect the weather: when you hear thunder, it is time to go indoors!">
+  <div class="inner">
+    <div class="head"><h2>Temperature and the speed of sound in air</h2></div>
+    <div class="cols split-r">
+      <div class="stack">
+        <div class="card" style="background:#fff8db;border-color:#f3e2a0"><p style="margin:0">As a <b>gas</b> gets warmer, its particles move faster and collide more often, so sound travels faster. A good rule for air is:</p><p style="margin:8px 0 0;font-family:var(--display);font-size:1.2rem;color:var(--navy)">speed ≈ 331 + 0.6 × temperature (°C)</p></div>
+        <div class="card stack"><label for="temp"><b>Air temperature: <span id="tempVal">20</span> °C</b></label><input type="range" id="temp" min="-10" max="50" value="20" style="width:100%">
+          <div class="score" id="speedOut"></div>
+          <div class="row"><button class="btn small ghost" data-t="0">❄ 0°C</button><button class="btn small ghost" data-t="20">🌤 20°C</button><button class="btn small" data-t="45">☀ 45°C UAE summer</button></div></div>
+        <div class="card stack"><b>Thunder over Hatta</b><p style="margin:0">You see lightning, then hear thunder <b>6 s</b> later. How far away is the storm?</p><button class="btn small ghost" data-show="thunderA" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="thunderA" hidden>✓ At 20°C: 6 × 343 ≈ 2,058 m, about 2 km away. (We see the lightning first because light travels far faster than sound.)</div></div>
+      </div>
+      <div class="sim"><b>Air particles at this temperature</b><canvas id="gas" height="300"></canvas><div class="legend">Faster particles collide more often and pass the sound on sooner.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 17 · DIFFRACTION -->
+<section class="slide" id="s17" data-title="Diffraction through a gap" data-skills="critical" data-coach="fahim" data-ns="Innovation" data-says="Change one thing at a time, just like a real scientist. What makes the waves spread the most?">
+  <div class="inner">
+    <div class="head"><h2>Diffraction: waves through a gap</h2></div>
+    <div class="cols split-r">
+      <div class="stack">
+        <div class="card" style="background:#fff8db;border-color:#f3e2a0"><p style="margin:0">Waves arrive from the left and pass through a gap in a barrier. <b>More diffraction</b> happens when the gap is <b>similar in size to the wavelength</b>.</p></div>
+        <div class="card stack"><label for="gap"><b>Gap width: <span id="gapVal">60</span> px</b></label><input type="range" id="gap" min="20" max="200" value="60" style="width:100%">
+          <label for="lam"><b>Wavelength: <span id="lamVal">40</span> px</b></label><input type="range" id="lam" min="20" max="80" value="40" style="width:100%">
+          <div class="score" id="gapRead"></div></div>
+        <button class="btn navy small" data-show="difQ" style="justify-self:start">▶ Why can you hear round a corner, but not see round it?</button>
+        <div class="good" id="difQ" hidden>Sound waves have wavelengths of centimetres to metres, similar to the size of a doorway, so they diffract a lot. Light waves are far smaller than a doorway, so they hardly bend at all.</div>
+      </div>
+      <div class="sim"><b>Top view of a wave tank</b><canvas id="dif" height="300"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<!-- 18 · EAR JOURNEY -->
+<section class="slide" id="s18" data-title="Journey into the ear" data-skills="critical" data-coach="ahmed" data-ns="Sustainability" data-says="Be responsible for your hearing: keep earbuds at a safe volume and protect your ears from very loud sounds.">
+  <div class="inner">
+    <div class="head"><h2>Journey into the ear</h2></div>
+    <div class="cols split">
+      <div class="sim">
+        <div style="position:relative" id="earBox"><img class="fig" src="img/ear-figure.webp" alt="The human ear: outer ear, middle ear and inner ear" style="border:0"><div id="earDot" style="position:absolute;width:34px;height:34px;border-radius:50%;border:4px solid #e5484d;background:rgba(229,72,77,.25);transform:translate(-50%,-50%);transition:left .6s,top .6s;left:22%;top:55%"></div></div>
+        <div class="row" style="justify-content:space-between"><button class="btn ghost small" id="earPrev">◀ Back</button><span class="score" id="earStep">Step 1 of 5</span><button class="btn small" id="earNext">Next step ▶</button></div>
+      </div>
+      <div class="stack">
+        <div class="card stack" id="earText" style="min-height:160px"></div>
+        <div class="card"><div class="label" style="color:var(--blue)">Medium at each step</div><div class="row" id="earMedia" style="margin-top:6px"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 19 · LAB -->
+<section class="slide" id="s19" data-title="Breaking Waves lab" data-skills="teamwork,discipline" data-coach="shahin" data-ns="Cooperation" data-says="Wave-maker, gap-keeper, observer: lead your team so everyone has a job. Wipe up spills straight away!">
+  <div class="inner">
+    <div class="head"><h2>Breaking Waves lab: waves through gaps</h2><div class="timer" data-sec="300"></div></div>
+    <div class="cols split">
+      <div class="stack">
+        <div class="good"><b>You need:</b> a shallow tray of water · a wooden dowel or ruler · two blocks · a small object (e.g. a stone)</div>
+        <ol style="margin:0;padding-left:20px;display:grid;gap:4px">
+          <li>Place the two blocks across the tray with a <b>wide gap</b> between them.</li>
+          <li><b>Wave-maker:</b> gently roll the dowel once to make a straight wave.</li>
+          <li><b>Observer:</b> watch the wave after it passes through the gap.</li>
+          <li>Repeat with a <b>narrow gap</b>, then with a small object instead of the blocks. Record below.</li>
+        </ol>
+        <div class="tablewrap"><table>
+          <thead><tr><th>Set-up</th><th>What did the wave do after the gap or object?</th></tr></thead>
+          <tbody>
+            <tr><td><b>Wide gap</b></td><td><input type="text" id="lab1" placeholder="your observation"><div class="exp" hidden>Mostly carried straight on; it spread out only a little at the edges.</div></td></tr>
+            <tr><td><b>Narrow gap</b></td><td><input type="text" id="lab2" placeholder="your observation"><div class="exp" hidden>Spread out in curved, circular waves: lots of diffraction.</div></td></tr>
+            <tr><td><b>Small object</b></td><td><input type="text" id="lab3" placeholder="your observation"><div class="exp" hidden>The wave bent around the edges and joined up again behind the object.</div></td></tr>
+          </tbody></table></div>
+        <div class="row"><button class="btn" id="labExp">Expected results</button></div>
+        <div class="fb no"><b>Safety:</b> keep water away from electrical sockets and wipe up spills straight away.</div>
+      </div>
+      <div class="stack">
+        <div class="card"><div class="label" style="color:var(--blue)">Roles</div>
+          <ul style="margin:8px 0 0;padding-left:20px;display:grid;gap:6px"><li><b>Wave-maker:</b> makes one gentle wave at a time.</li><li><b>Gap-keeper:</b> sets the blocks to the right gap.</li><li><b>Observer and recorder:</b> describes and records what the wave does.</li></ul></div>
+        <button class="btn navy small" data-show="labQ" style="justify-self:start">▶ What should you notice?</button>
+        <div class="good" id="labQ" hidden>The waves didn't break: they <b>changed direction</b> at the barrier. The narrower the gap (closer to the wavelength), the more the waves <b>spread out</b>. That is diffraction.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 20 · PAUSE & CHECK -->
+<section class="slide" id="s20" data-title="Pause and check" data-skills="initiative" data-coach="hessa" data-ns="Excellence" data-says="Wrong answer? Read the hint and try again. Excellence means never giving up.">
+  <div class="inner">
+    <div class="head"><h2>Pause and check</h2><div class="timer" data-sec="240"></div></div>
+    <p class="lead">Formative check: tap an answer. <b>Wrong? Read the hint and try again!</b></p>
+    <div class="grid g2 mcqset" data-mode="retry">
+      <div class="q"><div class="qt">Q1 Sound travels fastest through…</div><div class="opts"><button class="opt">A. air</button><button class="opt">B. water</button><button class="opt" data-ok>C. iron</button></div><div class="fb no" hidden>Hint: where are the particles packed tightest?</div></div>
+      <div class="q"><div class="qt">Q2 In which air does sound travel faster?</div><div class="opts"><button class="opt">A. air at 0°C</button><button class="opt" data-ok>B. air at 20°C</button><button class="opt">C. the same in both</button></div><div class="fb no" hidden>Hint: warm gas particles move faster.</div></div>
+      <div class="q"><div class="qt">Q3 Diffraction is…</div><div class="opts"><button class="opt">A. a wave bouncing off a surface</button><button class="opt" data-ok>B. a wave changing direction at an edge or opening</button><button class="opt">C. a wave's energy being absorbed</button></div><div class="fb no" hidden>Hint: think of voices coming round the corridor corner.</div></div>
+      <div class="q"><div class="qt">Q4 Which part of the ear is filled with fluid?</div><div class="opts"><button class="opt">A. ear canal</button><button class="opt">B. hammer</button><button class="opt" data-ok>C. cochlea</button><button class="opt">D. eardrum</button></div><div class="fb no" hidden>Hint: it is shaped like a snail.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 21 · ORDER -->
+<section class="slide" id="s21" data-title="Put the hearing journey in order" data-skills="critical,initiative" data-coach="shahin" data-ns="Cooperation" data-says="Agree on the order as a team before you reveal it. Good leaders make sure everyone speaks.">
+  <div class="inner">
+    <div class="head"><h2>Put the hearing journey in order</h2></div>
+    <p class="lead">How does the starter's bang reach Saif's brain? Say the order with your partner, then <b>tap the events from first to last</b>. Tap a numbered event to undo.</p>
+    <div class="order" id="order">
+      <button class="oitem" data-p="3"><span class="n">?</span>The hammer, anvil and stirrup pass the vibrations on</button>
+      <button class="oitem" data-p="5"><span class="n">?</span>Nerves send signals to the brain: Saif hears “BANG!”</button>
+      <button class="oitem" data-p="1"><span class="n">?</span>Sound waves enter the ear canal</button>
+      <button class="oitem" data-p="4"><span class="n">?</span>The fluid in the cochlea moves</button>
+      <button class="oitem" data-p="2"><span class="n">?</span>The eardrum vibrates</button>
+    </div>
+    <div class="row"><button class="btn navy" id="orderCheck">Check my order</button><button class="btn" id="orderReveal">Reveal the order</button><span class="score" id="orderScore"></span></div>
+    <div class="chain" id="chain" hidden>
+      <div style="background:#e5484d">1 · Sound waves enter the ear canal</div>
+      <div style="background:#f07f19">2 · The eardrum vibrates</div>
+      <div style="background:#d9a400">3 · The hammer, anvil and stirrup pass the vibrations on</div>
+      <div style="background:#1593c9">4 · The fluid in the cochlea moves</div>
+      <div style="background:#7a3ff0">5 · Nerves send signals to the brain</div>
+    </div>
+    <div class="card stack"><b>Traffic light: how sure are you?</b>
+      <div class="traffic"><button style="background:var(--green)" data-tl="Brilliant! Help a partner explain it using “eardrum, cochlea, vibrations”.">I can teach it</button><button style="background:var(--orange)" data-tl="Good! Re-read the ear slides, then try again.">Mostly</button><button style="background:var(--red)" data-tl="That is OK! Your teacher will go through it with you now.">I need help</button></div>
+      <div id="tlMsg" class="note" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- 22 · WORKSHEET 1 -->
+<section class="slide" id="s22" data-title="Worksheet (1/2)" data-skills="reading" data-coach="ahmed" data-ns="Excellence" data-says="Work on your own first, then check your answers. Own your learning!">
+  <div class="inner">
+    <div class="head"><h2>Speed, diffraction &amp; hearing worksheet (1/2)</h2><div class="timer" data-sec="240"></div></div>
+    <div class="grid g2">
+      <div class="card stack"><div class="label" style="color:var(--navy)">A · Match each word · 5 marks</div>
+        <div style="font-size:.92rem;color:var(--muted)">A. The material a wave travels through<br>B. A thin membrane that vibrates when sound hits it<br>C. The change in direction of a wave at an edge or opening<br>D. How closely packed the particles are<br>E. The snail-shaped, fluid-filled part of the inner ear</div>
+        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:8px" id="wsA">
+          <label class="fillrow">1. diffraction <select data-ans="C" id="wa1"></select></label>
+          <label class="fillrow">2. density <select data-ans="D" id="wa2"></select></label>
+          <label class="fillrow">3. cochlea <select data-ans="E" id="wa3"></select></label>
+          <label class="fillrow">4. eardrum <select data-ans="B" id="wa4"></select></label>
+          <label class="fillrow">5. medium <select data-ans="A" id="wa5"></select></label>
+        </div>
+        <div class="row"><button class="btn small navy" data-check="wsA">Check A</button><button class="btn small ghost" data-answers="wsA">Show answers (A)</button><span class="score" data-out="wsA"></span></div>
+      </div>
+      <div class="card stack"><div class="label" style="color:var(--navy)">B · Fill the gaps · 5 marks</div>
+        <div class="wordbank">Word bank: faster · solids · wavelength · inner · 343</div>
+        <div class="stack" id="wsB" style="gap:8px">
+          <div class="fillrow">1. Sound travels fastest through <input type="text" size="10" data-ans="solids|solid" id="wb1" aria-label="gap 1"> .</div>
+          <div class="fillrow">2. In warmer air, sound travels <input type="text" size="10" data-ans="faster" id="wb2" aria-label="gap 2"> .</div>
+          <div class="fillrow">3. Diffraction is greatest when an opening is similar in size to the <input type="text" size="10" data-ans="wavelength" id="wb3" aria-label="gap 3"> .</div>
+          <div class="fillrow">4. The cochlea is in the <input type="text" size="10" data-ans="inner" id="wb4" aria-label="gap 4"> ear.</div>
+          <div class="fillrow">5. In air at 20°C, sound travels at about <input type="text" size="8" data-ans="343" id="wb5" aria-label="gap 5"> m/s.</div>
+        </div>
+        <div class="row"><button class="btn small navy" data-check="wsB">Check B</button><button class="btn small ghost" data-answers="wsB">Show answers (B)</button><span class="score" data-out="wsB"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 23 · WORKSHEET 2 -->
+<section class="slide" id="s23" data-title="Worksheet (2/2)" data-skills="reading,critical" data-coach="maha" data-ns="Excellence" data-says="Respect your reader: write full sentences using medium, particles and speed.">
+  <div class="inner">
+    <div class="head"><h2>Speed, diffraction &amp; hearing worksheet (2/2)</h2></div>
+    <div class="card stack"><div class="label" style="color:var(--navy)">C · Which carries sound faster? Use the table · 6 marks</div>
+      <div class="tablewrap" id="wsC"><table>
+        <thead><tr><th>Compare</th><th>Faster</th></tr></thead>
+        <tbody>
+          <tr><td>Air at 0°C or air at 20°C</td><td><select data-ans="Air at 20°C" data-opts="Air at 0°C|Air at 20°C" id="wc1"></select></td></tr>
+          <tr><td>Water (20°C) or iron</td><td><select data-ans="Iron" data-opts="Water (20°C)|Iron" id="wc2"></select></td></tr>
+          <tr><td>Seawater (25°C) or air (20°C)</td><td><select data-ans="Seawater" data-opts="Seawater|Air" id="wc3"></select></td></tr>
+          <tr><td>Ice (0°C) or water (0°C)</td><td><select data-ans="Ice" data-opts="Ice|Water" id="wc4"></select></td></tr>
+          <tr><td>Glass or iron</td><td><select data-ans="Glass" data-opts="Glass|Iron" id="wc5"></select></td></tr>
+          <tr><td>Water at 20°C or water at 0°C</td><td><select data-ans="Water at 0°C" data-opts="Water at 20°C|Water at 0°C" id="wc6"></select></td></tr>
+        </tbody></table></div>
+      <div class="row"><button class="btn small navy" data-check="wsC">Check C</button><button class="btn small ghost" data-answers="wsC">Show answers (C)</button><span class="score" data-out="wsC"></span></div>
+    </div>
+    <div class="cols split">
+      <div class="card stack"><div class="label" style="color:var(--navy)">D · Explain · 3 marks</div>
+        <p style="margin:0">Why did Hamdan hear the starter's bang before Saif? Use <b>medium</b>, <b>particles</b> and <b>speed</b>.</p>
+        <textarea id="wd" placeholder="Write your explanation in full sentences…"></textarea>
+        <button class="btn small" data-show="model" style="justify-self:start">Show model answer (D)</button>
+      </div>
+      <div class="stack">
+        <div class="good" id="model" hidden><b>Model answer (1 mark each):</b><br>✓ Hamdan heard the bang through the metal railing, a solid <b>medium</b>; Saif heard it through the air, a gas.<br>✓ In a solid the <b>particles</b> are packed close together, so they collide and pass the energy on quickly.<br>✓ So sound's <b>speed</b> in iron (about 5,130 m/s) is much faster than in air (about 343 m/s).</div>
+        <div class="card"><span class="score" id="wsTotal">Total: A + B + C = 0 / 16 marks</span><div class="legend">Your teacher marks part D (3 marks) for a total out of 19.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 24 · LEVELS -->
+<section class="slide" id="s24" data-title="Choose your level" data-skills="respect" data-coach="maha" data-ns="Cooperation" data-says="Every level is respected here. Choose the one that stretches you, then help a friend.">
+  <div class="inner">
+    <div class="head"><h2>Green, orange or purple? Choose your level</h2></div>
+    <div class="grid g3">
+      <div class="level" style="--lc:var(--green);--lbg:var(--green-bg)"><h3>Green · Support</h3>
+        <ol><li>Complete: “Sound travels fastest through ____.”</li><li>Circle: sound is faster in warm / cold air.</li><li>True or false: sound can bend around corners.</li><li>Is sound faster in water or in air?</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. solids<br>2. warm<br>3. True (diffraction)<br>4. water</div><button class="btn small ghost lvl">Show answers</button></div>
+      <div class="level" style="--lc:var(--orange);--lbg:var(--orange-bg)"><h3>Orange · At level</h3>
+        <ol><li>Use the table: about how many times faster is sound in iron than in air at 20°C?</li><li>Why can you hear people in a room before you reach its door?</li><li>Describe the path of sound from the ear canal to the cochlea.</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. 5,130 ÷ 343 ≈ 15 times faster.<br>2. Sound diffracts through the doorway and spreads into the hallway.<br>3. Ear canal → eardrum vibrates → hammer, anvil, stirrup → fluid in the cochlea.</div><button class="btn small ghost lvl">Show answers</button></div>
+      <div class="level" style="--lc:var(--purple);--lbg:var(--purple-bg)"><h3>Purple · Challenge</h3>
+        <ol><li>You hear thunder 6 s after the lightning. Sound travels at 343 m/s. How far away is the storm?</li><li>Why does sound diffract around a doorway, but light does not?</li><li>Why does heating speed up sound in a gas, but cooling speeds it up in a liquid?</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. 6 × 343 ≈ 2,058 m, about 2 km.<br>2. Sound wavelengths are similar to a doorway's size; light wavelengths are far smaller.<br>3. Hot gas particles move faster and collide more; cooled liquid molecules move closer together and collide more often.</div><button class="btn small ghost lvl">Show answers</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- 25 · SUMMATIVE -->
+<section class="slide" id="s25" data-title="Summative: Wave Master quiz" data-skills="integrity" data-coach="ahmed" data-ns="Excellence" data-says="Count only your honest first try. Integrity is part of excellence!">
+  <div class="inner">
+    <div class="head"><h2>Summative: Wave Master quiz</h2><div class="timer" data-sec="120"></div></div>
+    <div class="stack mcqset" data-mode="first" id="wm">
+      <div class="q"><div class="qt">1. Two factors that change the speed of sound are…</div><div class="opts"><button class="opt">A. colour and shape</button><button class="opt" data-ok>B. density and temperature</button><button class="opt">C. loudness and pitch</button></div></div>
+      <div class="q"><div class="qt">2. In which medium does sound travel fastest?</div><div class="opts"><button class="opt">A. air at 20°C</button><button class="opt">B. seawater</button><button class="opt" data-ok>C. glass</button></div></div>
+      <div class="q"><div class="qt">3. Diffraction is greatest when an opening is…</div><div class="opts"><button class="opt">A. much bigger than the wavelength</button><button class="opt" data-ok>B. similar in size to the wavelength</button><button class="opt">C. closed</button></div></div>
+      <div class="q"><div class="qt">4. The three tiny bones of the middle ear are the…</div><div class="opts"><button class="opt" data-ok>A. hammer, anvil and stirrup</button><button class="opt">B. cochlea, canal and drum</button><button class="opt">C. crest, trough and rest</button></div></div>
+      <div class="q"><div class="qt">5. Hamdan heard the bang first because…</div><div class="opts"><button class="opt" data-ok>A. sound travels faster through the metal railing</button><button class="opt">B. his ears are bigger</button><button class="opt">C. the railing absorbed the sound</button></div></div>
+    </div>
+    <div class="card row" style="justify-content:space-between"><span class="score" id="wmScore">First-try score: 0 / 5</span><span class="legend">5 = Wave Master! · 4 = Wave Expert · 3 = Wave Explorer · 0–2 = let's review together</span></div>
+  </div>
+</section>
+
+<!-- 26 · MYSTERY SOLVED -->
+<section class="slide" id="s26" data-title="Mystery solved!" data-skills="critical,reading" data-coach="hessa" data-ns="National Identity" data-says="Be kind to yourself when you rate your stars. Every step forward counts!">
+  <div class="inner">
+    <div class="head"><h2>Mystery solved!</h2></div>
+    <div class="cols split">
+      <div class="stack">
+        <button class="btn" data-show="solved" data-confetti style="justify-self:start">Reveal the answer</button>
+        <div class="card" id="solved" hidden style="background:#fff8db;border-color:#f3e2a0"><b style="color:var(--orange)">Why Hamdan heard it first</b><p style="margin:6px 0 0">The bang reached Saif through the <b class="hl">AIR</b>, a gas, at about 343 m/s, so it took about 1 second to travel 340 m. Hamdan heard it through the <b style="color:var(--purple)">METAL RAILING</b>, a solid, where particles are packed tightly and pass the energy on very quickly: about 5,130 m/s. The sound reached him in less than a tenth of a second! (Saif saw the flag drop first because light travels far faster than sound.)</p></div>
+        <div class="card stack"><b>Exit ticket · 3 · 2 · 1</b>
+          <label>3 things I learned<textarea id="ex3" style="min-height:64px"></textarea></label>
+          <label>2 key words I can now explain<textarea id="ex2" style="min-height:48px"></textarea></label>
+          <label>1 question I still have<textarea id="ex1" style="min-height:48px"></textarea></label></div>
+      </div>
+      <div class="card stack"><b>Re-rate your success criteria (tap a star)</b>
+        <div><p style="margin:0 0 4px">I can use the speed of sound table to compare how fast sound travels in gases, liquids and solids.</p><div class="stars" id="st1"></div></div>
+        <div><p style="margin:0 0 4px">I can explain how density and temperature change the speed of sound.</p><div class="stars" id="st2"></div></div>
+        <div><p style="margin:0 0 4px">I can define diffraction and explain when it is greatest.</p><div class="stars" id="st3"></div></div>
+        <div><p style="margin:0 0 4px">I can name the parts of the ear and describe how a sound wave travels through them.</p><div class="stars" id="st4"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 27 · VALUES -->
+<section class="slide" id="s27" data-title="Which value did you show today?" data-skills="integrity">
+  <div class="inner">
+    <div class="head"><h2>Which value did you show today?</h2></div>
+    <p class="lead">Tap the character whose value you showed in this lesson. <b>Then tell your partner one real example!</b></p>
+    <div class="grid g5" id="values">
+      <button class="vcard" style="--cc:var(--c-shahin)"><span class="star">★</span><img src="img/av-shahin.webp" alt=""><b>Shahin</b><small>Leadership · <span class="ar">القيادة</span></small><span class="prompt">I led my team when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-fahim)"><span class="star">★</span><img src="img/av-fahim.webp" alt=""><b>Fahim</b><small>Knowledge · <span class="ar">المعرفة</span></small><span class="prompt">A new fact I learned is…</span></button>
+      <button class="vcard" style="--cc:var(--c-maha)"><span class="star">★</span><img src="img/av-maha.webp" alt=""><b>Maha</b><small>Respect · <span class="ar">الاحترام</span></small><span class="prompt">I showed respect when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-ahmed)"><span class="star">★</span><img src="img/av-ahmed.webp" alt=""><b>Ahmed</b><small>Responsibility · <span class="ar">المسؤولية</span></small><span class="prompt">I was responsible when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-hessa)"><span class="star">★</span><img src="img/av-hessa.webp" alt=""><b>Hessa</b><small>Tolerance · <span class="ar">التسامح</span></small><span class="prompt">I was patient and kind when…</span></button>
+    </div>
+    <div class="card row" style="justify-content:space-between"><b>Class goal: light up all five stars together!</b><span class="goal" id="goal"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span></div>
+  </div>
+</section>
+
+<!-- 28 · CELEBRATE -->
+<section class="slide end" id="s28" data-title="Find your way around every corner" data-bare>
+  <div class="inner">
+    <div class="eyebrow">YOU DID IT, GRADE 8! · <span class="ar">أحسنتم</span></div>
+    <h1>Find your way around every corner</h1>
+    <p style="font-style:italic;font-size:1.15rem;margin:0;opacity:.95">Sound finds its way around corners and through every medium. So can you: keep going, keep learning!</p>
+    <img class="fig" src="img/banner.webp" alt="Shahin, Fahim, Maha, Ahmed and Hessa with the UAE national skills" style="border:0">
+    <div class="row"><span class="nsk">🇦🇪 National Identity</span><span class="nsk">🌿 Sustainability</span><span class="nsk">🤝 Cooperation</span><span class="nsk">💡 Innovation</span><span class="nsk">⭐ Excellence</span></div>
+    <div class="promise"><b>My promise:</b> I will lead, learn, respect, be responsible and tolerant, for my school and my UAE.</div>
+    <div><button class="btn" id="celebrate">★ Celebrate together!</button></div>
+  </div>
+</section>
+
+  </main>
+  <div>
+    <div class="progress"><div id="prog"></div></div>
+    <nav class="nav">
+      <button class="btn ghost small" id="prev" aria-label="Previous slide">◀ Back</button>
+      <span class="count" id="count">1 / 28</span>
+      <span class="title" id="navTitle"></span>
+      <button class="btn ghost small" id="menuBtn">☰ Slides</button>
+      <button class="btn ghost small" id="linkBtn" title="Copy a link that opens this slide">🔗 Link</button>
+      <button class="btn ghost small" id="soundBtn" title="Clapping sound on">🔊</button>
+      <button class="btn ghost small" id="fsBtn" title="Full screen">⛶</button>
+      <button class="btn small" id="next" aria-label="Next slide">Next ▶</button>
+    </nav>
+  </div>
+</div>
+
+<div class="menu" id="menu" hidden><div class="panel"><div class="row" style="justify-content:space-between"><b style="font-family:var(--display);font-size:1.3rem">All slides</b><button class="btn ghost small" id="menuClose">Close</button></div><ol id="menuList"></ol></div></div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+// Paste the published lesson link here so "Link" copies a shareable address for each slide.
+const LESSON_URL = "";
+
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const slides=$$('.slide'), N=slides.length;
+const COACH={shahin:['Shahin','Leadership','القيادة','--c-shahin'],fahim:['Fahim','Knowledge','المعرفة','--c-fahim'],maha:['Maha','Respect','الاحترام','--c-maha'],ahmed:['Ahmed','Responsibility','المسؤولية','--c-ahmed'],hessa:['Hessa','Tolerance','التسامح','--c-hessa']};
+const SKILL={teamwork:['Teamwork','العمل الجماعي','👥'],critical:['Critical Thinking','التفكير الناقد','🧠'],communication:['Effective Communication','التواصل الفعّال','💬'],reading:['Reading & Writing','القراءة والكتابة','📖'],integrity:['Integrity','النزاهة','🛡'],discipline:['Self-regulation & Discipline','الانضباط وتنظيم الذات','⏱'],initiative:['Initiative & Perseverance','المبادرة والمثابرة','⛰'],respect:['Respect & Kindness','الاحترام واللطف','💗']};
+const LO='Explain how the density and temperature of a medium affect the speed of sound, describe diffraction of water and sound waves, and describe how sound waves travel through the ear.';
+const store={get(k){try{return localStorage.getItem('speed8:'+k)}catch(e){return null}},set(k,v){try{localStorage.setItem('speed8:'+k,v)}catch(e){}}};
+
+// date
+$('#today').textContent=new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+
+// shared chrome: skill chips, coach strip, objective footer
+slides.forEach(s=>{
+  const inner=$('.inner',s), head=$('.head',s);
+  if(s.dataset.skills&&head){const c=document.createElement('div');c.className='chips';
+    s.dataset.skills.split(',').forEach(k=>{const[en,ar,ic]=SKILL[k];c.insertAdjacentHTML('beforeend',`<span class="chip"><i>${ic}</i>${en} <span class="ar">${ar}</span></span>`)});head.appendChild(c)}
+  if(s.dataset.coach){const[n,v,ar,col]=COACH[s.dataset.coach];
+    inner.insertAdjacentHTML('beforeend',`<div class="coach" style="--cc:var(${col})"><img src="img/av-${s.dataset.coach}.webp" alt="${n}, ${v} coach"><div><div class="who">${n} says · ${v} <span class="ar">${ar}</span></div><p>${s.dataset.says}</p><div class="ns">UAE national skill: <b>${s.dataset.ns}</b></div></div></div>`)}
+  if(!('nolo' in s.dataset)) inner.insertAdjacentHTML('afterbegin',`<div class="lo lotop"><span class="tgt"></span><div><b>Learning objective:</b> ${LO}</div></div>`);
+});
+
+// navigation + deep links (#s1 … #s26)
+let cur=1; const enterHooks={};
+function go(n,push=true){
+  n=Math.max(1,Math.min(N,n|0)); cur=n;
+  slides.forEach((s,i)=>s.hidden=i!==n-1);document.querySelectorAll('.slide[hidden] video').forEach(v=>{try{v.pause()}catch(e){}});
+  $('#count').textContent=n+' / '+N; $('#navTitle').textContent=slides[n-1].dataset.title||'';
+  $('#prog').style.width=(n/N*100)+'%'; $('#main').scrollTop=0;
+  $('#prev').disabled=n===1; $('#next').disabled=n===N;
+  if(push){try{history.replaceState(null,'','#s'+n)}catch(e){}}
+  document.title='Speed of Sound, Diffraction and Hearing · '+n+' · Nilasha Sempon';
+  requestAnimationFrame(()=>enterHooks[n]&&enterHooks[n]());
+}
+function fromHash(){const m=(location.hash||'').match(/s(\d+)$/);return m?+m[1]:1}
+window.addEventListener('hashchange',()=>go(fromHash(),false));
+$('#prev').onclick=()=>go(cur-1); $('#next').onclick=()=>go(cur+1);
+document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g){go(+g.dataset.go);$('#menu').hidden=true}});
+document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea,select'))return;
+  if(['ArrowRight','PageDown'].includes(e.key))go(cur+1);if(['ArrowLeft','PageUp'].includes(e.key))go(cur-1);if(e.key==='Escape')$('#menu').hidden=true});
+let tx=0,ty=0;$('#main').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+$('#main').addEventListener('touchend',e=>{if(e.target.closest('canvas,input,textarea,select,.stadium'))return;const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;if(Math.abs(dx)>70&&Math.abs(dy)<40)go(cur+(dx<0?1:-1))});
+// menu
+$('#menuList').innerHTML=slides.map((s,i)=>`<li><button data-go="${i+1}"><b>${i+1}</b>${s.dataset.title}</button></li>`).join('');
+$('#menuBtn').onclick=()=>{$$('#menuList button').forEach((b,i)=>b.classList.toggle('cur',i+1===cur));$('#menu').hidden=false};
+$('#menuClose').onclick=()=>$('#menu').hidden=true;
+$('#menu').onclick=e=>{if(e.target.id==='menu')$('#menu').hidden=true};
+// toast + link
+let tt;function toast(html,ms=2600){const t=$('#toast');t.innerHTML=html;t.hidden=false;clearTimeout(tt);tt=setTimeout(()=>t.hidden=true,ms)}
+$('#linkBtn').onclick=()=>{const base=LESSON_URL||location.href.split('#')[0];const url=base+'#s'+cur;
+  const ok=()=>toast('Link to slide '+cur+' copied');
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(ok,()=>toast('<div>Copy this link:</div><div class="linkbox">'+url+'</div>',7000))}else toast('<div>Copy this link:</div><div class="linkbox">'+url+'</div>',7000)};
+$('#fsBtn').onclick=()=>{try{if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen().catch(()=>toast('Full screen is not available here'))}catch(e){toast('Full screen is not available here')}};
+
+// built-in party confetti (works without any outside library)
+window.confetti=(function(){let cv,cx,parts=[],raf=null;
+  function setup(){if(cv)return;cv=document.createElement('canvas');cv.id='fxCanvas';document.body.appendChild(cv);cx=cv.getContext('2d');size();addEventListener('resize',size)}
+  function size(){const d=devicePixelRatio||1;cv.width=innerWidth*d;cv.height=innerHeight*d;cx.setTransform(d,0,0,d,0,0)}
+  function frame(){cx.clearRect(0,0,innerWidth,innerHeight);parts=parts.filter(p=>p.t<p.T);
+    parts.forEach(p=>{p.t++;p.x+=Math.cos(p.a)*p.v+p.drift;p.y+=Math.sin(p.a)*p.v+p.g;p.v*=p.decay;p.w+=p.ws;p.tilt+=0.1;
+      const o=1-p.t/p.T;cx.globalAlpha=Math.max(0,o);cx.fillStyle=p.c;const s=p.s;
+      if(p.round){cx.beginPath();cx.ellipse(p.x,p.y,s*.6,s*.6*Math.abs(Math.cos(p.tilt)),0,0,7);cx.fill()}
+      else{cx.save();cx.translate(p.x,p.y);cx.rotate(p.w);cx.fillRect(-s/2,-s*.3*Math.abs(Math.cos(p.tilt))-1,s,s*.6*Math.abs(Math.cos(p.tilt))+2);cx.restore()}});
+    cx.globalAlpha=1;raf=parts.length?requestAnimationFrame(frame):(cx.clearRect(0,0,innerWidth,innerHeight),null)}
+  return function(o){o=o||{};setup();const n=o.particleCount||50,ang=(o.angle==null?90:o.angle)*Math.PI/180,spr=(o.spread==null?45:o.spread)*Math.PI/180,sv=o.startVelocity||45,
+      X=(o.origin&&o.origin.x!=null?o.origin.x:.5)*innerWidth,Y=(o.origin&&o.origin.y!=null?o.origin.y:.6)*innerHeight,cols=o.colors||['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0','#ff7ab6'],sc=o.scalar||1;
+    for(let i=0;i<Math.min(n,400);i++)parts.push({x:X,y:Y,a:-ang+(.5*spr-Math.random()*spr),v:sv*.5+Math.random()*sv,decay:.9,g:3*(o.gravity==null?1:o.gravity),drift:(Math.random()-.5)*.6,
+      c:cols[i%cols.length],s:(7+Math.random()*6)*sc,round:Math.random()<.3,w:Math.random()*6,ws:(Math.random()-.5)*.3,tilt:Math.random()*6,t:0,T:o.ticks||200});
+    if(!raf)raf=requestAnimationFrame(frame);return Promise.resolve()}})();
+// confetti
+function boom(big){if(typeof confetti!=='function')return;const c=['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0'];
+  confetti({particleCount:big?220:90,spread:big?120:70,origin:{y:.65},colors:c});
+  if(big){setTimeout(()=>confetti({particleCount:120,angle:60,spread:70,origin:{x:0,y:.7},colors:c}),250);setTimeout(()=>confetti({particleCount:120,angle:120,spread:70,origin:{x:1,y:.7},colors:c}),400)}}
+// cheer: confetti burst where the student tapped + a clapping sound for each correct answer
+let lastX=.5,lastY=.6,soundOn=true;try{soundOn=localStorage.getItem('cheerSound')!=='off'}catch(e){}
+document.addEventListener('pointerdown',e=>{lastX=e.clientX/innerWidth;lastY=e.clientY/innerHeight},true);
+let cheerCtx;function clap(n){if(!soundOn)return;try{cheerCtx=cheerCtx||new (window.AudioContext||window.webkitAudioContext)();const a=cheerCtx,now=a.currentTime;
+  const len=a.sampleRate*.05,buf=a.createBuffer(1,len,a.sampleRate),d=buf.getChannelData(0);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,3);
+  for(let k=0;k<n;k++){const t=now+k*0.11+Math.random()*0.05;for(let j=0;j<3;j++){const src=a.createBufferSource();src.buffer=buf;const f=a.createBiquadFilter();f.type='bandpass';f.frequency.value=1000+Math.random()*1500;f.Q.value=0.8;const g=a.createGain();g.gain.value=0.5;src.connect(f);f.connect(g);g.connect(a.destination);src.start(t+j*0.012+Math.random()*0.02)}}
+  [523.25,659.25,783.99].forEach((fr,i)=>{const o=a.createOscillator(),g=a.createGain();o.type='triangle';o.frequency.value=fr;o.connect(g);g.connect(a.destination);g.gain.setValueAtTime(0.0001,now+i*0.07);g.gain.exponentialRampToValueAtTime(0.12,now+i*0.07+0.02);g.gain.exponentialRampToValueAtTime(0.0001,now+i*0.07+0.3);o.start(now+i*0.07);o.stop(now+i*0.07+0.32)})}catch(e){}}
+function party(big,x,y){const c=['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0','#ff7ab6'];
+  confetti({particleCount:big?110:60,spread:big?110:80,startVelocity:big?42:34,origin:{x:x,y:y},colors:c});
+  confetti({particleCount:big?110:60,angle:62,spread:58,startVelocity:big?62:55,origin:{x:0,y:.95},colors:c});
+  confetti({particleCount:big?110:60,angle:118,spread:58,startVelocity:big?62:55,origin:{x:1,y:.95},colors:c})}
+function badge(txt,cls){const b=document.createElement('div');b.className='fbadge '+cls;b.textContent=txt;
+  b.style.left=Math.min(Math.max(lastX*innerWidth,110),innerWidth-110)+'px';b.style.top=Math.min(Math.max(lastY*innerHeight-64,70),innerHeight-40)+'px';document.body.appendChild(b);setTimeout(()=>b.remove(),1500)}
+let lastCheer=0,lastWrong=0,quietUntil=0;
+const PRAISE=['🎉 Correct!','⭐ Brilliant!','👏 Well done!','🎊 Great job!','🏆 Excellent!'];
+function cheer(big){lastCheer=Date.now();clap(big?14:9);party(big,lastX,lastY);badge(PRAISE[Math.floor(Math.random()*PRAISE.length)],'good')}
+function buzz(){if(!soundOn)return;try{cheerCtx=cheerCtx||new (window.AudioContext||window.webkitAudioContext)();const a=cheerCtx,now=a.currentTime;
+  [[0,233],[0.17,175]].forEach(([d,f])=>{const o=a.createOscillator(),g=a.createGain();o.type='square';o.frequency.value=f;o.connect(g);g.connect(a.destination);g.gain.setValueAtTime(0.0001,now+d);g.gain.exponentialRampToValueAtTime(0.07,now+d+0.02);g.gain.exponentialRampToValueAtTime(0.0001,now+d+0.16);o.start(now+d);o.stop(now+d+0.18)})}catch(e){}}
+function wrong(el){if(el){el.classList.remove('shake');void el.offsetWidth;el.classList.add('shake');setTimeout(()=>el.classList.remove('shake'),500)}
+  if(Date.now()-lastWrong<350)return;lastWrong=Date.now();buzz();
+  let f=document.getElementById('redFlash');if(!f){f=document.createElement('div');f.id='redFlash';document.body.appendChild(f)}
+  f.classList.add('on');setTimeout(()=>f.classList.remove('on'),120);badge('✗ Not quite. Try again!','bad')}
+// watch every answer: green = party confetti, red = red flash + shake
+document.addEventListener('click',e=>{if(e.target.closest('[data-answers],#orderReveal'))quietUntil=Date.now()+600},true);
+new MutationObserver(ms=>{if(Date.now()<quietUntil)return;let good=false;
+  ms.forEach(m=>{const el=m.target,old=' '+(m.oldValue||'')+' ';if(!el.classList)return;
+    if(['no','wrong','nof'].some(c=>el.classList.contains(c)&&!old.includes(' '+c+' '))&&!el.classList.contains('fb'))wrong(el);
+    if(['ok','right','okf'].some(c=>el.classList.contains(c)&&!old.includes(' '+c+' '))&&!el.classList.contains('fb'))good=true});
+  if(good&&Date.now()-lastCheer>500)cheer(false)}).observe(document.body,{subtree:true,attributes:true,attributeFilter:['class'],attributeOldValue:true});
+(function(){const b=document.getElementById('soundBtn');if(!b)return;const set=()=>{b.textContent=soundOn?'🔊':'🔇';b.title=soundOn?'Sound on':'Sound off'};set();
+  b.onclick=()=>{soundOn=!soundOn;try{localStorage.setItem('cheerSound',soundOn?'on':'off')}catch(e){}set();if(soundOn)clap(4)}})();
+document.addEventListener('click',e=>{if(e.target.closest('[data-confetti]'))boom(false)});
+
+// generic: flip, reveal
+document.addEventListener('click',e=>{
+  const f=e.target.closest('.flip');if(f)f.classList.toggle('on');
+  const r=e.target.closest('[data-show]');if(r){const t=document.getElementById(r.dataset.show);t.hidden=!t.hidden}
+  const ns=e.target.closest('.nskill');if(ns)ns.classList.toggle('on');
+});
+
+// timers
+let actx;function beep(){try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();[0,.25,.5].forEach(d=>{const o=actx.createOscillator(),g=actx.createGain();o.frequency.value=880;o.connect(g);g.connect(actx.destination);g.gain.setValueAtTime(.15,actx.currentTime+d);g.gain.exponentialRampToValueAtTime(.001,actx.currentTime+d+.2);o.start(actx.currentTime+d);o.stop(actx.currentTime+d+.22)})}catch(e){}}
+$$('.timer').forEach(el=>{const total=+el.dataset.sec;let left=total,iv=null;const fmt=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+  el.innerHTML=`<button class="btn small">▶ Start ${total>=60?total/60+'-min':total+'-s'}</button><span class="t">${fmt(total)}</span><button class="rs" title="Reset">↺</button>`;
+  const [b,t,rs]=el.children;
+  const stop=()=>{clearInterval(iv);iv=null};
+  b.onclick=()=>{if(iv){stop();b.textContent='▶ Resume';return}if(left<=0){left=total;el.classList.remove('done')}
+    b.textContent='❚❚ Pause';iv=setInterval(()=>{left--;t.textContent=fmt(Math.max(left,0));if(left<=0){stop();el.classList.add('done');t.textContent="TIME'S UP!";b.textContent='▶ Again';beep()}},1000)};
+  rs.onclick=()=>{stop();left=total;el.classList.remove('done');t.textContent=fmt(total);b.textContent=`▶ Start ${total>=60?total/60+'-min':total+'-s'}`};
+});
+
+// 7 · true/false
+$$('#tf .q').forEach(q=>{let done=false;$$('.opt',q).forEach(b=>b.onclick=()=>{if(done)return;done=true;const pick=b.textContent==='True'?'T':'F',ok=pick===q.dataset.a;
+  b.classList.add(ok?'ok':'no');if(ok)cheer(false);const fb=$('.fb',q);fb.hidden=false;fb.className='fb '+(ok?'ok':'no');fb.textContent=(ok?'✓ Correct! ':'✗ Not quite. ')+fb.dataset.why;
+  q.dataset.res=ok?1:0;const sc=$$('#tf .q').reduce((a,x)=>a+(+x.dataset.res||0),0),n=$$('#tf .q[data-res]').length;$('#tfScore').textContent='Score: '+sc+' / 5';if(n===5&&sc===5)boom(false)})});
+
+// 9 · video answers
+$('#vidAns')&&($('#vidAns').onclick=()=>$$('#s9 .vans').forEach(a=>a.hidden=false));
+
+// 11 · sort
+$$('#sorter .sitem').forEach(b=>b.onclick=()=>{b.classList.remove('right','wrong');const L=($('#sorter').dataset.labels||'low|HIGH').split('|');const i=(L.indexOf(b.dataset.v)+1)%L.length;b.dataset.v=L[i];$('.tag',b).textContent=L[i]});
+$('#sortCheck').onclick=()=>{let s=0;$$('#sorter .sitem').forEach(b=>{const ok=b.dataset.v===b.dataset.ans;b.classList.toggle('right',ok);b.classList.toggle('wrong',!ok);s+=ok});$('#sortScore').textContent=s+' / 8 correct';if(s>0&&s<8)cheer(false);$('#sortWhy').hidden=false;if(s===8)boom(false)};
+
+// MCQ sets (retry = formative with hints; first = first-try scoring)
+$$('.mcqset').forEach(set=>{const mode=set.dataset.mode;const qs=set.classList.contains('q')?[set]:$$('.q',set);
+  qs.forEach(q=>q.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(q.dataset.solved)return;const ok=b.hasAttribute('data-ok');
+    if(!('first' in q.dataset))q.dataset.first=ok?1:0;
+    b.classList.add(ok?'ok':'no');const fb=$('.fb',q);if(fb)fb.hidden=ok;
+    if(ok){q.dataset.solved=1;cheer(false);if(set.id==='dbq'){$('#dbLock').hidden=true;$('#dbOpen').hidden=false;boom(false)}}
+    if(set.id==='wm'){const s=qs.reduce((a,x)=>a+(+x.dataset.first||0),0),n=qs.filter(x=>'first' in x.dataset).length;
+      const lvl=s===5?'Wave Master! 🏆':s===4?'Wave Expert':s===3?'Wave Explorer':"let's review together";
+      $('#wmScore').textContent='First-try score: '+s+' / 5'+(n===5?' · '+lvl:'');if(n===5&&s>=4)boom(s===5)}
+    if(mode==='retry'&&set.id!=='dbq'&&qs.every(x=>x.dataset.solved))boom(false);
+  }));
+});
+
+// 18 · order
+let nextN=1;$$('#order .oitem').forEach(b=>b.onclick=()=>{$$('#order .oitem').forEach(x=>x.classList.remove('right','wrong'));
+  if(b.dataset.n){const k=+b.dataset.n;$$('#order .oitem').forEach(x=>{if(+x.dataset.n>=k){delete x.dataset.n;x.classList.remove('set');$('.n',x).textContent='?'}});nextN=k;return}
+  if(nextN>5)return;b.dataset.n=nextN;b.classList.add('set');$('.n',b).textContent=nextN;nextN++});
+$('#orderCheck').onclick=()=>{let s=0;$$('#order .oitem').forEach(b=>{const ok=b.dataset.n===b.dataset.p;b.classList.toggle('right',ok);b.classList.toggle('wrong',!ok);s+=ok});$('#orderScore').textContent=s+' / 5 in the right place';if(s>0&&s<5)cheer(false);if(s===5)boom(false)};
+$('#orderReveal').onclick=()=>{$('#chain').hidden=false};
+$$('[data-tl]').forEach(b=>b.onclick=()=>{const m=$('#tlMsg');m.hidden=false;m.textContent=b.dataset.tl});
+
+// 20/21 · worksheet
+$$('#wsA select').forEach(s=>s.innerHTML='<option value="">–</option>'+'ABCDE'.split('').map(x=>`<option>${x}</option>`).join(''));
+$$('#wsC select').forEach(s=>s.innerHTML='<option value="">choose…</option>'+s.dataset.opts.split('|').map(x=>`<option>${x}</option>`).join(''));
+const norm=v=>v.trim().toLowerCase().replace(/[.\s]+$/,'');
+function mark(id){let s=0;$$('#'+id+' [data-ans]').forEach(f=>{const ok=f.dataset.ans.toLowerCase().split('|').includes(norm(f.value));f.classList.toggle('okf',ok);f.classList.toggle('nof',!ok&&f.value!=='');s+=ok});return s}
+const score={wsA:0,wsB:0,wsC:0};
+function total(){$('#wsTotal').textContent='Total: A + B + C = '+(score.wsA+score.wsB+score.wsC)+' / 16 marks'}
+$$('[data-check]').forEach(b=>b.onclick=()=>{const id=b.dataset.check,s=mark(id),max=$$('#'+id+' [data-ans]').length;score[id]=s;if(s>0)cheer(s===max);$(`[data-out="${id}"]`).textContent=s+' / '+max;total();if(s===max)boom(false)});
+$$('[data-answers]').forEach(b=>b.onclick=()=>{const id=b.dataset.answers;$$('#'+id+' [data-ans]').forEach(f=>{f.value=f.tagName==='SELECT'?f.dataset.ans:f.dataset.ans.split('|')[0]});mark(id)});
+$('#labExp').onclick=()=>$$('#s19 .exp').forEach(x=>{x.hidden=false;x.style.cssText='font-size:.82rem;color:#11663a;font-weight:700;margin-top:4px'});
+$$('.lvl').forEach(b=>b.onclick=()=>{const a=b.previousElementSibling;a.hidden=!a.hidden;b.textContent=a.hidden?'Show answers':'Hide answers'});
+
+// keep typed answers in this browser
+$$('input[type=text],textarea').forEach(f=>{const v=store.get(f.id);if(v)f.value=v;f.addEventListener('input',()=>store.set(f.id,f.value))});
+
+// 24 · stars
+$$('.stars').forEach(st=>{for(let i=1;i<=5;i++)st.insertAdjacentHTML('beforeend',`<button aria-label="${i} star${i>1?'s':''}">★</button>`);
+  const set=k=>$$('button',st).forEach((b,i)=>b.classList.toggle('on',i<k));set(+store.get(st.id)||0);
+  $$('button',st).forEach((b,i)=>b.onclick=()=>{set(i+1);store.set(st.id,i+1);if(i===4)boom(false)})});
+
+// 25 · values
+$$('#values .vcard').forEach(c=>c.onclick=()=>{c.classList.toggle('on');const n=$$('#values .vcard.on').length;$$('#goal span').forEach((s,i)=>s.classList.toggle('on',i<n));if(n===5){boom(true);toast('Class goal reached: all five stars!')}});
+
+// 26 · celebrate
+$('#celebrate').onclick=()=>boom(true);
+enterHooks[28]=()=>boom(true);
+
+/* ---------- canvases ---------- */
+function fit(c){const r=c.getBoundingClientRect(),d=window.devicePixelRatio||1;const h=+c.getAttribute('height')||r.height||120;
+  if(!c.dataset.h)c.dataset.h=h;const H=+c.dataset.h;c.style.height=H+'px';c.width=Math.round(r.width*d);c.height=Math.round(H*d);const x=c.getContext('2d');x.setTransform(d,0,0,d,0,0);return{x,w:r.width,h:H}}
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// hero waves
+(function(){const c=$('#heroWaves');let t=0,raf;function draw(){if(cur!==1){raf=null;return}const {x,w,h}=fit(c);
+  const cols=['#ffc21a','#e5484d','#1fa75a','#4f8cff','#c084fc'];cols.forEach((col,i)=>{x.beginPath();for(let px=0;px<=w;px+=6){const y=h*.35+i*14+Math.sin(px/90+t*(1+i*.15)+i)*(10+i*3);px?x.lineTo(px,y):x.moveTo(px,y)}x.strokeStyle=col;x.lineWidth=5;x.stroke()});
+  t+=.02;raf=reduce?null:requestAnimationFrame(draw)}enterHooks[1]=()=>{if(!raf)draw()};})();
+
+// 15 · sound speed race (1,000 m in each medium, real time)
+(function(){const c=$('#race');const L=[['Air (0°C)',331,'#9aa3b5'],['Air (20°C)',343,'#7b8399'],['Water (20°C)',1481,'#2b8fd6'],['Seawater (25°C)',1533,'#1593c9'],['Ice (0°C)',3500,'#29b6d1'],['Iron',5130,'#5b6385'],['Glass',5640,'#0e9fa6']];let t0=null,raf;
+  function draw(now){const {x,w,h}=fit(c),t=t0==null?-1:(now-t0)/1000,lx=140,lw=w-lx-90,lh=(h-20)/L.length;
+    x.fillStyle='#f6f8fd';x.fillRect(0,0,w,h);
+    L.forEach(([n,v,col],i)=>{const y=10+i*lh,T=1000/v,f=t<0?0:Math.min(1,t/T);
+      x.fillStyle=i%2?'#eef1f9':'#ffffff';x.fillRect(lx,y,lw,lh-4);
+      x.fillStyle='#1b2470';x.font='bold 13px Nunito, sans-serif';x.fillText(n,8,y+lh/2+1);x.fillStyle='#5b6385';x.font='11px Nunito, sans-serif';x.fillText(v.toLocaleString()+' m/s',8,y+lh/2+15);
+      x.fillStyle=col;x.fillRect(lx,y+lh/2-6,lw*f,12);
+      if(t>=0){x.fillStyle='#e5484d';x.beginPath();x.arc(lx+lw*f,y+lh/2,7,0,7);x.fill()}
+      if(f>=1){x.fillStyle='#1fa75a';x.font='bold 13px Nunito, sans-serif';x.fillText(T.toFixed(2)+' s',lx+lw+8,y+lh/2+5)}});
+    x.strokeStyle='#1b2470';x.setLineDash([5,4]);x.beginPath();x.moveTo(lx+lw,6);x.lineTo(lx+lw,h-6);x.stroke();x.setLineDash([]);
+    x.fillStyle='#1b2470';x.font='bold 12px Nunito, sans-serif';if(t>=0)x.fillText(`time: ${Math.min(t,1000/331).toFixed(2)} s`,lx+4,h-4);
+    if(t>=0&&t<1000/331+.2&&!c.closest('.slide').hidden)raf=requestAnimationFrame(draw);else{raf=null;if(t>0)$('#raceRead').textContent='Glass wins in 0.18 s. Air at 0°C is last at 3.02 s.'}}
+  $('#raceBtn').onclick=()=>{t0=performance.now();cancelAnimationFrame(raf);raf=requestAnimationFrame(draw)};
+  enterHooks[15]=()=>draw(performance.now());})();
+
+// 16 · temperature: gas particles and speed of sound
+(function(){const c=$('#gas'),rng=$('#temp');let P=[],raf;
+  const sp=()=>331+0.6*(+rng.value);
+  function out(){const T=+rng.value,v=sp();$('#tempVal').textContent=T;$('#speedOut').innerHTML=`Speed of sound ≈ <span style="color:var(--red)">${v.toFixed(0)} m/s</span>`}
+  function draw(){const {x,w,h}=fit(c);if(!P.length)for(let i=0;i<70;i++)P.push({x:Math.random()*w,y:Math.random()*h,a:Math.random()*6.28});
+    const T=+rng.value,k=0.4+((T+10)/60)*2.6;
+    const hue=T<10?'#2b8fd6':T<30?'#f07f19':'#e5484d';x.fillStyle='#f6f8fd';x.fillRect(0,0,w,h);
+    P.forEach(p=>{p.x+=Math.cos(p.a)*k;p.y+=Math.sin(p.a)*k;if(p.x<4||p.x>w-4){p.a=Math.PI-p.a}if(p.y<4||p.y>h-4){p.a=-p.a}p.x=Math.max(4,Math.min(w-4,p.x));p.y=Math.max(4,Math.min(h-4,p.y));
+      x.fillStyle=hue;x.beginPath();x.arc(p.x,p.y,4,0,7);x.fill()});
+    x.fillStyle='#1b2470';x.font='bold 13px Nunito, sans-serif';x.fillText(`${T} °C`,10,20);
+    if(!c.closest('.slide').hidden)raf=requestAnimationFrame(draw);else raf=null}
+  rng.oninput=out;$$('[data-t]').forEach(b=>b.onclick=()=>{rng.value=b.dataset.t;out()});out();
+  enterHooks[16]=()=>{if(!raf)raf=requestAnimationFrame(draw)};})();
+
+// 17 · diffraction through a gap
+(function(){const c=$('#dif'),g=$('#gap'),l=$('#lam');let raf,t0=performance.now();
+  function read(){const gw=+g.value,lam=+l.value;$('#gapVal').textContent=gw;$('#lamVal').textContent=lam;const r=gw/lam;
+    $('#gapRead').innerHTML=r<=1.6?'<span style="color:var(--green)">Gap ≈ wavelength: lots of diffraction! The waves spread out in circles.</span>':r<3?'<span style="color:var(--orange)">Some diffraction: the waves spread at the edges.</span>':'<span style="color:var(--muted)">Gap much bigger than the wavelength: little diffraction. Waves mostly go straight on.</span>'}
+  function draw(now){const {x,w,h}=fit(c),gw=+g.value,lam=+l.value,bx=w*.38,cy=h/2,t=(now-t0)/1000,shift=(t*40)%lam;
+    x.fillStyle='#d6eefb';x.fillRect(0,0,w,h);
+    // incoming plane waves
+    x.strokeStyle='#2563eb';x.lineWidth=3;for(let px=shift;px<bx;px+=lam){x.beginPath();x.moveTo(px,8);x.lineTo(px,h-8);x.stroke()}
+    // after the gap
+    const th=Math.asin(Math.min(1,lam/gw));const half=gw/2;
+    x.strokeStyle='#e5484d';
+    for(let r=shift;r<w;r+=lam){x.globalAlpha=Math.max(.15,1-r/(w*.9));x.beginPath();
+      // straight middle part shrinks as the wave spreads; curved ends spread by angle th
+      const top=cy-half,bot=cy+half;x.moveTo(bx+r*Math.cos(th),top-r*Math.sin(th));
+      x.arc(bx,top,r,-th,0);x.lineTo(bx+r,bot);x.arc(bx,bot,r,0,th);x.stroke()}
+    x.globalAlpha=1;
+    // barrier
+    x.fillStyle='#8a6b4a';x.fillRect(bx-6,0,12,cy-half);x.fillRect(bx-6,cy+half,12,h-(cy+half));
+    x.fillStyle='#1b2470';x.font='bold 12px Nunito, sans-serif';x.fillText('barrier',bx+10,16);
+    if(!c.closest('.slide').hidden)raf=requestAnimationFrame(draw);else raf=null}
+  g.oninput=read;l.oninput=read;read();enterHooks[17]=()=>{if(!raf)raf=requestAnimationFrame(draw)};})();
+
+// 18 · journey into the ear
+(function(){const S=[
+  {x:22,y:55,t:'1 · Outer ear',d:'Sound waves travel through the <b>air</b> and are collected by the outer ear. They travel down the <b>ear canal</b>.',m:'Air (gas)'},
+  {x:45,y:68,t:'2 · Ear canal',d:'The waves travel along the ear canal until they reach the eardrum at the end.',m:'Air (gas)'},
+  {x:63,y:72,t:'3 · Eardrum',d:'The sound waves hit the <b>eardrum</b>, a thin membrane, and make it <b>vibrate</b>.',m:'Membrane (solid)'},
+  {x:66,y:30,t:'4 · Hammer, anvil, stirrup',d:'Three tiny <b>bones</b> in the middle ear pass the vibrations on and make them stronger.',m:'Bones (solid)'},
+  {x:77,y:53,t:'5 · Cochlea',d:'The vibrations move the <b>fluid</b> in the snail-shaped cochlea. Tiny hair cells turn the movement into nerve signals that travel to the <b>brain</b>. You hear the sound!',m:'Fluid (liquid)'}];
+  let i=0;function show(){const s=S[i];$('#earDot').style.left=s.x+'%';$('#earDot').style.top=s.y+'%';$('#earStep').textContent=`Step ${i+1} of 5`;
+    $('#earText').innerHTML=`<h3 style="margin:0;font-family:var(--display);color:var(--navy)">${s.t}</h3><p style="margin:0">${s.d}</p>`;
+    $('#earMedia').innerHTML=S.map((q,k)=>`<span class="dbchip" style="background:${k===i?'#e5484d':k<i?'#1fa75a':'#c7cde0'}">${k+1}. ${q.m}</span>`).join('');
+    $('#earPrev').disabled=i===0;$('#earNext').textContent=i===4?'Start again ↺':'Next step ▶';if(i===4)boom(false)}
+  $('#earNext').onclick=()=>{i=i===4?0:i+1;show()};$('#earPrev').onclick=()=>{if(i>0){i--;show()}};show();})();
+
+window.addEventListener('resize',()=>enterHooks[cur]&&enterHooks[cur]());
+go(fromHash(),false);
+</script>
+
+</body>
+</html>

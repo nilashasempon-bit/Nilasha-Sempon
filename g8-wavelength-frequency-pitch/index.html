@@ -1,0 +1,1184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="author" content="Nilasha Sempon">
+<meta name="description" content="Interactive Grade 8 Advanced Science lesson with the UAE Values Team.">
+<title>Wavelength, Frequency and Pitch · Nilasha Sempon</title>
+<meta property="og:title" content="Wavelength, Frequency and Pitch · Nilasha Sempon">
+<meta property="og:description" content="Grade 8 Advanced Science interactive lesson by Nilasha Sempon, with the UAE Values Team.">
+<meta property="og:image" content="https://nilashasempons.netlify.app/g8-wavelength-frequency-pitch/img/hook-scene.webp">
+<meta property="og:url" content="https://nilashasempons.netlify.app/g8-wavelength-frequency-pitch/">
+<meta property="og:site_name" content="Nilasha Sempon · Science &amp; Biology">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: an app frame (top bar · one slide at a time · bottom nav). Each slide is a page with its own #sN link.
+   Single bright classroom look, matching the teacher's deck, so colours are set explicitly. */
+:root{
+  --navy:#1b2470; --navy-2:#2a338f; --ink:#1c2340; --muted:#5b6385; --line:#dfe3f1;
+  --paper:#ffffff; --bg:#eef1f9; --sun:#ffc21a; --sun-ink:#3a2a00;
+  --green:#1fa75a; --green-bg:#e6f7ed; --red:#e5484d; --red-bg:#fdecec;
+  --orange:#f07f19; --orange-bg:#fff2e4; --purple:#7a3ff0; --purple-bg:#f1eafe;
+  --blue:#2563eb; --blue-bg:#e8effe; --teal:#0e9fa6; --sea:#2b8fd6; --sand:#f2dca6;
+  --c-shahin:#4b6b2f; --c-fahim:#1f5f8b; --c-maha:#a3343a; --c-ahmed:#1d6b5b; --c-hessa:#b07a0a;
+  --display:"Baloo Bhaijaan 2","Nunito",system-ui,sans-serif;
+  --body:"Nunito","Baloo Bhaijaan 2",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+html,body{height:100%}
+body{margin:0}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45}
+*{box-sizing:border-box}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.ar{font-family:"Baloo Bhaijaan 2",var(--body);direction:rtl}
+
+#app{height:100%;display:grid;grid-template-rows:auto 1fr auto}
+.topbar{background:var(--navy);color:#fff;display:flex;align-items:center;gap:12px;padding:8px 16px;flex-wrap:wrap}
+.topbar .crumb{font-weight:800;font-family:var(--display);font-size:1.05rem;white-space:nowrap}
+.topbar .unit{opacity:.8;font-size:.85rem;min-width:0;flex:1 1 220px}
+.topbar .date{background:rgba(255,255,255,.14);border-radius:999px;padding:3px 12px;font-size:.85rem;white-space:nowrap}
+.iconbtn{background:var(--sun);color:var(--sun-ink);border:0;border-radius:999px;width:36px;height:36px;display:grid;place-items:center;font-weight:800;flex:none}
+.iconbtn svg{width:18px;height:18px}
+.wavestrip{height:6px;background:repeating-linear-gradient(90deg,var(--sun) 0 40px,var(--green) 40px 80px,var(--red) 80px 120px,var(--blue) 120px 160px,var(--purple) 160px 200px)}
+
+main{overflow-y:auto;overflow-x:hidden;position:relative;-webkit-overflow-scrolling:touch}
+.slide{min-height:100%}
+.inner{max-width:1200px;margin:0 auto;padding-block:22px 28px;padding-inline:16px;display:flex;flex-direction:column;gap:18px}
+.head{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.head h2{font-family:var(--display);font-size:clamp(1.5rem,3.2vw,2.2rem);line-height:1.1;margin:0;flex:1 1 auto;text-wrap:balance;font-weight:800}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:2px solid var(--blue);border-radius:999px;padding:3px 12px 3px 4px;font-size:.82rem;font-weight:700;color:var(--navy)}
+.chip i{width:24px;height:24px;border-radius:50%;background:var(--blue);display:grid;place-items:center;color:#fff;font-style:normal;font-size:.8rem}
+.chip .ar{font-weight:600;color:var(--muted)}
+.lead{color:var(--muted);margin:0;max-width:75ch}
+.lead b{color:var(--purple)}
+
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px}
+.label{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;font-weight:800;color:var(--red)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+.g5{grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.cols{display:grid;gap:18px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:860px){.cols.split{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}.cols.split-r{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}}
+.stack{display:flex;flex-direction:column;gap:12px;min-width:0}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+img.fig{border-radius:14px;border:1px solid var(--line);display:block;width:100%;height:auto;background:#fff}
+
+.btn{border:0;border-radius:999px;padding:10px 20px;font-weight:800;background:var(--sun);color:var(--sun-ink);box-shadow:0 3px 0 #d79c00;transition:transform .1s}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 #d79c00}
+.btn.navy{background:var(--navy);color:#fff;box-shadow:0 3px 0 #0d1245}
+.btn.red{background:var(--red);color:#fff;box-shadow:0 3px 0 #a92d31}
+.btn.ghost{background:var(--paper);color:var(--navy);box-shadow:none;border:2px solid var(--line)}
+.btn.small{padding:6px 14px;font-size:.88rem}
+
+/* coach strip */
+.coach{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:center;background:var(--paper);border:2px solid var(--cc,var(--navy));border-radius:18px;padding:10px 14px}
+.coach img{width:64px;height:64px;border-radius:50%;border:3px solid var(--cc);background:#f5efe4}
+.coach .who{font-weight:800;color:var(--cc);font-size:.9rem}
+.coach .who span{font-weight:600;color:var(--muted)}
+.coach p{margin:2px 0}
+.coach .ns{font-size:.82rem;color:var(--muted)}
+.coach .ns b{color:var(--orange)}
+.lo{display:flex;gap:10px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:.88rem;color:var(--muted)}
+.lo b{color:var(--red)}
+.lo.lotop{color:var(--ink);font-size:.95rem;font-weight:600;border:2px solid #f3c2c4;background:#fff7f7}
+.hero .lo.lotop,.end .lo.lotop{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.35);color:#fff}.hero .lo.lotop b,.end .lo.lotop b{color:#ffc21a}
+.lo .tgt{flex:none;width:22px;height:22px;border-radius:50%;border:4px solid var(--red);box-shadow:inset 0 0 0 3px #fff,inset 0 0 0 8px var(--red)}
+
+/* bottom nav */
+.nav{background:var(--paper);border-top:1px solid var(--line);display:flex;align-items:center;gap:8px;padding:8px 16px calc(8px + env(safe-area-inset-bottom,0px));flex-wrap:wrap}
+.nav .count{font-weight:800;font-variant-numeric:tabular-nums;color:var(--navy);min-width:64px;text-align:center}
+.nav .title{flex:1 1 140px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--muted);font-size:.9rem}
+@media (max-width:700px){.topbar .unit{display:none}.nav .title{display:none}.nav{justify-content:space-between}}
+.progress{height:4px;background:var(--line)}
+.progress div{height:100%;background:var(--sun);transition:width .3s}
+.toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;z-index:50;max-width:calc(100% - 32px);text-align:center}
+.linkbox{font-size:.8rem;word-break:break-all;background:var(--bg);padding:6px 10px;border-radius:8px;user-select:all}
+
+/* menu overlay */
+.menu{position:fixed;inset:0;background:rgba(18,22,60,.55);z-index:40;display:grid;place-items:center;padding:16px}
+.menu .panel{background:var(--paper);border-radius:20px;max-width:900px;width:100%;max-height:85vh;overflow:auto;padding:18px}
+.menu ol{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:6px;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr))}
+.menu li button{width:100%;text-align:left;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:8px 10px;display:flex;gap:10px;align-items:center}
+.menu li button b{color:var(--navy);font-variant-numeric:tabular-nums;min-width:22px}
+.menu li button.cur{background:var(--sun)}
+
+/* title slide */
+.hero{background:linear-gradient(135deg,#1b2470 0%,#3a2fa3 60%,#6a2fb8 100%);color:#fff;min-height:100%;position:relative;overflow:hidden}
+.hero .inner{padding-block:36px}
+.hero h1{font-family:var(--display);font-size:clamp(2.4rem,7vw,4.6rem);line-height:1;margin:6px 0 0;font-weight:800}
+.hero .sub{font-family:var(--display);color:var(--sun);font-size:clamp(1.3rem,3vw,2rem);font-weight:700;margin:0}
+.hero .eyebrow{color:var(--sun);font-weight:800;letter-spacing:.08em;font-size:.82rem}
+.hero .teacher{font-family:var(--display);font-size:1.2rem}.hero .teacher b{color:var(--sun)}
+.hero .mystery{background:#fff;color:var(--ink);border-radius:14px;padding:14px 16px;max-width:620px}
+.hero .mystery b{color:var(--red)}
+.avatars{display:flex;flex-wrap:wrap;gap:12px}
+.avatars button{background:none;border:0;padding:0;text-align:center;color:#fff;font-size:.8rem;font-weight:700}
+.avatars img{width:72px;height:72px;border-radius:50%;border:3px solid var(--sun);display:block;margin-bottom:4px;background:#f5efe4;transition:transform .2s}
+.avatars button:hover img{transform:translateY(-4px) rotate(-4deg)}
+.hero canvas.waves{position:absolute;left:0;right:0;bottom:0;width:100%;height:120px;pointer-events:none;opacity:.9}
+
+/* flip cards */
+.flip{perspective:900px;background:none;border:0;padding:0;text-align:left;width:100%}
+.flip .fi{display:grid;transition:transform .5s;transform-style:preserve-3d;height:100%}
+.flip.on .fi{transform:rotateY(180deg)}
+.flip .face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;padding:14px;border:2px solid var(--line);background:var(--paper);min-height:100px;display:flex;flex-direction:column;justify-content:center;gap:4px}
+.flip .back{transform:rotateY(180deg)}
+.flip .tap{font-size:.75rem;color:var(--muted);font-weight:700}
+.kw .front{border-color:var(--purple)}
+.kw .front strong{font-family:var(--display);font-size:1.3rem;color:var(--purple)}
+.kw .back{background:var(--purple-bg);border-color:var(--purple)}
+@media (prefers-reduced-motion:reduce){.flip .fi{transition:none}}
+
+/* team cards */
+.team{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr))}
+.team .face{padding:0;overflow:hidden;justify-content:flex-start;border-color:var(--cc)}
+.team .front img{width:100%;height:auto;aspect-ratio:496/536;object-fit:cover;display:block}
+.team .front .tap{padding:8px 10px;text-align:center;color:var(--cc)}
+.team .back{background:var(--cc);color:#fff;padding:16px;justify-content:center;font-weight:700;font-size:1.02rem}
+.team .back h4{margin:0;font-family:var(--display);font-size:1.4rem}
+.nskills{display:flex;flex-wrap:wrap;gap:8px}
+.nskill{border:2px solid var(--orange);background:var(--paper);border-radius:12px;padding:6px 12px;font-weight:800;color:var(--navy);display:flex;flex-direction:column;align-items:flex-start;text-align:left;max-width:240px}
+.nskill small{font-weight:600;color:var(--orange);display:none}
+.nskill.on small{display:block}
+
+/* lesson map */
+.map{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr))}
+.map button{border:0;border-radius:16px;color:#fff;text-align:left;padding:14px;min-height:112px;display:flex;flex-direction:column;gap:2px;transition:transform .15s}
+.map button:hover{transform:translateY(-3px)}
+.map small{font-size:.7rem;letter-spacing:.07em;font-weight:800;opacity:.85}
+.map strong{font-family:var(--display);font-size:1.18rem;line-height:1.15}
+.map span{font-size:.85rem;opacity:.9}
+
+/* lists */
+.crit{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.crit li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;align-items:start}
+.crit li::before{content:"✓";width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:800}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;align-items:center;counter-increment:s}
+.steps li::before{content:counter(s);width:32px;height:32px;border-radius:50%;background:var(--sun);display:grid;place-items:center;font-weight:800}
+
+/* timer */
+.timer{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:2px solid var(--sun);border-radius:999px;padding:4px 6px 4px 4px}
+.timer .t{font-family:var(--display);font-weight:800;font-size:1.3rem;font-variant-numeric:tabular-nums;min-width:58px;text-align:center;color:var(--navy)}
+.timer.done{border-color:var(--red);background:var(--red);animation:shake .5s 3}
+.timer.done .t{color:#fff}
+.timer .rs{background:none;border:0;color:var(--muted);font-size:.8rem;font-weight:700;padding:4px 8px}
+.timer.done .rs{color:#fff}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+/* quizzes */
+.q{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:10px}
+.q .qt{font-weight:800}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{border:2px solid var(--line);background:var(--bg);border-radius:12px;padding:8px 14px;font-weight:700;text-align:left}
+.opt.ok{background:var(--green);border-color:var(--green);color:#fff}
+.opt.no{background:var(--red);border-color:var(--red);color:#fff}
+.opt.ok::before{content:"✓ "}.opt.no::before{content:"✗ "}
+.fb{font-size:.9rem;border-radius:10px;padding:8px 12px}
+.fb.ok{background:var(--green-bg);color:#11663a}
+.fb.no{background:var(--red-bg);color:#9b1c22}
+.score{font-family:var(--display);font-weight:800;font-size:1.25rem;color:var(--navy)}
+
+/* sort */
+.sorter{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.sitem{display:flex;align-items:center;justify-content:space-between;gap:10px;border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 12px;font-weight:700;text-align:left}
+.sitem .tag{border-radius:999px;padding:3px 12px;font-size:.82rem;font-weight:800;background:var(--bg);color:var(--muted);white-space:nowrap}
+.sitem[data-v="low"] .tag{background:var(--teal);color:#fff}
+.sitem[data-v="high"] .tag{background:var(--red);color:#fff}
+.bannerbtn{background:none;border:0;padding:0;display:block;width:100%;max-width:760px;cursor:pointer}.bannerbtn img{width:100%;height:auto;border-radius:14px;display:block;border:3px solid var(--sun);transition:transform .2s}.bannerbtn:hover img{transform:translateY(-3px)}
+.concert{display:grid;gap:8px}.concert .stadium{padding-top:14px}.stage{background:linear-gradient(90deg,#ffc21a,#ff8a1f);border-radius:10px;text-align:center;font-weight:800;padding:8px;color:#3a2a00;letter-spacing:.1em}
+.seat.saeed{outline:3px solid #ff3b3b;outline-offset:1px}
+.dbchip{border-radius:999px;padding:3px 10px;font-size:.8rem;font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
+.sitem.right{border-color:var(--green);box-shadow:0 0 0 2px var(--green)}
+.sitem.wrong{border-color:var(--red);box-shadow:0 0 0 2px var(--red)}
+
+/* energy bars */
+.erow{display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px;align-items:center}
+.erow .amp{background:var(--navy);color:#fff;border-radius:999px;padding:6px 12px;font-weight:800;text-align:center;font-size:.9rem}
+.ebar{border:2px dashed var(--line);border-radius:999px;height:40px;background:var(--paper);display:flex;align-items:center;padding:0 4px;text-align:left;font-weight:700;color:var(--muted);font-size:.85rem;width:100%;position:relative;overflow:hidden}
+.ebar .fill{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#ff8c8f,var(--red));border-radius:999px;width:0;transition:width .8s cubic-bezier(.2,.9,.3,1.2)}
+.ebar .v{position:relative;padding-left:10px}
+.ebar.on{border-style:solid;border-color:var(--red)}
+.ebar.on .v{color:#fff;font-family:var(--display);font-size:1.25rem}
+.rule{background:var(--purple-bg);border-radius:14px;padding:18px;text-align:center;font-family:var(--display);font-size:3rem;font-weight:800;color:var(--navy);line-height:1}
+.rule sup{font-size:.55em}
+
+/* sims */
+.sim{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:12px;display:grid;gap:10px}
+.sim>*,.medium>*{min-width:0}
+.sim canvas{width:100%;display:block;border-radius:10px}
+.stadium{background:#141a3e;border-radius:12px;padding:40px 14px 14px;display:grid;gap:6px;grid-template-columns:repeat(16,minmax(0,1fr));overflow:hidden}
+.seat{height:clamp(14px,3vw,30px);border-radius:40% 40% 18% 18%;background:var(--c,#5b7cfa);transition:background .2s}
+.seat.saeed{outline:3px solid #ff3b3b;outline-offset:1px}
+.medium{display:grid;gap:8px;border:2px solid var(--line);border-radius:14px;padding:10px;background:var(--paper)}
+.medium h4{margin:0;font-family:var(--display);font-size:1.15rem}
+.medium canvas{width:100%;max-width:100%;height:120px;background:#f6f8fd}
+.medium .res{font-size:.85rem;min-height:2.6em}
+.legend{font-size:.82rem;color:var(--muted)}
+
+/* table */
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:420px;font-size:.92rem}
+th{background:var(--navy);color:#fff;text-align:left;padding:8px 10px}
+td{border-bottom:1px solid var(--line);padding:8px 10px;vertical-align:top}
+select,input[type=text],textarea{font:inherit;border:2px solid var(--line);border-radius:10px;padding:6px 10px;background:#fff;color:var(--ink);max-width:100%}
+textarea{width:100%;min-height:84px;resize:vertical}
+.okf{border-color:var(--green)!important;background:var(--green-bg)!important}
+.nof{border-color:var(--red)!important;background:var(--red-bg)!important}
+.fillrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.wordbank{background:var(--blue-bg);border-radius:10px;padding:8px 12px;font-weight:700;color:var(--blue)}
+
+/* order */
+.order{display:grid;gap:8px}
+.oitem{display:flex;align-items:center;gap:12px;border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 12px;font-weight:700;text-align:left}
+.oitem .n{width:34px;height:34px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-family:var(--display);font-weight:800;flex:none;color:var(--muted)}
+.oitem.set .n{background:var(--sun);color:var(--sun-ink)}
+.oitem.right{border-color:var(--green)}.oitem.wrong{border-color:var(--red)}
+.chain{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.chain div{border-radius:12px;padding:10px;color:#fff;font-weight:700;font-size:.9rem}
+.traffic{display:flex;flex-wrap:wrap;gap:8px}
+.traffic button{border:0;border-radius:999px;padding:8px 16px;font-weight:800;color:#fff}
+
+/* levels */
+.level{border-radius:16px;overflow:hidden;border:2px solid var(--lc);background:var(--paper);display:flex;flex-direction:column}
+.level h3{margin:0;background:var(--lc);color:#fff;padding:10px 14px;font-family:var(--display)}
+.level ol{margin:0;padding:12px 14px 12px 32px;display:grid;gap:8px}
+.level .ans{background:var(--lbg);margin:0 12px 12px;border-radius:10px;padding:10px 12px;font-size:.9rem}
+.level .btn{margin:0 12px 12px;align-self:flex-start}
+
+/* stars */
+.stars{display:flex;gap:4px}
+.stars button{background:none;border:0;padding:0;font-size:1.7rem;line-height:1;color:#c7cde0}
+.stars button.on{color:#f6b500}
+.vcard{border:2px solid var(--cc);border-radius:16px;background:var(--paper);padding:10px;text-align:center;display:grid;gap:6px;position:relative;justify-items:center}
+.vcard img{width:min(120px,100%);aspect-ratio:1;border-radius:50%;border:3px solid var(--cc);background:#f5efe4}
+.vcard .star{position:absolute;top:8px;right:10px;font-size:2rem;color:#c7cde0;transition:transform .3s}
+.vcard.on .star{color:#f6b500;transform:scale(1.25) rotate(15deg)}
+.vcard .prompt{font-style:italic;color:var(--cc);border:1px dashed var(--cc);border-radius:10px;padding:6px 8px;font-size:.88rem;width:100%}
+.goal{font-size:2rem;letter-spacing:4px;color:#c7cde0}
+.goal span.on{color:#f6b500}
+
+.end{background:linear-gradient(135deg,#1b2470 0%,#3a2fa3 60%,#6a2fb8 100%);color:#fff;min-height:100%}
+.end h1{font-family:var(--display);font-size:clamp(2.2rem,6vw,4rem);margin:0;line-height:1.05}
+.end .eyebrow{color:var(--sun);font-weight:800;letter-spacing:.06em}
+.end .promise{background:#fff;color:var(--ink);border-radius:14px;padding:12px 16px}
+.end .promise b{color:var(--red)}
+.end .nsk{background:#fff;color:var(--navy);border-radius:999px;padding:6px 14px;font-weight:800}
+
+.note{background:var(--orange-bg);border-radius:12px;padding:10px 14px;font-size:.92rem}
+.note b{color:var(--orange)}
+.good{background:var(--green-bg);border-radius:12px;padding:10px 14px}
+.hl{color:var(--red);font-weight:800}
+video{width:100%;border-radius:14px;background:#000;display:block}
+
+/* party confetti + red wrong-answer feedback */
+.shake{animation:shk .45s}
+@keyframes shk{0%,100%{transform:translateX(0)}20%{transform:translateX(-9px)}40%{transform:translateX(9px)}60%{transform:translateX(-6px)}80%{transform:translateX(5px)}}
+#redFlash{position:fixed;inset:0;pointer-events:none;z-index:9998;box-shadow:inset 0 0 0 12px rgba(229,72,77,.92),inset 0 0 120px rgba(229,72,77,.55);opacity:0;transition:opacity .6s}
+#redFlash.on{opacity:1;transition:none}
+#fxCanvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999}
+.fbadge{position:fixed;z-index:10000;pointer-events:none;transform:translate(-50%,-50%);padding:10px 20px;border-radius:999px;font-weight:800;font-size:1.2rem;color:#fff;white-space:nowrap;box-shadow:0 10px 26px rgba(0,0,0,.22);animation:fbadge 1.4s ease-out forwards}
+.fbadge.good{background:#1fa75a}.fbadge.bad{background:#e5484d}
+@keyframes fbadge{0%{opacity:0;transform:translate(-50%,-30%) scale(.6)}15%{opacity:1;transform:translate(-50%,-70%) scale(1.12)}70%{opacity:1}100%{opacity:0;transform:translate(-50%,-170%) scale(1)}}
+.sitem.wrong,.oitem.wrong{background:var(--red-bg)!important}
+.sitem.right,.oitem.right{background:var(--green-bg)!important}
+</style>
+</head>
+<body>
+
+<div id="app">
+  <header class="topbar">
+    <a class="iconbtn" href="../" title="All lessons" aria-label="All lessons" style="text-decoration:none">◀</a>
+    <span class="crumb">Lesson 1 · Wave Properties</span>
+    <span class="unit">Unit 1: Energy and Motion · Module 1: Introduction to Waves</span>
+    <span class="date" id="today">Today</span>
+    <button class="iconbtn" data-go="4" title="Lesson map" aria-label="Lesson map"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 2 11.5h3V21h5.5v-6h3v6H19v-9.5h3z"/></svg></button>
+  </header>
+  <main id="main">
+
+<!-- 1 · TITLE -->
+<section class="slide hero" id="s1" data-title="Wavelength, Frequency & Pitch" data-bare>
+  <div class="inner">
+    <div class="eyebrow">GRADE 8 ADVANCED · SCIENCE · TERM 1 · WEEK 7</div>
+    <div><h1>Wavelength, Frequency &amp; Pitch</h1><p class="sub">Lesson 1 · Wave Properties</p></div>
+    <div style="opacity:.85">Unit 1: Energy and Motion · Module 1: Introduction to Waves</div>
+    <div class="teacher">Teacher: <b>Nilasha Sempon</b> · Science &amp; Biology</div>
+    <div>
+      <div class="eyebrow" style="margin-bottom:8px">YOUR VALUES TEAM TODAY · tap to meet them</div>
+      <button class="bannerbtn" data-go="3"><img src="img/banner.webp" alt="Shahin (Leadership), Fahim (Knowledge), Maha (Respect), Ahmed (Responsibility) and Hessa (Tolerance) with the UAE national skills"></button>
+    </div>
+    <div class="mystery"><b>Today's mystery:</b> Why did Barq the saluki come running to a whistle that nobody else could hear?</div>
+    <div class="row" style="padding-bottom:110px">
+      <button class="btn" data-go="3">▶ Let's go!</button>
+      <button class="btn ghost" data-go="4">Lesson map</button>
+      <span style="opacity:.8;font-size:.9rem">45-minute interactive lesson</span>
+    </div>
+  </div>
+  <canvas class="waves" id="heroWaves"></canvas>
+</section>
+
+<!-- 2 · TERM 1 -->
+<section class="slide" id="s2" data-title="Term 1 overview" data-nolo>
+  <div class="inner">
+    <div class="head"><h2>Term 1 at a glance</h2></div>
+    <p class="lead">Grade 8 Advanced Science · We are in <b>Unit 1, Module 2: Introduction to Waves</b>.</p>
+    <img class="fig" src="img/term1.webp" alt="Term 1 plan: units, modules and lessons for Grade 8 Advanced Science" style="max-width:900px">
+  </div>
+</section>
+
+<!-- 3 · MEET TEAM -->
+<section class="slide" id="s3" data-title="Meet your UAE Values Team" data-skills="teamwork">
+  <div class="inner">
+    <div class="head"><h2>Meet your UAE Values Team</h2><button class="btn" data-confetti>★ We're ready!</button></div>
+    <p class="lead">Five friends will coach you through today's wavelength and pitch mission. <b>Tap a character to discover their job today!</b></p>
+    <div class="team">
+      <button class="flip" style="--cc:var(--c-shahin)"><div class="fi"><div class="face front"><img src="img/fig-shahin.webp" alt="Shahin – Leadership"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Shahin</h4>Lead your team: stick together and help everyone finish the spring lab.</div></div></button>
+      <button class="flip" style="--cc:var(--c-fahim)"><div class="fi"><div class="face front"><img src="img/fig-fahim.webp" alt="Fahim – Knowledge"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Fahim</h4>Collect today's key words: wavelength, frequency, hertz, pitch.</div></div></button>
+      <button class="flip" style="--cc:var(--c-maha)"><div class="fi"><div class="face front"><img src="img/fig-maha.webp" alt="Maha – Respect"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Maha</h4>Listen when others speak and respect every idea in the pitch sort.</div></div></button>
+      <button class="flip" style="--cc:var(--c-ahmed)"><div class="fi"><div class="face front"><img src="img/fig-ahmed.webp" alt="Ahmed – Responsibility"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Ahmed</h4>Time the waves carefully, record your results and finish on time.</div></div></button>
+      <button class="flip" style="--cc:var(--c-hessa)"><div class="fi"><div class="face front"><img src="img/fig-hessa.webp" alt="Hessa – Tolerance"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Hessa</h4>Every answer is welcome here. Mistakes help us learn!</div></div></button>
+    </div>
+    <div class="stack">
+      <div class="label" style="color:var(--navy)">UAE national skills you will use today · tap a skill to see where</div>
+      <div class="nskills">
+        <button class="nskill">🇦🇪 UAE National Values<small>Oud strings, Al Ayyala drums &amp; salukis</small></button>
+        <button class="nskill">🌿 Sustainability<small>Protect wildlife that hears what we can't</small></button>
+        <button class="nskill">📈 Progression<small>Wavelength → frequency → pitch</small></button>
+        <button class="nskill">💡 Innovation<small>Ultrasound scans &amp; sonar technology</small></button>
+        <button class="nskill">⭐ Excellence<small>Become today's Wave Master!</small></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · LESSON MAP -->
+<section class="slide" id="s4" data-title="Lesson map">
+  <div class="inner">
+    <div class="head"><h2>Lesson map · 45 minutes · tap any activity</h2></div>
+    <div class="map">
+      <button style="background:#1593c9" data-go="6"><small>PRE-ASSESSMENT · min 0–5</small><strong>Starter + Attendance</strong><span>Kickoff &amp; pre-assessment</span></button>
+      <button style="background:#d23b8a" data-go="5"><small>OBJECTIVES</small><strong>Objectives &amp; vocabulary</strong><span>Flip the key words</span></button>
+      <button style="background:#ef5a5a" data-go="8"><small>HOOK · min 5–9</small><strong>The silent whistle mystery</strong><span>UAE hook + narrated video</span></button>
+      <button style="background:#f07f19" data-go="10"><small>ACTIVITY · min 9–12</small><strong>High or low pitch?</strong><span>Sort the sounds by pitch</span></button>
+      <button style="background:#7a3ff0" data-go="11"><small>EXPLAIN · min 12–15</small><strong>What is frequency?</strong><span>The unconventional version + textbook</span></button>
+      <button style="background:#b0287a" data-go="18"><small>SIMULATION · min 15–18</small><strong>Stadium wave</strong><span>Slow vs fast waves</span></button>
+      <button style="background:#118a7e" data-go="19"><small>SIMULATION · min 18–21</small><strong>Frequency in ripples</strong><span>Drops per second</span></button>
+      <button style="background:#2563eb" data-go="20"><small>SIMULATION · min 21–24</small><strong>Pitch in any medium</strong><span>Solid · liquid · gas · vacuum</span></button>
+      <button style="background:#1fa75a" data-go="21"><small>LAB · min 24–29</small><strong>Spring lab</strong><span>Wavelength vs frequency</span></button>
+      <button style="background:#e5484d" data-go="22"><small>FORMATIVE · min 29–33</small><strong>Pause &amp; check</strong><span>Formative quiz + whistle order</span></button>
+      <button style="background:#5b3fd0" data-go="24"><small>WORKSHEET · min 33–41</small><strong>Worksheet + levels</strong><span>Worksheet, then Green / Orange / Purple</span></button>
+      <button style="background:#c81e3a" data-go="27"><small>SUMMATIVE · min 41–45</small><strong>Wave Master + exit</strong><span>Summative quiz &amp; mystery solved</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · OBJECTIVES -->
+<section class="slide" id="s5" data-title="Objectives, success criteria & key words" data-skills="reading" data-coach="fahim" data-ns="Excellence" data-says="Flip every key-word card and say the meaning out loud. Knowledge grows when you use it!">
+  <div class="inner">
+    <div class="head"><h2>Objectives, success criteria &amp; key words</h2></div>
+    <div class="cols split-r">
+      <div class="stack">
+        <div class="card"><div class="label">Learning objective</div><p style="margin:6px 0 0;font-weight:700">Describe wavelength and frequency, explain that as frequency increases wavelength decreases, and relate the frequency of a sound wave to its pitch and to the ranges of hearing.</p></div>
+        <div class="card"><div class="label" style="color:var(--green)">Success criteria</div>
+          <ul class="crit" style="margin-top:10px">
+            <li>I can measure wavelength from crest to crest, trough to trough, or compression to compression.</li>
+            <li>I can calculate frequency in hertz (Hz) as the number of waves ÷ time.</li>
+            <li>I can explain that as the frequency of a wave increases, its wavelength decreases.</li>
+            <li>I can explain that a higher frequency gives a higher pitch, and compare ranges of hearing.</li>
+          </ul></div>
+      </div>
+      <div class="stack">
+        <div class="label" style="color:var(--purple)">Key words · tap a card to flip it</div>
+        <div class="grid g2" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr))">
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Wavelength</strong><span class="tap">tap to flip</span></div><div class="face back">Distance from one point on a wave to the same point on the next wave.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Frequency</strong><span class="tap">tap to flip</span></div><div class="face back">The number of waves passing a point each second.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Hertz (Hz)</strong><span class="tap">tap to flip</span></div><div class="face back">The unit of frequency: 1 Hz = 1 wave per second.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Pitch</strong><span class="tap">tap to flip</span></div><div class="face back">How high or low a sound seems.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Crest</strong><span class="tap">tap to flip</span></div><div class="face back">The highest point of a transverse wave.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Compression</strong><span class="tap">tap to flip</span></div><div class="face back">Where particles in a longitudinal wave are squeezed together.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Ultrasound</strong><span class="tap">tap to flip</span></div><div class="face back">Sound above about 20,000 Hz: too high for humans to hear.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Infrasound</strong><span class="tap">tap to flip</span></div><div class="face back">Sound below about 20 Hz: too low for humans to hear.</div></div></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · KICKOFF -->
+<section class="slide" id="s6" data-title="Kickoff: starter + attendance" data-skills="critical,integrity" data-coach="ahmed" data-ns="UAE National Values" data-says="Be ready before the timer ends: book open, pen out. Responsible learners make the UAE proud.">
+  <div class="inner">
+    <div class="head"><h2>Kickoff: starter + attendance</h2><div class="timer" data-sec="300"></div></div>
+    <div class="cols split-r">
+      <img class="fig" src="img/kickoff.webp" alt="Kickoff Activity" style="max-width:420px">
+      <div class="card stack"><div class="label" style="color:var(--navy)">While the register is taken (5 minutes)</div>
+        <ol class="steps">
+          <li>Say “present” and settle in your seat.</li>
+          <li>Think: why does a thin oud string sound higher than a thick one?</li>
+          <li>Answer the 5 true/false questions on the next slide on your own: no peeking at a friend's answer!</li>
+        </ol>
+        <button class="btn small" data-go="7" style="justify-self:start">Go to the true/false questions ▸</button>
+      </div>
+    </div>
+    <div class="note"><b>Think about it:</b> a bird chirping, a ship's horn at Jebel Ali, a mosquito, a big Al Ayyala drum… what makes some sounds high and others low?</div>
+  </div>
+</section>
+
+<!-- 7 · PRE-ASSESSMENT -->
+<section class="slide" id="s7" data-title="Pre-assessment: what do you know?" data-skills="integrity">
+  <div class="inner">
+    <div class="head"><h2>Pre-assessment: what do you know?</h2><div class="timer" data-sec="180"></div></div>
+    <div class="stack" id="tf">
+      <div class="q" data-a="T"><div class="qt">1. Wavelength can be measured from one crest to the next crest.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Measure from one point to the same point on the next wave."></div></div>
+      <div class="q" data-a="F"><div class="qt">2. Frequency is measured in metres.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Frequency is measured in hertz (Hz): waves per second."></div></div>
+      <div class="q" data-a="F"><div class="qt">3. A high-pitched sound has a low frequency.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="A higher frequency gives a higher pitch."></div></div>
+      <div class="q" data-a="T"><div class="qt">4. A shorter wavelength means a higher frequency.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="As frequency increases, wavelength decreases."></div></div>
+      <div class="q" data-a="T"><div class="qt">5. Some animals can hear sounds that humans cannot.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Dogs, bats and dolphins can hear ultrasound."></div></div>
+      <div class="score" id="tfScore">Score: 0 / 5</div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · HOOK -->
+<section class="slide" id="s8" data-title="Hook: the silent whistle mystery" data-skills="critical,communication" data-coach="shahin" data-ns="UAE National Values" data-says="Salukis are loyal partners in Emirati heritage. Lead your pair well: share ideas and listen.">
+  <div class="inner">
+    <div class="head"><h2>Hook: the silent whistle mystery</h2></div>
+    <div class="cols split">
+      <img class="fig" src="img/hook-scene.webp" alt="Saif trains his saluki Barq in the desert. Saif blows the whistle; his sister hears nothing; Barq races back.">
+      <div class="card stack">
+        <h3 style="margin:0;color:var(--orange);font-family:var(--display)">A winter morning in the Al Marmoom desert…</h3>
+        <p style="margin:0">Saif is training his saluki, Barq. He blows a small silver whistle. Then… silence.</p>
+        <p style="margin:0">His sister hears nothing at all, but Barq's ears shoot up and he races straight back to Saif.</p>
+        <p style="margin:0">The whistle definitely made a sound wave. <b style="color:var(--purple)">So why could only Barq hear it?</b></p>
+        <div class="row"><button class="btn" data-show="tps">Think · Pair · Share</button><button class="btn red" data-show="clue">Reveal a clue</button></div>
+        <div id="tps" hidden class="good stack"><b>Predict:</b> how could the whistle's sound wave be different? Talk with your partner for 1 minute. <div class="timer" data-sec="60"></div></div>
+        <div id="clue" hidden class="stack"><div class="fb no"><b>Clue:</b> think about frequency, pitch and who can hear what.</div>
+          <div class="note"><b>Textbook:</b> look at the three waves. Which has the shortest wavelength and the highest frequency?</div>
+          <img class="fig" src="img/frequency-wavelength.webp" alt="As frequency increases (2 Hz, 4 Hz, 8 Hz), wavelength decreases" style="max-width:460px"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · VIDEO -->
+<section class="slide" id="s9" data-title="Watch: wavelength, frequency and pitch" data-skills="communication">
+  <div class="inner">
+    <div class="head"><h2>Watch: wavelength, frequency and pitch (2.5 min)</h2></div>
+    <div class="cols split">
+      <video controls preload="metadata" playsinline poster="img/video-poster.webp"><source src="media/wavelength-frequency-pitch.mp4" type="video/mp4"><source src="media/wavelength-frequency-pitch.webm" type="video/webm">Your browser cannot play this video.</video>
+      <div class="card stack"><div class="label" style="color:var(--blue)">While you watch</div>
+        <div><b>Q1. What is wavelength?</b><div class="fb ok vans" hidden>✓ The distance from one crest to the next.</div></div>
+        <div><b>Q2. What is frequency, and its unit?</b><div class="fb ok vans" hidden>✓ Waves per second, in hertz (Hz).</div></div>
+        <div><b>Q3. What happens to pitch as frequency increases?</b><div class="fb ok vans" hidden>✓ The pitch gets higher.</div></div>
+        <button class="btn" id="vidAns" style="justify-self:start">Show answers</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · SORT -->
+<section class="slide" id="s10" data-title="Encounter: high or low pitch?" data-skills="teamwork" data-coach="hessa" data-ns="Progression" data-says="Sorted it differently from your partner? Listen first, then compare. Remember: pitch is not loudness!">
+  <div class="inner">
+    <div class="head"><h2>Encounter: high or low pitch?</h2><div class="timer" data-sec="180"></div></div>
+    <p class="lead"><b>Tap a sound</b> to sort it by pitch (tap again to change), then check with your partner.</p>
+    <div class="cols split-r">
+      <img class="fig" src="img/hearing-ranges.webp" alt="Ranges of hearing: humans about 20 to 20,000 Hz; dogs, bats, dolphins, elephants and gerbils hear different ranges">
+      <div class="stack">
+        <div class="sorter" id="sorter" data-labels="low|HIGH">
+          <button class="sitem" data-ans="low">A big drum at an Al Ayyala show<span class="tag">?</span></button>
+          <button class="sitem" data-ans="high">A bird chirping in the morning<span class="tag">?</span></button>
+          <button class="sitem" data-ans="high">A referee's whistle<span class="tag">?</span></button>
+          <button class="sitem" data-ans="low">Thunder rumbling over Hatta<span class="tag">?</span></button>
+          <button class="sitem" data-ans="low">A ship's horn at Jebel Ali Port<span class="tag">?</span></button>
+          <button class="sitem" data-ans="high">A thin oud string being plucked<span class="tag">?</span></button>
+          <button class="sitem" data-ans="low">A thick oud string being plucked<span class="tag">?</span></button>
+          <button class="sitem" data-ans="high">A mosquito buzzing near your ear<span class="tag">?</span></button>
+        </div>
+        <div class="row"><button class="btn navy" id="sortCheck">Check my sort</button><span class="score" id="sortScore"></span></div>
+        <div class="note" id="sortWhy" hidden><b>Why?</b> High-pitched sounds come from FAST vibrations: high frequency, short wavelength. Low-pitched sounds come from slow vibrations: low frequency, long wavelength.<br><b>Pitch is not loudness:</b> a quiet mosquito is high-pitched; a loud drum is low-pitched.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · FREQUENCY UNCONVENTIONAL -->
+<section class="slide" id="s11" data-title="Frequency (the unconventional version)" data-skills="critical" data-coach="fahim" data-ns="Innovation" data-says="Predict before you flip each card. Testing ideas is how inventors think!">
+  <div class="inner">
+    <div class="head"><h2>Frequency (the unconventional version)</h2></div>
+    <div class="grid g2">
+      <div class="card" style="background:var(--orange-bg);border-color:#ffd2a6"><div class="label" style="color:var(--orange)">Think of it like this</div><p style="margin:6px 0 0">Think of passengers going through the gates at a <b>Dubai Metro</b> station. How many pass each second is the <b style="color:var(--purple)">frequency</b>. The gap between one passenger and the next is like the <b style="color:var(--purple)">wavelength</b>. Squeeze them closer together, and more pass each second!</p></div>
+      <div class="card" style="background:var(--blue-bg);border-color:#c7d7fb"><div class="label" style="color:var(--blue)">Textbook definition</div><p style="margin:6px 0 0">The <b>frequency</b> of a wave is the <b class="hl">number of waves passing a point each second</b> (Hz).</p></div>
+    </div>
+    <div class="label" style="color:var(--navy)">Predict, then tap the card to check!</div>
+    <div class="grid g3">
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--red)"><strong style="color:var(--red)">🎻 Pluck a thin oud string</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--red-bg);border-color:var(--red)"><b>Frequency:</b> HIGH (vibrates fast)<br><b>Wavelength:</b> SHORT<br><b>Pitch:</b> HIGH</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--teal)"><strong style="color:var(--teal)">🎻 Pluck a thick oud string</strong><span class="tap">tap to check</span></div><div class="face back" style="background:#e3f6f6;border-color:var(--teal)"><b>Frequency:</b> LOW (vibrates slowly)<br><b>Wavelength:</b> LONG<br><b>Pitch:</b> LOW</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front"><strong>〰️ Shake a spring faster</strong><span class="tap">tap to check</span></div><div class="face back"><b>Frequency:</b> HIGHER (more waves/s)<br><b>Wavelength:</b> SHORTER<br><b>Pitch:</b> Higher (if it were a sound)</div></div></button>
+    </div>
+  </div>
+</section>
+
+<!-- 12 · TB WAVELENGTH -->
+<section class="slide" id="s12" data-title="Textbook: what is wavelength?" data-skills="reading" data-coach="fahim" data-ns="Excellence" data-says="Point to a crest on each wave, then to the next one. That gap is one wavelength!">
+  <div class="inner">
+    <div class="head"><h2>Textbook: what is wavelength?</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-wavelength.webp" alt="Textbook: wavelength on a transverse wave and a longitudinal wave"></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 Where do you measure one wavelength on a transverse wave?</div><button class="btn small ghost" data-show="t12a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t12a" hidden>✓ From one crest to the next crest, or one trough to the next trough.</div></div>
+        <div class="q"><div class="qt">Q2 Where do you measure it on a longitudinal wave?</div><button class="btn small ghost" data-show="t12b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t12b" hidden>✓ From one compression to the next (or rarefaction to rarefaction).</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 · TB FREQUENCY -->
+<section class="slide" id="s13" data-title="Textbook: what is frequency?" data-skills="reading" data-coach="ahmed" data-ns="Progression" data-says="Read carefully and underline the unit: hertz (Hz). Responsible readers check every detail.">
+  <div class="inner">
+    <div class="head"><h2>Textbook: what is frequency?</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-frequency.webp" alt="Textbook paragraph: Frequency">
+        <div class="note"><b>Frequency = number of waves ÷ time.</b> Unit: hertz (Hz) = waves per second.</div></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 A wave has a frequency of 2 Hz. How many wavelengths pass a point each second?</div><button class="btn small ghost" data-show="t13a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13a" hidden>✓ 2 wavelengths pass every second.</div></div>
+        <div class="q"><div class="qt">Q2 If the frequency of a wave doubles, what happens to its energy?</div><button class="btn small ghost" data-show="t13b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13b" hidden>✓ The energy doubles too.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 · TB WAVELENGTH & FREQUENCY -->
+<section class="slide" id="s14" data-title="Textbook: wavelength and frequency" data-skills="reading" data-coach="shahin" data-ns="Progression" data-says="Lead your pair: one counts the waves, one times the seconds.">
+  <div class="inner">
+    <div class="head"><h2>Textbook: wavelength and frequency</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-wavelength-frequency.webp" alt="Textbook: wavelength and frequency with stopwatches" style="max-width:460px;margin:auto"></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 The left wave makes 1 wavelength in 4 s. What is its frequency?</div><button class="btn small ghost" data-show="t14a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t14a" hidden>✓ 1 ÷ 4 = 0.25 Hz.</div></div>
+        <div class="q"><div class="qt">Q2 As the frequency of a wave increases, what happens to its wavelength?</div><button class="btn small ghost" data-show="t14b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t14b" hidden>✓ The wavelength decreases (gets shorter).</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 · TB MATHS -->
+<section class="slide" id="s15" data-title="Textbook: maths connection" data-skills="reading" data-coach="fahim" data-ns="Innovation" data-says="Ratios are a scientist's tool. Simplify like a pro, then check with your partner!">
+  <div class="inner">
+    <div class="head"><h2>Textbook: maths connection</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-maths.webp" alt="Textbook: Math Connection about frequency ratios">
+        <div class="row" style="justify-content:center;gap:8px"><span class="btn small red" style="box-shadow:none">1 wave : 4 s</span>→<span class="btn small" style="background:var(--purple);color:#fff;box-shadow:none">2 waves : 12 s</span>→<span class="btn small navy" style="box-shadow:none">Simplify!</span></div></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 1 wavelength every 4 s is a 1:4 ratio. What is the ratio for 2 waves in 12 seconds?</div><button class="btn small ghost" data-show="t15a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t15a" hidden>✓ 2:12, which simplifies to 1:6.</div></div>
+        <div class="q"><div class="qt">Q2 Is that wave's frequency higher or lower than the 1:4 wave?</div><button class="btn small ghost" data-show="t15b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t15b" hidden>✓ Lower: 1 wave every 6 s (about 0.17 Hz) vs 0.25 Hz.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 16 · TB SOUND FREQUENCY -->
+<section class="slide" id="s16" data-title="Textbook: sound frequency" data-skills="reading" data-coach="maha" data-ns="UAE National Values" data-says="Respect every prediction in your group before you test it together.">
+  <div class="inner">
+    <div class="head"><h2>Textbook: sound frequency</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-sound-frequency.webp" alt="Textbook paragraph: Sound Frequency">
+        <div class="note"><b>Big idea:</b> the frequency of a sound wave decides how high or low it sounds.</div>
+        <div class="row" style="justify-content:center;gap:8px"><span class="btn small red" style="box-shadow:none">Higher frequency</span>→<span class="btn small" style="background:var(--purple);color:#fff;box-shadow:none">Shorter wavelength</span>→<span class="btn small navy" style="box-shadow:none">Higher pitch</span></div></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 In the lab Ride the Wave, a longer wavelength meant…?</div><button class="btn small ghost" data-show="t16a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t16a" hidden>✓ A lower frequency.</div></div>
+        <div class="q"><div class="qt">Q2 Predict: how does frequency change what we hear?</div><button class="btn small ghost" data-show="t16b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t16b" hidden>✓ Higher frequency = higher pitch. Lower frequency = lower pitch.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 17 · TB PITCH & HEARING -->
+<section class="slide" id="s17" data-title="Textbook: pitch and ranges of hearing" data-skills="reading" data-coach="hessa" data-ns="Sustainability" data-says="Many animals hear sounds we cannot. Protecting their habitats protects their senses too!">
+  <div class="inner">
+    <div class="head"><h2>Textbook: pitch and ranges of hearing</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-pitch-hearing.webp" alt="Textbook: Pitch, with a Ranges of Hearing chart"></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 What range of frequencies can humans hear?</div><button class="btn small ghost" data-show="t17a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t17a" hidden>✓ About 20 Hz to 20,000 Hz.</div></div>
+        <div class="q"><div class="qt">Q2 Look at the chart: which animals hear ultrasound far above 20,000 Hz?</div><button class="btn small ghost" data-show="t17b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t17b" hidden>✓ Bats and dolphins (dogs and gerbils too).</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 18 · STADIUM SLOW VS FAST -->
+<section class="slide" id="s18" data-title="The Zayed Sports City wave: slow vs fast" data-skills="teamwork" data-coach="shahin" data-ns="Progression" data-says="Lead your row: keep the rhythm together so the wave keeps going!">
+  <div class="inner">
+    <div class="head"><h2>The Zayed Sports City wave: slow vs fast</h2></div>
+    <div class="sim">
+      <div class="stadium" id="stadium" aria-label="Stadium seats"></div>
+      <div class="row" style="justify-content:space-between"><span class="legend">■ <span style="color:var(--red);font-weight:800">Saif's seat</span> (row 2, seat 10) · <b id="waveCount">Waves past Saif: 0</b></span>
+        <span class="row"><button class="btn ghost small" data-freq="slow">▶ Slow waves</button><button class="btn small" data-freq="fast">▶ Fast waves</button></span></div>
+    </div>
+    <div class="grid g3">
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--teal)"><strong style="color:var(--teal)">Slow waves</strong><span class="tap">tap to reveal</span></div><div class="face back" style="background:#e3f6f6;border-color:var(--teal)">A new wave starts every 8 s: LOW frequency, waves far apart (long wavelength).</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--red)"><strong style="color:var(--red)">Fast waves</strong><span class="tap">tap to reveal</span></div><div class="face back" style="background:var(--red-bg);border-color:var(--red)">A new wave starts every 2 s: HIGH frequency, waves close together (short wavelength).</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front"><strong>Your turn: class wave</strong><span class="tap">tap to reveal</span></div><div class="face back">Do slow class waves, then fast ones. Count how many pass Saif in 10 s.</div></div></button>
+    </div>
+  </div>
+</section>
+
+<!-- 19 · RIPPLES -->
+<section class="slide" id="s19" data-title="Frequency in ripples" data-skills="critical" data-coach="maha" data-ns="Sustainability" data-says="Wadi pools are precious. Respect nature: count the ripples carefully.">
+  <div class="inner">
+    <div class="head"><h2>Frequency in ripples</h2></div>
+    <div class="cols split-r">
+      <div class="stack">
+        <div class="card" style="background:#fff8db;border-color:#f3e2a0"><p style="margin:0">The <b>frequency</b> of a wave equals the number of vibrations the source makes each second. <b style="color:var(--purple)">More vibrations per second = a shorter wavelength and a higher pitch.</b></p><p style="margin:8px 0 0">A small, tight drum skin vibrates fast (high pitch); a big, loose one vibrates slowly (low pitch). Think of the drums at an <b>Al Ayyala</b> performance on National Day.</p></div>
+        <div class="card"><div class="label" style="color:var(--red)">Wavelength and frequency</div>
+          <svg viewBox="0 0 320 130" width="100%" role="img" aria-label="Few drops per second give long wavelength; many drops give short wavelength">
+            <path d="M0 35 Q20 15 40 35 T80 35 T120 35 T160 35" fill="none" stroke="#2b8fd6" stroke-width="4"/>
+            <text x="170" y="30" font-size="11" fill="#2b8fd6" font-family="Nunito, sans-serif">few drops per second →</text><text x="170" y="44" font-size="11" fill="#2b8fd6" font-family="Nunito, sans-serif">long wavelength, low freq.</text>
+            <path d="M0 95 Q5 75 10 95 T20 95 T30 95 T40 95 T50 95 T60 95 T70 95 T80 95 T90 95 T100 95 T110 95 T120 95 T130 95 T140 95 T150 95 T160 95" fill="none" stroke="#e5484d" stroke-width="4"/>
+            <text x="170" y="90" font-size="11" fill="#e5484d" font-family="Nunito, sans-serif">many drops per second →</text><text x="170" y="104" font-size="11" fill="#e5484d" font-family="Nunito, sans-serif">short wavelength, high freq.</text>
+          </svg></div>
+      </div>
+      <div class="sim">
+        <b>Rain on a wadi pool: choose how many drops fall each second and watch the leaf.</b>
+        <canvas id="pool" height="260"></canvas>
+        <div class="row" style="justify-content:space-between"><span class="row"><button class="btn ghost small" data-rate="1">💧 1 drop per second</button><button class="btn small" data-rate="4">💧 4 drops per second</button><button class="btn ghost small" data-rate="0">■ Stop</button></span><span class="legend" id="poolRead">The leaf sits on the dashed rest line.</span></div>
+        <button class="btn navy small" data-show="leafQ" style="justify-self:start">▶ Question: how could you make the ripples closer together?</button>
+        <div class="good" id="leafQ" hidden><b>Drop faster!</b> More drops each second = a higher frequency, so the ripples are closer together: a shorter wavelength. The leaf bobs up and down more often.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 20 · PITCH IN ANY MEDIUM -->
+<section class="slide" id="s20" data-title="Pitch in any medium" data-skills="critical" data-coach="fahim" data-ns="Innovation" data-says="Emirati astronauts talk by radio because sound cannot travel in a vacuum. Science powers the UAE space mission!">
+  <div class="inner">
+    <div class="head"><h2>Pitch in any medium</h2></div>
+    <p class="lead">A sound wave keeps the <b>same frequency</b>, and so the same pitch, in every medium. Tap <b>Send</b>: a whistle sounds just as high in water or air, but in a vacuum there is no sound at all.</p>
+    <div class="grid g4">
+      <div class="medium" data-m="solid"><h4 style="color:var(--orange)">Solid</h4><canvas></canvas><div class="row" style="justify-content:space-between"><span class="legend">packed tight</span><button class="btn small">Send</button></div><div class="res"></div></div>
+      <div class="medium" data-m="liquid"><h4 style="color:var(--sea)">Liquid</h4><canvas></canvas><div class="row" style="justify-content:space-between"><span class="legend">close, sliding</span><button class="btn small">Send</button></div><div class="res"></div></div>
+      <div class="medium" data-m="gas"><h4 style="color:var(--purple)">Gas (air)</h4><canvas></canvas><div class="row" style="justify-content:space-between"><span class="legend">far apart</span><button class="btn small">Send</button></div><div class="res"></div></div>
+      <div class="medium" data-m="vacuum"><h4>Vacuum</h4><canvas style="background:#0e1230"></canvas><div class="row" style="justify-content:space-between"><span class="legend">no particles</span><button class="btn small">Send</button></div><div class="res"></div></div>
+    </div>
+    <div class="row"><button class="btn navy" data-show="space">🚀 UAE space link</button></div>
+    <div class="card" id="space" hidden><b style="color:var(--red)">UAE space link:</b> Emirati astronauts work outside the space station, in a vacuum. They talk by radio, because a sound wave has no medium to travel through.</div>
+  </div>
+</section>
+
+<!-- 21 · SPRING LAB -->
+<section class="slide" id="s21" data-title="Spring lab: wavelength vs frequency" data-skills="teamwork,discipline" data-coach="ahmed" data-ns="Progression" data-says="Shaker, timer, recorder: everyone has a job. Never let go of a stretched spring!">
+  <div class="inner">
+    <div class="head"><h2>Spring lab: wavelength vs frequency</h2><div class="timer" data-sec="240"></div></div>
+    <div class="cols split">
+      <div class="stack">
+        <div class="good"><b>You need:</b> a coil spring toy or a skipping rope · a stopwatch · floor tape every 50 cm</div>
+        <ol style="margin:0;padding-left:20px;display:grid;gap:4px">
+          <li>Lay the spring on the floor next to the tape marks.</li>
+          <li><b>Holder:</b> keep one end still. <b>Shaker:</b> move the other end side to side steadily for 10 s.</li>
+          <li><b>Observer:</b> count the waves made in 10 s and measure one wavelength.</li>
+          <li>Repeat with a <b>slow</b> then a <b>fast</b> shake. Record below.</li>
+        </ol>
+        <div class="tablewrap"><table>
+          <thead><tr><th>Shake</th><th>Wavelength</th><th>Frequency (waves ÷ time)</th></tr></thead>
+          <tbody>
+            <tr><td><b>Slow shake</b></td><td><input type="text" id="lab1" placeholder="your measurement"><div class="exp" hidden>Long (crests far apart)</div></td><td><input type="text" id="lab2" placeholder="__ waves ÷ 10 s ="><div class="exp" hidden>Low: e.g. 5 waves ÷ 10 s = 0.5 Hz</div></td></tr>
+            <tr><td><b>Fast shake</b></td><td><input type="text" id="lab3" placeholder="your measurement"><div class="exp" hidden>Short (crests close together)</div></td><td><input type="text" id="lab4" placeholder="__ waves ÷ 10 s ="><div class="exp" hidden>High: e.g. 20 waves ÷ 10 s = 2 Hz</div></td></tr>
+          </tbody></table></div>
+        <div class="row"><button class="btn" id="labExp">Expected results</button></div>
+        <div class="fb no"><b>Safety:</b> never let go of a stretched spring. Keep it low on the floor.</div>
+      </div>
+      <div class="sim">
+        <b>Preview it first: virtual rope</b>
+        <canvas id="rope" height="220"></canvas>
+        <div class="row" style="justify-content:space-between"><span class="row"><button class="btn ghost small" data-hz="0.5">Slow shake</button><button class="btn small" data-hz="2">Fast shake</button></span><span class="legend" id="ropeRead">The ribbon only moves side to side.</span></div>
+        <button class="btn navy small" data-show="ropeQ" style="justify-self:start">▶ What should you notice?</button>
+        <div class="good" id="ropeQ" hidden>A faster shake makes more waves each second and squeezes them closer together. <b style="color:var(--purple)">Frequency up = wavelength down.</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 22 · PAUSE & CHECK -->
+<section class="slide" id="s22" data-title="Pause and check" data-skills="initiative" data-coach="hessa" data-ns="Excellence" data-says="Wrong answer? Read the hint and try again. Excellence means never giving up.">
+  <div class="inner">
+    <div class="head"><h2>Pause and check</h2><div class="timer" data-sec="240"></div></div>
+    <p class="lead">Formative check: tap an answer. <b>Wrong? Read the hint and try again!</b></p>
+    <div class="grid g2 mcqset" data-mode="retry">
+      <div class="q"><div class="qt">Q1 Wavelength is the distance from…</div><div class="opts"><button class="opt">A. rest position to crest</button><button class="opt">B. crest to trough</button><button class="opt" data-ok>C. crest to the next crest</button></div><div class="fb no" hidden>Hint: same point to same point.</div></div>
+      <div class="q"><div class="qt">Q2 10 waves pass a point in 5 s. The frequency is…</div><div class="opts"><button class="opt">A. 50 Hz</button><button class="opt" data-ok>B. 2 Hz</button><button class="opt">C. 0.5 Hz</button></div><div class="fb no" hidden>Hint: waves ÷ time.</div></div>
+      <div class="q"><div class="qt">Q3 Which sound has the highest pitch?</div><div class="opts"><button class="opt">A. a ship's horn</button><button class="opt">B. thunder</button><button class="opt" data-ok>C. a mosquito buzzing</button><button class="opt">D. a big drum</button></div><div class="fb no" hidden>Hint: the fastest vibration.</div></div>
+      <div class="q"><div class="qt">Q4 As frequency increases, wavelength…</div><div class="opts"><button class="opt" data-ok>A. decreases</button><button class="opt">B. increases</button><button class="opt">C. stays the same</button></div><div class="fb no" hidden>Hint: squeezed closer!</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 23 · ORDER -->
+<section class="slide" id="s23" data-title="Put the whistle events in order" data-skills="critical,initiative" data-coach="shahin" data-ns="Progression" data-says="Agree on the order as a team before you reveal it. Good leaders make sure everyone speaks.">
+  <div class="inner">
+    <div class="head"><h2>Put the whistle events in order</h2></div>
+    <p class="lead">Say the order with your partner, then <b>tap the events from first to last</b>. Tap a numbered event to undo.</p>
+    <div class="order" id="order">
+      <button class="oitem" data-p="3"><span class="n">?</span>A high-frequency, short-wavelength wave travels out</button>
+      <button class="oitem" data-p="5"><span class="n">?</span>Barq hears it, but people cannot</button>
+      <button class="oitem" data-p="1"><span class="n">?</span>Saif blows the silver whistle</button>
+      <button class="oitem" data-p="4"><span class="n">?</span>Its frequency is above 20,000 Hz: ultrasound</button>
+      <button class="oitem" data-p="2"><span class="n">?</span>Air in the whistle vibrates very fast</button>
+    </div>
+    <div class="row"><button class="btn navy" id="orderCheck">Check my order</button><button class="btn" id="orderReveal">Reveal the order</button><span class="score" id="orderScore"></span></div>
+    <div class="chain" id="chain" hidden>
+      <div style="background:#e5484d">1 · Saif blows the silver whistle</div>
+      <div style="background:#f07f19">2 · Air in the whistle vibrates very fast</div>
+      <div style="background:#d9a400">3 · A high-frequency, short-wavelength wave travels out</div>
+      <div style="background:#1593c9">4 · Its frequency is above 20,000 Hz: ultrasound</div>
+      <div style="background:#7a3ff0">5 · Barq hears it, but people cannot</div>
+    </div>
+    <div class="card stack"><b>Traffic light: how sure are you?</b>
+      <div class="traffic"><button style="background:var(--green)" data-tl="Brilliant! Help a partner explain it using “frequency, wavelength, pitch”.">I can teach it</button><button style="background:var(--orange)" data-tl="Good! Re-read the frequency and pitch slides, then try again.">Mostly</button><button style="background:var(--red)" data-tl="That is OK! Your teacher will go through it with you now.">I need help</button></div>
+      <div id="tlMsg" class="note" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- 24 · WORKSHEET 1 -->
+<section class="slide" id="s24" data-title="Frequency worksheet (1/2)" data-skills="reading" data-coach="ahmed" data-ns="Excellence" data-says="Work on your own first, then check your answers. Own your learning!">
+  <div class="inner">
+    <div class="head"><h2>Frequency worksheet (1/2)</h2><div class="timer" data-sec="240"></div></div>
+    <div class="grid g2">
+      <div class="card stack"><div class="label" style="color:var(--navy)">A · Match each word · 5 marks</div>
+        <div style="font-size:.92rem;color:var(--muted)">A. Number of waves passing a point each second<br>B. Sound above about 20,000 Hz<br>C. Distance from one crest to the next<br>D. The unit of frequency<br>E. How high or low a sound seems</div>
+        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:8px" id="wsA">
+          <label class="fillrow">1. wavelength <select data-ans="C" id="wa1"></select></label>
+          <label class="fillrow">2. frequency <select data-ans="A" id="wa2"></select></label>
+          <label class="fillrow">3. pitch <select data-ans="E" id="wa3"></select></label>
+          <label class="fillrow">4. hertz <select data-ans="D" id="wa4"></select></label>
+          <label class="fillrow">5. ultrasound <select data-ans="B" id="wa5"></select></label>
+        </div>
+        <div class="row"><button class="btn small navy" data-check="wsA">Check A</button><button class="btn small ghost" data-answers="wsA">Show answers (A)</button><span class="score" data-out="wsA"></span></div>
+      </div>
+      <div class="card stack"><div class="label" style="color:var(--navy)">B · Fill the gaps · 5 marks</div>
+        <div class="wordbank">Word bank: decreases · hertz · higher · 2 · 20</div>
+        <div class="stack" id="wsB" style="gap:8px">
+          <div class="fillrow">1. As frequency increases, wavelength <input type="text" size="12" data-ans="decreases" id="wb1" aria-label="gap 1"> .</div>
+          <div class="fillrow">2. Frequency is measured in <input type="text" size="12" data-ans="hertz|hz|hertz (hz)" id="wb2" aria-label="gap 2"> .</div>
+          <div class="fillrow">3. A higher frequency makes the pitch <input type="text" size="12" data-ans="higher" id="wb3" aria-label="gap 3"> .</div>
+          <div class="fillrow">4. 8 waves in 4 seconds is a frequency (Hz) of <input type="text" size="12" data-ans="2|2 hz" id="wb4" aria-label="gap 4"> .</div>
+          <div class="fillrow">5. The lowest frequency humans hear is about (Hz) <input type="text" size="12" data-ans="20|20 hz" id="wb5" aria-label="gap 5"> .</div>
+        </div>
+        <div class="row"><button class="btn small navy" data-check="wsB">Check B</button><button class="btn small ghost" data-answers="wsB">Show answers (B)</button><span class="score" data-out="wsB"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 25 · WORKSHEET 2 -->
+<section class="slide" id="s25" data-title="Frequency worksheet (2/2)" data-skills="reading,critical" data-coach="maha" data-ns="Excellence" data-says="Respect your reader: write full sentences using frequency, pitch and hearing range.">
+  <div class="inner">
+    <div class="head"><h2>Frequency worksheet (2/2)</h2></div>
+    <div class="card stack"><div class="label" style="color:var(--navy)">C · Frequency and pitch · 6 marks</div>
+      <div class="legend">Choose from: high · low | high · low</div>
+      <div class="tablewrap" id="wsC"><table>
+        <thead><tr><th>Example</th><th>Frequency</th><th>Pitch</th></tr></thead>
+        <tbody>
+          <tr><td>A mosquito buzzing near your ear</td><td><select data-ans="High" data-opts="High|Low" id="wc1"></select></td><td><select data-ans="High" data-opts="High|Low" id="wc2"></select></td></tr>
+          <tr><td>A ship's horn at Jebel Ali Port</td><td><select data-ans="Low" data-opts="High|Low" id="wc3"></select></td><td><select data-ans="Low" data-opts="High|Low" id="wc4"></select></td></tr>
+          <tr><td>A thin oud string being plucked</td><td><select data-ans="High" data-opts="High|Low" id="wc5"></select></td><td><select data-ans="High" data-opts="High|Low" id="wc6"></select></td></tr>
+        </tbody></table></div>
+      <div class="row"><button class="btn small navy" data-check="wsC">Check C</button><button class="btn small ghost" data-answers="wsC">Show answers (C)</button><span class="score" data-out="wsC"></span></div>
+    </div>
+    <div class="cols split">
+      <div class="card stack"><div class="label" style="color:var(--navy)">D · Explain · 3 marks</div>
+        <p style="margin:0">Why could Barq hear the whistle when people could not? Use <b>frequency</b>, <b>pitch</b> and <b>hearing range</b>.</p>
+        <textarea id="wd" placeholder="Write your explanation in full sentences…"></textarea>
+        <button class="btn small" data-show="model" style="justify-self:start">Show model answer (D)</button>
+      </div>
+      <div class="stack">
+        <div class="good" id="model" hidden><b>Model answer (1 mark each):</b><br>✓ The whistle made a sound with a very high <b>frequency</b> (above 20,000 Hz).<br>✓ A very high frequency means a very high <b>pitch</b> (ultrasound).<br>✓ It is outside the human <b>hearing range</b> (20–20,000 Hz) but inside a dog's range, so only Barq heard it.</div>
+        <div class="card"><span class="score" id="wsTotal">Total: A + B + C = 0 / 16 marks</span><div class="legend">Your teacher marks part D (3 marks) for a total out of 19.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 26 · LEVELS -->
+<section class="slide" id="s26" data-title="Green, orange or purple? Choose your level" data-skills="respect" data-coach="maha" data-ns="Progression" data-says="Every level is respected here. Choose the one that stretches you, then help a friend.">
+  <div class="inner">
+    <div class="head"><h2>Green, orange or purple? Choose your level</h2></div>
+    <div class="grid g3">
+      <div class="level" style="--lc:var(--green);--lbg:var(--green-bg)"><h3>Green · Support</h3>
+        <ol><li>Complete: “Frequency is measured in ____.”</li><li>Circle: a thin oud string has a higher / lower pitch.</li><li>True or false: wavelength can be measured from crest to crest.</li><li>Higher pitch: a mosquito or a ship's horn?</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. hertz (Hz)<br>2. higher<br>3. True<br>4. a mosquito</div><button class="btn small ghost lvl">Show answers</button></div>
+      <div class="level" style="--lc:var(--orange);--lbg:var(--orange-bg)"><h3>Orange · At level</h3>
+        <ol><li>Draw a low- and a high-frequency wave over the same time. Label one wavelength on each.</li><li>A spring makes 30 waves in 10 s. What is its frequency?</li><li>Why does a thick oud string sound lower than a thin one?</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. The high-frequency wave has more crests in the same width, so each wavelength is shorter.<br>2. 30 ÷ 10 = 3 Hz.<br>3. It vibrates more slowly: lower frequency, longer wavelength, so a lower pitch.</div><button class="btn small ghost lvl">Show answers</button></div>
+      <div class="level" style="--lc:var(--purple);--lbg:var(--purple-bg)"><h3>Purple · Challenge</h3>
+        <ol><li>Textbook ratio: 1 wave every 4 s is 1:4. What is the ratio for 2 waves in 12 s? What is the frequency?</li><li>Dolphins in UAE waters use ultrasound up to about 150,000 Hz. Why can't divers hear it?</li><li>Design a test: does a shorter string give a higher pitch? What do you change, keep the same and measure?</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. 2:12 = 1:6, so 1 wave every 6 s. Frequency = 1 ÷ 6 ≈ 0.17 Hz.<br>2. It is far above 20,000 Hz, the top of the human hearing range, so our ears cannot detect it.<br>3. Change: string length. Keep: string type, tightness, how you pluck. Measure: frequency with a tuner app, 3 times each.</div><button class="btn small ghost lvl">Show answers</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- 27 · SUMMATIVE -->
+<section class="slide" id="s27" data-title="Summative: Wave Master quiz" data-skills="integrity" data-coach="ahmed" data-ns="Excellence" data-says="Count only your honest first try. Integrity is part of excellence!">
+  <div class="inner">
+    <div class="head"><h2>Summative: Wave Master quiz</h2><div class="timer" data-sec="120"></div></div>
+    <div class="stack mcqset" data-mode="first" id="wm">
+      <div class="q"><div class="qt">1. Frequency is…</div><div class="opts"><button class="opt">A. the height of a wave</button><button class="opt" data-ok>B. the number of waves per second</button><button class="opt">C. the speed of a wave</button></div></div>
+      <div class="q"><div class="qt">2. Wavelength is measured in…</div><div class="opts"><button class="opt">A. hertz</button><button class="opt">B. seconds</button><button class="opt" data-ok>C. metres</button></div></div>
+      <div class="q"><div class="qt">3. A higher-frequency sound has a…</div><div class="opts"><button class="opt" data-ok>A. higher pitch</button><button class="opt">B. lower pitch</button><button class="opt">C. longer wavelength</button></div></div>
+      <div class="q"><div class="qt">4. Humans can hear about…</div><div class="opts"><button class="opt">A. 0–100 Hz</button><button class="opt" data-ok>B. 20–20,000 Hz</button><button class="opt">C. 1–1,000,000 Hz</button></div></div>
+      <div class="q"><div class="qt">5. Barq heard the whistle because…</div><div class="opts"><button class="opt" data-ok>A. its frequency was in a dog's range</button><button class="opt">B. it was very loud</button><button class="opt">C. it had a long wavelength</button></div></div>
+    </div>
+    <div class="card row" style="justify-content:space-between"><span class="score" id="wmScore">First-try score: 0 / 5</span><span class="legend">5 = Wave Master! · 4 = Wave Expert · 3 = Wave Explorer · 0–2 = let's review together</span></div>
+  </div>
+</section>
+
+<!-- 28 · MYSTERY SOLVED -->
+<section class="slide" id="s28" data-title="Mystery solved!" data-skills="critical,reading" data-coach="hessa" data-ns="UAE National Values" data-says="Be kind to yourself when you rate your stars. Every step forward counts!">
+  <div class="inner">
+    <div class="head"><h2>Mystery solved!</h2></div>
+    <div class="cols split">
+      <div class="stack">
+        <button class="btn" data-show="solved" data-confetti style="justify-self:start">Reveal the answer</button>
+        <div class="card" id="solved" hidden style="background:#fff8db;border-color:#f3e2a0"><b style="color:var(--orange)">Why only Barq heard the whistle</b><p style="margin:6px 0 0">The tiny whistle made the air vibrate extremely fast: a very high <b class="hl">FREQUENCY</b> with a very short wavelength. That gave a very high <b class="hl">PITCH</b>: above 20,000 Hz, outside the human <b style="color:var(--purple)">HEARING RANGE</b>, but inside a dog's range, which reaches about 45,000 Hz. So Barq heard it, and his family did not!</p></div>
+        <div class="card stack"><b>Exit ticket · 3 · 2 · 1</b>
+          <label>3 things I learned<textarea id="ex3" style="min-height:64px"></textarea></label>
+          <label>2 key words I can now explain<textarea id="ex2" style="min-height:48px"></textarea></label>
+          <label>1 question I still have<textarea id="ex1" style="min-height:48px"></textarea></label></div>
+      </div>
+      <div class="card stack"><b>Re-rate your success criteria (tap a star)</b>
+        <div><p style="margin:0 0 4px">I can measure wavelength from crest to crest, trough to trough, or compression to compression.</p><div class="stars" id="st1"></div></div>
+        <div><p style="margin:0 0 4px">I can calculate frequency in hertz (Hz) as the number of waves ÷ time.</p><div class="stars" id="st2"></div></div>
+        <div><p style="margin:0 0 4px">I can explain that as the frequency of a wave increases, its wavelength decreases.</p><div class="stars" id="st3"></div></div>
+        <div><p style="margin:0 0 4px">I can explain that a higher frequency gives a higher pitch, and compare ranges of hearing.</p><div class="stars" id="st4"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 29 · VALUES -->
+<section class="slide" id="s29" data-title="Which value did you show today?" data-skills="integrity">
+  <div class="inner">
+    <div class="head"><h2>Which value did you show today?</h2></div>
+    <p class="lead">Tap the character whose value you showed in this lesson. <b>Then tell your partner one real example!</b></p>
+    <div class="grid g5" id="values">
+      <button class="vcard" style="--cc:var(--c-shahin)"><span class="star">★</span><img src="img/av-shahin.webp" alt=""><b>Shahin</b><small>Leadership · <span class="ar">القيادة</span></small><span class="prompt">I led my team when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-fahim)"><span class="star">★</span><img src="img/av-fahim.webp" alt=""><b>Fahim</b><small>Knowledge · <span class="ar">المعرفة</span></small><span class="prompt">A new fact I learned is…</span></button>
+      <button class="vcard" style="--cc:var(--c-maha)"><span class="star">★</span><img src="img/av-maha.webp" alt=""><b>Maha</b><small>Respect · <span class="ar">الاحترام</span></small><span class="prompt">I showed respect when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-ahmed)"><span class="star">★</span><img src="img/av-ahmed.webp" alt=""><b>Ahmed</b><small>Responsibility · <span class="ar">المسؤولية</span></small><span class="prompt">I was responsible when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-hessa)"><span class="star">★</span><img src="img/av-hessa.webp" alt=""><b>Hessa</b><small>Tolerance · <span class="ar">التسامح</span></small><span class="prompt">I was patient and kind when…</span></button>
+    </div>
+    <div class="card row" style="justify-content:space-between"><b>Class goal: light up all five stars together!</b><span class="goal" id="goal"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span></div>
+  </div>
+</section>
+
+<!-- 30 · CELEBRATE -->
+<section class="slide end" id="s30" data-title="Tune in to your future" data-bare>
+  <div class="inner">
+    <div class="eyebrow">YOU DID IT, GRADE 8! · <span class="ar">أحسنتم</span></div>
+    <h1>Tune in to your future</h1>
+    <p style="font-style:italic;font-size:1.15rem;margin:0;opacity:.95">Every voice has its own frequency. Find yours, raise it high and make the UAE proud!</p>
+    <img class="fig" src="img/banner.webp" alt="Shahin, Fahim, Maha, Ahmed and Hessa with the UAE national skills" style="border:0">
+    <div class="row"><span class="nsk">🇦🇪 UAE National Values</span><span class="nsk">🌿 Sustainability</span><span class="nsk">📈 Progression</span><span class="nsk">💡 Innovation</span><span class="nsk">⭐ Excellence</span></div>
+    <div class="promise"><b>My promise:</b> A leader, curious, respectful, responsible and tolerant: that's me, for my UAE!</div>
+    <div><button class="btn" id="celebrate">★ Celebrate together!</button></div>
+  </div>
+</section>
+
+  </main>
+  <div>
+    <div class="progress"><div id="prog"></div></div>
+    <nav class="nav">
+      <button class="btn ghost small" id="prev" aria-label="Previous slide">◀ Back</button>
+      <span class="count" id="count">1 / 30</span>
+      <span class="title" id="navTitle"></span>
+      <button class="btn ghost small" id="menuBtn">☰ Slides</button>
+      <button class="btn ghost small" id="linkBtn" title="Copy a link that opens this slide">🔗 Link</button>
+      <button class="btn ghost small" id="soundBtn" title="Clapping sound on">🔊</button>
+      <button class="btn ghost small" id="fsBtn" title="Full screen">⛶</button>
+      <button class="btn small" id="next" aria-label="Next slide">Next ▶</button>
+    </nav>
+  </div>
+</div>
+
+<div class="menu" id="menu" hidden><div class="panel"><div class="row" style="justify-content:space-between"><b style="font-family:var(--display);font-size:1.3rem">All slides</b><button class="btn ghost small" id="menuClose">Close</button></div><ol id="menuList"></ol></div></div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+// Paste the published lesson link here so "Link" copies a shareable address for each slide.
+const LESSON_URL = "";
+
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const slides=$$('.slide'), N=slides.length;
+const COACH={shahin:['Shahin','Leadership','القيادة','--c-shahin'],fahim:['Fahim','Knowledge','المعرفة','--c-fahim'],maha:['Maha','Respect','الاحترام','--c-maha'],ahmed:['Ahmed','Responsibility','المسؤولية','--c-ahmed'],hessa:['Hessa','Tolerance','التسامح','--c-hessa']};
+const SKILL={teamwork:['Teamwork','العمل الجماعي','👥'],critical:['Critical Thinking','التفكير الناقد','🧠'],communication:['Effective Communication','التواصل الفعّال','💬'],reading:['Reading & Writing','القراءة والكتابة','📖'],integrity:['Integrity','النزاهة','🛡'],discipline:['Self-regulation & Discipline','الانضباط وتنظيم الذات','⏱'],initiative:['Initiative & Perseverance','المبادرة والمثابرة','⛰'],respect:['Respect & Kindness','الاحترام واللطف','💗']};
+const LO='Describe wavelength and frequency, explain that as frequency increases wavelength decreases, and relate the frequency of a sound wave to its pitch and to the ranges of hearing.';
+const store={get(k){try{return localStorage.getItem('pitch8:'+k)}catch(e){return null}},set(k,v){try{localStorage.setItem('pitch8:'+k,v)}catch(e){}}};
+
+// date
+$('#today').textContent=new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+
+// shared chrome: skill chips, coach strip, objective footer
+slides.forEach(s=>{
+  const inner=$('.inner',s), head=$('.head',s);
+  if(s.dataset.skills&&head){const c=document.createElement('div');c.className='chips';
+    s.dataset.skills.split(',').forEach(k=>{const[en,ar,ic]=SKILL[k];c.insertAdjacentHTML('beforeend',`<span class="chip"><i>${ic}</i>${en} <span class="ar">${ar}</span></span>`)});head.appendChild(c)}
+  if(s.dataset.coach){const[n,v,ar,col]=COACH[s.dataset.coach];
+    inner.insertAdjacentHTML('beforeend',`<div class="coach" style="--cc:var(${col})"><img src="img/av-${s.dataset.coach}.webp" alt="${n}, ${v} coach"><div><div class="who">${n} says · ${v} <span class="ar">${ar}</span></div><p>${s.dataset.says}</p><div class="ns">UAE national skill: <b>${s.dataset.ns}</b></div></div></div>`)}
+  if(!('nolo' in s.dataset)) inner.insertAdjacentHTML('afterbegin',`<div class="lo lotop"><span class="tgt"></span><div><b>Learning objective:</b> ${LO}</div></div>`);
+});
+
+// navigation + deep links (#s1 … #s26)
+let cur=1; const enterHooks={};
+function go(n,push=true){
+  n=Math.max(1,Math.min(N,n|0)); cur=n;
+  slides.forEach((s,i)=>s.hidden=i!==n-1);document.querySelectorAll('.slide[hidden] video').forEach(v=>{try{v.pause()}catch(e){}});
+  $('#count').textContent=n+' / '+N; $('#navTitle').textContent=slides[n-1].dataset.title||'';
+  $('#prog').style.width=(n/N*100)+'%'; $('#main').scrollTop=0;
+  $('#prev').disabled=n===1; $('#next').disabled=n===N;
+  if(push){try{history.replaceState(null,'','#s'+n)}catch(e){}}
+  document.title='Wavelength, Frequency and Pitch · '+n+' · Nilasha Sempon';
+  requestAnimationFrame(()=>enterHooks[n]&&enterHooks[n]());
+}
+function fromHash(){const m=(location.hash||'').match(/s(\d+)$/);return m?+m[1]:1}
+window.addEventListener('hashchange',()=>go(fromHash(),false));
+$('#prev').onclick=()=>go(cur-1); $('#next').onclick=()=>go(cur+1);
+document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g){go(+g.dataset.go);$('#menu').hidden=true}});
+document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea,select'))return;
+  if(['ArrowRight','PageDown'].includes(e.key))go(cur+1);if(['ArrowLeft','PageUp'].includes(e.key))go(cur-1);if(e.key==='Escape')$('#menu').hidden=true});
+let tx=0,ty=0;$('#main').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+$('#main').addEventListener('touchend',e=>{if(e.target.closest('canvas,input,textarea,select,.stadium'))return;const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;if(Math.abs(dx)>70&&Math.abs(dy)<40)go(cur+(dx<0?1:-1))});
+// menu
+$('#menuList').innerHTML=slides.map((s,i)=>`<li><button data-go="${i+1}"><b>${i+1}</b>${s.dataset.title}</button></li>`).join('');
+$('#menuBtn').onclick=()=>{$$('#menuList button').forEach((b,i)=>b.classList.toggle('cur',i+1===cur));$('#menu').hidden=false};
+$('#menuClose').onclick=()=>$('#menu').hidden=true;
+$('#menu').onclick=e=>{if(e.target.id==='menu')$('#menu').hidden=true};
+// toast + link
+let tt;function toast(html,ms=2600){const t=$('#toast');t.innerHTML=html;t.hidden=false;clearTimeout(tt);tt=setTimeout(()=>t.hidden=true,ms)}
+$('#linkBtn').onclick=()=>{const base=LESSON_URL||location.href.split('#')[0];const url=base+'#s'+cur;
+  const ok=()=>toast('Link to slide '+cur+' copied');
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(ok,()=>toast('<div>Copy this link:</div><div class="linkbox">'+url+'</div>',7000))}else toast('<div>Copy this link:</div><div class="linkbox">'+url+'</div>',7000)};
+$('#fsBtn').onclick=()=>{try{if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen().catch(()=>toast('Full screen is not available here'))}catch(e){toast('Full screen is not available here')}};
+
+// built-in party confetti (works without any outside library)
+window.confetti=(function(){let cv,cx,parts=[],raf=null;
+  function setup(){if(cv)return;cv=document.createElement('canvas');cv.id='fxCanvas';document.body.appendChild(cv);cx=cv.getContext('2d');size();addEventListener('resize',size)}
+  function size(){const d=devicePixelRatio||1;cv.width=innerWidth*d;cv.height=innerHeight*d;cx.setTransform(d,0,0,d,0,0)}
+  function frame(){cx.clearRect(0,0,innerWidth,innerHeight);parts=parts.filter(p=>p.t<p.T);
+    parts.forEach(p=>{p.t++;p.x+=Math.cos(p.a)*p.v+p.drift;p.y+=Math.sin(p.a)*p.v+p.g;p.v*=p.decay;p.w+=p.ws;p.tilt+=0.1;
+      const o=1-p.t/p.T;cx.globalAlpha=Math.max(0,o);cx.fillStyle=p.c;const s=p.s;
+      if(p.round){cx.beginPath();cx.ellipse(p.x,p.y,s*.6,s*.6*Math.abs(Math.cos(p.tilt)),0,0,7);cx.fill()}
+      else{cx.save();cx.translate(p.x,p.y);cx.rotate(p.w);cx.fillRect(-s/2,-s*.3*Math.abs(Math.cos(p.tilt))-1,s,s*.6*Math.abs(Math.cos(p.tilt))+2);cx.restore()}});
+    cx.globalAlpha=1;raf=parts.length?requestAnimationFrame(frame):(cx.clearRect(0,0,innerWidth,innerHeight),null)}
+  return function(o){o=o||{};setup();const n=o.particleCount||50,ang=(o.angle==null?90:o.angle)*Math.PI/180,spr=(o.spread==null?45:o.spread)*Math.PI/180,sv=o.startVelocity||45,
+      X=(o.origin&&o.origin.x!=null?o.origin.x:.5)*innerWidth,Y=(o.origin&&o.origin.y!=null?o.origin.y:.6)*innerHeight,cols=o.colors||['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0','#ff7ab6'],sc=o.scalar||1;
+    for(let i=0;i<Math.min(n,400);i++)parts.push({x:X,y:Y,a:-ang+(.5*spr-Math.random()*spr),v:sv*.5+Math.random()*sv,decay:.9,g:3*(o.gravity==null?1:o.gravity),drift:(Math.random()-.5)*.6,
+      c:cols[i%cols.length],s:(7+Math.random()*6)*sc,round:Math.random()<.3,w:Math.random()*6,ws:(Math.random()-.5)*.3,tilt:Math.random()*6,t:0,T:o.ticks||200});
+    if(!raf)raf=requestAnimationFrame(frame);return Promise.resolve()}})();
+// confetti
+function boom(big){if(typeof confetti!=='function')return;const c=['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0'];
+  confetti({particleCount:big?220:90,spread:big?120:70,origin:{y:.65},colors:c});
+  if(big){setTimeout(()=>confetti({particleCount:120,angle:60,spread:70,origin:{x:0,y:.7},colors:c}),250);setTimeout(()=>confetti({particleCount:120,angle:120,spread:70,origin:{x:1,y:.7},colors:c}),400)}}
+// cheer: confetti burst where the student tapped + a clapping sound for each correct answer
+let lastX=.5,lastY=.6,soundOn=true;try{soundOn=localStorage.getItem('cheerSound')!=='off'}catch(e){}
+document.addEventListener('pointerdown',e=>{lastX=e.clientX/innerWidth;lastY=e.clientY/innerHeight},true);
+let cheerCtx;function clap(n){if(!soundOn)return;try{cheerCtx=cheerCtx||new (window.AudioContext||window.webkitAudioContext)();const a=cheerCtx,now=a.currentTime;
+  const len=a.sampleRate*.05,buf=a.createBuffer(1,len,a.sampleRate),d=buf.getChannelData(0);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,3);
+  for(let k=0;k<n;k++){const t=now+k*0.11+Math.random()*0.05;for(let j=0;j<3;j++){const src=a.createBufferSource();src.buffer=buf;const f=a.createBiquadFilter();f.type='bandpass';f.frequency.value=1000+Math.random()*1500;f.Q.value=0.8;const g=a.createGain();g.gain.value=0.5;src.connect(f);f.connect(g);g.connect(a.destination);src.start(t+j*0.012+Math.random()*0.02)}}
+  [523.25,659.25,783.99].forEach((fr,i)=>{const o=a.createOscillator(),g=a.createGain();o.type='triangle';o.frequency.value=fr;o.connect(g);g.connect(a.destination);g.gain.setValueAtTime(0.0001,now+i*0.07);g.gain.exponentialRampToValueAtTime(0.12,now+i*0.07+0.02);g.gain.exponentialRampToValueAtTime(0.0001,now+i*0.07+0.3);o.start(now+i*0.07);o.stop(now+i*0.07+0.32)})}catch(e){}}
+function party(big,x,y){const c=['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0','#ff7ab6'];
+  confetti({particleCount:big?110:60,spread:big?110:80,startVelocity:big?42:34,origin:{x:x,y:y},colors:c});
+  confetti({particleCount:big?110:60,angle:62,spread:58,startVelocity:big?62:55,origin:{x:0,y:.95},colors:c});
+  confetti({particleCount:big?110:60,angle:118,spread:58,startVelocity:big?62:55,origin:{x:1,y:.95},colors:c})}
+function badge(txt,cls){const b=document.createElement('div');b.className='fbadge '+cls;b.textContent=txt;
+  b.style.left=Math.min(Math.max(lastX*innerWidth,110),innerWidth-110)+'px';b.style.top=Math.min(Math.max(lastY*innerHeight-64,70),innerHeight-40)+'px';document.body.appendChild(b);setTimeout(()=>b.remove(),1500)}
+let lastCheer=0,lastWrong=0,quietUntil=0;
+const PRAISE=['🎉 Correct!','⭐ Brilliant!','👏 Well done!','🎊 Great job!','🏆 Excellent!'];
+function cheer(big){lastCheer=Date.now();clap(big?14:9);party(big,lastX,lastY);badge(PRAISE[Math.floor(Math.random()*PRAISE.length)],'good')}
+function buzz(){if(!soundOn)return;try{cheerCtx=cheerCtx||new (window.AudioContext||window.webkitAudioContext)();const a=cheerCtx,now=a.currentTime;
+  [[0,233],[0.17,175]].forEach(([d,f])=>{const o=a.createOscillator(),g=a.createGain();o.type='square';o.frequency.value=f;o.connect(g);g.connect(a.destination);g.gain.setValueAtTime(0.0001,now+d);g.gain.exponentialRampToValueAtTime(0.07,now+d+0.02);g.gain.exponentialRampToValueAtTime(0.0001,now+d+0.16);o.start(now+d);o.stop(now+d+0.18)})}catch(e){}}
+function wrong(el){if(el){el.classList.remove('shake');void el.offsetWidth;el.classList.add('shake');setTimeout(()=>el.classList.remove('shake'),500)}
+  if(Date.now()-lastWrong<350)return;lastWrong=Date.now();buzz();
+  let f=document.getElementById('redFlash');if(!f){f=document.createElement('div');f.id='redFlash';document.body.appendChild(f)}
+  f.classList.add('on');setTimeout(()=>f.classList.remove('on'),120);badge('✗ Not quite. Try again!','bad')}
+// watch every answer: green = party confetti, red = red flash + shake
+document.addEventListener('click',e=>{if(e.target.closest('[data-answers],#orderReveal'))quietUntil=Date.now()+600},true);
+new MutationObserver(ms=>{if(Date.now()<quietUntil)return;let good=false;
+  ms.forEach(m=>{const el=m.target,old=' '+(m.oldValue||'')+' ';if(!el.classList)return;
+    if(['no','wrong','nof'].some(c=>el.classList.contains(c)&&!old.includes(' '+c+' '))&&!el.classList.contains('fb'))wrong(el);
+    if(['ok','right','okf'].some(c=>el.classList.contains(c)&&!old.includes(' '+c+' '))&&!el.classList.contains('fb'))good=true});
+  if(good&&Date.now()-lastCheer>500)cheer(false)}).observe(document.body,{subtree:true,attributes:true,attributeFilter:['class'],attributeOldValue:true});
+(function(){const b=document.getElementById('soundBtn');if(!b)return;const set=()=>{b.textContent=soundOn?'🔊':'🔇';b.title=soundOn?'Sound on':'Sound off'};set();
+  b.onclick=()=>{soundOn=!soundOn;try{localStorage.setItem('cheerSound',soundOn?'on':'off')}catch(e){}set();if(soundOn)clap(4)}})();
+document.addEventListener('click',e=>{if(e.target.closest('[data-confetti]'))boom(false)});
+
+// generic: flip, reveal
+document.addEventListener('click',e=>{
+  const f=e.target.closest('.flip');if(f)f.classList.toggle('on');
+  const r=e.target.closest('[data-show]');if(r){const t=document.getElementById(r.dataset.show);t.hidden=!t.hidden}
+  const ns=e.target.closest('.nskill');if(ns)ns.classList.toggle('on');
+});
+
+// timers
+let actx;function beep(){try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();[0,.25,.5].forEach(d=>{const o=actx.createOscillator(),g=actx.createGain();o.frequency.value=880;o.connect(g);g.connect(actx.destination);g.gain.setValueAtTime(.15,actx.currentTime+d);g.gain.exponentialRampToValueAtTime(.001,actx.currentTime+d+.2);o.start(actx.currentTime+d);o.stop(actx.currentTime+d+.22)})}catch(e){}}
+$$('.timer').forEach(el=>{const total=+el.dataset.sec;let left=total,iv=null;const fmt=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+  el.innerHTML=`<button class="btn small">▶ Start ${total>=60?total/60+'-min':total+'-s'}</button><span class="t">${fmt(total)}</span><button class="rs" title="Reset">↺</button>`;
+  const [b,t,rs]=el.children;
+  const stop=()=>{clearInterval(iv);iv=null};
+  b.onclick=()=>{if(iv){stop();b.textContent='▶ Resume';return}if(left<=0){left=total;el.classList.remove('done')}
+    b.textContent='❚❚ Pause';iv=setInterval(()=>{left--;t.textContent=fmt(Math.max(left,0));if(left<=0){stop();el.classList.add('done');t.textContent="TIME'S UP!";b.textContent='▶ Again';beep()}},1000)};
+  rs.onclick=()=>{stop();left=total;el.classList.remove('done');t.textContent=fmt(total);b.textContent=`▶ Start ${total>=60?total/60+'-min':total+'-s'}`};
+});
+
+// 7 · true/false
+$$('#tf .q').forEach(q=>{let done=false;$$('.opt',q).forEach(b=>b.onclick=()=>{if(done)return;done=true;const pick=b.textContent==='True'?'T':'F',ok=pick===q.dataset.a;
+  b.classList.add(ok?'ok':'no');if(ok)cheer(false);const fb=$('.fb',q);fb.hidden=false;fb.className='fb '+(ok?'ok':'no');fb.textContent=(ok?'✓ Correct! ':'✗ Not quite. ')+fb.dataset.why;
+  q.dataset.res=ok?1:0;const sc=$$('#tf .q').reduce((a,x)=>a+(+x.dataset.res||0),0),n=$$('#tf .q[data-res]').length;$('#tfScore').textContent='Score: '+sc+' / 5';if(n===5&&sc===5)boom(false)})});
+
+// 9 · video answers
+$('#vidAns').onclick=()=>$$('#s9 .vans').forEach(a=>a.hidden=false);
+
+// 11 · sort
+$$('#sorter .sitem').forEach(b=>b.onclick=()=>{b.classList.remove('right','wrong');const L=($('#sorter').dataset.labels||'low|HIGH').split('|');const v=b.dataset.v==='low'?'high':'low';b.dataset.v=v;$('.tag',b).textContent=v==='low'?L[0]:L[1]});
+$('#sortCheck').onclick=()=>{let s=0;$$('#sorter .sitem').forEach(b=>{const ok=b.dataset.v===b.dataset.ans;b.classList.toggle('right',ok);b.classList.toggle('wrong',!ok);s+=ok});$('#sortScore').textContent=s+' / 8 correct';if(s>0&&s<8)cheer(false);$('#sortWhy').hidden=false;if(s===8)boom(false)};
+
+// MCQ sets (retry = formative with hints; first = first-try scoring)
+$$('.mcqset').forEach(set=>{const mode=set.dataset.mode;const qs=set.classList.contains('q')?[set]:$$('.q',set);
+  qs.forEach(q=>q.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(q.dataset.solved)return;const ok=b.hasAttribute('data-ok');
+    if(!('first' in q.dataset))q.dataset.first=ok?1:0;
+    b.classList.add(ok?'ok':'no');const fb=$('.fb',q);if(fb)fb.hidden=ok;
+    if(ok){q.dataset.solved=1;cheer(false);if(set.id==='dbq'){$('#dbLock').hidden=true;$('#dbOpen').hidden=false;boom(false)}}
+    if(set.id==='wm'){const s=qs.reduce((a,x)=>a+(+x.dataset.first||0),0),n=qs.filter(x=>'first' in x.dataset).length;
+      const lvl=s===5?'Wave Master! 🏆':s===4?'Wave Expert':s===3?'Wave Explorer':"let's review together";
+      $('#wmScore').textContent='First-try score: '+s+' / 5'+(n===5?' · '+lvl:'');if(n===5&&s>=4)boom(s===5)}
+    if(mode==='retry'&&set.id!=='dbq'&&qs.every(x=>x.dataset.solved))boom(false);
+  }));
+});
+
+// 18 · order
+let nextN=1;$$('#order .oitem').forEach(b=>b.onclick=()=>{$$('#order .oitem').forEach(x=>x.classList.remove('right','wrong'));
+  if(b.dataset.n){const k=+b.dataset.n;$$('#order .oitem').forEach(x=>{if(+x.dataset.n>=k){delete x.dataset.n;x.classList.remove('set');$('.n',x).textContent='?'}});nextN=k;return}
+  if(nextN>5)return;b.dataset.n=nextN;b.classList.add('set');$('.n',b).textContent=nextN;nextN++});
+$('#orderCheck').onclick=()=>{let s=0;$$('#order .oitem').forEach(b=>{const ok=b.dataset.n===b.dataset.p;b.classList.toggle('right',ok);b.classList.toggle('wrong',!ok);s+=ok});$('#orderScore').textContent=s+' / 5 in the right place';if(s>0&&s<5)cheer(false);if(s===5)boom(false)};
+$('#orderReveal').onclick=()=>{$('#chain').hidden=false};
+$$('[data-tl]').forEach(b=>b.onclick=()=>{const m=$('#tlMsg');m.hidden=false;m.textContent=b.dataset.tl});
+
+// 20/21 · worksheet
+$$('#wsA select').forEach(s=>s.innerHTML='<option value="">–</option>'+'ABCDE'.split('').map(x=>`<option>${x}</option>`).join(''));
+$$('#wsC select').forEach(s=>s.innerHTML='<option value="">choose…</option>'+s.dataset.opts.split('|').map(x=>`<option>${x}</option>`).join(''));
+const norm=v=>v.trim().toLowerCase().replace(/[.\s]+$/,'');
+function mark(id){let s=0;$$('#'+id+' [data-ans]').forEach(f=>{const ok=f.dataset.ans.toLowerCase().split('|').includes(norm(f.value));f.classList.toggle('okf',ok);f.classList.toggle('nof',!ok&&f.value!=='');s+=ok});return s}
+const score={wsA:0,wsB:0,wsC:0};
+function total(){$('#wsTotal').textContent='Total: A + B + C = '+(score.wsA+score.wsB+score.wsC)+' / 16 marks'}
+$$('[data-check]').forEach(b=>b.onclick=()=>{const id=b.dataset.check,s=mark(id),max=$$('#'+id+' [data-ans]').length;score[id]=s;if(s>0)cheer(s===max);$(`[data-out="${id}"]`).textContent=s+' / '+max;total();if(s===max)boom(false)});
+$$('[data-answers]').forEach(b=>b.onclick=()=>{const id=b.dataset.answers;$$('#'+id+' [data-ans]').forEach(f=>{f.value=f.tagName==='SELECT'?f.dataset.ans:f.dataset.ans.split('|')[0]});mark(id)});
+$('#labExp').onclick=()=>$$('#s21 .exp').forEach(x=>{x.hidden=false;x.style.cssText='font-size:.82rem;color:#11663a;font-weight:700;margin-top:4px'});
+$$('.lvl').forEach(b=>b.onclick=()=>{const a=b.previousElementSibling;a.hidden=!a.hidden;b.textContent=a.hidden?'Show answers':'Hide answers'});
+
+// keep typed answers in this browser
+$$('input[type=text],textarea').forEach(f=>{const v=store.get(f.id);if(v)f.value=v;f.addEventListener('input',()=>store.set(f.id,f.value))});
+
+// 24 · stars
+$$('.stars').forEach(st=>{for(let i=1;i<=5;i++)st.insertAdjacentHTML('beforeend',`<button aria-label="${i} star${i>1?'s':''}">★</button>`);
+  const set=k=>$$('button',st).forEach((b,i)=>b.classList.toggle('on',i<k));set(+store.get(st.id)||0);
+  $$('button',st).forEach((b,i)=>b.onclick=()=>{set(i+1);store.set(st.id,i+1);if(i===4)boom(false)})});
+
+// 25 · values
+$$('#values .vcard').forEach(c=>c.onclick=()=>{c.classList.toggle('on');const n=$$('#values .vcard.on').length;$$('#goal span').forEach((s,i)=>s.classList.toggle('on',i<n));if(n===5){boom(true);toast('Class goal reached: all five stars!')}});
+
+// 26 · celebrate
+$('#celebrate').onclick=()=>boom(true);
+enterHooks[30]=()=>boom(true);
+
+/* ---------- canvases ---------- */
+function fit(c){const r=c.getBoundingClientRect(),d=window.devicePixelRatio||1;const h=+c.getAttribute('height')||r.height||120;
+  if(!c.dataset.h)c.dataset.h=h;const H=+c.dataset.h;c.style.height=H+'px';c.width=Math.round(r.width*d);c.height=Math.round(H*d);const x=c.getContext('2d');x.setTransform(d,0,0,d,0,0);return{x,w:r.width,h:H}}
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// hero waves
+(function(){const c=$('#heroWaves');let t=0,raf;function draw(){if(cur!==1){raf=null;return}const {x,w,h}=fit(c);
+  const cols=['#ffc21a','#e5484d','#1fa75a','#4f8cff','#c084fc'];cols.forEach((col,i)=>{x.beginPath();for(let px=0;px<=w;px+=6){const y=h*.35+i*14+Math.sin(px/90+t*(1+i*.15)+i)*(10+i*3);px?x.lineTo(px,y):x.moveTo(px,y)}x.strokeStyle=col;x.lineWidth=5;x.stroke()});
+  t+=.02;raf=reduce?null:requestAnimationFrame(draw)}enterHooks[1]=()=>{if(!raf)draw()};})();
+
+// 18 · stadium: slow vs fast waves (frequency)
+(function(){const st=$('#stadium'),R=6,C=16,hues=['#5b7cfa','#ffb020','#2bc37a','#ff5d73','#9b6bff','#29b6d1'];
+  for(let r=0;r<R;r++)for(let c=0;c<C;c++){const d=document.createElement('div');d.className='seat';d.style.setProperty('--c',hues[(r*3+c)%6]);if(r===1&&c===9)d.classList.add('saeed');d.dataset.c=c;st.appendChild(d)}
+  const seats=$$('.seat',st);let raf;
+  $$('[data-freq]').forEach(b=>b.onclick=()=>{cancelAnimationFrame(raf);const period=b.dataset.freq==='fast'?2:8,t0=performance.now(),V=8,DUR=10;
+    const starts=[];for(let k=0;k*period<DUR;k++)starts.push(k*period);let passed=0;const counted=new Set();
+    (function step(now){const t=(now-t0)/1000;
+      seats.forEach(s=>{const c=+s.dataset.c;let y=0;starts.forEach(tk=>{const ph=((t-tk)*V-c)*.5;if(ph>0&&ph<Math.PI)y=Math.max(y,18*Math.sin(ph))});s.style.transform=y?`translateY(${-y}px)`:''});
+      starts.forEach((tk,i)=>{if(!counted.has(i)&&(t-tk)*V-9>Math.PI){counted.add(i);passed++}});
+      $('#waveCount').textContent=`Time: ${Math.min(t,DUR).toFixed(1)} s · Waves past Saif: ${passed}`+(t>=DUR+1.5?` in 10 s → frequency ≈ ${(passed/10).toFixed(1)} Hz`:'');
+      if(t<DUR+1.5&&!st.closest('.slide').hidden)raf=requestAnimationFrame(step);else seats.forEach(s=>s.style.transform='')})(t0)})})();
+
+// 19 · wadi pool: drops per second → wavelength
+(function(){const c=$('#pool');let drops=[],raf,rate=0,lastDrop=0,bobs=[];const V=110;
+  const live=()=>!c.closest('.slide').hidden;
+  function surf(px,t){let y=0;drops.forEach(d=>{const age=t-d.t-0.35;if(age<0)return;const r=Math.abs(px-d.x),dd=r-age*V;y+=16*Math.exp(-dd*dd/(2*8*8))*Math.exp(-age*0.12)});return y}
+  function draw(now){const {x,w,h}=fit(c),t=now/1000,water=h*.55,x0=w*.1,leafX=w*.78;
+    if(rate>0&&t-lastDrop>=1/rate){lastDrop=t;drops.push({x:x0,t})}
+    x.fillStyle='#e9d9b0';x.fillRect(0,0,w,h);x.fillStyle='#cfe8f7';x.fillRect(0,0,w,water-40);
+    x.beginPath();x.moveTo(0,h);for(let px=0;px<=w;px+=3)x.lineTo(px,water-surf(px,t));x.lineTo(w,h);x.closePath();x.fillStyle='#3d9ad1';x.fill();
+    x.setLineDash([6,6]);x.strokeStyle='#123';x.lineWidth=1.5;x.beginPath();x.moveTo(0,water);x.lineTo(w,water);x.stroke();x.setLineDash([]);
+    x.fillStyle='#123';x.font='12px Nunito, sans-serif';x.fillText('rest position',8,water+16);
+    drops.forEach(d=>{const a=t-d.t;if(a<0.35){const y=(water-40)*(a/0.35)**2;x.fillStyle='#1f6fb0';x.beginPath();x.ellipse(d.x,y,4,6,0,0,7);x.fill()}});
+    // wavelength bracket between two neighbouring crests
+    const crests=drops.map(d=>d.x+(t-d.t-0.35)*V).filter(p=>p>w*.35&&p<w-10).sort((a,b)=>a-b);
+    if(crests.length>=2){const a=crests[0],b=crests[1],yb=water-34;x.strokeStyle='#7a3ff0';x.fillStyle='#7a3ff0';x.lineWidth=2;x.beginPath();x.moveTo(a,yb);x.lineTo(b,yb);x.moveTo(a,yb-5);x.lineTo(a,yb+5);x.moveTo(b,yb-5);x.lineTo(b,yb+5);x.stroke();x.font='bold 12px Nunito, sans-serif';x.fillText('wavelength',(a+b)/2-32,yb-8)}
+    const ly=surf(leafX,t);x.save();x.translate(leafX,water-ly);x.fillStyle='#1fa75a';x.beginPath();x.ellipse(0,-4,16,6,0,0,7);x.fill();x.restore();
+    if(ly>5&&(!bobs.length||t-bobs[bobs.length-1]>0.15))bobs.push(t);bobs=bobs.filter(b=>t-b<3);
+    drops=drops.filter(d=>t-d.t<12);
+    if((drops.length||rate>0)&&live())raf=requestAnimationFrame(draw);else{raf=null;rate=0}}
+  $$('[data-rate]').forEach(b=>b.onclick=()=>{rate=+b.dataset.rate;lastDrop=0;
+    $('#poolRead').textContent=rate===4?'4 drops per second: high frequency, ripples close together (short wavelength). The leaf bobs 4 times each second.':rate===1?'1 drop per second: low frequency, ripples far apart (long wavelength). The leaf bobs once each second.':'Stopped. The ripples fade away.';
+    if(!raf)raf=requestAnimationFrame(draw)});
+  enterHooks[19]=()=>draw(performance.now());})();
+
+// 15 · sound through media
+(function(){const cfg={solid:{gap:10,jit:0,speed:340,col:'#f07f19',res:'Fastest! Particles are packed tight and pass the vibration on quickly.'},liquid:{gap:14,jit:4,speed:190,col:'#2b8fd6',res:'Travels well. Particles are close and slide past each other.'},gas:{gap:26,jit:9,speed:85,col:'#7a3ff0',res:'Slowest. Particles are far apart, so passing the vibration on takes longer.'},vacuum:{none:true,res:'No wave! There is no matter to carry it, so there is no sound.'}};
+  $$('.medium').forEach(m=>{const k=m.dataset.m,o=cfg[k],c=$('canvas',m);c.setAttribute('height',120);let pts=[],t0=null,raf,heard=false;
+    function build(w,h){pts=[];if(o.none)return;let seed=k.length*97;const rnd=()=>{seed=(seed*9301+49297)%233280;return seed/233280};
+      for(let y=o.gap/2+4;y<h-4;y+=o.gap)for(let x=o.gap/2+4;x<w-30;x+=o.gap)pts.push([x+(rnd()-.5)*o.jit*2,y+(rnd()-.5)*o.jit*2])}
+    function draw(now){const {x,w,h}=fit(c);if(!pts.length&&!o.none)build(w,h);
+      x.clearRect(0,0,w,h);if(o.none){x.fillStyle='#fff';[[20,20],[70,90],[130,30],[180,80],[230,50]].forEach(([a,b])=>{if(a<w)x.fillRect(a,b,1.5,1.5)})}
+      const t=t0==null?-1:(now-t0)/1000,front=t*o.speed;
+      x.fillStyle=o.col||'#fff';pts.forEach(([px,py])=>{let dx=0;if(t>=0){const d=px-front;dx=10*Math.exp(-(d*d)/(2*14*14))*(d<0?1:-1)*.8}x.beginPath();x.arc(px+dx,py,o.gap<12?3:3.4,0,7);x.fill()});
+      // ear
+      x.font='22px sans-serif';x.globalAlpha=(t>=0&&!o.none&&front>=w-34)?1:.35;x.fillText('👂',w-28,h/2+8);x.globalAlpha=1;
+      if(t>=0&&!o.none&&front>=w-34&&!heard){heard=true;$('.res',m).innerHTML='<b>Heard after '+(t).toFixed(2)+' s.</b> '+o.res}
+      if(t>=0&&!o.none&&front<w+60&&cur===20)raf=requestAnimationFrame(draw);else raf=null}
+    $('button',m).onclick=()=>{heard=false;$('.res',m).textContent=o.none?'':'Sending…';if(o.none){$('.res',m).innerHTML='<b>Silence.</b> '+o.res;return}t0=performance.now();cancelAnimationFrame(raf);raf=requestAnimationFrame(draw)};
+    const prev=enterHooks[20];enterHooks[20]=()=>{prev&&prev();pts=[];draw(performance.now())};
+  })})();
+
+// 21 · virtual rope: slow vs fast shake (continuous waves)
+(function(){const c=$('#rope');let t0=null,f=0,raf;
+  function draw(now){const {x,w,h}=fit(c),mid=h*.55,L=w-80,x0=40,t=t0==null?-1:(now-t0)/1000,v=L*.4,A=34;
+    x.fillStyle='#f4ecd8';x.fillRect(0,0,w,h);
+    x.setLineDash([6,6]);x.strokeStyle='#8a8f9e';x.beginPath();x.moveTo(x0,mid);x.lineTo(x0+L,mid);x.stroke();x.setLineDash([]);
+    const y=px=>{if(t<0)return 0;const d=px-x0;if(d>v*t)return 0;return A*Math.sin(2*Math.PI*f*(t-d/v))};
+    x.strokeStyle='#1b2470';x.lineWidth=4;x.beginPath();for(let px=x0;px<=x0+L;px+=2){const yy=mid-y(px);px===x0?x.moveTo(px,yy):x.lineTo(px,yy)}x.stroke();
+    const rx=x0+L/2,ry=y(rx);x.fillStyle='#e5484d';x.fillRect(rx-4,mid-ry-14,8,16);
+    if(t>0&&f>0){const lam=v/f;// mark one wavelength between two crests inside the drawn part
+      const front=Math.min(v*t,L);let crest=null;for(let px=x0+4;px<x0+front-lam-2;px+=1){if(y(px)>A*.985){crest=px;break}}
+      if(crest!==null&&crest+lam<x0+L){const yb=mid-A-14;x.strokeStyle='#7a3ff0';x.fillStyle='#7a3ff0';x.lineWidth=2;x.beginPath();x.moveTo(crest,yb);x.lineTo(crest+lam,yb);x.moveTo(crest,yb-5);x.lineTo(crest,yb+5);x.moveTo(crest+lam,yb-5);x.lineTo(crest+lam,yb+5);x.stroke();x.font='bold 12px Nunito, sans-serif';x.fillText('one wavelength',crest+lam/2-42,yb-7)}}
+    x.fillStyle='#1b2470';x.font='12px Nunito, sans-serif';x.fillText('✋ your hand',4,h-10);x.fillText('partner holds still',x0+L-100,h-10);x.fillText('ribbon',rx-18,h-10);
+    if(t>=0&&t<14&&!c.closest('.slide').hidden)raf=requestAnimationFrame(draw);else raf=null}
+  $$('[data-hz]').forEach(b=>b.onclick=()=>{f=+b.dataset.hz;t0=performance.now();$('#ropeRead').textContent=f>1?'Fast shake: 2 waves each second (2 Hz). The crests are close together: SHORT wavelength.':'Slow shake: 1 wave every 2 seconds (0.5 Hz). The crests are far apart: LONG wavelength.';cancelAnimationFrame(raf);raf=requestAnimationFrame(draw)});
+  enterHooks[21]=()=>draw(performance.now());})();
+
+window.addEventListener('resize',()=>enterHooks[cur]&&enterHooks[cur]());
+go(fromHash(),false);
+</script>
+
+</body>
+</html>

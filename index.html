@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Interactive Science and Biology lessons by Nilasha Sempon: virtual labs, simulations, videos and quizzes with the UAE Values Team.">
+<title>Nilasha Sempon · Science &amp; Biology Lessons</title>
+<meta property="og:title" content="Nilasha Sempon · Science &amp; Biology Lessons">
+<meta property="og:description" content="Interactive Science and Biology lessons for Grade 6 and Grade 8, with the UAE Values Team.">
+<meta property="og:image" content="https://nilashasempons.netlify.app/assets/banner.webp">
+<meta property="og:url" content="https://nilashasempons.netlify.app/">
+<meta property="og:site_name" content="Nilasha Sempon · Science &amp; Biology">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="author" content="Nilasha Sempon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: a classroom-bright library. Hero with the Values Team, then lessons grouped by term and week as cards. */
+:root{
+  --navy:#1b2470; --ink:#1c2340; --muted:#5b6385; --line:#dfe3f1; --paper:#fff; --bg:#eef1f9;
+  --sun:#ffc21a; --sun-ink:#3a2a00; --red:#e5484d; --green:#1fa75a; --purple:#7a3ff0; --blue:#2563eb;
+  --display:"Baloo Bhaijaan 2","Nunito",system-ui,sans-serif;
+  --body:"Nunito","Baloo Bhaijaan 2",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+html{background:#eef1f9}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:16px}
+.hero{background:linear-gradient(135deg,#1b2470 0%,#3a2fa3 60%,#6a2fb8 100%);color:#fff;position:relative;overflow:hidden}
+.hero .wrap{padding-block:36px 90px;display:grid;gap:14px}
+.eyebrow{color:var(--sun);font-weight:800;letter-spacing:.08em;font-size:.8rem;text-transform:uppercase}
+h1{font-family:var(--display);font-size:clamp(2.2rem,6vw,3.8rem);line-height:1;margin:0;font-weight:800;text-wrap:balance}
+.hero .by{font-family:var(--display);font-size:1.35rem;opacity:1}.hero .by b{color:var(--sun)}
+.hero p{margin:0;max-width:60ch;opacity:.92;font-size:1.05rem}
+.team{display:flex;flex-wrap:wrap;gap:14px;margin-top:6px}
+.team figure{margin:0;text-align:center;font-size:.78rem;font-weight:700}
+.team img{width:64px;height:64px;border-radius:50%;border:3px solid var(--sun);background:#f5efe4;display:block;margin:0 auto 4px}
+.team small{display:block;color:var(--sun);font-weight:700}
+.banner{width:100%;max-width:760px;height:auto;border-radius:16px;border:3px solid var(--sun);display:block;margin-top:6px}
+canvas.waves{position:absolute;left:0;right:0;bottom:0;width:100%;height:90px;pointer-events:none}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding-block:18px 6px}
+.subjects{display:flex;flex-wrap:wrap;gap:8px;padding-top:20px}
+.subjects button{border:2px solid var(--line);background:#fff;border-radius:999px;padding:8px 18px;font:inherit;font-weight:800;color:var(--navy);cursor:pointer}
+.subjects button[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.subject{display:grid;gap:4px;padding-block:10px 4px;border-top:3px solid var(--navy);margin-top:14px}
+.subject>h2{font-family:var(--display);font-size:2rem;margin:10px 0 0;color:var(--navy)}
+.term h2{font-size:1.3rem!important}
+.search{flex:1 1 260px;max-width:420px;border:2px solid var(--line);border-radius:999px;padding:10px 16px;font:inherit;background:#fff}
+.count{color:var(--muted);font-weight:700}
+.term{display:grid;gap:14px;padding-block:14px}
+.term h2{font-family:var(--display);font-size:1.6rem;margin:0;color:var(--navy)}
+.unit{color:var(--muted);font-weight:700;margin:-8px 0 0}
+.week{display:grid;gap:10px}
+.week h3{margin:6px 0 0;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--red)}
+.cards{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr))}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s, box-shadow .15s}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(27,36,112,.12)}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#0f1430}
+.card .body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.tag{font-size:.75rem;font-weight:800;color:var(--purple);letter-spacing:.05em;text-transform:uppercase}
+.card h4{font-family:var(--display);font-size:1.45rem;line-height:1.1;margin:0;color:var(--navy)}
+.card p{margin:0;color:var(--muted);font-size:.93rem}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.meta span{background:var(--bg);border-radius:999px;padding:2px 10px;font-size:.78rem;font-weight:700;color:var(--navy)}
+.actions{display:flex;gap:8px;margin-top:auto;padding-top:10px;flex-wrap:wrap}
+.btn{border:0;border-radius:999px;padding:9px 18px;font:inherit;font-weight:800;background:var(--sun);color:var(--sun-ink);box-shadow:0 3px 0 #d79c00;text-decoration:none;cursor:pointer}
+.btn.ghost{background:#fff;color:var(--navy);box-shadow:none;border:2px solid var(--line)}
+.soon{border:2px dashed var(--line);border-radius:18px;display:grid;place-items:center;text-align:center;padding:24px;color:var(--muted);min-height:180px;font-weight:700}
+footer{color:var(--muted);font-size:.85rem;padding-block:30px 40px;text-align:center}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;max-width:calc(100% - 32px);text-align:center;word-break:break-all}
+.empty{color:var(--muted);padding:20px 0}
+@media (prefers-reduced-motion:reduce){.card{transition:none}}
+.subjects button .n{display:inline-block;margin-left:6px;background:var(--bg);color:var(--navy);border-radius:999px;padding:0 8px;font-size:.8rem}
+.subjects button[aria-selected="true"] .n{background:var(--sun);color:var(--sun-ink)}
+.grade{display:grid;gap:4px;margin-top:16px}
+.grade-h{display:flex;flex-wrap:wrap;align-items:center;gap:12px;background:linear-gradient(90deg,var(--navy),#4b3fc4);color:#fff;border-radius:16px;padding:12px 18px;font-weight:700}
+.grade-h .gbig{font-family:var(--display);font-size:1.6rem;background:var(--sun);color:var(--sun-ink);border-radius:12px;padding:2px 14px}
+.term h2{font-size:1.1rem!important;color:var(--muted)!important}
+#list{scroll-margin-top:12px}
+.bigtiles{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));padding-top:22px}
+.bt{border:0;border-radius:20px;padding:20px;background:var(--bc);color:#fff;text-align:left;cursor:pointer;display:grid;gap:4px;font:inherit;box-shadow:0 8px 20px rgba(27,36,112,.15);transition:transform .15s}
+.bt:hover{transform:translateY(-3px)}.bt .bi{font-size:2.2rem}.bt b{font-family:var(--display);font-size:1.6rem;line-height:1.1}.bt small{opacity:.9;font-weight:700}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Nilasha Sempon · Interactive lessons</div>
+    <h1>Science &amp; Biology Lessons</h1>
+    <p class="by">by <b>Nilasha Sempon</b></p>
+    <p>Pick a lesson, explore the simulations, test yourself and learn with your UAE Values Team.</p>
+    <img class="banner" src="assets/banner.webp" alt="Shahin (Leadership), Fahim (Knowledge), Maha (Respect), Ahmed (Responsibility) and Hessa (Tolerance) with the UAE national skills">
+  </div>
+  <canvas class="waves" id="waves"></canvas>
+</header>
+
+<main class="wrap">
+  <div class="bigtiles">
+    <button class="bt" data-subj="Science|Grade 8 Advanced" style="--bc:#2563eb"><span class="bi">🔊</span><b>Grade 8 Science</b><small>Waves and sound · 5 lessons</small></button>
+    <button class="bt" data-subj="Science|Grade 6 Advanced" style="--bc:#1fa75a"><span class="bi">🌿</span><b>Grade 6 Science</b><small>Ecosystems · 4 lessons</small></button>
+    <button class="bt" data-subj="Biology" style="--bc:#d23b8a"><span class="bi">🧬</span><b>Biology</b><small>Grades 9, 11 &amp; 12</small></button>
+  </div>
+  <div class="subjects" id="subjects" role="tablist" aria-label="Subject"></div>
+  <div class="bar"><input class="search" id="q" type="search" placeholder="Search lessons (e.g. sound, energy)" aria-label="Search lessons"><span class="count" id="count"></span></div>
+  <div id="list"></div>
+</main>
+<footer class="wrap"><b>Nilasha Sempon</b> · Science &amp; Biology<br>Each lesson has a link for every slide: add <b>#s</b> and the slide number to the end of a lesson's address, e.g. <b>#s12</b>.</footer>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+/* ===== YOUR LESSONS =====
+   To add a lesson: put its folder next to this file, then copy one { ... } block below and change it. */
+const LESSONS = [
+  { subject:"Science", grade:"Grade 8 Advanced", folder:"g8-amplitude-energy", title:"Amplitude and Energy", term:"Term 1", unit:"Unit 1: Energy and Motion · Module 1: Introduction to Waves",
+    week:"Week 7", period:"Period 1", slides:26, image:"img/hook-scene.webp",
+    about:"Why did the shamal waves knock down Saeed's sandcastle at Kite Beach? Stadium waves, ripples, a virtual rope and a Wave Master quiz." },
+  { subject:"Science", grade:"Grade 8 Advanced", folder:"g8-intensity-loudness", title:"Intensity and Loudness", term:"Term 1", unit:"Unit 1: Energy and Motion · Module 1: Introduction to Waves",
+    week:"Week 7", period:"Period 2", slides:28, image:"img/hook-scene-v2.webp",
+    about:"Why were the Burj Khalifa fireworks deafening to Hamdan but soft pops to Shamma? The decibel scale, concert seats and a sound-meter lab." },
+  { subject:"Science", grade:"Grade 8 Advanced", folder:"g8-wavelength-frequency-pitch", title:"Wavelength, Frequency and Pitch", term:"Term 1", unit:"Unit 1: Energy and Motion · Module 1: Introduction to Waves",
+    week:"Week 7", period:"Period 3", slides:30, image:"img/hook-scene.webp",
+    about:"Why did Barq the saluki run to a whistle nobody else could hear? Slow vs fast stadium waves, drops per second, a spring lab and ranges of hearing." },
+  { subject:"Science", grade:"Grade 8 Advanced", folder:"g8-wave-interactions", title:"Reflection, Absorption and Transmission", term:"Term 1", unit:"Unit 1: Energy and Motion · Module 1: Introduction to Waves",
+    week:"Week 7", period:"Period 5", slides:28, image:"img/hook-scene.webp",
+    about:"Where did the echo in the empty majlis go? Angle of reflection, a wall tester, echoes at Hatta Dam, highway sound barriers and a Crashing Waves lab." },
+  { subject:"Science", grade:"Grade 8 Advanced", folder:"g8-speed-diffraction-hearing", title:"Speed of Sound, Diffraction and Hearing", term:"Term 1", unit:"Unit 1: Energy and Motion · Module 1: Introduction to Waves",
+    week:"Week 7", period:"Period 6", slides:28, image:"img/hook-scene.webp",
+    about:"Why did Hamdan hear the starter's bang through the railing first? A sound speed race, hot vs cold air, a diffraction tank and a journey into the ear." },
+  { subject:"Science", grade:"Grade 6 Advanced", folder:"g6-oxygen-cycle", title:"The Oxygen Cycle", term:"Term 1", unit:"Unit 1: Life Structure and Function · Module 1: Matter and Energy in Ecosystems",
+    week:"Week 6", period:"Period 4", slides:26, image:"img/hook-scene.webp",
+    about:"Why does the air at Hatta never run out of oxygen? A narrated video, a gas-swap simulation, a day/night aquarium and a pondweed bubble lab." },
+  { subject:"Science", grade:"Grade 6 Advanced", folder:"g6-resources-ecosystems", title:"Resources in Ecosystems", term:"Term 1", unit:"Unit 1: Interaction with Ecosystems · Module 2: Dynamic Ecosystems",
+    week:"Week 6", period:"Lesson 1", slides:26, image:"img/hook-scene.webp",
+    about:"How is one flamingo at Al Wathba part of the whole planet? A narrated video, zoom out from one oryx to the biosphere, build an island ecosystem and run a quadrat survey." },
+  { subject:"Science", grade:"Grade 6 Advanced", folder:"g6-limiting-factors", title:"Limiting Factors and Carrying Capacity", term:"Term 1", unit:"Unit 1: Interaction with Ecosystems · Module 2: Dynamic Ecosystems",
+    week:"Week 8", period:"Lesson 2", slides:26, image:"img/hook-scene.webp",
+    about:"Why did Grandpa's pond in Al Ain stop at 16 fish? A narrated video, a population graph, pikas on a warming mountain and the Fishy Population Changes lab." },
+  { subject:"Science", grade:"Grade 6 Advanced", folder:"g6-population-changes", title:"Overpopulation and Population Decrease", term:"Term 1", unit:"Unit 1: Interaction with Ecosystems · Module 2: Dynamic Ecosystems",
+    week:"Week 8", period:"Lesson 3", slides:26, image:"img/hook-scene.webp",
+    about:"How did the Arabian oryx come back from extinction in the wild? A narrated video, too many birds, rescue the oryx, UAE species savers and a mice-in-winter lab." },
+  { subject:"Biology", grade:"Grade 9 Advanced", folder:"b9-cell-discovery", title:"Cell Discovery and Theory", term:"Term 1", unit:"Unit 2: The Cell · Module 7: Cellular Structure and Function",
+    week:"Week 6", period:"Lesson 4", slides:26, image:"img/hook.webp",
+    about:"What tool let us discover cells? Your narrated video, the scientists, the three ideas of the cell theory, a virtual microscope, light vs TEM vs SEM and an onion cell lab." },
+  { subject:"Biology", grade:"Grade 9 Advanced", folder:"b9-prokaryotes-eukaryotes", title:"Prokaryotic and Eukaryotic Cells", term:"Term 1", unit:"Unit 2: The Cell · Module 7: Cellular Structure and Function",
+    week:"Week 6", period:"Lesson 5 · Cell types", slides:26, image:"img/hook.webp",
+    about:"Why is a bacterium in a different group? A narrated video, tent or villa, a cell explorer, a mystery cell classifier, endosymbiosis and a cheek-cell vs yoghurt lab." },
+  { subject:"Biology", grade:"Grade 9 Advanced", folder:"b9-plasma-membrane", title:"The Plasma Membrane: Structure", term:"Term 1", unit:"Unit 2: The Cell · Module 7: Cellular Structure and Function",
+    week:"Week 7", period:"Lesson 2", slides:26, image:"img/hook.webp",
+    about:"Why is the plasma membrane the gatekeeper of the cell? A narrated video, the Hatta border post, phospholipids in water, a membrane explorer and an oil, water and soap lab." },
+  { subject:"Biology", grade:"Grade 11 Advanced", folder:"b11-calvin-cycle", title:"The Calvin Cycle", term:"Term 1", unit:"Unit 2: The Cell · Module 8: Cellular Energy",
+    week:"Week 6", period:"Lesson 2 · Photosynthesis", slides:26, image:"img/hook.webp",
+    about:"How does a ghaf tree turn CO₂ into sugar? Your narrated video, fix-reduce-regenerate, a Calvin cycle counter, lights off, C3/C4/CAM desert plants and a floating leaf-disk lab." },
+  { subject:"Biology", grade:"Grade 11 Advanced", folder:"b11-c4-cam", title:"C4 and CAM Plants", term:"Term 1", unit:"Unit 2: The Cell · Module 8: Cellular Energy",
+    week:"Week 4", period:"Session 2 · Photosynthesis", slides:26, image:"img/hook.webp",
+    about:"How do maize and pineapple stay green at 45 °C? A narrated video, photorespiration on a hot day, the C4 relay, a 24-hour CAM clock, the UAE C4-or-CAM debate and a stomata peel lab." },
+  { subject:"Biology", grade:"Grade 12 Advanced", folder:"b12-multiple-alleles", title:"Multiple Alleles", term:"Term 1", unit:"Unit 3: Genetics · Module 10: Patterns of Inheritance",
+    week:"Week 6", period:"Lesson 4 · Complex inheritance", slides:26, image:"img/hook.webp",
+    about:"How can one family have blood types A, B, AB and O? A narrated video, an ABO Punnett builder, a rabbit breeder (C > cᶜʰ > cʰ > c), an allele-draw lab and an Allele Master quiz." },
+  { subject:"Biology", grade:"Grade 12 Advanced", folder:"b12-epistasis-x-inactivation", title:"Epistasis and X Inactivation", term:"Term 1", unit:"Unit 3: Genetics · Module 10: Patterns of Inheritance",
+    week:"Week 6", period:"Lesson 5 · Complex inheritance", slides:26, image:"img/hook.webp",
+    about:"Why can two black Labradors have a yellow puppy, and why are calico cats female? A narrated video, a Labrador breeder (9 : 3 : 4), a calico mosaic, a Barr body counter and a coin-flip calico lab." },
+  { subject:"Biology", grade:"Grade 12 Advanced", folder:"b12-sex-linked-polygenic", title:"Sex-Linked and Polygenic Traits", term:"Term 1", unit:"Unit 3: Genetics · Module 10: Patterns of Inheritance",
+    week:"Week 6", period:"Lesson 6 · Complex inheritance", slides:26, image:"img/hook.webp",
+    about:"Why are boys more often colour blind, and why can identical twins differ? A narrated video, an X-linked Punnett square, a polygenic bell curve, a twin-study explorer and a hand-span survey." },
+];
+/* Subjects shown on the home page (a subject with no lessons yet shows "coming soon"). */
+const SUBJECTS = ["Science","Biology"];
+/* Where each lesson opens. On your own website leave this empty. */
+const LINKS = {};
+
+const $=s=>document.querySelector(s);
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const href=l=>LINKS[l.folder]||(l.folder+'/');
+function absolute(l){const h=href(l);return /^https?:/.test(h)?h:new URL(h,location.href).href}
+let subj="All";
+const gnum=g=>+(String(g).match(/\d+/)||[0])[0];
+function filters(){const out=[{k:"All",label:"📚 All lessons",n:LESSONS.length}];
+  SUBJECTS.forEach(s=>{const ls=LESSONS.filter(l=>l.subject===s);const grades=[...new Set(ls.map(l=>l.grade))].sort((a,b)=>gnum(b)-gnum(a));
+    const ic=s==="Biology"?"🧬":"🔬";
+    if(!grades.length)out.push({k:s,label:ic+" "+s,n:0});
+    else grades.forEach(g=>out.push({k:s+"|"+g,label:ic+" "+s+" · Grade "+gnum(g),n:ls.filter(l=>l.grade===g).length}))});return out}
+function tiles(){document.querySelectorAll('.bt').forEach(b=>{const [sb,g]=b.dataset.subj.split('|');const c=LESSONS.filter(l=>l.subject===sb&&(!g||l.grade===g)).length;const sm=b.querySelector('small');if(!sm.dataset.base)sm.dataset.base=sm.textContent.split(' · ')[0];sm.textContent=c?(sm.dataset.base==='Coming soon'?'':sm.dataset.base+' · ')+c+' lesson'+(c>1?'s':''):'Coming soon'})}
+function tabs(){tiles();$('#subjects').innerHTML=filters().map(f=>`<button role="tab" aria-selected="${f.k===subj}" data-subj="${esc(f.k)}">${esc(f.label)} <span class="n">${f.n||'soon'}</span></button>`).join('')}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-subj]');if(b){subj=b.dataset.subj;try{const g=subj.split('|')[1];history.replaceState(null,'',subj==='All'?location.pathname:'#'+(g?'grade'+gnum(g):subj.toLowerCase()))}catch(e){}tabs();render();document.getElementById('list').scrollIntoView({behavior:'smooth',block:'start'})}});
+function lessonCard(l){return `<article class="card"><a href="${esc(href(l))}" tabindex="-1"><img src="${esc(l.folder+'/'+l.image)}" alt="" loading="lazy"></a><div class="body"><span class="tag">${esc(l.week)} · ${esc(l.period)}</span><h4>${esc(l.title)}</h4><p>${esc(l.about)}</p><div class="meta"><span>${l.slides} slides</span><span>45 minutes</span></div><div class="actions"><a class="btn" href="${esc(href(l))}">▶ Open lesson</a><button class="btn ghost" data-copy="${esc(l.folder)}">🔗 Copy link</button></div></div></article>`}
+function render(){
+  const q=$('#q').value.trim().toLowerCase();
+  const [fs,fg]=subj.split('|');
+  const items=LESSONS.filter(l=>(subj==="All"||(l.subject===fs&&(!fg||l.grade===fg)))&&(!q||[l.title,l.about,l.week,l.unit,l.subject,l.grade].join(' ').toLowerCase().includes(q)));
+  $('#count').textContent=items.length+(items.length===1?' lesson':' lessons');
+  const shown=SUBJECTS.filter(x=>subj==="All"||x===fs);
+  const html=shown.map(sub=>{const ls=items.filter(l=>l.subject===sub);const ic=sub==="Biology"?"🧬":"🔬";
+    if(!ls.length){return q?'':`<section class="subject"><h2>${ic} ${esc(sub)}</h2><div class="cards"><div class="soon">🌱 ${esc(sub)} lessons are coming soon</div></div></section>`}
+    const grades=[...new Set(ls.map(l=>l.grade))].sort((a,b)=>gnum(b)-gnum(a));
+    return `<section class="subject"><h2>${ic} ${esc(sub)}</h2>`+grades.map(g=>{const gl=ls.filter(l=>l.grade===g);const groups={};
+      gl.forEach(l=>{const k=l.term;(groups[k]=groups[k]||{});const wk=l.unit+'||'+l.week;(groups[k][wk]=groups[k][wk]||[]).push(l)});
+      return `<section class="grade"><div class="grade-h"><span class="gbig">Grade ${gnum(g)}</span><span>${esc(g)} · ${gl.length} lesson${gl.length===1?'':'s'}</span></div>`+
+      Object.entries(groups).map(([term,weeks])=>`<section class="term"><h2>${esc(term)}</h2>`+
+      Object.entries(weeks).map(([uw,arr],i,all)=>{const [u,w]=uw.split('||');const prevU=i?all[i-1][0].split('||')[0]:null;return (u!==prevU?`<p class="unit"${i?' style="margin-top:22px"':''}>${esc(u)}</p>`:'')+`<div class="week"><h3>${esc(w)}</h3><div class="cards">${arr.map(lessonCard).join('')}</div></div>`}).join('')+`</section>`).join('')+`</section>`}).join('')+`</section>`}).join('');
+  $('#list').innerHTML=html||'<p class="empty">No lessons match that search.</p>';
+}
+(function(){const h=(location.hash||'').toLowerCase().replace('#','');const m=h.match(/^grade(\d+)$/);
+  if(m){const l=LESSONS.find(x=>gnum(x.grade)===+m[1]);if(l)subj=l.subject+'|'+l.grade}
+  else if(h==='biology'){subj='Biology'}else if(h==='science')subj='All'})();
+tabs();
+$('#q').addEventListener('input',render);
+let tt;function toast(m,ms=2600){const t=$('#toast');t.innerHTML=m;t.hidden=false;clearTimeout(tt);tt=setTimeout(()=>t.hidden=true,ms)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const l=LESSONS.find(x=>x.folder===b.dataset.copy),u=absolute(l);
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(u).then(()=>toast('Link copied'),()=>toast(esc(u),7000));else toast(esc(u),7000)});
+render();
+// gentle waves
+(function(){const c=$('#waves'),x=c.getContext('2d');let t=0;const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function draw(){const r=c.getBoundingClientRect(),d=devicePixelRatio||1;c.width=r.width*d;c.height=r.height*d;x.setTransform(d,0,0,d,0,0);
+    ['#ffc21a','#e5484d','#1fa75a','#4f8cff','#c084fc'].forEach((col,i)=>{x.beginPath();for(let p=0;p<=r.width;p+=6){const y=r.height*.4+i*10+Math.sin(p/90+t*(1+i*.15)+i)*(8+i*2);p?x.lineTo(p,y):x.moveTo(p,y)}x.strokeStyle=col;x.lineWidth=4;x.stroke()});
+    t+=.02;if(!reduce)requestAnimationFrame(draw)}draw()})();
+</script>
+</body>
+</html>

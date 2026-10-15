@@ -1,0 +1,42 @@
+SCIENCE & BIOLOGY LESSONS - NILASHA SEMPON
+======================================
+
+WHAT IS IN THIS FOLDER
+  index.html               the home page (list of all your lessons)
+  assets/                  the Values Team pictures for the home page
+  g8-amplitude-energy/     Lesson: Amplitude and Energy (26 slides)
+  g8-intensity-loudness/   Lesson: Intensity and Loudness (28 slides)
+  g8-wavelength-frequency-pitch/  Lesson: Wavelength, Frequency and Pitch (30 slides)
+  g8-wave-interactions/    Lesson: Reflection, Absorption and Transmission (28 slides)
+  g8-speed-diffraction-hearing/  Lesson: Speed of Sound, Diffraction and Hearing (28 slides)
+  g6-oxygen-cycle/         Lesson: The Oxygen Cycle, Grade 6 (26 slides)
+  HOW-TO-PUBLISH.txt       this guide
+
+PUT IT ONLINE THE FIRST TIME (free, about 10 minutes, no coding)
+  1. Unzip this file. You get a folder called "science-website".
+  2. Go to  https://app.netlify.com/signup  and sign up free
+     (the "Sign up with Google" button is easiest).
+  3. When it asks you to add a project, choose to deploy manually
+     ("drag and drop your project folder").
+  4. Drag the whole "science-website" folder onto the page.
+  5. Wait about 30 seconds. Netlify gives you an address like
+     https://random-name-123.netlify.app  - your website is live!
+  6. Give it a nicer name: Project configuration > Change project name,
+     e.g. "nilashasempons"  ->  https://nilashasempons.netlify.app
+
+LINKS FOR STUDENTS
+  Home page:          https://YOUR-NAME.netlify.app/
+  A lesson:           https://YOUR-NAME.netlify.app/g8-intensity-loudness/
+  One slide (slide 12): https://YOUR-NAME.netlify.app/g8-intensity-loudness/#s12
+  Inside every lesson, the "Link" button copies the link of the slide on screen.
+
+ADDING A NEW LESSON LATER
+  1. Send your next PowerPoint to Claude. You get back an updated
+     "science-website" folder with the new lesson added to the home page.
+  2. On Netlify open your project > Deploys.
+  3. Drag the new "science-website" folder onto the page.
+  Done. Old links keep working.
+
+  (Doing it yourself: put the new lesson folder inside "science-website",
+   open index.html in Notepad, copy one { ... } block in the YOUR LESSONS
+   list, change the folder name, title and details, save, and upload.)
