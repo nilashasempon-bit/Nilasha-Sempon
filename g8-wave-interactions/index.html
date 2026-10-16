@@ -577,8 +577,8 @@ video{width:100%;border-radius:14px;background:#000;display:block}
     <div class="cols split">
       <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-absorption-transmission.webp" alt="Textbook: Absorption and Transmission, with a phone next to an insulated and an uninsulated wall"></div>
       <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
-        <div class="q"><div class="qt">Q1 In the lab Crashing Waves, why was the reflected wave smaller than the first wave?</div><button class="btn small ghost" data-show="t13a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13a" hidden>✓ Some of its energy was absorbed by the barrier, so less energy bounced back.</div></div>
-        <div class="q"><div class="qt">Q2 Which wall lets more of the phone's sound through: insulated or uninsulated? Why?</div><button class="btn small ghost" data-show="t13b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13b" hidden>✓ The uninsulated wall. Insulation absorbs sound energy, so less is transmitted to the other side.</div></div>
+        <div class="q"><div class="qt">Q1 In the lab Crashing Waves, why was the reflected wave smaller than the first wave?</div><div class="sim" style="padding:8px"><canvas id="crashAnim" height="190" aria-label="Animation: a water wave hits a block, the block takes in some energy, and a smaller wave bounces back"></canvas><div class="row" style="justify-content:space-between"><span class="legend" id="crashRead">Watch the wave hit the block…</span><button class="btn small ghost" id="crashReplay">↺ Replay</button></div></div><button class="btn small ghost" data-show="t13a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13a" hidden>✓ Some of its energy was absorbed by the barrier, so less energy bounced back.</div></div>
+        <div class="q"><div class="qt">Q2 Which wall lets more of the phone's sound through: insulated or uninsulated? Why?</div><div class="sim" style="padding:8px"><canvas id="wallAnim" height="230" aria-label="Animation: a phone plays music next to an insulated wall and an uninsulated wall; much more sound passes through the uninsulated wall"></canvas><div class="legend">Blue = sound waves · the bar on the right shows how loud it is in the next room.</div></div><button class="btn small ghost" data-show="t13b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13b" hidden>✓ The uninsulated wall. Insulation absorbs sound energy, so less is transmitted to the other side.</div></div>
         <div class="note"><b>Remember:</b> without transmission, we would not hear sound on the other side of a door!</div>
       </div>
     </div>
@@ -1215,6 +1215,49 @@ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
     x.fillStyle='#1b2470';x.font='bold 12px Nunito, sans-serif';x.fillText('blue = reaches the house · red = reflected back',10,18)}
   rng.oninput=()=>{$('#barrierVal').textContent=rng.value;draw()};enterHooks[19]=draw;})();
 
+
+// 14 · absorption & transmission animations
+(function(){const c=$('#crashAnim');let t0=performance.now(),raf=null;
+  function draw(now){const {x,w,h}=fit(c),t=(now-t0)/1000,mid=h*.55,bx=w-70,A1=34,A2=14,L=70,spd=Math.max(110,w/3.2);
+    x.fillStyle='#d6eefb';x.fillRect(0,0,w,h);x.fillStyle='#bfe0f5';x.fillRect(0,mid,w,h-mid);
+    // block (barrier)
+    const hit=(bx-40)/spd, glow=t>hit?Math.max(0,1-(t-hit)/2.5):0;
+    x.fillStyle='#8a6b4a';x.fillRect(bx,mid-60,40,h-mid+60);
+    if(glow>0){x.fillStyle=`rgba(255,194,26,${.75*glow})`;x.fillRect(bx,mid-60,40,h-mid+60)}
+    x.fillStyle='#fff';x.font='bold 12px Nunito, sans-serif';x.fillText('block',bx+4,mid-66+0);
+    // incoming pulse (big) moving right, reflected pulse (small) moving left
+    const pulse=(cx,A,col,lab)=>{x.beginPath();for(let px=0;px<=bx;px+=3){const d=(px-cx)/L;const y=Math.abs(d)<1?mid-A*Math.cos(d*Math.PI/2)**2:mid;px?x.lineTo(px,y):x.moveTo(px,y)}x.strokeStyle=col;x.lineWidth=4;x.stroke();
+      if(cx>0&&cx<bx){x.fillStyle=col;x.font='bold 13px Nunito, sans-serif';x.textAlign='center';x.fillText(lab,cx,mid-A-10);x.textAlign='left'}};
+    const inX=40+spd*t;
+    if(inX<bx-10)pulse(inX,A1,'#2563eb','first wave: big');
+    else{const back=bx-10-spd*(t-hit);pulse(back,A2,'#e5484d','reflected wave: smaller');
+      x.fillStyle='#b07a0a';x.font='bold 13px Nunito, sans-serif';x.textAlign='right';x.fillText('energy absorbed by the block ⚡',bx-8,22);x.textAlign='left';
+      $('#crashRead').textContent='Some energy went into the block, so less energy bounced back.'}
+    // calm water line
+    x.strokeStyle='rgba(27,36,112,.25)';x.lineWidth=1;x.setLineDash([4,4]);x.beginPath();x.moveTo(0,mid);x.lineTo(bx,mid);x.stroke();x.setLineDash([]);
+    const done=t>hit+(bx)/spd+0.6;
+    if(c.closest('.slide').hidden){raf=null;return}
+    if(!done)raf=requestAnimationFrame(draw);else{raf=null;clearTimeout(c._again);c._again=setTimeout(()=>{if(!c.closest('.slide').hidden)start()},2200)}}
+  function start(){t0=performance.now();$('#crashRead').textContent='Watch the wave hit the block…';cancelAnimationFrame(raf);raf=requestAnimationFrame(draw)}
+  $('#crashReplay').onclick=start;
+  (function(){const c2=$('#wallAnim');let r2=null,parts=[],last=0;
+    function lane(x,w,y0,y1,ins,t,label,loud){const cy=(y0+y1)/2,wx=w*.48,ww=ins?30:10;
+      x.fillStyle=ins?'#c26bd6':'#e8d3a8';x.fillRect(wx,y0+6,ww,y1-y0-12);
+      if(ins){x.fillStyle='rgba(255,255,255,.45)';for(let yy=y0+12;yy<y1-10;yy+=9)for(let k=0;k<3;k++){x.beginPath();x.arc(wx+6+k*9,yy+(k%2)*4,1.8,0,7);x.fill()}}
+      x.fillStyle='#1b2470';x.fillRect(14,cy-18,16,36);x.fillStyle='#7dd3fc';x.fillRect(16,cy-15,12,26);
+      x.fillStyle='#1c2340';x.font='bold 13px Nunito, sans-serif';x.fillText(label,40,y0+16);
+      // waves: before wall full strength, after wall reduced
+      const ph=(t*0.9)%1;for(let k=0;k<4;k++){const q=(ph+k*.25)%1;const px=36+q*(wx-40);x.strokeStyle='#2563eb';x.lineWidth=3;x.beginPath();x.arc(px-30,cy,34,-.7,.7);x.stroke();
+        const p2=wx+ww+8+q*(w-wx-ww-70);const a=ins?.15:.75;x.strokeStyle=`rgba(37,99,235,${a})`;x.lineWidth=ins?2:3;x.beginPath();x.arc(p2-30,cy,ins?18:30,-.7,.7);x.stroke()}
+      // loudness meter
+      const mx=w-30,mh=y1-y0-24;x.fillStyle='#e8ecf6';x.fillRect(mx,y0+12,14,mh);const lv=loud*mh*(0.85+0.15*Math.sin(t*8));x.fillStyle=ins?'#1fa75a':'#e5484d';x.fillRect(mx,y0+12+mh-lv,14,lv);
+      x.fillStyle=ins?'#1fa75a':'#e5484d';x.font='bold 12px Nunito, sans-serif';x.textAlign='right';x.fillText(ins?'quiet next door':'loud next door',mx-6,y1-8);x.textAlign='left'}
+    function d2(now){const {x,w,h}=fit(c2),t=now/1000;x.fillStyle='#f6f8fd';x.fillRect(0,0,w,h);
+      lane(x,w,4,h/2-3,true,t,'Insulated wall (soft insulation inside)',.18);x.fillStyle='#dfe3f1';x.fillRect(0,h/2-1,w,2);
+      lane(x,w,h/2+3,h-4,false,t,'Uninsulated wall (thin)',.8);
+      if(!c2.closest('.slide').hidden)r2=requestAnimationFrame(d2);else r2=null}
+    window._wallStart=()=>{if(!r2)r2=requestAnimationFrame(d2)};})();
+  enterHooks[14]=()=>{start();window._wallStart()};})();
 window.addEventListener('resize',()=>enterHooks[cur]&&enterHooks[cur]());
 go(fromHash(),false);
 </script>
