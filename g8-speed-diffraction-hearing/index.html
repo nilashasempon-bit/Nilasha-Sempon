@@ -371,8 +371,9 @@ video{width:100%;border-radius:14px;background:#000;display:block}
       <button style="background:#1593c9" data-go="6"><small>PRE-ASSESSMENT · min 0–5</small><strong>Starter + Attendance</strong><span>Kickoff &amp; pre-assessment</span></button>
       <button style="background:#d23b8a" data-go="5"><small>OBJECTIVES</small><strong>Objectives &amp; vocabulary</strong><span>Flip the key words</span></button>
       <button style="background:#ef5a5a" data-go="8"><small>HOOK · min 5–9</small><strong>The sports day mystery</strong><span>UAE mystery + predict</span></button>
-      <button style="background:#f07f19" data-go="9"><small>ACTIVITY · min 9–12</small><strong>Gas, liquid or solid?</strong><span>Sort how the sound travels</span></button>
-      <button style="background:#7a3ff0" data-go="10"><small>EXPLAIN · min 12–17</small><strong>Narrated video + speed, diffraction, hearing</strong><span>Watch, then the unconventional version + textbook</span></button>
+      <button style="background:#f07f19" data-go="9"><small>VIDEO · min 9–12</small><strong>Narrated video</strong><span>Watch and listen with subtitles</span></button>
+      <button style="background:#0e9fa6" data-go="10"><small>ACTIVITY · min 12–14</small><strong>Gas, liquid or solid?</strong><span>Sort how the sound travels</span></button>
+      <button style="background:#7a3ff0" data-go="11"><small>EXPLAIN · min 14–17</small><strong>Speed, diffraction, hearing</strong><span>The unconventional version + textbook</span></button>
       <button style="background:#b0287a" data-go="16"><small>SIMULATION · min 17–19</small><strong>Sound speed race</strong><span>Air · water · ice · iron · glass</span></button>
       <button style="background:#118a7e" data-go="17"><small>SIMULATION · min 19–21</small><strong>Temperature &amp; thunder</strong><span>Hot UAE air vs cold air</span></button>
       <button style="background:#2563eb" data-go="18"><small>SIMULATION · min 21–25</small><strong>Diffraction &amp; the ear</strong><span>Gaps, corners and the cochlea</span></button>
@@ -488,28 +489,8 @@ video{width:100%;border-radius:14px;background:#000;display:block}
   </div>
 </section>
 
-<!-- 9 · SORT -->
-<section class="slide" id="s9" data-title="Encounter: gas, liquid or solid?" data-skills="teamwork" data-coach="hessa" data-ns="Cooperation" data-says="Sorted it differently from your partner? Listen first, then compare. Different ideas help us learn.">
-  <div class="inner">
-    <div class="head"><h2>Encounter: gas, liquid or solid?</h2><div class="timer" data-sec="180"></div></div>
-    <p class="lead">What is the sound mainly travelling through? <b>Tap each situation</b>: GAS → LIQUID → SOLID. Then rank: which medium carries sound fastest?</p>
-    <div class="sorter" id="sorter" data-labels="GAS|LIQUID|SOLID">
-      <button class="sitem" data-ans="SOLID">Hearing a friend knock on the other end of your desk<span class="tag">?</span></button>
-      <button class="sitem" data-ans="LIQUID">Dolphins calling to each other in the Gulf<span class="tag">?</span></button>
-      <button class="sitem" data-ans="GAS">Hearing the adhan across the neighbourhood<span class="tag">?</span></button>
-      <button class="sitem" data-ans="SOLID">Tapping on a metal water pipe<span class="tag">?</span></button>
-      <button class="sitem" data-ans="GAS">Thunder rumbling over Hatta<span class="tag">?</span></button>
-      <button class="sitem" data-ans="LIQUID">A diver hearing a boat engine underwater<span class="tag">?</span></button>
-      <button class="sitem" data-ans="SOLID">Hamdan's ear pressed to the metal railing<span class="tag">?</span></button>
-      <button class="sitem" data-ans="LIQUID">Hearing a friend call you while swimming underwater<span class="tag">?</span></button>
-    </div>
-    <div class="row"><button class="btn navy" id="sortCheck">Check my sort</button><span class="score" id="sortScore"></span></div>
-    <div class="note" id="sortWhy" hidden><b>Ranking:</b> sound travels fastest through <b>solids</b>, then <b>liquids</b>, and slowest through <b>gases</b>. In a solid the particles are packed tightly, so they collide and pass the energy on very quickly.</div>
-  </div>
-</section>
-
-<!-- 10 · NARRATED VIDEO -->
-<section class="slide" id="s10" data-title="Watch: narrated video" data-skills="reading,communication" data-coach="fahim" data-ns="Excellence" data-says="Listen for the key words. Pause the video and explain each idea to your partner!">
+<!-- 9 · NARRATED VIDEO -->
+<section class="slide" id="s9" data-title="Watch: narrated video" data-skills="reading,communication" data-coach="fahim" data-ns="Excellence" data-says="Listen for the key words. Pause the video and explain each idea to your partner!">
   <div class="inner">
     <div class="head"><h2>Watch: speed of sound, diffraction &amp; hearing</h2></div>
     <p class="lead">A <b>2 min 51 s narrated video with subtitles</b>. Turn the sound on, then listen for how sound travels.</p>
@@ -527,6 +508,26 @@ video{width:100%;border-radius:14px;background:#000;display:block}
       <div class="sim"><video controls playsinline preload="metadata" poster="media/narration-poster.webp" src="media/narration.mp4" aria-label="Narrated video with subtitles: speed of sound, diffraction and hearing"></video>
         <div class="legend">Subtitles are built into the video, so they show on any screen or projector.</div></div>
     </div>
+  </div>
+</section>
+
+<!-- 10 · SORT -->
+<section class="slide" id="s10" data-title="Encounter: gas, liquid or solid?" data-skills="teamwork" data-coach="hessa" data-ns="Cooperation" data-says="Sorted it differently from your partner? Listen first, then compare. Different ideas help us learn.">
+  <div class="inner">
+    <div class="head"><h2>Encounter: gas, liquid or solid?</h2><div class="timer" data-sec="180"></div></div>
+    <p class="lead">What is the sound mainly travelling through? <b>Tap each situation</b>: GAS → LIQUID → SOLID. Then rank: which medium carries sound fastest?</p>
+    <div class="sorter" id="sorter" data-labels="GAS|LIQUID|SOLID">
+      <button class="sitem" data-ans="SOLID">Hearing a friend knock on the other end of your desk<span class="tag">?</span></button>
+      <button class="sitem" data-ans="LIQUID">Dolphins calling to each other in the Gulf<span class="tag">?</span></button>
+      <button class="sitem" data-ans="GAS">Hearing the adhan across the neighbourhood<span class="tag">?</span></button>
+      <button class="sitem" data-ans="SOLID">Tapping on a metal water pipe<span class="tag">?</span></button>
+      <button class="sitem" data-ans="GAS">Thunder rumbling over Hatta<span class="tag">?</span></button>
+      <button class="sitem" data-ans="LIQUID">A diver hearing a boat engine underwater<span class="tag">?</span></button>
+      <button class="sitem" data-ans="SOLID">Hamdan's ear pressed to the metal railing<span class="tag">?</span></button>
+      <button class="sitem" data-ans="LIQUID">Hearing a friend call you while swimming underwater<span class="tag">?</span></button>
+    </div>
+    <div class="row"><button class="btn navy" id="sortCheck">Check my sort</button><span class="score" id="sortScore"></span></div>
+    <div class="note" id="sortWhy" hidden><b>Ranking:</b> sound travels fastest through <b>solids</b>, then <b>liquids</b>, and slowest through <b>gases</b>. In a solid the particles are packed tightly, so they collide and pass the energy on very quickly.</div>
   </div>
 </section>
 
@@ -1044,7 +1045,7 @@ $$('#tf .q').forEach(q=>{let done=false;$$('.opt',q).forEach(b=>b.onclick=()=>{i
   q.dataset.res=ok?1:0;const sc=$$('#tf .q').reduce((a,x)=>a+(+x.dataset.res||0),0),n=$$('#tf .q[data-res]').length;$('#tfScore').textContent='Score: '+sc+' / 5';if(n===5&&sc===5)boom(false)})});
 
 // 9 · video answers
-$('#vidAns')&&($('#vidAns').onclick=()=>$$('#s9 .vans').forEach(a=>a.hidden=false));
+$('#vidAns')&&($('#vidAns').onclick=()=>$$('#s10 .vans').forEach(a=>a.hidden=false));
 
 // 11 · sort
 $$('#sorter .sitem').forEach(b=>b.onclick=()=>{b.classList.remove('right','wrong');const L=($('#sorter').dataset.labels||'low|HIGH').split('|');const i=(L.indexOf(b.dataset.v)+1)%L.length;b.dataset.v=L[i];$('.tag',b).textContent=L[i]});

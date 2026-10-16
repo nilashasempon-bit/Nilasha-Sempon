@@ -353,8 +353,9 @@ video{width:100%;border-radius:14px;background:#000;display:block}
       <button style="background:#1593c9" data-go="6"><small>PRE-ASSESSMENT · min 0–5</small><strong>Starter + Attendance</strong><span>Kickoff &amp; pre-assessment</span></button>
       <button style="background:#d23b8a" data-go="5"><small>OBJECTIVES</small><strong>Objectives &amp; vocabulary</strong><span>Flip the key words</span></button>
       <button style="background:#ef5a5a" data-go="8"><small>HOOK · min 5–9</small><strong>The echoing majlis</strong><span>UAE mystery + predict</span></button>
-      <button style="background:#f07f19" data-go="9"><small>ACTIVITY · min 9–12</small><strong>Reflect, absorb or transmit?</strong><span>Sort the situations</span></button>
-      <button style="background:#7a3ff0" data-go="10"><small>EXPLAIN · min 12–17</small><strong>Narrated video + three things a wave can do</strong><span>Watch, then the unconventional version + textbook</span></button>
+      <button style="background:#f07f19" data-go="9"><small>VIDEO · min 9–12</small><strong>Narrated video</strong><span>Watch and listen with subtitles</span></button>
+      <button style="background:#0e9fa6" data-go="10"><small>ACTIVITY · min 12–14</small><strong>Reflect, absorb or transmit?</strong><span>Sort the situations</span></button>
+      <button style="background:#7a3ff0" data-go="11"><small>EXPLAIN · min 14–17</small><strong>Three things a wave can do</strong><span>The unconventional version + textbook</span></button>
       <button style="background:#b0287a" data-go="16"><small>SIMULATION · min 17–20</small><strong>Angle of reflection</strong><span>Angle in = angle out</span></button>
       <button style="background:#118a7e" data-go="17"><small>SIMULATION · min 20–23</small><strong>Wall tester</strong><span>Concrete · foam · thin wall · glass</span></button>
       <button style="background:#2563eb" data-go="18"><small>SIMULATION · min 23–25</small><strong>Echoes &amp; sound barriers</strong><span>Hatta Dam · Sheikh Zayed Road</span></button>
@@ -481,28 +482,8 @@ video{width:100%;border-radius:14px;background:#000;display:block}
   </div>
 </section>
 
-<!-- 9 · SORT -->
-<section class="slide" id="s9" data-title="Encounter: reflect, absorb or transmit?" data-skills="teamwork" data-coach="hessa" data-ns="Cooperation" data-says="Sorted it differently from your partner? Listen first, then compare. Some situations can do more than one thing!">
-  <div class="inner">
-    <div class="head"><h2>Encounter: reflect, absorb or transmit?</h2><div class="timer" data-sec="180"></div></div>
-    <p class="lead"><b>Tap a situation</b> to sort it. Each tap moves it on: REFLECT → ABSORB → TRANSMIT. Then check with your partner.</p>
-    <div class="sorter" id="sorter" data-labels="REFLECT|ABSORB|TRANSMIT">
-      <button class="sitem" data-ans="REFLECT">Shouting and hearing an echo at Hatta Dam<span class="tag">?</span></button>
-      <button class="sitem" data-ans="ABSORB">A thick carpet makes footsteps quiet in the majlis<span class="tag">?</span></button>
-      <button class="sitem" data-ans="TRANSMIT">Hearing your neighbour's TV through a thin wall<span class="tag">?</span></button>
-      <button class="sitem" data-ans="REFLECT">Ocean waves bouncing back off the pier at JBR<span class="tag">?</span></button>
-      <button class="sitem" data-ans="ABSORB">Foam panels in a recording studio<span class="tag">?</span></button>
-      <button class="sitem" data-ans="TRANSMIT">Hearing the adhan through a closed window<span class="tag">?</span></button>
-      <button class="sitem" data-ans="REFLECT">A ship's sonar bouncing off the seabed in the Gulf<span class="tag">?</span></button>
-      <button class="sitem" data-ans="ABSORB">Heavy curtains making a theatre quieter<span class="tag">?</span></button>
-    </div>
-    <div class="row"><button class="btn navy" id="sortCheck">Check my sort</button><span class="score" id="sortScore"></span></div>
-    <div class="note" id="sortWhy" hidden><b>Why?</b> Hard, smooth surfaces mostly <b>reflect</b> waves. Soft, porous materials mostly <b>absorb</b> the energy. Thin materials let some energy <b>transmit</b> (pass through).<br><b>Remember:</b> most real surfaces do a bit of all three. We sort by what happens <i>most</i>.</div>
-  </div>
-</section>
-
-<!-- 10 · NARRATED VIDEO -->
-<section class="slide" id="s10" data-title="Watch: narrated video" data-skills="reading,communication" data-coach="fahim" data-ns="Excellence" data-says="Listen for the three key words. Pause the video and say each meaning to your partner!">
+<!-- 9 · NARRATED VIDEO -->
+<section class="slide" id="s9" data-title="Watch: narrated video" data-skills="reading,communication" data-coach="fahim" data-ns="Excellence" data-says="Listen for the three key words. Pause the video and say each meaning to your partner!">
   <div class="inner">
     <div class="head"><h2>Watch: reflection, absorption &amp; transmission</h2></div>
     <p class="lead">A <b>2 min 46 s narrated video with subtitles</b>. Turn the sound on, then listen for the three key words.</p>
@@ -519,6 +500,26 @@ video{width:100%;border-radius:14px;background:#000;display:block}
       <div class="sim"><video controls playsinline preload="metadata" poster="media/wave-narration-poster.webp" src="media/wave-narration.mp4" aria-label="Narrated video with subtitles: reflection, absorption and transmission"></video>
         <div class="legend">Subtitles are built into the video, so they show on any screen or projector.</div></div>
     </div>
+  </div>
+</section>
+
+<!-- 10 · SORT -->
+<section class="slide" id="s10" data-title="Encounter: reflect, absorb or transmit?" data-skills="teamwork" data-coach="hessa" data-ns="Cooperation" data-says="Sorted it differently from your partner? Listen first, then compare. Some situations can do more than one thing!">
+  <div class="inner">
+    <div class="head"><h2>Encounter: reflect, absorb or transmit?</h2><div class="timer" data-sec="180"></div></div>
+    <p class="lead"><b>Tap a situation</b> to sort it. Each tap moves it on: REFLECT → ABSORB → TRANSMIT. Then check with your partner.</p>
+    <div class="sorter" id="sorter" data-labels="REFLECT|ABSORB|TRANSMIT">
+      <button class="sitem" data-ans="REFLECT">Shouting and hearing an echo at Hatta Dam<span class="tag">?</span></button>
+      <button class="sitem" data-ans="ABSORB">A thick carpet makes footsteps quiet in the majlis<span class="tag">?</span></button>
+      <button class="sitem" data-ans="TRANSMIT">Hearing your neighbour's TV through a thin wall<span class="tag">?</span></button>
+      <button class="sitem" data-ans="REFLECT">Ocean waves bouncing back off the pier at JBR<span class="tag">?</span></button>
+      <button class="sitem" data-ans="ABSORB">Foam panels in a recording studio<span class="tag">?</span></button>
+      <button class="sitem" data-ans="TRANSMIT">Hearing the adhan through a closed window<span class="tag">?</span></button>
+      <button class="sitem" data-ans="REFLECT">A ship's sonar bouncing off the seabed in the Gulf<span class="tag">?</span></button>
+      <button class="sitem" data-ans="ABSORB">Heavy curtains making a theatre quieter<span class="tag">?</span></button>
+    </div>
+    <div class="row"><button class="btn navy" id="sortCheck">Check my sort</button><span class="score" id="sortScore"></span></div>
+    <div class="note" id="sortWhy" hidden><b>Why?</b> Hard, smooth surfaces mostly <b>reflect</b> waves. Soft, porous materials mostly <b>absorb</b> the energy. Thin materials let some energy <b>transmit</b> (pass through).<br><b>Remember:</b> most real surfaces do a bit of all three. We sort by what happens <i>most</i>.</div>
   </div>
 </section>
 
@@ -1047,7 +1048,7 @@ $$('#tf .q').forEach(q=>{let done=false;$$('.opt',q).forEach(b=>b.onclick=()=>{i
   q.dataset.res=ok?1:0;const sc=$$('#tf .q').reduce((a,x)=>a+(+x.dataset.res||0),0),n=$$('#tf .q[data-res]').length;$('#tfScore').textContent='Score: '+sc+' / 5';if(n===5&&sc===5)boom(false)})});
 
 // 9 · video answers
-$('#vidAns')&&($('#vidAns').onclick=()=>$$('#s9 .vans').forEach(a=>a.hidden=false));
+$('#vidAns')&&($('#vidAns').onclick=()=>$$('#s10 .vans').forEach(a=>a.hidden=false));
 
 // 11 · sort
 $$('#sorter .sitem').forEach(b=>b.onclick=()=>{b.classList.remove('right','wrong');const L=($('#sorter').dataset.labels||'low|HIGH').split('|');const i=(L.indexOf(b.dataset.v)+1)%L.length;b.dataset.v=L[i];$('.tag',b).textContent=L[i]});
