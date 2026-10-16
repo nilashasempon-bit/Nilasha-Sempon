@@ -579,14 +579,15 @@ video{width:100%;border-radius:14px;background:#000;display:block}
 </section>
 
 <!-- 14 · SIM: CYCLE COUNTER -->
-<section class="slide" id="s14" data-title="Simulation: Calvin cycle counter" data-skills="numeracy" data-coach="shahin" data-ns="Innovation" data-says="Leaders check the numbers! Predict the ATP and NADPH before you press Turn.">
+<section class="slide" id="s14" data-title="Simulation: Calvin cycle counter" data-skills="numeracy" data-coach="shahin" data-ns="Innovation" data-says="Leaders check the numbers! Predict the ATP and NADPH before you press Next step.">
   <div class="inner">
     <div class="head"><h2>Simulation: Calvin cycle counter</h2></div>
-    <div class="cols split-r">
+    <div class="cols split">
       <div class="sim">
-        <canvas id="cyc" height="300"></canvas>
-        <div class="row"><button class="btn small" id="cycTurn" style="background:var(--green);color:#fff">➕ Fix 1 CO₂</button><button class="btn small" id="cycThree">➕ 3 CO₂ (one full turn)</button><button class="btn small ghost" id="cycReset">↺ Reset</button></div>
-        <div class="score" id="cycRead">CO₂ fixed: 0</div>
+        <div class="row"><b>Choose:</b><button class="btn small" data-cn="3" style="background:var(--green);color:#fff">3 CO₂ (1 turn → 1 G3P)</button><button class="btn small" data-cn="6" style="background:var(--navy);color:#fff">6 CO₂ (2 turns → 1 glucose)</button></div>
+        <canvas id="cyc" height="400"></canvas>
+        <div class="row"><button class="btn small ghost" id="cycBack">◀ Back</button><button class="btn small" id="cycNext">Next step ▶</button><button class="btn small" id="cycPlay" style="background:var(--purple);color:#fff">▶ Play all</button><button class="btn small ghost" id="cycReset">↺ Reset</button></div>
+        <div class="score" id="cycRead"></div>
       </div>
       <div class="grid" style="gap:10px">
         <button class="flip kw"><div class="fi"><div class="face front"><strong>For 3 CO₂: how much ATP and NADPH?</strong><span class="tap">tap to reveal</span></div><div class="face back">9 ATP (6 for reduction + 3 for regeneration) and 6 NADPH. Net gain: 1 G3P.</div></div></button>
@@ -1086,24 +1087,57 @@ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function lbl(x,t,X,Y,bg,fg){x.font='bold 12px Nunito, sans-serif';const w=x.measureText(t).width+12;x.fillStyle=bg;x.beginPath();x.roundRect?x.roundRect(X-w/2,Y-10,w,20,10):x.rect(X-w/2,Y-10,w,20);x.fill();x.fillStyle=fg||'#fff';x.textAlign='center';x.fillText(t,X,Y+4);x.textAlign='left'}
 function box(x,X,Y,w,h,col,t1,t2){x.fillStyle=col;x.beginPath();x.roundRect?x.roundRect(X-w/2,Y-h/2,w,h,10):x.rect(X-w/2,Y-h/2,w,h);x.fill();x.fillStyle='#fff';x.textAlign='center';x.font='bold 13px Nunito, sans-serif';x.fillText(t1,X,Y-2);x.font='11px Nunito, sans-serif';x.fillText(t2,X,Y+14);x.textAlign='left'}
 
-// 14 · Calvin cycle counter
-(function(){const c=$('#cyc');let n=0,anim=0,raf=null;
-  function draw(){const {x,w,h}=fit(c);x.fillStyle='#f3f8f1';x.fillRect(0,0,w,h);const cx=w*.4,cy=h*.52,R=Math.min(w*.2,h*.36);
+// 14 · Calvin cycle counter: whole turns, step by step (3 CO2 or 6 CO2)
+(function(){const c=$('#cyc');let n=3,step=0,t0=0,raf=null,play=null;
+  const CO={co2:'#5b6385',rubp:'#e5484d',pga:'#2563eb',bpg:'#0e9fa6',g3p:'#f07f19',atp:'#f6b500',nad:'#7a3ff0',glu:'#1fa75a'};
+  const rr=(x,X,Y,w,h,r,fill,stroke)=>{x.beginPath();x.roundRect?x.roundRect(X,Y,w,h,r):x.rect(X,Y,w,h);if(fill){x.fillStyle=fill;x.fill()}if(stroke){x.strokeStyle=stroke;x.lineWidth=2;x.stroke()}};
+  function S(){const k=n/3;return[
+    {st:-1,t:`Start: ${n} CO₂ from the air and ${n} RuBP are ready in the stroma.`,eq:[[n,'CO₂',1,CO.co2],[n,'RuBP',5,CO.rubp]],arrow:false,atp:[0,0],nad:0},
+    {st:0,t:`1 · FIX: rubisco joins ${n} CO₂ to ${n} RuBP → ${2*n} 3-PGA (3-carbon). Carbons: ${n} + ${5*n} = ${6*n} = ${2*n} × 3 ✓`,eq:[[n,'CO₂',1,CO.co2],[n,'RuBP',5,CO.rubp],null,[2*n,'3-PGA',3,CO.pga]],atp:[0,0],nad:0},
+    {st:1,t:`2 · REDUCE (a): ${2*n} ATP add a phosphate → ${2*n} 1,3-BPG.  ATP used so far: ${2*n}`,eq:[[2*n,'3-PGA',3,CO.pga],[2*n,'ATP',0,CO.atp],null,[2*n,'1,3-BPG',3,CO.bpg]],atp:[2*n,0],nad:0},
+    {st:1,t:`2 · REDUCE (b): ${2*n} NADPH give electrons → ${2*n} G3P.  NADPH used: ${2*n}`,eq:[[2*n,'1,3-BPG',3,CO.bpg],[2*n,'NADPH',0,CO.nad],null,[2*n,'G3P',3,CO.g3p]],atp:[2*n,0],nad:2*n},
+    {st:2,t:n===6?`G3P LEAVES: 2 G3P leave the cycle and join to make 1 glucose (6 carbons). ${2*n-2} G3P stay.`:`G3P LEAVES: 1 G3P leaves the cycle (the net gain). ${2*n-1} G3P stay.`,eq:n===6?[[2,'G3P',3,CO.g3p],null,[1,'glucose',6,CO.glu]]:[[1,'G3P',3,CO.g3p],null,[1,'out',0,CO.g3p]],atp:[2*n,0],nad:2*n},
+    {st:3,t:`3 · REGENERATE: ${5*k} G3P + ${n} ATP → ${n} RuBP (back to the start!). Carbons: ${5*k} × 3 = ${15*k} = ${n} × 5 ✓`,eq:[[5*k,'G3P',3,CO.g3p],[n,'ATP',0,CO.atp],null,[n,'RuBP',5,CO.rubp]],atp:[2*n,n],nad:2*n},
+    {st:4,t:`TOTAL for ${n} CO₂: ${3*n} ATP (${2*n} reduce + ${n} regenerate) and ${2*n} NADPH → ${k} G3P${n===6?' = 1 glucose':''} 🎉`,eq:null,atp:[2*n,n],nad:2*n}]}
+  function mol(x,X,Y,cnt,name,carb,col,w){// draw count × molecule with carbon dots
+    x.fillStyle=col;x.font='bold 15px Nunito, sans-serif';x.textAlign='center';
+    const label=name==='out'?'→ out':`${cnt} ${name}`;x.fillText(label,X,Y-28);
+    const show=Math.min(cnt,12),sp=w<130?6:8,mw=carb?carb*sp+6:14,cw=mw+5,per=Math.max(1,Math.min(6,Math.floor(w/cw))),cols=Math.min(show,per);
+    for(let i=0;i<show&&name!=='out';i++){const cx=X-(cols*cw)/2+(i%per)*cw+cw/2,cy=Y-8+Math.floor(i/per)*19;
+      if(!carb){x.fillStyle=col;x.beginPath();x.arc(cx,cy,6,0,7);x.fill()}
+      else{rr(x,cx-mw/2,cy-7,mw,14,7,'#fff',col);for(let j=0;j<carb;j++){x.fillStyle='#1c2340';x.beginPath();x.arc(cx-mw/2+6+j*sp,cy,sp<8?2.2:2.8,0,7);x.fill()}}}
+    if(cnt>12){x.fillStyle=col;x.font='bold 12px Nunito, sans-serif';x.fillText('…',X,Y+36)}
+    x.textAlign='left'}
+  function draw(now){c.dataset.h=c.getBoundingClientRect().width<460?500:400;const {x,w,h}=fit(c);const L=S(),s=L[step];x.fillStyle='#f3f8f1';x.fillRect(0,0,w,h);
+    const narrow=w<620,bw=narrow?112:128,cx=narrow?w*.5:w*.36,cy=w<460?160:128,R=Math.max(60,Math.min(narrow?(w/2-bw/2-10):w*.16,92));
     x.strokeStyle='#bcd8b6';x.lineWidth=10;x.beginPath();x.arc(cx,cy,R,0,7);x.stroke();
-    // moving carbon dot
-    if(raf){const a=-Math.PI/2+anim*6.283;x.fillStyle='#1b2470';x.beginPath();x.arc(cx+Math.cos(a)*R,cy+Math.sin(a)*R,9,0,7);x.fill();x.fillStyle='#fff';x.font='bold 10px Nunito, sans-serif';x.textAlign='center';x.fillText('C',cx+Math.cos(a)*R,cy+Math.sin(a)*R+4);x.textAlign='left'}
-    const bw=Math.min(150,w*.24);
-    box(x,cx,cy-R,bw,44,'#1fa75a','1 · FIX',n+' CO₂ + '+n+' RuBP');
-    box(x,cx+R,cy,bw,44,'#2563eb','2 · REDUCE',2*n+' 3-PGA→'+2*n+' G3P');
-    box(x,cx,cy+R,bw,44,'#f07f19','G3P leaves',(n/3).toFixed(n%3?2:0)+' net G3P');
-    box(x,cx-R,cy,bw,44,'#e5484d','3 · REBUILD',(5*n/3).toFixed(n%3?1:0)+' G3P→'+n+' RuBP');
-    lbl(x,'STROMA',cx,cy,'#5b8a52');
-    const tx=w*.765;x.fillStyle='#1c2340';x.font='bold 12px Nunito, sans-serif';
-    [['CO₂ fixed',n,'#1fa75a'],['ATP used',3*n,'#e5484d'],['NADPH used',2*n,'#7a3ff0'],['Net G3P',(n/3).toFixed(n%3?2:0),'#f07f19'],['Glucose',(n/6).toFixed(n%6?2:0),'#1b2470']].forEach(([k,v,col],i)=>{x.fillStyle=col;x.fillText(k+': '+v,tx,h*.2+i*28)});
-    $('#cycRead').textContent=n===0?'Press Fix 1 CO₂ to start.':`${n} CO₂ fixed · ${3*n} ATP · ${2*n} NADPH · ${(n/3).toFixed(n%3?2:0)} net G3P${n%6===0?' · '+(n/6)+' glucose!':''}`}
-  function go(k){if(raf)return;const target=n+k;anim=0;const step=()=>{anim+=.04;if(anim>=1){n=target;raf=null;draw();if(n%6===0)cheer(true);else if(n%3===0)cheer(false);return}draw();raf=requestAnimationFrame(step)};raf=requestAnimationFrame(step)}
-  $('#cycTurn').onclick=()=>go(1);$('#cycThree').onclick=()=>go(3);$('#cycReset').onclick=()=>{n=0;draw()};
-  enterHooks[14]=draw;})();
+    const st=[[cx,cy-R,'1 · FIX','#1fa75a'],[cx+R,cy,'2 · REDUCE','#2563eb'],[cx,cy+R,'G3P leaves','#f07f19'],[cx-R,cy,'3 · REGENERATE','#e5484d']];
+    // moving token along the ring to the active station
+    if(s.st>=0&&s.st<4){const ang=[-Math.PI/2,0,Math.PI/2,Math.PI][s.st],p=Math.min(1,(now-t0)/700),a=ang-(1-p)*1.2;x.strokeStyle=st[s.st][3];x.lineWidth=10;x.beginPath();x.arc(cx,cy,R,ang-1.2,a);x.stroke()}
+    st.forEach(([X,Y,lab,col],i)=>{const on=s.st===i||s.st===4;rr(x,X-bw/2,Y-17,bw,34,10,on?col:'#fff',col);x.fillStyle=on?'#fff':col;x.font=`bold ${narrow?12:13}px Nunito, sans-serif`;x.textAlign='center';x.fillText(lab,X,Y+5);x.textAlign='left'});
+    x.fillStyle='#5b8a52';x.font='bold 13px Nunito, sans-serif';x.textAlign='center';x.fillText(`${n} CO₂`,cx,cy-4);x.fillText(n===6?'2 turns':'1 turn',cx,cy+14);x.textAlign='left';
+    // tally
+    const tx=narrow?12:w*.66,ty=narrow?h-150:26;if(!narrow||true){x.font='bold 14px Nunito, sans-serif';
+      const rows=[['ATP for reduction',s.atp[0],CO.atp,'#8a6a00'],['ATP for regeneration',s.atp[1],CO.atp,'#8a6a00'],['ATP total',s.atp[0]+s.atp[1],CO.atp,'#8a6a00'],['NADPH total',s.nad,CO.nad,CO.nad]];
+      if(!narrow)rows.forEach(([k,v,col,tc],i)=>{rr(x,tx,ty+i*44,w*.31,36,10,'#fff',col);x.fillStyle=tc;x.fillText(k,tx+10,ty+i*44+23);x.textAlign='right';x.font='bold 18px Nunito, sans-serif';x.fillText(v,tx+w*.31-10,ty+i*44+25);x.textAlign='left';x.font='bold 14px Nunito, sans-serif'})}
+    // equation strip
+    const Y0=w<460?300:268;rr(x,8,Y0-30,w-16,h-Y0+22,14,'#fff','#dfe3f1');
+    if(s.eq){const items=s.eq,wt=items.map(it=>it?1:.45),tot=wt.reduce((p,q)=>p+q,0),unit=(w-28)/tot;let acc=14;
+      items.forEach((it,i)=>{const sw=wt[i]*unit,X=acc+sw/2;acc+=sw;if(!it){x.fillStyle='#1c2340';x.font='bold 26px Nunito, sans-serif';x.textAlign='center';x.fillText('→',X,Y0+52);x.textAlign='left';return}
+        const prev=items[i-1];if(i>0&&prev){x.fillStyle='#1c2340';x.font='bold 22px Nunito, sans-serif';x.textAlign='center';x.fillText('+',X-sw/2,Y0+52);x.textAlign='left'}
+        mol(x,X,Y0+50,it[0],it[1],it[2],it[3],sw-14)})}
+    else{x.fillStyle='#1b2470';x.font='bold 20px Nunito, sans-serif';x.textAlign='center';
+      x.fillText(`${n} CO₂ + ${3*n} ATP + ${2*n} NADPH`,w/2,Y0+30);x.fillText(`→ ${n/3} G3P${n===6?' → 1 glucose':''}`,w/2,Y0+62);
+      x.font='bold 14px Nunito, sans-serif';x.fillStyle='#5b6385';x.fillText(narrow?`ATP ${3*n} · NADPH ${2*n}`:'RuBP is rebuilt, so the cycle can turn again.',w/2,Y0+96);x.textAlign='left'}
+    if(narrow){x.font='bold 13px Nunito, sans-serif';x.fillStyle='#8a6a00';x.fillText(`ATP used: ${s.atp[0]+s.atp[1]}`,12,20);x.font='12px Nunito, sans-serif';x.fillText(`(${s.atp[0]} reduce + ${s.atp[1]} regenerate)`,12,36);x.font='bold 13px Nunito, sans-serif';x.fillStyle=CO.nad;x.textAlign='right';x.fillText(`NADPH used: ${s.nad}`,w-12,20);x.textAlign='left'}
+    $('#cycRead').textContent=s.t;
+    if(now-t0<750)raf=requestAnimationFrame(draw);else raf=null}
+  function go(k){const L=S();step=Math.max(0,Math.min(L.length-1,k));t0=performance.now();cancelAnimationFrame(raf);raf=requestAnimationFrame(draw);if(step===L.length-1)cheer(n===6)}
+  $$('[data-cn]').forEach(b=>b.onclick=()=>{n=+b.dataset.cn;stopPlay();go(0)});
+  $('#cycNext').onclick=()=>{stopPlay();go(step+1)};$('#cycBack').onclick=()=>{stopPlay();go(step-1)};$('#cycReset').onclick=()=>{stopPlay();go(0)};
+  function stopPlay(){if(play){clearInterval(play);play=null;$('#cycPlay').textContent='▶ Play all'}}
+  $('#cycPlay').onclick=()=>{if(play){stopPlay();return}go(0);$('#cycPlay').textContent='❚❚ Pause';play=setInterval(()=>{if(step>=S().length-1){stopPlay();return}go(step+1)},3200)};
+  enterHooks[14]=()=>{t0=0;draw(performance.now())};})();
 
 // 15 · lights off: light reactions feed the Calvin cycle (ATP, NADPH, RuBP, 3-PGA)
 (function(){const rr=(x,X,Y,w,h,r,fill,stroke)=>{x.beginPath();x.roundRect?x.roundRect(X,Y,w,h,r):x.rect(X,Y,w,h);if(fill){x.fillStyle=fill;x.fill()}if(stroke){x.strokeStyle=stroke;x.lineWidth=2;x.stroke()}};const c=$('#dark');let light=true,raf=null,last=0,simT=0,hist=[],spin=0,flow=0,cheered=false;
