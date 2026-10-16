@@ -8,7 +8,7 @@ WHAT IS IN THIS FOLDER
   g8-intensity-loudness/   Lesson: Intensity and Loudness (28 slides)
   g8-wavelength-frequency-pitch/  Lesson: Wavelength, Frequency and Pitch (30 slides)
   g8-wave-interactions/    Lesson: Reflection, Absorption and Transmission (29 slides)
-  g8-speed-diffraction-hearing/  Lesson: Speed of Sound, Diffraction and Hearing (28 slides)
+  g8-speed-diffraction-hearing/  Lesson: Speed of Sound, Diffraction and Hearing (29 slides)
   g6-oxygen-cycle/         Lesson: The Oxygen Cycle, Grade 6 (26 slides)
   HOW-TO-PUBLISH.txt       this guide
 
