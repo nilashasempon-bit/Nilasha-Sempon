@@ -603,13 +603,14 @@ video{width:100%;border-radius:14px;background:#000;display:block}
     <div class="head"><h2>Simulation: lights off! What happens in the dark?</h2></div>
     <div class="cols split-r">
       <div class="stack">
-        <div class="card" style="background:#fff8db;border-color:#f3e2a0"><p style="margin:0">The Calvin cycle is called <b>light-independent</b>, but does it really work in the dark? Switch the light off and watch the levels of <b style="color:#e5484d">RuBP</b> and <b style="color:#2563eb">3-PGA</b> in the stroma.</p></div>
+        <div class="card" style="background:#fff8db;border-color:#f3e2a0"><p style="margin:0">The Calvin cycle is called <b>light-independent</b>, but does it really work in the dark? The light reactions make <b style="color:#f07f19">ATP</b> and <b style="color:#7a3ff0">NADPH</b>, which power the Calvin cycle. Switch the light off, watch what happens to ATP, NADPH, <b style="color:#e5484d">RuBP</b> and <b style="color:#2563eb">3-PGA</b>, then switch it back on.</p></div>
         <div class="card stack"><b>Predict, then tap to check</b>
           <button class="btn small ghost" data-show="w1" style="justify-self:start">▶ Why does 3-PGA build up in the dark?</button><div class="fb ok" id="w1" hidden>Rubisco keeps fixing CO₂ for a short time, but with no ATP and NADPH, 3-PGA cannot be reduced to G3P.</div>
-          <button class="btn small ghost" data-show="w2" style="justify-self:start">▶ Why does RuBP fall?</button><div class="fb ok" id="w2" hidden>RuBP is used up in fixation but cannot be regenerated without ATP. So the cycle soon stops.</div></div>
+          <button class="btn small ghost" data-show="w2" style="justify-self:start">▶ Why does RuBP fall?</button><div class="fb ok" id="w2" hidden>RuBP is used up in fixation but cannot be regenerated without ATP. So the cycle soon stops.</div>
+          <button class="btn small ghost" data-show="w4" style="justify-self:start">▶ What happens when the light comes back on?</button><div class="fb ok" id="w4" hidden>ATP and NADPH are made again, so the stored 3-PGA is reduced to G3P and RuBP is regenerated. The levels return to normal.</div></div>
       </div>
       <div class="sim"><b>Stroma levels over time</b>
-        <canvas id="dark" height="250"></canvas>
+        <canvas id="dark" height="430"></canvas>
         <div class="row"><button class="btn small" id="darkBtn" style="background:#1b2470;color:#fff">🌙 Switch the light OFF</button><button class="btn small ghost" id="darkReset">↺ Restart</button></div>
         <div class="score" id="darkRead">Light ON: ATP and NADPH are being made. The cycle runs steadily.</div>
       </div>
@@ -1104,20 +1105,52 @@ function box(x,X,Y,w,h,col,t1,t2){x.fillStyle=col;x.beginPath();x.roundRect?x.ro
   $('#cycTurn').onclick=()=>go(1);$('#cycThree').onclick=()=>go(3);$('#cycReset').onclick=()=>{n=0;draw()};
   enterHooks[14]=draw;})();
 
-// 15 · lights off: RuBP and 3-PGA levels
-(function(){const c=$('#dark');let t=0,offAt=null,raf=null;const T=100;
-  const ru=tt=>offAt===null||tt<offAt?0.7:0.7*Math.exp(-(tt-offAt)/10)+0.05,pg=tt=>offAt===null||tt<offAt?0.45:0.45+0.45*(1-Math.exp(-(tt-offAt)/10));
-  function draw(){const {x,w,h}=fit(c);x.fillStyle='#fff';x.fillRect(0,0,w,h);const L=40,B=h-30,Wd=w-L-56,H=B-20;
-    if(offAt!==null){x.fillStyle='#1b2470';x.globalAlpha=.12;x.fillRect(L+offAt/T*Wd,20,Wd-offAt/T*Wd,H);x.globalAlpha=1;lbl(x,'🌙 DARK',L+offAt/T*Wd+40,30,'#1b2470')}
-    lbl(x,'☀️ LIGHT',L+40,30,'#f6b500','#3a2a00');
-    x.strokeStyle='#888';x.lineWidth=1;x.beginPath();x.moveTo(L,20);x.lineTo(L,B);x.lineTo(L+Wd,B);x.stroke();
-    x.fillStyle='#5b6385';x.font='11px Nunito, sans-serif';x.fillText('level',4,30);x.fillText('time →',L+Wd-40,B+18);
-    [[ru,'#e5484d','RuBP'],[pg,'#2563eb','3-PGA']].forEach(([f,col,nm])=>{x.strokeStyle=col;x.lineWidth=3;x.beginPath();for(let k=0;k<=t;k++){const X=L+k/T*Wd,Y=B-f(k)*H;k?x.lineTo(X,Y):x.moveTo(X,Y)}x.stroke();x.fillStyle=col;x.font='bold 12px Nunito, sans-serif';x.fillText(nm,L+t/T*Wd+4,B-f(t)*H+4)})}
-  function loop(){t+=.5;draw();if(t<T)raf=requestAnimationFrame(loop);else{raf=null;if(offAt!==null){$('#darkRead').textContent='Dark: 3-PGA builds up (it cannot be reduced without ATP and NADPH) and RuBP falls (it cannot be regenerated). The cycle stops!';$('#darkRead').style.color='#11663a';cheer(false)}}}
-  function start(){if(raf)cancelAnimationFrame(raf);t=0;raf=requestAnimationFrame(loop)}
-  $('#darkBtn').onclick=()=>{if(offAt!==null)return;offAt=Math.max(t,5);if(!raf)start();$('#darkRead').textContent='Light OFF: no new ATP or NADPH… watch the two lines.';$('#darkRead').style.color=''};
-  $('#darkReset').onclick=()=>{offAt=null;$('#darkRead').textContent='Light ON: ATP and NADPH are being made. The cycle runs steadily.';$('#darkRead').style.color='';start()};
-  enterHooks[15]=()=>{if(!raf&&t===0)start();else draw()};})();
+// 15 · lights off: light reactions feed the Calvin cycle (ATP, NADPH, RuBP, 3-PGA)
+(function(){const rr=(x,X,Y,w,h,r,fill,stroke)=>{x.beginPath();x.roundRect?x.roundRect(X,Y,w,h,r):x.rect(X,Y,w,h);if(fill){x.fillStyle=fill;x.fill()}if(stroke){x.strokeStyle=stroke;x.lineWidth=2;x.stroke()}};const c=$('#dark');let light=true,raf=null,last=0,simT=0,hist=[],spin=0,flow=0,cheered=false;
+  const S={atp:.8,nad:.8,ru:.7,pg:.4};const WIN=40,COL={atp:'#f07f19',nad:'#7a3ff0',ru:'#e5484d',pg:'#2563eb'};
+  function reset(){light=true;simT=0;hist=[];Object.assign(S,{atp:.8,nad:.8,ru:.7,pg:.4});cheered=false;btn();msg()}
+  function step(dt){const tgt=light?.8:.04;S.atp+=(tgt-S.atp)*Math.min(1,dt/1.8);S.nad+=(tgt-S.nad)*Math.min(1,dt/2.2);
+    const r=Math.min(S.atp,S.nad)/.8,fix=.55*S.ru,red=.55*1.75*S.pg*r;S.ru+=(red-fix)*dt;S.pg+=(fix-red)*dt;
+    spin+=red*dt*2.2;flow+=dt*(S.atp+S.nad)*.9;simT+=dt;hist.push([simT,light,S.atp,S.nad,S.ru,S.pg]);while(hist.length&&hist[0][0]<simT-WIN)hist.shift();
+    if(!light&&S.pg>.85&&!cheered){cheered=true;cheer(false)}}
+  function msg(){const m=$('#darkRead');
+    if(light&&S.pg<.5){m.textContent='☀️ Light ON: the light reactions make ATP and NADPH. They power the Calvin cycle, so it runs steadily.';m.style.color='#11663a'}
+    else if(light){m.textContent='☀️ Light back ON: ATP and NADPH are made again, the stored 3-PGA is reduced to G3P and RuBP is regenerated.';m.style.color='#11663a'}
+    else if(S.pg<.75){m.textContent='🌙 Light OFF: no new ATP and NADPH… watch them fall!';m.style.color='#1b2470'}
+    else{m.textContent='🌙 Dark: ATP and NADPH run out, so 3-PGA cannot be reduced and builds up. RuBP cannot be regenerated, so it falls. The cycle stops!';m.style.color='#e5484d'}}
+  function btn(){const b=$('#darkBtn');b.textContent=light?'🌙 Switch the light OFF':'☀️ Switch the light ON';b.style.background=light?'#1b2470':'#f6b500';b.style.color=light?'#fff':'#3a2a00'}
+  function dots(x,cx,cy,n,col,lab){for(let i=0;i<n;i++){const a=i*2.4,rr=4+3.2*Math.sqrt(i);x.fillStyle=col;x.beginPath();x.arc(cx+Math.cos(a)*rr*2.2,cy+Math.sin(a)*rr*2.2,4,0,7);x.fill()}lbl(x,lab,cx,cy-30,col)}
+  function draw(){const {x,w,h}=fit(c);const D=200;x.fillStyle=light?'#fffbea':'#e7e9f5';x.fillRect(0,0,w,D);
+    // light reactions (thylakoid)
+    const tx=w*.04,tw=w*.27;x.fillStyle='#d6f0dc';rr(x,tx,40,tw,112,14,'#d6f0dc','#1fa75a');
+    for(let i=0;i<4;i++)rr(x,tx+14,52+i*24,tw-28,18,9,light?'#3fae5a':'#7f9c86');
+    x.fillStyle='#1c2340';x.font='bold 12px Nunito, sans-serif';x.textAlign='center';x.fillText('Light reactions',tx+tw/2,32);x.fillText('(thylakoid)',tx+tw/2,166);x.textAlign='left';
+    x.font='28px "Noto Color Emoji","Apple Color Emoji","Segoe UI Emoji",sans-serif';x.fillText(light?'☀️':'🌙',tx+4,30);
+    // Calvin cycle wheel
+    const cx=w*.74,cy=86,R=46;x.strokeStyle=S.pg>.75&&!light?'#c9cfe4':'#1fa75a';x.lineWidth=6;
+    for(let k=0;k<3;k++){const a0=spin+k*2.094;x.beginPath();x.arc(cx,cy,R,a0,a0+1.6);x.stroke();const ax=cx+R*Math.cos(a0+1.6),ay=cy+R*Math.sin(a0+1.6),ta=a0+1.6+Math.PI/2;x.fillStyle=x.strokeStyle;x.beginPath();x.moveTo(ax+9*Math.cos(ta),ay+9*Math.sin(ta));x.lineTo(ax+9*Math.cos(ta+2.4),ay+9*Math.sin(ta+2.4));x.lineTo(ax+9*Math.cos(ta-2.4),ay+9*Math.sin(ta-2.4));x.fill()}
+    x.fillStyle='#1c2340';x.font='bold 12px Nunito, sans-serif';x.textAlign='center';x.fillText('Calvin',cx,cy-2);x.fillText('cycle',cx,cy+13);x.textAlign='left';
+    dots(x,cx-R-14,170,Math.round(S.ru*14),COL.ru,'RuBP');dots(x,Math.min(w-30,cx+R+40),cy+10,Math.round(S.pg*14),COL.pg,'3-PGA');
+    // ATP + NADPH carriers flowing from thylakoid to the cycle
+    const x0=tx+tw+6,x1=cx-R-10;[['ATP',COL.atp,S.atp,62],['NADPH',COL.nad,S.nad,112]].forEach(([nm,col,v,y])=>{
+      x.strokeStyle='#c9cfe4';x.lineWidth=2;x.setLineDash([5,5]);x.beginPath();x.moveTo(x0,y);x.lineTo(x1,y);x.stroke();x.setLineDash([]);
+      const n=Math.round(v*6);for(let i=0;i<n;i++){const u=((flow*.4+i/6)%1),X=x0+(x1-x0)*u;x.fillStyle=col;x.beginPath();x.arc(X,y,8,0,7);x.fill()}
+      x.fillStyle=col;x.font='bold 11px Nunito, sans-serif';x.fillText(nm+' '+Math.round(v/.8*100)+'%',x0,y-14)});
+    // graph
+    const L=40,T0=D+16,B=h-26,Wd=w-L-70,H=B-T0;x.fillStyle='#fff';x.fillRect(0,D,w,h-D);
+    const t0=Math.max(0,simT-WIN),X=t=>L+(t-t0)/WIN*Wd,Y=v=>B-v/1.15*H;
+    x.fillStyle='rgba(27,36,112,.12)';let ds=null;hist.forEach((p,i)=>{if(!p[1]&&ds===null)ds=p[0];if((p[1]||i===hist.length-1)&&ds!==null){x.fillRect(X(ds),T0,X(p[0])-X(ds),H);ds=null}});
+    x.strokeStyle='#888';x.lineWidth=1;x.beginPath();x.moveTo(L,T0);x.lineTo(L,B);x.lineTo(L+Wd,B);x.stroke();
+    x.fillStyle='#5b6385';x.font='11px Nunito, sans-serif';x.fillText('level',4,T0+8);x.fillText('time →',L+Wd-40,B+16);x.fillText('shaded = dark',L+6,B+16);
+    const labs=[];[['atp',2,'ATP'],['nad',3,'NADPH'],['ru',4,'RuBP'],['pg',5,'3-PGA']].forEach(([k,ix,nm])=>{if(hist.length<2)return;x.strokeStyle=COL[k];x.lineWidth=k==='ru'||k==='pg'?3.5:2.5;if(k==='atp'||k==='nad')x.setLineDash([6,4]);x.beginPath();hist.forEach((p,i)=>{i?x.lineTo(X(p[0]),Y(p[ix])):x.moveTo(X(p[0]),Y(p[ix]))});x.stroke();x.setLineDash([]);
+      const p=hist[hist.length-1];labs.push({nm,col:COL[k],x:X(p[0])+6,y:Y(p[ix])+4})});
+    labs.sort((a,b)=>a.y-b.y);for(let i=1;i<labs.length;i++)if(labs[i].y-labs[i-1].y<14)labs[i].y=labs[i-1].y+14;
+    labs.forEach(l=>{x.fillStyle=l.col;x.font='bold 12px Nunito, sans-serif';x.fillText(l.nm,l.x,Math.min(B+10,l.y))})}
+  function loop(ts){if(c.closest('.slide').hidden){raf=null;return}const dt=last?Math.min(.05,(ts-last)/1000):0;last=ts;step(dt);draw();if(Math.floor(simT*4)%2===0)msg();raf=requestAnimationFrame(loop)}
+  function start(){if(!raf){last=0;raf=requestAnimationFrame(loop)}}
+  $('#darkBtn').onclick=()=>{light=!light;btn();msg();start()};
+  $('#darkReset').onclick=()=>{reset();start()};
+  btn();enterHooks[15]=start;})();
 
 // 16 · C3, C4 or CAM, day or night
 (function(){const c=$('#cam');let plant='c3',time='day';
