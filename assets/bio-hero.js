@@ -1,13 +1,16 @@
 // Animated front page for Biology lessons: rotating DNA helix, floating topic particles and the Values Team.
 (function () {
-  const s1 = document.getElementById('s1');
+  let s1 = document.getElementById('s1');
+  const home = !s1 && document.querySelector('header.hero');
+  if (home) s1 = home;
   if (!s1 || !s1.classList.contains('hero')) return;
   const path = location.pathname;
-  const topic = /\/b9-/.test(path) ? 'cell' : /\/b11-/.test(path) ? 'leaf' : 'chromo';
+  const topic = home ? 'mix' : /\/b9-/.test(path) ? 'cell' : /\/b11-/.test(path) ? 'leaf' : 'chromo';
+  const imgDir = home ? 'assets/' : 'img/';
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const css = `
-  .hero .inner{position:relative;z-index:2}
+  .hero .inner,.hero > .wrap{position:relative;z-index:2}
   .bioart{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
   .bioart canvas{position:absolute;inset:0;width:100%;height:100%}
   .bioteam{position:absolute;right:max(2vw,calc((100vw - 1200px)/2 - 40px));top:150px;width:min(34vw,440px);height:min(64vh,560px)}
@@ -32,7 +35,7 @@
              ['ahmed', 'Ahmed', '#1d6b5b', 0, 46], ['hessa', 'Hessa', '#b07a0a', 36, 74]];
   T.forEach(([k, n, c, x, y]) => {
     const d = document.createElement('div'); d.className = 'bioav'; d.style.left = x + '%'; d.style.top = y + '%'; d.style.setProperty('--cc', c);
-    d.innerHTML = `<img src="img/av-${k}.webp" alt=""><span>${n}</span>`; team.appendChild(d);
+    d.innerHTML = `<img src="${imgDir}av-${k}.webp" alt=""><span>${n}</span>`; team.appendChild(d);
   });
   art.appendChild(team);
   s1.insertBefore(art, s1.firstChild);
@@ -47,25 +50,26 @@
     cv.width = W * dpr; cv.height = H * dpr; cv.style.height = H + 'px'; cx.setTransform(dpr, 0, 0, dpr, 0, 0);
     // keep the team and helix clear of a long title
     const teamL = team.getBoundingClientRect().left || (r.right - 480);
-    const inner = s1.querySelector('.inner'); topY = 150;
+    const inner = s1.querySelector('.inner, .wrap'); topY = home ? 60 : 150;
     if (inner) for (const el of inner.children) {
-      if (el.classList.contains('teacher')) break;
+      if (el.classList.contains('teacher') || el.classList.contains('banner')) break;
       if (el.classList.contains('lo')) continue;
       const rg = document.createRange(); rg.selectNodeContents(el); const b = rg.getBoundingClientRect();
       if (b.right > teamL - 20) topY = Math.max(topY, b.bottom - r.top + 20);
     }
     team.style.top = topY + 'px';
-    const avail = Math.min(s1.clientHeight, innerHeight - 110) - topY - 10;
+    const avail = home ? s1.clientHeight - topY - 70 : Math.min(s1.clientHeight, innerHeight - 110) - topY - 10;
     team.style.height = Math.max(280, Math.min(560, avail)) + 'px'; team.classList.toggle('tight', avail < 420); helixH = Math.max(260, Math.min(600, avail + 40));
-    if (!parts.length) for (let i = 0; i < 26; i++) parts.push({ x: Math.random(), y: Math.random(), s: 10 + Math.random() * 22, v: .00025 + Math.random() * .0006, a: Math.random() * 6.3, r: (Math.random() - .5) * .01, c: COLS[i % COLS.length] });
+    if (!parts.length) for (let i = 0; i < 26; i++) parts.push({ x: Math.random(), y: Math.random(), s: 10 + Math.random() * 22, v: .00025 + Math.random() * .0006, a: Math.random() * 6.3, r: (Math.random() - .5) * .01, k: i % 3, c: COLS[i % COLS.length] });
   }
 
   function particle(p) {
     const x = p.x * W, y = p.y * H; cx.save(); cx.translate(x, y); cx.rotate(p.a); cx.globalAlpha = .22;
-    if (topic === 'cell') {
+    const kind = topic === 'mix' ? ['cell', 'leaf', 'chromo'][p.k] : topic;
+    if (kind === 'cell') {
       cx.fillStyle = p.c; cx.beginPath(); cx.ellipse(0, 0, p.s, p.s * .78, 0, 0, 7); cx.fill();
       cx.globalAlpha = .45; cx.fillStyle = '#fff'; cx.beginPath(); cx.arc(p.s * .2, -p.s * .1, p.s * .3, 0, 7); cx.fill();
-    } else if (topic === 'leaf') {
+    } else if (kind === 'leaf') {
       cx.fillStyle = p.c === '#eab308' ? '#22c55e' : (p.x > .5 ? '#22c55e' : '#a3e635');
       cx.beginPath(); cx.moveTo(0, -p.s); cx.quadraticCurveTo(p.s * .8, 0, 0, p.s); cx.quadraticCurveTo(-p.s * .8, 0, 0, -p.s); cx.fill();
       cx.globalAlpha = .4; cx.strokeStyle = '#fff'; cx.lineWidth = 1.5; cx.beginPath(); cx.moveTo(0, -p.s); cx.lineTo(0, p.s); cx.stroke();
