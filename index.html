@@ -89,6 +89,7 @@ footer{color:var(--muted);font-size:.85rem;padding-block:30px 40px;text-align:ce
 .bt:hover{transform:translateY(-3px)}.bt .bi{font-size:2.2rem}.bt b{font-family:var(--display);font-size:1.6rem;line-height:1.1}.bt small{opacity:.9;font-weight:700}
 </style>
 <style>.charter{display:block;background:#fff;border-radius:14px;padding:8px 12px;margin-top:10px;max-width:760px;box-shadow:0 2px 10px rgba(0,0,0,.15)}.charter img{width:100%;height:auto;display:block}.charter small{display:block;text-align:center;font-weight:800;color:#7a2e2e;font-size:.78rem;letter-spacing:.06em;margin-top:2px}</style>
+<style>.extras{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.extras a{font-size:.8rem;font-weight:800;color:var(--navy);text-decoration:none;background:var(--bg);border-radius:999px;padding:4px 10px}.extras a:hover{background:#dfe6fb}.corner{margin:18px 0 6px}.corner h2{font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin:0 0 8px}.cgrid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}.ctile{display:flex;flex-direction:column;gap:2px;background:#fff;border:2px solid var(--bc);border-radius:16px;padding:12px 16px;text-decoration:none;color:var(--navy)}.ctile span{font-size:1.6rem}.ctile b{font-size:1.1rem;color:var(--bc)}.ctile small{color:var(--muted);font-weight:700}</style>
 </head>
 <body>
 <header class="hero">
@@ -109,7 +110,12 @@ footer{color:var(--muted);font-size:.85rem;padding-block:30px 40px;text-align:ce
     <button class="bt" data-subj="Science|Grade 6 Advanced" style="--bc:#1fa75a"><span class="bi">🌿</span><b>Grade 6 Science</b><small>Ecosystems · 4 lessons</small></button>
     <button class="bt" data-subj="Biology" style="--bc:#d23b8a"><span class="bi">🧬</span><b>Biology</b><small>Grades 9, 11 &amp; 12</small></button>
   </div>
-  <div class="subjects" id="subjects" role="tablist" aria-label="Subject"></div>
+    <div class="corner"><h2>Teacher corner &amp; extra learning</h2><div class="cgrid">
+    <a class="ctile" href="lesson-plans.html" style="--bc:#7a2424"><span>📋</span><b>Teacher lesson plans</b><small>45-minute plans for every lesson</small></a>
+    <a class="ctile" href="virtual-labs.html" style="--bc:#0e9fa6"><span>🧪</span><b>Virtual labs</b><small>Simulations and lab investigations</small></a>
+    <a class="ctile" href="practice.html" style="--bc:#f07f19"><span>✏️</span><b>Practice</b><small>Quizzes, true/false and flashcards</small></a>
+  </div></div>
+<div class="subjects" id="subjects" role="tablist" aria-label="Subject"></div>
   <div class="bar"><input class="search" id="q" type="search" placeholder="Search lessons (e.g. sound, energy)" aria-label="Search lessons"><span class="count" id="count"></span></div>
   <div id="list"></div>
 </main>
@@ -191,7 +197,7 @@ function filters(){const out=[{k:"All",label:"📚 All lessons",n:LESSONS.length
 function tiles(){document.querySelectorAll('.bt').forEach(b=>{const [sb,g]=b.dataset.subj.split('|');const c=LESSONS.filter(l=>l.subject===sb&&(!g||l.grade===g)).length;const sm=b.querySelector('small');if(!sm.dataset.base)sm.dataset.base=sm.textContent.split(' · ')[0];sm.textContent=c?(sm.dataset.base==='Coming soon'?'':sm.dataset.base+' · ')+c+' lesson'+(c>1?'s':''):'Coming soon'})}
 function tabs(){tiles();$('#subjects').innerHTML=filters().map(f=>`<button role="tab" aria-selected="${f.k===subj}" data-subj="${esc(f.k)}">${esc(f.label)} <span class="n">${f.n||'soon'}</span></button>`).join('')}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-subj]');if(b){subj=b.dataset.subj;try{const g=subj.split('|')[1];history.replaceState(null,'',subj==='All'?location.pathname:'#'+(g?'grade'+gnum(g):subj.toLowerCase()))}catch(e){}tabs();render();document.getElementById('list').scrollIntoView({behavior:'smooth',block:'start'})}});
-function lessonCard(l){return `<article class="card"><a href="${esc(href(l))}" tabindex="-1"><img src="${esc(l.folder+'/'+l.image)}" alt="" loading="lazy"></a><div class="body"><span class="tag">${esc(l.week)} · ${esc(l.period)}</span><h4>${esc(l.title)}</h4><p>${esc(l.about)}</p><div class="meta"><span>${l.slides} slides</span><span>45 minutes</span></div><div class="actions"><a class="btn" href="${esc(href(l))}">▶ Open lesson</a><button class="btn ghost" data-copy="${esc(l.folder)}">🔗 Copy link</button></div></div></article>`}
+function lessonCard(l){return `<article class="card"><a href="${esc(href(l))}" tabindex="-1"><img src="${esc(l.folder+'/'+l.image)}" alt="" loading="lazy"></a><div class="body"><span class="tag">${esc(l.week)} · ${esc(l.period)}</span><h4>${esc(l.title)}</h4><p>${esc(l.about)}</p><div class="meta"><span>${l.slides} slides</span><span>45 minutes</span></div><div class="actions"><a class="btn" href="${esc(href(l))}">▶ Open lesson</a><button class="btn ghost" data-copy="${esc(l.folder)}">🔗 Copy link</button></div><div class="extras"><a href="${esc(l.folder)}/lesson-plan.html">📋 Lesson plan</a><a href="${esc(l.folder)}/virtual-lab.html">🧪 Virtual lab</a><a href="${esc(l.folder)}/practice.html">✏️ Practice</a></div></div></article>`}
 function render(){
   const q=$('#q').value.trim().toLowerCase();
   const [fs,fg]=subj.split('|');
