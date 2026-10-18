@@ -783,6 +783,26 @@ input[type=range]{accent-color:#7a3ff0}
           <ul style="margin:8px 0 0;padding-left:20px;display:grid;gap:6px"><li><b>Light-holder:</b> holds the torch steady at an angle.</li><li><b>Observer:</b> moves the paper and describes the colours.</li><li><b>Recorder:</b> writes the observations in the table.</li></ul></div>
         <button class="btn navy small" data-show="labQ" style="justify-self:start">▶ What should you notice?</button>
         <div class="good" id="labQ" hidden>White light is made of <b>all the colours</b> of visible light. Each colour has a different <b>wavelength</b>. The remote's <b>infrared</b> is an electromagnetic wave too: it is there, but its wavelength is too long for our eyes.</div>
+        <button class="btn small" data-show="labHow" style="justify-self:start">💡 How does it happen?</button>
+        <div class="card stack" id="labHow" hidden style="border-color:#c7d7fb">
+          <div class="label" style="color:var(--blue)">Part A · How the glass of water makes a rainbow</div>
+          <canvas id="rbAnim" height="250" aria-label="Animation: white light from a torch enters a glass of water, bends and spreads into a rainbow on white paper."></canvas>
+          <div class="row"><button class="btn small ghost" id="rbPlay">↺ Play again</button><button class="btn small ghost" id="rbSlow">🐢 Slow motion</button><span class="legend" id="rbCap"></span></div>
+          <ol class="steps" id="rbSteps">
+            <li><span><b>White light</b> from the torch or the Sun is really a <b>mix of all the colours</b>, each with its own wavelength (red ≈ 700 nm … violet ≈ 400 nm).</span></li>
+            <li><span>When light passes from <b>air into water</b> (and out again), it <b>slows down and bends</b>. This bending is called <b>refraction</b>.</span></li>
+            <li><span>Each colour bends by a <b>slightly different amount</b>: <b style="color:#7a3ff0">violet bends the most</b>, <b style="color:#e5484d">red bends the least</b>. So the colours <b>spread out</b> into a band: a <b>spectrum</b>.</span></li>
+            <li><span>Rainbows in the sky (and in the spray at Hatta Dam) happen the same way: <b>sunlight</b> is split by millions of tiny <b>water droplets</b>.</span></li>
+          </ol>
+          <div class="label" style="color:var(--red)">Part B · Why the phone camera sees the remote's light</div>
+          <canvas id="irAnim" height="200" aria-label="Animation: a TV remote sends invisible infrared flashes; the eye sees nothing but the phone screen shows the flashes."></canvas>
+          <ol class="steps">
+            <li><span>The remote sends its signal as <b>infrared</b> flashes. Infrared has a <b>longer wavelength</b> than red light (about 940 nm), so our eyes <b>cannot detect it</b>.</span></li>
+            <li><span>A phone camera's sensor can detect some infrared. The phone <b>shows it as visible light</b> on the screen, so you see the flashes!</span></li>
+          </ol>
+          <div class="note"><b>Big idea:</b> light we can see is only one part of the electromagnetic spectrum. Our eyes have limits, but science and technology help us “see” the invisible.</div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -1293,6 +1313,68 @@ const LMAX=3,LMIN=-13;
   ['mA','mF','eA','eF'].forEach(id=>$('#'+id).oninput=()=>{bars();if(reduce)draw()});bars();$('#eNote').textContent='Try the amplitude slider first, then the frequency slider.';
   enterHooks[18]=()=>{if(!raf)raf=requestAnimationFrame(draw)};})();
 
+
+// 20 · rainbow lab animations (how does it happen?)
+(function(){const c=$('#rbAnim'),ir=$('#irAnim');let raf=null,t0=performance.now(),speed=1,last=0,T=0;
+  const COL=['#e5484d','#f07f19','#d9a400','#1fa75a','#2563eb','#7a3ff0'];
+  const CAP=['White light leaves the torch: it is a mix of all the colours.','Light enters the water, slows down and BENDS (refraction).','Each colour bends a different amount, so the colours spread out…','…into a spectrum on the paper. Violet bends most, red least!'];
+  const lerp=(a,b,k)=>a+(b-a)*k,cl=k=>Math.max(0,Math.min(1,k));
+  function rb(){const {x,w,h}=fit(c),S=w/560;x.save();x.scale(S,S);const H=h/S;
+    const t=T%9; // 9-second loop
+    x.fillStyle='#0f1534';x.fillRect(0,0,560,H);
+    // torch
+    x.fillStyle='#5b6385';x.fillRect(12,72,62,30);x.fillStyle='#8a91ad';x.fillRect(72,66,16,42);
+    x.fillStyle='#fff';x.font='800 12px Nunito, sans-serif';x.textAlign='center';x.fillText('torch',44,124);
+    // glass
+    x.fillStyle='rgba(159,211,239,.35)';x.strokeStyle='#7fb6d6';x.lineWidth=3;x.beginPath();x.moveTo(210,46);x.lineTo(300,46);x.lineTo(292,212);x.lineTo(218,212);x.closePath();x.fill();x.stroke();
+    x.fillStyle='rgba(43,143,214,.45)';x.fillRect(214,70,82,140);x.fillStyle='#fff';x.fillText('glass of water',255,36);
+    // paper
+    x.fillStyle='#fff';x.fillRect(500,120,16,112);x.fillText('paper',508,112);
+    const P0=[88,87],P1=[212,108];
+    // stage 1: white beam to glass (0-2s)
+    const k1=cl(t/2);x.strokeStyle='#ffffff';x.lineWidth=8;x.shadowColor='#fff';x.shadowBlur=12;x.beginPath();x.moveTo(...P0);x.lineTo(lerp(P0[0],P1[0],k1),lerp(P0[1],P1[1],k1));x.stroke();x.shadowBlur=0;
+    // stage 2: inside water, bend + split (2-4s)
+    const k2=cl((t-2)/2),ends=COL.map((_,i)=>[296,124+i*4.5]);
+    if(k2>0)COL.forEach((col,i)=>{x.strokeStyle=col;x.lineWidth=3;x.beginPath();x.moveTo(...P1);x.lineTo(lerp(P1[0],ends[i][0],k2),lerp(P1[1],ends[i][1],k2));x.stroke()});
+    // stage 3: fan out to paper (4-6.5s)
+    const k3=cl((t-4)/2.5);
+    if(k3>0)COL.forEach((col,i)=>{const e=[500,134+i*16];x.strokeStyle=col;x.lineWidth=4;x.beginPath();x.moveTo(...ends[i]);x.lineTo(lerp(ends[i][0],e[0],k3),lerp(ends[i][1],e[1],k3));x.stroke();
+      if(k3>=1){x.fillStyle=col;x.fillRect(500,128+i*16,16,14)}});
+    if(k3>=1){x.font='800 12px Nunito, sans-serif';x.textAlign='right';x.fillStyle='#ff8a8d';x.fillText('red: bends least',492,112);x.fillStyle='#b48cff';x.fillText('violet: bends most',492,244)}
+    // bend marker
+    if(k2>0&&k2<1||(t>2&&t<6.5)){x.strokeStyle='rgba(255,255,255,.5)';x.setLineDash([4,4]);x.lineWidth=1.5;x.beginPath();x.moveTo(212,70);x.lineTo(212,150);x.stroke();x.setLineDash([]);
+      x.fillStyle='#ffc21a';x.font='800 12px Nunito, sans-serif';x.textAlign='center';x.fillText('bends here!',212,64)}
+    x.restore();
+    const st=t<2?0:t<4?1:t<6.5?2:3;$('#rbCap').textContent=CAP[st];
+    $$('#rbSteps li').forEach((li,i)=>{const on=(st===0&&i===0)||(st===1&&i===1)||(st>=2&&i===2)||(st===3&&i===3);li.style.background=on?'#fff8db':'';li.style.borderRadius='10px';li.style.transition='background .3s'});}
+  function irDraw(){const {x,w,h}=fit(ir),S=w/560;x.save();x.scale(S,S);const t=T%3,on=(t%0.6)<0.3;
+    x.fillStyle='#f6f8fd';x.fillRect(0,0,560,200);
+    // remote
+    x.fillStyle='#2b2f45';x.beginPath();x.roundRect(20,70,44,100,10);x.fill();x.fillStyle='#e5484d';x.beginPath();x.arc(42,90,6,0,7);x.fill();
+    x.fillStyle='#555b7a';for(let r=0;r<3;r++)for(let q=0;q<2;q++){x.beginPath();x.arc(34+q*16,112+r*16,4,0,7);x.fill()}
+    x.fillStyle='#1b2470';x.font='800 12px Nunito, sans-serif';x.textAlign='center';x.fillText('TV remote',42,188);
+    // invisible beams (drawn faint dashed so students know they are there)
+    if(on){x.strokeStyle='rgba(139,0,0,.35)';x.setLineDash([3,6]);x.lineWidth=3;
+      x.beginPath();x.moveTo(64,80);x.lineTo(230,50);x.stroke();x.beginPath();x.moveTo(64,100);x.lineTo(380,120);x.stroke();x.setLineDash([])}
+    x.fillStyle='#8b0000';x.font='700 11px Nunito, sans-serif';x.fillText('infrared ≈ 940 nm (invisible)',220,140);
+    // eye
+    x.fillStyle='#fff';x.strokeStyle='#1b2470';x.lineWidth=3;x.beginPath();x.ellipse(260,48,30,16,0,0,7);x.fill();x.stroke();x.fillStyle='#1b2470';x.beginPath();x.arc(256,48,8,0,7);x.fill();
+    x.fillStyle='#1b2470';x.font='800 13px Nunito, sans-serif';x.fillText('Your eye: sees NOTHING',260,22);
+    // phone
+    x.fillStyle='#1b2470';x.beginPath();x.roundRect(390,40,110,150,14);x.fill();x.fillStyle='#0f1534';x.fillRect(398,56,94,118);
+    x.fillStyle='#2b2f45';x.beginPath();x.roundRect(410,95,70,40,6);x.fill();
+    if(on){x.fillStyle='rgba(214,190,255,.95)';x.shadowColor='#d6beff';x.shadowBlur=24;x.beginPath();x.arc(430,104,8,0,7);x.fill();x.shadowBlur=0}
+    x.fillStyle='#1b2470';x.font='800 13px Nunito, sans-serif';x.fillText('Phone camera: sees the flash!',445,30);
+    x.restore()}
+  function loop(now){const dt=(now-last)/1000;last=now;T+=Math.min(dt,0.1)*speed;rb();irDraw();
+    if(!c.closest('.slide').hidden&&!$('#labHow').hidden)raf=requestAnimationFrame(loop);else raf=null}
+  function start(){if(!raf){last=performance.now();raf=requestAnimationFrame(loop)}}
+  document.addEventListener('click',e=>{if(e.target.closest('[data-show="labHow"]'))setTimeout(()=>{T=0;start()},30)});
+  $('#rbPlay').onclick=()=>{T=0;start()};
+  $('#rbSlow').onclick=()=>{speed=speed===1?0.4:1;$('#rbSlow').textContent=speed===1?'🐢 Slow motion':'▶ Normal speed';start()};
+  enterHooks[20]=()=>{if(!$('#labHow').hidden)start()};
+  if(reduce){T=8;}
+})();
 window.addEventListener('resize',()=>enterHooks[cur]&&enterHooks[cur]());
 go(fromHash(),false);
 </script>
