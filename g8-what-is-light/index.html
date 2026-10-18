@@ -1,0 +1,1301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="author" content="Nilasha Sempon">
+<meta name="description" content="Interactive Grade 8 Advanced Science lesson with the UAE Values Team: what is light and the electromagnetic spectrum.">
+<title>What Is Light? The Electromagnetic Spectrum · Nilasha Sempon</title>
+<meta property="og:title" content="What Is Light? The Electromagnetic Spectrum · Nilasha Sempon">
+<meta property="og:description" content="Grade 8 Advanced Science interactive lesson by Nilasha Sempon, with the UAE Values Team.">
+<meta property="og:image" content="https://nilashasempon-bit.github.io/Nilasha-Sempon/g8-what-is-light/img/hook-scene.webp">
+<meta property="og:url" content="https://nilashasempon-bit.github.io/Nilasha-Sempon/g8-what-is-light/">
+<meta property="og:site_name" content="Nilasha Sempon · Science &amp; Biology">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: an app frame (top bar · one slide at a time · bottom nav). Each slide is a page with its own #sN link.
+   Single bright classroom look, matching the teacher's deck, so colours are set explicitly. */
+:root{
+  --navy:#1b2470; --navy-2:#2a338f; --ink:#1c2340; --muted:#5b6385; --line:#dfe3f1;
+  --paper:#ffffff; --bg:#eef1f9; --sun:#ffc21a; --sun-ink:#3a2a00;
+  --green:#1fa75a; --green-bg:#e6f7ed; --red:#e5484d; --red-bg:#fdecec;
+  --orange:#f07f19; --orange-bg:#fff2e4; --purple:#7a3ff0; --purple-bg:#f1eafe;
+  --blue:#2563eb; --blue-bg:#e8effe; --teal:#0e9fa6; --sea:#2b8fd6; --sand:#f2dca6;
+  --c-shahin:#4b6b2f; --c-fahim:#1f5f8b; --c-maha:#a3343a; --c-ahmed:#1d6b5b; --c-hessa:#b07a0a;
+  --display:"Baloo Bhaijaan 2","Nunito",system-ui,sans-serif;
+  --body:"Nunito","Baloo Bhaijaan 2",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+html,body{height:100%}
+body{margin:0}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45}
+*{box-sizing:border-box}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.ar{font-family:"Baloo Bhaijaan 2",var(--body);direction:rtl}
+
+#app{height:100%;display:grid;grid-template-rows:auto 1fr auto}
+.topbar{background:var(--navy);color:#fff;display:flex;align-items:center;gap:12px;padding:8px 16px;flex-wrap:wrap}
+.topbar .crumb{font-weight:800;font-family:var(--display);font-size:1.05rem;white-space:nowrap}
+.topbar .unit{opacity:.8;font-size:.85rem;min-width:0;flex:1 1 220px}
+.topbar .date{background:rgba(255,255,255,.14);border-radius:999px;padding:3px 12px;font-size:.85rem;white-space:nowrap}
+.iconbtn{background:var(--sun);color:var(--sun-ink);border:0;border-radius:999px;width:36px;height:36px;display:grid;place-items:center;font-weight:800;flex:none}
+.iconbtn svg{width:18px;height:18px}
+.wavestrip{height:6px;background:repeating-linear-gradient(90deg,var(--sun) 0 40px,var(--green) 40px 80px,var(--red) 80px 120px,var(--blue) 120px 160px,var(--purple) 160px 200px)}
+
+main{overflow-y:auto;overflow-x:hidden;position:relative;-webkit-overflow-scrolling:touch}
+.slide{min-height:100%}
+.inner{max-width:1200px;margin:0 auto;padding-block:22px 28px;padding-inline:16px;display:flex;flex-direction:column;gap:18px}
+.head{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.head h2{font-family:var(--display);font-size:clamp(1.5rem,3.2vw,2.2rem);line-height:1.1;margin:0;flex:1 1 auto;text-wrap:balance;font-weight:800}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:2px solid var(--blue);border-radius:999px;padding:3px 12px 3px 4px;font-size:.82rem;font-weight:700;color:var(--navy)}
+.chip i{width:24px;height:24px;border-radius:50%;background:var(--blue);display:grid;place-items:center;color:#fff;font-style:normal;font-size:.8rem}
+.chip .ar{font-weight:600;color:var(--muted)}
+.lead{color:var(--muted);margin:0;max-width:75ch}
+.lead b{color:var(--purple)}
+
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px}
+.label{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;font-weight:800;color:var(--red)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+.g5{grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.cols{display:grid;gap:18px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:860px){.cols.split{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}.cols.split-r{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}}
+.stack{display:flex;flex-direction:column;gap:12px;min-width:0}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+img.fig{border-radius:14px;border:1px solid var(--line);display:block;width:100%;height:auto;background:#fff}
+
+.btn{border:0;border-radius:999px;padding:10px 20px;font-weight:800;background:var(--sun);color:var(--sun-ink);box-shadow:0 3px 0 #d79c00;transition:transform .1s}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 #d79c00}
+.btn.navy{background:var(--navy);color:#fff;box-shadow:0 3px 0 #0d1245}
+.btn.red{background:var(--red);color:#fff;box-shadow:0 3px 0 #a92d31}
+.btn.ghost{background:var(--paper);color:var(--navy);box-shadow:none;border:2px solid var(--line)}
+.btn.small{padding:6px 14px;font-size:.88rem}
+
+/* coach strip */
+.coach{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:center;background:var(--paper);border:2px solid var(--cc,var(--navy));border-radius:18px;padding:10px 14px}
+.coach img{width:64px;height:64px;border-radius:50%;border:3px solid var(--cc);background:#f5efe4}
+.coach .who{font-weight:800;color:var(--cc);font-size:.9rem}
+.coach .who span{font-weight:600;color:var(--muted)}
+.coach p{margin:2px 0}
+.coach .ns{font-size:.82rem;color:var(--muted)}
+.coach .ns b{color:var(--orange)}
+.lo{display:flex;gap:10px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:.88rem;color:var(--muted)}
+.lo b{color:var(--red)}
+.lo.lotop{color:var(--ink);font-size:.95rem;font-weight:600;border:2px solid #f3c2c4;background:#fff7f7}
+.hero .lo.lotop,.end .lo.lotop{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.35);color:#fff}.hero .lo.lotop b,.end .lo.lotop b{color:#ffc21a}
+.lo .tgt{flex:none;width:22px;height:22px;border-radius:50%;border:4px solid var(--red);box-shadow:inset 0 0 0 3px #fff,inset 0 0 0 8px var(--red)}
+
+/* bottom nav */
+.nav{background:var(--paper);border-top:1px solid var(--line);display:flex;align-items:center;gap:8px;padding:8px 16px calc(8px + env(safe-area-inset-bottom,0px));flex-wrap:wrap}
+.nav .count{font-weight:800;font-variant-numeric:tabular-nums;color:var(--navy);min-width:64px;text-align:center}
+.nav .title{flex:1 1 140px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--muted);font-size:.9rem}
+@media (max-width:700px){.topbar .unit{display:none}.nav .title{display:none}.nav{justify-content:space-between}}
+.progress{height:4px;background:var(--line)}
+.progress div{height:100%;background:var(--sun);transition:width .3s}
+.toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;z-index:50;max-width:calc(100% - 32px);text-align:center}
+.linkbox{font-size:.8rem;word-break:break-all;background:var(--bg);padding:6px 10px;border-radius:8px;user-select:all}
+
+/* menu overlay */
+.menu{position:fixed;inset:0;background:rgba(18,22,60,.55);z-index:40;display:grid;place-items:center;padding:16px}
+.menu .panel{background:var(--paper);border-radius:20px;max-width:900px;width:100%;max-height:85vh;overflow:auto;padding:18px}
+.menu ol{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:6px;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr))}
+.menu li button{width:100%;text-align:left;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:8px 10px;display:flex;gap:10px;align-items:center}
+.menu li button b{color:var(--navy);font-variant-numeric:tabular-nums;min-width:22px}
+.menu li button.cur{background:var(--sun)}
+
+/* title slide */
+.hero{background:linear-gradient(135deg,#1b2470 0%,#3a2fa3 60%,#6a2fb8 100%);color:#fff;min-height:100%;position:relative;overflow:hidden}
+.hero .inner{padding-block:36px}
+.hero h1{font-family:var(--display);font-size:clamp(2.4rem,7vw,4.6rem);line-height:1;margin:6px 0 0;font-weight:800}
+.hero .sub{font-family:var(--display);color:var(--sun);font-size:clamp(1.3rem,3vw,2rem);font-weight:700;margin:0}
+.hero .eyebrow{color:var(--sun);font-weight:800;letter-spacing:.08em;font-size:.82rem}
+.hero .teacher{font-family:var(--display);font-size:1.2rem}.hero .teacher b{color:var(--sun)}
+.hero .mystery{background:#fff;color:var(--ink);border-radius:14px;padding:14px 16px;max-width:620px}
+.hero .mystery b{color:var(--red)}
+.avatars{display:flex;flex-wrap:wrap;gap:12px}
+.avatars button{background:none;border:0;padding:0;text-align:center;color:#fff;font-size:.8rem;font-weight:700}
+.avatars img{width:72px;height:72px;border-radius:50%;border:3px solid var(--sun);display:block;margin-bottom:4px;background:#f5efe4;transition:transform .2s}
+.avatars button:hover img{transform:translateY(-4px) rotate(-4deg)}
+.hero canvas.waves{position:absolute;left:0;right:0;bottom:0;width:100%;height:120px;pointer-events:none;opacity:.9}
+
+/* flip cards */
+.flip{perspective:900px;background:none;border:0;padding:0;text-align:left;width:100%}
+.flip .fi{display:grid;transition:transform .5s;transform-style:preserve-3d;height:100%}
+.flip.on .fi{transform:rotateY(180deg)}
+.flip .face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;padding:14px;border:2px solid var(--line);background:var(--paper);min-height:100px;display:flex;flex-direction:column;justify-content:center;gap:4px}
+.flip .back{transform:rotateY(180deg)}
+.flip .tap{font-size:.75rem;color:var(--muted);font-weight:700}
+.kw .front{border-color:var(--purple)}
+.kw .front strong{font-family:var(--display);font-size:1.3rem;color:var(--purple)}
+.kw .back{background:var(--purple-bg);border-color:var(--purple)}
+@media (prefers-reduced-motion:reduce){.flip .fi{transition:none}}
+
+/* team cards */
+.team{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr))}
+.team .face{padding:0;overflow:hidden;justify-content:flex-start;border-color:var(--cc)}
+.team .front img{width:100%;height:auto;aspect-ratio:496/536;object-fit:cover;display:block}
+.team .front .tap{padding:8px 10px;text-align:center;color:var(--cc)}
+.team .back{background:var(--cc);color:#fff;padding:16px;justify-content:center;font-weight:700;font-size:1.02rem}
+.team .back h4{margin:0;font-family:var(--display);font-size:1.4rem}
+.nskills{display:flex;flex-wrap:wrap;gap:8px}
+.nskill{border:2px solid var(--orange);background:var(--paper);border-radius:12px;padding:6px 12px;font-weight:800;color:var(--navy);display:flex;flex-direction:column;align-items:flex-start;text-align:left;max-width:240px}
+.nskill small{font-weight:600;color:var(--orange);display:none}
+.nskill.on small{display:block}
+
+/* lesson map */
+.map{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr))}
+.map button{border:0;border-radius:16px;color:#fff;text-align:left;padding:14px;min-height:112px;display:flex;flex-direction:column;gap:2px;transition:transform .15s}
+.map button:hover{transform:translateY(-3px)}
+.map small{font-size:.7rem;letter-spacing:.07em;font-weight:800;opacity:.85}
+.map strong{font-family:var(--display);font-size:1.18rem;line-height:1.15}
+.map span{font-size:.85rem;opacity:.9}
+
+/* lists */
+.crit{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.crit li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;align-items:start}
+.crit li::before{content:"✓";width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:800}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;align-items:center;counter-increment:s}
+.steps li::before{content:counter(s);width:32px;height:32px;border-radius:50%;background:var(--sun);display:grid;place-items:center;font-weight:800}
+
+/* timer */
+.timer{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:2px solid var(--sun);border-radius:999px;padding:4px 6px 4px 4px}
+.timer .t{font-family:var(--display);font-weight:800;font-size:1.3rem;font-variant-numeric:tabular-nums;min-width:58px;text-align:center;color:var(--navy)}
+.timer.done{border-color:var(--red);background:var(--red);animation:shake .5s 3}
+.timer.done .t{color:#fff}
+.timer .rs{background:none;border:0;color:var(--muted);font-size:.8rem;font-weight:700;padding:4px 8px}
+.timer.done .rs{color:#fff}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+/* quizzes */
+.q{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:10px}
+.q .qt{font-weight:800}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{border:2px solid var(--line);background:var(--bg);border-radius:12px;padding:8px 14px;font-weight:700;text-align:left}
+.opt.ok{background:var(--green);border-color:var(--green);color:#fff}
+.opt.no{background:var(--red);border-color:var(--red);color:#fff}
+.opt.ok::before{content:"✓ "}.opt.no::before{content:"✗ "}
+.fb{font-size:.9rem;border-radius:10px;padding:8px 12px}
+.fb.ok{background:var(--green-bg);color:#11663a}
+.fb.no{background:var(--red-bg);color:#9b1c22}
+.score{font-family:var(--display);font-weight:800;font-size:1.25rem;color:var(--navy)}
+
+/* sort */
+.sorter{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.sitem{display:flex;align-items:center;justify-content:space-between;gap:10px;border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 12px;font-weight:700;text-align:left}
+.sitem .tag{border-radius:999px;padding:3px 12px;font-size:.82rem;font-weight:800;background:var(--bg);color:var(--muted);white-space:nowrap}
+.sitem[data-v="low"] .tag{background:var(--teal);color:#fff}
+.sitem[data-v="high"] .tag{background:var(--red);color:#fff}
+.bannerbtn{background:none;border:0;padding:0;display:block;width:100%;max-width:760px;cursor:pointer}.bannerbtn img{width:100%;height:auto;border-radius:14px;display:block;border:3px solid var(--sun);transition:transform .2s}.bannerbtn:hover img{transform:translateY(-3px)}
+.concert{display:grid;gap:8px}.concert .stadium{padding-top:14px}.stage{background:linear-gradient(90deg,#ffc21a,#ff8a1f);border-radius:10px;text-align:center;font-weight:800;padding:8px;color:#3a2a00;letter-spacing:.1em}
+.seat.saeed{outline:3px solid #ff3b3b;outline-offset:1px}
+.dbchip{border-radius:999px;padding:3px 10px;font-size:.8rem;font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
+.sitem[data-v="GAS"] .tag{background:#9aa3b5;color:#fff}.sitem[data-v="LIQUID"] .tag{background:var(--sea);color:#fff}.sitem[data-v="SOLID"] .tag{background:var(--navy);color:#fff}
+.sitem[data-v="REFLECT"] .tag{background:var(--red);color:#fff}.sitem[data-v="ABSORB"] .tag{background:var(--teal);color:#fff}.sitem[data-v="TRANSMIT"] .tag{background:var(--navy);color:#fff}
+.sitem.right{border-color:var(--green);box-shadow:0 0 0 2px var(--green)}
+.sitem.wrong{border-color:var(--red);box-shadow:0 0 0 2px var(--red)}
+
+/* energy bars */
+.erow{display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px;align-items:center}
+.erow .amp{background:var(--navy);color:#fff;border-radius:999px;padding:6px 12px;font-weight:800;text-align:center;font-size:.9rem}
+.ebar{border:2px dashed var(--line);border-radius:999px;height:40px;background:var(--paper);display:flex;align-items:center;padding:0 4px;text-align:left;font-weight:700;color:var(--muted);font-size:.85rem;width:100%;position:relative;overflow:hidden}
+.ebar .fill{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#ff8c8f,var(--red));border-radius:999px;width:0;transition:width .8s cubic-bezier(.2,.9,.3,1.2)}
+.ebar .v{position:relative;padding-left:10px}
+.ebar.on{border-style:solid;border-color:var(--red)}
+.ebar.on .v{color:#fff;font-family:var(--display);font-size:1.25rem}
+.rule{background:var(--purple-bg);border-radius:14px;padding:18px;text-align:center;font-family:var(--display);font-size:3rem;font-weight:800;color:var(--navy);line-height:1}
+.rule sup{font-size:.55em}
+
+/* sims */
+.sim{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:12px;display:grid;gap:10px}
+.sim>*,.medium>*{min-width:0}
+.sim canvas{width:100%;display:block;border-radius:10px}
+.stadium{background:#141a3e;border-radius:12px;padding:40px 14px 14px;display:grid;gap:6px;grid-template-columns:repeat(16,minmax(0,1fr));overflow:hidden}
+.seat{height:clamp(14px,3vw,30px);border-radius:40% 40% 18% 18%;background:var(--c,#5b7cfa);transition:background .2s}
+.seat.saeed{outline:3px solid #ff3b3b;outline-offset:1px}
+.medium{display:grid;gap:8px;border:2px solid var(--line);border-radius:14px;padding:10px;background:var(--paper)}
+.medium h4{margin:0;font-family:var(--display);font-size:1.15rem}
+.medium canvas{width:100%;max-width:100%;height:120px;background:#f6f8fd}
+.medium .res{font-size:.85rem;min-height:2.6em}
+.legend{font-size:.82rem;color:var(--muted)}
+
+/* table */
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:420px;font-size:.92rem}
+th{background:var(--navy);color:#fff;text-align:left;padding:8px 10px}
+td{border-bottom:1px solid var(--line);padding:8px 10px;vertical-align:top}
+select,input[type=text],textarea{font:inherit;border:2px solid var(--line);border-radius:10px;padding:6px 10px;background:#fff;color:var(--ink);max-width:100%}
+textarea{width:100%;min-height:84px;resize:vertical}
+.okf{border-color:var(--green)!important;background:var(--green-bg)!important}
+.nof{border-color:var(--red)!important;background:var(--red-bg)!important}
+.fillrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.wordbank{background:var(--blue-bg);border-radius:10px;padding:8px 12px;font-weight:700;color:var(--blue)}
+
+/* order */
+.order{display:grid;gap:8px}
+.oitem{display:flex;align-items:center;gap:12px;border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 12px;font-weight:700;text-align:left}
+.oitem .n{width:34px;height:34px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-family:var(--display);font-weight:800;flex:none;color:var(--muted)}
+.oitem.set .n{background:var(--sun);color:var(--sun-ink)}
+.oitem.right{border-color:var(--green)}.oitem.wrong{border-color:var(--red)}
+.chain{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.chain div{border-radius:12px;padding:10px;color:#fff;font-weight:700;font-size:.9rem}
+.traffic{display:flex;flex-wrap:wrap;gap:8px}
+.traffic button{border:0;border-radius:999px;padding:8px 16px;font-weight:800;color:#fff}
+
+/* levels */
+.level{border-radius:16px;overflow:hidden;border:2px solid var(--lc);background:var(--paper);display:flex;flex-direction:column}
+.level h3{margin:0;background:var(--lc);color:#fff;padding:10px 14px;font-family:var(--display)}
+.level ol{margin:0;padding:12px 14px 12px 32px;display:grid;gap:8px}
+.level .ans{background:var(--lbg);margin:0 12px 12px;border-radius:10px;padding:10px 12px;font-size:.9rem}
+.level .btn{margin:0 12px 12px;align-self:flex-start}
+
+/* stars */
+.stars{display:flex;gap:4px}
+.stars button{background:none;border:0;padding:0;font-size:1.7rem;line-height:1;color:#c7cde0}
+.stars button.on{color:#f6b500}
+.vcard{border:2px solid var(--cc);border-radius:16px;background:var(--paper);padding:10px;text-align:center;display:grid;gap:6px;position:relative;justify-items:center}
+.vcard img{width:min(120px,100%);aspect-ratio:1;border-radius:50%;border:3px solid var(--cc);background:#f5efe4}
+.vcard .star{position:absolute;top:8px;right:10px;font-size:2rem;color:#c7cde0;transition:transform .3s}
+.vcard.on .star{color:#f6b500;transform:scale(1.25) rotate(15deg)}
+.vcard .prompt{font-style:italic;color:var(--cc);border:1px dashed var(--cc);border-radius:10px;padding:6px 8px;font-size:.88rem;width:100%}
+.goal{font-size:2rem;letter-spacing:4px;color:#c7cde0}
+.goal span.on{color:#f6b500}
+
+.end{background:linear-gradient(135deg,#1b2470 0%,#3a2fa3 60%,#6a2fb8 100%);color:#fff;min-height:100%}
+.end h1{font-family:var(--display);font-size:clamp(2.2rem,6vw,4rem);margin:0;line-height:1.05}
+.end .eyebrow{color:var(--sun);font-weight:800;letter-spacing:.06em}
+.end .promise{background:#fff;color:var(--ink);border-radius:14px;padding:12px 16px}
+.end .promise b{color:var(--red)}
+.end .nsk{background:#fff;color:var(--navy);border-radius:999px;padding:6px 14px;font-weight:800}
+
+.note{background:var(--orange-bg);border-radius:12px;padding:10px 14px;font-size:.92rem}
+.note b{color:var(--orange)}
+.good{background:var(--green-bg);border-radius:12px;padding:10px 14px}
+.hl{color:var(--red);font-weight:800}
+video{width:100%;border-radius:14px;background:#000;display:block}
+
+/* party confetti + red wrong-answer feedback */
+.shake{animation:shk .45s}
+@keyframes shk{0%,100%{transform:translateX(0)}20%{transform:translateX(-9px)}40%{transform:translateX(9px)}60%{transform:translateX(-6px)}80%{transform:translateX(5px)}}
+#redFlash{position:fixed;inset:0;pointer-events:none;z-index:9998;box-shadow:inset 0 0 0 12px rgba(229,72,77,.92),inset 0 0 120px rgba(229,72,77,.55);opacity:0;transition:opacity .6s}
+#redFlash.on{opacity:1;transition:none}
+#fxCanvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999}
+.fbadge{position:fixed;z-index:10000;pointer-events:none;transform:translate(-50%,-50%);padding:10px 20px;border-radius:999px;font-weight:800;font-size:1.2rem;color:#fff;white-space:nowrap;box-shadow:0 10px 26px rgba(0,0,0,.22);animation:fbadge 1.4s ease-out forwards}
+.fbadge.good{background:#1fa75a}.fbadge.bad{background:#e5484d}
+@keyframes fbadge{0%{opacity:0;transform:translate(-50%,-30%) scale(.6)}15%{opacity:1;transform:translate(-50%,-70%) scale(1.12)}70%{opacity:1}100%{opacity:0;transform:translate(-50%,-170%) scale(1)}}
+.sitem.wrong,.oitem.wrong{background:var(--red-bg)!important}
+.sitem.right,.oitem.right{background:var(--green-bg)!important}
+</style>
+<style>.charter{display:block;background:#fff;border-radius:14px;padding:8px 12px;margin-top:10px;max-width:760px;box-shadow:0 2px 10px rgba(0,0,0,.15)}.charter img{width:100%;height:auto;display:block}.charter small{display:block;text-align:center;font-weight:800;color:#7a2e2e;font-size:.78rem;letter-spacing:.06em;margin-top:2px}</style>
+<style>.chip i.nsic{background:#fff;width:44px;height:44px;margin:-6px 0;padding:0;overflow:hidden;border:0}.chip i.nsic img{width:100%;height:100%;display:block}</style>
+<style>
+.nsrow{display:flex;align-items:center;gap:8px}.nsrow img{width:36px;height:36px;flex:none}
+.end .nsk{display:inline-flex;align-items:center;gap:6px}.end .nsk img{width:30px;height:30px;margin:-4px 0}
+.coach .ns img{width:24px;height:24px;vertical-align:middle;margin-right:6px}
+.sitem[data-v="LONGER"] .tag{background:#8a6b4a;color:#fff}.sitem[data-v="VISIBLE"] .tag{background:linear-gradient(90deg,#e5484d,#f07f19,#d9a400,#1fa75a,#2563eb,#7a3ff0);color:#fff}.sitem[data-v="SHORTER"] .tag{background:var(--purple);color:#fff}
+.emname{font-family:var(--display);font-size:clamp(1.5rem,3vw,2rem);font-weight:800;line-height:1.1}
+.emfacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:8px}.emfacts div{background:var(--bg);border-radius:10px;padding:8px 10px}.emfacts small{display:block;color:var(--muted);font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em}
+.swatch{display:inline-block;width:30px;height:30px;border-radius:8px;vertical-align:middle;margin-right:10px;border:2px solid #fff;box-shadow:0 0 0 1px var(--line)}
+.hairbar{height:16px;background:#e9d9c2;border-radius:999px;margin-top:8px;overflow:hidden}.hairbar span{display:block;height:100%}
+#nmCh .btn.done{background:var(--green-bg);border-color:var(--green)}
+.notes3 textarea{min-height:130px}
+input[type=range]{accent-color:#7a3ff0}
+#emJump .btn{border-width:2px}
+.sim label{font-weight:700;font-size:.9rem}
+</style>
+</head>
+<body>
+
+<div id="app">
+  <header class="topbar">
+    <a class="iconbtn" href="../" title="All lessons" aria-label="All lessons" style="text-decoration:none">◀</a>
+    <span class="crumb">Lesson 1 · How Light Travels</span>
+    <span class="unit">Unit 2: Understanding Waves · Module 2: Light</span>
+    <span class="date" id="today">Today</span>
+    <button class="iconbtn" data-go="4" title="Lesson map" aria-label="Lesson map"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 2 11.5h3V21h5.5v-6h3v6H19v-9.5h3z"/></svg></button>
+  </header>
+  <main id="main">
+
+<!-- 1 · TITLE -->
+<section class="slide hero" id="s1" data-title="What Is Light?" data-bare>
+  <div class="inner">
+    <div class="eyebrow">GRADE 8 ADVANCED · SCIENCE · TERM 1 · WEEK 9</div>
+    <div><h1>What Is Light?</h1><p class="sub">Lesson 1 · How Light Travels: the electromagnetic spectrum</p></div>
+    <div style="opacity:.85">Unit 2: Understanding Waves · Module 2: Light</div>
+    <div class="teacher">Teacher: <b>Nilasha Sempon</b> · Science &amp; Biology</div>
+    <div>
+      <div class="eyebrow" style="margin-bottom:8px">YOUR VALUES TEAM TODAY · tap to meet them</div>
+      <button class="bannerbtn" data-go="3"><img src="img/banner.webp" alt="Shahin (Leadership), Fahim (Knowledge), Maha (Respect), Ahmed (Responsibility) and Hessa (Tolerance) with the UAE national skills"></button>
+      <div class="charter"><img src="img/charter.webp" alt="UAE National Charter: National Identity, Traits and Skills icons"><small>UAE NATIONAL CHARTER · الميثاق الوطني</small></div>
+    </div>
+    <div class="mystery"><b>Today's mystery:</b> On a sunny afternoon at Hatta Dam, the Sun warms Saif's face, paints a rainbow in the spray and gives him sunburn. All three come from the same kind of wave. <b style="color:var(--purple)">So why can Saif only see the rainbow?</b></div>
+    <div class="row" style="padding-bottom:110px">
+      <button class="btn" data-go="3">▶ Let's go!</button>
+      <button class="btn ghost" data-go="4">Lesson map</button>
+      <span style="opacity:.8;font-size:.9rem">45-minute interactive lesson</span>
+    </div>
+  </div>
+  <canvas class="waves" id="heroWaves"></canvas>
+</section>
+
+<!-- 2 · TERM 1 -->
+<section class="slide" id="s2" data-title="Term 1 overview" data-nolo>
+  <div class="inner">
+    <div class="head"><h2>Term 1 at a glance</h2></div>
+    <p class="lead">Grade 8 Advanced Science · We are starting <b>Unit 2, Module 2 (U2M2): Light</b>, with <b>Lesson 1: How Light Travels</b>.</p>
+    <img class="fig" src="img/term1.webp" alt="Term 1 plan: units, modules and lessons for Grade 8 Advanced Science" style="max-width:900px">
+  </div>
+</section>
+
+<!-- 3 · MEET TEAM -->
+<section class="slide" id="s3" data-title="Meet your UAE Values Team" data-skills="teamwork">
+  <div class="inner">
+    <div class="head"><h2>Meet your UAE Values Team</h2><button class="btn" data-confetti>★ We're ready!</button></div>
+    <p class="lead">Five friends will coach you through today's light mission. <b>Tap a character to discover their job today!</b></p>
+    <div class="team">
+      <button class="flip" style="--cc:var(--c-shahin)"><div class="fi"><div class="face front"><img src="img/fig-shahin.webp" alt="Shahin – Leadership"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Shahin</h4>Lead your team in the Rainbow lab and in putting the spectrum in order.</div></div></button>
+      <button class="flip" style="--cc:var(--c-fahim)"><div class="fi"><div class="face front"><img src="img/fig-fahim.webp" alt="Fahim – Knowledge"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Fahim</h4>Collect today's key words: light, electromagnetic wave, radiant energy, spectrum, nanometre.</div></div></button>
+      <button class="flip" style="--cc:var(--c-maha)"><div class="fi"><div class="face front"><img src="img/fig-maha.webp" alt="Maha – Respect"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Maha</h4>Respect your partner's ideas in the think–pair–share notes. Listen first!</div></div></button>
+      <button class="flip" style="--cc:var(--c-ahmed)"><div class="fi"><div class="face front"><img src="img/fig-ahmed.webp" alt="Ahmed – Responsibility"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Ahmed</h4>Be safe: never look straight at the Sun, and handle torches and water carefully.</div></div></button>
+      <button class="flip" style="--cc:var(--c-hessa)"><div class="fi"><div class="face front"><img src="img/fig-hessa.webp" alt="Hessa – Tolerance"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Hessa</h4>Every answer is welcome here. Mistakes help us learn!</div></div></button>
+    </div>
+    <div class="stack">
+      <div class="label" style="color:var(--navy)">UAE National Charter values you will use today · tap a value to see where</div>
+      <div class="nskills">
+        <button class="nskill"><span class="nsrow"><img src="img/ci-identity.webp" alt="">National Identity</span><small>Rainbows over Hatta Dam under the UAE sun</small></button>
+        <button class="nskill"><span class="nsrow"><img src="img/ci-lifelong.webp" alt="">Lifelong Learning</span><small>What else is out there that our eyes cannot see?</small></button>
+        <button class="nskill"><span class="nsrow"><img src="img/ci-cooperation.webp" alt="">Cooperation</span><small>Team roles in the Rainbow lab</small></button>
+        <button class="nskill"><span class="nsrow"><img src="img/ci-innovation.webp" alt="">Innovation</span><small>Wi-Fi, thermal cameras and X-ray scanners</small></button>
+        <button class="nskill"><span class="nsrow"><img src="img/ci-excellence.webp" alt="">Excellence</span><small>Become today's Light Master!</small></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · LESSON MAP -->
+<section class="slide" id="s4" data-title="Lesson map">
+  <div class="inner">
+    <div class="head"><h2>Lesson map · 45 minutes · tap any activity</h2></div>
+    <div class="map">
+      <button style="background:#1593c9" data-go="6"><small>PRE-ASSESSMENT · min 0–5</small><strong>Starter + Attendance</strong><span>Kickoff &amp; pre-assessment</span></button>
+      <button style="background:#d23b8a" data-go="5"><small>OBJECTIVES</small><strong>Objectives &amp; vocabulary</strong><span>Flip the key words</span></button>
+      <button style="background:#ef5a5a" data-go="8"><small>HOOK · min 5–8</small><strong>The Hatta Dam rainbow</strong><span>UAE mystery + predict</span></button>
+      <button style="background:#f07f19" data-go="9"><small>VIDEO · min 8–11</small><strong>Narrated video</strong><span>Watch and listen with subtitles</span></button>
+      <button style="background:#0e9fa6" data-go="10"><small>ACTIVITY · min 11–15</small><strong>What is light?</strong><span>Think–pair–share notes + sort</span></button>
+      <button style="background:#7a3ff0" data-go="12"><small>EXPLAIN · min 15–19</small><strong>Light and the spectrum</strong><span>The unconventional version + textbook</span></button>
+      <button style="background:#b0287a" data-go="16"><small>SIMULATION · min 19–22</small><strong>Spectrum explorer</strong><span>Radio waves to gamma rays</span></button>
+      <button style="background:#118a7e" data-go="17"><small>SIMULATION · min 22–26</small><strong>Nanometres &amp; energy</strong><span>Colour ruler + amplitude vs frequency</span></button>
+      <button style="background:#2563eb" data-go="19"><small>ORGANIZER · min 26–29</small><strong>Across the wavelengths</strong><span>Complete the graphic organizer</span></button>
+      <button style="background:#1fa75a" data-go="20"><small>LAB · min 29–32</small><strong>Rainbow lab</strong><span>Make a spectrum + see infrared</span></button>
+      <button style="background:#e5484d" data-go="21"><small>FORMATIVE · min 32–35</small><strong>Pause &amp; check</strong><span>Formative quiz + spectrum order</span></button>
+      <button style="background:#5b3fd0" data-go="23"><small>WORKSHEET · min 35–41</small><strong>Critical thinking + worksheet</strong><span>Challenge, worksheet, then Green / Orange / Purple</span></button>
+      <button style="background:#c81e3a" data-go="27"><small>SUMMATIVE · min 41–45</small><strong>Light Master + exit</strong><span>Summative quiz &amp; mystery solved</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · OBJECTIVES -->
+<section class="slide" id="s5" data-title="Objectives, success criteria & key words" data-skills="reading" data-coach="fahim" data-ns="Lifelong Learning" data-says="Flip every key-word card and say the meaning out loud. Knowledge grows when you use it!">
+  <div class="inner">
+    <div class="head"><h2>Objectives, success criteria &amp; key words</h2></div>
+    <div class="cols split-r">
+      <div class="stack">
+        <div class="card"><div class="label">Learning objective</div><p style="margin:6px 0 0;font-weight:700">Explain what light is and describe the electromagnetic spectrum.</p></div>
+        <div class="card"><div class="label" style="color:var(--green)">Success criteria</div>
+          <ul class="crit" style="margin-top:10px">
+            <li>I can explain that light is an electromagnetic wave that I can see.</li>
+            <li>I can name the seven types of electromagnetic waves in order.</li>
+            <li>I can give one use of each type of electromagnetic wave.</li>
+            <li>I can state that light wavelengths are about 400–700 nanometres.</li>
+            <li>I can explain that the energy of an electromagnetic wave depends on its frequency.</li>
+          </ul></div>
+      </div>
+      <div class="stack">
+        <div class="label" style="color:var(--purple)">Key words · tap a card to flip it</div>
+        <div class="grid g2" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr))">
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Light</strong><span class="tap">tap to flip</span></div><div class="face back">Electromagnetic radiation that you can see.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Electromagnetic wave</strong><span class="tap">tap to flip</span></div><div class="face back">A wave made by vibrating particles. It spreads out electric and magnetic fields in all directions.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Radiant energy</strong><span class="tap">tap to flip</span></div><div class="face back">The energy carried by an electromagnetic wave.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Electromagnetic spectrum</strong><span class="tap">tap to flip</span></div><div class="face back">All the electromagnetic waves, sorted by wavelength and frequency.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Wavelength</strong><span class="tap">tap to flip</span></div><div class="face back">The distance from one crest of a wave to the next crest.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Frequency</strong><span class="tap">tap to flip</span></div><div class="face back">The number of waves that pass a point each second, in hertz (Hz).</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Nanometre (nm)</strong><span class="tap">tap to flip</span></div><div class="face back">One-billionth of a metre. Light wavelengths are measured in nm.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Visible light</strong><span class="tap">tap to flip</span></div><div class="face back">The only part of the spectrum our eyes can see: about 700 nm to 400 nm.</div></div></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · KICKOFF -->
+<section class="slide" id="s6" data-title="Kickoff: starter + attendance" data-skills="critical,integrity" data-coach="ahmed" data-ns="National Identity" data-says="Be ready before the timer ends: book open, pen out. Responsible learners make the UAE proud.">
+  <div class="inner">
+    <div class="head"><h2>Kickoff: starter + attendance</h2><div class="timer" data-sec="300"></div></div>
+    <div class="cols split-r">
+      <img class="fig" src="img/kickoff.webp" alt="Kickoff Activity" style="max-width:420px">
+      <div class="card stack"><div class="label" style="color:var(--navy)">While the register is taken (5 minutes)</div>
+        <ol class="steps">
+          <li>Say “present” and settle in your seat.</li>
+          <li>Think: the Sun gives us light. What else does it give us that we can feel but not see?</li>
+          <li>Answer the 5 true/false questions on the next slide on your own: no peeking at a friend's answer!</li>
+        </ol>
+        <button class="btn small" data-go="7" style="justify-self:start">Go to the true/false questions ▸</button>
+      </div>
+    </div>
+    <div class="note"><b>Think about it:</b> your phone's Wi-Fi, the TV remote, a hospital X-ray, the warm desert sand, the colours of a rainbow… are these all related?</div>
+  </div>
+</section>
+
+<!-- 7 · PRE-ASSESSMENT -->
+<section class="slide" id="s7" data-title="Pre-assessment: what do you know?" data-skills="integrity">
+  <div class="inner">
+    <div class="head"><h2>Pre-assessment: what do you know?</h2><div class="timer" data-sec="180"></div></div>
+    <div class="stack" id="tf">
+      <div class="q" data-a="T"><div class="qt">1. Light is a type of wave.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Light is an electromagnetic wave."></div></div>
+      <div class="q" data-a="F"><div class="qt">2. Light is a type of matter.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Light is neither matter nor energy. It is a type of wave that carries energy."></div></div>
+      <div class="q" data-a="T"><div class="qt">3. Radio waves and X-rays belong to the same family of waves as light.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="They are all electromagnetic waves in the electromagnetic spectrum."></div></div>
+      <div class="q" data-a="F"><div class="qt">4. Our eyes can see every kind of electromagnetic wave.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Light (visible light) is the only part of the spectrum we can see."></div></div>
+      <div class="q" data-a="T"><div class="qt">5. The energy of an electromagnetic wave depends on its frequency.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Higher frequency means more energy. For a water wave, energy depends on amplitude instead."></div></div>
+      <div class="score" id="tfScore">Score: 0 / 5</div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · HOOK -->
+<section class="slide" id="s8" data-title="Hook: the Hatta Dam rainbow" data-skills="critical,communication" data-coach="shahin" data-ns="National Identity" data-says="Lead your pair: one predicts, one explains. Hatta is part of our UAE story, so let's solve its mystery together!">
+  <div class="inner">
+    <div class="head"><h2>Hook: the Hatta Dam rainbow</h2></div>
+    <div class="cols split">
+      <div class="card" style="padding:10px" id="hookArt"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 619" width="100%" role="img" aria-label="Hatta Dam on a sunny afternoon: the Sun sends warmth, a rainbow in the spray and sunburn rays to Saif; only the rainbow can be seen.">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5aa9f0"/><stop offset="1" stop-color="#cfe8fb"/></linearGradient>
+    <linearGradient id="dam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2fa3b5"/><stop offset="1" stop-color="#1b7f93"/></linearGradient>
+    <radialGradient id="sun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff6c2"/><stop offset=".6" stop-color="#ffd23f"/><stop offset="1" stop-color="#ffb000"/></radialGradient>
+    <linearGradient id="spray" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".95"/><stop offset="1" stop-color="#ffffff" stop-opacity=".35"/></linearGradient>
+  </defs>
+  <rect width="1100" height="619" fill="url(#sky)"/>
+  <!-- Hajar mountains -->
+  <path d="M0 330 L120 220 L210 290 L330 180 L450 300 L560 210 L680 300 L780 230 L900 310 L1010 220 L1100 280 L1100 420 L0 420Z" fill="#b9825a"/>
+  <path d="M0 360 L150 280 L260 340 L380 260 L520 350 L640 280 L760 350 L880 290 L1000 350 L1100 320 L1100 430 L0 430Z" fill="#9c6a47"/>
+  <!-- dam water -->
+  <rect y="400" width="1100" height="120" fill="url(#dam)"/>
+  <!-- waterfall + spray -->
+  <rect x="300" y="300" width="260" height="110" fill="#e9f7fb"/>
+  <g stroke="#bfe6f0" stroke-width="4"><line x1="320" y1="305" x2="320" y2="405"/><line x1="360" y1="305" x2="360" y2="405"/><line x1="400" y1="305" x2="400" y2="405"/><line x1="440" y1="305" x2="440" y2="405"/><line x1="480" y1="305" x2="480" y2="405"/><line x1="520" y1="305" x2="520" y2="405"/></g>
+  <ellipse cx="430" cy="410" rx="220" ry="50" fill="url(#spray)"/>
+  <!-- rainbow in the spray -->
+  <g fill="none" stroke-width="9" opacity=".9">
+    <path d="M250 420 A190 190 0 0 1 630 420" stroke="#e5484d"/>
+    <path d="M259 420 A181 181 0 0 1 621 420" stroke="#f07f19"/>
+    <path d="M268 420 A172 172 0 0 1 612 420" stroke="#ffd21a"/>
+    <path d="M277 420 A163 163 0 0 1 603 420" stroke="#1fa75a"/>
+    <path d="M286 420 A154 154 0 0 1 594 420" stroke="#2563eb"/>
+    <path d="M295 420 A145 145 0 0 1 585 420" stroke="#4b2fb0"/>
+    <path d="M304 420 A136 136 0 0 1 576 420" stroke="#8b3fd9"/>
+  </g>
+  <!-- Sun -->
+  <circle cx="960" cy="95" r="58" fill="url(#sun)"/>
+  <g stroke="#ffc21a" stroke-width="5" stroke-linecap="round"><line x1="960" y1="15" x2="960" y2="0"/><line x1="1040" y1="95" x2="1060" y2="95"/><line x1="880" y1="95" x2="862" y2="95"/><line x1="1017" y1="38" x2="1031" y2="24"/><line x1="903" y1="152" x2="889" y2="166"/><line x1="1017" y1="152" x2="1031" y2="166"/></g>
+  <!-- three kinds of rays to Saif -->
+  <path d="M905 130 Q 850 160 820 200 T 760 270 T 720 330" fill="none" stroke="#e5484d" stroke-width="5" stroke-dasharray="2 0"/>
+  <path d="M920 145 Q 880 200 850 240 T 800 300 T 770 345" fill="none" stroke="#ffc21a" stroke-width="7"/>
+  <path d="M935 150 q -10 14 -20 14 q -10 0 -20 14 q -10 14 -20 14 q -10 0 -20 14 q -10 14 -20 14 q -10 0 -20 14 q -10 14 -20 14 q -10 0 -20 14 q -10 14 -20 14" fill="none" stroke="#8b3fd9" stroke-width="4"/>
+  <g font-family="Nunito, Arial, sans-serif" font-weight="800" font-size="20">
+    <rect x="652" y="168" width="134" height="32" rx="16" fill="#fff"/><text x="719" y="190" text-anchor="middle" fill="#e5484d">warmth</text>
+    <rect x="860" y="250" width="150" height="32" rx="16" fill="#fff"/><text x="935" y="272" text-anchor="middle" fill="#b07a0a">light</text>
+    <rect x="960" y="190" width="132" height="32" rx="16" fill="#fff"/><text x="1026" y="212" text-anchor="middle" fill="#8b3fd9">sunburn</text>
+  </g>
+  <!-- Saif on the dam path -->
+  <rect x="640" y="430" width="300" height="16" rx="6" fill="#d8c29a"/>
+  <g transform="translate(745 330)">
+    <circle cx="0" cy="0" r="20" fill="#f1cfa8"/>
+    <path d="M-22 -6 Q0 -34 22 -6 Z" fill="#fff"/>
+    <rect x="-20" y="22" width="40" height="78" rx="12" fill="#fff" stroke="#c9b48a" stroke-width="2"/>
+    <text x="-34" y="8" text-anchor="end" font-family="Nunito, Arial, sans-serif" font-size="22" font-weight="800" fill="#1b2470">Saif</text>
+  </g>
+  <!-- caption -->
+  <rect y="520" width="1100" height="99" fill="#fff"/>
+  <text x="550" y="558" text-anchor="middle" font-family="Nunito, Arial, sans-serif" font-size="25" font-weight="800" fill="#1c2340">Hatta Dam: one sunny afternoon, three gifts from the Sun…</text>
+  <text x="550" y="596" text-anchor="middle" font-family="Nunito, Arial, sans-serif" font-size="23" font-weight="800" fill="#7a3ff0">Why can Saif SEE the rainbow, but not the warmth or the sunburn rays?</text>
+</svg>
+</div>
+      <div class="card stack">
+        <h3 style="margin:0;color:var(--orange);font-family:var(--display)">A sunny afternoon at Hatta Dam…</h3>
+        <p style="margin:0">Saif stands on the path by the dam. The Sun <b>warms his face</b>. A <b>rainbow</b> appears in the spray of the waterfall. By the evening, his nose has a <b>sunburn</b>.</p>
+        <p style="margin:0">Scientists say all three came from the Sun as the <b>same kind of wave</b>.</p>
+        <p style="margin:0"><b style="color:var(--purple)">So why could Saif only see the rainbow?</b></p>
+        <div class="row"><button class="btn" data-show="tps">Think · Pair · Share</button><button class="btn red" data-show="clue">Reveal a clue</button></div>
+        <div id="tps" hidden class="good stack"><b>Predict:</b> what could be different about the warmth, the light and the sunburn rays? Talk with your partner for 1 minute. <div class="timer" data-sec="60"></div></div>
+        <div id="clue" hidden class="stack"><div class="fb no"><b>Clue:</b> waves can have different wavelengths. Could our eyes be able to detect only some wavelengths?</div>
+          <div class="note"><b>Textbook:</b> the Light module opens with a rainbow, too!</div>
+          <img class="fig" src="img/tb-cover.webp" alt="Textbook cover page: Light, with a rainbow over a waterfall" style="max-width:300px"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · NARRATED VIDEO -->
+<section class="slide" id="s9" data-title="Watch: narrated video" data-skills="reading,communication" data-coach="fahim" data-ns="Lifelong Learning" data-says="Listen for the key words. Pause the video and explain each idea to your partner!">
+  <div class="inner">
+    <div class="head"><h2>Watch: what is light?</h2></div>
+    <p class="lead">A <b>2 min 10 s narrated video with subtitles</b>. Turn the sound on, then listen for the family of waves that light belongs to.</p>
+    <div class="cols split-r">
+      <div class="stack">
+        <div class="card stack"><div class="label" style="color:var(--navy)">While you watch</div>
+          <ol class="steps">
+            <li><span>Light is not matter or energy. So <b style="color:var(--purple)">what is it</b>?</span></li>
+            <li><span>Name the <b>seven</b> types of electromagnetic waves.</span></li>
+            <li><span>What unit do we use for light's <b style="color:var(--teal)">wavelength</b>?</span></li>
+            <li><span>What does the <b style="color:var(--red)">energy</b> of an electromagnetic wave depend on?</span></li>
+          </ol></div>
+        <div class="q"><div class="qt">After watching: why could Saif see the rainbow but not the sunburn rays?</div><button class="btn small ghost" data-show="vidA" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="vidA" hidden>✓ The rainbow is visible light (about 400–700 nm), which our eyes can detect. The sunburn rays are ultraviolet: shorter wavelengths that our eyes cannot see.</div></div>
+      </div>
+      <div class="sim"><video controls playsinline preload="metadata" poster="media/narration-poster.webp" src="media/narration.mp4" aria-label="Narrated video with subtitles: what is light and the electromagnetic spectrum"></video>
+        <div class="legend">Subtitles are built into the video, so they show on any screen or projector.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · WHAT IS LIGHT NOTES -->
+<section class="slide" id="s10" data-title="What is light? Think–pair–share" data-skills="communication,teamwork" data-coach="maha" data-ns="Cooperation" data-says="Respect your partner's notes: listen to all of their ideas before you add your own.">
+  <div class="inner">
+    <div class="head"><h2>What is light? Think · pair · share</h2><div class="timer" data-sec="120"></div></div>
+    <div class="cols split-r">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-what-is-light.webp" alt="Textbook: What is light? Is it matter? Is it energy? Record your notes, pair with a partner, then share with the class."></div>
+      <div class="grid g3 notes3">
+        <div class="card stack"><div class="label" style="color:var(--blue)">1 · My notes</div><textarea id="n1" placeholder="Is light matter? Is it energy? What makes up light?"></textarea></div>
+        <div class="card stack"><div class="label" style="color:var(--teal)">2 · New notes from my partner</div><textarea id="n2" placeholder="What did your partner think?"></textarea></div>
+        <div class="card stack"><div class="label" style="color:var(--purple)">3 · We will share with the class</div><textarea id="n3" placeholder="One idea you both agree on"></textarea></div>
+      </div>
+    </div>
+    <button class="btn navy small" data-show="notesA" style="justify-self:start">▶ What does the textbook say?</button>
+    <div class="good" id="notesA" hidden>Light is <b>neither matter nor energy</b>. Light is a <b>type of wave</b>: <b>electromagnetic radiation</b> that you can see. The energy it carries is called <b>radiant energy</b>.</div>
+  </div>
+</section>
+
+<!-- 11 · SORT -->
+<section class="slide" id="s11" data-title="Encounter: longer, visible or shorter?" data-skills="teamwork,critical" data-coach="hessa" data-ns="Cooperation" data-says="Sorted it differently from your partner? Listen first, then compare. Different ideas help us learn.">
+  <div class="inner">
+    <div class="head"><h2>Encounter: longer, visible or shorter?</h2><div class="timer" data-sec="120"></div></div>
+    <p class="lead">Each picture uses an electromagnetic wave. Is its wavelength <b>LONGER</b> than visible light, is it <b>VISIBLE</b> light, or is it <b>SHORTER</b>? <b>Tap each card</b> to change it.</p>
+    <div class="sorter" id="sorter" data-labels="LONGER|VISIBLE|SHORTER">
+      <button class="sitem" data-ans="LONGER">Listening to a radio station in the car<span class="tag">?</span></button>
+      <button class="sitem" data-ans="SHORTER">A doctor's X-ray of a broken arm<span class="tag">?</span></button>
+      <button class="sitem" data-ans="VISIBLE">The colours of the Hatta Dam rainbow<span class="tag">?</span></button>
+      <button class="sitem" data-ans="LONGER">Heating food in a microwave oven<span class="tag">?</span></button>
+      <button class="sitem" data-ans="SHORTER">Getting sunburnt on the beach<span class="tag">?</span></button>
+      <button class="sitem" data-ans="LONGER">Changing the channel with a TV remote (infrared)<span class="tag">?</span></button>
+      <button class="sitem" data-ans="VISIBLE">Reading by the light of a torch<span class="tag">?</span></button>
+      <button class="sitem" data-ans="SHORTER">Gamma rays used to treat cancer in hospital<span class="tag">?</span></button>
+    </div>
+    <div class="row"><button class="btn navy" id="sortCheck">Check my sort</button><span class="score" id="sortScore"></span></div>
+    <div class="note" id="sortWhy" hidden><b>The pattern:</b> radio waves, microwaves and infrared have <b>longer</b> wavelengths than visible light. Ultraviolet, X-rays and gamma rays have <b>shorter</b> wavelengths. Our eyes can only see the narrow band in the middle: <b>visible light</b>.</div>
+  </div>
+</section>
+
+<!-- 12 · UNCONVENTIONAL -->
+<section class="slide" id="s12" data-title="Light and the spectrum (the unconventional version)" data-skills="critical" data-coach="fahim" data-ns="Innovation" data-says="Predict before you flip each card. Testing ideas is how inventors think!">
+  <div class="inner">
+    <div class="head"><h2>Light and the spectrum (the unconventional version)</h2></div>
+    <div class="grid g2">
+      <div class="card" style="background:var(--orange-bg);border-color:#ffd2a6"><div class="label" style="color:var(--orange)">Think of it like this</div><p style="margin:6px 0 0">Imagine a family of <b>seven siblings</b> who all travel at the same speed. They look different because their <b>wavelengths</b> are different. The eldest, <b>radio</b>, takes huge, lazy steps. The youngest, <b>gamma</b>, takes tiny, very fast steps and carries the most energy. Our eyes can only see <b>one sibling</b> in the middle: <b style="color:var(--purple)">visible light</b>.</p></div>
+      <div class="card" style="background:var(--blue-bg);border-color:#c7d7fb"><div class="label" style="color:var(--blue)">Textbook ideas</div><p style="margin:6px 0 0"><b>Light</b> is electromagnetic radiation that you can see. Electromagnetic waves are made by <b>vibrating particles</b> and carry <b>radiant energy</b>.<br>All the waves together make the <b>electromagnetic spectrum</b>, sorted by <b>wavelength</b> and <b>frequency</b>.</p></div>
+    </div>
+    <div class="label" style="color:var(--navy)">Predict what happens, then tap the card to check!</div>
+    <div class="grid g3">
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--red)"><strong style="color:var(--red)">📶 Is your school's Wi-Fi a kind of light?</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--red-bg);border-color:var(--red)">Not light, but the <b>same family</b>! Wi-Fi uses microwaves: electromagnetic waves with wavelengths too long for our eyes.</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--teal)"><strong style="color:var(--teal)">🌡️ Why does the sand feel hot at noon?</strong><span class="tap">tap to check</span></div><div class="face back" style="background:#e3f6f6;border-color:var(--teal)">The Sun sends <b>infrared</b> waves. We feel them as heat, but our eyes cannot see them.</div></div></button>
+      <button class="flip kw"><div class="fi"><div class="face front"><strong>🧴 Why does UV burn, but red light does not?</strong><span class="tap">tap to check</span></div><div class="face back">Ultraviolet has a much <b>higher frequency</b>, so each wave carries <b>more energy</b>: enough to damage skin cells.</div></div></button>
+    </div>
+  </div>
+</section>
+
+<!-- 13 · TB WHAT IS LIGHT -->
+<section class="slide" id="s13" data-title="Textbook: light is a wave" data-skills="reading" data-coach="maha" data-ns="Cooperation" data-says="Respect your classmates: listen quietly while someone reads the paragraph aloud.">
+  <div class="inner">
+    <div class="head"><h2>Textbook: light is a wave</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-light-em.webp" alt="Textbook: Light is neither matter nor energy. Light is electromagnetic radiation that you can see."></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 Is light matter, energy or something else?</div><button class="btn small ghost" data-show="t13a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13a" hidden>✓ Something else! Light is a type of wave: electromagnetic radiation that you can see.</div></div>
+        <div class="q"><div class="qt">Q2 What makes an electromagnetic wave?</div><button class="btn small ghost" data-show="t13b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13b" hidden>✓ Vibrating particles. The waves spread out electric and magnetic fields in all directions from a source.</div></div>
+        <div class="q"><div class="qt">Q3 What do we call the energy carried by an electromagnetic wave?</div><button class="btn small ghost" data-show="t13c" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13c" hidden>✓ Radiant energy.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 · TB SPECTRUM -->
+<section class="slide" id="s14" data-title="Textbook: the electromagnetic spectrum" data-skills="reading" data-coach="fahim" data-ns="Lifelong Learning" data-says="Read the diagram like a scientist: follow the wave from left to right and watch the wavelength change.">
+  <div class="inner">
+    <div class="head"><h2>Textbook: the electromagnetic spectrum</h2></div>
+    <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-spectrum.webp" alt="Textbook diagram of the electromagnetic spectrum: radio waves, microwaves, infrared waves, visible light, ultraviolet waves, X-rays and gamma rays, with uses" style="max-width:900px"></div>
+    <div class="grid g3">
+      <div class="q"><div class="qt">Q1 How are electromagnetic waves sorted in the spectrum?</div><button class="btn small ghost" data-show="t14a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t14a" hidden>✓ By their wavelengths and frequencies.</div></div>
+      <div class="q"><div class="qt">Q2 Look at the red wave. What happens to the wavelength from left to right?</div><button class="btn small ghost" data-show="t14b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t14b" hidden>✓ It gets shorter, and the frequency gets higher. Radio waves are longest; gamma rays are shortest.</div></div>
+      <div class="q"><div class="qt">Q3 Which is the only wave in the spectrum you can see?</div><button class="btn small ghost" data-show="t14c" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t14c" hidden>✓ Visible light: the rainbow band in the middle.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 · TB PROPERTIES -->
+<section class="slide" id="s15" data-title="Textbook: properties of light and energy" data-skills="reading,numeracy" data-coach="ahmed" data-ns="Excellence" data-says="Read carefully and underline the key unit: nanometre. Responsible readers check every number.">
+  <div class="inner">
+    <div class="head"><h2>Textbook: properties of light and energy</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-properties.webp" alt="Textbook: Properties of Light and Energy. Light wavelengths range from about 700 nm to 400 nm. The energy of an electromagnetic wave is related to its frequency, not amplitude."></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 What unit do we use for the wavelength of light? How big is it?</div><button class="btn small ghost" data-show="t15a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t15a" hidden>✓ The nanometre (nm). One nanometre is one-billionth of a metre.</div></div>
+        <div class="q"><div class="qt">Q2 What is the range of wavelengths of light?</div><button class="btn small ghost" data-show="t15b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t15b" hidden>✓ From about 700 nm (red) to about 400 nm (violet).</div></div>
+        <div class="q"><div class="qt">Q3 A water wave's energy depends on its amplitude. What does an electromagnetic wave's energy depend on?</div><button class="btn small ghost" data-show="t15c" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t15c" hidden>✓ Its frequency. As the frequency increases, the energy increases.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 16 · SPECTRUM EXPLORER -->
+<section class="slide" id="s16" data-title="Spectrum explorer" data-skills="critical" data-coach="shahin" data-ns="Innovation" data-says="Lead the prediction: slide to a wave, guess its use, then check. Who in your team can find visible light first?">
+  <div class="inner">
+    <div class="head"><h2>Spectrum explorer: radio waves to gamma rays</h2></div>
+    <p class="lead">Drag the slider or tap a wave. Watch the <b>wavelength</b>, <b>frequency</b> and <b>energy</b> change. Can you find the tiny band you can see?</p>
+    <div class="sim">
+      <canvas id="emBand" height="64"></canvas>
+      <input type="range" id="emPos" min="0" max="1000" value="80" style="width:100%" aria-label="Position in the electromagnetic spectrum">
+      <div class="row" id="emJump"></div>
+      <div class="cols split-r" style="gap:14px">
+        <div class="stack">
+          <div class="emname" id="emName"></div>
+          <div class="emfacts">
+            <div><small>Wavelength</small><b id="emWl"></b></div>
+            <div><small>Frequency</small><b id="emF"></b></div>
+            <div><small>Can you see it?</small><b id="emSee"></b></div>
+          </div>
+          <div><small class="legend">Energy</small><div class="ebar on" style="height:26px"><div class="fill" id="emE"></div></div></div>
+          <div class="card" id="emUse" style="background:var(--blue-bg);border-color:#c7d7fb"></div>
+        </div>
+        <canvas id="emWave" height="230"></canvas>
+      </div>
+    </div>
+    <button class="btn navy small" data-show="emQ" style="justify-self:start">▶ What should you notice?</button>
+    <div class="good" id="emQ" hidden>From radio waves to gamma rays, the <b>wavelength gets shorter</b>, the <b>frequency gets higher</b> and the <b>energy increases</b>. Visible light is only a <b>tiny slice</b> of the whole spectrum!</div>
+  </div>
+</section>
+
+<!-- 17 · NANOMETRE RULER -->
+<section class="slide" id="s17" data-title="Light in nanometres" data-skills="critical,numeracy" data-coach="maha" data-ns="Excellence" data-says="Take turns with the slider. Respect means everyone gets a go!">
+  <div class="inner">
+    <div class="head"><h2>Light in nanometres: find the colour</h2></div>
+    <div class="cols split-r">
+      <div class="stack">
+        <div class="card" style="background:#fff8db;border-color:#f3e2a0"><p style="margin:0">Light waves are tiny! We measure them in <b>nanometres</b>: <b>1 nm = 0.000 000 001 m</b>, one-billionth of a metre. Visible light runs from about <b>700 nm</b> (red) to <b>400 nm</b> (violet).</p></div>
+        <div class="card stack"><label for="nm"><b>Wavelength: <span id="nmVal">600</span> nm</b></label><input type="range" id="nm" min="400" max="700" value="600" style="width:100%">
+          <div class="score" id="nmOut"></div>
+          <div class="legend" id="nmM"></div></div>
+        <div class="card stack"><b>Challenge: find the colour!</b><div class="row" id="nmCh"><button class="btn small ghost" data-c="orange">🟧 Orange (590–620 nm)</button><button class="btn small ghost" data-c="green">🟩 Green</button><button class="btn small ghost" data-c="violet">🟪 Violet</button><button class="btn small ghost" data-c="red">🟥 Red</button></div><div class="note" id="nmTask" hidden></div></div>
+      </div>
+      <div class="sim"><b>The light wave at this wavelength</b><canvas id="nmWave" height="200"></canvas>
+        <div class="card" id="hair" style="padding:10px"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 18 · ENERGY -->
+<section class="slide" id="s18" data-title="Energy: amplitude or frequency?" data-skills="critical" data-coach="fahim" data-ns="Innovation" data-says="Change one thing at a time, just like a real scientist. Which slider changes the energy?">
+  <div class="inner">
+    <div class="head"><h2>Energy: amplitude or frequency?</h2></div>
+    <p class="lead">Change one slider at a time. <b>Which slider changes the energy</b> of each wave?</p>
+    <div class="grid g2">
+      <div class="sim"><b style="color:var(--sea)">🌊 Mechanical wave (a water wave)</b><canvas id="mechW" height="140"></canvas>
+        <label for="mA">Amplitude</label><input type="range" id="mA" min="8" max="55" value="20">
+        <label for="mF">Frequency</label><input type="range" id="mF" min="1" max="6" value="2">
+        <div><small class="legend">Energy</small><div class="ebar on" style="height:26px"><div class="fill" id="mE"></div></div></div>
+        <div class="legend" id="mNote"></div></div>
+      <div class="sim"><b style="color:var(--purple)">🌈 Electromagnetic wave</b><canvas id="emW2" height="140"></canvas>
+        <label for="eA">Amplitude</label><input type="range" id="eA" min="8" max="55" value="20">
+        <label for="eF">Frequency</label><input type="range" id="eF" min="1" max="12" value="3">
+        <div><small class="legend">Energy</small><div class="ebar on" style="height:26px"><div class="fill" id="eE"></div></div></div>
+        <div class="legend" id="eNote"></div></div>
+    </div>
+    <button class="btn navy small" data-show="enQ" style="justify-self:start">▶ What should you notice?</button>
+    <div class="good" id="enQ" hidden>A <b>water wave</b> with a bigger <b>amplitude</b> has more energy. But the energy of an <b>electromagnetic wave</b> depends on its <b>frequency</b>, not its amplitude: <b>higher frequency = more energy</b>. That is why ultraviolet can burn and gamma rays can damage cells.</div>
+  </div>
+</section>
+
+<!-- 19 · ACROSS THE WAVELENGTHS -->
+<section class="slide" id="s19" data-title="Across the wavelengths: graphic organizer" data-skills="reading,critical" data-coach="ahmed" data-ns="Excellence" data-says="Complete every row before you check. Own your learning!">
+  <div class="inner">
+    <div class="head"><h2>Across the wavelengths: graphic organizer</h2><div class="timer" data-sec="180"></div></div>
+    <p class="lead">Are the waves we cannot see useful? For each wave, choose its <b>rank</b> (1 = longest wavelength, lowest frequency, least energy … 7 = shortest wavelength, highest frequency, most energy) and an <b>example use</b>.</p>
+    <div class="cols split-r">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-across.webp" alt="Textbook graphic organizer: Across the Wavelengths, a table for radio waves, microwaves, infrared waves, light, ultraviolet waves, X-rays and gamma rays" style="max-width:340px"></div>
+      <div class="stack">
+        <div class="tablewrap" id="go"><table>
+          <thead><tr><th>Type</th><th>Rank 1–7</th><th>Example use</th></tr></thead>
+          <tbody>
+            <tr><td><b>Radio waves</b><div class="exp" hidden>Longest wavelength, lowest frequency, least energy</div></td><td><select data-ans="1" data-opts="1|2|3|4|5|6|7"></select></td><td><select data-ans="Radio and TV broadcasts" data-opts="Seeing colours and rainbows|Killing cancer cells|Cooking food, Wi-Fi and mobile phones|Images of bones and airport security|Radio and TV broadcasts|Bug zappers and sterilising water|TV remotes and thermal cameras"></select></td></tr>
+            <tr><td><b>Microwaves</b><div class="exp" hidden>Long wavelength, low frequency, low energy</div></td><td><select data-ans="2" data-opts="1|2|3|4|5|6|7"></select></td><td><select data-ans="Cooking food, Wi-Fi and mobile phones" data-opts="Seeing colours and rainbows|Killing cancer cells|Cooking food, Wi-Fi and mobile phones|Images of bones and airport security|Radio and TV broadcasts|Bug zappers and sterilising water|TV remotes and thermal cameras"></select></td></tr>
+            <tr><td><b>Infrared waves</b><div class="exp" hidden>Longer than light; we feel it as heat</div></td><td><select data-ans="3" data-opts="1|2|3|4|5|6|7"></select></td><td><select data-ans="TV remotes and thermal cameras" data-opts="Seeing colours and rainbows|Killing cancer cells|Cooking food, Wi-Fi and mobile phones|Images of bones and airport security|Radio and TV broadcasts|Bug zappers and sterilising water|TV remotes and thermal cameras"></select></td></tr>
+            <tr><td><b>Light</b><div class="exp" hidden>About 700–400 nm: the only waves we can see</div></td><td><select data-ans="4" data-opts="1|2|3|4|5|6|7"></select></td><td><select data-ans="Seeing colours and rainbows" data-opts="Seeing colours and rainbows|Killing cancer cells|Cooking food, Wi-Fi and mobile phones|Images of bones and airport security|Radio and TV broadcasts|Bug zappers and sterilising water|TV remotes and thermal cameras"></select></td></tr>
+            <tr><td><b>Ultraviolet waves</b><div class="exp" hidden>Shorter than light; more energy, can burn skin</div></td><td><select data-ans="5" data-opts="1|2|3|4|5|6|7"></select></td><td><select data-ans="Bug zappers and sterilising water" data-opts="Seeing colours and rainbows|Killing cancer cells|Cooking food, Wi-Fi and mobile phones|Images of bones and airport security|Radio and TV broadcasts|Bug zappers and sterilising water|TV remotes and thermal cameras"></select></td></tr>
+            <tr><td><b>X-rays</b><div class="exp" hidden>Very short wavelength, high frequency, high energy</div></td><td><select data-ans="6" data-opts="1|2|3|4|5|6|7"></select></td><td><select data-ans="Images of bones and airport security" data-opts="Seeing colours and rainbows|Killing cancer cells|Cooking food, Wi-Fi and mobile phones|Images of bones and airport security|Radio and TV broadcasts|Bug zappers and sterilising water|TV remotes and thermal cameras"></select></td></tr>
+            <tr><td><b>Gamma rays</b><div class="exp" hidden>Shortest wavelength, highest frequency, most energy</div></td><td><select data-ans="7" data-opts="1|2|3|4|5|6|7"></select></td><td><select data-ans="Killing cancer cells" data-opts="Seeing colours and rainbows|Killing cancer cells|Cooking food, Wi-Fi and mobile phones|Images of bones and airport security|Radio and TV broadcasts|Bug zappers and sterilising water|TV remotes and thermal cameras"></select></td></tr>
+          </tbody></table></div>
+        <div class="row"><button class="btn navy small" data-check="go">Check my organizer</button><button class="btn small ghost" data-answers="go">Show answers</button><span class="score" data-out="go"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 20 · LAB -->
+<section class="slide" id="s20" data-title="Rainbow lab" data-skills="teamwork,discipline" data-coach="shahin" data-ns="Cooperation" data-says="Light-holder, observer, recorder: lead your team so everyone has a job. Never look straight at the Sun!">
+  <div class="inner">
+    <div class="head"><h2>Rainbow lab: split light, then find the invisible</h2><div class="timer" data-sec="180"></div></div>
+    <div class="cols split">
+      <div class="stack">
+        <div class="good"><b>You need:</b> a clear glass of water · a sheet of white paper · a torch (or sunlight from a window) · a TV remote · a phone camera</div>
+        <ol style="margin:0;padding-left:20px;display:grid;gap:4px">
+          <li><b>Part A:</b> stand the glass of water at the edge of a desk, on the white paper.</li>
+          <li>Shine the torch (or let sunlight) through the water at an angle. Move the paper until you see a <b>band of colours</b>.</li>
+          <li>Record the colours from top to bottom.</li>
+          <li><b>Part B:</b> point a TV remote at a phone camera and press a button. Look with your eyes, then look at the phone screen.</li>
+        </ol>
+        <div class="tablewrap"><table>
+          <thead><tr><th>Test</th><th>What did you observe?</th></tr></thead>
+          <tbody>
+            <tr><td><b>Colours on the paper</b></td><td><input type="text" id="lab1" placeholder="your observation"><div class="exp" hidden>A small rainbow: red, orange, yellow, green, blue, violet. White light is a mix of all the colours.</div></td></tr>
+            <tr><td><b>Remote: with your eyes</b></td><td><input type="text" id="lab2" placeholder="your observation"><div class="exp" hidden>Nothing! The remote's infrared light is invisible to our eyes.</div></td></tr>
+            <tr><td><b>Remote: on the phone screen</b></td><td><input type="text" id="lab3" placeholder="your observation"><div class="exp" hidden>A flashing light. Many phone cameras can detect infrared, which our eyes cannot.</div></td></tr>
+          </tbody></table></div>
+        <div class="row"><button class="btn" id="labExp">Expected results</button></div>
+        <div class="fb no"><b>Safety:</b> never look directly at the Sun or shine a torch into anyone's eyes. Keep water away from sockets and wipe up spills straight away.</div>
+      </div>
+      <div class="stack">
+        <div class="card"><div class="label" style="color:var(--blue)">Roles</div>
+          <ul style="margin:8px 0 0;padding-left:20px;display:grid;gap:6px"><li><b>Light-holder:</b> holds the torch steady at an angle.</li><li><b>Observer:</b> moves the paper and describes the colours.</li><li><b>Recorder:</b> writes the observations in the table.</li></ul></div>
+        <button class="btn navy small" data-show="labQ" style="justify-self:start">▶ What should you notice?</button>
+        <div class="good" id="labQ" hidden>White light is made of <b>all the colours</b> of visible light. Each colour has a different <b>wavelength</b>. The remote's <b>infrared</b> is an electromagnetic wave too: it is there, but its wavelength is too long for our eyes.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 21 · PAUSE & CHECK -->
+<section class="slide" id="s21" data-title="Pause and check" data-skills="initiative" data-coach="hessa" data-ns="Excellence" data-says="Wrong answer? Read the hint and try again. Excellence means never giving up.">
+  <div class="inner">
+    <div class="head"><h2>Pause and check</h2><div class="timer" data-sec="180"></div></div>
+    <p class="lead">Formative check: tap an answer. <b>Wrong? Read the hint and try again!</b></p>
+    <div class="grid g2 mcqset" data-mode="retry">
+      <div class="q"><div class="qt">Q1 Light is…</div><div class="opts"><button class="opt">A. a type of matter</button><button class="opt">B. a type of energy</button><button class="opt" data-ok>C. an electromagnetic wave you can see</button></div><div class="fb no" hidden>Hint: light is neither matter nor energy.</div></div>
+      <div class="q"><div class="qt">Q2 The energy carried by an electromagnetic wave is called…</div><div class="opts"><button class="opt">A. sound energy</button><button class="opt" data-ok>B. radiant energy</button><button class="opt">C. chemical energy</button></div><div class="fb no" hidden>Hint: it radiates out from the source.</div></div>
+      <div class="q"><div class="qt">Q3 Which electromagnetic wave has the longest wavelength?</div><div class="opts"><button class="opt" data-ok>A. radio waves</button><button class="opt">B. visible light</button><button class="opt">C. gamma rays</button></div><div class="fb no" hidden>Hint: the eldest sibling with the huge, lazy steps.</div></div>
+      <div class="q"><div class="qt">Q4 The wavelengths of light are measured in…</div><div class="opts"><button class="opt">A. kilometres</button><button class="opt">B. metres</button><button class="opt" data-ok>C. nanometres</button></div><div class="fb no" hidden>Hint: one-billionth of a metre.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 22 · ORDER -->
+<section class="slide" id="s22" data-title="Put the spectrum in order" data-skills="critical,initiative" data-coach="shahin" data-ns="Cooperation" data-says="Agree on the order as a team before you reveal it. Good leaders make sure everyone speaks.">
+  <div class="inner">
+    <div class="head"><h2>Put the spectrum in order</h2></div>
+    <p class="lead">Order the waves from <b>longest wavelength</b> (1) to <b>shortest wavelength</b> (7). Say the order with your partner, then <b>tap the waves in order</b>. Tap a numbered wave to undo.</p>
+    <div class="order" id="order">
+      <button class="oitem" data-p="5"><span class="n">?</span>Ultraviolet waves</button>
+      <button class="oitem" data-p="1"><span class="n">?</span>Radio waves</button>
+      <button class="oitem" data-p="7"><span class="n">?</span>Gamma rays</button>
+      <button class="oitem" data-p="3"><span class="n">?</span>Infrared waves</button>
+      <button class="oitem" data-p="6"><span class="n">?</span>X-rays</button>
+      <button class="oitem" data-p="2"><span class="n">?</span>Microwaves</button>
+      <button class="oitem" data-p="4"><span class="n">?</span>Visible light</button>
+    </div>
+    <div class="row"><button class="btn navy" id="orderCheck">Check my order</button><button class="btn" id="orderReveal">Reveal the order</button><span class="score" id="orderScore"></span></div>
+    <div class="chain" id="chain" hidden>
+      <div style="background:#8a6b4a">1 · Radio waves</div>
+      <div style="background:#5b6385">2 · Microwaves</div>
+      <div style="background:#e5484d">3 · Infrared</div>
+      <div style="background:linear-gradient(90deg,#e5484d,#f07f19,#d9a400,#1fa75a,#2563eb,#7a3ff0)">4 · Visible light</div>
+      <div style="background:#7a3ff0">5 · Ultraviolet</div>
+      <div style="background:#1b2470">6 · X-rays</div>
+      <div style="background:#c81e3a">7 · Gamma rays</div>
+    </div>
+    <div class="card stack"><b>Traffic light: how sure are you?</b>
+      <div class="traffic"><button style="background:var(--green)" data-tl="Brilliant! Teach your partner a memory trick for the order.">I can teach it</button><button style="background:var(--orange)" data-tl="Good! Go back to the spectrum explorer, then try again.">Mostly</button><button style="background:var(--red)" data-tl="That is OK! Your teacher will go through it with you now.">I need help</button></div>
+      <div id="tlMsg" class="note" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- 23 · CRITICAL THINKING -->
+<section class="slide" id="s23" data-title="Critical thinking challenge" data-skills="critical,communication" data-coach="fahim" data-ns="Innovation" data-says="Think like a scientist: make a claim, give evidence, then explain your reasoning.">
+  <div class="inner">
+    <div class="head"><h2>Critical thinking: claim · evidence · reasoning</h2><div class="timer" data-sec="120"></div></div>
+    <div class="grid g2">
+      <div class="q mcqset" data-mode="retry"><div class="qt">🔍 Odd one out: which of these is <u>not</u> an electromagnetic wave?</div><div class="opts"><button class="opt">A. radio waves</button><button class="opt" data-ok>B. sound waves</button><button class="opt">C. X-rays</button><button class="opt">D. light</button></div><div class="fb no" hidden>Hint: one of these is a mechanical wave from your last module.</div></div>
+      <div class="card stack"><b>1 · Hamdan says: “Radio waves are everywhere, so they must carry the most energy.” Do you agree?</b><textarea id="ct1" style="min-height:60px" placeholder="I agree / disagree because…"></textarea><button class="btn small ghost" data-show="ct1a" style="justify-self:start">Model answer</button><div class="fb ok" id="ct1a" hidden>✓ Disagree. Radio waves have the <b>lowest frequency</b>, so they carry the <b>least energy</b>. Being everywhere does not mean more energy.</div></div>
+      <div class="card stack"><b>2 · Why does the radiographer stand behind a screen when taking an X-ray, but a radio presenter does not?</b><textarea id="ct2" style="min-height:60px"></textarea><button class="btn small ghost" data-show="ct2a" style="justify-self:start">Model answer</button><div class="fb ok" id="ct2a" hidden>✓ X-rays have a very <b>high frequency</b>, so they carry a lot of energy that can damage cells over time. Radio waves have a low frequency and low energy.</div></div>
+      <div class="card stack"><b>3 · Bees can see ultraviolet patterns on flowers. What does this tell us about the word “light”?</b><textarea id="ct3" style="min-height:60px"></textarea><button class="btn small ghost" data-show="ct3a" style="justify-self:start">Model answer</button><div class="fb ok" id="ct3a" hidden>✓ “Light” means the electromagnetic waves <b>human</b> eyes can see. Other animals can detect other parts of the spectrum, so what is invisible to us is not invisible to every living thing.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 24 · WORKSHEET 1 -->
+<section class="slide" id="s24" data-title="Worksheet (1/2)" data-skills="reading" data-coach="ahmed" data-ns="Excellence" data-says="Work on your own first, then check your answers. Own your learning!">
+  <div class="inner">
+    <div class="head"><h2>What is light? worksheet (1/2)</h2><div class="timer" data-sec="240"></div></div>
+    <div class="grid g2">
+      <div class="card stack"><div class="label" style="color:var(--navy)">A · Match each word · 5 marks</div>
+        <div style="font-size:.92rem;color:var(--muted)">A. The energy carried by an electromagnetic wave<br>B. One-billionth of a metre<br>C. Electromagnetic radiation that you can see<br>D. All the electromagnetic waves, sorted by wavelength and frequency<br>E. A wave made by vibrating particles that spreads electric and magnetic fields</div>
+        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:8px" id="wsA">
+          <label class="fillrow">1. light <select data-ans="C" id="wa1"></select></label>
+          <label class="fillrow">2. radiant energy <select data-ans="A" id="wa2"></select></label>
+          <label class="fillrow">3. nanometre <select data-ans="B" id="wa3"></select></label>
+          <label class="fillrow">4. electromagnetic spectrum <select data-ans="D" id="wa4"></select></label>
+          <label class="fillrow">5. electromagnetic wave <select data-ans="E" id="wa5"></select></label>
+        </div>
+        <div class="row"><button class="btn small navy" data-check="wsA">Check A</button><button class="btn small ghost" data-answers="wsA">Show answers (A)</button><span class="score" data-out="wsA"></span></div>
+      </div>
+      <div class="card stack"><div class="label" style="color:var(--navy)">B · Fill the gaps · 5 marks</div>
+        <div class="wordbank">Word bank: frequency · gamma · 400 · visible · radio</div>
+        <div class="stack" id="wsB" style="gap:8px">
+          <div class="fillrow">1. Light wavelengths range from about 700 nm to <input type="text" size="8" data-ans="400|400 nm" id="wb1" aria-label="gap 1"> nm.</div>
+          <div class="fillrow">2. <input type="text" size="10" data-ans="radio" id="wb2" aria-label="gap 2"> waves have the longest wavelength.</div>
+          <div class="fillrow">3. <input type="text" size="10" data-ans="gamma" id="wb3" aria-label="gap 3"> rays carry the most energy.</div>
+          <div class="fillrow">4. The energy of an electromagnetic wave depends on its <input type="text" size="10" data-ans="frequency" id="wb4" aria-label="gap 4"> .</div>
+          <div class="fillrow">5. The only part of the spectrum we can see is called <input type="text" size="10" data-ans="visible" id="wb5" aria-label="gap 5"> light.</div>
+        </div>
+        <div class="row"><button class="btn small navy" data-check="wsB">Check B</button><button class="btn small ghost" data-answers="wsB">Show answers (B)</button><span class="score" data-out="wsB"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 25 · WORKSHEET 2 -->
+<section class="slide" id="s25" data-title="Worksheet (2/2)" data-skills="reading,critical" data-coach="maha" data-ns="Excellence" data-says="Respect your reader: write full sentences using wavelength, visible and energy.">
+  <div class="inner">
+    <div class="head"><h2>What is light? worksheet (2/2)</h2></div>
+    <div class="card stack"><div class="label" style="color:var(--navy)">C · Which carries more energy? · 6 marks</div>
+      <div class="tablewrap" id="wsC"><table>
+        <thead><tr><th>Compare</th><th>More energy</th></tr></thead>
+        <tbody>
+          <tr><td>Radio waves or X-rays</td><td><select data-ans="X-rays" data-opts="Radio waves|X-rays" id="wc1"></select></td></tr>
+          <tr><td>Infrared or ultraviolet</td><td><select data-ans="Ultraviolet" data-opts="Infrared|Ultraviolet" id="wc2"></select></td></tr>
+          <tr><td>Microwaves or visible light</td><td><select data-ans="Visible light" data-opts="Microwaves|Visible light" id="wc3"></select></td></tr>
+          <tr><td>Gamma rays or infrared</td><td><select data-ans="Gamma rays" data-opts="Gamma rays|Infrared" id="wc4"></select></td></tr>
+          <tr><td>Red light (700 nm) or violet light (400 nm)</td><td><select data-ans="Violet light" data-opts="Red light|Violet light" id="wc5"></select></td></tr>
+          <tr><td>Ultraviolet or radio waves</td><td><select data-ans="Ultraviolet" data-opts="Ultraviolet|Radio waves" id="wc6"></select></td></tr>
+        </tbody></table></div>
+      <div class="row"><button class="btn small navy" data-check="wsC">Check C</button><button class="btn small ghost" data-answers="wsC">Show answers (C)</button><span class="score" data-out="wsC"></span></div>
+    </div>
+    <div class="cols split">
+      <div class="card stack"><div class="label" style="color:var(--navy)">D · Explain · 3 marks</div>
+        <p style="margin:0">Why could Saif see the rainbow, but not the warmth (infrared) or the sunburn rays (ultraviolet)? Use <b>wavelength</b>, <b>visible</b> and <b>energy</b>.</p>
+        <textarea id="wd" placeholder="Write your explanation in full sentences…"></textarea>
+        <button class="btn small" data-show="model" style="justify-self:start">Show model answer (D)</button>
+      </div>
+      <div class="stack">
+        <div class="good" id="model" hidden><b>Model answer (1 mark each):</b><br>✓ The warmth, the rainbow and the sunburn rays are all electromagnetic waves from the Sun, with different <b>wavelengths</b>.<br>✓ Our eyes can only detect <b>visible</b> light (about 700–400 nm). Infrared is longer and ultraviolet is shorter, so we cannot see them.<br>✓ Ultraviolet has a higher frequency, so it carries more <b>energy</b>: enough to burn skin.</div>
+        <div class="card"><span class="score" id="wsTotal">Total: A + B + C = 0 / 16 marks</span><div class="legend">Your teacher marks part D (3 marks) for a total out of 19.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 26 · LEVELS -->
+<section class="slide" id="s26" data-title="Choose your level" data-skills="respect" data-coach="maha" data-ns="Cooperation" data-says="Every level is respected here. Choose the one that stretches you, then help a friend.">
+  <div class="inner">
+    <div class="head"><h2>Green, orange or purple? Choose your level</h2></div>
+    <div class="grid g3">
+      <div class="level" style="--lc:var(--green);--lbg:var(--green-bg)"><h3>Green · Support</h3>
+        <ol><li>Complete: “Light is an ____ wave that we can see.”</li><li>Circle: radio waves have the longest / shortest wavelength.</li><li>True or false: we can see X-rays.</li><li>Give one use of microwaves.</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. electromagnetic<br>2. longest<br>3. False<br>4. Cooking food, Wi-Fi or mobile phones</div><button class="btn small ghost lvl">Show answers</button></div>
+      <div class="level" style="--lc:var(--orange);--lbg:var(--orange-bg)"><h3>Orange · At level</h3>
+        <ol><li>List the seven electromagnetic waves from longest to shortest wavelength.</li><li>How is the energy of an electromagnetic wave different from the energy of a water wave?</li><li>Write 550 nm in metres.</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. Radio, microwaves, infrared, visible light, ultraviolet, X-rays, gamma rays.<br>2. A water wave's energy depends on its amplitude; an electromagnetic wave's energy depends on its frequency.<br>3. 0.000 000 55 m (550 billionths of a metre).</div><button class="btn small ghost lvl">Show answers</button></div>
+      <div class="level" style="--lc:var(--purple);--lbg:var(--purple-bg)"><h3>Purple · Challenge</h3>
+        <ol><li>A human hair is about 70,000 nm wide. About how many 700 nm red-light waves fit across it?</li><li>Why should you wear sunscreen at the beach, even when you cannot see the rays that burn?</li><li>Why are radio waves used to send signals all over the UAE, but gamma rays are used to kill cancer cells?</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. 70,000 ÷ 700 = 100 waves.<br>2. Ultraviolet is invisible but has a high frequency and high energy, so it can damage skin.<br>3. Radio waves carry little energy, so they are safe to fill the air with. Gamma rays carry so much energy that they can destroy cells.</div><button class="btn small ghost lvl">Show answers</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- 27 · SUMMATIVE -->
+<section class="slide" id="s27" data-title="Summative: Light Master quiz" data-skills="integrity" data-coach="ahmed" data-ns="Excellence" data-says="Count only your honest first try. Integrity is part of excellence!">
+  <div class="inner">
+    <div class="head"><h2>Summative: Light Master quiz</h2><div class="timer" data-sec="120"></div></div>
+    <div class="stack mcqset" data-mode="first" id="wm">
+      <div class="q"><div class="qt">1. Light is best described as…</div><div class="opts"><button class="opt">A. a type of matter</button><button class="opt" data-ok>B. electromagnetic radiation that you can see</button><button class="opt">C. a sound wave</button></div></div>
+      <div class="q"><div class="qt">2. Which list goes from longest to shortest wavelength?</div><div class="opts"><button class="opt" data-ok>A. radio, microwaves, infrared</button><button class="opt">B. gamma rays, X-rays, radio</button><button class="opt">C. ultraviolet, visible light, infrared</button></div></div>
+      <div class="q"><div class="qt">3. Visible light has wavelengths from about…</div><div class="opts"><button class="opt">A. 700 m to 400 m</button><button class="opt" data-ok>B. 700 nm to 400 nm</button><button class="opt">C. 700 km to 400 km</button></div></div>
+      <div class="q"><div class="qt">4. The energy of an electromagnetic wave depends on its…</div><div class="opts"><button class="opt">A. amplitude</button><button class="opt" data-ok>B. frequency</button><button class="opt">C. colour of its source</button></div></div>
+      <div class="q"><div class="qt">5. Saif got sunburnt by rays he could not see because…</div><div class="opts"><button class="opt" data-ok>A. ultraviolet waves are too short for our eyes to detect</button><button class="opt">B. ultraviolet is a sound wave</button><button class="opt">C. ultraviolet carries less energy than light</button></div></div>
+    </div>
+    <div class="card row" style="justify-content:space-between"><span class="score" id="wmScore">First-try score: 0 / 5</span><span class="legend">5 = Light Master! · 4 = Light Expert · 3 = Light Explorer · 0–2 = let's review together</span></div>
+  </div>
+</section>
+
+<!-- 28 · MYSTERY SOLVED -->
+<section class="slide" id="s28" data-title="Mystery solved!" data-skills="critical,reading" data-coach="hessa" data-ns="National Identity" data-says="Be kind to yourself when you rate your stars. Every step forward counts!">
+  <div class="inner">
+    <div class="head"><h2>Mystery solved!</h2></div>
+    <div class="cols split">
+      <div class="stack">
+        <button class="btn" data-show="solved" data-confetti style="justify-self:start">Reveal the answer</button>
+        <div class="card" id="solved" hidden style="background:#fff8db;border-color:#f3e2a0"><b style="color:var(--orange)">Why Saif could only see the rainbow</b><p style="margin:6px 0 0">The warmth, the rainbow and the sunburn were all <b class="hl">ELECTROMAGNETIC WAVES</b> from the Sun. The warmth was <b>infrared</b>, with wavelengths <b>longer</b> than light. The sunburn came from <b>ultraviolet</b>, with wavelengths <b>shorter</b> than light. Saif's eyes can only detect <b style="color:var(--purple)">VISIBLE LIGHT</b>, about 700–400 nm, so he only saw the rainbow. Ultraviolet has a higher frequency, so it carries more energy: enough to burn his skin. Time for sunscreen!</p></div>
+        <div class="card stack"><b>Exit ticket · 3 · 2 · 1</b>
+          <label>3 things I learned<textarea id="ex3" style="min-height:64px"></textarea></label>
+          <label>2 key words I can now explain<textarea id="ex2" style="min-height:48px"></textarea></label>
+          <label>1 question I still have<textarea id="ex1" style="min-height:48px"></textarea></label></div>
+      </div>
+      <div class="card stack"><b>Re-rate your success criteria (tap a star)</b>
+        <div><p style="margin:0 0 4px">I can explain that light is an electromagnetic wave that I can see.</p><div class="stars" id="st1"></div></div>
+        <div><p style="margin:0 0 4px">I can name the seven types of electromagnetic waves in order.</p><div class="stars" id="st2"></div></div>
+        <div><p style="margin:0 0 4px">I can give one use of each type of electromagnetic wave.</p><div class="stars" id="st3"></div></div>
+        <div><p style="margin:0 0 4px">I can state that light wavelengths are about 400–700 nanometres.</p><div class="stars" id="st4"></div></div>
+        <div><p style="margin:0 0 4px">I can explain that the energy of an electromagnetic wave depends on its frequency.</p><div class="stars" id="st5"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 29 · VALUES -->
+<section class="slide" id="s29" data-title="Which value did you show today?" data-skills="integrity">
+  <div class="inner">
+    <div class="head"><h2>Which value did you show today?</h2></div>
+    <p class="lead">Tap the character whose value you showed in this lesson. <b>Then tell your partner one real example!</b></p>
+    <div class="grid g5" id="values">
+      <button class="vcard" style="--cc:var(--c-shahin)"><span class="star">★</span><img src="img/av-shahin.webp" alt=""><b>Shahin</b><small>Leadership · <span class="ar">القيادة</span></small><span class="prompt">I led my team when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-fahim)"><span class="star">★</span><img src="img/av-fahim.webp" alt=""><b>Fahim</b><small>Knowledge · <span class="ar">المعرفة</span></small><span class="prompt">A new fact I learned is…</span></button>
+      <button class="vcard" style="--cc:var(--c-maha)"><span class="star">★</span><img src="img/av-maha.webp" alt=""><b>Maha</b><small>Respect · <span class="ar">الاحترام</span></small><span class="prompt">I showed respect when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-ahmed)"><span class="star">★</span><img src="img/av-ahmed.webp" alt=""><b>Ahmed</b><small>Responsibility · <span class="ar">المسؤولية</span></small><span class="prompt">I was responsible when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-hessa)"><span class="star">★</span><img src="img/av-hessa.webp" alt=""><b>Hessa</b><small>Tolerance · <span class="ar">التسامح</span></small><span class="prompt">I was patient and kind when…</span></button>
+    </div>
+    <div class="card row" style="justify-content:space-between"><b>Class goal: light up all five stars together!</b><span class="goal" id="goal"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span></div>
+  </div>
+</section>
+
+<!-- 30 · CELEBRATE -->
+<section class="slide end" id="s30" data-title="Shine bright, Grade 8!" data-bare>
+  <div class="inner">
+    <div class="eyebrow">YOU DID IT, GRADE 8! · <span class="ar">أحسنتم</span></div>
+    <h1>Shine bright, Grade 8!</h1>
+    <p style="font-style:italic;font-size:1.15rem;margin:0;opacity:.95">Some of the most powerful waves are the ones we cannot see. Your hard work is the same: keep shining, even when no one is watching!</p>
+    <img class="fig" src="img/banner.webp" alt="Shahin, Fahim, Maha, Ahmed and Hessa with the UAE national skills" style="border:0">
+    <div class="row"><span class="nsk"><img src="img/ci-identity.webp" alt="">National Identity</span><span class="nsk"><img src="img/ci-lifelong.webp" alt="">Lifelong Learning</span><span class="nsk"><img src="img/ci-cooperation.webp" alt="">Cooperation</span><span class="nsk"><img src="img/ci-innovation.webp" alt="">Innovation</span><span class="nsk"><img src="img/ci-excellence.webp" alt="">Excellence</span></div>
+    <div class="promise"><b>My promise:</b> I will lead, learn, respect, be responsible and tolerant, for my school and my UAE.</div>
+    <div><button class="btn" id="celebrate">★ Celebrate together!</button></div>
+  </div>
+</section>
+
+  </main>
+  <div>
+    <div class="progress"><div id="prog"></div></div>
+    <nav class="nav">
+      <button class="btn ghost small" id="prev" aria-label="Previous slide">◀ Back</button>
+      <span class="count" id="count">1 / 30</span>
+      <span class="title" id="navTitle"></span>
+      <button class="btn ghost small" id="menuBtn">☰ Slides</button>
+      <button class="btn ghost small" id="linkBtn" title="Copy a link that opens this slide">🔗 Link</button>
+      <button class="btn ghost small" id="soundBtn" title="Clapping sound on">🔊</button>
+      <button class="btn ghost small" id="fsBtn" title="Full screen">⛶</button>
+      <button class="btn small" id="next" aria-label="Next slide">Next ▶</button>
+    </nav>
+  </div>
+</div>
+
+<div class="menu" id="menu" hidden><div class="panel"><div class="row" style="justify-content:space-between"><b style="font-family:var(--display);font-size:1.3rem">All slides</b><button class="btn ghost small" id="menuClose">Close</button></div><ol id="menuList"></ol></div></div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+// Paste the published lesson link here so "Link" copies a shareable address for each slide.
+const LESSON_URL = "";
+
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const slides=$$('.slide'), N=slides.length;
+const COACH={shahin:['Shahin','Leadership','القيادة','--c-shahin'],fahim:['Fahim','Knowledge','المعرفة','--c-fahim'],maha:['Maha','Respect','الاحترام','--c-maha'],ahmed:['Ahmed','Responsibility','المسؤولية','--c-ahmed'],hessa:['Hessa','Tolerance','التسامح','--c-hessa']};
+const SKILL={numeracy:['Numeracy','الحساب','#'],teamwork:['Teamwork','العمل الجماعي','👥'],critical:['Critical Thinking','التفكير الناقد','🧠'],communication:['Effective Communication','التواصل الفعّال','💬'],reading:['Reading & Writing','القراءة والكتابة','📖'],integrity:['Integrity','النزاهة','🛡'],discipline:['Self-regulation & Discipline','الانضباط وتنظيم الذات','⏱'],initiative:['Initiative & Perseverance','المبادرة والمثابرة','⛰'],respect:['Respect & Kindness','الاحترام واللطف','💗']};
+const LO='Explain what light is and describe the electromagnetic spectrum.';
+const NSI={'National Identity':'identity','Lifelong Learning':'lifelong','Cooperation':'cooperation','Innovation':'innovation','Excellence':'excellence'};
+const store={get(k){try{return localStorage.getItem('light8:'+k)}catch(e){return null}},set(k,v){try{localStorage.setItem('light8:'+k,v)}catch(e){}}};
+
+// date
+$('#today').textContent=new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+
+// shared chrome: skill chips, coach strip, objective footer
+slides.forEach(s=>{
+  const inner=$('.inner',s), head=$('.head',s);
+  if(s.dataset.skills&&head){const c=document.createElement('div');c.className='chips';
+    s.dataset.skills.split(',').forEach(k=>{const[en,ar,ic]=SKILL[k];c.insertAdjacentHTML('beforeend',`<span class="chip"><i class="nsic"><img src="img/ns-${k}.webp" alt=""></i>${en} <span class="ar">${ar}</span></span>`)});head.appendChild(c)}
+  if(s.dataset.coach){const[n,v,ar,col]=COACH[s.dataset.coach];
+    inner.insertAdjacentHTML('beforeend',`<div class="coach" style="--cc:var(${col})"><img src="img/av-${s.dataset.coach}.webp" alt="${n}, ${v} coach"><div><div class="who">${n} says · ${v} <span class="ar">${ar}</span></div><p>${s.dataset.says}</p><div class="ns"><img src="img/ci-${NSI[s.dataset.ns]}.webp" alt="">UAE National Charter value: <b>${s.dataset.ns}</b></div></div></div>`)}
+  if(!('nolo' in s.dataset)) inner.insertAdjacentHTML('afterbegin',`<div class="lo lotop"><span class="tgt"></span><div><b>Learning objective:</b> ${LO}</div></div>`);
+});
+
+// navigation + deep links (#s1 … #s30)
+let cur=1; const enterHooks={};
+function go(n,push=true){
+  n=Math.max(1,Math.min(N,n|0)); cur=n;
+  slides.forEach((s,i)=>s.hidden=i!==n-1);document.querySelectorAll('.slide[hidden] video').forEach(v=>{try{v.pause()}catch(e){}});
+  $('#count').textContent=n+' / '+N; $('#navTitle').textContent=slides[n-1].dataset.title||'';
+  $('#prog').style.width=(n/N*100)+'%'; $('#main').scrollTop=0;
+  $('#prev').disabled=n===1; $('#next').disabled=n===N;
+  if(push){try{history.replaceState(null,'','#s'+n)}catch(e){}}
+  document.title='What Is Light? · '+n+' · Nilasha Sempon';
+  requestAnimationFrame(()=>enterHooks[n]&&enterHooks[n]());
+}
+function fromHash(){const m=(location.hash||'').match(/s(\d+)$/);return m?+m[1]:1}
+window.addEventListener('hashchange',()=>go(fromHash(),false));
+$('#prev').onclick=()=>go(cur-1); $('#next').onclick=()=>go(cur+1);
+document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g){go(+g.dataset.go);$('#menu').hidden=true}});
+document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea,select'))return;
+  if(['ArrowRight','PageDown'].includes(e.key))go(cur+1);if(['ArrowLeft','PageUp'].includes(e.key))go(cur-1);if(e.key==='Escape')$('#menu').hidden=true});
+let tx=0,ty=0;$('#main').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+$('#main').addEventListener('touchend',e=>{if(e.target.closest('canvas,input,textarea,select,.stadium'))return;const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;if(Math.abs(dx)>70&&Math.abs(dy)<40)go(cur+(dx<0?1:-1))});
+// menu
+$('#menuList').innerHTML=slides.map((s,i)=>`<li><button data-go="${i+1}"><b>${i+1}</b>${s.dataset.title}</button></li>`).join('');
+$('#menuBtn').onclick=()=>{$$('#menuList button').forEach((b,i)=>b.classList.toggle('cur',i+1===cur));$('#menu').hidden=false};
+$('#menuClose').onclick=()=>$('#menu').hidden=true;
+$('#menu').onclick=e=>{if(e.target.id==='menu')$('#menu').hidden=true};
+// toast + link
+let tt;function toast(html,ms=2600){const t=$('#toast');t.innerHTML=html;t.hidden=false;clearTimeout(tt);tt=setTimeout(()=>t.hidden=true,ms)}
+$('#linkBtn').onclick=()=>{const base=LESSON_URL||location.href.split('#')[0];const url=base+'#s'+cur;
+  const ok=()=>toast('Link to slide '+cur+' copied');
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(ok,()=>toast('<div>Copy this link:</div><div class="linkbox">'+url+'</div>',7000))}else toast('<div>Copy this link:</div><div class="linkbox">'+url+'</div>',7000)};
+$('#fsBtn').onclick=()=>{try{if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen().catch(()=>toast('Full screen is not available here'))}catch(e){toast('Full screen is not available here')}};
+
+// built-in party confetti (works without any outside library)
+window.confetti=(function(){let cv,cx,parts=[],raf=null;
+  function setup(){if(cv)return;cv=document.createElement('canvas');cv.id='fxCanvas';document.body.appendChild(cv);cx=cv.getContext('2d');size();addEventListener('resize',size)}
+  function size(){const d=devicePixelRatio||1;cv.width=innerWidth*d;cv.height=innerHeight*d;cx.setTransform(d,0,0,d,0,0)}
+  function frame(){cx.clearRect(0,0,innerWidth,innerHeight);parts=parts.filter(p=>p.t<p.T);
+    parts.forEach(p=>{p.t++;p.x+=Math.cos(p.a)*p.v+p.drift;p.y+=Math.sin(p.a)*p.v+p.g;p.v*=p.decay;p.w+=p.ws;p.tilt+=0.1;
+      const o=1-p.t/p.T;cx.globalAlpha=Math.max(0,o);cx.fillStyle=p.c;const s=p.s;
+      if(p.round){cx.beginPath();cx.ellipse(p.x,p.y,s*.6,s*.6*Math.abs(Math.cos(p.tilt)),0,0,7);cx.fill()}
+      else{cx.save();cx.translate(p.x,p.y);cx.rotate(p.w);cx.fillRect(-s/2,-s*.3*Math.abs(Math.cos(p.tilt))-1,s,s*.6*Math.abs(Math.cos(p.tilt))+2);cx.restore()}});
+    cx.globalAlpha=1;raf=parts.length?requestAnimationFrame(frame):(cx.clearRect(0,0,innerWidth,innerHeight),null)}
+  return function(o){o=o||{};setup();const n=o.particleCount||50,ang=(o.angle==null?90:o.angle)*Math.PI/180,spr=(o.spread==null?45:o.spread)*Math.PI/180,sv=o.startVelocity||45,
+      X=(o.origin&&o.origin.x!=null?o.origin.x:.5)*innerWidth,Y=(o.origin&&o.origin.y!=null?o.origin.y:.6)*innerHeight,cols=o.colors||['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0','#ff7ab6'],sc=o.scalar||1;
+    for(let i=0;i<Math.min(n,400);i++)parts.push({x:X,y:Y,a:-ang+(.5*spr-Math.random()*spr),v:sv*.5+Math.random()*sv,decay:.9,g:3*(o.gravity==null?1:o.gravity),drift:(Math.random()-.5)*.6,
+      c:cols[i%cols.length],s:(7+Math.random()*6)*sc,round:Math.random()<.3,w:Math.random()*6,ws:(Math.random()-.5)*.3,tilt:Math.random()*6,t:0,T:o.ticks||200});
+    if(!raf)raf=requestAnimationFrame(frame);return Promise.resolve()}})();
+// confetti
+function boom(big){if(typeof confetti!=='function')return;const c=['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0'];
+  confetti({particleCount:big?220:90,spread:big?120:70,origin:{y:.65},colors:c});
+  if(big){setTimeout(()=>confetti({particleCount:120,angle:60,spread:70,origin:{x:0,y:.7},colors:c}),250);setTimeout(()=>confetti({particleCount:120,angle:120,spread:70,origin:{x:1,y:.7},colors:c}),400)}}
+// cheer: confetti burst where the student tapped + a clapping sound for each correct answer
+let lastX=.5,lastY=.6,soundOn=true;try{soundOn=localStorage.getItem('cheerSound')!=='off'}catch(e){}
+document.addEventListener('pointerdown',e=>{lastX=e.clientX/innerWidth;lastY=e.clientY/innerHeight},true);
+let cheerCtx;function clap(n){if(!soundOn)return;try{cheerCtx=cheerCtx||new (window.AudioContext||window.webkitAudioContext)();const a=cheerCtx,now=a.currentTime;
+  const len=a.sampleRate*.05,buf=a.createBuffer(1,len,a.sampleRate),d=buf.getChannelData(0);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,3);
+  for(let k=0;k<n;k++){const t=now+k*0.11+Math.random()*0.05;for(let j=0;j<3;j++){const src=a.createBufferSource();src.buffer=buf;const f=a.createBiquadFilter();f.type='bandpass';f.frequency.value=1000+Math.random()*1500;f.Q.value=0.8;const g=a.createGain();g.gain.value=0.5;src.connect(f);f.connect(g);g.connect(a.destination);src.start(t+j*0.012+Math.random()*0.02)}}
+  [523.25,659.25,783.99].forEach((fr,i)=>{const o=a.createOscillator(),g=a.createGain();o.type='triangle';o.frequency.value=fr;o.connect(g);g.connect(a.destination);g.gain.setValueAtTime(0.0001,now+i*0.07);g.gain.exponentialRampToValueAtTime(0.12,now+i*0.07+0.02);g.gain.exponentialRampToValueAtTime(0.0001,now+i*0.07+0.3);o.start(now+i*0.07);o.stop(now+i*0.07+0.32)})}catch(e){}}
+function party(big,x,y){const c=['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0','#ff7ab6'];
+  confetti({particleCount:big?110:60,spread:big?110:80,startVelocity:big?42:34,origin:{x:x,y:y},colors:c});
+  confetti({particleCount:big?110:60,angle:62,spread:58,startVelocity:big?62:55,origin:{x:0,y:.95},colors:c});
+  confetti({particleCount:big?110:60,angle:118,spread:58,startVelocity:big?62:55,origin:{x:1,y:.95},colors:c})}
+function badge(txt,cls){const b=document.createElement('div');b.className='fbadge '+cls;b.textContent=txt;
+  b.style.left=Math.min(Math.max(lastX*innerWidth,110),innerWidth-110)+'px';b.style.top=Math.min(Math.max(lastY*innerHeight-64,70),innerHeight-40)+'px';document.body.appendChild(b);setTimeout(()=>b.remove(),1500)}
+let lastCheer=0,lastWrong=0,quietUntil=0;
+const PRAISE=['🎉 Correct!','⭐ Brilliant!','👏 Well done!','🎊 Great job!','🏆 Excellent!'];
+function cheer(big){lastCheer=Date.now();clap(big?14:9);party(big,lastX,lastY);badge(PRAISE[Math.floor(Math.random()*PRAISE.length)],'good')}
+function buzz(){if(!soundOn)return;try{cheerCtx=cheerCtx||new (window.AudioContext||window.webkitAudioContext)();const a=cheerCtx,now=a.currentTime;
+  [[0,233],[0.17,175]].forEach(([d,f])=>{const o=a.createOscillator(),g=a.createGain();o.type='square';o.frequency.value=f;o.connect(g);g.connect(a.destination);g.gain.setValueAtTime(0.0001,now+d);g.gain.exponentialRampToValueAtTime(0.07,now+d+0.02);g.gain.exponentialRampToValueAtTime(0.0001,now+d+0.16);o.start(now+d);o.stop(now+d+0.18)})}catch(e){}}
+function wrong(el){if(el){el.classList.remove('shake');void el.offsetWidth;el.classList.add('shake');setTimeout(()=>el.classList.remove('shake'),500)}
+  if(Date.now()-lastWrong<350)return;lastWrong=Date.now();buzz();
+  let f=document.getElementById('redFlash');if(!f){f=document.createElement('div');f.id='redFlash';document.body.appendChild(f)}
+  f.classList.add('on');setTimeout(()=>f.classList.remove('on'),120);badge('✗ Not quite. Try again!','bad')}
+// watch every answer: green = party confetti, red = red flash + shake
+document.addEventListener('click',e=>{if(e.target.closest('[data-answers],#orderReveal'))quietUntil=Date.now()+600},true);
+new MutationObserver(ms=>{if(Date.now()<quietUntil)return;let good=false;
+  ms.forEach(m=>{const el=m.target,old=' '+(m.oldValue||'')+' ';if(!el.classList)return;
+    if(['no','wrong','nof'].some(c=>el.classList.contains(c)&&!old.includes(' '+c+' '))&&!el.classList.contains('fb'))wrong(el);
+    if(['ok','right','okf'].some(c=>el.classList.contains(c)&&!old.includes(' '+c+' '))&&!el.classList.contains('fb'))good=true});
+  if(good&&Date.now()-lastCheer>500)cheer(false)}).observe(document.body,{subtree:true,attributes:true,attributeFilter:['class'],attributeOldValue:true});
+(function(){const b=document.getElementById('soundBtn');if(!b)return;const set=()=>{b.textContent=soundOn?'🔊':'🔇';b.title=soundOn?'Sound on':'Sound off'};set();
+  b.onclick=()=>{soundOn=!soundOn;try{localStorage.setItem('cheerSound',soundOn?'on':'off')}catch(e){}set();if(soundOn)clap(4)}})();
+document.addEventListener('click',e=>{if(e.target.closest('[data-confetti]'))boom(false)});
+
+// generic: flip, reveal
+document.addEventListener('click',e=>{
+  const f=e.target.closest('.flip');if(f)f.classList.toggle('on');
+  const r=e.target.closest('[data-show]');if(r){const t=document.getElementById(r.dataset.show);t.hidden=!t.hidden}
+  const ns=e.target.closest('.nskill');if(ns)ns.classList.toggle('on');
+});
+
+// timers
+let actx;function beep(){try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();[0,.25,.5].forEach(d=>{const o=actx.createOscillator(),g=actx.createGain();o.frequency.value=880;o.connect(g);g.connect(actx.destination);g.gain.setValueAtTime(.15,actx.currentTime+d);g.gain.exponentialRampToValueAtTime(.001,actx.currentTime+d+.2);o.start(actx.currentTime+d);o.stop(actx.currentTime+d+.22)})}catch(e){}}
+$$('.timer').forEach(el=>{const total=+el.dataset.sec;let left=total,iv=null;const fmt=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+  el.innerHTML=`<button class="btn small">▶ Start ${total>=60?total/60+'-min':total+'-s'}</button><span class="t">${fmt(total)}</span><button class="rs" title="Reset">↺</button>`;
+  const [b,t,rs]=el.children;
+  const stop=()=>{clearInterval(iv);iv=null};
+  b.onclick=()=>{if(iv){stop();b.textContent='▶ Resume';return}if(left<=0){left=total;el.classList.remove('done')}
+    b.textContent='❚❚ Pause';iv=setInterval(()=>{left--;t.textContent=fmt(Math.max(left,0));if(left<=0){stop();el.classList.add('done');t.textContent="TIME'S UP!";b.textContent='▶ Again';beep()}},1000)};
+  rs.onclick=()=>{stop();left=total;el.classList.remove('done');t.textContent=fmt(total);b.textContent=`▶ Start ${total>=60?total/60+'-min':total+'-s'}`};
+});
+
+// 7 · true/false
+$$('#tf .q').forEach(q=>{let done=false;$$('.opt',q).forEach(b=>b.onclick=()=>{if(done)return;done=true;const pick=b.textContent==='True'?'T':'F',ok=pick===q.dataset.a;
+  b.classList.add(ok?'ok':'no');if(ok)cheer(false);const fb=$('.fb',q);fb.hidden=false;fb.className='fb '+(ok?'ok':'no');fb.textContent=(ok?'✓ Correct! ':'✗ Not quite. ')+fb.dataset.why;
+  q.dataset.res=ok?1:0;const sc=$$('#tf .q').reduce((a,x)=>a+(+x.dataset.res||0),0),n=$$('#tf .q[data-res]').length;$('#tfScore').textContent='Score: '+sc+' / 5';if(n===5&&sc===5)boom(false)})});
+
+// 11 · sort
+$$('#sorter .sitem').forEach(b=>b.onclick=()=>{b.classList.remove('right','wrong');const L=($('#sorter').dataset.labels).split('|');const i=(L.indexOf(b.dataset.v)+1)%L.length;b.dataset.v=L[i];$('.tag',b).textContent=L[i]});
+$('#sortCheck').onclick=()=>{let s=0;const all=$$('#sorter .sitem');all.forEach(b=>{const ok=b.dataset.v===b.dataset.ans;b.classList.toggle('right',ok);b.classList.toggle('wrong',!ok);s+=ok});$('#sortScore').textContent=s+' / '+all.length+' correct';if(s>0&&s<all.length)cheer(false);$('#sortWhy').hidden=false;if(s===all.length)boom(false)};
+
+// MCQ sets (retry = formative with hints; first = first-try scoring)
+$$('.mcqset').forEach(set=>{const mode=set.dataset.mode;const qs=set.classList.contains('q')?[set]:$$('.q',set);
+  qs.forEach(q=>q.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(q.dataset.solved)return;const ok=b.hasAttribute('data-ok');
+    if(!('first' in q.dataset))q.dataset.first=ok?1:0;
+    b.classList.add(ok?'ok':'no');const fb=$('.fb',q);if(fb)fb.hidden=ok;
+    if(ok){q.dataset.solved=1;cheer(false)}
+    if(set.id==='wm'){const s=qs.reduce((a,x)=>a+(+x.dataset.first||0),0),n=qs.filter(x=>'first' in x.dataset).length;
+      const lvl=s===5?'Light Master! 🏆':s===4?'Light Expert':s===3?'Light Explorer':"let's review together";
+      $('#wmScore').textContent='First-try score: '+s+' / 5'+(n===5?' · '+lvl:'');if(n===5&&s>=4)boom(s===5)}
+    if(mode==='retry'&&qs.length>1&&qs.every(x=>x.dataset.solved))boom(false);
+  }));
+});
+
+// 22 · order (any number of items)
+const ON=$$('#order .oitem').length;let nextN=1;
+$$('#order .oitem').forEach(b=>b.onclick=()=>{$$('#order .oitem').forEach(x=>x.classList.remove('right','wrong'));
+  if(b.dataset.n){const k=+b.dataset.n;$$('#order .oitem').forEach(x=>{if(+x.dataset.n>=k){delete x.dataset.n;x.classList.remove('set');$('.n',x).textContent='?'}});nextN=k;return}
+  if(nextN>ON)return;b.dataset.n=nextN;b.classList.add('set');$('.n',b).textContent=nextN;nextN++});
+$('#orderCheck').onclick=()=>{let s=0;$$('#order .oitem').forEach(b=>{const ok=b.dataset.n===b.dataset.p;b.classList.toggle('right',ok);b.classList.toggle('wrong',!ok);s+=ok});$('#orderScore').textContent=s+' / '+ON+' in the right place';if(s>0&&s<ON)cheer(false);if(s===ON)boom(false)};
+$('#orderReveal').onclick=()=>{$('#chain').hidden=false};
+$$('[data-tl]').forEach(b=>b.onclick=()=>{const m=$('#tlMsg');m.hidden=false;m.textContent=b.dataset.tl});
+
+// worksheet + graphic organizer
+$$('#wsA select').forEach(s=>s.innerHTML='<option value="">–</option>'+'ABCDE'.split('').map(x=>`<option>${x}</option>`).join(''));
+$$('select[data-opts]').forEach(s=>s.innerHTML='<option value="">choose…</option>'+s.dataset.opts.split('|').map(x=>`<option>${x}</option>`).join(''));
+const norm=v=>v.trim().toLowerCase().replace(/[.\s]+$/,'');
+function mark(id){let s=0;$$('#'+id+' [data-ans]').forEach(f=>{const ok=f.dataset.ans.toLowerCase().split('|').includes(norm(f.value));f.classList.toggle('okf',ok);f.classList.toggle('nof',!ok&&f.value!=='');s+=ok});return s}
+const score={wsA:0,wsB:0,wsC:0};
+function total(){$('#wsTotal').textContent='Total: A + B + C = '+(score.wsA+score.wsB+score.wsC)+' / 16 marks'}
+function goReveal(){$$('#go .exp').forEach(x=>{x.hidden=false;x.style.cssText='font-size:.8rem;color:#11663a;font-weight:700;margin-top:2px'})}
+$$('[data-check]').forEach(b=>b.onclick=()=>{const id=b.dataset.check,s=mark(id),max=$$('#'+id+' [data-ans]').length;if(id in score)score[id]=s;if(s>0)cheer(s===max);$(`[data-out="${id}"]`).textContent=s+' / '+max;if(id in score)total();if(s===max){boom(false);if(id==='go')goReveal()}});
+$$('[data-answers]').forEach(b=>b.onclick=()=>{const id=b.dataset.answers;$$('#'+id+' [data-ans]').forEach(f=>{f.value=f.tagName==='SELECT'?f.dataset.ans:f.dataset.ans.split('|')[0]});mark(id);if(id==='go')goReveal()});
+$('#labExp').onclick=()=>$$('#s20 .exp').forEach(x=>{x.hidden=false;x.style.cssText='font-size:.82rem;color:#11663a;font-weight:700;margin-top:4px'});
+$$('.lvl').forEach(b=>b.onclick=()=>{const a=b.previousElementSibling;a.hidden=!a.hidden;b.textContent=a.hidden?'Show answers':'Hide answers'});
+
+// keep typed answers in this browser
+$$('input[type=text],textarea').forEach(f=>{if(!f.id)return;const v=store.get(f.id);if(v)f.value=v;f.addEventListener('input',()=>store.set(f.id,f.value))});
+
+// stars
+$$('.stars').forEach(st=>{for(let i=1;i<=5;i++)st.insertAdjacentHTML('beforeend',`<button aria-label="${i} star${i>1?'s':''}">★</button>`);
+  const set=k=>$$('button',st).forEach((b,i)=>b.classList.toggle('on',i<k));set(+store.get(st.id)||0);
+  $$('button',st).forEach((b,i)=>b.onclick=()=>{set(i+1);store.set(st.id,i+1);if(i===4)boom(false)})});
+
+// values
+$$('#values .vcard').forEach(c=>c.onclick=()=>{c.classList.toggle('on');const n=$$('#values .vcard.on').length;$$('#goal span').forEach((s,i)=>s.classList.toggle('on',i<n));if(n===5){boom(true);toast('Class goal reached: all five stars!')}});
+
+// celebrate
+$('#celebrate').onclick=()=>boom(true);
+enterHooks[30]=()=>boom(true);
+
+/* ---------- canvases ---------- */
+function fit(c){const r=c.getBoundingClientRect(),d=window.devicePixelRatio||1;const h=+c.getAttribute('height')||r.height||120;
+  if(!c.dataset.h)c.dataset.h=h;const H=+c.dataset.h;c.style.height=H+'px';c.width=Math.round(r.width*d);c.height=Math.round(H*d);const x=c.getContext('2d');x.setTransform(d,0,0,d,0,0);return{x,w:r.width,h:H}}
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// colour of a visible wavelength (nm)
+function nmColor(l){let r=0,g=0,b=0;
+  if(l<440){r=-(l-440)/40;b=1}else if(l<490){g=(l-440)/50;b=1}else if(l<510){g=1;b=-(l-510)/20}else if(l<580){r=(l-510)/70;g=1}else if(l<645){r=1;g=-(l-645)/65}else{r=1}
+  let f=l<420?.4+.6*(l-380)/40:l>680?.4+.6*(700-l)/20+.3:1;f=Math.min(1,Math.max(.35,f));
+  const c=v=>Math.round(255*Math.pow(Math.max(0,v)*f,.8));return `rgb(${c(r)},${c(g)},${c(b)})`}
+function nmName(l){return l<450?'Violet':l<495?'Blue':l<570?'Green':l<590?'Yellow':l<620?'Orange':'Red'}
+
+// hero: light waves of many colours
+(function(){const c=$('#heroWaves');let t=0,raf;function draw(){if(cur!==1){raf=null;return}const {x,w,h}=fit(c);
+  const cols=['#e5484d','#f07f19','#ffc21a','#1fa75a','#4f8cff','#8b5cf6'];cols.forEach((col,i)=>{x.beginPath();const k=60-i*8;for(let px=0;px<=w;px+=4){const y=h*.32+i*13+Math.sin(px/k+t*(1+i*.2))*(9+i*1.5);px?x.lineTo(px,y):x.moveTo(px,y)}x.strokeStyle=col;x.lineWidth=5;x.stroke()});
+  t+=.03;raf=reduce?null:requestAnimationFrame(draw)}enterHooks[1]=()=>{if(!raf)draw()};})();
+
+// 16 · spectrum explorer
+const BANDS=[
+  {n:'Radio waves',lo:-0.5,hi:3,col:'#8a6b4a',wl:'1 m to over 1 km',f:'up to about 1,000,000,000 Hz',use:'<b>Uses:</b> radio stations, TV broadcasts and talking to ships and planes.<br><b>In the UAE:</b> the car radio you hear on the drive to Hatta.'},
+  {n:'Microwaves',lo:-3,hi:-0.5,col:'#5b6385',wl:'1 mm to 30 cm',f:'about 10⁹ to 10¹¹ Hz',use:'<b>Uses:</b> microwave ovens, Wi-Fi, mobile phones and weather radar.<br><b>In the UAE:</b> your school Wi-Fi and phone calls.'},
+  {n:'Infrared waves',lo:-6.155,hi:-3,col:'#e5484d',wl:'700 nm to 1 mm',f:'about 10¹¹ to 4 × 10¹⁴ Hz',use:'<b>Uses:</b> TV remotes, thermal cameras, night vision. We feel infrared as <b>heat</b>.<br><b>In the UAE:</b> the warmth of the desert sand at noon.'},
+  {n:'Visible light',lo:-6.398,hi:-6.155,col:'#1fa75a',wl:'700 nm to 400 nm',f:'about 4 × 10¹⁴ to 7.5 × 10¹⁴ Hz',use:'<b>Uses:</b> seeing! Every colour you see, from red to violet.<br><b>In the UAE:</b> the rainbow in the spray at Hatta Dam.',see:true},
+  {n:'Ultraviolet waves',lo:-8,hi:-6.398,col:'#7a3ff0',wl:'10 nm to 400 nm',f:'about 7.5 × 10¹⁴ to 10¹⁶ Hz',use:'<b>Uses:</b> bug zappers, sterilising water, helping skin make vitamin D. Too much causes <b>sunburn</b>.<br><b>In the UAE:</b> why we wear sunscreen at the beach.'},
+  {n:'X-rays',lo:-11,hi:-8,col:'#1b2470',wl:'0.01 nm to 10 nm',f:'about 10¹⁶ to 10¹⁹ Hz',use:'<b>Uses:</b> images of bones and teeth, airport baggage scanners.<br><b>In the UAE:</b> the bag scanner at Dubai International Airport.'},
+  {n:'Gamma rays',lo:-13,hi:-11,col:'#c81e3a',wl:'less than 0.01 nm',f:'more than 10¹⁹ Hz',use:'<b>Uses:</b> killing cancer cells, sterilising medical tools. They carry the <b>most energy</b>.<br><b>In the UAE:</b> cancer treatment in hospitals.'}];
+const LMAX=3,LMIN=-13;
+(function(){const band=$('#emBand'),wave=$('#emWave'),pos=$('#emPos');let raf,t=0;
+  const lam=()=>LMAX-(LMAX-LMIN)*(+pos.value/1000);
+  const bandOf=L=>BANDS.find(b=>L<=b.hi&&L>b.lo)||(L>-0.5?BANDS[0]:BANDS[6]);
+  const posOf=L=>Math.round((LMAX-L)/(LMAX-LMIN)*1000);
+  $('#emJump').innerHTML=BANDS.map((b,i)=>`<button class="btn small ghost" data-b="${i}" style="border-color:${b.col};color:${b.col==='#1fa75a'?'#11663a':b.col}">${b.n}</button>`).join('');
+  $$('#emJump [data-b]').forEach(btn=>btn.onclick=()=>{const b=BANDS[+btn.dataset.b];pos.value=posOf((b.lo+b.hi)/2);upd();if(b.see)cheer(false)});
+  let foundVis=false;
+  function upd(){const L=lam(),b=bandOf(L);
+    $('#emName').innerHTML=`<span style="color:${b.col==='#1fa75a'?'#11663a':b.col}">${b.n}</span>`;
+    let wl;if(b.see){const nm=Math.round(Math.pow(10,L)*1e9);wl=`${nm} nm <span class="legend">(${nmName(nm).toLowerCase()})</span>`}else wl=b.wl;
+    $('#emWl').innerHTML=wl;$('#emF').textContent=b.f;
+    $('#emSee').innerHTML=b.see?'<span style="color:var(--green)">YES 👁</span>':'<span style="color:var(--red)">NO</span>';
+    $('#emE').style.width=Math.max(4,Math.round((LMAX-L)/(LMAX-LMIN)*100))+'%';
+    $('#emUse').innerHTML=b.use;
+    if(b.see&&!foundVis){foundVis=true;toast('You found visible light! It is only a tiny slice of the spectrum.')}
+    drawBand()}
+  function drawBand(){const {x,w,h}=fit(band);
+    BANDS.forEach(b=>{const x0=(LMAX-b.hi)/(LMAX-LMIN)*w,x1=(LMAX-b.lo)/(LMAX-LMIN)*w;
+      if(b.see){const g=x.createLinearGradient(x0,0,x1,0);[700,650,600,550,500,450,400].forEach((nm,i)=>g.addColorStop(i/6,nmColor(nm)));x.fillStyle=g}else x.fillStyle=b.col;
+      x.globalAlpha=b.see?1:.85;x.fillRect(x0,6,Math.max(3,x1-x0),h-30);x.globalAlpha=1});
+    x.fillStyle='#1b2470';x.font='bold 11px Nunito, sans-serif';x.textAlign='left';x.fillText('◀ longer wavelength · lower frequency · less energy',4,h-8);x.textAlign='right';x.fillText('shorter wavelength · higher frequency · more energy ▶',w-4,h-8);x.textAlign='left';
+    const px=+pos.value/1000*w;x.strokeStyle='#000';x.lineWidth=3;x.beginPath();x.moveTo(px,2);x.lineTo(px,h-26);x.stroke();x.fillStyle='#ffc21a';x.beginPath();x.moveTo(px-7,0);x.lineTo(px+7,0);x.lineTo(px,9);x.fill()}
+  function drawWave(){const {x,w,h}=fit(wave),L=lam(),b=bandOf(L);
+    const k=(L-LMIN)/(LMAX-LMIN);const wl=6+Math.pow(k,1.6)*Math.min(w*1.2,520);
+    x.fillStyle='#0f1534';x.fillRect(0,0,w,h);
+    let col=b.col;if(b.see)col=nmColor(Math.round(Math.pow(10,L)*1e9));
+    x.strokeStyle=col==='#1b2470'?'#7f8cff':col;x.lineWidth=3;x.beginPath();
+    for(let px=0;px<=w;px+=1){const y=h/2+Math.sin((px-t*Math.max(2,60/Math.sqrt(wl)))*2*Math.PI/wl)*h*.32;px?x.lineTo(px,y):x.moveTo(px,y)}x.stroke();
+    x.fillStyle='#fff';x.font='bold 12px Nunito, sans-serif';x.fillText(b.see?'you can SEE this wave':'invisible to our eyes',10,18);
+    t+=1;if(!wave.closest('.slide').hidden&&!reduce)raf=requestAnimationFrame(drawWave);else raf=null}
+  pos.oninput=upd;
+  enterHooks[16]=()=>{upd();if(!raf)raf=requestAnimationFrame(drawWave)};
+  upd();})();
+
+// 17 · nanometre ruler
+(function(){const r=$('#nm'),c=$('#nmWave');let task=null,raf,t=0;
+  const T={orange:[590,620,'Orange'],green:[495,570,'Green'],violet:[400,450,'Violet'],red:[620,700,'Red']};
+  function out(){const l=+r.value;$('#nmVal').textContent=l;const col=nmColor(l);
+    $('#nmOut').innerHTML=`<span class="swatch" style="background:${col}"></span>${nmName(l)} light`;
+    $('#nmM').textContent=`${l} nm = 0.000 000 ${String(l).padStart(3,'0')} m`;
+    const n=Math.round(70000/l);$('#hair').innerHTML=`<b>A human hair</b> is about 70,000 nm wide. About <b style="color:var(--red)">${n}</b> of these waves would fit across it!<div class="hairbar"><span style="width:${100/n*10}%;background:${col}"></span></div><div class="legend">Coloured bar = 10 wavelengths · full bar = one hair's width</div>`;
+    if(task){const [a,b,nm]=T[task];if(l>=a&&l<=b){$('#nmTask').innerHTML=`✓ You found <b>${nm}</b>: ${a}–${b} nm. Try another colour!`;$$('#nmCh [data-c]').find(x=>x.dataset.c===task).classList.add('done');task=null;cheer(false)}}}
+  $$('#nmCh [data-c]').forEach(b=>b.onclick=()=>{task=b.dataset.c;const [a,bb,nm]=T[task];$('#nmTask').hidden=false;$('#nmTask').innerHTML=`<b>Challenge:</b> move the slider to <b>${nm}</b> light.`+(task==='orange'?' (Your textbook says 590–620 nm.)':'')});
+  function draw(){const {x,w,h}=fit(c),l=+r.value,wl=l/700*120;x.fillStyle='#0f1534';x.fillRect(0,0,w,h);
+    x.strokeStyle=nmColor(l);x.lineWidth=4;x.beginPath();for(let px=0;px<=w;px++){const y=h/2+Math.sin((px-t)*2*Math.PI/wl)*h*.3;px?x.lineTo(px,y):x.moveTo(px,y)}x.stroke();
+    const y0=h-18;x.strokeStyle='#fff';x.lineWidth=2;x.beginPath();x.moveTo(20,y0);x.lineTo(20+wl,y0);x.moveTo(20,y0-6);x.lineTo(20,y0+6);x.moveTo(20+wl,y0-6);x.lineTo(20+wl,y0+6);x.stroke();
+    x.fillStyle='#fff';x.font='bold 12px Nunito, sans-serif';x.fillText(`one wavelength = ${l} nm`,26+wl,y0+4);
+    t+=1.2;if(!c.closest('.slide').hidden&&!reduce)raf=requestAnimationFrame(draw);else raf=null}
+  r.oninput=()=>{out();if(reduce)draw()};out();enterHooks[17]=()=>{out();if(!raf)raf=requestAnimationFrame(draw)};})();
+
+// 18 · energy: amplitude vs frequency
+(function(){const mc=$('#mechW'),ec=$('#emW2');let raf,t=0,last={eA:+$('#eA').value,eF:+$('#eF').value};
+  function wave(c,A,F,col){const {x,w,h}=fit(c);x.fillStyle=col==='sea'?'#e6f3fc':'#0f1534';x.fillRect(0,0,w,h);
+    x.strokeStyle=col==='sea'?'#2b8fd6':nmColor(700-(F-1)/11*300);x.lineWidth=3;x.beginPath();
+    for(let px=0;px<=w;px++){const y=h/2+Math.sin(px/w*F*2*Math.PI*1.5-t*.05*F)*A;px?x.lineTo(px,y):x.moveTo(px,y)}x.stroke()}
+  function bars(){const mA=+$('#mA').value,mF=+$('#mF').value,eA=+$('#eA').value,eF=+$('#eF').value;
+    $('#mE').style.width=Math.round(8+92*Math.pow((mA-8)/47,1.3))+'%';
+    $('#eE').style.width=Math.round(8+92*(eF-1)/11)+'%';
+    $('#mNote').textContent='Bigger amplitude → more energy for a water wave.';
+    if(eA!==last.eA)$('#eNote').innerHTML='<b style="color:var(--red)">The energy did not change!</b> Amplitude does not set the energy of an electromagnetic wave.';
+    if(eF!==last.eF){$('#eNote').innerHTML='<b style="color:var(--green)">Higher frequency → more energy!</b> The colour shifts from red towards violet.';}
+    last={eA,eF}}
+  function draw(){wave(mc,+$('#mA').value,+$('#mF').value,'sea');wave(ec,+$('#eA').value,+$('#eF').value,'em');t++;
+    if(!mc.closest('.slide').hidden&&!reduce)raf=requestAnimationFrame(draw);else raf=null}
+  ['mA','mF','eA','eF'].forEach(id=>$('#'+id).oninput=()=>{bars();if(reduce)draw()});bars();$('#eNote').textContent='Try the amplitude slider first, then the frequency slider.';
+  enterHooks[18]=()=>{if(!raf)raf=requestAnimationFrame(draw)};})();
+
+window.addEventListener('resize',()=>enterHooks[cur]&&enterHooks[cur]());
+go(fromHash(),false);
+</script>
+
+</body>
+</html>
