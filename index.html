@@ -229,6 +229,6 @@ render();
     ['#ffc21a','#e5484d','#1fa75a','#4f8cff','#c084fc'].forEach((col,i)=>{x.beginPath();for(let p=0;p<=r.width;p+=6){const y=r.height*.4+i*10+Math.sin(p/90+t*(1+i*.15)+i)*(8+i*2);p?x.lineTo(p,y):x.moveTo(p,y)}x.strokeStyle=col;x.lineWidth=4;x.stroke()});
     t+=.02;if(!reduce)requestAnimationFrame(draw)}draw()})();
 </script>
-<script src="assets/bio-hero.js" defer></script>
+<script src="assets/bio-hero.js?v=3" defer></script>
 </body>
 </html>

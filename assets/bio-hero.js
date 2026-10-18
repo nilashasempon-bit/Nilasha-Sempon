@@ -13,17 +13,21 @@
   .hero .inner,.hero > .wrap{position:relative;z-index:2}
   .bioart{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
   .bioart canvas{position:absolute;inset:0;width:100%;height:100%}
-  .bioteam{position:absolute;right:max(2vw,calc((100vw - 1200px)/2 - 40px));top:150px;width:min(34vw,440px);height:min(64vh,560px)}
-  .bioav{position:absolute;width:92px;text-align:center;animation:bioFloat 6s ease-in-out infinite}
-  .bioav img{width:92px;height:92px;border-radius:50%;border:4px solid #fff;box-shadow:0 10px 26px rgba(0,0,0,.35);background:var(--cc,#7a2424);display:block}
+  .bioteam{position:absolute;top:150px;height:min(64vh,560px)}
+  .bioteam.off{display:none}
+  .bioband{position:relative;height:var(--bh,170px);margin:4px 0;pointer-events:none;display:none}
+  .bioband.on{display:block}
+  .bioband canvas{position:absolute;inset:0;width:100%;height:100%}
+  .bioband .bioav{top:50%;margin-top:calc(var(--av) / -2 - 8px)}
+  .bioav{position:absolute;width:var(--av,92px);text-align:center;animation:bioFloat 6s ease-in-out infinite}
+  .bioav img{width:var(--av,92px);height:var(--av,92px);border-radius:50%;border:4px solid #fff;box-shadow:0 10px 26px rgba(0,0,0,.35);background:var(--cc,#7a2424);display:block}
   .bioav span{display:inline-block;margin-top:-12px;position:relative;background:#fff;color:#1b2470;font:800 .82rem/1 "Nunito",system-ui,sans-serif;padding:6px 12px;border-radius:999px;box-shadow:0 4px 10px rgba(0,0,0,.25)}
   .bioav:nth-child(2){animation-delay:-1.2s;animation-duration:7s}
   .bioav:nth-child(3){animation-delay:-2.4s;animation-duration:5.5s}
   .bioav:nth-child(4){animation-delay:-3.6s;animation-duration:6.5s}
   .bioav:nth-child(5){animation-delay:-4.8s;animation-duration:7.5s}
   @keyframes bioFloat{0%,100%{transform:translate(0,0) rotate(-2deg)}50%{transform:translate(6px,-16px) rotate(2deg)}}
-  .bioteam.tight .bioav,.bioteam.tight .bioav img{width:70px}.bioteam.tight .bioav img{height:70px}.bioteam.tight .bioav span{font-size:.72rem;padding:4px 9px}
-  @media (max-width:1050px){.bioteam{display:none}}
+  .bioteam.tight .bioav span{font-size:.72rem;padding:4px 9px}
   @media (prefers-reduced-motion:reduce){.bioav{animation:none}}`;
   const st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
 
@@ -38,28 +42,61 @@
     d.innerHTML = `<img src="${imgDir}av-${k}.webp" alt=""><span>${n}</span>`; team.appendChild(d);
   });
   art.appendChild(team);
+  const band = document.createElement('div'); band.className = 'bioband'; band.setAttribute('aria-hidden', 'true');
+  const bcv = document.createElement('canvas'); band.appendChild(bcv);
+  const bteam = [];
+  T.forEach(([k, n, c], i) => {
+    const d = document.createElement('div'); d.className = 'bioav'; d.style.left = (4 + i * 21) + '%'; d.style.setProperty('--cc', c);
+    d.innerHTML = `<img src="${imgDir}av-${k}.webp" alt=""><span>${n}</span>`; band.appendChild(d); bteam.push(d);
+  });
+  const anchor = s1.querySelector('.banner') || (s1.querySelector('.bannerbtn') || {}).parentElement;
+  if (anchor && anchor.parentElement) anchor.parentElement.insertBefore(band, anchor);
+  const bcx = bcv.getContext('2d');
   s1.insertBefore(art, s1.firstChild);
 
   const cx = cv.getContext('2d');
   const COLS = ['#7a5cff', '#3b82f6', '#14a38b', '#c026d3', '#d97706', '#ec4899', '#0ea5e9', '#f97316', '#eab308', '#6366f1'];
-  let helixH = 500, topY = 150, W = 0, H = 0, dpr = 1, parts = [], t = 0, raf = null, visible = true;
+  let BW = 0, BH = 0, wide = true, hxC = 0, hxR = 130, helixH = 500, topY = 150, W = 0, H = 0, dpr = 1, parts = [], t = 0, raf = null, visible = true;
 
   function size() {
     const r = s1.getBoundingClientRect(); dpr = Math.min(devicePixelRatio || 1, 2);
     W = r.width; H = Math.max(r.height, s1.scrollHeight);
     cv.width = W * dpr; cv.height = H * dpr; cv.style.height = H + 'px'; cx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    // keep the team and helix clear of a long title
-    const teamL = team.getBoundingClientRect().left || (r.right - 480);
+    // find the free space to the right of the lesson content
     const inner = s1.querySelector('.inner, .wrap'); topY = home ? 60 : 150;
-    if (inner) for (const el of inner.children) {
-      if (el.classList.contains('teacher') || el.classList.contains('banner')) break;
-      if (el.classList.contains('lo')) continue;
-      const rg = document.createRange(); rg.selectNodeContents(el); const b = rg.getBoundingClientRect();
-      if (b.right > teamL - 20) topY = Math.max(topY, b.bottom - r.top + 20);
+    const boxes = [];
+    if (inner) for (const el of inner.querySelectorAll(':scope > *, :scope > div > *')) {
+      if (el.classList.contains('lo') || el.children.length && el.tagName === 'DIV' && !el.matches('.charter,.mystery,.row')) continue;
+      let b;
+      if (el.matches('img,.charter,.bannerbtn,.banner,.mystery')) b = el.getBoundingClientRect();
+      else { const rg = document.createRange(); rg.selectNodeContents(el); b = rg.getBoundingClientRect(); }
+      if (b.width) boxes.push({ r: b.right - r.left, t: b.top - r.top, b: b.bottom - r.top, big: el.matches('img,.charter,.bannerbtn,.banner,.mystery,.row') });
     }
+    const viewH = home ? s1.clientHeight : Math.min(s1.clientHeight, innerHeight - 110);
+    const lowR = Math.max(0, ...boxes.filter(x => x.big).map(x => x.r));       // banner / charter column
+    const allR = Math.max(lowR, ...boxes.map(x => x.r));
+    let left = allR + 24;
+    if (W - left < 300) {                                                       // long title: go below it
+      left = lowR + 24;
+      boxes.forEach(x => { if (x.r > left - 10 && !x.big) topY = Math.max(topY, x.b + 16); });
+    }
+    const width = Math.min(440, W - left - 16);
+    wide = width >= 260 && viewH - topY >= 300;
+    team.classList.toggle('off', !wide);
+    band.classList.toggle('on', !wide);
+    if (!wide) {
+      const bw = band.clientWidth || W - 32, bav = Math.round(Math.max(46, Math.min(84, bw / 9)));
+      band.style.setProperty('--av', bav + 'px'); band.style.setProperty('--bh', Math.round(bav * 1.9) + 'px');
+      band.querySelectorAll('.bioav').forEach((d, i) => { d.style.left = `calc(${(i + .5) * 20}% - ${bav / 2}px)`; });
+      BW = band.clientWidth; BH = band.clientHeight; bcv.width = BW * dpr; bcv.height = BH * dpr; bcx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    team.style.left = left + 'px'; team.style.width = Math.max(0, width) + 'px';
+    const av = Math.round(Math.max(58, Math.min(92, width * .21)));
+    team.style.setProperty('--av', av + 'px');
+    hxC = left + width / 2; hxR = Math.min(130, width * .3);
     team.style.top = topY + 'px';
-    const avail = home ? s1.clientHeight - topY - 70 : Math.min(s1.clientHeight, innerHeight - 110) - topY - 10;
-    team.style.height = Math.max(280, Math.min(560, avail)) + 'px'; team.classList.toggle('tight', avail < 420); helixH = Math.max(260, Math.min(600, avail + 40));
+    const avail = viewH - topY - (home ? 70 : 10);
+    team.style.height = Math.max(280, Math.min(560, avail)) + 'px'; team.classList.toggle('tight', avail < 420 || av < 80); helixH = Math.max(260, Math.min(600, avail + 40));
     if (!parts.length) for (let i = 0; i < 26; i++) parts.push({ x: Math.random(), y: Math.random(), s: 10 + Math.random() * 22, v: .00025 + Math.random() * .0006, a: Math.random() * 6.3, r: (Math.random() - .5) * .01, k: i % 3, c: COLS[i % COLS.length] });
   }
 
@@ -81,12 +118,26 @@
     cx.restore();
   }
 
+  function bandHelix() {
+    if (wide || !BW) return;
+    bcx.clearRect(0, 0, BW, BH);
+    const n = Math.max(14, Math.round(BW / 34)), gap = (BW - 20) / (n - 1), R = BH * .36, cy = BH / 2;
+    const rows = [];
+    for (let i = 0; i < n; i++) { const ph = t * 1.1 + i * .45; rows.push({ x: 10 + i * gap, s: Math.sin(ph), z: Math.cos(ph), c: COLS[i % COLS.length] }); }
+    rows.forEach(r => { bcx.strokeStyle = r.c; bcx.globalAlpha = .5 * (.6 + .4 * Math.abs(r.z)); bcx.lineWidth = 4; bcx.lineCap = 'round';
+      bcx.beginPath(); bcx.moveTo(r.x, cy + R * r.s); bcx.lineTo(r.x, cy - R * r.s); bcx.stroke(); });
+    rows.forEach(r => { [[cy + R * r.s, r.z], [cy - R * r.s, -r.z]].forEach(([y, z]) => {
+      bcx.globalAlpha = .55 + .45 * (z + 1) / 2; bcx.fillStyle = r.c; bcx.beginPath(); bcx.arc(r.x, y, 5 + 4 * (z + 1) / 2, 0, 7); bcx.fill();
+      bcx.globalAlpha *= .5; bcx.fillStyle = '#fff'; bcx.beginPath(); bcx.arc(r.x - 2, y - 2, 2 + (z + 1) * .8, 0, 7); bcx.fill(); }); });
+    bcx.globalAlpha = 1;
+  }
+
   function helix() {
-    const wide = W > 1050;
-    const hx = wide ? Math.min(W - 230, W / 2 + 600 - 220) : W - Math.min(110, W * .28);
+    if (!wide) return bandHelix();
+    const hx = wide ? hxC : W - Math.min(110, W * .28);
     const top = wide ? topY + 20 : 120, h = wide ? helixH : Math.min(H - 220, 640);
-    const R = wide ? 130 : 70, n = wide ? 20 : 18, gap = h / (n - 1);
-    cx.save(); cx.globalAlpha = wide ? 1 : .25;
+    const R = wide ? hxR : 70, n = wide ? 20 : 18, gap = h / (n - 1);
+    cx.save(); cx.globalAlpha = wide ? 1 : (W > 700 ? .45 : .25);
     const g = cx.createRadialGradient(hx, top + h / 2, 10, hx, top + h / 2, R * 2.4);
     g.addColorStop(0, 'rgba(255,194,26,.18)'); g.addColorStop(1, 'rgba(255,194,26,0)');
     cx.fillStyle = g; cx.fillRect(0, 0, W, H);
