@@ -285,6 +285,10 @@ textarea{width:100%;min-height:84px;resize:vertical}
 .good{background:var(--green-bg);border-radius:12px;padding:10px 14px}
 .hl{color:var(--red);font-weight:800}
 video{width:100%;border-radius:14px;background:#000;display:block}
+#vidWrap{position:relative}#vidWrap .vpause{position:absolute;inset:0;background:rgba(15,20,60,.93);border-radius:14px;display:grid;align-content:center;gap:10px;padding:16px;color:#fff;z-index:3}
+#vidWrap .vpause[hidden]{display:none}#vidWrap .vpause .qt{color:#1b2470;font-weight:800;font-size:1.15rem}#vidWrap .vpause .opt{background:#fff;color:#1b2470}#vidWrap .vpause .tagq{color:#ffd166;font-weight:800;font-size:.9rem}
+@media (max-width:600px){#vidWrap .vpause{position:static;margin-top:8px}}
+
 
 /* party confetti + red wrong-answer feedback */
 .shake{animation:shk .45s}
@@ -341,7 +345,7 @@ body{font-size:17px}
     <span class="crumb">Lesson 1 · Resources, part 2</span>
     <span class="unit">Unit 1: Interaction with Ecosystems · Module 2: Dynamic Ecosystems</span>
     <span class="date" id="today">Today</span>
-    <button class="iconbtn" data-go="3" title="Lesson map" aria-label="Lesson map"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 2 11.5h3V21h5.5v-6h3v6H19v-9.5h3z"/></svg></button>
+    <button class="iconbtn" data-go="2" title="Lesson map" aria-label="Lesson map"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 2 11.5h3V21h5.5v-6h3v6H19v-9.5h3z"/></svg></button>
   </header>
   <main id="main">
 
@@ -369,7 +373,7 @@ body{font-size:17px}
 <section class="slide " id="s2" data-title="Lesson map">
   <div class="inner">
     <div class="head"><h2>Lesson map · 45 minutes</h2></div>
-    <div class="map"><button style="background:#d23b8a" data-go="3"><small>0–4 min</small><strong>Picture words</strong><span>6 key words</span></button><button style="background:#1593c9" data-go="4"><small>4–7 min</small><strong>Starter quiz</strong><span>True or false?</span></button><button style="background:#ef5a5a" data-go="5"><small>7–10 min</small><strong>Grandpa's pond</strong><span>The story in pictures</span></button><button style="background:#f07f19" data-go="6"><small>10–13 min</small><strong>Video</strong><span>Watch and answer</span></button><button style="background:#7a3ff0" data-go="7"><small>13–16 min</small><strong>What do fish need?</strong><span>Resources diagram</span></button><button style="background:#b0287a" data-go="8"><small>16–19 min</small><strong>The school bus</strong><span>Fill the 40 seats</span></button><button style="background:#118a7e" data-go="9"><small>19–22 min</small><strong>5 limiting factors</strong><span>Picture cards</span></button><button style="background:#2563eb" data-go="10"><small>22–25 min</small><strong>Living or nonliving?</strong><span>Sort 8 cards</span></button><button style="background:#c2410c" data-go="11"><small>25–29 min</small><strong>The population graph</strong><span>3 parts of the line</span></button><button style="background:#1fa75a" data-go="12"><small>29–33 min</small><strong>Fish pond lab</strong><span>Find the carrying capacity</span></button><button style="background:#e5484d" data-go="13"><small>33–35 min</small><strong>Quick check</strong><span>4 questions</span></button><button style="background:#5b3fd0" data-go="14"><small>35–39 min</small><strong>Worksheet</strong><span>Match and name</span></button><button style="background:#0e9fa6" data-go="15"><small>39–42 min</small><strong>Colour tasks</strong><span>Green · Orange · Purple</span></button><button style="background:#c81e3a" data-go="16"><small>42–45 min</small><strong>Final quiz + exit</strong><span>Mystery solved!</span></button></div>
+    <div class="map"><button style="background:#d23b8a" data-go="3"><small>0–2 min</small><strong>Picture words</strong><span>6 key words</span></button><button style="background:#1593c9" data-go="4"><small>2–4 min</small><strong>Starter quiz</strong><span>True or false?</span></button><button style="background:#ef5a5a" data-go="5"><small>4–6 min</small><strong>Grandpa's pond</strong><span>The story in pictures</span></button><button style="background:#f07f19" data-go="6"><small>6–10 min</small><strong>Video</strong><span>Video + 5 pause questions</span></button><button style="background:#0e7490" data-go="7"><small>10–12 min</small><strong>Animation: the drying waterhole</strong><span>Watch and answer</span></button><button style="background:#7a3ff0" data-go="8"><small>12–13 min</small><strong>What do living things need?</strong><span>Resources diagram</span></button><button style="background:#1d4ed8" data-go="9"><small>13–15 min</small><strong>📖 How do resources affect populations?</strong><span>Read and answer</span></button><button style="background:#b0287a" data-go="10"><small>15–16 min</small><strong>The school bus</strong><span>Fill the 40 seats</span></button><button style="background:#9333ea" data-go="11"><small>16–18 min</small><strong>📖 What is a limiting factor?</strong><span>Key word + check</span></button><button style="background:#118a7e" data-go="12"><small>18–19 min</small><strong>5 limiting factors</strong><span>Picture cards</span></button><button style="background:#b45309" data-go="13"><small>19–21 min</small><strong>📖 The waterhole</strong><span>Look and answer</span></button><button style="background:#2563eb" data-go="14"><small>21–22 min</small><strong>Living or nonliving?</strong><span>Sort 8 cards</span></button><button style="background:#db2777" data-go="15"><small>22–24 min</small><strong>Pikas on a warming mountain</strong><span>Temperature slider</span></button><button style="background:#15803d" data-go="16"><small>24–26 min</small><strong>📖 How big can populations get?</strong><span>Biotic potential + carrying capacity</span></button><button style="background:#c2410c" data-go="17"><small>26–28 min</small><strong>The population graph</strong><span>3 parts of the line</span></button><button style="background:#1fa75a" data-go="18"><small>28–31 min</small><strong>Fish pond lab</strong><span>Find the carrying capacity</span></button><button style="background:#e5484d" data-go="19"><small>31–33 min</small><strong>Quick check</strong><span>4 questions</span></button><button style="background:#5b3fd0" data-go="20"><small>33–37 min</small><strong>Worksheet</strong><span>Match and name</span></button><button style="background:#0e9fa6" data-go="21"><small>37–41 min</small><strong>Colour tasks</strong><span>Green · Orange · Purple</span></button><button style="background:#c81e3a" data-go="22"><small>41–45 min</small><strong>Final quiz + exit</strong><span>Mystery solved!</span></button></div>
   </div>
 </section>
 
@@ -413,8 +417,8 @@ body{font-size:17px}
   <div class="inner">
     <div class="head"><h2>Watch: limiting factors and carrying capacity (2.5 min)</h2></div>
     <div class="cols split" id="vidSlide">
-      <video controls preload="metadata" playsinline poster="img/video-poster.webp"><source src="media/limiting-factors.mp4" type="video/mp4"><source src="media/limiting-factors.webm" type="video/webm">Your browser cannot play this video.</video>
-      <div class="card stack"><div class="label" style="color:var(--blue)">While you watch</div>
+      <div id="vidWrap"><video controls preload="metadata" playsinline poster="img/video-poster.webp"><source src="media/limiting-factors.mp4" type="video/mp4"><source src="media/limiting-factors.webm" type="video/webm">Your browser cannot play this video.</video><div class="vpause" data-at="17.2" hidden><div class="tagq">⏸ Pause and answer · question 1 of 5</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🐟</span><div class="qt">Why did the fish stop growing at 16?</div></div><div class="opts"><button class="opt">A. The fish got bored</button><button class="opt" data-ok>B. There was not enough space and food</button><button class="opt">C. There was too much sunlight</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div><div class="vpause" data-at="45.4" hidden><div class="tagq">⏸ Pause and answer · question 2 of 5</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🚧</span><div class="qt">A limiting factor is anything that…</div></div><div class="opts"><button class="opt" data-ok>A. restricts (stops) the size of a population</button><button class="opt">B. makes a population grow forever</button><button class="opt">C. is always a living thing</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div><div class="vpause" data-at="70.4" hidden><div class="tagq">⏸ Pause and answer · question 3 of 5</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🚶</span><div class="qt">Too few resources. A population may…</div></div><div class="opts"><button class="opt">A. grow very fast</button><button class="opt" data-ok>B. migrate or die out</button><button class="opt">C. stay the same</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div><div class="vpause" data-at="85.4" hidden><div class="tagq">⏸ Pause and answer · question 4 of 5</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🐹</span><div class="qt">What is the limiting factor for the pikas?</div></div><div class="opts"><button class="opt" data-ok>A. Temperature</button><button class="opt">B. Music</button><button class="opt">C. Rocks</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div><div class="vpause" data-at="118.8" hidden><div class="tagq">⏸ Pause and answer · question 5 of 5</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🐟</span><div class="qt">What was the carrying capacity of the pond?</div></div><div class="opts"><button class="opt">A. 4 fish</button><button class="opt">B. 100 fish</button><button class="opt" data-ok>C. 16 fish</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div></div>
+      <div class="card stack"><div class="label" style="color:var(--blue)">While you watch</div><div style="font-size:.9rem;color:#5b6385">⏸ The video stops 5 times. Answer, then tap Continue. <label><input type="checkbox" id="vqToggle" checked> pause questions on</label></div>
         <div><b>Q1. What is a limiting factor?</b><div class="fb ok vans" hidden>✓ Something that stops a population growing.</div></div>
         <div><b>Q2. 💧 Why do the animals meet at the waterhole?</b><div class="fb ok vans" hidden>✓ They all need water. Water is the limiting factor.</div></div>
         <div><b>Q3. 🐟 How many fish could the pond hold?</b><div class="fb ok vans" hidden>✓ 16 fish. That is its carrying capacity.</div></div>
@@ -424,7 +428,25 @@ body{font-size:17px}
   </div>
 </section>
 
-<section class="slide " id="s7" data-title="What do living things need?" data-skills="critical" data-coach="maha" data-ns="Sustainability" data-says="Save water and protect animal homes. Respect nature!">
+<section class="slide " id="s7" data-title="Animation: the drying waterhole" data-skills="critical" data-coach="maha" data-ns="Sustainability" data-says="Watch the water. Count the animals!">
+  <div class="inner">
+    <div class="head"><h2>Animation: the drying waterhole</h2></div>
+    <div class="cols split">
+      <div class="sim"><b>Tap ▶ Play. Watch the water and the animals.</b>
+        <canvas id="dryhole" height="300"></canvas>
+        <div class="row" style="justify-content:space-between"><span class="row"><button class="btn small" id="dPlay">▶ Play</button><button class="btn ghost small" id="dRain">🌧️ Rain</button><button class="btn ghost small" id="dReset">↺ Restart</button></span></div>
+        <div class="score" id="dryRead" style="font-size:1.05rem"></div>
+      </div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Answer while you watch</div>
+        <div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">💧</span><div class="qt">Q1 The water gets less. The number of animals…</div></div><div class="opts"><button class="opt">A. goes up</button><button class="opt" data-ok>B. goes down</button><button class="opt">C. stays the same</button></div></div>
+        <div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🚶</span><div class="qt">Q2 Some animals walk away. This is called…</div></div><div class="opts"><button class="opt" data-ok>A. migrate</button><button class="opt">B. sleep</button><button class="opt">C. grow</button></div></div>
+        <div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🚧</span><div class="qt">Q3 Here, the limiting factor is…</div></div><div class="opts"><button class="opt">A. sunlight</button><button class="opt">B. music</button><button class="opt" data-ok>C. water</button></div></div>
+        <div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🌧️</span><div class="qt">Q4 Tap Rain. What happens to the population?</div></div><div class="opts"><button class="opt" data-ok>A. It grows again</button><button class="opt">B. It dies out</button></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="slide " id="s8" data-title="What do living things need?" data-skills="critical" data-coach="maha" data-ns="Sustainability" data-says="Save water and protect animal homes. Respect nature!">
   <div class="inner">
     <div class="head"><h2>What do living things need?</h2></div>
     <p class="lead">These are <b>resources</b>. Tap 🔊 to listen. <button class="sayb" data-say="Living things need water, food, space, sunlight, the right temperature and oxygen. These are resources." title="Listen" aria-label="Listen">🔊</button></p>
@@ -444,7 +466,23 @@ body{font-size:17px}
   </div>
 </section>
 
-<section class="slide " id="s8" data-title="The school bus" data-skills="critical" data-coach="fahim" data-ns="Innovation" data-says="Predict first: how many students can get on?">
+<section class="slide " id="s9" data-title="Textbook: how do resources affect populations?" data-skills="reading" data-coach="ahmed" data-ns="Excellence" data-says="Read with your partner. Point to each key word!">
+  <div class="inner">
+    <div class="head"><h2>Textbook: how do resources affect populations?</h2></div>
+    <div class="cols split">
+      <div class="stack"><div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-resources.webp" alt="Textbook text: How do resources affect populations?"></div>
+        <div class="card" style="background:var(--blue-bg);border-color:#c7d7fb"><div class="label" style="color:var(--blue)">In simple words <button class="sayb" data-say="Water is nonliving. Plants are living. Both are in the same ecosystem. Plants need water to grow and to stay alive. Water is a resource. Resources change how big a population can grow." title="Listen" aria-label="Listen">🔊</button></div>
+          <p style="margin:6px 0 0">💧 <b>Water</b> is <b>nonliving</b>. 🌱 <b>Plants</b> are <b>living</b>. Both are in the <b>same ecosystem</b>.<br>🌱 Plants need water to <b>grow</b> (one plant) and to <b>survive</b> (the whole population).<br>💧 Water is a <span class="hl">resource</span>. It has a <b>big effect</b> on the plants.</p></div></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Think, then tap to check</div>
+        <div class="q"><div class="qt">A · Is water living or nonliving? Are plants living or nonliving?</div><button class="btn small ghost" data-show="tr1" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="tr1" hidden>✓ Water is nonliving. Plants are living. They are in the same ecosystem.</div></div>
+        <div class="q"><div class="qt">B · Why do plants need water? Give 2 reasons.</div><button class="btn small ghost" data-show="tr2" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="tr2" hidden>✓ 1. To grow (each plant). 2. To survive (the whole population).</div></div>
+        <div class="q"><div class="qt">C · What happens to the plants if there is no rain for a long time?</div><button class="btn small ghost" data-show="tr3" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="tr3" hidden>✓ Many plants die. The plant population gets smaller.</div></div>
+        <div class="q"><div class="qt">D · Big question: what effect could resources have on the growth of a population?</div><button class="btn small ghost" data-show="tr4" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="tr4" hidden>✓ Lots of resources → the population grows. Few resources → the population stops growing or gets smaller.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="slide " id="s10" data-title="The school bus" data-skills="critical" data-coach="fahim" data-ns="Innovation" data-says="Predict first: how many students can get on?">
   <div class="inner">
     <div class="head"><h2>The school bus</h2></div>
     <div class="cols split-r">
@@ -464,7 +502,26 @@ body{font-size:17px}
   </div>
 </section>
 
-<section class="slide " id="s9" data-title="5 limiting factors" data-skills="reading" data-coach="hessa" data-ns="Sustainability" data-says="Every answer is welcome. Point to a card and say its name!">
+<section class="slide " id="s11" data-title="Textbook: what is a limiting factor?" data-skills="reading,critical" data-coach="hessa" data-ns="Excellence" data-says="Copy the definition into your Science Notebook!">
+  <div class="inner">
+    <div class="head"><h2>Textbook: what is a limiting factor?</h2></div>
+    <div class="cols split">
+      <div class="stack"><div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-limiting.webp" alt="Textbook text: Limiting Factors and How Limiting Factors Affect Populations"></div>
+        <div class="card" style="background:var(--purple-bg);border-color:#dccffb"><div class="label" style="color:var(--purple)">Key word <button class="sayb" data-say="A limiting factor is anything that restricts the size of a population. Restricts means stops it from getting bigger." title="Listen" aria-label="Listen">🔊</button></div>
+          <p style="margin:6px 0 0">A <span class="hl">limiting factor</span> is anything that <b>restricts</b> (stops) the size of a population.</p>
+          <p style="margin:6px 0 0">💧 water · 🌿 food · ☀️ sunlight · 🌡️ temperature · 📏 space</p></div></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Remember</div>
+        <div class="gstep" style="--gc:#1fa75a"><b>1</b><div>Populations can <b>increase</b> 📈 and <b>decrease</b> 📉.</div></div>
+        <div class="gstep" style="--gc:#7a3ff0"><b>2</b><div>Limiting factors change <b>how many</b> living things an ecosystem can support.</div></div>
+        <div class="gstep" style="--gc:#f07f19"><b>3</b><div><b>Space</b> is a limiting factor too. (Fishy Population Changes lab: the pond had space for only 16 fish.)</div></div>
+        <div class="gstep" style="--gc:#e5484d"><b>4</b><div>Too few resources → the population may <b>migrate</b> 🚶 (move to a new area) or <b>die out</b> ✗.</div></div>
+        <div class="grid g2 mcqset" data-mode="retry"><div class="q"><div class="qrow"><span class="qpic">📏</span><div class="qt">Q1 In the fish lab, what limited the fish?</div></div><div class="opts"><button class="opt">A. Sunlight</button><button class="opt" data-ok>B. Space</button><button class="opt">C. Music</button></div></div>
+        <div class="q"><div class="qrow"><span class="qpic">🚶</span><div class="qt">Q2 Too little food. The animals may…</div></div><div class="opts"><button class="opt" data-ok>A. migrate or die out</button><button class="opt">B. grow bigger</button><button class="opt">C. stay the same</button></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="slide " id="s12" data-title="5 limiting factors" data-skills="reading" data-coach="hessa" data-ns="Sustainability" data-says="Every answer is welcome. Point to a card and say its name!">
   <div class="inner">
     <div class="head"><h2>5 limiting factors</h2></div>
     <p class="lead">Look at each card: <b>lots</b> of the resource → many living things. <b>Little</b> → few.</p>
@@ -488,7 +545,21 @@ body{font-size:17px}
   </div>
 </section>
 
-<section class="slide " id="s10" data-title="Living or nonliving?" data-skills="teamwork" data-coach="hessa" data-ns="Cooperation" data-says="Check with your partner. Listen, then decide together.">
+<section class="slide " id="s13" data-title="Textbook: the waterhole" data-skills="critical,communication" data-coach="shahin" data-ns="Sustainability" data-says="Look closely at the photo. Tell your partner what you see.">
+  <div class="inner">
+    <div class="head"><h2>Textbook: one waterhole, many animals</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/waterhole.webp" alt="Giraffes, an ostrich and a kudu drinking at one small waterhole in a dry land"></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Look at the photo, then tap to check</div>
+        <div class="q"><div class="qt">A · Name the animals you can see.</div><button class="btn small ghost" data-show="tw1" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="tw1" hidden>✓ Giraffes 🦒, an ostrich and a kudu (a deer-like animal).</div></div>
+        <div class="q"><div class="qt">B · Is the land wet or dry? How do you know?</div><button class="btn small ghost" data-show="tw2" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="tw2" hidden>✓ Dry. The ground is sandy and the plants are brown.</div></div>
+        <div class="q"><div class="qt">C · What is the limiting factor here?</div><button class="btn small ghost" data-show="tw3" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="tw3" hidden>✓ 💧 Water. There is only one small waterhole for all the animals.</div></div>
+        <div class="q"><div class="qt">D · The waterhole dries up. What can the animals do?</div><button class="btn small ghost" data-show="tw4" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="tw4" hidden>✓ They migrate (move) to find new water, or they die.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="slide " id="s14" data-title="Living or nonliving?" data-skills="teamwork" data-coach="hessa" data-ns="Cooperation" data-says="Check with your partner. Listen, then decide together.">
   <div class="inner">
     <div class="head"><h2>Living or nonliving?</h2><div class="timer" data-sec="180"></div></div>
     <p class="lead">Tap a card to choose <b>living</b> or <b>NONLIVING</b>. Tap again to change.</p>
@@ -504,7 +575,40 @@ body{font-size:17px}
   </div>
 </section>
 
-<section class="slide " id="s11" data-title="The population graph" data-skills="critical,numeracy" data-coach="shahin" data-ns="Innovation" data-says="Put your finger on the line. Trace parts 1, 2 and 3.">
+<section class="slide " id="s15" data-title="Pikas on a warming mountain" data-skills="critical,numeracy" data-coach="fahim" data-ns="Innovation" data-says="Predict first. Then move the slider!">
+  <div class="inner">
+    <div class="head"><h2>Pikas on a warming mountain</h2></div>
+    <div class="cols split">
+      <div class="stack"><div class="card" style="background:var(--orange-bg);border-color:#ffd2a6"><div class="label" style="color:var(--orange)">Meet the pika 🐹 <button class="sayb" data-say="A pika is a small furry animal. It lives high on cold mountains. Pikas cannot live when it is too warm. Temperature is their limiting factor." title="Listen" aria-label="Listen">🔊</button></div>
+          <p style="margin:6px 0 0">A <b>pika</b> is a small, furry animal. It lives <b>high on cold mountains</b>. Pikas die if it is <b>too warm</b>.</p></div>
+        <div class="label" style="color:var(--navy)">Predict, then tap to check</div>
+        <div class="q"><div class="qt">A · The mountain gets warmer. Will there be more or fewer pikas?</div><button class="btn small ghost" data-show="tp1" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="tp1" hidden>✓ Fewer pikas. They can only live higher up, where it is still cold.</div></div>
+        <div class="q"><div class="qt">B · What is the limiting factor for the pikas?</div><button class="btn small ghost" data-show="tp2" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="tp2" hidden>✓ 🌡️ Temperature.</div></div>
+        <div class="q"><div class="qt">C · The top of the mountain gets warm too. What happens?</div><button class="btn small ghost" data-show="tp3" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="tp3" hidden>✓ The pikas have nowhere to go. The population may die out.</div></div>
+      </div>
+      <div class="sim"><b>Move the slider: make the mountain warmer</b>
+        <canvas id="pika" height="280"></canvas>
+        <div class="row"><label class="legend">🌡️ Temperature <input type="range" id="pTemp" min="0" max="10" value="2"></label></div>
+        <span class="score" id="pikaRead"></span>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="slide " id="s16" data-title="Textbook: how big can populations get?" data-skills="reading,numeracy" data-coach="ahmed" data-ns="Excellence" data-says="Copy the two key words into your Science Notebook!">
+  <div class="inner">
+    <div class="head"><h2>Textbook: how big can populations get?</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-carrying.webp" alt="Textbook text and graph: biotic potential and carrying capacity"></div>
+      <div class="stack">
+        <div class="card" style="background:var(--green-bg);border-color:#bfe8cf"><div class="label" style="color:var(--green)">Biotic potential <button class="sayb" data-say="Biotic potential is how much a population could grow in perfect conditions, with no limiting factors." title="Listen" aria-label="Listen">🔊</button></div><p style="margin:6px 0 0">How much a population <b>could</b> grow in <b>perfect conditions</b>, with <b>no limiting factors</b>. Almost no population reaches it.</p></div>
+        <div class="card" style="background:var(--purple-bg);border-color:#dccffb"><div class="label" style="color:var(--purple)">Carrying capacity <button class="sayb" data-say="Carrying capacity is the largest number of one species that an ecosystem can support over time." title="Listen" aria-label="Listen">🔊</button></div><p style="margin:6px 0 0">The <b>largest number</b> of one species an ecosystem can <b>support over time</b>. Fish lab: the pond held <b>16 fish</b>.</p></div>
+        <div class="q"><div class="qt">A · On the graph, where is the carrying capacity?</div><button class="btn small ghost" data-show="tc1" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="tc1" hidden>✓ The flat line at the top. The population stops growing there.</div></div>
+        <div class="q"><div class="qt">B · What decides the carrying capacity?</div><button class="btn small ghost" data-show="tc2" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="tc2" hidden>✓ The limiting factors of the area (water, food, space, sunlight, temperature).</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="slide " id="s17" data-title="The population graph" data-skills="critical,numeracy" data-coach="shahin" data-ns="Innovation" data-says="Put your finger on the line. Trace parts 1, 2 and 3.">
   <div class="inner">
     <div class="head"><h2>The population graph</h2></div>
     <div class="cols split">
@@ -526,7 +630,7 @@ body{font-size:17px}
   </div>
 </section>
 
-<section class="slide " id="s12" data-title="Fish pond lab" data-skills="teamwork,numeracy" data-coach="ahmed" data-ns="Cooperation" data-says="Tap Next round together. Write each number.">
+<section class="slide " id="s18" data-title="Fish pond lab" data-skills="teamwork,numeracy" data-coach="ahmed" data-ns="Cooperation" data-says="Tap Next round together. Write each number.">
   <div class="inner">
     <div class="head"><h2>Fish pond lab</h2><div class="timer" data-sec="240"></div></div>
     <div class="cols split">
@@ -556,7 +660,7 @@ body{font-size:17px}
   </div>
 </section>
 
-<section class="slide " id="s13" data-title="Quick check" data-skills="initiative" data-coach="hessa" data-ns="Excellence" data-says="Mistakes help us learn. Never give up!">
+<section class="slide " id="s19" data-title="Quick check" data-skills="initiative" data-coach="hessa" data-ns="Excellence" data-says="Mistakes help us learn. Never give up!">
   <div class="inner">
     <div class="head"><h2>Quick check</h2><div class="timer" data-sec="180"></div></div>
     <p class="lead">Tap an answer. <b>Wrong? Read the hint. Try again!</b></p>
@@ -567,7 +671,7 @@ body{font-size:17px}
   </div>
 </section>
 
-<section class="slide " id="s14" data-title="Worksheet" data-skills="reading" data-coach="ahmed" data-ns="Excellence" data-says="Work on your own first. Then check.">
+<section class="slide " id="s20" data-title="Worksheet" data-skills="reading" data-coach="ahmed" data-ns="Excellence" data-says="Work on your own first. Then check.">
   <div class="inner">
     <div class="head"><h2>Worksheet</h2><div class="timer" data-sec="300"></div></div>
     <div class="grid g2">
@@ -587,7 +691,7 @@ body{font-size:17px}
   </div>
 </section>
 
-<section class="slide " id="s15" data-title="Colour tasks" data-skills="respect,critical" data-coach="maha" data-ns="Cooperation" data-says="Do your best on your card. Then help a friend!">
+<section class="slide " id="s21" data-title="Colour tasks" data-skills="respect,critical" data-coach="maha" data-ns="Cooperation" data-says="Do your best on your card. Then help a friend!">
   <div class="inner">
     <div class="head"><h2>Colour tasks</h2><div class="timer" data-sec="180"></div></div>
     <p class="lead">Your teacher gives you a <b>colour</b>. Do the tasks on your colour card. Write in your notebook.</p>
@@ -595,7 +699,7 @@ body{font-size:17px}
   </div>
 </section>
 
-<section class="slide " id="s16" data-title="Final quiz: Population Master" data-skills="integrity" data-coach="ahmed" data-ns="Excellence" data-says="Count only your first try. Be honest!">
+<section class="slide " id="s22" data-title="Final quiz: Population Master" data-skills="integrity" data-coach="ahmed" data-ns="Excellence" data-says="Count only your first try. Be honest!">
   <div class="inner">
     <div class="head"><h2>Final quiz: Population Master</h2><div class="timer" data-sec="120"></div></div>
     <div class="stack mcqset" data-mode="first" id="wm"><div class="q"><div class="qrow"><span class="qpic">🌡️💧🌿</span><div class="qt">1. Water, food, space, sunlight and temperature are…</div></div><div class="opts"><button class="opt">A. species</button><button class="opt" data-ok>B. limiting factors</button><button class="opt">C. communities</button></div></div><div class="q"><div class="qrow"><span class="qpic">🚀</span><div class="qt">2. Biotic potential is growth…</div></div><div class="opts"><button class="opt">A. in a drought</button><button class="opt">B. after animals migrate</button><button class="opt" data-ok>C. with no limits</button></div></div><div class="q"><div class="qrow"><span class="qpic">📈</span><div class="qt">3. On the graph, the flat part of the line is the…</div></div><div class="opts"><button class="opt" data-ok>A. carrying capacity</button><button class="opt">B. biotic potential</button><button class="opt">C. starting number</button></div></div><div class="q"><div class="qrow"><span class="qpic">🚌</span><div class="qt">4. The bus has 40 seats. The seats are the…</div></div><div class="opts"><button class="opt">A. carrying capacity</button><button class="opt" data-ok>B. limiting factor</button><button class="opt">C. population</button></div></div><div class="q"><div class="qrow"><span class="qpic">🐟</span><div class="qt">5. Grandpa's fish stopped at 16 because…</div></div><div class="opts"><button class="opt" data-ok>A. the pond reached its carrying capacity</button><button class="opt">B. fish stop having babies at 16</button><button class="opt">C. the fish were sleeping</button></div></div></div>
@@ -603,7 +707,7 @@ body{font-size:17px}
   </div>
 </section>
 
-<section class="slide " id="s17" data-title="Mystery solved!" data-skills="critical,reading" data-coach="hessa" data-ns="National Identity" data-says="Be kind to yourself. Every step counts!">
+<section class="slide " id="s23" data-title="Mystery solved!" data-skills="critical,reading" data-coach="hessa" data-ns="National Identity" data-says="Be kind to yourself. Every step counts!">
   <div class="inner">
     <div class="head"><h2>Mystery solved!</h2></div>
     <button class="btn" data-show="solved" data-confetti style="justify-self:start">Reveal the answer</button>
@@ -625,7 +729,7 @@ body{font-size:17px}
 </section>
 
 <!-- 18 · VALUES -->
-<section class="slide" id="s18" data-title="Which value did you show today?" data-skills="integrity">
+<section class="slide" id="s24" data-title="Which value did you show today?" data-skills="integrity">
   <div class="inner">
     <div class="head"><h2>Which value did you show today?</h2></div>
     <p class="lead">Tap the character. <b>Tell your partner one example!</b></p>
@@ -641,7 +745,7 @@ body{font-size:17px}
 </section>
 
 <!-- 19 · CELEBRATE -->
-<section class="slide end" id="s19" data-title="Grow to your full potential" data-bare>
+<section class="slide end" id="s25" data-title="Grow to your full potential" data-bare>
   <div class="inner">
     <div class="eyebrow">YOU DID IT, GRADE 6! · <span class="ar">أحسنتم</span></div>
     <h1>Grow to your full potential</h1>
@@ -893,6 +997,34 @@ function lbl(x,t,X,Y,bg,fg){x.font='bold 12px Nunito, sans-serif';const w=x.meas
   $('#gPerfect').onclick=()=>{go({perfect:true});$('#growRead').textContent='Perfect conditions: no limiting factors, so the population keeps growing. This is its biotic potential. It almost never happens in nature!'};
   ['#gWater','#gFood','#gSpace'].forEach(id=>$(id).addEventListener('input',()=>{$('#growRead').textContent=`Carrying capacity will be ${K()} (limited most by ${scarce()}). Tap Grow!`}));
   enterHooks[idx('#grow')]=draw;$$('[data-show="simBox"]').forEach(b=>b.addEventListener('click',()=>setTimeout(draw,30)));})();
+
+
+// animation · drying waterhole (limiting factor: water)
+if($('#dryhole'))(function(){const c=$('#dryhole');const ANI=['🦒','🦓','🐘','🦒','🦌','🦓','🦒','🐘','🦌','🦓','🦒','🦌'];
+  let water=1,target=1,t=0,run=null;const pos=ANI.map((a,i)=>({a,ang:i/ANI.length*Math.PI*2,off:0,gone:false}));
+  function cap(){return Math.max(0,Math.round(ANI.length*water))}
+  function draw(){const {x,w,h}=fit(c);const g=x.createLinearGradient(0,0,0,h);g.addColorStop(0,water<.4?'#ffd9a8':'#cfe8f7');g.addColorStop(1,'#efe1c4');x.fillStyle=g;x.fillRect(0,0,w,h);
+    emo(x,water<.4?'☀️':'⛅',w*.9,h*.12,34);if(water<.4){emo(x,'🌵',w*.08,h*.85,26);emo(x,'🌵',w*.93,h*.82,22)}else{emo(x,'🌳',w*.08,h*.8,30);emo(x,'🌳',w*.93,h*.78,26)}
+    const cx=w/2,cy=h*.58,R=Math.min(w,h)*.33;x.fillStyle='#c9b48f';x.beginPath();x.ellipse(cx,cy,R*1.05,R*.55,0,0,7);x.fill();
+    if(water>0.02){x.fillStyle='#4aa3d8';x.beginPath();x.ellipse(cx,cy,R*water,R*.5*water,0,0,7);x.fill()}
+    const k=cap();pos.forEach((p,i)=>{const should=i>=k;if(should&&p.off<1)p.off=Math.min(1,p.off+0.02);if(!should&&p.off>0)p.off=Math.max(0,p.off-0.02);
+      const rr=R*Math.max(.35,water)+18+p.off*w*.7;const X=cx+Math.cos(p.ang)*rr*1.1,Y=cy+Math.sin(p.ang)*rr*.55;if(X>-30&&X<w+30&&Y>-30&&Y<h+30)emo(x,p.a,X,Y,24)});
+    const n=pos.filter(p=>p.off<0.5).length;
+    lbl(x,'💧 water: '+Math.round(water*100)+'%',70,22,'#1b2470','#fff');lbl(x,'animals: '+n,w-70,h-16,n<4?'#e5484d':'#1fa75a','#fff');
+    let msg;if(water>.8)msg='Lots of water → the population is big.';else if(water>.4)msg='Less water → some animals MIGRATE (move away) 🚶';else if(water>.05)msg='Very little water → only a few animals can stay.';else msg='No water → the animals migrate or DIE OUT ✗. Water is the LIMITING FACTOR.';
+    $('#dryRead').textContent=msg;$('#dryRead').style.color=water<.4?'#e5484d':'#1b2470'}
+  function loop(){const d=target-water;water+=Math.sign(d)*Math.min(Math.abs(d),0.004);draw();if(Math.abs(target-water)>0.001||pos.some(p=>(p.off>0&&p.off<1)))run=requestAnimationFrame(loop);else run=null}
+  function start(){if(!run)run=requestAnimationFrame(loop)}
+  $('#dPlay').onclick=()=>{target=0;start()};$('#dRain').onclick=()=>{target=1;start()};$('#dReset').onclick=()=>{cancelAnimationFrame(run);run=null;water=1;target=1;pos.forEach(p=>p.off=0);draw()};
+  enterHooks[idx('#dryhole')]=draw;})();
+
+// video · pause-and-answer questions (the video itself is unchanged)
+(function(){const v=$('#vidSlide video');if(!v)return;const wrap=$('#vidWrap');const stops=[...$$('#vidWrap .vpause')];
+  const asked=new Set();
+  v.addEventListener('timeupdate',()=>{stops.forEach((s,i)=>{const at=+s.dataset.at;if(!asked.has(i)&&v.currentTime>=at&&v.currentTime<at+1.5){asked.add(i);v.pause();s.hidden=false;wrap.classList.add('paused')}})});
+  v.addEventListener('seeked',()=>{stops.forEach((s,i)=>{if(v.currentTime<+s.dataset.at-0.5)asked.delete(i)})});
+  stops.forEach(s=>{$('.vgo',s).onclick=()=>{s.hidden=true;wrap.classList.remove('paused');v.play()}});
+  $('#vqToggle')&&($('#vqToggle').onchange=e=>{if(!e.target.checked)stops.forEach((s,i)=>asked.add(i));else asked.clear()});})();
 
 // 15 · pikas on a warming mountain
 if($('#pika'))(function(){const c=$('#pika');const spots=[];for(let i=0;i<40;i++){const a=Math.sin(i*12.9898)*43758.5453;spots.push([a-Math.floor(a),(Math.sin(i*78.233)*12345.678)%1])}
