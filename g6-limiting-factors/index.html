@@ -300,6 +300,38 @@ video{width:100%;border-radius:14px;background:#000;display:block}
 </style>
 <style>.charter{display:block;background:#fff;border-radius:14px;padding:8px 12px;margin-top:10px;max-width:760px;box-shadow:0 2px 10px rgba(0,0,0,.15)}.charter img{width:100%;height:auto;display:block}.charter small{display:block;text-align:center;font-weight:800;color:#7a2e2e;font-size:.78rem;letter-spacing:.06em;margin-top:2px}</style>
 <style>.chip i.nsic{background:#fff;width:44px;height:44px;margin:-6px 0;padding:0;overflow:hidden;border:0}.chip i.nsic img{width:100%;height:100%;display:block}</style>
+<style>
+/* simplified-English lesson: bigger text, picture words, diagrams */
+body{font-size:17px}
+.diagram{width:100%;height:auto;display:block}
+.sayb{border:0;background:var(--blue-bg);color:var(--blue);border-radius:999px;width:34px;height:34px;flex:none;font-size:1rem}
+.sayb:active{transform:scale(.92)}
+.pwords{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+.pword{background:var(--paper);border:2px solid var(--purple);border-radius:16px;padding:12px 14px;display:grid;gap:4px}
+.pword .pic{font-size:2.6rem;line-height:1.1;background:var(--purple-bg);border-radius:12px;text-align:center;padding:10px 0}
+.pword strong{font-family:var(--display);font-size:1.35rem;color:var(--purple)}
+.pword p{margin:0}.pword .eg{color:var(--muted);font-size:.92rem}
+.qrow{display:flex;gap:12px;align-items:center}.qpic{font-size:2rem;flex:none;width:52px;height:52px;display:grid;place-items:center;background:var(--bg);border-radius:12px}
+.bigq{font-family:var(--display);font-size:1.4rem;font-weight:800;color:var(--purple)}
+.eq{display:grid;gap:8px}.eq div{display:flex;gap:10px;align-items:center;font-size:1.15rem;background:var(--bg);border-radius:12px;padding:8px 12px}.eq span{font-weight:800;min-width:90px}
+.wait{min-height:30px;font-weight:800;color:var(--red);text-align:center;font-size:1.1rem}
+.bseat.on rect{fill:#e8effe}
+.facs{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+.fac{border:2px solid var(--fc);border-radius:16px;background:var(--paper);padding:12px;display:grid;gap:8px}
+.fac .fhead{display:flex;align-items:center;gap:8px;background:var(--fb);border-radius:10px;padding:6px 10px}.fac .fhead span{font-size:1.8rem}.fac .fhead b{flex:1;font-family:var(--display);font-size:1.25rem;color:var(--fc)}
+.frow{display:flex;align-items:center;gap:8px}.frow .lt{border-radius:999px;padding:2px 8px;font-size:.72rem;font-weight:800;color:#fff;white-space:nowrap}.frow .lt.lots{background:var(--green)}.frow .lt.little{background:var(--red)}.frow .many{font-size:1.4rem;letter-spacing:2px}
+.fac p{margin:0;font-size:.92rem}
+.spic{font-size:1.4rem;margin-right:8px;vertical-align:middle}
+.keybox{display:grid;gap:6px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+.gstep{display:grid;grid-template-columns:40px minmax(0,1fr);gap:10px;align-items:center;background:var(--paper);border:2px solid var(--gc);border-radius:14px;padding:10px 12px}
+.gstep>b{width:36px;height:36px;border-radius:50%;background:var(--gc);color:#fff;display:grid;place-items:center;font-size:1.1rem}
+.lsteps{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(min(100%,120px),1fr))}
+.lsteps div{background:var(--paper);border:2px solid var(--line);border-radius:14px;padding:10px;text-align:center;font-size:.92rem;position:relative;padding-top:18px}
+.lsteps span{position:absolute;top:-10px;left:10px;width:26px;height:26px;border-radius:50%;background:var(--sun);display:grid;place-items:center;font-weight:800}
+.means{display:grid;gap:6px}.mean{display:grid;grid-template-columns:28px 40px minmax(0,1fr);align-items:center;gap:6px;background:var(--bg);border-radius:10px;padding:6px 10px}.mean b{color:var(--navy)}.mean span{font-size:1.5rem}
+.solvedline{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-weight:700}.solvedline span{background:#fff;border-radius:10px;padding:6px 10px}
+</style>
+
 </head>
 <body>
 
@@ -317,515 +349,284 @@ video{width:100%;border-radius:14px;background:#000;display:block}
 <section class="slide hero" id="s1" data-title="Limiting Factors and Carrying Capacity" data-bare>
   <div class="inner">
     <div class="eyebrow">GRADE 6 ADVANCED · SCIENCE · TERM 1 · WEEK 8</div>
-    <div><h1>Limiting Factors and Carrying Capacity</h1><p class="sub">Lesson 1 · Resources in Ecosystems (part 2): How do resources affect populations?</p></div>
+    <div><h1>Limiting Factors and Carrying Capacity</h1><p class="sub">Why can't a population grow forever?</p></div>
     <div style="opacity:.85">Unit 1: Interaction with Ecosystems · Module 2: Dynamic Ecosystems</div>
     <div class="teacher">Teacher: <b>Nilasha Sempon</b> · Science &amp; Biology</div>
     <div>
-      <div class="eyebrow" style="margin-bottom:8px">YOUR VALUES TEAM TODAY · tap to meet them</div>
-      <button class="bannerbtn" data-go="2"><img src="img/banner.webp" alt="Shahin (Leadership), Fahim (Knowledge), Maha (Respect), Ahmed (Responsibility) and Hessa (Tolerance) with the UAE national skills"></button>
+      <div class="eyebrow" style="margin-bottom:8px">YOUR VALUES TEAM TODAY</div>
+      <img class="fig" src="img/banner.webp" alt="Shahin (Leadership), Fahim (Knowledge), Maha (Respect), Ahmed (Responsibility) and Hessa (Tolerance) with the UAE national skills" style="max-width:760px;border:3px solid var(--sun)">
       <div class="charter"><img src="img/charter.webp" alt="UAE National Charter values"><small>UAE NATIONAL CHARTER · الميثاق الوطني</small></div>
     </div>
-    <div class="mystery"><b>Today's mystery:</b> Grandpa's pond in Al Ain started with 4 fish. They grew to 16… and then stopped. Why can't the pond hold more and more fish?</div>
+    <div class="mystery"><b>Today's mystery:</b> Grandpa's pond had 4 fish. Then 8. Then 16… then it <b>stopped</b>. Why? 🐟</div>
     <div class="row" style="padding-bottom:110px">
       <button class="btn" data-go="2">▶ Let's go!</button>
-      <button class="btn ghost" data-go="3">Lesson map</button>
-      <span style="opacity:.8;font-size:.9rem">45-minute interactive lesson</span>
+      <span style="opacity:.8;font-size:.9rem">45-minute lesson · 5 learners</span>
     </div>
   </div>
   <canvas class="waves" id="heroWaves"></canvas>
 </section>
 
-<!-- 2 · MEET TEAM -->
-<section class="slide" id="s2" data-title="Meet your UAE Values Team" data-skills="teamwork">
+<section class="slide " id="s2" data-title="Lesson map">
   <div class="inner">
-    <div class="head"><h2>Meet your UAE Values Team</h2><button class="btn" data-confetti>★ We're ready!</button></div>
-    <p class="lead">Five friends will coach you through today's population mission. <b>Tap a character to discover their job today!</b></p>
-    <div class="team">
-      <button class="flip" style="--cc:var(--c-shahin)"><div class="fi"><div class="face front"><img src="img/fig-shahin.webp" alt="Shahin – Leadership"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Shahin</h4>Lead your team in the Fishy Population lab and keep everyone on task.</div></div></button>
-      <button class="flip" style="--cc:var(--c-fahim)"><div class="fi"><div class="face front"><img src="img/fig-fahim.webp" alt="Fahim – Knowledge"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Fahim</h4>Collect today's key words: limiting factor, biotic potential, carrying capacity.</div></div></button>
-      <button class="flip" style="--cc:var(--c-maha)"><div class="fi"><div class="face front"><img src="img/fig-maha.webp" alt="Maha – Respect"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Maha</h4>Respect nature's resources: save water and protect wildlife homes.</div></div></button>
-      <button class="flip" style="--cc:var(--c-ahmed)"><div class="fi"><div class="face front"><img src="img/fig-ahmed.webp" alt="Ahmed – Responsibility"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Ahmed</h4>Record every round of your fish population data carefully and on time.</div></div></button>
-      <button class="flip" style="--cc:var(--c-hessa)"><div class="fi"><div class="face front"><img src="img/fig-hessa.webp" alt="Hessa – Tolerance"><span class="tap">Tap me to see my mission ▸</span></div><div class="face back"><h4>Hessa</h4>Every answer is welcome here. Mistakes help us learn!</div></div></button>
-    </div>
-    <div class="stack">
-      <div class="label" style="color:var(--navy)">UAE national skills you will use today · tap a skill to see where</div>
-      <div class="nskills">
-        <button class="nskill">🇦🇪 National Identity<small>Farm ponds and date palms in Al Ain</small></button>
-        <button class="nskill">🌿 Sustainability<small>Saving water for UAE wildlife</small></button>
-        <button class="nskill">🤝 Cooperation<small>Team roles in the Fishy Population lab</small></button>
-        <button class="nskill">💡 Innovation<small>Test limiting factors in the simulations</small></button>
-        <button class="nskill">⭐ Excellence<small>Become today's Population Master!</small></button>
-      </div>
-    </div>
+    <div class="head"><h2>Lesson map · 45 minutes</h2></div>
+    <div class="map"><button style="background:#d23b8a" data-go="3"><small>0–4 min</small><strong>Picture words</strong><span>6 key words</span></button><button style="background:#1593c9" data-go="4"><small>4–7 min</small><strong>Starter quiz</strong><span>True or false?</span></button><button style="background:#ef5a5a" data-go="5"><small>7–10 min</small><strong>Grandpa's pond</strong><span>The story in pictures</span></button><button style="background:#f07f19" data-go="6"><small>10–13 min</small><strong>Video</strong><span>Watch and answer</span></button><button style="background:#7a3ff0" data-go="7"><small>13–16 min</small><strong>What do fish need?</strong><span>Resources diagram</span></button><button style="background:#b0287a" data-go="8"><small>16–19 min</small><strong>The school bus</strong><span>Fill the 40 seats</span></button><button style="background:#118a7e" data-go="9"><small>19–22 min</small><strong>5 limiting factors</strong><span>Picture cards</span></button><button style="background:#2563eb" data-go="10"><small>22–25 min</small><strong>Living or nonliving?</strong><span>Sort 8 cards</span></button><button style="background:#c2410c" data-go="11"><small>25–29 min</small><strong>The population graph</strong><span>3 parts of the line</span></button><button style="background:#1fa75a" data-go="12"><small>29–33 min</small><strong>Fish pond lab</strong><span>Find the carrying capacity</span></button><button style="background:#e5484d" data-go="13"><small>33–36 min</small><strong>Quick check</strong><span>4 questions</span></button><button style="background:#5b3fd0" data-go="14"><small>36–41 min</small><strong>Worksheet</strong><span>Match and name</span></button><button style="background:#c81e3a" data-go="15"><small>41–45 min</small><strong>Final quiz + exit</strong><span>Mystery solved!</span></button></div>
   </div>
 </section>
 
-<!-- 3 · LESSON MAP -->
-<section class="slide" id="s3" data-title="Lesson map">
+<section class="slide " id="s3" data-title="Picture words" data-skills="reading" data-coach="fahim" data-ns="Excellence" data-says="Say each word out loud. Then use it in a sentence!">
   <div class="inner">
-    <div class="head"><h2>Lesson map · 45 minutes · tap any activity</h2></div>
-    <div class="map">
-      <button style="background:#1593c9" data-go="5"><small>PRE-ASSESSMENT · min 0–5</small><strong>Starter + Attendance</strong><span>Kickoff &amp; pre-assessment</span></button>
-      <button style="background:#d23b8a" data-go="4"><small>OBJECTIVES</small><strong>Objectives &amp; vocabulary</strong><span>Flip the key words</span></button>
-      <button style="background:#ef5a5a" data-go="7"><small>HOOK · min 5–9</small><strong>Grandpa's pond mystery</strong><span>UAE hook + narrated video</span></button>
-      <button style="background:#f07f19" data-go="9"><small>ACTIVITY · min 9–12</small><strong>Living or nonliving factor?</strong><span>Sort the limiting factors</span></button>
-      <button style="background:#7a3ff0" data-go="10"><small>EXPLAIN · min 12–15</small><strong>The school bus</strong><span>The unconventional version + textbook</span></button>
-      <button style="background:#b0287a" data-go="14"><small>SIMULATION · min 15–18</small><strong>Population graph</strong><span>Biotic potential vs carrying capacity</span></button>
-      <button style="background:#118a7e" data-go="15"><small>SIMULATION · min 18–21</small><strong>Pikas on the mountain</strong><span>Temperature as a limiting factor</span></button>
-      <button style="background:#2563eb" data-go="16"><small>EXPLORE · min 21–24</small><strong>Limiting factor detective</strong><span>Water · food · space · sunlight</span></button>
-      <button style="background:#1fa75a" data-go="17"><small>LAB · min 24–29</small><strong>Fishy Population Changes</strong><span>Find the pond's carrying capacity</span></button>
-      <button style="background:#e5484d" data-go="18"><small>FORMATIVE · min 29–33</small><strong>Pause &amp; check</strong><span>Formative quiz + growth order</span></button>
-      <button style="background:#5b3fd0" data-go="20"><small>WORKSHEET · min 33–41</small><strong>Worksheet + levels</strong><span>Worksheet, then Green / Orange / Purple</span></button>
-      <button style="background:#c81e3a" data-go="23"><small>SUMMATIVE · min 41–45</small><strong>Population Master + exit</strong><span>Summative quiz &amp; mystery solved</span></button>
-    </div>
+    <div class="head"><h2>Picture words</h2></div>
+    <div class="card"><div class="label" style="color:var(--green)">By the end I can…</div>
+      <ul class="crit" style="margin-top:8px"><li>name 5 limiting factors.</li><li>say what happens when resources run out.</li><li>find the carrying capacity on a graph.</li></ul></div>
+    <p class="lead">Look at the picture. Tap 🔊 to <b>hear the word</b>. Say it with me!</p>
+    <div class="pwords"><div class="pword"><div class="pic">💧🌿</div><div class="row" style="justify-content:space-between;gap:6px"><strong>Resource</strong><button class="sayb" data-say="Resource. Something living things need." title="Listen" aria-label="Listen">🔊</button></div><p>Something living things need.</p><p class="eg">e.g. Water, food, space, sunlight.</p></div><div class="pword"><div class="pic">🐟🐟🐟</div><div class="row" style="justify-content:space-between;gap:6px"><strong>Population</strong><button class="sayb" data-say="Population. All of one kind of living thing in one place." title="Listen" aria-label="Listen">🔊</button></div><p>All of one kind of living thing in one place.</p><p class="eg">e.g. All the fish in the pond.</p></div><div class="pword"><div class="pic">🚧</div><div class="row" style="justify-content:space-between;gap:6px"><strong>Limiting factor</strong><button class="sayb" data-say="Limiting factor. Something that stops a population growing." title="Listen" aria-label="Listen">🔊</button></div><p>Something that stops a population growing.</p><p class="eg">e.g. Not enough food or space.</p></div><div class="pword"><div class="pic">🚌</div><div class="row" style="justify-content:space-between;gap:6px"><strong>Carrying capacity</strong><button class="sayb" data-say="Carrying capacity. The biggest number a place can hold." title="Listen" aria-label="Listen">🔊</button></div><p>The biggest number a place can hold.</p><p class="eg">e.g. The pond holds 16 fish.</p></div><div class="pword"><div class="pic">🚀</div><div class="row" style="justify-content:space-between;gap:6px"><strong>Biotic potential</strong><button class="sayb" data-say="Biotic potential. Growth with NO limits (perfect conditions)." title="Listen" aria-label="Listen">🔊</button></div><p>Growth with NO limits (perfect conditions).</p><p class="eg">e.g. The line goes up and up.</p></div><div class="pword"><div class="pic">🚶‍♂️➡️</div><div class="row" style="justify-content:space-between;gap:6px"><strong>Migrate</strong><button class="sayb" data-say="Migrate. Move to a new place." title="Listen" aria-label="Listen">🔊</button></div><p>Move to a new place.</p><p class="eg">e.g. Birds fly away to find food.</p></div></div>
   </div>
 </section>
 
-<!-- 4 · OBJECTIVES -->
-<section class="slide" id="s4" data-title="Objectives, success criteria & key words" data-skills="reading" data-coach="fahim" data-ns="Excellence" data-says="Flip every key-word card and say the meaning out loud. Knowledge grows when you use it!">
+<section class="slide " id="s4" data-title="Starter: true or false?" data-skills="integrity" data-coach="ahmed" data-ns="National Identity" data-says="Answer on your own. Be honest!">
   <div class="inner">
-    <div class="head"><h2>Objectives, success criteria &amp; key words</h2></div>
-    <div class="cols split-r">
-      <div class="stack">
-        <div class="card"><div class="label">Learning objective</div><p style="margin:6px 0 0;font-weight:700">Explain how limiting factors control the size of a population.</p></div>
-        <div class="card"><div class="label" style="color:var(--green)">Success criteria</div>
-          <ul class="crit" style="margin-top:10px">
-            <li>I can explain how resources such as water and food affect a population.</li>
-            <li>I can define a limiting factor and give five examples.</li>
-            <li>I can describe what happens when a population has too few resources.</li>
-            <li>I can explain biotic potential and carrying capacity using a population graph.</li>
-          </ul></div>
-      </div>
-      <div class="stack">
-        <div class="label" style="color:var(--purple)">Key words · tap a card to flip it</div>
-        <div class="grid g2" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr))">
-          <button class="flip kw"><div class="fi"><div class="face front"><strong>Resource</strong><span class="tap">tap to flip</span></div><div class="face back">Something living things need from the ecosystem: water, food, space, sunlight.</div></div></button>
-          <button class="flip kw"><div class="fi"><div class="face front"><strong>Population</strong><span class="tap">tap to flip</span></div><div class="face back">All the organisms of one species in the same area at the same time.</div></div></button>
-          <button class="flip kw"><div class="fi"><div class="face front"><strong>Limiting factor</strong><span class="tap">tap to flip</span></div><div class="face back">Anything that restricts the size of a population.</div></div></button>
-          <button class="flip kw"><div class="fi"><div class="face front"><strong>Biotic potential</strong><span class="tap">tap to flip</span></div><div class="face back">The growth a population could have in perfect conditions, with no limiting factors.</div></div></button>
-          <button class="flip kw"><div class="fi"><div class="face front"><strong>Carrying capacity</strong><span class="tap">tap to flip</span></div><div class="face back">The largest number of one species an ecosystem can support over time.</div></div></button>
-          <button class="flip kw"><div class="fi"><div class="face front"><strong>Migrate</strong><span class="tap">tap to flip</span></div><div class="face back">To move to a new area, often to find more resources.</div></div></button>
-          <button class="flip kw"><div class="fi"><div class="face front"><strong>Die out</strong><span class="tap">tap to flip</span></div><div class="face back">When no individuals of a population are left in an area.</div></div></button>
-          <button class="flip kw"><div class="fi"><div class="face front"><strong>Environmental factor</strong><span class="tap">tap to flip</span></div><div class="face back">Any condition around a living thing, like temperature or rainfall.</div></div></button>
-        </div>
-      </div>
-    </div>
+    <div class="head"><h2>Starter: true or false?</h2><div class="timer" data-sec="180"></div></div>
+    <p class="lead">Read. Look at the picture. Tap <b>True</b> or <b>False</b>.</p>
+    <div class="stack" id="tf"><div class="q" data-a="T"><div class="qrow"><span class="qpic">💧</span><div class="qt">1. Living things need water.</div></div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="All living things need water."></div></div><div class="q" data-a="F"><div class="qrow"><span class="qpic">📈</span><div class="qt">2. A population can grow forever.</div></div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Limiting factors stop it."></div></div><div class="q" data-a="T"><div class="qrow"><span class="qpic">🌡️</span><div class="qt">3. Temperature can limit a population.</div></div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Too hot or too cold is a limit."></div></div><div class="q" data-a="F"><div class="qrow"><span class="qpic">🐟</span><div class="qt">4. Space does not matter for fish in a pond.</div></div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="A small pond holds fewer fish."></div></div><div class="q" data-a="T"><div class="qrow"><span class="qpic">🚶</span><div class="qt">5. With too little food, animals may move away.</div></div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="They migrate to find food."></div></div><div class="score" id="tfScore">Score: 0 / 5</div></div>
   </div>
 </section>
 
-<!-- 5 · KICKOFF -->
-<section class="slide" id="s5" data-title="Kickoff: starter + attendance" data-skills="critical,integrity" data-coach="ahmed" data-ns="National Identity" data-says="Be ready before the timer ends: book open, pen out. Responsible learners make the UAE proud.">
+<section class="slide " id="s5" data-title="Grandpa's pond" data-skills="critical,communication" data-coach="shahin" data-ns="National Identity" data-says="Look at the 4 pictures. Tell your partner the story.">
   <div class="inner">
-    <div class="head"><h2>Kickoff: starter + attendance</h2><div class="timer" data-sec="300"></div></div>
-    <div class="cols split-r">
-      <img class="fig" src="img/kickoff.webp" alt="Kickoff Activity" style="max-width:420px">
-      <div class="card stack"><div class="label" style="color:var(--navy)">While the register is taken (5 minutes)</div>
-        <ol class="steps">
-          <li>Say “present” and settle in your seat.</li>
-          <li>Think: your class has 30 chairs. What happens if 40 students arrive?</li>
-          <li>Answer the 5 true/false questions on the next slide on your own: no peeking at a friend's answer!</li>
-        </ol>
-        <button class="btn small" data-go="6" style="justify-self:start">Go to the true/false questions ▸</button>
-      </div>
-    </div>
-    <div class="note"><b>Think about it:</b> a desert with very little rain, a pond with too many fish, a garden with no sunlight… which populations would struggle, and why?</div>
-  </div>
-</section>
-
-<!-- 6 · PRE-ASSESSMENT -->
-<section class="slide" id="s6" data-title="Pre-assessment: what do you know?" data-skills="integrity">
-  <div class="inner">
-    <div class="head"><h2>Pre-assessment: what do you know?</h2><div class="timer" data-sec="180"></div></div>
-    <div class="stack" id="tf">
-      <div class="q" data-a="T"><div class="qt">1. Water is a resource that living things need.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="All living things need water to grow and survive."></div></div>
-      <div class="q" data-a="F"><div class="qt">2. A population can keep growing forever.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Limiting factors stop populations growing forever."></div></div>
-      <div class="q" data-a="T"><div class="qt">3. Temperature can limit the size of a population.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Temperature is one of the limiting factors."></div></div>
-      <div class="q" data-a="F"><div class="qt">4. Space does not affect how many fish live in a pond.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Space is a limiting factor: a small pond holds fewer fish."></div></div>
-      <div class="q" data-a="T"><div class="qt">5. With too few resources, animals may move to a new area.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="Populations may migrate to new areas or even die out."></div></div>
-      <div class="score" id="tfScore">Score: 0 / 5</div>
-    </div>
-  </div>
-</section>
-
-<!-- 7 · HOOK -->
-<section class="slide" id="s7" data-title="Hook: Grandpa's pond mystery" data-skills="critical,communication" data-coach="shahin" data-ns="National Identity" data-says="Lead your pair: one predicts, one explains. Farms in Al Ain are part of our UAE heritage, so let's understand them!">
-  <div class="inner">
-    <div class="head"><h2>Hook: Grandpa's pond mystery</h2></div>
+    <div class="head"><h2>Grandpa's pond in Al Ain</h2></div>
     <div class="cols split">
-      <img class="fig" src="img/hook-scene.webp" alt="Grandpa's farm pond in Al Ain with date palms and 16 fish">
+      <img class="fig" src="img/hook-scene.webp" alt="Grandpa's farm pond in Al Ain with date palms and fish">
       <div class="card stack">
-        <h3 style="margin:0;color:var(--orange);font-family:var(--display)">A weekend at Grandpa's farm in Al Ain…</h3>
-        <p style="margin:0">Shamma helps her grandfather feed the tilapia fish in his farm pond. “When I started, there were only 4 fish,” he says. “They had babies and the pond filled up fast. But for a whole year there have been about 16 fish. No more!”</p>
-        <p style="margin:0">Shamma wonders: <i>“Why did the fish stop increasing?”</i></p>
-        <p style="margin:0"><b style="color:var(--purple)">What could be stopping the population from growing?</b></p>
-        <div class="row"><button class="btn" data-show="tps">Think · Pair · Share</button><button class="btn red" data-show="clue">Reveal a clue</button></div>
-        <div id="tps" hidden class="good stack"><b>Predict:</b> list everything the fish need to survive. Which one might run out first? Talk with your partner for 1 minute. <div class="timer" data-sec="60"></div></div>
-        <div id="clue" hidden class="stack"><div class="fb no"><b>Clue:</b> think about the pond's size, the food and the oxygen in the water. Can they grow too?</div></div>
+        <p style="margin:0;font-size:1.1rem">Shamma feeds the fish in Grandpa's pond. 🐟</p>
+        <p style="margin:0;font-size:1.1rem">At first there were <b>4 fish</b>. Then they had babies.</p>
+        <p style="margin:0;font-size:1.1rem">Now there are <b>16 fish</b>. For a whole year: <b class="hl">no more!</b></p>
+        <div class="bigq">❓ Why did the fish stop growing in number?</div>
+        <div class="row"><button class="btn" data-show="clue">💡 Clue</button></div>
+        <div id="clue" hidden class="note"><b>Clue:</b> look at the pond. Is there room for more fish? 🐟📏🌿</div>
       </div>
     </div>
+    <div class="card"><svg class="diagram" viewBox="0 0 830 252" role="img" aria-label="Pond story: 4 fish, then 8, then 16, then still 16 because the pond is full"><g transform="translate(0,0)"><rect x="0" y="0" width="185" height="250" rx="16" fill="#ffffff" stroke="#dfe3f1" stroke-width="2"/><rect x="12" y="44" width="161" height="128" rx="18" fill="#5aa9d6"/><rect x="14" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="32" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="54" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="72" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="94" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="112" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="134" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="152" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="14" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="54" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="94" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="134" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="14" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="54" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="94" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="134" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="14" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="54" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="94" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="134" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="92.5" y="30" font-size="17" font-weight="800" fill="#1b2470" text-anchor="middle" font-family="Nunito,sans-serif">① Start: 4 fish</text><text x="92.5" y="205" font-size="14" font-weight="700" fill="#5b6385" text-anchor="middle" font-family="Nunito,sans-serif">Lots of food and space</text></g><path d="M190 108 h18" stroke="#ffc21a" stroke-width="6" stroke-linecap="round"/><path d="M206 98 l12 10 l-12 10z" fill="#ffc21a"/><g transform="translate(215,0)"><rect x="0" y="0" width="185" height="250" rx="16" fill="#ffffff" stroke="#dfe3f1" stroke-width="2"/><rect x="12" y="44" width="161" height="128" rx="18" fill="#5aa9d6"/><rect x="14" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="32" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="54" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="72" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="94" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="112" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="134" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="152" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="14" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="32" y="99" font-size="20" text-anchor="middle">🐟</text><rect x="54" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="72" y="99" font-size="20" text-anchor="middle">🐟</text><rect x="94" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="112" y="99" font-size="20" text-anchor="middle">🐟</text><rect x="134" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="152" y="99" font-size="20" text-anchor="middle">🐟</text><rect x="14" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="54" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="94" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="134" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="14" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="54" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="94" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="134" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="92.5" y="30" font-size="17" font-weight="800" fill="#1b2470" text-anchor="middle" font-family="Nunito,sans-serif">② 8 fish</text><text x="92.5" y="205" font-size="14" font-weight="700" fill="#5b6385" text-anchor="middle" font-family="Nunito,sans-serif">Fish have babies</text></g><path d="M405 108 h18" stroke="#ffc21a" stroke-width="6" stroke-linecap="round"/><path d="M421 98 l12 10 l-12 10z" fill="#ffc21a"/><g transform="translate(430,0)"><rect x="0" y="0" width="185" height="250" rx="16" fill="#ffffff" stroke="#dfe3f1" stroke-width="2"/><rect x="12" y="44" width="161" height="128" rx="18" fill="#5aa9d6"/><rect x="14" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="32" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="54" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="72" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="94" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="112" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="134" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="152" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="14" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="32" y="99" font-size="20" text-anchor="middle">🐟</text><rect x="54" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="72" y="99" font-size="20" text-anchor="middle">🐟</text><rect x="94" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="112" y="99" font-size="20" text-anchor="middle">🐟</text><rect x="134" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="152" y="99" font-size="20" text-anchor="middle">🐟</text><rect x="14" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="32" y="131" font-size="20" text-anchor="middle">🐟</text><rect x="54" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="72" y="131" font-size="20" text-anchor="middle">🐟</text><rect x="94" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="112" y="131" font-size="20" text-anchor="middle">🐟</text><rect x="134" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="152" y="131" font-size="20" text-anchor="middle">🐟</text><rect x="14" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="32" y="163" font-size="20" text-anchor="middle">🐟</text><rect x="54" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="72" y="163" font-size="20" text-anchor="middle">🐟</text><rect x="94" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="112" y="163" font-size="20" text-anchor="middle">🐟</text><rect x="134" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="152" y="163" font-size="20" text-anchor="middle">🐟</text><text x="92.5" y="30" font-size="17" font-weight="800" fill="#1b2470" text-anchor="middle" font-family="Nunito,sans-serif">③ 16 fish</text><text x="92.5" y="205" font-size="14" font-weight="700" fill="#5b6385" text-anchor="middle" font-family="Nunito,sans-serif">The pond is full</text></g><path d="M620 108 h18" stroke="#ffc21a" stroke-width="6" stroke-linecap="round"/><path d="M636 98 l12 10 l-12 10z" fill="#ffc21a"/><g transform="translate(645,0)"><rect x="0" y="0" width="185" height="250" rx="16" fill="#ffffff" stroke="#dfe3f1" stroke-width="2"/><rect x="12" y="44" width="161" height="128" rx="18" fill="#5aa9d6"/><rect x="14" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="32" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="54" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="72" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="94" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="112" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="134" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="152" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="14" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="32" y="99" font-size="20" text-anchor="middle">🐟</text><rect x="54" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="72" y="99" font-size="20" text-anchor="middle">🐟</text><rect x="94" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="112" y="99" font-size="20" text-anchor="middle">🐟</text><rect x="134" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="152" y="99" font-size="20" text-anchor="middle">🐟</text><rect x="14" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="32" y="131" font-size="20" text-anchor="middle">🐟</text><rect x="54" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="72" y="131" font-size="20" text-anchor="middle">🐟</text><rect x="94" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="112" y="131" font-size="20" text-anchor="middle">🐟</text><rect x="134" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="152" y="131" font-size="20" text-anchor="middle">🐟</text><rect x="14" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="32" y="163" font-size="20" text-anchor="middle">🐟</text><rect x="54" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="72" y="163" font-size="20" text-anchor="middle">🐟</text><rect x="94" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="112" y="163" font-size="20" text-anchor="middle">🐟</text><rect x="134" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="152" y="163" font-size="20" text-anchor="middle">🐟</text><text x="30" y="200" font-size="18" text-anchor="middle" opacity=".55">🐟</text><path d="M20 186 l20 20 M40 186 l-20 20" stroke="#e5484d" stroke-width="3"/><text x="68" y="200" font-size="18" text-anchor="middle" opacity=".55">🐟</text><path d="M58 186 l20 20 M78 186 l-20 20" stroke="#e5484d" stroke-width="3"/><text x="106" y="200" font-size="18" text-anchor="middle" opacity=".55">🐟</text><path d="M96 186 l20 20 M116 186 l-20 20" stroke="#e5484d" stroke-width="3"/><text x="144" y="200" font-size="18" text-anchor="middle" opacity=".55">🐟</text><path d="M134 186 l20 20 M154 186 l-20 20" stroke="#e5484d" stroke-width="3"/><text x="92.5" y="30" font-size="17" font-weight="800" fill="#e5484d" text-anchor="middle" font-family="Nunito,sans-serif">④ Still 16!</text><text x="92.5" y="232" font-size="14" font-weight="700" fill="#5b6385" text-anchor="middle" font-family="Nunito,sans-serif">New babies cannot survive</text></g></svg></div>
   </div>
 </section>
 
-<!-- 8 · VIDEO -->
-<section class="slide" id="s8" data-title="Watch: limiting factors and carrying capacity" data-skills="communication">
+<section class="slide " id="s6" data-title="Watch: limiting factors and carrying capacity" data-skills="communication">
   <div class="inner">
     <div class="head"><h2>Watch: limiting factors and carrying capacity (2.5 min)</h2></div>
-    <div class="cols split">
+    <div class="cols split" id="vidSlide">
       <video controls preload="metadata" playsinline poster="img/video-poster.webp"><source src="media/limiting-factors.mp4" type="video/mp4"><source src="media/limiting-factors.webm" type="video/webm">Your browser cannot play this video.</video>
       <div class="card stack"><div class="label" style="color:var(--blue)">While you watch</div>
-        <div><b>Q1. What is a limiting factor?</b><div class="fb ok vans" hidden>✓ Anything that restricts the size of a population.</div></div>
-        <div><b>Q2. What limiting factor brings the animals together at the waterhole?</b><div class="fb ok vans" hidden>✓ Water.</div></div>
-        <div><b>Q3. How many fish could the lab pond support?</b><div class="fb ok vans" hidden>✓ 16 fish: that was its carrying capacity.</div></div>
+        <div><b>Q1. What is a limiting factor?</b><div class="fb ok vans" hidden>✓ Something that stops a population growing.</div></div>
+        <div><b>Q2. 💧 Why do the animals meet at the waterhole?</b><div class="fb ok vans" hidden>✓ They all need water. Water is the limiting factor.</div></div>
+        <div><b>Q3. 🐟 How many fish could the pond hold?</b><div class="fb ok vans" hidden>✓ 16 fish. That is its carrying capacity.</div></div>
         <button class="btn" id="vidAns" style="justify-self:start">Show answers</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 9 · SORT -->
-<section class="slide" id="s9" data-title="Encounter: living or nonliving limiting factor?" data-skills="teamwork" data-coach="hessa" data-ns="Cooperation" data-says="Sorted it differently from your partner? Listen first, then compare. Different ideas help us learn.">
+<section class="slide " id="s7" data-title="What do living things need?" data-skills="critical" data-coach="maha" data-ns="Sustainability" data-says="Save water and protect animal homes. Respect nature!">
   <div class="inner">
-    <div class="head"><h2>Encounter: living or nonliving limiting factor?</h2><div class="timer" data-sec="180"></div></div>
-    <p class="lead">Each of these can limit a population. <b>Tap each one</b>: is it a <b>living</b> or a <b>NONLIVING</b> factor? Tap again to change.</p>
+    <div class="head"><h2>What do living things need?</h2></div>
+    <p class="lead">These are <b>resources</b>. Tap 🔊 to listen. <button class="sayb" data-say="Living things need water, food, space, sunlight, the right temperature and oxygen. These are resources." title="Listen" aria-label="Listen">🔊</button></p>
+    <div class="card"><svg class="diagram" viewBox="0 0 800 350" role="img" aria-label="A fish population needs water, food, space, sunlight, the right temperature and oxygen"><line x1="400" y1="175" x2="400" y2="40" stroke="#c7d7fb" stroke-width="5"/><line x1="400" y1="175" x2="628" y2="108" stroke="#c7d7fb" stroke-width="5"/><line x1="400" y1="175" x2="628" y2="242" stroke="#c7d7fb" stroke-width="5"/><line x1="400" y1="175" x2="400" y2="310" stroke="#c7d7fb" stroke-width="5"/><line x1="400" y1="175" x2="172" y2="243" stroke="#c7d7fb" stroke-width="5"/><line x1="400" y1="175" x2="172" y2="107" stroke="#c7d7fb" stroke-width="5"/><circle cx="400" cy="175" r="74" fill="#1b2470"/><text x="400" y="179" font-size="44" text-anchor="middle">🐟</text><text x="400" y="213" font-size="12" font-weight="800" fill="#fff" text-anchor="middle" font-family="Nunito,sans-serif">FISH POPULATION</text><rect x="322" y="10" width="156" height="60" rx="30" fill="#ffffff" stroke="#2563eb" stroke-width="3"/><text x="350" y="50" font-size="28" text-anchor="middle">💧</text><text x="412" y="46" font-size="15" font-weight="800" fill="#1b2470" text-anchor="middle" font-family="Nunito,sans-serif">Water</text><rect x="550" y="78" width="156" height="60" rx="30" fill="#ffffff" stroke="#2563eb" stroke-width="3"/><text x="578" y="118" font-size="28" text-anchor="middle">🌿</text><text x="640" y="114" font-size="15" font-weight="800" fill="#1b2470" text-anchor="middle" font-family="Nunito,sans-serif">Food</text><rect x="550" y="212" width="156" height="60" rx="30" fill="#ffffff" stroke="#2563eb" stroke-width="3"/><text x="578" y="252" font-size="28" text-anchor="middle">📏</text><text x="640" y="248" font-size="15" font-weight="800" fill="#1b2470" text-anchor="middle" font-family="Nunito,sans-serif">Space</text><rect x="322" y="280" width="156" height="60" rx="30" fill="#ffffff" stroke="#2563eb" stroke-width="3"/><text x="350" y="320" font-size="28" text-anchor="middle">☀️</text><text x="412" y="316" font-size="15" font-weight="800" fill="#1b2470" text-anchor="middle" font-family="Nunito,sans-serif">Sunlight</text><rect x="94" y="213" width="156" height="60" rx="30" fill="#ffffff" stroke="#2563eb" stroke-width="3"/><text x="122" y="253" font-size="28" text-anchor="middle">🌡️</text><text x="184" y="249" font-size="12" font-weight="800" fill="#1b2470" text-anchor="middle" font-family="Nunito,sans-serif">Right temperature</text><rect x="94" y="77" width="156" height="60" rx="30" fill="#ffffff" stroke="#2563eb" stroke-width="3"/><text x="122" y="117" font-size="28" text-anchor="middle">🫧</text><text x="184" y="113" font-size="15" font-weight="800" fill="#1b2470" text-anchor="middle" font-family="Nunito,sans-serif">Oxygen</text></svg></div>
+    <div class="label" style="color:var(--navy)">What happens next?</div>
+    <div class="card"><svg class="diagram" viewBox="0 0 800 210" role="img" aria-label="Plenty of resources: the population grows. Too few resources: it moves away or dies out.">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#5b6385"/></marker></defs>
+<rect x="10" y="70" width="190" height="70" rx="16" fill="#1b2470"/><text x="105" y="102" font-size="18" font-weight="800" fill="#fff" text-anchor="middle" font-family="Nunito,sans-serif">RESOURCES</text><text x="105" y="124" font-size="20" text-anchor="middle">💧🌿📏</text>
+<path d="M200 95 C250 95 250 45 300 45" stroke="#5b6385" stroke-width="3" fill="none" marker-end="url(#ah)"/>
+<path d="M200 115 C250 115 250 165 300 165" stroke="#5b6385" stroke-width="3" fill="none" marker-end="url(#ah)"/>
+<rect x="305" y="15" width="150" height="60" rx="14" fill="#e6f7ed" stroke="#1fa75a" stroke-width="3"/><text x="380" y="42" font-size="16" font-weight="800" fill="#11663a" text-anchor="middle" font-family="Nunito,sans-serif">PLENTY 👍</text><text x="380" y="62" font-size="13" fill="#11663a" text-anchor="middle" font-family="Nunito,sans-serif">enough for all</text>
+<rect x="305" y="135" width="150" height="60" rx="14" fill="#fdecec" stroke="#e5484d" stroke-width="3"/><text x="380" y="162" font-size="16" font-weight="800" fill="#9b1c22" text-anchor="middle" font-family="Nunito,sans-serif">TOO LITTLE 👎</text><text x="380" y="182" font-size="13" fill="#9b1c22" text-anchor="middle" font-family="Nunito,sans-serif">not enough for all</text>
+<path d="M455 45 H520" stroke="#5b6385" stroke-width="3" marker-end="url(#ah)"/><path d="M455 165 H520" stroke="#5b6385" stroke-width="3" marker-end="url(#ah)"/>
+<rect x="525" y="15" width="265" height="60" rx="14" fill="#ffffff" stroke="#1fa75a" stroke-width="3"/><text x="560" y="54" font-size="28" text-anchor="middle">📈</text><text x="680" y="51" font-size="17" font-weight="800" fill="#1b2470" text-anchor="middle" font-family="Nunito,sans-serif">Population GROWS</text>
+<rect x="525" y="135" width="265" height="60" rx="14" fill="#ffffff" stroke="#e5484d" stroke-width="3"/><text x="560" y="174" font-size="28" text-anchor="middle">🚶</text><text x="680" y="161" font-size="15" font-weight="800" fill="#1b2470" text-anchor="middle" font-family="Nunito,sans-serif">MIGRATES (moves away)</text><text x="680" y="181" font-size="15" font-weight="800" fill="#e5484d" text-anchor="middle" font-family="Nunito,sans-serif">or DIES OUT</text>
+</svg></div>
+  </div>
+</section>
+
+<section class="slide " id="s8" data-title="The school bus" data-skills="critical" data-coach="fahim" data-ns="Innovation" data-says="Predict first: how many students can get on?">
+  <div class="inner">
+    <div class="head"><h2>The school bus</h2></div>
     <div class="cols split-r">
-      <img class="fig" src="img/waterhole.webp" alt="Giraffes, an ostrich and a kudu sharing a small waterhole in Etosha National Park">
-      <div class="stack">
-        <div class="sorter" id="sorter" data-labels="living|NONLIVING">
-          <button class="sitem" data-ans="NONLIVING">Water in a desert waterhole<span class="tag">?</span></button>
-          <button class="sitem" data-ans="living">Grass for the oryx to eat<span class="tag">?</span></button>
-          <button class="sitem" data-ans="NONLIVING">Hot summer temperature<span class="tag">?</span></button>
-          <button class="sitem" data-ans="living">Lions that hunt zebras<span class="tag">?</span></button>
-          <button class="sitem" data-ans="NONLIVING">Space in a small pond<span class="tag">?</span></button>
-          <button class="sitem" data-ans="living">Algae for the fish to eat<span class="tag">?</span></button>
-          <button class="sitem" data-ans="NONLIVING">Sunlight for desert plants<span class="tag">?</span></button>
-          <button class="sitem" data-ans="living">Mangrove trees that shelter crabs<span class="tag">?</span></button>
+      <div class="card stack">
+        <p style="margin:0;font-size:1.1rem">A bus has <b>40 seats</b>. 🚌</p>
+        <p style="margin:0;font-size:1.1rem">Tap <b>+ 10 students</b>. What happens when the bus is full?</p>
+        <div class="row"><button class="btn" id="busAdd">+ 10 students</button><button class="btn ghost small" id="busReset">↺ Empty the bus</button></div>
+        <div class="score" id="busRead">Students on the bus: 0 / 40</div>
+        <div class="eq" id="busEq" hidden>
+          <div><span>🪑 Seats</span>=<b style="color:var(--red)">limiting factor</b></div>
+          <div><span>🔢 40</span>=<b style="color:var(--green)">carrying capacity</b></div>
         </div>
+      </div>
+      <div class="card stack"><svg class="diagram" id="busSvg" viewBox="0 0 760 270" role="img" aria-label="A school bus with 40 seats"><rect x="20" y="30" width="660" height="190" rx="26" fill="#ffc21a" stroke="#d79c00" stroke-width="4"/><rect x="680" y="80" width="60" height="140" rx="16" fill="#ffc21a" stroke="#d79c00" stroke-width="4"/><rect x="692" y="95" width="36" height="50" rx="6" fill="#cfe8f7"/><circle cx="150" cy="232" r="28" fill="#2b2b2b"/><circle cx="150" cy="232" r="11" fill="#999"/><circle cx="580" cy="232" r="28" fill="#2b2b2b"/><circle cx="580" cy="232" r="11" fill="#999"/><text x="350" y="58" font-size="20" font-weight="800" fill="#3a2a00" text-anchor="middle" font-family="Nunito,sans-serif">SCHOOL BUS · 40 SEATS</text><g class="bseat" data-i="0"><rect x="45" y="72" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="73" y="94" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="1"><rect x="108" y="72" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="136" y="94" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="2"><rect x="171" y="72" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="199" y="94" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="3"><rect x="234" y="72" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="262" y="94" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="4"><rect x="297" y="72" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="325" y="94" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="5"><rect x="360" y="72" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="388" y="94" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="6"><rect x="423" y="72" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="451" y="94" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="7"><rect x="486" y="72" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="514" y="94" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="8"><rect x="549" y="72" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="577" y="94" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="9"><rect x="612" y="72" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="640" y="94" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="10"><rect x="45" y="107" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="73" y="129" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="11"><rect x="108" y="107" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="136" y="129" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="12"><rect x="171" y="107" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="199" y="129" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="13"><rect x="234" y="107" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="262" y="129" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="14"><rect x="297" y="107" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="325" y="129" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="15"><rect x="360" y="107" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="388" y="129" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="16"><rect x="423" y="107" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="451" y="129" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="17"><rect x="486" y="107" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="514" y="129" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="18"><rect x="549" y="107" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="577" y="129" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="19"><rect x="612" y="107" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="640" y="129" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="20"><rect x="45" y="142" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="73" y="164" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="21"><rect x="108" y="142" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="136" y="164" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="22"><rect x="171" y="142" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="199" y="164" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="23"><rect x="234" y="142" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="262" y="164" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="24"><rect x="297" y="142" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="325" y="164" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="25"><rect x="360" y="142" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="388" y="164" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="26"><rect x="423" y="142" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="451" y="164" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="27"><rect x="486" y="142" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="514" y="164" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="28"><rect x="549" y="142" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="577" y="164" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="29"><rect x="612" y="142" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="640" y="164" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="30"><rect x="45" y="177" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="73" y="199" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="31"><rect x="108" y="177" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="136" y="199" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="32"><rect x="171" y="177" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="199" y="199" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="33"><rect x="234" y="177" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="262" y="199" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="34"><rect x="297" y="177" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="325" y="199" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="35"><rect x="360" y="177" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="388" y="199" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="36"><rect x="423" y="177" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="451" y="199" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="37"><rect x="486" y="177" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="514" y="199" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="38"><rect x="549" y="177" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="577" y="199" font-size="19" text-anchor="middle"></text></g><g class="bseat" data-i="39"><rect x="612" y="177" width="56" height="29" rx="7" fill="#ffffff" stroke="#d79c00" stroke-width="2"/><text x="640" y="199" font-size="19" text-anchor="middle"></text></g></svg><div class="wait" id="busWait"></div></div>
+    </div>
+    <div class="good"><b>In nature:</b> the pond is like the bus. 🐟 Space and food are the <b>seats</b>. The pond can hold <b>16 fish</b>.</div>
+  </div>
+</section>
+
+<section class="slide " id="s9" data-title="5 limiting factors" data-skills="reading" data-coach="hessa" data-ns="Sustainability" data-says="Every answer is welcome. Point to a card and say its name!">
+  <div class="inner">
+    <div class="head"><h2>5 limiting factors</h2></div>
+    <p class="lead">Look at each card: <b>lots</b> of the resource → many living things. <b>Little</b> → few.</p>
+    <div class="facs"><div class="fac" style="--fc:#2563eb;--fb:#e8effe"><div class="fhead"><span>💧</span><b>Water</b><button class="sayb" data-say="Water. Dry summer: less water, fewer oryx." title="Listen" aria-label="Listen">🔊</button></div>
+      <div class="frow"><span class="lt lots">LOTS 💧</span><span class="many">🦌🦌🦌🦌</span></div>
+      <div class="frow"><span class="lt little">LITTLE 💧</span><span class="many">🦌</span></div>
+      <p>Dry summer: less water, fewer oryx.</p></div><div class="fac" style="--fc:#1fa75a;--fb:#e6f7ed"><div class="fhead"><span>🌿</span><b>Food</b><button class="sayb" data-say="Food. Less grass: fewer goats can eat." title="Listen" aria-label="Listen">🔊</button></div>
+      <div class="frow"><span class="lt lots">LOTS 🌿</span><span class="many">🐐🐐🐐🐐</span></div>
+      <div class="frow"><span class="lt little">LITTLE 🌿</span><span class="many">🐐</span></div>
+      <p>Less grass: fewer goats can eat.</p></div><div class="fac" style="--fc:#7a3ff0;--fb:#f1eafe"><div class="fhead"><span>📏</span><b>Space</b><button class="sayb" data-say="Space. Small pond: fewer fish fit." title="Listen" aria-label="Listen">🔊</button></div>
+      <div class="frow"><span class="lt lots">LOTS 📏</span><span class="many">🐟🐟🐟🐟</span></div>
+      <div class="frow"><span class="lt little">LITTLE 📏</span><span class="many">🐟</span></div>
+      <p>Small pond: fewer fish fit.</p></div><div class="fac" style="--fc:#b58500;--fb:#fff8db"><div class="fhead"><span>☀️</span><b>Sunlight</b><button class="sayb" data-say="Sunlight. Murky water: less seagrass grows." title="Listen" aria-label="Listen">🔊</button></div>
+      <div class="frow"><span class="lt lots">LOTS ☀️</span><span class="many">🌱🌱🌱🌱</span></div>
+      <div class="frow"><span class="lt little">LITTLE ☀️</span><span class="many">🌱</span></div>
+      <p>Murky water: less seagrass grows.</p></div><div class="fac" style="--fc:#e5484d;--fb:#fdecec"><div class="fhead"><span>🌡️</span><b>Temperature</b><button class="sayb" data-say="Temperature. Very hot sea: fewer corals live." title="Listen" aria-label="Listen">🔊</button></div>
+      <div class="frow"><span class="lt lots">LOTS 🌡️</span><span class="many">🪸🪸🪸🪸</span></div>
+      <div class="frow"><span class="lt little">LITTLE 🌡️</span><span class="many">🪸</span></div>
+      <p>Very hot sea: fewer corals live.</p></div></div>
+    <div class="note"><b>Remember:</b> the resource that runs out <b>first</b> limits the population. 🚧</div>
+  </div>
+</section>
+
+<section class="slide " id="s10" data-title="Living or nonliving?" data-skills="teamwork" data-coach="hessa" data-ns="Cooperation" data-says="Check with your partner. Listen, then decide together.">
+  <div class="inner">
+    <div class="head"><h2>Living or nonliving?</h2><div class="timer" data-sec="180"></div></div>
+    <p class="lead">Tap a card to choose <b>living</b> or <b>NONLIVING</b>. Tap again to change.</p>
+    <div class="cols split-r">
+      <div class="stack"><img class="fig" src="img/waterhole.webp" alt="Giraffes, an ostrich and a kudu sharing a small waterhole">
+        <div class="keybox"><div><b style="color:var(--green)">living</b> = grows, eats, has babies 🌱🦁</div><div><b style="color:#5b6385">NONLIVING</b> = not alive 💧☀️🪨</div></div></div>
+      <div class="stack">
+        <div class="sorter" id="sorter" data-labels="living|NONLIVING"><button class="sitem" data-ans="NONLIVING"><span><span class="spic">💧</span>Water in a waterhole</span><span class="tag">?</span></button><button class="sitem" data-ans="living"><span><span class="spic">🌾</span>Grass for oryx to eat</span><span class="tag">?</span></button><button class="sitem" data-ans="NONLIVING"><span><span class="spic">🔥</span>Hot summer temperature</span><span class="tag">?</span></button><button class="sitem" data-ans="living"><span><span class="spic">🦁</span>Lions that hunt zebras</span><span class="tag">?</span></button><button class="sitem" data-ans="NONLIVING"><span><span class="spic">📏</span>Space in a small pond</span><span class="tag">?</span></button><button class="sitem" data-ans="living"><span><span class="spic">🟢</span>Algae for fish to eat</span><span class="tag">?</span></button><button class="sitem" data-ans="NONLIVING"><span><span class="spic">☀️</span>Sunlight for plants</span><span class="tag">?</span></button><button class="sitem" data-ans="living"><span><span class="spic">🌳</span>Mangrove trees for crabs</span><span class="tag">?</span></button></div>
         <div class="row"><button class="btn navy" id="sortCheck">Check my sort</button><span class="score" id="sortScore"></span></div>
-        <div class="note" id="sortWhy" hidden><b>Why?</b> Food plants, algae, predators and shelter trees are <b>living</b> factors. Water, temperature, space and sunlight are <b>nonliving</b> factors. Both kinds can limit a population!</div>
+        <div class="note" id="sortWhy" hidden><b>Why?</b> Grass, algae, lions and trees are <b>living</b>. Water, heat, space and sunlight are <b>nonliving</b>. Both can be limiting factors!</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 10 · SCHOOL BUS -->
-<section class="slide" id="s10" data-title="The school bus (the unconventional version)" data-skills="critical" data-coach="fahim" data-ns="Innovation" data-says="Predict before you flip each card. Testing ideas is how inventors think!">
+<section class="slide " id="s11" data-title="The population graph" data-skills="critical,numeracy" data-coach="shahin" data-ns="Innovation" data-says="Put your finger on the line. Trace parts 1, 2 and 3.">
   <div class="inner">
-    <div class="head"><h2>The school bus (the unconventional version)</h2></div>
-    <div class="grid g2">
-      <div class="card" style="background:var(--orange-bg);border-color:#ffd2a6"><div class="label" style="color:var(--orange)">Think of it like this</div><p style="margin:6px 0 0">An ecosystem is like a <b style="color:var(--purple)">school bus with 40 seats</b>. More and more students get on, but when all the seats are full, no more can fit. The <b>seats</b> are the limiting factor, and <b>40</b> is the bus's carrying capacity!</p></div>
-      <div class="card" style="background:var(--blue-bg);border-color:#c7d7fb"><div class="label" style="color:var(--blue)">Textbook definition</div><p style="margin:6px 0 0">A <b class="hl">limiting factor</b> is anything that restricts the size of a population. <b>Carrying capacity</b> is the largest number of individuals of one species that an ecosystem can support over time.</p></div>
-    </div>
-    <div class="label" style="color:var(--navy)">How does each limiting factor affect a population? Predict, then tap the card to check!</div>
-    <div class="grid g3">
-      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--blue)"><strong style="color:var(--blue)">💧 Water</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--blue-bg);border-color:var(--blue)">In a drought, the oryx herd on Sir Bani Yas gets smaller unless people add water points.</div></div></button>
-      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--green)"><strong style="color:var(--green)">🌿 Food</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--green-bg);border-color:var(--green)">Fewer plants means fewer gazelles can be fed, so the population drops.</div></div></button>
-      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--purple)"><strong style="color:var(--purple)">📏 Space</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--purple-bg);border-color:var(--purple)">A small pond has room for fewer fish than a big one.</div></div></button>
-      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:#d9a400"><strong style="color:#b58500">☀️ Sunlight</strong><span class="tap">tap to check</span></div><div class="face back" style="background:#fff8db;border-color:#d9a400">Seagrass in the Arabian Gulf needs light. In murky water, less seagrass grows.</div></div></button>
-      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--red)"><strong style="color:var(--red)">🌡️ Temperature</strong><span class="tap">tap to check</span></div><div class="face back" style="background:var(--red-bg);border-color:var(--red)">Very hot sea water can harm coral reefs, so fewer corals survive.</div></div></button>
-      <button class="flip kw"><div class="fi"><div class="face front" style="border-color:var(--sea)"><strong style="color:var(--sea)">🚌 Your turn!</strong><span class="tap">tap to check</span></div><div class="face back" style="background:#e0f5f2;border-color:var(--sea)">Name the carrying capacity of your classroom. What is the limiting factor: chairs, space or air?</div></div></button>
-    </div>
-  </div>
-</section>
-
-<!-- 11 · TB RESOURCES -->
-<section class="slide" id="s11" data-title="Textbook: how do resources affect populations?" data-skills="reading" data-coach="maha" data-ns="Cooperation" data-says="Respect your classmates: listen quietly while someone reads the paragraph aloud.">
-  <div class="inner">
-    <div class="head"><h2>Textbook: how do resources affect populations?</h2></div>
+    <div class="head"><h2>The population graph</h2></div>
     <div class="cols split">
-      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-resources.webp" alt="Textbook paragraph: How do resources affect populations?"></div>
-      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
-        <div class="q"><div class="qt">Q1 Name one living and one nonliving thing in the same ecosystem.</div><button class="btn small ghost" data-show="t11a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t11a" hidden>✓ Living: plants. Nonliving: water.</div></div>
-        <div class="q"><div class="qt">Q2 Why do plants need water?</div><button class="btn small ghost" data-show="t11b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t11b" hidden>✓ For individual growth and for the survival of the whole population.</div></div>
-        <div class="q"><div class="qt">Q3 What effect could resources have on the growth of a population?</div><button class="btn small ghost" data-show="t11c" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t11c" hidden>✓ Plenty of resources: the population can grow. Too few resources: it shrinks.</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 12 · TB LIMITING -->
-<section class="slide" id="s12" data-title="Textbook: limiting factors" data-skills="reading" data-coach="ahmed" data-ns="Excellence" data-says="Copy the definition of a limiting factor into your Science Notebook. Responsible learners write it down!">
-  <div class="inner">
-    <div class="head"><h2>Textbook: limiting factors</h2></div>
-    <div class="cols split">
-      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-limiting.webp" alt="Textbook paragraphs: Limiting Factors and How Limiting Factors Affect Populations"></div>
-      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
-        <div class="q"><div class="qt">A · Write the definition of a limiting factor.</div><button class="btn small ghost" data-show="t12a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t12a" hidden>✓ Anything that restricts the size of a population.</div></div>
-        <div class="q"><div class="qt">B · Name five possible limiting factors.</div><button class="btn small ghost" data-show="t12b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t12b" hidden>✓ Water, food, sunlight, temperature and space.</div></div>
-        <div class="q"><div class="qt">C · What may happen to a population with too few resources?</div><button class="btn small ghost" data-show="t12c" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t12c" hidden>✓ It may migrate to a new area, or even die out.</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 13 · TB CARRYING CAPACITY -->
-<section class="slide" id="s13" data-title="Textbook: how big can populations get?" data-skills="reading,critical" data-coach="hessa" data-ns="Sustainability" data-says="Every ecosystem has its limits. Sharing resources fairly keeps everyone safe!">
-  <div class="inner">
-    <div class="head"><h2>Textbook: how big can populations get?</h2></div>
-    <div class="cols split">
-      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-carrying.webp" alt="Textbook: biotic potential, carrying capacity and the population growth graph"></div>
-      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
-        <div class="q"><div class="qt">Q1 What is biotic potential?</div><button class="btn small ghost" data-show="t13a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13a" hidden>✓ The potential growth of a population if it could grow in perfect conditions with no limiting factors.</div></div>
-        <div class="q"><div class="qt">Q2 What is carrying capacity?</div><button class="btn small ghost" data-show="t13b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13b" hidden>✓ The largest number of individuals of one species that an ecosystem can support over time.</div></div>
-        <div class="q"><div class="qt">Q3 On the graph, what happens to the line at the carrying capacity, and why?</div><button class="btn small ghost" data-show="t13c" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t13c" hidden>✓ It levels off (stays flat) because limiting factors stop the population growing any bigger.</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 14 · GROWTH GRAPH SIM -->
-<section class="slide" id="s14" data-title="Simulation: the population graph" data-skills="teamwork" data-coach="shahin" data-ns="Innovation" data-says="Leaders test ideas! Change one resource at a time and watch the graph together.">
-  <div class="inner">
-    <div class="head"><h2>Simulation: the population graph</h2></div>
-    <div class="cols split-r">
-      <div class="sim">
-        <canvas id="grow" height="300"></canvas>
-        <div class="row"><label class="legend">💧 Water <input type="range" id="gWater" min="1" max="10" value="5"></label><label class="legend">🌿 Food <input type="range" id="gFood" min="1" max="10" value="5"></label><label class="legend">📏 Space <input type="range" id="gSpace" min="1" max="10" value="5"></label></div>
-        <div class="row"><button class="btn small" id="gRun">▶ Grow the population</button><button class="btn small red" id="gPerfect">⚡ Perfect conditions (no limits)</button></div>
-        <div class="legend" id="growRead">Set the resources, then tap Grow. The smallest resource decides the carrying capacity!</div>
-      </div>
-      <div class="grid" style="gap:10px">
-        <button class="flip kw"><div class="fi"><div class="face front"><strong>Why does the line level off?</strong><span class="tap">tap to reveal</span></div><div class="face back">Limiting factors stop the population at the carrying capacity.</div></div></button>
-        <button class="flip kw"><div class="fi"><div class="face front"><strong>Lower only the water. What happens?</strong><span class="tap">tap to reveal</span></div><div class="face back">The carrying capacity drops, even if there is lots of food and space. The scarcest resource limits the population.</div></div></button>
-        <button class="flip kw"><div class="fi"><div class="face front"><strong>What does “perfect conditions” show?</strong><span class="tap">tap to reveal</span></div><div class="face back">Biotic potential: with no limiting factors the line keeps climbing. This almost never happens in nature.</div></div></button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 15 · PIKA SIM -->
-<section class="slide" id="s15" data-title="Simulation: pikas on the mountain" data-skills="critical" data-coach="maha" data-ns="Sustainability" data-says="Animals everywhere depend on the right temperature. Respect nature and care for our planet!">
-  <div class="inner">
-    <div class="head"><h2>Simulation: pikas on the mountain</h2></div>
-    <div class="cols split-r">
+      <div class="card"><svg class="diagram" viewBox="0 0 700 370" role="img" aria-label="Population graph: fast growth, then slow growth, then flat at the carrying capacity. A red line shows biotic potential with no limits."><rect x="0" y="0" width="700" height="370" rx="18" fill="#ffffff"/><line x1="80" y1="300.0" x2="600" y2="300.0" stroke="#eef1f9" stroke-width="2"/><text x="68" y="305.0" font-size="13" fill="#5b6385" text-anchor="end" font-family="Nunito,sans-serif">0</text><line x1="80" y1="248.0" x2="600" y2="248.0" stroke="#eef1f9" stroke-width="2"/><text x="68" y="253.0" font-size="13" fill="#5b6385" text-anchor="end" font-family="Nunito,sans-serif">4</text><line x1="80" y1="196.0" x2="600" y2="196.0" stroke="#eef1f9" stroke-width="2"/><text x="68" y="201.0" font-size="13" fill="#5b6385" text-anchor="end" font-family="Nunito,sans-serif">8</text><line x1="80" y1="144.0" x2="600" y2="144.0" stroke="#eef1f9" stroke-width="2"/><text x="68" y="149.0" font-size="13" fill="#5b6385" text-anchor="end" font-family="Nunito,sans-serif">12</text><line x1="80" y1="92.0" x2="600" y2="92.0" stroke="#eef1f9" stroke-width="2"/><text x="68" y="97.0" font-size="13" fill="#5b6385" text-anchor="end" font-family="Nunito,sans-serif">16</text><line x1="80" y1="40.0" x2="600" y2="40.0" stroke="#eef1f9" stroke-width="2"/><text x="68" y="45.0" font-size="13" fill="#5b6385" text-anchor="end" font-family="Nunito,sans-serif">20</text><path d="M80 30 V300 H615" stroke="#1b2470" stroke-width="3" fill="none"/><text x="340.0" y="340" font-size="16" font-weight="800" fill="#1b2470" text-anchor="middle" font-family="Nunito,sans-serif">TIME →</text><text transform="translate(28 170.0) rotate(-90)" font-size="16" font-weight="800" fill="#1b2470" text-anchor="middle" font-family="Nunito,sans-serif">NUMBER OF FISH →</text><line x1="80" y1="92.0" x2="600" y2="92.0" stroke="#1fa75a" stroke-width="3" stroke-dasharray="9 7"/><rect x="594" y="77.0" width="104" height="30" rx="15" fill="#1fa75a"/><text x="646" y="89.0" font-size="11" font-weight="800" fill="#fff" text-anchor="middle" font-family="Nunito,sans-serif">CARRYING</text><text x="646" y="102.0" font-size="11" font-weight="800" fill="#fff" text-anchor="middle" font-family="Nunito,sans-serif">CAPACITY = 16</text><polyline points="80.0,274.0 82.6,273.1 85.2,272.2 87.8,271.3 90.4,270.3 93.0,269.3 95.6,268.3 98.2,267.2 100.8,266.1 103.4,265.0 106.0,263.8 108.6,262.6 111.2,261.4 113.8,260.1 116.4,258.7 119.0,257.3 121.6,255.9 124.2,254.4 126.8,252.9 129.4,251.3 132.0,249.7 134.6,248.0 137.2,246.3 139.8,244.5 142.4,242.6 145.0,240.7 147.6,238.7 150.2,236.6 152.8,234.5 155.4,232.3 158.0,230.0 160.6,227.7 163.2,225.3 165.8,222.7 168.4,220.2 171.0,217.5 173.6,214.7 176.2,211.8 178.8,208.9 181.4,205.8 184.0,202.7 186.6,199.4 189.2,196.0 191.8,192.5 194.4,188.9 197.0,185.2 199.6,181.4 202.2,177.4 204.8,173.3 207.4,169.0 210.0,164.6 212.6,160.1 215.2,155.4 217.8,150.5 220.4,145.5 223.0,140.3 225.6,135.0 228.2,129.4 230.8,123.7 233.4,117.8 236.0,111.7 238.6,105.4 241.2,98.8 243.8,92.1 246.4,85.1 249.0,77.9 251.6,70.5 254.2,62.8 256.8,54.8 259.4,46.6 262.0,38.1" fill="none" stroke="#e5484d" stroke-width="4" stroke-dasharray="4 7" stroke-linecap="round"/><rect x="270" y="34" width="150" height="44" rx="12" fill="#fdecec" stroke="#e5484d" stroke-width="2"/><text x="345" y="52" font-size="12" font-weight="800" fill="#e5484d" text-anchor="middle" font-family="Nunito,sans-serif">BIOTIC POTENTIAL</text><text x="345" y="69" font-size="12" fill="#9b1c22" text-anchor="middle" font-family="Nunito,sans-serif">no limits: keeps going up</text><polyline points="80.0,274.0 82.6,272.7 85.2,271.4 87.8,270.0 90.4,268.6 93.0,267.1 95.6,265.5 98.2,263.9 100.8,262.2 103.4,260.5 106.0,258.7 108.6,256.9 111.2,255.0 113.8,253.0 116.4,251.0 119.0,248.9 121.6,246.7 124.2,244.5 126.8,242.2 129.4,239.9 132.0,237.5 134.6,235.1 137.2,232.6 139.8,230.1 142.4,227.5 145.0,224.9 147.6,222.2 150.2,219.6 152.8,216.8 155.4,214.1 158.0,211.3 160.6,208.5 163.2,205.6 165.8,202.8 168.4,199.9 171.0,197.1 173.6,194.2 176.2,191.4 178.8,188.5 181.4,185.7 184.0,182.9 186.6,180.1 189.2,177.3 191.8,174.5 194.4,171.8 197.0,169.1 199.6,166.5 202.2,163.9 204.8,161.3 207.4,158.8 210.0,156.3 212.6,153.9 215.2,151.5 217.8,149.2 220.4,147.0 223.0,144.8 225.6,142.6 228.2,140.6 230.8,138.5 233.4,136.6 236.0,134.7 238.6,132.8 241.2,131.1 243.8,129.4 246.4,127.7 249.0,126.1 251.6,124.6 254.2,123.1 256.8,121.7 259.4,120.3 262.0,119.0 264.6,117.7 267.2,116.5 269.8,115.3 272.4,114.2 275.0,113.1 277.6,112.1 280.2,111.1 282.8,110.2 285.4,109.3 288.0,108.5 290.6,107.6 293.2,106.9 295.8,106.1 298.4,105.4 301.0,104.7 303.6,104.1 306.2,103.5 308.8,102.9 311.4,102.4 314.0,101.8 316.6,101.3 319.2,100.8 321.8,100.4 324.4,100.0 327.0,99.5 329.6,99.2 332.2,98.8 334.8,98.4 337.4,98.1 340.0,97.8 342.6,97.5 345.2,97.2 347.8,96.9 350.4,96.7 353.0,96.4 355.6,96.2 358.2,96.0 360.8,95.8 363.4,95.6 366.0,95.4 368.6,95.2 371.2,95.0 373.8,94.9 376.4,94.7 379.0,94.6 381.6,94.4 384.2,94.3 386.8,94.2 389.4,94.1 392.0,94.0 394.6,93.9 397.2,93.8 399.8,93.7 402.4,93.6 405.0,93.5 407.6,93.4 410.2,93.3 412.8,93.3 415.4,93.2 418.0,93.1 420.6,93.1 423.2,93.0 425.8,93.0 428.4,92.9 431.0,92.9 433.6,92.8 436.2,92.8 438.8,92.7 441.4,92.7 444.0,92.7 446.6,92.6 449.2,92.6 451.8,92.6 454.4,92.5 457.0,92.5 459.6,92.5 462.2,92.4 464.8,92.4 467.4,92.4 470.0,92.4 472.6,92.4 475.2,92.3 477.8,92.3 480.4,92.3 483.0,92.3 485.6,92.3 488.2,92.3 490.8,92.2 493.4,92.2 496.0,92.2 498.6,92.2 501.2,92.2 503.8,92.2 506.4,92.2 509.0,92.2 511.6,92.2 514.2,92.1 516.8,92.1 519.4,92.1 522.0,92.1 524.6,92.1 527.2,92.1 529.8,92.1 532.4,92.1 535.0,92.1 537.6,92.1 540.2,92.1 542.8,92.1 545.4,92.1 548.0,92.1 550.6,92.1 553.2,92.1 555.8,92.1 558.4,92.1 561.0,92.1 563.6,92.1 566.2,92.0 568.8,92.0 571.4,92.0 574.0,92.0 576.6,92.0 579.2,92.0 581.8,92.0 584.4,92.0 587.0,92.0 589.6,92.0 592.2,92.0 594.8,92.0 597.4,92.0 600.0,92.0" fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/><circle cx="197" cy="228" r="17" fill="#f07f19"/><text x="197" y="234" font-size="18" font-weight="800" fill="#fff" text-anchor="middle" font-family="Nunito,sans-serif">1</text><circle cx="275" cy="153" r="17" fill="#7a3ff0"/><text x="275" y="159" font-size="18" font-weight="800" fill="#fff" text-anchor="middle" font-family="Nunito,sans-serif">2</text><circle cx="444" cy="129" r="17" fill="#1fa75a"/><text x="444" y="135" font-size="18" font-weight="800" fill="#fff" text-anchor="middle" font-family="Nunito,sans-serif">3</text></svg></div>
       <div class="stack">
-        <div class="card" style="background:#fff8db;border-color:#f3e2a0"><p style="margin:0"><b>Pikas</b> are small furry mammals that live on cold, rocky mountains. They cannot survive in hot weather, so they live only where it is cool enough.</p><p style="margin:8px 0 0">Move the slider to warm the mountain. Watch where the pikas can live, and how many survive.</p></div>
-        <div class="card stack"><b>Predict, then tap to check</b>
-          <button class="btn small ghost" data-show="w1" style="justify-self:start">▶ What happens to the pikas as it gets warmer?</button><div class="fb ok" id="w1" hidden>They move higher up, where it is cooler. Their area gets smaller, so fewer pikas can live there.</div>
-          <button class="btn small ghost" data-show="w2" style="justify-self:start">▶ What is the limiting factor here?</button><div class="fb ok" id="w2" hidden>Temperature. Too warm means less space the pikas can live in.</div></div>
+        <div class="gstep" style="--gc:#f07f19"><b>1</b><div><strong>Fast growth</strong><br>Lots of resources. Many babies.</div></div>
+        <div class="gstep" style="--gc:#7a3ff0"><b>2</b><div><strong>Slower growth</strong><br>Food and space start to run out.</div></div>
+        <div class="gstep" style="--gc:#1fa75a"><b>3</b><div><strong>Flat line</strong><br>The <b>carrying capacity</b>. No more room.</div></div>
+        <div class="gstep" style="--gc:#e5484d"><b>!</b><div><strong>Red dashed line</strong><br><b>Biotic potential</b>: growth with no limits. This almost never happens.</div></div>
+        <button class="btn small ghost" data-show="simBox" style="justify-self:start">🧪 Try it: change the resources</button>
       </div>
-      <div class="sim"><b>Virtual mountain: warm it up!</b>
-        <canvas id="pika" height="300"></canvas>
-        <div class="row"><label class="legend" style="flex:1">🌡️ Temperature <input type="range" id="pTemp" min="0" max="10" value="2" style="width:60%"></label></div>
-        <div class="score" id="pikaRead"></div>
-      </div>
+    </div>
+    <div class="sim" id="simBox" hidden>
+      <canvas id="grow" height="260"></canvas>
+      <div class="row"><label class="legend">💧 Water <input type="range" id="gWater" min="1" max="10" value="5"></label><label class="legend">🌿 Food <input type="range" id="gFood" min="1" max="10" value="5"></label><label class="legend">📏 Space <input type="range" id="gSpace" min="1" max="10" value="5"></label></div>
+      <div class="row"><button class="btn small" id="gRun">▶ Grow</button><button class="btn small red" id="gPerfect">⚡ No limits</button></div>
+      <div class="legend" id="growRead">Move a slider, then tap Grow. The smallest resource sets the carrying capacity.</div>
     </div>
   </div>
 </section>
 
-<!-- 16 · DETECTIVE -->
-<section class="slide" id="s16" data-title="Limiting factor detective" data-skills="critical" data-coach="fahim" data-ns="Innovation" data-says="UAE scientists build water points and plant mangroves to help wildlife. Science helps populations thrive!">
+<section class="slide " id="s12" data-title="Fish pond lab" data-skills="teamwork,numeracy" data-coach="ahmed" data-ns="Cooperation" data-says="Tap Next round together. Write each number.">
   <div class="inner">
-    <div class="head"><h2>Limiting factor detective</h2></div>
-    <p class="lead">Each population below is being limited. <b>Spot the limiting factor, then tap Reveal.</b></p>
-    <div class="grid g4">
-      <div class="medium"><h4 style="color:var(--orange)">🐪 Desert gazelles</h4><div class="rbig">🏜️ 🌵</div><div class="row" style="justify-content:space-between"><span class="legend">a very dry summer</span><button class="btn small" data-show="d1">Reveal</button></div><div class="fb ok" id="d1" hidden>Water (and the plants that need it). With little rain, fewer gazelles survive.</div></div>
-      <div class="medium"><h4 style="color:var(--sea)">🐟 Pond fish</h4><div class="rbig">🐟🐟🐟🐟</div><div class="row" style="justify-content:space-between"><span class="legend">a crowded pond</span><button class="btn small" data-show="d2">Reveal</button></div><div class="fb ok" id="d2" hidden>Space (and oxygen in the water). A small pond can only support a few fish.</div></div>
-      <div class="medium"><h4 style="color:var(--green)">🌱 Seagrass</h4><div class="rbig">🌊 🌱</div><div class="row" style="justify-content:space-between"><span class="legend">murky, muddy water</span><button class="btn small" data-show="d3">Reveal</button></div><div class="fb ok" id="d3" hidden>Sunlight. Seagrass cannot make food without light, so less grows. Dugongs then have less to eat!</div></div>
-      <div class="medium"><h4 style="color:var(--red)">🪸 Coral reef</h4><div class="rbig">🌡️ 🪸</div><div class="row" style="justify-content:space-between"><span class="legend">a very hot summer sea</span><button class="btn small" data-show="d4">Reveal</button></div><div class="fb ok" id="d4" hidden>Temperature. Very warm sea water stresses corals, so fewer survive.</div></div>
-    </div>
-    <div class="row"><button class="btn navy" data-show="space">🌿 UAE sustainability link</button></div>
-    <div class="card" id="space" hidden><b style="color:var(--red)">UAE sustainability link:</b> the UAE adds water points for wildlife in reserves and plants millions of mangroves, raising the carrying capacity for many species.</div>
-  </div>
-</section>
-
-<!-- 17 · LAB -->
-<section class="slide" id="s17" data-title="Lab: Fishy Population Changes" data-skills="teamwork,discipline" data-coach="ahmed" data-ns="Cooperation" data-says="Counter, recorder, timer: everyone has a job. Record every round carefully!">
-  <div class="inner">
-    <div class="head"><h2>Lab: Fishy Population Changes</h2><div class="timer" data-sec="300"></div></div>
+    <div class="head"><h2>Fish pond lab</h2><div class="timer" data-sec="240"></div></div>
     <div class="cols split">
       <div class="stack">
-        <div class="good"><b>You need:</b> a “pond” sheet with 16 squares · 40 counters or beans (the fish) · a pencil</div>
-        <ol style="margin:0;padding-left:20px;display:grid;gap:4px">
-          <li>Start with <b>2 fish</b> in the pond. Each fish needs <b>one square</b> of space.</li>
-          <li>Each round, the population <b>doubles</b> (fish have babies).</li>
-          <li>If there are no empty squares, the extra fish <b>cannot survive</b>. Take them out.</li>
-          <li>Record the fish at the end of each round.</li>
-        </ol>
-        <div class="tablewrap"><table>
-          <thead><tr><th>Round</th><th>Fish in the pond</th><th>Round</th><th>Fish in the pond</th></tr></thead>
+        <div class="lsteps">
+          <div><span>1</span>🐟🐟<br>Start with <b>2 fish</b>.</div>
+          <div><span>2</span>✖2<br>Each round, fish <b>double</b>.</div>
+          <div><span>3</span>▦<br>Only <b>16 squares</b>. 1 fish per square.</div>
+          <div><span>4</span>✏️<br><b>Write</b> the number.</div>
+        </div>
+        <div class="tablewrap" id="labTable"><table>
+          <thead><tr><th>Round</th><th>Fish</th><th>Round</th><th>Fish</th></tr></thead>
           <tbody>
-            <tr><td><b>1</b></td><td><input type="text" id="lab1" placeholder="count"><div class="exp" hidden>2</div></td><td><b>4</b></td><td><input type="text" id="lab4" placeholder="count"><div class="exp" hidden>16</div></td></tr>
-            <tr><td><b>2</b></td><td><input type="text" id="lab2" placeholder="count"><div class="exp" hidden>4</div></td><td><b>5</b></td><td><input type="text" id="lab5" placeholder="count"><div class="exp" hidden>16 (carrying capacity!)</div></td></tr>
-            <tr><td><b>3</b></td><td><input type="text" id="lab3" placeholder="count"><div class="exp" hidden>8</div></td><td><b>6</b></td><td><input type="text" id="lab6" placeholder="count"><div class="exp" hidden>16</div></td></tr>
+            <tr><td><b>1</b></td><td><input type="text" id="lab1" placeholder="?"><div class="exp" hidden>2</div></td><td><b>4</b></td><td><input type="text" id="lab4" placeholder="?"><div class="exp" hidden>16</div></td></tr>
+            <tr><td><b>2</b></td><td><input type="text" id="lab2" placeholder="?"><div class="exp" hidden>4</div></td><td><b>5</b></td><td><input type="text" id="lab5" placeholder="?"><div class="exp" hidden>16 (full!)</div></td></tr>
+            <tr><td><b>3</b></td><td><input type="text" id="lab3" placeholder="?"><div class="exp" hidden>8</div></td><td><b>6</b></td><td><input type="text" id="lab6" placeholder="?"><div class="exp" hidden>16</div></td></tr>
           </tbody></table></div>
-        <div class="row"><button class="btn" id="labExp">Expected results</button></div>
-        <div class="fb no"><b>Safety:</b> do not put counters or beans in your mouth. Wash your hands afterwards.</div>
+        <div class="row"><button class="btn small" id="labExp">Show answers</button></div>
       </div>
-      <div class="sim"><b>Virtual pond: 16 squares of space</b>
-        <canvas id="fishlab" height="300"></canvas>
+      <div class="sim"><b>Virtual pond: 16 squares</b>
+        <canvas id="fishlab" height="280"></canvas>
         <div class="row" style="justify-content:space-between"><span class="row"><button class="btn small" id="fNext">▶ Next round</button><button class="btn ghost small" id="fReset">↺ Restart</button></span><span class="score" id="fishRead"></span></div>
-        <button class="btn navy small" data-show="labQ" style="justify-self:start">▶ What should you notice?</button>
-        <div class="good" id="labQ" hidden>The population doubles at first (2, 4, 8, 16), then stops at <b>16</b>. Space is the limiting factor, and <b style="color:var(--purple)">16 fish is the pond's carrying capacity</b>.</div>
+        <button class="btn navy small" data-show="labQ" style="justify-self:start">▶ What do you notice?</button>
+        <div class="good" id="labQ" hidden>2 → 4 → 8 → <b>16</b>, then it stops. <b>Space</b> is the limiting factor. <b style="color:var(--purple)">16 is the carrying capacity.</b></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 18 · PAUSE & CHECK -->
-<section class="slide" id="s18" data-title="Pause and check" data-skills="initiative" data-coach="hessa" data-ns="Excellence" data-says="Wrong answer? Read the hint and try again. Excellence means never giving up.">
+<section class="slide " id="s13" data-title="Quick check" data-skills="initiative" data-coach="hessa" data-ns="Excellence" data-says="Mistakes help us learn. Never give up!">
   <div class="inner">
-    <div class="head"><h2>Pause and check</h2><div class="timer" data-sec="240"></div></div>
-    <p class="lead">Formative check: tap an answer. <b>Wrong? Read the hint and try again!</b></p>
-    <div class="grid g2 mcqset" data-mode="retry">
-      <div class="q"><div class="qt">Q1 A limiting factor is anything that…</div><div class="opts"><button class="opt">A. helps a population grow forever</button><button class="opt" data-ok>B. restricts the size of a population</button><button class="opt">C. is always living</button></div><div class="fb no" hidden>Hint: “limit” means to hold back.</div></div>
-      <div class="q"><div class="qt">Q2 Which one is NOT a limiting factor?</div><div class="opts"><button class="opt">A. water</button><button class="opt">B. temperature</button><button class="opt" data-ok>C. the name of the species</button></div><div class="fb no" hidden>Hint: which one does the animal not need?</div></div>
-      <div class="q"><div class="qt">Q3 The largest population an ecosystem can support over time is its…</div><div class="opts"><button class="opt">A. biotic potential</button><button class="opt" data-ok>B. carrying capacity</button><button class="opt">C. community</button></div><div class="fb no" hidden>Hint: how much the ecosystem can “carry”.</div></div>
-      <div class="q"><div class="qt">Q4 With too few resources, a population may…</div><div class="opts"><button class="opt">A. grow faster</button><button class="opt" data-ok>B. migrate or die out</button><button class="opt">C. reach its biotic potential</button></div><div class="fb no" hidden>Hint: think about the textbook paragraph.</div></div>
-    </div>
+    <div class="head"><h2>Quick check</h2><div class="timer" data-sec="180"></div></div>
+    <p class="lead">Tap an answer. <b>Wrong? Read the hint. Try again!</b></p>
+    <div class="grid g2 mcqset" data-mode="retry"><div class="q"><div class="qrow"><span class="qpic">🚧</span><div class="qt">Q1 A limiting factor…</div></div><div class="opts"><button class="opt">A. makes a population grow forever</button><button class="opt" data-ok>B. stops a population growing</button><button class="opt">C. is always living</button></div><div class="fb no" hidden>Hint: "limit" means "stop".</div></div><div class="q"><div class="qrow"><span class="qpic">🤔</span><div class="qt">Q2 Which is NOT a limiting factor?</div></div><div class="opts"><button class="opt">A. 💧 water</button><button class="opt">B. 🌡️ temperature</button><button class="opt" data-ok>C. 🔤 the animal's name</button></div><div class="fb no" hidden>Hint: which one does an animal NOT need?</div></div><div class="q"><div class="qrow"><span class="qpic">🚌</span><div class="qt">Q3 The biggest number a place can hold is the…</div></div><div class="opts"><button class="opt">A. biotic potential</button><button class="opt" data-ok>B. carrying capacity</button><button class="opt">C. resource</button></div><div class="fb no" hidden>Hint: the bus could "carry" 40.</div></div><div class="q"><div class="qrow"><span class="qpic">🍽️</span><div class="qt">Q4 Too little food. The population may…</div></div><div class="opts"><button class="opt">A. grow faster</button><button class="opt" data-ok>B. migrate or die out</button><button class="opt">C. stay the same forever</button></div><div class="fb no" hidden>Hint: look at the red box on slide 7.</div></div></div>
+    <div class="card stack"><b>How sure are you?</b>
+      <div class="traffic"><button style="background:var(--green)" data-tl="Great! Help a partner explain the bus and the pond.">I can teach it</button><button style="background:var(--orange)" data-tl="Good! Look again at slides 8 and 11.">Mostly</button><button style="background:var(--red)" data-tl="That is OK! Your teacher will help you now.">I need help</button></div>
+      <div id="tlMsg" class="note" hidden></div></div>
   </div>
 </section>
 
-<!-- 19 · ORDER -->
-<section class="slide" id="s19" data-title="Put the population story in order" data-skills="critical,initiative" data-coach="shahin" data-ns="Cooperation" data-says="Agree on the order as a team before you reveal it. Good leaders make sure everyone speaks.">
+<section class="slide " id="s14" data-title="Worksheet" data-skills="reading" data-coach="ahmed" data-ns="Excellence" data-says="Work on your own first. Then check.">
   <div class="inner">
-    <div class="head"><h2>Put the population story in order</h2></div>
-    <p class="lead">What happened in Grandpa's pond? Say the order with your partner, then <b>tap the events from first to last</b>. Tap a numbered event to undo.</p>
-    <div class="order" id="order">
-      <button class="oitem" data-p="3"><span class="n">?</span>Food and space start to run low</button>
-      <button class="oitem" data-p="5"><span class="n">?</span>The population levels off at its carrying capacity: about 16 fish</button>
-      <button class="oitem" data-p="1"><span class="n">?</span>Grandpa puts 4 fish in a pond with plenty of food and space</button>
-      <button class="oitem" data-p="4"><span class="n">?</span>Growth slows down; some young fish do not survive</button>
-      <button class="oitem" data-p="2"><span class="n">?</span>The fish have babies and the population grows fast</button>
-    </div>
-    <div class="row"><button class="btn navy" id="orderCheck">Check my order</button><button class="btn" id="orderReveal">Reveal the order</button><span class="score" id="orderScore"></span></div>
-    <div class="chain" id="chain" hidden>
-      <div style="background:#1fa75a">1 · 4 fish, plenty of resources</div>
-      <div style="background:#f07f19">2 · Fast growth</div>
-      <div style="background:#e5484d">3 · Resources run low</div>
-      <div style="background:#7a3ff0">4 · Growth slows</div>
-      <div style="background:#2563eb">5 · Carrying capacity</div>
-    </div>
-    <div class="card stack"><b>Traffic light: how sure are you?</b>
-      <div class="traffic"><button style="background:var(--green)" data-tl="Brilliant! Help a partner explain it using “limiting factor” and “carrying capacity”.">I can teach it</button><button style="background:var(--orange)" data-tl="Good! Re-read the school bus and population graph slides, then try again.">Mostly</button><button style="background:var(--red)" data-tl="That is OK! Your teacher will go through it with you now.">I need help</button></div>
-      <div id="tlMsg" class="note" hidden></div>
-    </div>
-  </div>
-</section>
-
-<!-- 20 · WORKSHEET 1 -->
-<section class="slide" id="s20" data-title="Limiting factors worksheet (1/2)" data-skills="reading" data-coach="ahmed" data-ns="Excellence" data-says="Work on your own first, then check your answers. Own your learning!">
-  <div class="inner">
-    <div class="head"><h2>Limiting factors worksheet (1/2)</h2><div class="timer" data-sec="240"></div></div>
+    <div class="head"><h2>Worksheet</h2><div class="timer" data-sec="300"></div></div>
     <div class="grid g2">
-      <div class="card stack"><div class="label" style="color:var(--navy)">A · Match each word · 5 marks</div>
-        <div style="font-size:.92rem;color:var(--muted)">A. Anything that restricts the size of a population<br>B. The largest number of one species an ecosystem can support over time<br>C. Growth in perfect conditions with no limiting factors<br>D. To move to a new area<br>E. Something living things need, like water or food</div>
-        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:8px" id="wsA">
-          <label class="fillrow">1. limiting factor <select data-ans="A" id="wa1"></select></label>
-          <label class="fillrow">2. carrying capacity <select data-ans="B" id="wa2"></select></label>
-          <label class="fillrow">3. biotic potential <select data-ans="C" id="wa3"></select></label>
-          <label class="fillrow">4. migrate <select data-ans="D" id="wa4"></select></label>
-          <label class="fillrow">5. resource <select data-ans="E" id="wa5"></select></label>
-        </div>
-        <div class="row"><button class="btn small navy" data-check="wsA">Check A</button><button class="btn small ghost" data-answers="wsA">Show answers (A)</button><span class="score" data-out="wsA"></span></div>
+      <div class="card stack"><div class="label" style="color:var(--navy)">A · Match the word to the picture · 5 marks</div>
+        <div class="means"><div class="mean"><b>A</b><span>🚧</span>stops a population growing</div><div class="mean"><b>B</b><span>🚌</span>the biggest number a place can hold</div><div class="mean"><b>C</b><span>🚀</span>growth with no limits</div><div class="mean"><b>D</b><span>🚶</span>move to a new place</div><div class="mean"><b>E</b><span>💧</span>something living things need</div></div>
+        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:8px" id="wsA"><label class="fillrow">1. <b>limiting factor</b> <select data-ans="A" id="wa1"></select></label><label class="fillrow">2. <b>carrying capacity</b> <select data-ans="B" id="wa2"></select></label><label class="fillrow">3. <b>biotic potential</b> <select data-ans="C" id="wa3"></select></label><label class="fillrow">4. <b>migrate</b> <select data-ans="D" id="wa4"></select></label><label class="fillrow">5. <b>resource</b> <select data-ans="E" id="wa5"></select></label></div>
+        <div class="row"><button class="btn small navy" data-check="wsA">Check A</button><button class="btn small ghost" data-answers="wsA">Show answers</button><span class="score" data-out="wsA"></span></div>
       </div>
-      <div class="card stack"><div class="label" style="color:var(--navy)">B · Fill the gaps · 5 marks</div>
-        <div class="wordbank">Word bank: water · temperature · 16 · die out · decrease</div>
-        <div class="stack" id="wsB" style="gap:8px">
-          <div class="fillrow">1. Plants need <input type="text" size="10" data-ans="water" id="wb1" aria-label="gap 1"> to grow and survive.</div>
-          <div class="fillrow">2. Pikas are limited by <input type="text" size="12" data-ans="temperature" id="wb2" aria-label="gap 2"> .</div>
-          <div class="fillrow">3. The lab pond could support <input type="text" size="5" data-ans="16|sixteen" id="wb3" aria-label="gap 3"> fish.</div>
-          <div class="fillrow">4. Populations can increase and <input type="text" size="10" data-ans="decrease" id="wb4" aria-label="gap 4"> in size.</div>
-          <div class="fillrow">5. With too few resources, a population may migrate or <input type="text" size="10" data-ans="die out" id="wb5" aria-label="gap 5"> .</div>
-        </div>
-        <div class="row"><button class="btn small navy" data-check="wsB">Check B</button><button class="btn small ghost" data-answers="wsB">Show answers (B)</button><span class="score" data-out="wsB"></span></div>
+      <div class="card stack"><div class="label" style="color:var(--navy)">B · Name the limiting factor · 6 marks</div>
+        <div class="tablewrap" id="wsC"><table><thead><tr><th>What is happening?</th><th>Limiting factor</th></tr></thead><tbody><tr><td><span class="spic">🏜️</span> No rain for a whole year.</td><td><select data-ans="Water" id="wc1"><option value="">choose…</option><option>Water</option><option>Food</option><option>Space</option><option>Sunlight</option><option>Temperature</option></select></td></tr><tr><td><span class="spic">🐐🐐🐐</span> Too many goats eat all the grass.</td><td><select data-ans="Food" id="wc2"><option value="">choose…</option><option>Water</option><option>Food</option><option>Space</option><option>Sunlight</option><option>Temperature</option></select></td></tr><tr><td><span class="spic">🐟🐟🐟</span> A small tank is full of fish.</td><td><select data-ans="Space" id="wc3"><option value="">choose…</option><option>Water</option><option>Food</option><option>Space</option><option>Sunlight</option><option>Temperature</option></select></td></tr><tr><td><span class="spic">🌳🌱</span> Tall trees shade the small plants.</td><td><select data-ans="Sunlight" id="wc4"><option value="">choose…</option><option>Water</option><option>Food</option><option>Space</option><option>Sunlight</option><option>Temperature</option></select></td></tr><tr><td><span class="spic">🔥🪸</span> Very hot sea water hurts corals.</td><td><select data-ans="Temperature" id="wc5"><option value="">choose…</option><option>Water</option><option>Food</option><option>Space</option><option>Sunlight</option><option>Temperature</option></select></td></tr><tr><td><span class="spic">🦒💧</span> Animals crowd round one waterhole.</td><td><select data-ans="Water" id="wc6"><option value="">choose…</option><option>Water</option><option>Food</option><option>Space</option><option>Sunlight</option><option>Temperature</option></select></td></tr></tbody></table></div>
+        <div class="row"><button class="btn small navy" data-check="wsC">Check B</button><button class="btn small ghost" data-answers="wsC">Show answers</button><span class="score" data-out="wsC"></span></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- 21 · WORKSHEET 2 -->
-<section class="slide" id="s21" data-title="Limiting factors worksheet (2/2)" data-skills="reading,critical" data-coach="maha" data-ns="Excellence" data-says="Respect your reader: write full sentences using limiting factor and carrying capacity.">
-  <div class="inner">
-    <div class="head"><h2>Limiting factors worksheet (2/2)</h2></div>
-    <div class="card stack"><div class="label" style="color:var(--navy)">C · Name the limiting factor · 6 marks</div>
-      <div class="legend">Choose from: water · food · space · sunlight · temperature</div>
-      <div class="tablewrap" id="wsC"><table>
-        <thead><tr><th>What is happening?</th><th>Limiting factor</th></tr></thead>
-        <tbody>
-          <tr><td>No rain falls in the desert for a whole year</td><td><select data-ans="Water" data-opts="Water|Food|Space|Sunlight|Temperature" id="wc1"></select></td></tr>
-          <tr><td>Too many goats eat all the grass on a farm</td><td><select data-ans="Food" data-opts="Water|Food|Space|Sunlight|Temperature" id="wc2"></select></td></tr>
-          <tr><td>A small fish tank is crowded with fish</td><td><select data-ans="Space" data-opts="Water|Food|Space|Sunlight|Temperature" id="wc3"></select></td></tr>
-          <tr><td>Tall trees shade the small plants below them</td><td><select data-ans="Sunlight" data-opts="Water|Food|Space|Sunlight|Temperature" id="wc4"></select></td></tr>
-          <tr><td>Pikas move higher as the mountain warms</td><td><select data-ans="Temperature" data-opts="Water|Food|Space|Sunlight|Temperature" id="wc5"></select></td></tr>
-          <tr><td>Giraffes and kudu crowd around one waterhole</td><td><select data-ans="Water" data-opts="Water|Food|Space|Sunlight|Temperature" id="wc6"></select></td></tr>
-        </tbody></table></div>
-      <div class="row"><button class="btn small navy" data-check="wsC">Check C</button><button class="btn small ghost" data-answers="wsC">Show answers (C)</button><span class="score" data-out="wsC"></span></div>
     </div>
     <div class="cols split">
-      <div class="card stack"><div class="label" style="color:var(--navy)">D · Explain · 3 marks</div>
-        <p style="margin:0">Why did Grandpa's fish population stop at about 16? Use <b>limiting factor</b>, <b>resources</b> and <b>carrying capacity</b>.</p>
-        <textarea id="wd" placeholder="Write your explanation in full sentences…"></textarea>
-        <button class="btn small" data-show="model" style="justify-self:start">Show model answer (D)</button>
+      <div class="card stack"><div class="label" style="color:var(--purple)">⭐ Finished early? Challenge</div>
+        <p style="margin:0">Grandpa makes his pond <b>2 times bigger</b>. What happens to the carrying capacity? Why?</p>
+        <textarea id="wd" placeholder="Write 1 or 2 sentences…"></textarea>
+        <button class="btn small" data-show="model" style="justify-self:start">Show model answer</button>
+        <div class="good" id="model" hidden>✓ It gets bigger (about <b>32 fish</b>) because there is more <b>space</b>, if there is also enough food and oxygen.</div>
       </div>
-      <div class="stack">
-        <div class="good" id="model" hidden><b>Model answer (1 mark each):</b><br>✓ At first the pond had plenty of <b>resources</b>, so the fish population grew fast.<br>✓ Then space, food and oxygen ran low: these are <b>limiting factors</b>.<br>✓ The population levelled off at the pond's <b>carrying capacity</b>, about 16 fish.</div>
-        <div class="card"><span class="score" id="wsTotal">Total: A + B + C = 0 / 16 marks</span><div class="legend">Your teacher marks part D (3 marks) for a total out of 19.</div></div>
-      </div>
+      <div class="card"><span class="score" id="wsTotal">Total: 0 / 11 marks</span></div>
     </div>
   </div>
 </section>
 
-<!-- 22 · LEVELS -->
-<section class="slide" id="s22" data-title="Choose your level" data-skills="respect" data-coach="maha" data-ns="Cooperation" data-says="Every level is respected here. Choose the one that stretches you, then help a friend.">
+<section class="slide " id="s15" data-title="Final quiz: Population Master" data-skills="integrity" data-coach="ahmed" data-ns="Excellence" data-says="Count only your first try. Be honest!">
   <div class="inner">
-    <div class="head"><h2>Green, orange or purple? Choose your level</h2></div>
-    <div class="grid g3">
-      <div class="level" style="--lc:var(--green);--lbg:var(--green-bg)"><h3>Green · Support</h3>
-        <ol><li>Complete: “A limiting factor ____ the size of a population.”</li><li>Name two limiting factors.</li><li>True or false: populations can grow forever.</li><li>How many fish could the lab pond support?</li></ol>
-        <div class="ans" hidden><b>Answers</b><br>1. restricts (limits)<br>2. any two of water, food, space, sunlight, temperature<br>3. False<br>4. 16</div><button class="btn small ghost lvl">Show answers</button></div>
-      <div class="level" style="--lc:var(--orange);--lbg:var(--orange-bg)"><h3>Orange · At level</h3>
-        <ol><li>Sketch the population growth graph. Label the carrying capacity.</li><li>Explain the difference between biotic potential and carrying capacity.</li><li>Explain why the oryx on Sir Bani Yas need water points in summer.</li></ol>
-        <div class="ans" hidden><b>Answers</b><br>1. An S-shaped line that rises, then levels off; the flat part is the carrying capacity.<br>2. Biotic potential is growth in perfect conditions; carrying capacity is the real maximum an ecosystem can support.<br>3. Water is a limiting factor in the dry summer; extra water points let more oryx survive.</div><button class="btn small ghost lvl">Show answers</button></div>
-      <div class="level" style="--lc:var(--purple);--lbg:var(--purple-bg)"><h3>Purple · Challenge</h3>
-        <ol><li>Predict what happens to the pond's carrying capacity if Grandpa doubles its size. Explain.</li><li>Why does almost no population reach its biotic potential?</li><li>Design an experiment to test whether food limits a population of mealworms.</li></ol>
-        <div class="ans" hidden><b>Answers</b><br>1. It increases (about 32 fish) because there is more space, if food and oxygen also increase.<br>2. In nature there are always limiting factors, such as water, food, space or temperature.<br>3. Change: amount of food. Keep: container size, temperature, starting number. Measure: population after 3 weeks.</div><button class="btn small ghost lvl">Show answers</button></div>
-    </div>
+    <div class="head"><h2>Final quiz: Population Master</h2><div class="timer" data-sec="120"></div></div>
+    <div class="stack mcqset" data-mode="first" id="wm"><div class="q"><div class="qrow"><span class="qpic">🌡️💧🌿</span><div class="qt">1. Water, food, space, sunlight and temperature are…</div></div><div class="opts"><button class="opt">A. species</button><button class="opt" data-ok>B. limiting factors</button><button class="opt">C. communities</button></div></div><div class="q"><div class="qrow"><span class="qpic">🚀</span><div class="qt">2. Biotic potential is growth…</div></div><div class="opts"><button class="opt">A. in a drought</button><button class="opt">B. after animals migrate</button><button class="opt" data-ok>C. with no limits</button></div></div><div class="q"><div class="qrow"><span class="qpic">📈</span><div class="qt">3. On the graph, the flat part of the line is the…</div></div><div class="opts"><button class="opt" data-ok>A. carrying capacity</button><button class="opt">B. biotic potential</button><button class="opt">C. starting number</button></div></div><div class="q"><div class="qrow"><span class="qpic">🚌</span><div class="qt">4. The bus has 40 seats. The seats are the…</div></div><div class="opts"><button class="opt">A. carrying capacity</button><button class="opt" data-ok>B. limiting factor</button><button class="opt">C. population</button></div></div><div class="q"><div class="qrow"><span class="qpic">🐟</span><div class="qt">5. Grandpa's fish stopped at 16 because…</div></div><div class="opts"><button class="opt" data-ok>A. the pond reached its carrying capacity</button><button class="opt">B. fish stop having babies at 16</button><button class="opt">C. the fish were sleeping</button></div></div></div>
+    <div class="card row" style="justify-content:space-between"><span class="score" id="wmScore">First-try score: 0 / 5</span><span class="legend">5 = Population Master! · 4 = Expert · 3 = Explorer · 0–2 = let's review together</span></div>
   </div>
 </section>
 
-<!-- 23 · SUMMATIVE -->
-<section class="slide" id="s23" data-title="Summative: Population Master quiz" data-skills="integrity" data-coach="ahmed" data-ns="Excellence" data-says="Count only your honest first try. Integrity is part of excellence!">
-  <div class="inner">
-    <div class="head"><h2>Summative: Population Master quiz</h2><div class="timer" data-sec="120"></div></div>
-    <div class="stack mcqset" data-mode="first" id="wm">
-      <div class="q"><div class="qt">1. Water, food, sunlight, space and temperature are all possible…</div><div class="opts"><button class="opt">A. species</button><button class="opt" data-ok>B. limiting factors</button><button class="opt">C. communities</button></div></div>
-      <div class="q"><div class="qt">2. Biotic potential is the growth of a population…</div><div class="opts"><button class="opt">A. in a drought</button><button class="opt">B. after it migrates</button><button class="opt" data-ok>C. in perfect conditions</button></div></div>
-      <div class="q"><div class="qt">3. On the growth graph, the flat part of the line shows the…</div><div class="opts"><button class="opt" data-ok>A. carrying capacity</button><button class="opt">B. biotic potential</button><button class="opt">C. starting population</button></div></div>
-      <div class="q"><div class="qt">4. Pikas move higher up the mountain because of…</div><div class="opts"><button class="opt">A. food</button><button class="opt" data-ok>B. temperature</button><button class="opt">C. sunlight</button></div></div>
-      <div class="q"><div class="qt">5. Grandpa's fish stopped at 16 because…</div><div class="opts"><button class="opt" data-ok>A. the pond reached its carrying capacity</button><button class="opt">B. fish stop having babies at 16</button><button class="opt">C. the water was too cold</button></div></div>
-    </div>
-    <div class="card row" style="justify-content:space-between"><span class="score" id="wmScore">First-try score: 0 / 5</span><span class="legend">5 = Population Master! · 4 = Population Expert · 3 = Population Explorer · 0–2 = let's review together</span></div>
-  </div>
-</section>
-
-<!-- 24 · MYSTERY SOLVED -->
-<section class="slide" id="s24" data-title="Mystery solved!" data-skills="critical,reading" data-coach="hessa" data-ns="National Identity" data-says="Be kind to yourself when you rate your stars. Every step forward counts!">
+<section class="slide " id="s16" data-title="Mystery solved!" data-skills="critical,reading" data-coach="hessa" data-ns="National Identity" data-says="Be kind to yourself. Every step counts!">
   <div class="inner">
     <div class="head"><h2>Mystery solved!</h2></div>
+    <button class="btn" data-show="solved" data-confetti style="justify-self:start">Reveal the answer</button>
+    <div class="card stack" id="solved" hidden style="background:#fff8db;border-color:#f3e2a0">
+      <svg class="diagram" viewBox="0 0 830 252" role="img" aria-label="Pond story: 4 fish, then 8, then 16, then still 16 because the pond is full"><g transform="translate(0,0)"><rect x="0" y="0" width="185" height="250" rx="16" fill="#ffffff" stroke="#dfe3f1" stroke-width="2"/><rect x="12" y="44" width="161" height="128" rx="18" fill="#5aa9d6"/><rect x="14" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="32" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="54" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="72" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="94" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="112" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="134" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="152" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="14" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="54" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="94" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="134" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="14" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="54" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="94" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="134" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="14" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="54" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="94" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="134" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="92.5" y="30" font-size="17" font-weight="800" fill="#1b2470" text-anchor="middle" font-family="Nunito,sans-serif">① Start: 4 fish</text><text x="92.5" y="205" font-size="14" font-weight="700" fill="#5b6385" text-anchor="middle" font-family="Nunito,sans-serif">Lots of food and space</text></g><path d="M190 108 h18" stroke="#ffc21a" stroke-width="6" stroke-linecap="round"/><path d="M206 98 l12 10 l-12 10z" fill="#ffc21a"/><g transform="translate(215,0)"><rect x="0" y="0" width="185" height="250" rx="16" fill="#ffffff" stroke="#dfe3f1" stroke-width="2"/><rect x="12" y="44" width="161" height="128" rx="18" fill="#5aa9d6"/><rect x="14" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="32" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="54" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="72" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="94" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="112" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="134" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="152" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="14" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="32" y="99" font-size="20" text-anchor="middle">🐟</text><rect x="54" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="72" y="99" font-size="20" text-anchor="middle">🐟</text><rect x="94" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="112" y="99" font-size="20" text-anchor="middle">🐟</text><rect x="134" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="152" y="99" font-size="20" text-anchor="middle">🐟</text><rect x="14" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="54" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="94" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="134" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="14" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="54" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="94" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><rect x="134" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="92.5" y="30" font-size="17" font-weight="800" fill="#1b2470" text-anchor="middle" font-family="Nunito,sans-serif">② 8 fish</text><text x="92.5" y="205" font-size="14" font-weight="700" fill="#5b6385" text-anchor="middle" font-family="Nunito,sans-serif">Fish have babies</text></g><path d="M405 108 h18" stroke="#ffc21a" stroke-width="6" stroke-linecap="round"/><path d="M421 98 l12 10 l-12 10z" fill="#ffc21a"/><g transform="translate(430,0)"><rect x="0" y="0" width="185" height="250" rx="16" fill="#ffffff" stroke="#dfe3f1" stroke-width="2"/><rect x="12" y="44" width="161" height="128" rx="18" fill="#5aa9d6"/><rect x="14" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="32" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="54" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="72" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="94" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="112" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="134" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="152" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="14" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="32" y="99" font-size="20" text-anchor="middle">🐟</text><rect x="54" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="72" y="99" font-size="20" text-anchor="middle">🐟</text><rect x="94" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="112" y="99" font-size="20" text-anchor="middle">🐟</text><rect x="134" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="152" y="99" font-size="20" text-anchor="middle">🐟</text><rect x="14" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="32" y="131" font-size="20" text-anchor="middle">🐟</text><rect x="54" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="72" y="131" font-size="20" text-anchor="middle">🐟</text><rect x="94" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="112" y="131" font-size="20" text-anchor="middle">🐟</text><rect x="134" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="152" y="131" font-size="20" text-anchor="middle">🐟</text><rect x="14" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="32" y="163" font-size="20" text-anchor="middle">🐟</text><rect x="54" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="72" y="163" font-size="20" text-anchor="middle">🐟</text><rect x="94" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="112" y="163" font-size="20" text-anchor="middle">🐟</text><rect x="134" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="152" y="163" font-size="20" text-anchor="middle">🐟</text><text x="92.5" y="30" font-size="17" font-weight="800" fill="#1b2470" text-anchor="middle" font-family="Nunito,sans-serif">③ 16 fish</text><text x="92.5" y="205" font-size="14" font-weight="700" fill="#5b6385" text-anchor="middle" font-family="Nunito,sans-serif">The pond is full</text></g><path d="M620 108 h18" stroke="#ffc21a" stroke-width="6" stroke-linecap="round"/><path d="M636 98 l12 10 l-12 10z" fill="#ffc21a"/><g transform="translate(645,0)"><rect x="0" y="0" width="185" height="250" rx="16" fill="#ffffff" stroke="#dfe3f1" stroke-width="2"/><rect x="12" y="44" width="161" height="128" rx="18" fill="#5aa9d6"/><rect x="14" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="32" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="54" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="72" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="94" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="112" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="134" y="46" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="152" y="67" font-size="20" text-anchor="middle">🐟</text><rect x="14" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="32" y="99" font-size="20" text-anchor="middle">🐟</text><rect x="54" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="72" y="99" font-size="20" text-anchor="middle">🐟</text><rect x="94" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="112" y="99" font-size="20" text-anchor="middle">🐟</text><rect x="134" y="78" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="152" y="99" font-size="20" text-anchor="middle">🐟</text><rect x="14" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="32" y="131" font-size="20" text-anchor="middle">🐟</text><rect x="54" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="72" y="131" font-size="20" text-anchor="middle">🐟</text><rect x="94" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="112" y="131" font-size="20" text-anchor="middle">🐟</text><rect x="134" y="110" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="152" y="131" font-size="20" text-anchor="middle">🐟</text><rect x="14" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="32" y="163" font-size="20" text-anchor="middle">🐟</text><rect x="54" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="72" y="163" font-size="20" text-anchor="middle">🐟</text><rect x="94" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="112" y="163" font-size="20" text-anchor="middle">🐟</text><rect x="134" y="142" width="36" height="28" rx="6" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/><text x="152" y="163" font-size="20" text-anchor="middle">🐟</text><text x="30" y="200" font-size="18" text-anchor="middle" opacity=".55">🐟</text><path d="M20 186 l20 20 M40 186 l-20 20" stroke="#e5484d" stroke-width="3"/><text x="68" y="200" font-size="18" text-anchor="middle" opacity=".55">🐟</text><path d="M58 186 l20 20 M78 186 l-20 20" stroke="#e5484d" stroke-width="3"/><text x="106" y="200" font-size="18" text-anchor="middle" opacity=".55">🐟</text><path d="M96 186 l20 20 M116 186 l-20 20" stroke="#e5484d" stroke-width="3"/><text x="144" y="200" font-size="18" text-anchor="middle" opacity=".55">🐟</text><path d="M134 186 l20 20 M154 186 l-20 20" stroke="#e5484d" stroke-width="3"/><text x="92.5" y="30" font-size="17" font-weight="800" fill="#e5484d" text-anchor="middle" font-family="Nunito,sans-serif">④ Still 16!</text><text x="92.5" y="232" font-size="14" font-weight="700" fill="#5b6385" text-anchor="middle" font-family="Nunito,sans-serif">New babies cannot survive</text></g></svg>
+      <div class="solvedline"><span>🐟 Plenty of <b style="color:var(--green)">resources</b></span>→<span>📈 fast growth</span>→<span>🚧 space and food run out (<b class="hl">limiting factors</b>)</span>→<span>➖ stops at <b style="color:var(--purple)">carrying capacity: 16</b></span></div>
+    </div>
     <div class="cols split">
-      <div class="stack">
-        <button class="btn" data-show="solved" data-confetti style="justify-self:start">Reveal the answer</button>
-        <div class="card" id="solved" hidden style="background:#fff8db;border-color:#f3e2a0"><b style="color:var(--orange)">Why Grandpa's pond stopped at 16 fish</b><p style="margin:6px 0 0">At first the pond had plenty of <b style="color:var(--green)">RESOURCES</b>, so the 4 fish had babies and the population grew fast. But the pond's space, food and oxygen are <b class="hl">LIMITING FACTORS</b>: they do not grow when the fish do. So the population levelled off at the pond's <b style="color:var(--purple)">CARRYING CAPACITY</b>: about 16 fish. It never reached its <b style="color:var(--blue)">BIOTIC POTENTIAL</b>!</p></div>
-        <div class="card stack"><b>Exit ticket · 3 · 2 · 1</b>
-          <label>3 limiting factors I can name<textarea id="ex3" style="min-height:64px"></textarea></label>
-          <label>2 key words I can now explain<textarea id="ex2" style="min-height:48px"></textarea></label>
-          <label>1 question I still have<textarea id="ex1" style="min-height:48px"></textarea></label></div>
-      </div>
-      <div class="card stack"><b>Re-rate your success criteria (tap a star)</b>
-        <div><p style="margin:0 0 4px">I can explain how resources such as water and food affect a population.</p><div class="stars" id="st1"></div></div>
-        <div><p style="margin:0 0 4px">I can define a limiting factor and give five examples.</p><div class="stars" id="st2"></div></div>
-        <div><p style="margin:0 0 4px">I can describe what happens when a population has too few resources.</p><div class="stars" id="st3"></div></div>
-        <div><p style="margin:0 0 4px">I can explain biotic potential and carrying capacity using a population graph.</p><div class="stars" id="st4"></div></div>
-      </div>
+      <div class="card stack"><b>Exit ticket</b>
+        <label>1 limiting factor I can name 🚧<textarea id="ex3" style="min-height:48px"></textarea></label>
+        <label>1 key word I can explain 🔑<textarea id="ex2" style="min-height:48px"></textarea></label>
+        <label>1 question I still have ❓<textarea id="ex1" style="min-height:48px"></textarea></label></div>
+      <div class="card stack"><b>Rate yourself (tap a star)</b>
+        <div><p style="margin:0 0 4px">I can name 5 limiting factors.</p><div class="stars" id="st1"></div></div>
+        <div><p style="margin:0 0 4px">I can say what happens when resources run out.</p><div class="stars" id="st2"></div></div>
+        <div><p style="margin:0 0 4px">I can find the carrying capacity on a graph.</p><div class="stars" id="st3"></div></div></div>
     </div>
   </div>
 </section>
 
-<!-- 25 · VALUES -->
-<section class="slide" id="s25" data-title="Which value did you show today?" data-skills="integrity">
+<!-- 17 · VALUES -->
+<section class="slide" id="s17" data-title="Which value did you show today?" data-skills="integrity">
   <div class="inner">
     <div class="head"><h2>Which value did you show today?</h2></div>
-    <p class="lead">Tap the character whose value you showed in this lesson. <b>Then tell your partner one real example!</b></p>
+    <p class="lead">Tap the character. <b>Tell your partner one example!</b></p>
     <div class="grid g5" id="values">
       <button class="vcard" style="--cc:var(--c-shahin)"><span class="star">★</span><img src="img/av-shahin.webp" alt=""><b>Shahin</b><small>Leadership · <span class="ar">القيادة</span></small><span class="prompt">I led my team when I…</span></button>
       <button class="vcard" style="--cc:var(--c-fahim)"><span class="star">★</span><img src="img/av-fahim.webp" alt=""><b>Fahim</b><small>Knowledge · <span class="ar">المعرفة</span></small><span class="prompt">A new fact I learned is…</span></button>
@@ -833,18 +634,17 @@ video{width:100%;border-radius:14px;background:#000;display:block}
       <button class="vcard" style="--cc:var(--c-ahmed)"><span class="star">★</span><img src="img/av-ahmed.webp" alt=""><b>Ahmed</b><small>Responsibility · <span class="ar">المسؤولية</span></small><span class="prompt">I was responsible when I…</span></button>
       <button class="vcard" style="--cc:var(--c-hessa)"><span class="star">★</span><img src="img/av-hessa.webp" alt=""><b>Hessa</b><small>Tolerance · <span class="ar">التسامح</span></small><span class="prompt">I was patient and kind when…</span></button>
     </div>
-    <div class="card row" style="justify-content:space-between"><b>Class goal: light up all five stars together!</b><span class="goal" id="goal"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span></div>
+    <div class="card row" style="justify-content:space-between"><b>Class goal: light up all five stars!</b><span class="goal" id="goal"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span></div>
   </div>
 </section>
 
-<!-- 26 · CELEBRATE -->
-<section class="slide end" id="s26" data-title="Grow to your full potential" data-bare>
+<!-- 18 · CELEBRATE -->
+<section class="slide end" id="s18" data-title="Grow to your full potential" data-bare>
   <div class="inner">
     <div class="eyebrow">YOU DID IT, GRADE 6! · <span class="ar">أحسنتم</span></div>
     <h1>Grow to your full potential</h1>
-    <p style="font-style:italic;font-size:1.15rem;margin:0;opacity:.95">Populations grow best with the right resources, and so do you: good sleep, healthy food, kindness and hard work. Your potential has no limit!</p>
+    <p style="font-style:italic;font-size:1.15rem;margin:0;opacity:.95">Fish grow best with the right resources. So do you: good sleep, healthy food, kindness and hard work!</p>
     <img class="fig" src="img/banner.webp" alt="Shahin, Fahim, Maha, Ahmed and Hessa with the UAE national skills" style="border:0">
-    <div class="row"><span class="nsk">🇦🇪 National Identity</span><span class="nsk">🌿 Sustainability</span><span class="nsk">🤝 Cooperation</span><span class="nsk">💡 Innovation</span><span class="nsk">⭐ Excellence</span></div>
     <div class="promise"><b>My promise:</b> I will lead, learn, respect, be responsible and tolerant, for my school and my UAE.</div>
     <div><button class="btn" id="celebrate">★ Celebrate together!</button></div>
   </div>
@@ -855,7 +655,7 @@ video{width:100%;border-radius:14px;background:#000;display:block}
     <div class="progress"><div id="prog"></div></div>
     <nav class="nav">
       <button class="btn ghost small" id="prev" aria-label="Previous slide">◀ Back</button>
-      <span class="count" id="count">1 / 26</span>
+      <span class="count" id="count">1 / 18</span>
       <span class="title" id="navTitle"></span>
       <button class="btn ghost small" id="menuBtn">☰ Slides</button>
       <button class="btn ghost small" id="linkBtn" title="Copy a link that opens this slide">🔗 Link</button>
@@ -876,8 +676,8 @@ const LESSON_URL = "";
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const slides=$$('.slide'), N=slides.length;
 const COACH={shahin:['Shahin','Leadership','القيادة','--c-shahin'],fahim:['Fahim','Knowledge','المعرفة','--c-fahim'],maha:['Maha','Respect','الاحترام','--c-maha'],ahmed:['Ahmed','Responsibility','المسؤولية','--c-ahmed'],hessa:['Hessa','Tolerance','التسامح','--c-hessa']};
-const SKILL={teamwork:['Teamwork','العمل الجماعي','👥'],critical:['Critical Thinking','التفكير الناقد','🧠'],communication:['Effective Communication','التواصل الفعّال','💬'],reading:['Reading & Writing','القراءة والكتابة','📖'],integrity:['Integrity','النزاهة','🛡'],discipline:['Self-regulation & Discipline','الانضباط وتنظيم الذات','⏱'],initiative:['Initiative & Perseverance','المبادرة والمثابرة','⛰'],respect:['Respect & Kindness','الاحترام واللطف','💗']};
-const LO='Explain how limiting factors control the size of a population.';
+const SKILL={teamwork:['Teamwork','العمل الجماعي','👥'],critical:['Critical Thinking','التفكير الناقد','🧠'],communication:['Effective Communication','التواصل الفعّال','💬'],reading:['Reading & Writing','القراءة والكتابة','📖'],integrity:['Integrity','النزاهة','🛡'],discipline:['Self-regulation & Discipline','الانضباط وتنظيم الذات','⏱'],initiative:['Initiative & Perseverance','المبادرة والمثابرة','⛰'],respect:['Respect & Kindness','الاحترام واللطف','💗'],numeracy:['Numeracy','الحساب','🔢']};
+const LO='I can explain what stops a population from growing.';
 const store={get(k){try{return localStorage.getItem('limit6:'+k)}catch(e){return null}},set(k,v){try{localStorage.setItem('limit6:'+k,v)}catch(e){}}};
 
 // date
@@ -894,7 +694,7 @@ slides.forEach(s=>{
 });
 
 // navigation + deep links (#s1 … #s26)
-let cur=1; const enterHooks={};
+let cur=1; const enterHooks={}; const idx=sel=>slides.indexOf($(sel).closest('.slide'))+1;
 function go(n,push=true){
   n=Math.max(1,Math.min(N,n|0)); cur=n;
   slides.forEach((s,i)=>s.hidden=i!==n-1);document.querySelectorAll('.slide[hidden] video').forEach(v=>{try{v.pause()}catch(e){}});
@@ -1001,7 +801,7 @@ $$('#tf .q').forEach(q=>{let done=false;$$('.opt',q).forEach(b=>b.onclick=()=>{i
   q.dataset.res=ok?1:0;const sc=$$('#tf .q').reduce((a,x)=>a+(+x.dataset.res||0),0),n=$$('#tf .q[data-res]').length;$('#tfScore').textContent='Score: '+sc+' / 5';if(n===5&&sc===5)boom(false)})});
 
 // 9 · video answers
-$('#vidAns')&&($('#vidAns').onclick=()=>$$('#s8 .vans').forEach(a=>a.hidden=false));
+$('#vidAns')&&($('#vidAns').onclick=()=>$$('#vidSlide .vans').forEach(a=>a.hidden=false));
 
 // 11 · sort
 $$('#sorter .sitem').forEach(b=>b.onclick=()=>{b.classList.remove('right','wrong');const L=($('#sorter').dataset.labels||'low|HIGH').split('|');const i=(L.indexOf(b.dataset.v)+1)%L.length;b.dataset.v=L[i];$('.tag',b).textContent=L[i]});
@@ -1021,23 +821,23 @@ $$('.mcqset').forEach(set=>{const mode=set.dataset.mode;const qs=set.classList.c
 });
 
 // 18 · order
-let nextN=1;$$('#order .oitem').forEach(b=>b.onclick=()=>{$$('#order .oitem').forEach(x=>x.classList.remove('right','wrong'));
+if($('#order')){let nextN=1;$$('#order .oitem').forEach(b=>b.onclick=()=>{$$('#order .oitem').forEach(x=>x.classList.remove('right','wrong'));
   if(b.dataset.n){const k=+b.dataset.n;$$('#order .oitem').forEach(x=>{if(+x.dataset.n>=k){delete x.dataset.n;x.classList.remove('set');$('.n',x).textContent='?'}});nextN=k;return}
   if(nextN>5)return;b.dataset.n=nextN;b.classList.add('set');$('.n',b).textContent=nextN;nextN++});
 $('#orderCheck').onclick=()=>{let s=0;$$('#order .oitem').forEach(b=>{const ok=b.dataset.n===b.dataset.p;b.classList.toggle('right',ok);b.classList.toggle('wrong',!ok);s+=ok});$('#orderScore').textContent=s+' / 5 in the right place';if(s>0&&s<5)cheer(false);if(s===5)boom(false)};
-$('#orderReveal').onclick=()=>{$('#chain').hidden=false};
+$('#orderReveal').onclick=()=>{$('#chain').hidden=false};}
 $$('[data-tl]').forEach(b=>b.onclick=()=>{const m=$('#tlMsg');m.hidden=false;m.textContent=b.dataset.tl});
 
 // 20/21 · worksheet
 $$('#wsA select').forEach(s=>s.innerHTML='<option value="">–</option>'+'ABCDE'.split('').map(x=>`<option>${x}</option>`).join(''));
-$$('#wsC select').forEach(s=>s.innerHTML='<option value="">choose…</option>'+s.dataset.opts.split('|').map(x=>`<option>${x}</option>`).join(''));
+$$('#wsC select[data-opts]').forEach(s=>s.innerHTML='<option value="">choose…</option>'+s.dataset.opts.split('|').map(x=>`<option>${x}</option>`).join(''));
 const norm=v=>v.trim().toLowerCase().replace(/[.\s]+$/,'');
 function mark(id){let s=0;$$('#'+id+' [data-ans]').forEach(f=>{const ok=f.dataset.ans.toLowerCase().split('|').includes(norm(f.value));f.classList.toggle('okf',ok);f.classList.toggle('nof',!ok&&f.value!=='');s+=ok});return s}
-const score={wsA:0,wsB:0,wsC:0};
-function total(){$('#wsTotal').textContent='Total: A + B + C = '+(score.wsA+score.wsB+score.wsC)+' / 16 marks'}
+const score={wsA:0,wsC:0};
+function total(){$('#wsTotal').textContent='Total: '+(score.wsA+score.wsC)+' / 11 marks'}
 $$('[data-check]').forEach(b=>b.onclick=()=>{const id=b.dataset.check,s=mark(id),max=$$('#'+id+' [data-ans]').length;score[id]=s;if(s>0)cheer(s===max);$(`[data-out="${id}"]`).textContent=s+' / '+max;total();if(s===max)boom(false)});
 $$('[data-answers]').forEach(b=>b.onclick=()=>{const id=b.dataset.answers;$$('#'+id+' [data-ans]').forEach(f=>{f.value=f.tagName==='SELECT'?f.dataset.ans:f.dataset.ans.split('|')[0]});mark(id)});
-$('#labExp').onclick=()=>$$('#s17 .exp').forEach(x=>{x.hidden=false;x.style.cssText='font-size:.82rem;color:#11663a;font-weight:700;margin-top:4px'});
+$('#labExp').onclick=()=>$$('#labTable .exp').forEach(x=>{x.hidden=false;x.style.cssText='font-size:.82rem;color:#11663a;font-weight:700;margin-top:4px'});
 $$('.lvl').forEach(b=>b.onclick=()=>{const a=b.previousElementSibling;a.hidden=!a.hidden;b.textContent=a.hidden?'Show answers':'Hide answers'});
 
 // keep typed answers in this browser
@@ -1053,7 +853,7 @@ $$('#values .vcard').forEach(c=>c.onclick=()=>{c.classList.toggle('on');const n=
 
 // 26 · celebrate
 $('#celebrate').onclick=()=>boom(true);
-enterHooks[26]=()=>boom(true);
+enterHooks[N]=()=>boom(true);
 
 /* ---------- canvases ---------- */
 function fit(c){const r=c.getBoundingClientRect(),d=window.devicePixelRatio||1;const h=+c.getAttribute('height')||r.height||120;
@@ -1090,10 +890,10 @@ function lbl(x,t,X,Y,bg,fg){x.font='bold 12px Nunito, sans-serif';const w=x.meas
   $('#gRun').onclick=()=>{const k=K();go({k});$('#growRead').textContent=`Carrying capacity: ${k}. Limited most by ${scarce()}. The population grows fast, then levels off.`};
   $('#gPerfect').onclick=()=>{go({perfect:true});$('#growRead').textContent='Perfect conditions: no limiting factors, so the population keeps growing. This is its biotic potential. It almost never happens in nature!'};
   ['#gWater','#gFood','#gSpace'].forEach(id=>$(id).addEventListener('input',()=>{$('#growRead').textContent=`Carrying capacity will be ${K()} (limited most by ${scarce()}). Tap Grow!`}));
-  enterHooks[14]=draw;})();
+  enterHooks[idx('#grow')]=draw;$$('[data-show="simBox"]').forEach(b=>b.addEventListener('click',()=>setTimeout(draw,30)));})();
 
 // 15 · pikas on a warming mountain
-(function(){const c=$('#pika');const spots=[];for(let i=0;i<40;i++){const a=Math.sin(i*12.9898)*43758.5453;spots.push([a-Math.floor(a),(Math.sin(i*78.233)*12345.678)%1])}
+if($('#pika'))(function(){const c=$('#pika');const spots=[];for(let i=0;i<40;i++){const a=Math.sin(i*12.9898)*43758.5453;spots.push([a-Math.floor(a),(Math.sin(i*78.233)*12345.678)%1])}
   function draw(){const {x,w,h}=fit(c);const temp=+$('#pTemp').value;
     const g=x.createLinearGradient(0,0,0,h);g.addColorStop(0,temp>6?'#ffd9a8':'#cfe8f7');g.addColorStop(1,temp>6?'#ffe9cc':'#eef7fd');x.fillStyle=g;x.fillRect(0,0,w,h);
     const peak={x:w*.5,y:h*.08},bl={x:w*.04,y:h*.96},br={x:w*.96,y:h*.96};
@@ -1110,7 +910,7 @@ function lbl(x,t,X,Y,bg,fg){x.font='bold 12px Nunito, sans-serif';const w=x.meas
     $('#pikaRead').textContent=`Temperature: ${['very cold','very cold','cold','cold','cool','cool','mild','warm','warm','hot','very hot'][temp]} · pikas that can survive: ${n}`;
     $('#pikaRead').style.color=n<6?'#e5484d':'#1b2470'}
   $('#pTemp').addEventListener('input',draw);
-  enterHooks[15]=draw;})();
+  enterHooks[idx('#pika')]=draw;})();
 
 // 17 · Fishy Population Changes: 16 squares of space
 (function(){const c=$('#fishlab');const CAP=16;let round=1,n=2,lost=0,hit=false;
@@ -1124,7 +924,17 @@ function lbl(x,t,X,Y,bg,fg){x.font='bold 12px Nunito, sans-serif';const w=x.meas
     $('#fishRead').textContent=`Round ${round}: ${n} fish`+(lost?` · ${lost} could not survive`:'')}
   $('#fNext').onclick=()=>{round++;const want=n*2;lost=Math.max(0,want-CAP);n=Math.min(want,CAP);draw();if(n>=CAP&&!hit){hit=true;cheer(false)}};
   $('#fReset').onclick=()=>{round=1;n=2;lost=0;hit=false;draw()};
-  enterHooks[17]=draw;})();
+  enterHooks[idx('#fishlab')]=draw;})();
+
+// read aloud (slow, clear English)
+document.addEventListener('click',e=>{const b=e.target.closest('[data-say]');if(!b||!('speechSynthesis' in window))return;e.stopPropagation();
+  try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(b.dataset.say);u.lang='en-GB';u.rate=.78;speechSynthesis.speak(u)}catch(err){}});
+// school bus: 40 seats
+(function(){if(!$('#busAdd'))return;let n=0;const seats=$$('#busSvg .bseat'),KIDS=['🧒','👧','👦','🧕'];
+  function draw(){seats.forEach((g,i)=>{g.classList.toggle('on',i<n);$('text',g).textContent=i<n?KIDS[i%4]:''});$('#busRead').textContent='Students on the bus: '+Math.min(n,40)+' / 40'}
+  $('#busAdd').onclick=()=>{if(n>=40){$('#busWait').textContent='🚫 The bus is full! 10 students must wait. 🧒🧒🧒🧒🧒';const sv=$('#busSvg');sv.classList.remove('shake');void sv.getBoundingClientRect();sv.classList.add('shake');$('#busEq').hidden=false;return}
+    n+=10;draw();if(n>=40){$('#busEq').hidden=false;cheer(false);$('#busRead').textContent='Full! 40 is the carrying capacity.'}};
+  $('#busReset').onclick=()=>{n=0;$('#busWait').textContent='';$('#busEq').hidden=true;draw()};draw()})();
 
 window.addEventListener('resize',()=>enterHooks[cur]&&enterHooks[cur]());
 go(fromHash(),false);
