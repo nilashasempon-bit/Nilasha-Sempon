@@ -294,6 +294,16 @@ video{width:100%;border-radius:14px;background:#000;display:block}
 @keyframes fbadge{0%{opacity:0;transform:translate(-50%,-30%) scale(.6)}15%{opacity:1;transform:translate(-50%,-70%) scale(1.12)}70%{opacity:1}100%{opacity:0;transform:translate(-50%,-170%) scale(1)}}
 .sitem.wrong,.oitem.wrong{background:var(--red-bg)!important}
 .sitem.right,.oitem.right{background:var(--green-bg)!important}
+
+/* pause-and-answer questions on narrated videos */
+.vqwrap{min-width:0}.vqbox{position:relative}
+.vqwrap .vpause{position:absolute;inset:0;background:rgba(15,20,60,.93);border-radius:14px;display:grid;align-content:center;gap:10px;padding:16px;color:#fff;z-index:3;overflow:auto}
+.vqwrap .vpause[hidden]{display:none}
+.vqwrap .vpause .qt{color:#1b2470;font-weight:800;font-size:1.1rem}
+.vqwrap .vpause .opt{background:#fff;color:#1b2470}
+.vqwrap .vpause .tagq{color:#ffd166;font-weight:800;font-size:.9rem}
+.vqnote{font-size:.9rem;color:#5b6385;margin-top:6px}
+@media (max-width:600px){.vqwrap .vpause{position:static;margin-top:8px}}
 </style>
 <style>.charter{display:block;background:#fff;border-radius:14px;padding:8px 12px;margin-top:10px;max-width:760px;box-shadow:0 2px 10px rgba(0,0,0,.15)}.charter img{width:100%;height:auto;display:block}.charter small{display:block;text-align:center;font-weight:800;color:#7a2e2e;font-size:.78rem;letter-spacing:.06em;margin-top:2px}</style>
 <style>.chip i.nsic{background:#fff;width:44px;height:44px;margin:-6px 0;padding:0;overflow:hidden;border:0}.chip i.nsic img{width:100%;height:100%;display:block}</style>
@@ -508,7 +518,7 @@ video{width:100%;border-radius:14px;background:#000;display:block}
           </ol></div>
         <div class="q"><div class="qt">After watching: why did Hamdan hear the bang before Saif?</div><button class="btn small ghost" data-show="vidA" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="vidA" hidden>✓ The sound reached Hamdan through the solid metal railing, where the particles are packed tightly, so it travelled much faster than through the air to Saif.</div></div>
       </div>
-      <div class="sim"><video controls playsinline preload="metadata" poster="media/narration-poster.webp" src="media/narration.mp4" aria-label="Narrated video with subtitles: speed of sound, diffraction and hearing"></video>
+      <div class="sim"><div class="vqwrap"><div class="vqbox"><video controls playsinline preload="metadata" poster="media/narration-poster.webp" src="media/narration.mp4" aria-label="Narrated video with subtitles: speed of sound, diffraction and hearing"></video><div class="vpause" data-at="37.7" hidden><div class="tagq">⏸ Pause and answer · question 1 of 5</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🏃</span><div class="qt">Same bang, same distance. Why did Hamdan hear it first?</div></div><div class="opts"><button class="opt" data-ok>A. Sound travels faster through the metal railing</button><button class="opt">B. He has bigger ears</button><button class="opt">C. Sound travels faster through air</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div><div class="vpause" data-at="67.7" hidden><div class="tagq">⏸ Pause and answer · question 2 of 5</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🧱</span><div class="qt">Sound travels fastest in…</div></div><div class="opts"><button class="opt">A. gases</button><button class="opt">B. liquids</button><button class="opt" data-ok>C. solids</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div><div class="vpause" data-at="108.7" hidden><div class="tagq">⏸ Pause and answer · question 3 of 5</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">〰️</span><div class="qt">Diffraction is when a wave…</div></div><div class="opts"><button class="opt" data-ok>A. changes direction as it passes the edge of an object</button><button class="opt">B. stops completely</button><button class="opt">C. gets louder</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div><div class="vpause" data-at="125.7" hidden><div class="tagq">⏸ Pause and answer · question 4 of 5</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🚪</span><div class="qt">The most diffraction happens when the gap is…</div></div><div class="opts"><button class="opt">A. much bigger than the wavelength</button><button class="opt" data-ok>B. similar in size to the wavelength</button><button class="opt">C. closed</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div><div class="vpause" data-at="140.5" hidden><div class="tagq">⏸ Pause and answer · question 5 of 5</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">👂</span><div class="qt">The cochlea is snail-shaped and filled with…</div></div><div class="opts"><button class="opt">A. air</button><button class="opt" data-ok>B. liquid</button><button class="opt">C. bone</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div></div><div class="vqnote">⏸ This video stops 5 times for a question. Answer, then tap <b>Continue</b>. <label><input type="checkbox" class="vqtoggle" checked> pause questions on</label></div></div>
         <div class="legend">Subtitles are built into the video, so they show on any screen or projector.</div></div>
     </div>
   </div>
@@ -1179,6 +1189,15 @@ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 window.addEventListener('resize',()=>enterHooks[cur]&&enterHooks[cur]());
 go(fromHash(),false);
+
+// pause-and-answer questions on narrated videos (the video files are unchanged)
+$$('.vqwrap').forEach(wrap=>{const v=wrap.querySelector('video');if(!v)return;const stops=[...wrap.querySelectorAll('.vpause')];const asked=new Set();let on=true;
+  v.addEventListener('timeupdate',()=>{if(!on)return;stops.forEach((s,i)=>{const at=+s.dataset.at;if(!asked.has(i)&&v.currentTime>=at&&v.currentTime<at+1.5){asked.add(i);v.pause();if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});s.hidden=false}})});
+  v.addEventListener('seeked',()=>{stops.forEach((s,i)=>{if(v.currentTime<+s.dataset.at-0.5)asked.delete(i)})});
+  v.addEventListener('play',()=>stops.forEach(s=>s.hidden=true));
+  stops.forEach(s=>{s.querySelector('.vgo').onclick=()=>{s.hidden=true;v.play()}});
+  const tg=wrap.querySelector('.vqtoggle');if(tg)tg.onchange=e=>{on=e.target.checked;if(!on)stops.forEach(s=>s.hidden=true)};});
+
 </script>
 
 </body>

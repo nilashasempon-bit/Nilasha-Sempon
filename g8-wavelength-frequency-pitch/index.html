@@ -292,6 +292,16 @@ video{width:100%;border-radius:14px;background:#000;display:block}
 @keyframes fbadge{0%{opacity:0;transform:translate(-50%,-30%) scale(.6)}15%{opacity:1;transform:translate(-50%,-70%) scale(1.12)}70%{opacity:1}100%{opacity:0;transform:translate(-50%,-170%) scale(1)}}
 .sitem.wrong,.oitem.wrong{background:var(--red-bg)!important}
 .sitem.right,.oitem.right{background:var(--green-bg)!important}
+
+/* pause-and-answer questions on narrated videos */
+.vqwrap{min-width:0}.vqbox{position:relative}
+.vqwrap .vpause{position:absolute;inset:0;background:rgba(15,20,60,.93);border-radius:14px;display:grid;align-content:center;gap:10px;padding:16px;color:#fff;z-index:3;overflow:auto}
+.vqwrap .vpause[hidden]{display:none}
+.vqwrap .vpause .qt{color:#1b2470;font-weight:800;font-size:1.1rem}
+.vqwrap .vpause .opt{background:#fff;color:#1b2470}
+.vqwrap .vpause .tagq{color:#ffd166;font-weight:800;font-size:.9rem}
+.vqnote{font-size:.9rem;color:#5b6385;margin-top:6px}
+@media (max-width:600px){.vqwrap .vpause{position:static;margin-top:8px}}
 </style>
 <style>.charter{display:block;background:#fff;border-radius:14px;padding:8px 12px;margin-top:10px;max-width:760px;box-shadow:0 2px 10px rgba(0,0,0,.15)}.charter img{width:100%;height:auto;display:block}.charter small{display:block;text-align:center;font-weight:800;color:#7a2e2e;font-size:.78rem;letter-spacing:.06em;margin-top:2px}</style>
 <style>.chip i.nsic{background:#fff;width:44px;height:44px;margin:-6px 0;padding:0;overflow:hidden;border:0}.chip i.nsic img{width:100%;height:100%;display:block}</style>
@@ -477,7 +487,7 @@ video{width:100%;border-radius:14px;background:#000;display:block}
   <div class="inner">
     <div class="head"><h2>Watch: wavelength, frequency and pitch (2.5 min)</h2></div>
     <div class="cols split">
-      <video controls preload="metadata" playsinline poster="img/video-poster.webp"><source src="media/wavelength-frequency-pitch.mp4" type="video/mp4"><source src="media/wavelength-frequency-pitch.webm" type="video/webm">Your browser cannot play this video.</video>
+      <div class="vqwrap"><div class="vqbox"><video controls preload="metadata" playsinline poster="img/video-poster.webp"><source src="media/wavelength-frequency-pitch.mp4" type="video/mp4"><source src="media/wavelength-frequency-pitch.webm" type="video/webm">Your browser cannot play this video.</video><div class="vpause" data-at="34.8" hidden><div class="tagq">⏸ Pause and answer · question 1 of 5</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">📏</span><div class="qt">In a longitudinal wave, wavelength is measured from…</div></div><div class="opts"><button class="opt" data-ok>A. compression to compression</button><button class="opt">B. crest to trough</button><button class="opt">C. top to bottom of the page</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div><div class="vpause" data-at="71.2" hidden><div class="tagq">⏸ Pause and answer · question 2 of 5</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🌀</span><div class="qt">As the frequency increases, the wavelength…</div></div><div class="opts"><button class="opt">A. increases</button><button class="opt" data-ok>B. decreases</button><button class="opt">C. stays the same</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div><div class="vpause" data-at="86.2" hidden><div class="tagq">⏸ Pause and answer · question 3 of 5</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🎸</span><div class="qt">On an oud, the thin string vibrates fast. It makes a…</div></div><div class="opts"><button class="opt">A. low note</button><button class="opt" data-ok>B. high note</button><button class="opt">C. no note</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div><div class="vpause" data-at="106.2" hidden><div class="tagq">⏸ Pause and answer · question 4 of 5</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🐕</span><div class="qt">Why could Barq hear the whistle?</div></div><div class="opts"><button class="opt" data-ok>A. Dogs hear up to about 45,000 Hz</button><button class="opt">B. The whistle was very loud</button><button class="opt">C. Dogs see sound</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div><div class="vpause" data-at="128.7" hidden><div class="tagq">⏸ Pause and answer · question 5 of 5</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🏥</span><div class="qt">Doctors look inside the body using…</div></div><div class="opts"><button class="opt">A. infrasound</button><button class="opt" data-ok>B. ultrasound</button><button class="opt">C. thunder</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div></div><div class="vqnote">⏸ This video stops 5 times for a question. Answer, then tap <b>Continue</b>. <label><input type="checkbox" class="vqtoggle" checked> pause questions on</label></div></div>
       <div class="card stack"><div class="label" style="color:var(--blue)">While you watch</div>
         <div><b>Q1. What is wavelength?</b><div class="fb ok vans" hidden>✓ The distance from one crest to the next.</div></div>
         <div><b>Q2. What is frequency, and its unit?</b><div class="fb ok vans" hidden>✓ Waves per second, in hertz (Hz).</div></div>
@@ -1181,6 +1191,15 @@ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 window.addEventListener('resize',()=>enterHooks[cur]&&enterHooks[cur]());
 go(fromHash(),false);
+
+// pause-and-answer questions on narrated videos (the video files are unchanged)
+$$('.vqwrap').forEach(wrap=>{const v=wrap.querySelector('video');if(!v)return;const stops=[...wrap.querySelectorAll('.vpause')];const asked=new Set();let on=true;
+  v.addEventListener('timeupdate',()=>{if(!on)return;stops.forEach((s,i)=>{const at=+s.dataset.at;if(!asked.has(i)&&v.currentTime>=at&&v.currentTime<at+1.5){asked.add(i);v.pause();if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});s.hidden=false}})});
+  v.addEventListener('seeked',()=>{stops.forEach((s,i)=>{if(v.currentTime<+s.dataset.at-0.5)asked.delete(i)})});
+  v.addEventListener('play',()=>stops.forEach(s=>s.hidden=true));
+  stops.forEach(s=>{s.querySelector('.vgo').onclick=()=>{s.hidden=true;v.play()}});
+  const tg=wrap.querySelector('.vqtoggle');if(tg)tg.onchange=e=>{on=e.target.checked;if(!on)stops.forEach(s=>s.hidden=true)};});
+
 </script>
 
 </body>

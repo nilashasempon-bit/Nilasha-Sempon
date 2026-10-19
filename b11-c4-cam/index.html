@@ -302,6 +302,16 @@ video{width:100%;border-radius:14px;background:#000;display:block}
 @keyframes fbadge{0%{opacity:0;transform:translate(-50%,-30%) scale(.6)}15%{opacity:1;transform:translate(-50%,-70%) scale(1.12)}70%{opacity:1}100%{opacity:0;transform:translate(-50%,-170%) scale(1)}}
 .sitem.wrong,.oitem.wrong{background:var(--red-bg)!important}
 .sitem.right,.oitem.right{background:var(--green-bg)!important}
+
+/* pause-and-answer questions on narrated videos */
+.vqwrap{min-width:0}.vqbox{position:relative}
+.vqwrap .vpause{position:absolute;inset:0;background:rgba(15,20,60,.93);border-radius:14px;display:grid;align-content:center;gap:10px;padding:16px;color:#fff;z-index:3;overflow:auto}
+.vqwrap .vpause[hidden]{display:none}
+.vqwrap .vpause .qt{color:#1b2470;font-weight:800;font-size:1.1rem}
+.vqwrap .vpause .opt{background:#fff;color:#1b2470}
+.vqwrap .vpause .tagq{color:#ffd166;font-weight:800;font-size:.9rem}
+.vqnote{font-size:.9rem;color:#5b6385;margin-top:6px}
+@media (max-width:600px){.vqwrap .vpause{position:static;margin-top:8px}}
 </style>
 <style>.charter{display:block;background:#fff;border-radius:14px;padding:8px 12px;margin-top:10px;max-width:760px;box-shadow:0 2px 10px rgba(0,0,0,.15)}.charter img{width:100%;height:auto;display:block}.charter small{display:block;text-align:center;font-weight:800;color:#7a2e2e;font-size:.78rem;letter-spacing:.06em;margin-top:2px}</style>
 <style>.chip i.nsic{background:#fff;width:44px;height:44px;margin:-6px 0;padding:0;overflow:hidden;border:0}.chip i.nsic img{width:100%;height:100%;display:block}</style>
@@ -480,7 +490,7 @@ video{width:100%;border-radius:14px;background:#000;display:block}
   <div class="inner">
     <div class="head"><h2>Video: C4 and CAM plants (narrated, 2 min 22 s, subtitles)</h2></div>
     <div class="cols split">
-      <video controls preload="metadata" playsinline poster="img/video-poster.webp"><source src="media/c4-cam-plants.mp4" type="video/mp4"><source src="media/c4-cam-plants.webm" type="video/webm">Your browser cannot play this video.</video>
+      <div class="vqwrap"><div class="vqbox"><video controls preload="metadata" playsinline poster="img/video-poster.webp"><source src="media/c4-cam-plants.mp4" type="video/mp4"><source src="media/c4-cam-plants.webm" type="video/webm">Your browser cannot play this video.</video><div class="vpause" data-at="33.0" hidden><div class="tagq">⏸ Pause and answer · question 1 of 5</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🍃</span><div class="qt">In hot, dry conditions, stomata close. Inside the leaf, CO₂…</div></div><div class="opts"><button class="opt" data-ok>A. falls and O₂ builds up</button><button class="opt">B. rises</button><button class="opt">C. stays the same</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div><div class="vpause" data-at="69.6" hidden><div class="tagq">⏸ Pause and answer · question 2 of 5</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🧪</span><div class="qt">In C4 plants, the 4-carbon molecule releases CO₂ in the…</div></div><div class="opts"><button class="opt" data-ok>A. bundle sheath cells</button><button class="opt">B. mesophyll cells</button><button class="opt">C. stomata</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div><div class="vpause" data-at="82.4" hidden><div class="tagq">⏸ Pause and answer · question 3 of 5</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🌽</span><div class="qt">Which are C4 plants?</div></div><div class="opts"><button class="opt" data-ok>A. Maize and sugarcane</button><button class="opt">B. Pineapple and cacti</button><button class="opt">C. Roses</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div><div class="vpause" data-at="101.8" hidden><div class="tagq">⏸ Pause and answer · question 4 of 5</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🌙</span><div class="qt">CAM plants store CO₂ at night as…</div></div><div class="opts"><button class="opt" data-ok>A. organic acids in vacuoles</button><button class="opt">B. starch in roots</button><button class="opt">C. oxygen</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div><div class="vpause" data-at="112.2" hidden><div class="tagq">⏸ Pause and answer · question 5 of 5</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🍍</span><div class="qt">CAM = split in…</div></div><div class="opts"><button class="opt">A. space</button><button class="opt" data-ok>B. time</button><button class="opt">C. water</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div></div><div class="vqnote">⏸ This video stops 5 times for a question. Answer, then tap <b>Continue</b>. <label><input type="checkbox" class="vqtoggle" checked> pause questions on</label></div></div>
       <div class="card stack"><div class="label" style="color:var(--blue)">Watch for</div>
         <div><b>Q1. Why do stomata close on hot, dry days?</b><div class="fb ok vans" hidden>✓ To conserve water. But then CO₂ falls and O₂ builds up inside the leaf.</div></div>
         <div><b>Q2. What is photorespiration?</b><div class="fb ok vans" hidden>✓ Rubisco reacts with O₂ instead of CO₂: no glucose is made and energy is wasted.</div></div>
@@ -1194,6 +1204,15 @@ function wrapT(x,s,X,Y,maxW,lh){const words=s.split(' ');let line='';words.forEa
 
 window.addEventListener('resize',()=>enterHooks[cur]&&enterHooks[cur]());
 go(fromHash(),false);
+
+// pause-and-answer questions on narrated videos (the video files are unchanged)
+$$('.vqwrap').forEach(wrap=>{const v=wrap.querySelector('video');if(!v)return;const stops=[...wrap.querySelectorAll('.vpause')];const asked=new Set();let on=true;
+  v.addEventListener('timeupdate',()=>{if(!on)return;stops.forEach((s,i)=>{const at=+s.dataset.at;if(!asked.has(i)&&v.currentTime>=at&&v.currentTime<at+1.5){asked.add(i);v.pause();if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});s.hidden=false}})});
+  v.addEventListener('seeked',()=>{stops.forEach((s,i)=>{if(v.currentTime<+s.dataset.at-0.5)asked.delete(i)})});
+  v.addEventListener('play',()=>stops.forEach(s=>s.hidden=true));
+  stops.forEach(s=>{s.querySelector('.vgo').onclick=()=>{s.hidden=true;v.play()}});
+  const tg=wrap.querySelector('.vqtoggle');if(tg)tg.onchange=e=>{on=e.target.checked;if(!on)stops.forEach(s=>s.hidden=true)};});
+
 </script>
 
 <script src="../assets/bio-hero.js?v=3" defer></script>

@@ -302,6 +302,16 @@ video{width:100%;border-radius:14px;background:#000;display:block}
 @keyframes fbadge{0%{opacity:0;transform:translate(-50%,-30%) scale(.6)}15%{opacity:1;transform:translate(-50%,-70%) scale(1.12)}70%{opacity:1}100%{opacity:0;transform:translate(-50%,-170%) scale(1)}}
 .sitem.wrong,.oitem.wrong{background:var(--red-bg)!important}
 .sitem.right,.oitem.right{background:var(--green-bg)!important}
+
+/* pause-and-answer questions on narrated videos */
+.vqwrap{min-width:0}.vqbox{position:relative}
+.vqwrap .vpause{position:absolute;inset:0;background:rgba(15,20,60,.93);border-radius:14px;display:grid;align-content:center;gap:10px;padding:16px;color:#fff;z-index:3;overflow:auto}
+.vqwrap .vpause[hidden]{display:none}
+.vqwrap .vpause .qt{color:#1b2470;font-weight:800;font-size:1.1rem}
+.vqwrap .vpause .opt{background:#fff;color:#1b2470}
+.vqwrap .vpause .tagq{color:#ffd166;font-weight:800;font-size:.9rem}
+.vqnote{font-size:.9rem;color:#5b6385;margin-top:6px}
+@media (max-width:600px){.vqwrap .vpause{position:static;margin-top:8px}}
 </style>
 <style>.charter{display:block;background:#fff;border-radius:14px;padding:8px 12px;margin-top:10px;max-width:760px;box-shadow:0 2px 10px rgba(0,0,0,.15)}.charter img{width:100%;height:auto;display:block}.charter small{display:block;text-align:center;font-weight:800;color:#7a2e2e;font-size:.78rem;letter-spacing:.06em;margin-top:2px}</style>
 <style>.chip i.nsic{background:#fff;width:44px;height:44px;margin:-6px 0;padding:0;overflow:hidden;border:0}.chip i.nsic img{width:100%;height:100%;display:block}</style>
@@ -482,7 +492,7 @@ video{width:100%;border-radius:14px;background:#000;display:block}
   <div class="inner">
     <div class="head"><h2>Video: multiple alleles (narrated, 2 min 25 s, subtitles)</h2></div>
     <div class="cols split">
-      <video controls preload="metadata" playsinline poster="img/video-poster.webp"><source src="media/multiple-alleles.mp4" type="video/mp4"><source src="media/multiple-alleles.webm" type="video/webm">Your browser cannot play this video.</video>
+      <div class="vqwrap"><div class="vqbox"><video controls preload="metadata" playsinline poster="img/video-poster.webp"><source src="media/multiple-alleles.mp4" type="video/mp4"><source src="media/multiple-alleles.webm" type="video/webm">Your browser cannot play this video.</video><div class="vpause" data-at="59.8" hidden><div class="tagq">⏸ Pause and answer · question 1 of 4</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🩸</span><div class="qt">A person with genotype ii has blood type…</div></div><div class="opts"><button class="opt">A. A</button><button class="opt">B. AB</button><button class="opt" data-ok>C. O</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div><div class="vpause" data-at="77.8" hidden><div class="tagq">⏸ Pause and answer · question 2 of 4</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🧮</span><div class="qt">Iᴬi × Iᴮi gives AB : A : B : O in the ratio…</div></div><div class="opts"><button class="opt" data-ok>A. 1 : 1 : 1 : 1</button><button class="opt">B. 3 : 1</button><button class="opt">C. 9 : 3 : 3 : 1</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div><div class="vpause" data-at="91.2" hidden><div class="tagq">⏸ Pause and answer · question 3 of 4</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🐇</span><div class="qt">Rabbit coat colour has four alleles giving how many phenotypes?</div></div><div class="opts"><button class="opt">A. 2</button><button class="opt">B. 3</button><button class="opt" data-ok>C. 4</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div><div class="vpause" data-at="112.6" hidden><div class="tagq">⏸ Pause and answer · question 4 of 4</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">⚪</span><div class="qt">The albino allele c is recessive to all. An albino rabbit must be…</div></div><div class="opts"><button class="opt">A. Cc</button><button class="opt" data-ok>B. cc</button><button class="opt">C. cʰc</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div></div><div class="vqnote">⏸ This video stops 4 times for a question. Answer, then tap <b>Continue</b>. <label><input type="checkbox" class="vqtoggle" checked> pause questions on</label></div></div>
       <div class="card stack"><div class="label" style="color:var(--blue)">Watch for</div>
         <div><b>Q1. What are multiple alleles?</b><div class="fb ok vans" hidden>✓ One gene with more than two alleles. Each person still carries only two.</div></div>
         <div><b>Q2. Name the three ABO alleles. Which two are codominant?</b><div class="fb ok vans" hidden>✓ I<sup>A</sup>, I<sup>B</sup> and i. I<sup>A</sup> and I<sup>B</sup> are codominant (type AB); both are dominant over i.</div></div>
@@ -1191,6 +1201,15 @@ function grid2(x,X0,Y0,cs,top,left,cell){// top/left: arrays of 2 allele-part ar
 
 window.addEventListener('resize',()=>enterHooks[cur]&&enterHooks[cur]());
 go(fromHash(),false);
+
+// pause-and-answer questions on narrated videos (the video files are unchanged)
+$$('.vqwrap').forEach(wrap=>{const v=wrap.querySelector('video');if(!v)return;const stops=[...wrap.querySelectorAll('.vpause')];const asked=new Set();let on=true;
+  v.addEventListener('timeupdate',()=>{if(!on)return;stops.forEach((s,i)=>{const at=+s.dataset.at;if(!asked.has(i)&&v.currentTime>=at&&v.currentTime<at+1.5){asked.add(i);v.pause();if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});s.hidden=false}})});
+  v.addEventListener('seeked',()=>{stops.forEach((s,i)=>{if(v.currentTime<+s.dataset.at-0.5)asked.delete(i)})});
+  v.addEventListener('play',()=>stops.forEach(s=>s.hidden=true));
+  stops.forEach(s=>{s.querySelector('.vgo').onclick=()=>{s.hidden=true;v.play()}});
+  const tg=wrap.querySelector('.vqtoggle');if(tg)tg.onchange=e=>{on=e.target.checked;if(!on)stops.forEach(s=>s.hidden=true)};});
+
 </script>
 
 <script src="../assets/bio-hero.js?v=3" defer></script>
