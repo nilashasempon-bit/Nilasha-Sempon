@@ -1,0 +1,1090 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="author" content="Nilasha Sempon">
+<meta name="description" content="Interactive Grade 8 Advanced Science review lesson with the UAE Values Team: electromagnetism, electromagnets, motors and generators.">
+<title>Electromagnetism: Review · Nilasha Sempon</title>
+<meta property="og:title" content="Electromagnetism: Review · Nilasha Sempon">
+<meta property="og:description" content="Grade 8 Advanced Science review lesson by Nilasha Sempon, with a narrated video and pause questions.">
+<meta property="og:image" content="https://nilashasempon-bit.github.io/Nilasha-Sempon/g8-electromagnetism-review/media/narration-poster.webp">
+<meta property="og:url" content="https://nilashasempon-bit.github.io/Nilasha-Sempon/g8-electromagnetism-review/">
+<meta property="og:site_name" content="Nilasha Sempon · Science &amp; Biology">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: an app frame (top bar · one slide at a time · bottom nav). Each slide is a page with its own #sN link.
+   Single bright classroom look, matching the teacher's deck, so colours are set explicitly. */
+:root{
+  --navy:#1b2470; --navy-2:#2a338f; --ink:#1c2340; --muted:#5b6385; --line:#dfe3f1;
+  --paper:#ffffff; --bg:#eef1f9; --sun:#ffc21a; --sun-ink:#3a2a00;
+  --green:#1fa75a; --green-bg:#e6f7ed; --red:#e5484d; --red-bg:#fdecec;
+  --orange:#f07f19; --orange-bg:#fff2e4; --purple:#7a3ff0; --purple-bg:#f1eafe;
+  --blue:#2563eb; --blue-bg:#e8effe; --teal:#0e9fa6; --sea:#2b8fd6; --sand:#f2dca6;
+  --c-shahin:#4b6b2f; --c-fahim:#1f5f8b; --c-maha:#a3343a; --c-ahmed:#1d6b5b; --c-hessa:#b07a0a;
+  --display:"Baloo Bhaijaan 2","Nunito",system-ui,sans-serif;
+  --body:"Nunito","Baloo Bhaijaan 2",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+html,body{height:100%}
+body{margin:0}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45}
+*{box-sizing:border-box}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.ar{font-family:"Baloo Bhaijaan 2",var(--body);direction:rtl}
+
+#app{height:100%;display:grid;grid-template-rows:auto 1fr auto}
+.topbar{background:var(--navy);color:#fff;display:flex;align-items:center;gap:12px;padding:8px 16px;flex-wrap:wrap}
+.topbar .crumb{font-weight:800;font-family:var(--display);font-size:1.05rem;white-space:nowrap}
+.topbar .unit{opacity:.8;font-size:.85rem;min-width:0;flex:1 1 220px}
+.topbar .date{background:rgba(255,255,255,.14);border-radius:999px;padding:3px 12px;font-size:.85rem;white-space:nowrap}
+.iconbtn{background:var(--sun);color:var(--sun-ink);border:0;border-radius:999px;width:36px;height:36px;display:grid;place-items:center;font-weight:800;flex:none}
+.iconbtn svg{width:18px;height:18px}
+.wavestrip{height:6px;background:repeating-linear-gradient(90deg,var(--sun) 0 40px,var(--green) 40px 80px,var(--red) 80px 120px,var(--blue) 120px 160px,var(--purple) 160px 200px)}
+
+main{overflow-y:auto;overflow-x:hidden;position:relative;-webkit-overflow-scrolling:touch}
+.slide{min-height:100%}
+.inner{max-width:1200px;margin:0 auto;padding-block:22px 28px;padding-inline:16px;display:flex;flex-direction:column;gap:18px}
+.head{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.head h2{font-family:var(--display);font-size:clamp(1.5rem,3.2vw,2.2rem);line-height:1.1;margin:0;flex:1 1 auto;text-wrap:balance;font-weight:800}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:2px solid var(--blue);border-radius:999px;padding:3px 12px 3px 4px;font-size:.82rem;font-weight:700;color:var(--navy)}
+.chip i{width:24px;height:24px;border-radius:50%;background:var(--blue);display:grid;place-items:center;color:#fff;font-style:normal;font-size:.8rem}
+.chip .ar{font-weight:600;color:var(--muted)}
+.lead{color:var(--muted);margin:0;max-width:75ch}
+.lead b{color:var(--purple)}
+
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px}
+.label{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;font-weight:800;color:var(--red)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+.g5{grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.cols{display:grid;gap:18px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:860px){.cols.split{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}.cols.split-r{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}}
+.stack{display:flex;flex-direction:column;gap:12px;min-width:0}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+img.fig{border-radius:14px;border:1px solid var(--line);display:block;width:100%;height:auto;background:#fff}
+
+.btn{border:0;border-radius:999px;padding:10px 20px;font-weight:800;background:var(--sun);color:var(--sun-ink);box-shadow:0 3px 0 #d79c00;transition:transform .1s}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 #d79c00}
+.btn.navy{background:var(--navy);color:#fff;box-shadow:0 3px 0 #0d1245}
+.btn.red{background:var(--red);color:#fff;box-shadow:0 3px 0 #a92d31}
+.btn.ghost{background:var(--paper);color:var(--navy);box-shadow:none;border:2px solid var(--line)}
+.btn.small{padding:6px 14px;font-size:.88rem}
+
+/* coach strip */
+.coach{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:center;background:var(--paper);border:2px solid var(--cc,var(--navy));border-radius:18px;padding:10px 14px}
+.coach img{width:64px;height:64px;border-radius:50%;border:3px solid var(--cc);background:#f5efe4}
+.coach .who{font-weight:800;color:var(--cc);font-size:.9rem}
+.coach .who span{font-weight:600;color:var(--muted)}
+.coach p{margin:2px 0}
+.coach .ns{font-size:.82rem;color:var(--muted)}
+.coach .ns b{color:var(--orange)}
+.lo{display:flex;gap:10px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:.88rem;color:var(--muted)}
+.lo b{color:var(--red)}
+.lo.lotop{color:var(--ink);font-size:.95rem;font-weight:600;border:2px solid #f3c2c4;background:#fff7f7}
+.hero .lo.lotop,.end .lo.lotop{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.35);color:#fff}.hero .lo.lotop b,.end .lo.lotop b{color:#ffc21a}
+.lo .tgt{flex:none;width:22px;height:22px;border-radius:50%;border:4px solid var(--red);box-shadow:inset 0 0 0 3px #fff,inset 0 0 0 8px var(--red)}
+
+/* bottom nav */
+.nav{background:var(--paper);border-top:1px solid var(--line);display:flex;align-items:center;gap:8px;padding:8px 16px calc(8px + env(safe-area-inset-bottom,0px));flex-wrap:wrap}
+.nav .count{font-weight:800;font-variant-numeric:tabular-nums;color:var(--navy);min-width:64px;text-align:center}
+.nav .title{flex:1 1 140px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--muted);font-size:.9rem}
+@media (max-width:700px){.topbar .unit{display:none}.nav .title{display:none}.nav{justify-content:space-between}}
+.progress{height:4px;background:var(--line)}
+.progress div{height:100%;background:var(--sun);transition:width .3s}
+.toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;z-index:50;max-width:calc(100% - 32px);text-align:center}
+.linkbox{font-size:.8rem;word-break:break-all;background:var(--bg);padding:6px 10px;border-radius:8px;user-select:all}
+
+/* menu overlay */
+.menu{position:fixed;inset:0;background:rgba(18,22,60,.55);z-index:40;display:grid;place-items:center;padding:16px}
+.menu .panel{background:var(--paper);border-radius:20px;max-width:900px;width:100%;max-height:85vh;overflow:auto;padding:18px}
+.menu ol{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:6px;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr))}
+.menu li button{width:100%;text-align:left;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:8px 10px;display:flex;gap:10px;align-items:center}
+.menu li button b{color:var(--navy);font-variant-numeric:tabular-nums;min-width:22px}
+.menu li button.cur{background:var(--sun)}
+
+/* title slide */
+.hero{background:linear-gradient(135deg,#1b2470 0%,#3a2fa3 60%,#6a2fb8 100%);color:#fff;min-height:100%;position:relative;overflow:hidden}
+.hero .inner{padding-block:36px}
+.hero h1{font-family:var(--display);font-size:clamp(2.4rem,7vw,4.6rem);line-height:1;margin:6px 0 0;font-weight:800}
+.hero .sub{font-family:var(--display);color:var(--sun);font-size:clamp(1.3rem,3vw,2rem);font-weight:700;margin:0}
+.hero .eyebrow{color:var(--sun);font-weight:800;letter-spacing:.08em;font-size:.82rem}
+.hero .teacher{font-family:var(--display);font-size:1.2rem}.hero .teacher b{color:var(--sun)}
+.hero .mystery{background:#fff;color:var(--ink);border-radius:14px;padding:14px 16px;max-width:620px}
+.hero .mystery b{color:var(--red)}
+.avatars{display:flex;flex-wrap:wrap;gap:12px}
+.avatars button{background:none;border:0;padding:0;text-align:center;color:#fff;font-size:.8rem;font-weight:700}
+.avatars img{width:72px;height:72px;border-radius:50%;border:3px solid var(--sun);display:block;margin-bottom:4px;background:#f5efe4;transition:transform .2s}
+.avatars button:hover img{transform:translateY(-4px) rotate(-4deg)}
+.hero canvas.waves{position:absolute;left:0;right:0;bottom:0;width:100%;height:120px;pointer-events:none;opacity:.9}
+
+/* flip cards */
+.flip{perspective:900px;background:none;border:0;padding:0;text-align:left;width:100%}
+.flip .fi{display:grid;transition:transform .5s;transform-style:preserve-3d;height:100%}
+.flip.on .fi{transform:rotateY(180deg)}
+.flip .face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;padding:14px;border:2px solid var(--line);background:var(--paper);min-height:100px;display:flex;flex-direction:column;justify-content:center;gap:4px}
+.flip .back{transform:rotateY(180deg)}
+.flip .tap{font-size:.75rem;color:var(--muted);font-weight:700}
+.kw .front{border-color:var(--purple)}
+.kw .front strong{font-family:var(--display);font-size:1.3rem;color:var(--purple)}
+.kw .back{background:var(--purple-bg);border-color:var(--purple)}
+@media (prefers-reduced-motion:reduce){.flip .fi{transition:none}}
+
+/* team cards */
+.team{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr))}
+.team .face{padding:0;overflow:hidden;justify-content:flex-start;border-color:var(--cc)}
+.team .front img{width:100%;height:auto;aspect-ratio:496/536;object-fit:cover;display:block}
+.team .front .tap{padding:8px 10px;text-align:center;color:var(--cc)}
+.team .back{background:var(--cc);color:#fff;padding:16px;justify-content:center;font-weight:700;font-size:1.02rem}
+.team .back h4{margin:0;font-family:var(--display);font-size:1.4rem}
+.nskills{display:flex;flex-wrap:wrap;gap:8px}
+.nskill{border:2px solid var(--orange);background:var(--paper);border-radius:12px;padding:6px 12px;font-weight:800;color:var(--navy);display:flex;flex-direction:column;align-items:flex-start;text-align:left;max-width:240px}
+.nskill small{font-weight:600;color:var(--orange);display:none}
+.nskill.on small{display:block}
+
+/* lesson map */
+.map{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr))}
+.map button{border:0;border-radius:16px;color:#fff;text-align:left;padding:14px;min-height:112px;display:flex;flex-direction:column;gap:2px;transition:transform .15s}
+.map button:hover{transform:translateY(-3px)}
+.map small{font-size:.7rem;letter-spacing:.07em;font-weight:800;opacity:.85}
+.map strong{font-family:var(--display);font-size:1.18rem;line-height:1.15}
+.map span{font-size:.85rem;opacity:.9}
+
+/* lists */
+.crit{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.crit li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;align-items:start}
+.crit li::before{content:"✓";width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:800}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;align-items:center;counter-increment:s}
+.steps li::before{content:counter(s);width:32px;height:32px;border-radius:50%;background:var(--sun);display:grid;place-items:center;font-weight:800}
+
+/* timer */
+.timer{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:2px solid var(--sun);border-radius:999px;padding:4px 6px 4px 4px}
+.timer .t{font-family:var(--display);font-weight:800;font-size:1.3rem;font-variant-numeric:tabular-nums;min-width:58px;text-align:center;color:var(--navy)}
+.timer.done{border-color:var(--red);background:var(--red);animation:shake .5s 3}
+.timer.done .t{color:#fff}
+.timer .rs{background:none;border:0;color:var(--muted);font-size:.8rem;font-weight:700;padding:4px 8px}
+.timer.done .rs{color:#fff}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+/* quizzes */
+.q{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:10px}
+.q .qt{font-weight:800}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{border:2px solid var(--line);background:var(--bg);border-radius:12px;padding:8px 14px;font-weight:700;text-align:left}
+.opt.ok{background:var(--green);border-color:var(--green);color:#fff}
+.opt.no{background:var(--red);border-color:var(--red);color:#fff}
+.opt.ok::before{content:"✓ "}.opt.no::before{content:"✗ "}
+.fb{font-size:.9rem;border-radius:10px;padding:8px 12px}
+.fb.ok{background:var(--green-bg);color:#11663a}
+.fb.no{background:var(--red-bg);color:#9b1c22}
+.score{font-family:var(--display);font-weight:800;font-size:1.25rem;color:var(--navy)}
+
+/* sort */
+.sorter{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.sitem{display:flex;align-items:center;justify-content:space-between;gap:10px;border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 12px;font-weight:700;text-align:left}
+.sitem .tag{border-radius:999px;padding:3px 12px;font-size:.82rem;font-weight:800;background:var(--bg);color:var(--muted);white-space:nowrap}
+.sitem[data-v="low"] .tag{background:var(--teal);color:#fff}
+.sitem[data-v="high"] .tag{background:var(--red);color:#fff}
+.bannerbtn{background:none;border:0;padding:0;display:block;width:100%;max-width:760px;cursor:pointer}.bannerbtn img{width:100%;height:auto;border-radius:14px;display:block;border:3px solid var(--sun);transition:transform .2s}.bannerbtn:hover img{transform:translateY(-3px)}
+.concert{display:grid;gap:8px}.concert .stadium{padding-top:14px}.stage{background:linear-gradient(90deg,#ffc21a,#ff8a1f);border-radius:10px;text-align:center;font-weight:800;padding:8px;color:#3a2a00;letter-spacing:.1em}
+.seat.saeed{outline:3px solid #ff3b3b;outline-offset:1px}
+.dbchip{border-radius:999px;padding:3px 10px;font-size:.8rem;font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
+.sitem[data-v="GAS"] .tag{background:#9aa3b5;color:#fff}.sitem[data-v="LIQUID"] .tag{background:var(--sea);color:#fff}.sitem[data-v="SOLID"] .tag{background:var(--navy);color:#fff}
+.sitem[data-v="REFLECT"] .tag{background:var(--red);color:#fff}.sitem[data-v="ABSORB"] .tag{background:var(--teal);color:#fff}.sitem[data-v="TRANSMIT"] .tag{background:var(--navy);color:#fff}
+.sitem.right{border-color:var(--green);box-shadow:0 0 0 2px var(--green)}
+.sitem.wrong{border-color:var(--red);box-shadow:0 0 0 2px var(--red)}
+
+/* energy bars */
+.erow{display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px;align-items:center}
+.erow .amp{background:var(--navy);color:#fff;border-radius:999px;padding:6px 12px;font-weight:800;text-align:center;font-size:.9rem}
+.ebar{border:2px dashed var(--line);border-radius:999px;height:40px;background:var(--paper);display:flex;align-items:center;padding:0 4px;text-align:left;font-weight:700;color:var(--muted);font-size:.85rem;width:100%;position:relative;overflow:hidden}
+.ebar .fill{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#ff8c8f,var(--red));border-radius:999px;width:0;transition:width .8s cubic-bezier(.2,.9,.3,1.2)}
+.ebar .v{position:relative;padding-left:10px}
+.ebar.on{border-style:solid;border-color:var(--red)}
+.ebar.on .v{color:#fff;font-family:var(--display);font-size:1.25rem}
+.rule{background:var(--purple-bg);border-radius:14px;padding:18px;text-align:center;font-family:var(--display);font-size:3rem;font-weight:800;color:var(--navy);line-height:1}
+.rule sup{font-size:.55em}
+
+/* sims */
+.sim{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:12px;display:grid;gap:10px}
+.sim>*,.medium>*{min-width:0}
+.sim canvas{width:100%;display:block;border-radius:10px}
+.stadium{background:#141a3e;border-radius:12px;padding:40px 14px 14px;display:grid;gap:6px;grid-template-columns:repeat(16,minmax(0,1fr));overflow:hidden}
+.seat{height:clamp(14px,3vw,30px);border-radius:40% 40% 18% 18%;background:var(--c,#5b7cfa);transition:background .2s}
+.seat.saeed{outline:3px solid #ff3b3b;outline-offset:1px}
+.medium{display:grid;gap:8px;border:2px solid var(--line);border-radius:14px;padding:10px;background:var(--paper)}
+.medium h4{margin:0;font-family:var(--display);font-size:1.15rem}
+.medium canvas{width:100%;max-width:100%;height:120px;background:#f6f8fd}
+.medium .res{font-size:.85rem;min-height:2.6em}
+.legend{font-size:.82rem;color:var(--muted)}
+
+/* table */
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:420px;font-size:.92rem}
+th{background:var(--navy);color:#fff;text-align:left;padding:8px 10px}
+td{border-bottom:1px solid var(--line);padding:8px 10px;vertical-align:top}
+select,input[type=text],textarea{font:inherit;border:2px solid var(--line);border-radius:10px;padding:6px 10px;background:#fff;color:var(--ink);max-width:100%}
+textarea{width:100%;min-height:84px;resize:vertical}
+.okf{border-color:var(--green)!important;background:var(--green-bg)!important}
+.nof{border-color:var(--red)!important;background:var(--red-bg)!important}
+.fillrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.wordbank{background:var(--blue-bg);border-radius:10px;padding:8px 12px;font-weight:700;color:var(--blue)}
+
+/* order */
+.order{display:grid;gap:8px}
+.oitem{display:flex;align-items:center;gap:12px;border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 12px;font-weight:700;text-align:left}
+.oitem .n{width:34px;height:34px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-family:var(--display);font-weight:800;flex:none;color:var(--muted)}
+.oitem.set .n{background:var(--sun);color:var(--sun-ink)}
+.oitem.right{border-color:var(--green)}.oitem.wrong{border-color:var(--red)}
+.chain{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.chain div{border-radius:12px;padding:10px;color:#fff;font-weight:700;font-size:.9rem}
+.traffic{display:flex;flex-wrap:wrap;gap:8px}
+.traffic button{border:0;border-radius:999px;padding:8px 16px;font-weight:800;color:#fff}
+
+/* levels */
+.level{border-radius:16px;overflow:hidden;border:2px solid var(--lc);background:var(--paper);display:flex;flex-direction:column}
+.level h3{margin:0;background:var(--lc);color:#fff;padding:10px 14px;font-family:var(--display)}
+.level ol{margin:0;padding:12px 14px 12px 32px;display:grid;gap:8px}
+.level .ans{background:var(--lbg);margin:0 12px 12px;border-radius:10px;padding:10px 12px;font-size:.9rem}
+.level .btn{margin:0 12px 12px;align-self:flex-start}
+
+/* stars */
+.stars{display:flex;gap:4px}
+.stars button{background:none;border:0;padding:0;font-size:1.7rem;line-height:1;color:#c7cde0}
+.stars button.on{color:#f6b500}
+.vcard{border:2px solid var(--cc);border-radius:16px;background:var(--paper);padding:10px;text-align:center;display:grid;gap:6px;position:relative;justify-items:center}
+.vcard img{width:min(120px,100%);aspect-ratio:1;border-radius:50%;border:3px solid var(--cc);background:#f5efe4}
+.vcard .star{position:absolute;top:8px;right:10px;font-size:2rem;color:#c7cde0;transition:transform .3s}
+.vcard.on .star{color:#f6b500;transform:scale(1.25) rotate(15deg)}
+.vcard .prompt{font-style:italic;color:var(--cc);border:1px dashed var(--cc);border-radius:10px;padding:6px 8px;font-size:.88rem;width:100%}
+.goal{font-size:2rem;letter-spacing:4px;color:#c7cde0}
+.goal span.on{color:#f6b500}
+
+.end{background:linear-gradient(135deg,#1b2470 0%,#3a2fa3 60%,#6a2fb8 100%);color:#fff;min-height:100%}
+.end h1{font-family:var(--display);font-size:clamp(2.2rem,6vw,4rem);margin:0;line-height:1.05}
+.end .eyebrow{color:var(--sun);font-weight:800;letter-spacing:.06em}
+.end .promise{background:#fff;color:var(--ink);border-radius:14px;padding:12px 16px}
+.end .promise b{color:var(--red)}
+.end .nsk{background:#fff;color:var(--navy);border-radius:999px;padding:6px 14px;font-weight:800}
+
+.note{background:var(--orange-bg);border-radius:12px;padding:10px 14px;font-size:.92rem}
+.note b{color:var(--orange)}
+.good{background:var(--green-bg);border-radius:12px;padding:10px 14px}
+.hl{color:var(--red);font-weight:800}
+video{width:100%;border-radius:14px;background:#000;display:block}
+
+/* party confetti + red wrong-answer feedback */
+.shake{animation:shk .45s}
+@keyframes shk{0%,100%{transform:translateX(0)}20%{transform:translateX(-9px)}40%{transform:translateX(9px)}60%{transform:translateX(-6px)}80%{transform:translateX(5px)}}
+#redFlash{position:fixed;inset:0;pointer-events:none;z-index:9998;box-shadow:inset 0 0 0 12px rgba(229,72,77,.92),inset 0 0 120px rgba(229,72,77,.55);opacity:0;transition:opacity .6s}
+#redFlash.on{opacity:1;transition:none}
+#fxCanvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999}
+.fbadge{position:fixed;z-index:10000;pointer-events:none;transform:translate(-50%,-50%);padding:10px 20px;border-radius:999px;font-weight:800;font-size:1.2rem;color:#fff;white-space:nowrap;box-shadow:0 10px 26px rgba(0,0,0,.22);animation:fbadge 1.4s ease-out forwards}
+.fbadge.good{background:#1fa75a}.fbadge.bad{background:#e5484d}
+@keyframes fbadge{0%{opacity:0;transform:translate(-50%,-30%) scale(.6)}15%{opacity:1;transform:translate(-50%,-70%) scale(1.12)}70%{opacity:1}100%{opacity:0;transform:translate(-50%,-170%) scale(1)}}
+.sitem.wrong,.oitem.wrong{background:var(--red-bg)!important}
+.sitem.right,.oitem.right{background:var(--green-bg)!important}
+
+/* pause-and-answer questions on narrated videos */
+.vqwrap{min-width:0}.vqbox{position:relative}
+.vqwrap .vpause{position:absolute;inset:0;background:rgba(15,20,60,.93);border-radius:14px;display:grid;align-content:center;gap:10px;padding:16px;color:#fff;z-index:3;overflow:auto}
+.vqwrap .vpause[hidden]{display:none}
+.vqwrap .vpause .qt{color:#1b2470;font-weight:800;font-size:1.1rem}
+.vqwrap .vpause .opt{background:#fff;color:#1b2470}
+.vqwrap .vpause .tagq{color:#ffd166;font-weight:800;font-size:.9rem}
+.vqnote{font-size:.9rem;color:#5b6385;margin-top:6px}
+@media (max-width:600px){.vqwrap .vpause{position:static;margin-top:8px}}
+</style>
+<style>.charter{display:block;background:#fff;border-radius:14px;padding:8px 12px;margin-top:10px;max-width:760px;box-shadow:0 2px 10px rgba(0,0,0,.15)}.charter img{width:100%;height:auto;display:block}.charter small{display:block;text-align:center;font-weight:800;color:#7a2e2e;font-size:.78rem;letter-spacing:.06em;margin-top:2px}</style>
+<style>.chip i.nsic{background:#fff;width:44px;height:44px;margin:-6px 0;padding:0;overflow:hidden;border:0}.chip i.nsic img{width:100%;height:100%;display:block}</style>
+<style>
+.nsrow{display:flex;align-items:center;gap:8px}.nsrow img{width:36px;height:36px;flex:none}
+.end .nsk{display:inline-flex;align-items:center;gap:6px}.end .nsk img{width:30px;height:30px;margin:-4px 0}
+.coach .ns img{width:24px;height:24px;vertical-align:middle;margin-right:6px}
+.sitem[data-v="LONGER"] .tag{background:#8a6b4a;color:#fff}.sitem[data-v="VISIBLE"] .tag{background:linear-gradient(90deg,#e5484d,#f07f19,#d9a400,#1fa75a,#2563eb,#7a3ff0);color:#fff}.sitem[data-v="SHORTER"] .tag{background:var(--purple);color:#fff}
+.emname{font-family:var(--display);font-size:clamp(1.5rem,3vw,2rem);font-weight:800;line-height:1.1}
+.emfacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:8px}.emfacts div{background:var(--bg);border-radius:10px;padding:8px 10px}.emfacts small{display:block;color:var(--muted);font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em}
+.swatch{display:inline-block;width:30px;height:30px;border-radius:8px;vertical-align:middle;margin-right:10px;border:2px solid #fff;box-shadow:0 0 0 1px var(--line)}
+.hairbar{height:16px;background:#e9d9c2;border-radius:999px;margin-top:8px;overflow:hidden}.hairbar span{display:block;height:100%}
+#nmCh .btn.done{background:var(--green-bg);border-color:var(--green)}
+.notes3 textarea{min-height:130px}
+input[type=range]{accent-color:#7a3ff0}
+#emJump .btn{border-width:2px}
+.sim label{font-weight:700;font-size:.9rem}
+</style>
+<style>
+.sitem[data-v="MOTOR"] .tag{background:var(--orange);color:#fff}.sitem[data-v="GENERATOR"] .tag{background:var(--green);color:#fff}
+.sitem[data-v="STRONGER"] .tag{background:var(--purple);color:#fff}.sitem[data-v="WEAKER"] .tag{background:#9aa3b5;color:#fff}
+.vqwrap .vpause .opt.ok{background:var(--green-bg)}.vqwrap .vpause .opt.no{background:var(--red-bg)}
+</style>
+</head>
+<body>
+
+<div id="app">
+  <header class="topbar">
+    <a class="iconbtn" href="../" title="All lessons" aria-label="All lessons" style="text-decoration:none">◀</a>
+    <span class="crumb">Lesson 4 · Electromagnetism · Review</span>
+    <span class="unit">Module: Electromagnetic Forces</span>
+    <span class="date" id="today">Today</span>
+    <button class="iconbtn" data-go="3" title="Lesson map" aria-label="Lesson map"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 2 11.5h3V21h5.5v-6h3v6H19v-9.5h3z"/></svg></button>
+  </header>
+  <main id="main">
+
+<!-- 1 · TITLE -->
+<section class="slide hero" id="s1" data-title="Electromagnetism review" data-bare>
+  <div class="inner">
+    <div class="eyebrow">GRADE 8 ADVANCED · SCIENCE · TERM 1 · REVIEW</div>
+    <div><h1>Electromagnetism: Review</h1><p class="sub">Lesson 4 · Electromagnetism · magnets, motors and generators</p></div>
+    <div style="opacity:.85">Module: Electromagnetic Forces · Lesson 4 Electromagnetism</div>
+    <div class="teacher">Teacher: <b>Nilasha Sempon</b> · Science &amp; Biology</div>
+    <div>
+      <div class="eyebrow" style="margin-bottom:8px">YOUR VALUES TEAM TODAY · tap to meet them</div>
+      <button class="bannerbtn" data-go="2"><img src="img/banner.webp" alt="Shahin (Leadership), Fahim (Knowledge), Maha (Respect), Ahmed (Responsibility) and Hessa (Tolerance) with the UAE national skills"></button>
+      <div class="charter"><img src="img/charter.webp" alt="UAE National Charter: National Identity, Traits and Skills icons"><small>UAE NATIONAL CHARTER · الميثاق الوطني</small></div>
+    </div>
+    <div class="mystery"><b>Today's mystery:</b> Shamma's bike light has no battery, but it shines when she pedals. At the scrapyard, a giant crane lifts iron and then drops it when it switches off. <b style="color:var(--purple)">How can magnets and electricity do both jobs?</b></div>
+    <div class="row" style="padding-bottom:110px">
+      <button class="btn" data-go="2">▶ Let's go!</button>
+      <button class="btn ghost" data-go="3">Lesson map</button>
+      <span style="opacity:.8;font-size:.9rem">45-minute interactive review</span>
+    </div>
+  </div>
+  <canvas class="waves" id="heroWaves"></canvas>
+</section>
+
+<!-- 2 · MEET TEAM -->
+<section class="slide" id="s2" data-title="Meet your UAE Values Team" data-skills="teamwork">
+  <div class="inner">
+    <div class="head"><h2>Meet your UAE Values Team</h2><button class="btn" data-confetti>★ We're ready!</button></div>
+    <p class="lead">Five friends will help you review. <b>Tap a character to see their job today!</b></p>
+    <div class="team">
+      <button class="flip" style="--cc:var(--c-shahin)"><div class="fi"><div class="face front"><img src="img/fig-shahin.webp" alt="Shahin – Leadership"><span class="tap">Tap me ▸</span></div><div class="face back"><h4>Shahin</h4>Lead your team in the "Motor or generator?" sort.</div></div></button>
+      <button class="flip" style="--cc:var(--c-fahim)"><div class="fi"><div class="face front"><img src="img/fig-fahim.webp" alt="Fahim – Knowledge"><span class="tap">Tap me ▸</span></div><div class="face back"><h4>Fahim</h4>Collect the key words: electromagnet, motor, generator, AC, DC.</div></div></button>
+      <button class="flip" style="--cc:var(--c-maha)"><div class="fi"><div class="face front"><img src="img/fig-maha.webp" alt="Maha – Respect"><span class="tap">Tap me ▸</span></div><div class="face back"><h4>Maha</h4>Listen to your partner's answer before you give yours.</div></div></button>
+      <button class="flip" style="--cc:var(--c-ahmed)"><div class="fi"><div class="face front"><img src="img/fig-ahmed.webp" alt="Ahmed – Responsibility"><span class="tap">Tap me ▸</span></div><div class="face back"><h4>Ahmed</h4>Answer every question honestly. Your review is your own.</div></div></button>
+      <button class="flip" style="--cc:var(--c-hessa)"><div class="fi"><div class="face front"><img src="img/fig-hessa.webp" alt="Hessa – Tolerance"><span class="tap">Tap me ▸</span></div><div class="face back"><h4>Hessa</h4>Wrong answers are welcome. They show us what to review!</div></div></button>
+    </div>
+    <div class="stack">
+      <div class="label" style="color:var(--navy)">UAE National Charter values you will use today · tap a value</div>
+      <div class="nskills">
+        <button class="nskill"><span class="nsrow"><img src="img/ci-identity.webp" alt="">National Identity</span><small>The Hatta power station uses huge generators</small></button>
+        <button class="nskill"><span class="nsrow"><img src="img/ci-lifelong.webp" alt="">Lifelong Learning</span><small>Review today, remember forever</small></button>
+        <button class="nskill"><span class="nsrow"><img src="img/ci-cooperation.webp" alt="">Cooperation</span><small>Sort and check with your team</small></button>
+        <button class="nskill"><span class="nsrow"><img src="img/ci-innovation.webp" alt="">Innovation</span><small>Motors in fans, cars and robots</small></button>
+        <button class="nskill"><span class="nsrow"><img src="img/ci-excellence.webp" alt="">Excellence</span><small>Become an Electromagnetism Master!</small></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · LESSON MAP -->
+<section class="slide" id="s3" data-title="Lesson map">
+  <div class="inner">
+    <div class="head"><h2>Review map · 45 minutes · tap any activity</h2></div>
+    <div class="map">
+      <button style="background:#d23b8a" data-go="4"><small>OBJECTIVE · min 0–3</small><strong>Objective &amp; key words</strong><span>Flip the key words</span></button>
+      <button style="background:#1593c9" data-go="5"><small>STARTER · min 3–7</small><strong>Big questions</strong><span>What do you remember?</span></button>
+      <button style="background:#7a3ff0" data-go="6"><small>VIDEO · min 7–15</small><strong>Narrated review video</strong><span>It stops for 8 questions</span></button>
+      <button style="background:#1fa75a" data-go="7"><small>TEXTBOOK · min 15–22</small><strong>Textbook review</strong><span>5 pages, tap to check</span></button>
+      <button style="background:#f07f19" data-go="12"><small>VIRTUAL LABS · min 22–29</small><strong>Build it! + Sort it!</strong><span>Electromagnet &amp; generator labs, then sort</span></button>
+      <button style="background:#e5484d" data-go="16"><small>FORMATIVE · min 29–35</small><strong>Pause &amp; check</strong><span>Quiz, true/false, fill the gaps</span></button>
+      <button style="background:#0e9fa6" data-go="19"><small>THINK · min 35–40</small><strong>Critical thinking + levels</strong><span>Green, orange or purple</span></button>
+      <button style="background:#1b2470" data-go="21"><small>SUMMATIVE · min 40–45</small><strong>Electromagnetism Master</strong><span>Quiz + mystery solved</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · OBJECTIVE -->
+<section class="slide" id="s4" data-title="Objective, success criteria & key words" data-skills="reading" data-coach="fahim" data-ns="Lifelong Learning" data-says="Flip every card and say the meaning out loud. Saying it helps you remember it!">
+  <div class="inner">
+    <div class="head"><h2>Objective, success criteria &amp; key words</h2></div>
+    <div class="cols split">
+      <div class="stack">
+        <div class="card"><div class="label">Learning objective</div><p style="margin:6px 0 0;font-weight:700">Review how electricity and magnets work together.</p></div>
+        <div class="card"><div class="label" style="color:var(--green)">Success criteria</div>
+          <ul class="crit" style="margin-top:10px">
+            <li>I can describe the magnetic field around a wire.</li>
+            <li>I can explain how to make an electromagnet stronger.</li>
+            <li>I can name the main parts of an electric motor.</li>
+            <li>I can explain how a generator makes a current.</li>
+            <li>I can tell the difference between AC and DC.</li>
+          </ul></div>
+      </div>
+      <div class="stack">
+        <div class="label" style="color:var(--purple)">Key words · tap a card to flip it</div>
+        <div class="grid g2" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr))">
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Electromagnetism</strong><span class="tap">tap to flip</span></div><div class="face back">The interaction between electric charges and magnets.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Electromagnet</strong><span class="tap">tap to flip</span></div><div class="face back">A temporary magnet: a coil of wire with a current, around a magnetic (iron) core.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Electric motor</strong><span class="tap">tap to flip</span></div><div class="face back">A device that uses an electric current to make motion.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Commutator</strong><span class="tap">tap to flip</span></div><div class="face back">A switch that reverses the current in the coil of a motor.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Electric generator</strong><span class="tap">tap to flip</span></div><div class="face back">A device that uses a magnetic field to change mechanical energy into electric energy.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Direct current (DC)</strong><span class="tap">tap to flip</span></div><div class="face back">Current that flows in one direction only. A battery makes DC.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Alternating current (AC)</strong><span class="tap">tap to flip</span></div><div class="face back">Current that changes direction again and again. A generator makes AC.</div></div></button>
+          <button class="flip kw"><div class="fi"><div class="face front"><strong>Magnetic field</strong><span class="tap">tap to flip</span></div><div class="face back">The area around a magnet or a current where a magnetic force acts.</div></div></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · BIG QUESTIONS -->
+<section class="slide" id="s5" data-title="Starter: the big questions" data-skills="critical,communication" data-coach="shahin" data-ns="Cooperation" data-says="Talk with your partner first. Leaders make sure everyone gets a turn to speak.">
+  <div class="inner">
+    <div class="head"><h2>Starter: the 4 big questions of Lesson 4</h2><div class="timer" data-sec="180"></div></div>
+    <p class="lead">These are the 4 investigation questions from your textbook. <b>Say your answer to your partner, then tap to check.</b></p>
+    <div class="grid g2">
+      <div class="card stack"><b>1 · What affects the strength of a magnetic field around a current?</b><button class="btn small ghost" data-show="bq1" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="bq1" hidden>✓ More <b>current</b> (more voltage), winding the wire into a <b>coil</b>, <b>more loops</b>, and an <b>iron core</b> inside the coil.</div></div>
+      <div class="card stack"><b>2 · How can electric energy be used to create motion?</b><button class="btn small ghost" data-show="bq2" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="bq2" hidden>✓ In an <b>electric motor</b>. The poles of an electromagnet reverse when the current reverses, so the coil keeps turning between the magnets.</div></div>
+      <div class="card stack"><b>3 · How can motion be used to produce electrical energy?</b><button class="btn small ghost" data-show="bq3" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="bq3" hidden>✓ In an <b>electric generator</b>. Moving a magnet and a coil past each other makes a current, like in a bike light generator.</div></div>
+      <div class="card stack"><b>4 · What affects the strength of the current made by a magnet?</b><button class="btn small ghost" data-show="bq4" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="bq4" hidden>✓ A <b>stronger magnet</b>, <b>more coils</b> (loops), <b>faster</b> motion, and keeping the magnet <b>perpendicular</b> to the coil.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · VIDEO -->
+<section class="slide" id="s6" data-title="Watch: narrated review video" data-skills="reading,communication" data-coach="fahim" data-ns="Lifelong Learning" data-says="Turn the sound on. When the video stops, answer the question, then press Continue!">
+  <div class="inner">
+    <div class="head"><h2>Watch: Electromagnetism review video</h2></div>
+    <p class="lead">A <b>3 min 39 s narrated video with subtitles</b>. It <b>stops 8 times</b> for a question. Answer, then tap <b>Continue</b>.</p>
+    <div class="cols split-r">
+      <div class="stack">
+        <div class="card stack"><div class="label" style="color:var(--navy)">While you watch</div>
+          <ol class="steps">
+            <li><span>What shape is the magnetic field around a wire?</span></li>
+            <li><span>What is inside an <b style="color:var(--purple)">electromagnet</b>?</span></li>
+            <li><span>What are the 3 main parts of a <b style="color:var(--orange)">motor</b>?</span></li>
+            <li><span>What is the difference between <b>AC</b> and <b>DC</b>?</span></li>
+          </ol></div>
+        <div class="q"><div class="qt">After watching: how are a motor and a generator opposites?</div><button class="btn small ghost" data-show="vidA" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="vidA" hidden>✓ A <b>motor</b> changes electric energy into motion. A <b>generator</b> changes motion into electric energy.</div></div>
+      </div>
+      <div class="sim"><div class="vqwrap"><div class="vqbox"><video controls playsinline preload="metadata" poster="media/narration-poster.webp" src="media/narration.mp4" aria-label="Narrated review video with subtitles: electromagnetism, motors and generators"></video><div class="vpause" data-at="41.2" hidden><div class="tagq">⏸ Pause and answer · question 1 of 8</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🧭</span><div class="qt">What happens to the magnetic field when the current is turned off?</div></div><div class="opts"><button class="opt">A. It gets stronger</button><button class="opt" data-ok>B. It goes away</button><button class="opt">C. It stays the same</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div><div class="vpause" data-at="62.5" hidden><div class="tagq">⏸ Pause and answer · question 2 of 8</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🌀</span><div class="qt">Which change makes the magnetic field stronger?</div></div><div class="opts"><button class="opt">A. Fewer loops in the coil</button><button class="opt">B. Less current</button><button class="opt" data-ok>C. More loops in the coil</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div><div class="vpause" data-at="76.8" hidden><div class="tagq">⏸ Pause and answer · question 3 of 8</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🧲</span><div class="qt">An electromagnet is…</div></div><div class="opts"><button class="opt" data-ok>A. a wire coil with a current around an iron core</button><button class="opt">B. a permanent magnet</button><button class="opt">C. a battery</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div><div class="vpause" data-at="97.2" hidden><div class="tagq">⏸ Pause and answer · question 4 of 8</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🔄</span><div class="qt">What happens to the poles of an electromagnet when the current reverses?</div></div><div class="opts"><button class="opt">A. Nothing</button><button class="opt" data-ok>B. The north and south poles swap</button><button class="opt">C. The magnet gets stronger</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div><div class="vpause" data-at="129.0" hidden><div class="tagq">⏸ Pause and answer · question 5 of 8</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">⚙️</span><div class="qt">An electric motor changes…</div></div><div class="opts"><button class="opt">A. mechanical energy into electric energy</button><button class="opt" data-ok>B. electric energy into mechanical energy</button><button class="opt">C. sound into light</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div><div class="vpause" data-at="149.2" hidden><div class="tagq">⏸ Pause and answer · question 6 of 8</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">📏</span><div class="qt">A magnet is held still inside a coil. What is the current?</div></div><div class="opts"><button class="opt">A. A strong current</button><button class="opt" data-ok>B. Zero, no current</button><button class="opt">C. A current that keeps growing</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div><div class="vpause" data-at="178.9" hidden><div class="tagq">⏸ Pause and answer · question 7 of 8</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">🔋</span><div class="qt">The current from a battery flows in one direction only. It is called…</div></div><div class="opts"><button class="opt">A. alternating current (AC)</button><button class="opt" data-ok>B. direct current (DC)</button><button class="opt">C. magnetic current</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div><div class="vpause" data-at="197.7" hidden><div class="tagq">⏸ Pause and answer · question 8 of 8</div><div class="q mcqset" data-mode="retry"><div class="qrow"><span class="qpic">⚡</span><div class="qt">Which change will NOT make a stronger current?</div></div><div class="opts"><button class="opt">A. A stronger magnet</button><button class="opt" data-ok>B. Moving the magnet more slowly</button><button class="opt">C. More loops in the coil</button></div></div><button class="btn small vgo" style="justify-self:start">▶ Continue the video</button></div></div><div class="vqnote">⏸ This video stops 8 times for a question. Answer, then tap <b>Continue</b>. <label><input type="checkbox" class="vqtoggle" checked> pause questions on</label></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · TEXTBOOK: WIRE -->
+<section class="slide" id="s7" data-title="Textbook: magnetic field around a wire" data-skills="reading" data-coach="maha" data-ns="Cooperation" data-says="Respect your classmates: listen quietly while someone reads aloud.">
+  <div class="inner">
+    <div class="head"><h2>Textbook: the magnetic field around a wire</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-field-wire.webp" alt="Textbook: moving charges and magnetic fields, with iron filings around a wire and compasses around a current"><img class="fig" src="img/tb-field-stronger.webp" alt="Textbook: increasing magnetic field strength around a wire, with a coil in iron filings"></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 Why does a compass needle move near a wire with a current?</div><button class="btn small ghost" data-show="t7a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t7a" hidden>✓ The magnetic field around the wire puts a force on the needle.</div></div>
+        <div class="q"><div class="qt">Q2 Where is the field strongest?</div><button class="btn small ghost" data-show="t7b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t7b" hidden>✓ Close to the wire. It gets weaker farther away.</div></div>
+        <div class="q"><div class="qt">Q3 Give two ways to make the field stronger.</div><button class="btn small ghost" data-show="t7c" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t7c" hidden>✓ More current (more voltage) · wind the wire into a coil · more loops · more wires side by side.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · TEXTBOOK: ELECTROMAGNETS -->
+<section class="slide" id="s8" data-title="Textbook: electromagnets" data-skills="reading,critical" data-coach="ahmed" data-ns="Excellence" data-says="Read every label on the diagram. Responsible readers check the pictures too!">
+  <div class="inner">
+    <div class="head"><h2>Textbook: electromagnets</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-electromagnet.webp" alt="Textbook: wire, coil, and coil with iron core (electromagnet)"><img class="fig" src="img/tb-em-useful.webp" alt="Textbook: electromagnets are useful; a crane electromagnet picks up scrap metal"></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 What turns a coil into an electromagnet?</div><button class="btn small ghost" data-show="t8a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t8a" hidden>✓ An iron (magnetic) core inside the coil, with a current flowing.</div></div>
+        <div class="q"><div class="qt">Q2 Why can the crane drop the scrap metal?</div><button class="btn small ghost" data-show="t8b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t8b" hidden>✓ When the current is turned off, the electromagnet loses its magnetic field.</div></div>
+        <div class="q"><div class="qt">Q3 What happens to the poles when the current reverses?</div><button class="btn small ghost" data-show="t8c" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t8c" hidden>✓ The north and south poles reverse (swap).</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · TEXTBOOK: MOTORS -->
+<section class="slide" id="s9" data-title="Textbook: electric motors" data-skills="reading" data-coach="shahin" data-ns="Innovation" data-says="Find each part on the diagram and point to it. Then teach your partner!">
+  <div class="inner">
+    <div class="head"><h2>Textbook: electric motors</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-motor.webp" alt="Textbook: magnets and electric motors, with coil, commutator, battery and magnets labelled"><img class="fig" src="img/tb-motor-use.webp" alt="Textbook: using electric motors"></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 Name the 3 main parts of a simple motor.</div><button class="btn small ghost" data-show="t9a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t9a" hidden>✓ A coil of wire on a rotating shaft · a permanent magnet · a source of electric energy (battery).</div></div>
+        <div class="q"><div class="qt">Q2 What does a commutator do?</div><button class="btn small ghost" data-show="t9b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t9b" hidden>✓ It is a switch that reverses the current in the coil.</div></div>
+        <div class="q"><div class="qt">Q3 What 3 things decide how strong a motor is?</div><button class="btn small ghost" data-show="t9c" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t9c" hidden>✓ The strength of the permanent magnet · the voltage · the number of wire coils.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · TEXTBOOK: GENERATORS -->
+<section class="slide" id="s10" data-title="Textbook: generators, AC and DC" data-skills="reading,critical" data-coach="fahim" data-ns="National Identity" data-says="Generators light up homes all over the UAE. Read like a scientist!">
+  <div class="inner">
+    <div class="head"><h2>Textbook: making current, generators, AC and DC</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-induce.webp" alt="Textbook: generating electric current by moving a magnet through a coil, or a coil through a magnetic field"><img class="fig" src="img/tb-generator.webp" alt="Textbook: electric generators, direct current and alternating current"></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <div class="q"><div class="qt">Q1 What happens when the magnet stops moving?</div><button class="btn small ghost" data-show="t10a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t10a" hidden>✓ There is no current in the circuit.</div></div>
+        <div class="q"><div class="qt">Q2 What decides the direction of the current?</div><button class="btn small ghost" data-show="t10b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t10b" hidden>✓ The direction the magnet (or coil) moves.</div></div>
+        <div class="q"><div class="qt">Q3 Battery or generator: which makes AC?</div><button class="btn small ghost" data-show="t10c" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t10c" hidden>✓ A generator makes AC (changes direction). A battery makes DC (one direction).</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · TEXTBOOK: STRONGER CURRENT -->
+<section class="slide" id="s11" data-title="Textbook: a stronger current" data-skills="reading,numeracy" data-coach="hessa" data-ns="Excellence" data-says="Compare the four pictures slowly. What is different in each one?">
+  <div class="inner">
+    <div class="head"><h2>Textbook: how to make a stronger current</h2></div>
+    <div class="cols split">
+      <div class="card stack"><div class="label">From your textbook</div><img class="fig" src="img/tb-current-table.webp" alt="Textbook table: stronger magnet, more coils, faster motion, more perpendicular give a stronger current"></div>
+      <div class="stack"><div class="label" style="color:var(--navy)">Read, then answer</div>
+        <img class="fig" src="img/tb-em-current.webp" alt="Textbook: electromagnetism and increasing electric current" style="max-width:520px">
+        <div class="q"><div class="qt">Q1 List the 4 ways to make a stronger current.</div><button class="btn small ghost" data-show="t11a" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t11a" hidden>✓ Stronger magnet · more coils (loops) · faster motion · magnet more perpendicular.</div></div>
+        <div class="q"><div class="qt">Q2 Why do big power plants use electromagnets?</div><button class="btn small ghost" data-show="t11b" style="justify-self:start">Tap to check ▸</button><div class="fb ok" id="t11b" hidden>✓ They make a very strong magnetic field. With thousands of loops in each coil, the generator makes a lot of current.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 12 · LAB: ELECTROMAGNET -->
+<section class="slide" id="s12" data-title="Virtual lab: build an electromagnet" data-skills="critical,numeracy" data-coach="ahmed" data-ns="Innovation" data-says="Change one thing at a time, like a real scientist. Then count the paper clips!">
+  <div class="inner">
+    <div class="head"><h2>Virtual lab: build an electromagnet</h2></div>
+    <p class="lead"><b>Predict</b>, then test: how many paper clips can your electromagnet pick up?</p>
+    <div class="cols split-r">
+      <div class="card stack">
+        <label>Loops in the coil: <b id="emLoopsV">10</b><input type="range" id="emLoops" min="5" max="50" step="5" value="10" style="width:100%"></label>
+        <label>Batteries (current): <b id="emCellsV">1</b><input type="range" id="emCells" min="1" max="4" step="1" value="1" style="width:100%"></label>
+        <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="emCore"> Put an iron core inside the coil</label>
+        <div class="row"><button class="btn" id="emSwitch">⚡ Switch ON</button><button class="btn ghost" id="emRev">🔄 Reverse the current</button></div>
+        <div class="note" id="emNote">The switch is OFF. No current, so no magnetic field.</div>
+        <div class="card stack" style="background:var(--blue-bg)"><b>Challenges</b>
+          <div id="emCh"><div data-c="10">☐ Pick up <b>exactly 10</b> paper clips.</div><div data-c="max">☐ Pick up <b>all 30</b> paper clips.</div><div data-c="rev">☐ Make the <b>poles swap</b>.</div></div></div>
+      </div>
+      <div class="sim"><canvas id="emLab" height="360" style="width:100%;background:#fff;border-radius:14px;border:1px solid var(--line)"></canvas>
+        <div class="row" style="justify-content:space-between"><span class="score" id="emClips">Paper clips: 0</span><span class="score" id="emPoles">Poles: N on the left</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 · LAB: GENERATOR -->
+<section class="slide" id="s13" data-title="Virtual lab: make a current" data-skills="critical,teamwork" data-coach="shahin" data-ns="National Identity" data-says="Big power stations in the UAE use this idea. Lead your team to the brightest bulb!">
+  <div class="inner">
+    <div class="head"><h2>Virtual lab: make a current with a magnet</h2></div>
+    <p class="lead">Move the magnet in and out of the coil. <b>What makes the bulb brighter?</b> Change one thing at a time.</p>
+    <div class="cols split-r">
+      <div class="card stack">
+        <label>Speed of the magnet: <b id="gSpeedV">3</b><input type="range" id="gSpeed" min="0" max="10" value="3" style="width:100%"></label>
+        <label>Magnet strength: <b id="gMagV">weak</b><input type="range" id="gMag" min="1" max="3" value="1" style="width:100%"></label>
+        <label>Loops in the coil: <b id="gLoopsV">2</b><input type="range" id="gLoops" min="1" max="6" value="2" style="width:100%"></label>
+        <label>Tilt of the magnet: <b id="gTiltV">0°</b> (0° = perpendicular to the coil)<input type="range" id="gTilt" min="0" max="80" step="10" value="0" style="width:100%"></label>
+        <div class="note" id="gNote">Speed 0 means the magnet stops: no current!</div>
+        <div class="card stack" style="background:var(--blue-bg)"><b>Challenges</b>
+          <div id="gCh"><div data-c="zero">☐ Make the current <b>zero</b>.</div><div data-c="max">☐ Make the bulb <b>as bright as possible</b>.</div><div data-c="tilt">☐ Show that tilting the magnet makes a <b>weaker</b> current.</div></div></div>
+      </div>
+      <div class="sim"><canvas id="genLab" height="360" style="width:100%;background:#fff;border-radius:14px;border:1px solid var(--line)"></canvas>
+        <div class="row" style="justify-content:space-between"><span class="score" id="gOut">Current: 0%</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 · SORT: MOTOR OR GENERATOR -->
+<section class="slide" id="s14" data-title="Sort: motor or generator?" data-skills="teamwork,critical" data-coach="shahin" data-ns="Cooperation" data-says="Agree as a team before you check. Good leaders listen to every idea.">
+  <div class="inner">
+    <div class="head"><h2>Sort it: motor or generator?</h2><div class="timer" data-sec="120"></div></div>
+    <p class="lead">Does each one use a <b>MOTOR</b> (electricity → motion) or a <b>GENERATOR</b> (motion → electricity)? <b>Tap each card</b> to change it.</p>
+    <div class="sorter" id="sortA" data-labels="MOTOR|GENERATOR">
+      <button class="sitem" data-ans="MOTOR">An electric fan spinning<span class="tag">?</span></button>
+      <button class="sitem" data-ans="GENERATOR">A bike light that shines when you pedal<span class="tag">?</span></button>
+      <button class="sitem" data-ans="MOTOR">A hair dryer blowing air<span class="tag">?</span></button>
+      <button class="sitem" data-ans="GENERATOR">A power station making electricity for homes<span class="tag">?</span></button>
+      <button class="sitem" data-ans="MOTOR">A car window going up and down<span class="tag">?</span></button>
+      <button class="sitem" data-ans="GENERATOR">A hand-crank torch<span class="tag">?</span></button>
+      <button class="sitem" data-ans="MOTOR">Windshield wipers moving<span class="tag">?</span></button>
+      <button class="sitem" data-ans="GENERATOR">A wind turbine turning in the wind<span class="tag">?</span></button>
+    </div>
+    <div class="row"><button class="btn navy" data-sortcheck="sortA">Check my sort</button><span class="score" data-sortout="sortA"></span></div>
+    <div class="note" id="sortAwhy" hidden><b>The pattern:</b> if electricity goes <b>in</b> and motion comes <b>out</b>, it is a motor. If motion goes <b>in</b> and electricity comes <b>out</b>, it is a generator.</div>
+  </div>
+</section>
+
+<!-- 15 · SORT: STRONGER OR WEAKER -->
+<section class="slide" id="s15" data-title="Sort: stronger or weaker?" data-skills="critical,initiative" data-coach="hessa" data-ns="Excellence" data-says="Wrong? That's OK! Change the card and check again. Never give up.">
+  <div class="inner">
+    <div class="head"><h2>Sort it: stronger or weaker?</h2><div class="timer" data-sec="120"></div></div>
+    <p class="lead">Will each change make the magnetic field or the current <b>STRONGER</b> or <b>WEAKER</b>? <b>Tap each card</b> to change it.</p>
+    <div class="sorter" id="sortB" data-labels="STRONGER|WEAKER">
+      <button class="sitem" data-ans="STRONGER">Add more loops to the coil<span class="tag">?</span></button>
+      <button class="sitem" data-ans="WEAKER">Move the compass far from the wire<span class="tag">?</span></button>
+      <button class="sitem" data-ans="STRONGER">Put an iron core inside the coil<span class="tag">?</span></button>
+      <button class="sitem" data-ans="WEAKER">Use a lower voltage<span class="tag">?</span></button>
+      <button class="sitem" data-ans="STRONGER">Move the magnet faster through the coil<span class="tag">?</span></button>
+      <button class="sitem" data-ans="WEAKER">Tilt the magnet so it is less perpendicular<span class="tag">?</span></button>
+      <button class="sitem" data-ans="STRONGER">Use a stronger magnet in the generator<span class="tag">?</span></button>
+      <button class="sitem" data-ans="WEAKER">Turn the generator crank more slowly<span class="tag">?</span></button>
+    </div>
+    <div class="row"><button class="btn navy" data-sortcheck="sortB">Check my sort</button><span class="score" data-sortout="sortB"></span></div>
+    <div class="note" id="sortBwhy" hidden><b>Remember:</b> more current, more loops, an iron core, a stronger magnet and faster motion all make it <b>stronger</b>.</div>
+  </div>
+</section>
+
+<!-- 16 · PAUSE & CHECK -->
+<section class="slide" id="s16" data-title="Pause and check" data-skills="initiative" data-coach="hessa" data-ns="Excellence" data-says="Wrong answer? Read the hint and try again. Excellence means never giving up.">
+  <div class="inner">
+    <div class="head"><h2>Pause and check</h2><div class="timer" data-sec="180"></div></div>
+    <p class="lead">Tap an answer. <b>Wrong? Read the hint and try again!</b></p>
+    <div class="grid g2 mcqset" data-mode="retry">
+      <div class="q"><div class="qt">Q1 The magnetic field around a wire makes…</div><div class="opts"><button class="opt">A. straight lines</button><button class="opt" data-ok>B. circles around the wire</button><button class="opt">C. no shape</button></div><div class="fb no" hidden>Hint: look at the iron filings around the wire.</div></div>
+      <div class="q"><div class="qt">Q2 Only ______ charges make a magnetic field.</div><div class="opts"><button class="opt">A. still</button><button class="opt" data-ok>B. moving</button><button class="opt">C. positive</button></div><div class="fb no" hidden>Hint: turn the current off and the field goes away.</div></div>
+      <div class="q"><div class="qt">Q3 A commutator…</div><div class="opts"><button class="opt" data-ok>A. reverses the current in the coil</button><button class="opt">B. stores energy</button><button class="opt">C. is a permanent magnet</button></div><div class="fb no" hidden>Hint: it is a type of electrical switch.</div></div>
+      <div class="q"><div class="qt">Q4 A generator changes…</div><div class="opts"><button class="opt">A. electric energy into motion</button><button class="opt" data-ok>B. mechanical energy into electric energy</button><button class="opt">C. light into sound</button></div><div class="fb no" hidden>Hint: you turn the crank, and the bulb lights up.</div></div>
+      <div class="q"><div class="qt">Q5 Current that changes direction again and again is…</div><div class="opts"><button class="opt" data-ok>A. alternating current (AC)</button><button class="opt">B. direct current (DC)</button></div><div class="fb no" hidden>Hint: "alternate" means to take turns.</div></div>
+      <div class="q"><div class="qt">Q6 Electromagnetism is the interaction between…</div><div class="opts"><button class="opt">A. light and sound</button><button class="opt" data-ok>B. electric charges and magnets</button><button class="opt">C. heat and water</button></div><div class="fb no" hidden>Hint: look at the two parts of the word: electro + magnet.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 17 · TRUE / FALSE -->
+<section class="slide" id="s17" data-title="True or false?" data-skills="integrity,critical">
+  <div class="inner">
+    <div class="head"><h2>True or false?</h2><div class="timer" data-sec="120"></div></div>
+    <div class="stack" id="tf">
+      <div class="q" data-a="T"><div class="qt">1. The magnetic field is strongest close to the wire.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="The field gets weaker farther from the wire."></div></div>
+      <div class="q" data-a="F"><div class="qt">2. An electromagnet is a permanent magnet.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="It is a temporary magnet. It turns off when the current turns off."></div></div>
+      <div class="q" data-a="T"><div class="qt">3. Moving a magnet through a coil can make a current.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="The magnet's field pushes the charges in the wire, so they move."></div></div>
+      <div class="q" data-a="F"><div class="qt">4. A battery makes alternating current.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="A battery makes direct current (DC): one direction only."></div></div>
+      <div class="q" data-a="T"><div class="qt">5. A compass held parallel to the wire does not respond to its field.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="The field is perpendicular to the current, so a parallel compass does not respond."></div></div>
+      <div class="q" data-a="F"><div class="qt">6. Turning a generator more slowly makes more electric energy.</div><div class="opts"><button class="opt">True</button><button class="opt">False</button></div><div class="fb" hidden data-why="More mechanical energy (faster turning) gives more electric energy."></div></div>
+      <div class="score" id="tfScore">Score: 0 / 6</div>
+    </div>
+  </div>
+</section>
+
+<!-- 18 · FILL THE GAPS -->
+<section class="slide" id="s18" data-title="Fill the gaps" data-skills="reading" data-coach="ahmed" data-ns="Excellence" data-says="Work on your own first, then check. Own your learning!">
+  <div class="inner">
+    <div class="head"><h2>Fill the gaps</h2><div class="timer" data-sec="180"></div></div>
+    <div class="grid g2">
+      <div class="card stack"><div class="label" style="color:var(--navy)">A · Fill the gaps · 6 marks</div>
+        <div class="wordbank">Word bank: coil · iron · commutator · direct · faster · perpendicular</div>
+        <div class="stack" id="wsB" style="gap:8px">
+          <div class="fillrow">1. The magnetic field is <input type="text" size="12" data-ans="perpendicular" id="wb1" aria-label="gap 1"> to the current.</div>
+          <div class="fillrow">2. Winding a wire into a <input type="text" size="8" data-ans="coil" id="wb2" aria-label="gap 2"> makes the field stronger.</div>
+          <div class="fillrow">3. An electromagnet has an <input type="text" size="8" data-ans="iron" id="wb3" aria-label="gap 3"> core.</div>
+          <div class="fillrow">4. The <input type="text" size="11" data-ans="commutator" id="wb4" aria-label="gap 4"> reverses the current in a motor's coil.</div>
+          <div class="fillrow">5. A battery makes <input type="text" size="8" data-ans="direct" id="wb5" aria-label="gap 5"> current.</div>
+          <div class="fillrow">6. Moving the magnet <input type="text" size="8" data-ans="faster" id="wb6" aria-label="gap 6"> makes a stronger current.</div>
+        </div>
+        <div class="row"><button class="btn small navy" data-check="wsB">Check A</button><button class="btn small ghost" data-answers="wsB">Show answers</button><span class="score" data-out="wsB"></span></div>
+      </div>
+      <div class="card stack"><div class="label" style="color:var(--navy)">B · Match each word · 5 marks</div>
+        <div style="font-size:.92rem;color:var(--muted)">A. Uses a current to make motion<br>B. Uses motion to make a current<br>C. Current in one direction only<br>D. Current that keeps changing direction<br>E. A coil with a current around an iron core</div>
+        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:8px" id="wsA">
+          <label class="fillrow">1. electric motor <select data-ans="A" id="wa1"></select></label>
+          <label class="fillrow">2. electric generator <select data-ans="B" id="wa2"></select></label>
+          <label class="fillrow">3. electromagnet <select data-ans="E" id="wa3"></select></label>
+          <label class="fillrow">4. direct current <select data-ans="C" id="wa4"></select></label>
+          <label class="fillrow">5. alternating current <select data-ans="D" id="wa5"></select></label>
+        </div>
+        <div class="row"><button class="btn small navy" data-check="wsA">Check B</button><button class="btn small ghost" data-answers="wsA">Show answers</button><span class="score" data-out="wsA"></span></div>
+      </div>
+    </div>
+    <div class="card row" style="justify-content:space-between"><span class="score" id="wsTotal">Total: A + B = 0 / 11 marks</span></div>
+  </div>
+</section>
+
+<!-- 19 · CRITICAL THINKING -->
+<section class="slide" id="s19" data-title="Critical thinking challenge" data-skills="critical,communication" data-coach="fahim" data-ns="Innovation" data-says="Think like a scientist: make a claim, give evidence, then explain.">
+  <div class="inner">
+    <div class="head"><h2>Critical thinking: claim · evidence · reasoning</h2><div class="timer" data-sec="180"></div></div>
+    <div class="grid g2">
+      <div class="q mcqset" data-mode="retry"><div class="qt">🔍 Odd one out: which device does <u>not</u> need an electric motor?</div><div class="opts"><button class="opt">A. electric fan</button><button class="opt">B. hair dryer</button><button class="opt" data-ok>C. a bar magnet on the fridge</button><button class="opt">D. power windows</button></div><div class="fb no" hidden>Hint: which one never moves?</div></div>
+      <div class="card stack"><b>1 · Hamdan says: "A permanent magnet is better for the scrapyard crane." Do you agree?</b><textarea id="ct1" style="min-height:60px" placeholder="I agree / disagree because…"></textarea><button class="btn small ghost" data-show="ct1a" style="justify-self:start">Model answer</button><div class="fb ok" id="ct1a" hidden>✓ Disagree. A permanent magnet could <b>never let go</b> of the iron. An electromagnet can be <b>turned off</b> to drop it.</div></div>
+      <div class="card stack"><b>2 · Shamma's bike light gets brighter when she pedals faster. Why?</b><textarea id="ct2" style="min-height:60px"></textarea><button class="btn small ghost" data-show="ct2a" style="justify-self:start">Model answer</button><div class="fb ok" id="ct2a" hidden>✓ Pedalling faster spins the magnet (or coil) <b>faster</b>. Faster motion makes a <b>stronger current</b>, so the light is brighter.</div></div>
+      <div class="card stack"><b>3 · Why does a motor need a commutator to keep spinning?</b><textarea id="ct3" style="min-height:60px"></textarea><button class="btn small ghost" data-show="ct3a" style="justify-self:start">Model answer</button><div class="fb ok" id="ct3a" hidden>✓ Every half turn, the commutator <b>reverses the current</b>, so the coil's poles reverse. The magnets keep pushing it the same way, so it keeps turning.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 20 · LEVELS -->
+<section class="slide" id="s20" data-title="Choose your colour" data-skills="respect" data-coach="maha" data-ns="Cooperation" data-says="Every colour is respected here. Choose one that stretches you, then help a friend.">
+  <div class="inner">
+    <div class="head"><h2>Green, orange or purple? Choose your colour</h2><div class="timer" data-sec="300"></div></div>
+    <div class="grid g3">
+      <div class="level" style="--lc:var(--green);--lbg:var(--green-bg)"><h3>Green</h3>
+        <ol><li>Complete: "A current makes a ______ field."</li><li>Circle: a motor makes motion / electricity.</li><li>True or false: an electromagnet can be turned off.</li><li>Name one thing that uses a motor.</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. magnetic<br>2. motion<br>3. True<br>4. A fan, hair dryer, car window, washing machine…</div><button class="btn small ghost lvl">Show answers</button></div>
+      <div class="level" style="--lc:var(--orange);--lbg:var(--orange-bg)"><h3>Orange</h3>
+        <ol><li>Give three ways to make an electromagnet stronger.</li><li>Name the three main parts of a simple electric motor.</li><li>Explain the difference between AC and DC.</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. More current (voltage), more loops, an iron core.<br>2. A coil on a shaft, a permanent magnet, a source of electric energy (battery).<br>3. DC flows in one direction only (battery). AC changes direction again and again (generator).</div><button class="btn small ghost lvl">Show answers</button></div>
+      <div class="level" style="--lc:var(--purple);--lbg:var(--purple-bg)"><h3>Purple</h3>
+        <ol><li>Explain why a generator makes AC, not DC.</li><li>A magnet sits still inside a coil. Explain why the ammeter reads zero.</li><li>Explain how a motor and a generator are opposites. Use the word "energy".</li></ol>
+        <div class="ans" hidden><b>Answers</b><br>1. As the coil spins, its sides pass the N and S poles in turn, so the current changes direction each half turn.<br>2. Only a changing (moving) magnetic field makes a current. No motion means no current.<br>3. A motor changes electric energy into mechanical energy. A generator changes mechanical energy into electric energy.</div><button class="btn small ghost lvl">Show answers</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- 21 · SUMMATIVE -->
+<section class="slide" id="s21" data-title="Summative: Electromagnetism Master quiz" data-skills="integrity" data-coach="ahmed" data-ns="Excellence" data-says="Count only your honest first try. Integrity is part of excellence!">
+  <div class="inner">
+    <div class="head"><h2>Summative: Electromagnetism Master quiz</h2><div class="timer" data-sec="240"></div></div>
+    <div class="stack mcqset" data-mode="first" id="wm">
+      <div class="q"><div class="qt">1. When the current in a wire is turned off, the magnetic field…</div><div class="opts"><button class="opt">A. gets stronger</button><button class="opt" data-ok>B. goes away</button><button class="opt">C. stays the same</button></div></div>
+      <div class="q"><div class="qt">2. Which change makes an electromagnet stronger?</div><div class="opts"><button class="opt" data-ok>A. more loops in the coil</button><button class="opt">B. less current</button><button class="opt">C. removing the iron core</button></div></div>
+      <div class="q"><div class="qt">3. Which is NOT a main part of a simple electric motor?</div><div class="opts"><button class="opt">A. coil of wire on a shaft</button><button class="opt">B. permanent magnet</button><button class="opt" data-ok>C. light bulb</button></div></div>
+      <div class="q"><div class="qt">4. An electric motor changes…</div><div class="opts"><button class="opt" data-ok>A. electric energy into mechanical energy</button><button class="opt">B. mechanical energy into electric energy</button><button class="opt">C. sound energy into light</button></div></div>
+      <div class="q"><div class="qt">5. A magnet moves up through a coil, then down. The current…</div><div class="opts"><button class="opt">A. stays in one direction</button><button class="opt" data-ok>B. changes direction</button><button class="opt">C. is always zero</button></div></div>
+      <div class="q"><div class="qt">6. The current from a generator is…</div><div class="opts"><button class="opt" data-ok>A. alternating current (AC)</button><button class="opt">B. direct current (DC)</button></div></div>
+      <div class="q"><div class="qt">7. Which will make a generator's current stronger?</div><div class="opts"><button class="opt">A. a weaker magnet</button><button class="opt">B. fewer loops</button><button class="opt" data-ok>C. faster motion</button></div></div>
+      <div class="q"><div class="qt">8. Why are electromagnets used in scrapyard cranes?</div><div class="opts"><button class="opt">A. they never turn off</button><button class="opt" data-ok>B. they can be turned on and off</button><button class="opt">C. they work without electricity</button></div></div>
+    </div>
+    <div class="card row" style="justify-content:space-between"><span class="score" id="wmScore">First-try score: 0 / 8</span><span class="legend">8 = Electromagnetism Master! · 6–7 = Expert · 4–5 = Explorer · 0–3 = let's review together</span></div>
+  </div>
+</section>
+
+<!-- 22 · MYSTERY SOLVED -->
+<section class="slide" id="s22" data-title="Mystery solved!" data-skills="critical,reading" data-coach="hessa" data-ns="National Identity" data-says="Be kind to yourself when you rate your stars. Every step forward counts!">
+  <div class="inner">
+    <div class="head"><h2>Mystery solved!</h2></div>
+    <div class="cols split">
+      <div class="stack">
+        <button class="btn" data-show="solved" data-confetti style="justify-self:start">Reveal the answer</button>
+        <div class="card" id="solved" hidden style="background:#fff8db;border-color:#f3e2a0"><b style="color:var(--orange)">Magnets and electricity working together</b><p style="margin:6px 0 0">Shamma's bike light has a small <b class="hl">GENERATOR</b>. When she pedals, a magnet and a coil move past each other. This motion makes an electric current, so the light shines. No pedalling, no motion, no current! The crane uses an <b style="color:var(--purple)">ELECTROMAGNET</b>: a coil with a current around an iron core. Current on: it lifts the iron. Current off: the magnetic field goes away and the iron drops. This is <b>electromagnetism</b>.</p></div>
+        <div class="card stack"><b>Exit ticket · 3 · 2 · 1</b>
+          <label>3 things I remember<textarea id="ex3" style="min-height:64px"></textarea></label>
+          <label>2 key words I can explain<textarea id="ex2" style="min-height:48px"></textarea></label>
+          <label>1 thing I still need to review<textarea id="ex1" style="min-height:48px"></textarea></label></div>
+      </div>
+      <div class="card stack"><b>Rate your success criteria (tap a star)</b>
+        <div><p style="margin:0 0 4px">I can describe the magnetic field around a wire.</p><div class="stars" id="st1"></div></div>
+        <div><p style="margin:0 0 4px">I can explain how to make an electromagnet stronger.</p><div class="stars" id="st2"></div></div>
+        <div><p style="margin:0 0 4px">I can name the main parts of an electric motor.</p><div class="stars" id="st3"></div></div>
+        <div><p style="margin:0 0 4px">I can explain how a generator makes a current.</p><div class="stars" id="st4"></div></div>
+        <div><p style="margin:0 0 4px">I can tell the difference between AC and DC.</p><div class="stars" id="st5"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 23 · VALUES -->
+<section class="slide" id="s23" data-title="Which value did you show today?" data-skills="integrity">
+  <div class="inner">
+    <div class="head"><h2>Which value did you show today?</h2></div>
+    <p class="lead">Tap the character whose value you showed today. <b>Then tell your partner one real example!</b></p>
+    <div class="grid g5" id="values">
+      <button class="vcard" style="--cc:var(--c-shahin)"><span class="star">★</span><img src="img/av-shahin.webp" alt=""><b>Shahin</b><small>Leadership · <span class="ar">القيادة</span></small><span class="prompt">I led my team when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-fahim)"><span class="star">★</span><img src="img/av-fahim.webp" alt=""><b>Fahim</b><small>Knowledge · <span class="ar">المعرفة</span></small><span class="prompt">A fact I now remember is…</span></button>
+      <button class="vcard" style="--cc:var(--c-maha)"><span class="star">★</span><img src="img/av-maha.webp" alt=""><b>Maha</b><small>Respect · <span class="ar">الاحترام</span></small><span class="prompt">I showed respect when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-ahmed)"><span class="star">★</span><img src="img/av-ahmed.webp" alt=""><b>Ahmed</b><small>Responsibility · <span class="ar">المسؤولية</span></small><span class="prompt">I was responsible when I…</span></button>
+      <button class="vcard" style="--cc:var(--c-hessa)"><span class="star">★</span><img src="img/av-hessa.webp" alt=""><b>Hessa</b><small>Tolerance · <span class="ar">التسامح</span></small><span class="prompt">I was patient and kind when…</span></button>
+    </div>
+    <div class="card row" style="justify-content:space-between"><b>Class goal: light up all five stars together!</b><span class="goal" id="goal"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span></div>
+  </div>
+</section>
+
+<!-- 24 · CELEBRATE -->
+<section class="slide end" id="s24" data-title="Powered up, Grade 8!" data-bare>
+  <div class="inner">
+    <div class="eyebrow">YOU DID IT, GRADE 8! · <span class="ar">أحسنتم</span></div>
+    <h1>Powered up, Grade 8!</h1>
+    <p style="font-style:italic;font-size:1.15rem;margin:0;opacity:.95">A generator only makes electricity when it keeps moving. Keep moving forward with your learning, and you will shine!</p>
+    <img class="fig" src="img/banner.webp" alt="Shahin, Fahim, Maha, Ahmed and Hessa with the UAE national skills" style="border:0">
+    <div class="row"><span class="nsk"><img src="img/ci-identity.webp" alt="">National Identity</span><span class="nsk"><img src="img/ci-lifelong.webp" alt="">Lifelong Learning</span><span class="nsk"><img src="img/ci-cooperation.webp" alt="">Cooperation</span><span class="nsk"><img src="img/ci-innovation.webp" alt="">Innovation</span><span class="nsk"><img src="img/ci-excellence.webp" alt="">Excellence</span></div>
+    <div class="promise"><b>My promise:</b> I will lead, learn, respect, be responsible and tolerant, for my school and my UAE.</div>
+    <div><button class="btn" id="celebrate">★ Celebrate together!</button></div>
+  </div>
+</section>
+
+  </main>
+  <div>
+    <div class="progress"><div id="prog"></div></div>
+    <nav class="nav">
+      <button class="btn ghost small" id="prev" aria-label="Previous slide">◀ Back</button>
+      <span class="count" id="count">1 / 24</span>
+      <span class="title" id="navTitle"></span>
+      <button class="btn ghost small" id="menuBtn">☰ Slides</button>
+      <button class="btn ghost small" id="linkBtn" title="Copy a link that opens this slide">🔗 Link</button>
+      <button class="btn ghost small" id="soundBtn" title="Clapping sound on">🔊</button>
+      <button class="btn ghost small" id="fsBtn" title="Full screen">⛶</button>
+      <button class="btn small" id="next" aria-label="Next slide">Next ▶</button>
+    </nav>
+  </div>
+</div>
+
+<div class="menu" id="menu" hidden><div class="panel"><div class="row" style="justify-content:space-between"><b style="font-family:var(--display);font-size:1.3rem">All slides</b><button class="btn ghost small" id="menuClose">Close</button></div><ol id="menuList"></ol></div></div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+// Paste the published lesson link here so "Link" copies a shareable address for each slide.
+const LESSON_URL = "https://nilashasempon-bit.github.io/Nilasha-Sempon/g8-electromagnetism-review/";
+
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const slides=$$('.slide'), N=slides.length;
+const COACH={shahin:['Shahin','Leadership','القيادة','--c-shahin'],fahim:['Fahim','Knowledge','المعرفة','--c-fahim'],maha:['Maha','Respect','الاحترام','--c-maha'],ahmed:['Ahmed','Responsibility','المسؤولية','--c-ahmed'],hessa:['Hessa','Tolerance','التسامح','--c-hessa']};
+const SKILL={numeracy:['Numeracy','الحساب','#'],teamwork:['Teamwork','العمل الجماعي','👥'],critical:['Critical Thinking','التفكير الناقد','🧠'],communication:['Effective Communication','التواصل الفعّال','💬'],reading:['Reading & Writing','القراءة والكتابة','📖'],integrity:['Integrity','النزاهة','🛡'],discipline:['Self-regulation & Discipline','الانضباط وتنظيم الذات','⏱'],initiative:['Initiative & Perseverance','المبادرة والمثابرة','⛰'],respect:['Respect & Kindness','الاحترام واللطف','💗']};
+const LO='Review how electricity and magnets work together.';
+const NSI={'National Identity':'identity','Lifelong Learning':'lifelong','Cooperation':'cooperation','Innovation':'innovation','Excellence':'excellence'};
+const store={get(k){try{return localStorage.getItem('emrev8:'+k)}catch(e){return null}},set(k,v){try{localStorage.setItem('emrev8:'+k,v)}catch(e){}}};
+
+// date
+$('#today').textContent=new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+
+// shared chrome: skill chips, coach strip, objective footer
+slides.forEach(s=>{
+  const inner=$('.inner',s), head=$('.head',s);
+  if(s.dataset.skills&&head){const c=document.createElement('div');c.className='chips';
+    s.dataset.skills.split(',').forEach(k=>{const[en,ar,ic]=SKILL[k];c.insertAdjacentHTML('beforeend',`<span class="chip"><i class="nsic"><img src="img/ns-${k}.webp" alt=""></i>${en} <span class="ar">${ar}</span></span>`)});head.appendChild(c)}
+  if(s.dataset.coach){const[n,v,ar,col]=COACH[s.dataset.coach];
+    inner.insertAdjacentHTML('beforeend',`<div class="coach" style="--cc:var(${col})"><img src="img/av-${s.dataset.coach}.webp" alt="${n}, ${v} coach"><div><div class="who">${n} says · ${v} <span class="ar">${ar}</span></div><p>${s.dataset.says}</p><div class="ns"><img src="img/ci-${NSI[s.dataset.ns]}.webp" alt="">UAE National Charter value: <b>${s.dataset.ns}</b></div></div></div>`)}
+  if(!('nolo' in s.dataset)) inner.insertAdjacentHTML('afterbegin',`<div class="lo lotop"><span class="tgt"></span><div><b>Learning objective:</b> ${LO}</div></div>`);
+});
+
+// navigation + deep links (#s1 … #s30)
+let cur=1; const enterHooks={};
+function go(n,push=true){
+  n=Math.max(1,Math.min(N,n|0)); cur=n;
+  slides.forEach((s,i)=>s.hidden=i!==n-1);document.querySelectorAll('.slide[hidden] video').forEach(v=>{try{v.pause()}catch(e){}});
+  $('#count').textContent=n+' / '+N; $('#navTitle').textContent=slides[n-1].dataset.title||'';
+  $('#prog').style.width=(n/N*100)+'%'; $('#main').scrollTop=0;
+  $('#prev').disabled=n===1; $('#next').disabled=n===N;
+  if(push){try{history.replaceState(null,'','#s'+n)}catch(e){}}
+  document.title='Electromagnetism Review · '+n+' · Nilasha Sempon';
+  requestAnimationFrame(()=>enterHooks[n]&&enterHooks[n]());
+}
+function fromHash(){const m=(location.hash||'').match(/s(\d+)$/);return m?+m[1]:1}
+window.addEventListener('hashchange',()=>go(fromHash(),false));
+$('#prev').onclick=()=>go(cur-1); $('#next').onclick=()=>go(cur+1);
+document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g){go(+g.dataset.go);$('#menu').hidden=true}});
+document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea,select'))return;
+  if(['ArrowRight','PageDown'].includes(e.key))go(cur+1);if(['ArrowLeft','PageUp'].includes(e.key))go(cur-1);if(e.key==='Escape')$('#menu').hidden=true});
+let tx=0,ty=0;$('#main').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+$('#main').addEventListener('touchend',e=>{if(e.target.closest('canvas,input,textarea,select,.stadium'))return;const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;if(Math.abs(dx)>70&&Math.abs(dy)<40)go(cur+(dx<0?1:-1))});
+// menu
+$('#menuList').innerHTML=slides.map((s,i)=>`<li><button data-go="${i+1}"><b>${i+1}</b>${s.dataset.title}</button></li>`).join('');
+$('#menuBtn').onclick=()=>{$$('#menuList button').forEach((b,i)=>b.classList.toggle('cur',i+1===cur));$('#menu').hidden=false};
+$('#menuClose').onclick=()=>$('#menu').hidden=true;
+$('#menu').onclick=e=>{if(e.target.id==='menu')$('#menu').hidden=true};
+// toast + link
+let tt;function toast(html,ms=2600){const t=$('#toast');t.innerHTML=html;t.hidden=false;clearTimeout(tt);tt=setTimeout(()=>t.hidden=true,ms)}
+$('#linkBtn').onclick=()=>{const base=LESSON_URL||location.href.split('#')[0];const url=base+'#s'+cur;
+  const ok=()=>toast('Link to slide '+cur+' copied');
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(ok,()=>toast('<div>Copy this link:</div><div class="linkbox">'+url+'</div>',7000))}else toast('<div>Copy this link:</div><div class="linkbox">'+url+'</div>',7000)};
+$('#fsBtn').onclick=()=>{try{if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen().catch(()=>toast('Full screen is not available here'))}catch(e){toast('Full screen is not available here')}};
+
+// built-in party confetti (works without any outside library)
+window.confetti=(function(){let cv,cx,parts=[],raf=null;
+  function setup(){if(cv)return;cv=document.createElement('canvas');cv.id='fxCanvas';document.body.appendChild(cv);cx=cv.getContext('2d');size();addEventListener('resize',size)}
+  function size(){const d=devicePixelRatio||1;cv.width=innerWidth*d;cv.height=innerHeight*d;cx.setTransform(d,0,0,d,0,0)}
+  function frame(){cx.clearRect(0,0,innerWidth,innerHeight);parts=parts.filter(p=>p.t<p.T);
+    parts.forEach(p=>{p.t++;p.x+=Math.cos(p.a)*p.v+p.drift;p.y+=Math.sin(p.a)*p.v+p.g;p.v*=p.decay;p.w+=p.ws;p.tilt+=0.1;
+      const o=1-p.t/p.T;cx.globalAlpha=Math.max(0,o);cx.fillStyle=p.c;const s=p.s;
+      if(p.round){cx.beginPath();cx.ellipse(p.x,p.y,s*.6,s*.6*Math.abs(Math.cos(p.tilt)),0,0,7);cx.fill()}
+      else{cx.save();cx.translate(p.x,p.y);cx.rotate(p.w);cx.fillRect(-s/2,-s*.3*Math.abs(Math.cos(p.tilt))-1,s,s*.6*Math.abs(Math.cos(p.tilt))+2);cx.restore()}});
+    cx.globalAlpha=1;raf=parts.length?requestAnimationFrame(frame):(cx.clearRect(0,0,innerWidth,innerHeight),null)}
+  return function(o){o=o||{};setup();const n=o.particleCount||50,ang=(o.angle==null?90:o.angle)*Math.PI/180,spr=(o.spread==null?45:o.spread)*Math.PI/180,sv=o.startVelocity||45,
+      X=(o.origin&&o.origin.x!=null?o.origin.x:.5)*innerWidth,Y=(o.origin&&o.origin.y!=null?o.origin.y:.6)*innerHeight,cols=o.colors||['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0','#ff7ab6'],sc=o.scalar||1;
+    for(let i=0;i<Math.min(n,400);i++)parts.push({x:X,y:Y,a:-ang+(.5*spr-Math.random()*spr),v:sv*.5+Math.random()*sv,decay:.9,g:3*(o.gravity==null?1:o.gravity),drift:(Math.random()-.5)*.6,
+      c:cols[i%cols.length],s:(7+Math.random()*6)*sc,round:Math.random()<.3,w:Math.random()*6,ws:(Math.random()-.5)*.3,tilt:Math.random()*6,t:0,T:o.ticks||200});
+    if(!raf)raf=requestAnimationFrame(frame);return Promise.resolve()}})();
+// confetti
+function boom(big){if(typeof confetti!=='function')return;const c=['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0'];
+  confetti({particleCount:big?220:90,spread:big?120:70,origin:{y:.65},colors:c});
+  if(big){setTimeout(()=>confetti({particleCount:120,angle:60,spread:70,origin:{x:0,y:.7},colors:c}),250);setTimeout(()=>confetti({particleCount:120,angle:120,spread:70,origin:{x:1,y:.7},colors:c}),400)}}
+// cheer: confetti burst where the student tapped + a clapping sound for each correct answer
+let lastX=.5,lastY=.6,soundOn=true;try{soundOn=localStorage.getItem('cheerSound')!=='off'}catch(e){}
+document.addEventListener('pointerdown',e=>{lastX=e.clientX/innerWidth;lastY=e.clientY/innerHeight},true);
+let cheerCtx;function clap(n){if(!soundOn)return;try{cheerCtx=cheerCtx||new (window.AudioContext||window.webkitAudioContext)();const a=cheerCtx,now=a.currentTime;
+  const len=a.sampleRate*.05,buf=a.createBuffer(1,len,a.sampleRate),d=buf.getChannelData(0);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,3);
+  for(let k=0;k<n;k++){const t=now+k*0.11+Math.random()*0.05;for(let j=0;j<3;j++){const src=a.createBufferSource();src.buffer=buf;const f=a.createBiquadFilter();f.type='bandpass';f.frequency.value=1000+Math.random()*1500;f.Q.value=0.8;const g=a.createGain();g.gain.value=0.5;src.connect(f);f.connect(g);g.connect(a.destination);src.start(t+j*0.012+Math.random()*0.02)}}
+  [523.25,659.25,783.99].forEach((fr,i)=>{const o=a.createOscillator(),g=a.createGain();o.type='triangle';o.frequency.value=fr;o.connect(g);g.connect(a.destination);g.gain.setValueAtTime(0.0001,now+i*0.07);g.gain.exponentialRampToValueAtTime(0.12,now+i*0.07+0.02);g.gain.exponentialRampToValueAtTime(0.0001,now+i*0.07+0.3);o.start(now+i*0.07);o.stop(now+i*0.07+0.32)})}catch(e){}}
+function party(big,x,y){const c=['#ffc21a','#e5484d','#1fa75a','#2563eb','#7a3ff0','#ff7ab6'];
+  confetti({particleCount:big?110:60,spread:big?110:80,startVelocity:big?42:34,origin:{x:x,y:y},colors:c});
+  confetti({particleCount:big?110:60,angle:62,spread:58,startVelocity:big?62:55,origin:{x:0,y:.95},colors:c});
+  confetti({particleCount:big?110:60,angle:118,spread:58,startVelocity:big?62:55,origin:{x:1,y:.95},colors:c})}
+function badge(txt,cls){const b=document.createElement('div');b.className='fbadge '+cls;b.textContent=txt;
+  b.style.left=Math.min(Math.max(lastX*innerWidth,110),innerWidth-110)+'px';b.style.top=Math.min(Math.max(lastY*innerHeight-64,70),innerHeight-40)+'px';document.body.appendChild(b);setTimeout(()=>b.remove(),1500)}
+let lastCheer=0,lastWrong=0,quietUntil=0;
+const PRAISE=['🎉 Correct!','⭐ Brilliant!','👏 Well done!','🎊 Great job!','🏆 Excellent!'];
+function cheer(big){lastCheer=Date.now();clap(big?14:9);party(big,lastX,lastY);badge(PRAISE[Math.floor(Math.random()*PRAISE.length)],'good')}
+function buzz(){if(!soundOn)return;try{cheerCtx=cheerCtx||new (window.AudioContext||window.webkitAudioContext)();const a=cheerCtx,now=a.currentTime;
+  [[0,233],[0.17,175]].forEach(([d,f])=>{const o=a.createOscillator(),g=a.createGain();o.type='square';o.frequency.value=f;o.connect(g);g.connect(a.destination);g.gain.setValueAtTime(0.0001,now+d);g.gain.exponentialRampToValueAtTime(0.07,now+d+0.02);g.gain.exponentialRampToValueAtTime(0.0001,now+d+0.16);o.start(now+d);o.stop(now+d+0.18)})}catch(e){}}
+function wrong(el){if(el){el.classList.remove('shake');void el.offsetWidth;el.classList.add('shake');setTimeout(()=>el.classList.remove('shake'),500)}
+  if(Date.now()-lastWrong<350)return;lastWrong=Date.now();buzz();
+  let f=document.getElementById('redFlash');if(!f){f=document.createElement('div');f.id='redFlash';document.body.appendChild(f)}
+  f.classList.add('on');setTimeout(()=>f.classList.remove('on'),120);badge('✗ Not quite. Try again!','bad')}
+// watch every answer: green = party confetti, red = red flash + shake
+document.addEventListener('click',e=>{if(e.target.closest('[data-answers],#orderReveal'))quietUntil=Date.now()+600},true);
+new MutationObserver(ms=>{if(Date.now()<quietUntil)return;let good=false;
+  ms.forEach(m=>{const el=m.target,old=' '+(m.oldValue||'')+' ';if(!el.classList)return;
+    if(['no','wrong','nof'].some(c=>el.classList.contains(c)&&!old.includes(' '+c+' '))&&!el.classList.contains('fb'))wrong(el);
+    if(['ok','right','okf'].some(c=>el.classList.contains(c)&&!old.includes(' '+c+' '))&&!el.classList.contains('fb'))good=true});
+  if(good&&Date.now()-lastCheer>500)cheer(false)}).observe(document.body,{subtree:true,attributes:true,attributeFilter:['class'],attributeOldValue:true});
+(function(){const b=document.getElementById('soundBtn');if(!b)return;const set=()=>{b.textContent=soundOn?'🔊':'🔇';b.title=soundOn?'Sound on':'Sound off'};set();
+  b.onclick=()=>{soundOn=!soundOn;try{localStorage.setItem('cheerSound',soundOn?'on':'off')}catch(e){}set();if(soundOn)clap(4)}})();
+document.addEventListener('click',e=>{if(e.target.closest('[data-confetti]'))boom(false)});
+
+// generic: flip, reveal
+document.addEventListener('click',e=>{
+  const f=e.target.closest('.flip');if(f)f.classList.toggle('on');
+  const r=e.target.closest('[data-show]');if(r){const t=document.getElementById(r.dataset.show);t.hidden=!t.hidden}
+  const ns=e.target.closest('.nskill');if(ns)ns.classList.toggle('on');
+});
+
+// timers
+let actx;function beep(){try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();[0,.25,.5].forEach(d=>{const o=actx.createOscillator(),g=actx.createGain();o.frequency.value=880;o.connect(g);g.connect(actx.destination);g.gain.setValueAtTime(.15,actx.currentTime+d);g.gain.exponentialRampToValueAtTime(.001,actx.currentTime+d+.2);o.start(actx.currentTime+d);o.stop(actx.currentTime+d+.22)})}catch(e){}}
+$$('.timer').forEach(el=>{const total=+el.dataset.sec;let left=total,iv=null;const fmt=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+  el.innerHTML=`<button class="btn small">▶ Start ${total>=60?total/60+'-min':total+'-s'}</button><span class="t">${fmt(total)}</span><button class="rs" title="Reset">↺</button>`;
+  const [b,t,rs]=el.children;
+  const stop=()=>{clearInterval(iv);iv=null};
+  b.onclick=()=>{if(iv){stop();b.textContent='▶ Resume';return}if(left<=0){left=total;el.classList.remove('done')}
+    b.textContent='❚❚ Pause';iv=setInterval(()=>{left--;t.textContent=fmt(Math.max(left,0));if(left<=0){stop();el.classList.add('done');t.textContent="TIME'S UP!";b.textContent='▶ Again';beep()}},1000)};
+  rs.onclick=()=>{stop();left=total;el.classList.remove('done');t.textContent=fmt(total);b.textContent=`▶ Start ${total>=60?total/60+'-min':total+'-s'}`};
+});
+
+
+// true / false
+$$('#tf .q').forEach(q=>{let done=false;$$('.opt',q).forEach(b=>b.onclick=()=>{if(done)return;done=true;const pick=b.textContent==='True'?'T':'F',ok=pick===q.dataset.a;
+  b.classList.add(ok?'ok':'no');const fb=$('.fb',q);fb.hidden=false;fb.className='fb '+(ok?'ok':'no');fb.textContent=(ok?'✓ Correct! ':'✗ Not quite. ')+fb.dataset.why;
+  q.dataset.res=ok?1:0;const all=$$('#tf .q'),sc=all.reduce((a,x)=>a+(+x.dataset.res||0),0),n=$$('#tf .q[data-res]').length;$('#tfScore').textContent='Score: '+sc+' / '+all.length;if(n===all.length&&sc===all.length)boom(false)})});
+
+// sorters (tap a card to change its label)
+$$('.sorter').forEach(so=>{const L=so.dataset.labels.split('|');
+  $$('.sitem',so).forEach(b=>b.onclick=()=>{b.classList.remove('right','wrong');const i=(L.indexOf(b.dataset.v)+1)%L.length;b.dataset.v=L[i];$('.tag',b).textContent=L[i]})});
+$$('[data-sortcheck]').forEach(btn=>btn.onclick=()=>{const id=btn.dataset.sortcheck;let s=0;const all=$$('#'+id+' .sitem');
+  all.forEach(b=>{const ok=b.dataset.v===b.dataset.ans;b.classList.toggle('right',ok);b.classList.toggle('wrong',!ok);s+=ok});
+  $(`[data-sortout="${id}"]`).textContent=s+' / '+all.length+' correct';const w=document.getElementById(id+'why');if(w)w.hidden=false;if(s===all.length)boom(true)});
+
+// worksheet
+$$('#wsA select').forEach(s=>s.innerHTML='<option value="">–</option>'+'ABCDE'.split('').map(x=>`<option>${x}</option>`).join(''));
+const norm=v=>v.trim().toLowerCase().replace(/[.\s]+$/,'');
+function mark(id){let s=0;$$('#'+id+' [data-ans]').forEach(f=>{const ok=f.dataset.ans.toLowerCase().split('|').includes(norm(f.value));f.classList.toggle('okf',ok);f.classList.toggle('nof',!ok&&f.value!=='');s+=ok});return s}
+const score={wsA:0,wsB:0};
+function total(){$('#wsTotal').textContent='Total: A + B = '+(score.wsA+score.wsB)+' / 11 marks'}
+$$('[data-check]').forEach(b=>b.onclick=()=>{const id=b.dataset.check,s=mark(id),max=$$('#'+id+' [data-ans]').length;score[id]=s;if(s>0)cheer(s===max);$(`[data-out="${id}"]`).textContent=s+' / '+max;total();if(s===max)boom(false)});
+$$('[data-answers]').forEach(b=>b.onclick=()=>{const id=b.dataset.answers;$$('#'+id+' [data-ans]').forEach(f=>{f.value=f.tagName==='SELECT'?f.dataset.ans:f.dataset.ans.split('|')[0]});mark(id)});
+// MCQ sets (retry = formative with hints; first = first-try scoring)
+$$('.mcqset').forEach(set=>{const mode=set.dataset.mode;const qs=set.classList.contains('q')?[set]:$$('.q',set);
+  qs.forEach(q=>q.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(q.dataset.solved)return;const ok=b.hasAttribute('data-ok');
+    if(!('first' in q.dataset))q.dataset.first=ok?1:0;
+    b.classList.add(ok?'ok':'no');const fb=$('.fb',q);if(fb)fb.hidden=ok;
+    if(ok){q.dataset.solved=1;cheer(false)}
+    if(set.id==='wm'){const s=qs.reduce((a,x)=>a+(+x.dataset.first||0),0),n=qs.filter(x=>'first' in x.dataset).length;
+      const lvl=s===8?'Electromagnetism Master! 🏆':s>=6?'Expert':s>=4?'Explorer':"let's review together";
+      $('#wmScore').textContent='First-try score: '+s+' / 8'+(n===8?' · '+lvl:'');if(n===8&&s>=6)boom(s===8)}
+    if(mode==='retry'&&qs.length>1&&qs.every(x=>x.dataset.solved))boom(false);
+  }));
+});
+
+$$('.lvl').forEach(b=>b.onclick=()=>{const a=b.previousElementSibling;a.hidden=!a.hidden;b.textContent=a.hidden?'Show answers':'Hide answers'});
+
+// keep typed answers in this browser
+$$('input[type=text],textarea').forEach(f=>{if(!f.id)return;const v=store.get(f.id);if(v)f.value=v;f.addEventListener('input',()=>store.set(f.id,f.value))});
+
+// stars
+$$('.stars').forEach(st=>{for(let i=1;i<=5;i++)st.insertAdjacentHTML('beforeend',`<button aria-label="${i} star${i>1?'s':''}">★</button>`);
+  const set=k=>$$('button',st).forEach((b,i)=>b.classList.toggle('on',i<k));set(+store.get(st.id)||0);
+  $$('button',st).forEach((b,i)=>b.onclick=()=>{set(i+1);store.set(st.id,i+1);if(i===4)boom(false)})});
+
+// values
+$$('#values .vcard').forEach(c=>c.onclick=()=>{c.classList.toggle('on');const n=$$('#values .vcard.on').length;$$('#goal span').forEach((s,i)=>s.classList.toggle('on',i<n));if(n===5){boom(true);toast('Class goal reached: all five stars!')}});
+
+
+// celebrate
+$('#celebrate').onclick=()=>boom(true);
+enterHooks[24]=()=>boom(true);
+/* ---------- canvases ---------- */
+function fit(c){const r=c.getBoundingClientRect(),d=window.devicePixelRatio||1;const h=+c.getAttribute('height')||r.height||120;
+  if(!c.dataset.h)c.dataset.h=h;const H=+c.dataset.h;c.style.height=H+'px';c.width=Math.round(r.width*d);c.height=Math.round(H*d);const x=c.getContext('2d');x.setTransform(d,0,0,d,0,0);return{x,w:r.width,h:H}}
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+
+// hero: magnetic field rings around a glowing wire
+(function(){const c=$('#heroWaves');if(!c)return;let t=0;function draw(){if(cur!==1)return;const {x,w,h}=fit(c);x.clearRect(0,0,w,h);
+  const cx=w*.86,cy=h*.5;for(let k=1;k<=7;k++){const r=k*42+((t*0.6)%42);x.strokeStyle=`rgba(255,194,26,${Math.max(0,.55-k*.07)})`;x.lineWidth=2;x.beginPath();x.ellipse(cx,cy,r,r*.32,0,0,7);x.stroke()}
+  x.fillStyle='rgba(255,170,60,.85)';x.fillRect(cx-6,0,12,h);t++;if(!reduce)requestAnimationFrame(draw)}
+  enterHooks[1]=()=>requestAnimationFrame(draw)})();
+
+// ---------- virtual lab 1: build an electromagnet ----------
+(function(){const c=$('#emLab');if(!c)return;let on=false,rev=false,raf=null,t=0,done={};
+  const L=$('#emLoops'),B=$('#emCells'),K=$('#emCore');
+  function strength(){if(!on)return 0;return (+L.value)*(+B.value)*(K.checked?4:1)}
+  function clips(){return Math.min(30,Math.floor(strength()/20))}
+  function tick(id){if(done[id])return;done[id]=1;const d=$(`#emCh [data-c="${id}"]`);d.innerHTML=d.innerHTML.replace('☐','✅');cheer(id==='max')}
+  function upd(){$('#emLoopsV').textContent=L.value;$('#emCellsV').textContent=B.value;const n=clips();$('#emClips').textContent='Paper clips: '+n;
+    $('#emPoles').textContent='Poles: '+(rev?'S':'N')+' on the left';
+    $('#emNote').innerHTML=!on?'The switch is OFF. No current, so <b>no magnetic field</b>.':K.checked?'Iron core in: the field is <b>much stronger</b>!':'Try more loops, more batteries, or an iron core.';
+    if(on&&n===10)tick('10');if(on&&n===30)tick('max')}
+  function draw(){const {x,w,h}=fit(c);x.clearRect(0,0,w,h);const cx=w/2,cy=110,len=Math.min(w*.62,360),n=Math.max(4,Math.round(+L.value/2.5));
+    const s=strength(),k=Math.min(1,s/600);
+    // field lines
+    if(on){x.strokeStyle=`rgba(24,160,110,${.25+.6*k})`;x.lineWidth=1.5+3*k;for(let r=1;r<=3;r++){x.beginPath();x.ellipse(cx,cy,len/2+r*28,r*30+10,0,0,7);x.stroke()}}
+    // core
+    if(K.checked){x.fillStyle='#5a6070';x.fillRect(cx-len/2-14,cy-14,len+28,28)}
+    // coil
+    x.strokeStyle='#d68028';x.lineWidth=4;for(let i=0;i<n;i++){const px=cx-len/2+len*(i+.5)/n;x.beginPath();x.ellipse(px,cy,9,30,0,0,7);x.stroke()}
+    // poles
+    x.font='800 26px Nunito, sans-serif';x.textAlign='center';x.textBaseline='middle';
+    if(on){x.fillStyle=rev?'#3aa0d8':'#e5484d';x.fillText(rev?'S':'N',cx-len/2-36,cy);x.fillStyle=rev?'#e5484d':'#3aa0d8';x.fillText(rev?'N':'S',cx+len/2+36,cy)}
+    // battery + current dots
+    x.fillStyle='#2b2b30';x.fillRect(cx-60,h-60,120,34);x.fillStyle='#e5484d';x.fillRect(cx+10,h-60,50,34);x.fillStyle='#fff';x.font='700 15px Nunito';x.fillText(B.value+' × battery',cx-18,h-43);
+    x.strokeStyle='#3b3fa0';x.lineWidth=3;x.beginPath();x.moveTo(cx-60,h-43);x.lineTo(cx-len/2-50,h-43);x.lineTo(cx-len/2-50,cy+40);x.lineTo(cx-len/2,cy+28);x.moveTo(cx+60,h-43);x.lineTo(cx+len/2+50,h-43);x.lineTo(cx+len/2+50,cy+40);x.lineTo(cx+len/2,cy+28);x.stroke();
+    if(on){x.fillStyle='#ffc21a';for(let i=0;i<6;i++){const f=((t*.01*(rev?-1:1)+i/6)%1+1)%1;x.beginPath();x.arc(cx-len/2-50+(len+100)*f,h-43,4,0,7);x.fill()}}
+    // paper clips hanging under the coil
+    const nc=clips();for(let i=0;i<30;i++){const stuck=i<nc;const col=i%10,row=Math.floor(i/10);
+      const px=stuck?cx-len/2+20+col*(len-40)/9:cx-150+col*32+(row%2)*10,py=stuck?cy+42+row*20:h-100-row*14;
+      x.strokeStyle=stuck?'#7a3ff0':'#9aa3b5';x.lineWidth=2;x.beginPath();x.ellipse(px,py,5,9,stuck?0:1.57,0,7);x.stroke()}
+    t++;if(on&&!reduce&&!c.closest('.slide').hidden)raf=requestAnimationFrame(draw);else raf=null}
+  function go2(){if(!raf)raf=requestAnimationFrame(draw)}
+  [L,B,K].forEach(el=>el.oninput=()=>{upd();go2()});
+  $('#emSwitch').onclick=()=>{on=!on;$('#emSwitch').textContent=on?'⏻ Switch OFF':'⚡ Switch ON';upd();go2()};
+  $('#emRev').onclick=()=>{rev=!rev;upd();go2();if(on)tick('rev')};
+  enterHooks[12]=()=>{upd();go2()};upd()})();
+
+// ---------- virtual lab 2: make a current with a magnet ----------
+(function(){const c=$('#genLab');if(!c)return;let raf=null,t=0,done={};
+  const S=$('#gSpeed'),M=$('#gMag'),Lp=$('#gLoops'),T=$('#gTilt');
+  function peak(){return (+S.value/10)*(+M.value/3)*(+Lp.value/6)*Math.cos((+T.value)*Math.PI/180)}
+  function tick(id){if(done[id])return;done[id]=1;const d=$(`#gCh [data-c="${id}"]`);d.innerHTML=d.innerHTML.replace('☐','✅');cheer(id==='max')}
+  let lastTilt=0,lastPeak=0;
+  function upd(e){$('#gSpeedV').textContent=S.value;$('#gMagV').textContent=['','weak','medium','strong'][M.value];$('#gLoopsV').textContent=Lp.value;$('#gTiltV').textContent=T.value+'°';
+    const p=peak();$('#gOut').textContent='Current: '+Math.round(p*100)+'% of the maximum';
+    $('#gNote').innerHTML=+S.value===0?'<b style="color:var(--red)">The magnet is not moving, so there is no current.</b>':+T.value>0?'The magnet is tilted: the current is <b>weaker</b>.':'Faster, stronger and more loops: a <b>stronger current</b>.';
+    if(+S.value===0)tick('zero');if(p>=.99)tick('max');if(e&&e.target===T&&+T.value>lastTilt&&+S.value>0)tick('tilt');lastTilt=+T.value}
+  function draw(){const {x,w,h}=fit(c);x.clearRect(0,0,w,h);const sp=+S.value,ph=t*.006*sp,cx=w*.32,cy=h/2;
+    const y=cy-30+Math.sin(ph)*80,vel=Math.cos(ph),cur=vel*peak(),loops=+Lp.value,tilt=(+T.value)*Math.PI/180;
+    // coil back
+    x.lineWidth=4;for(let i=0;i<loops;i++){const yy=cy+30-i*10;x.strokeStyle='#a0303a';x.beginPath();x.ellipse(cx,yy,70,20,0,Math.PI,2*Math.PI);x.stroke()}
+    // magnet
+    x.save();x.translate(cx,y);x.rotate(tilt);const mw=18+8*(+M.value);x.fillStyle='#e5484d';x.fillRect(-mw/2,-90,mw,90);x.fillStyle='#3aa0d8';x.fillRect(-mw/2,0,mw,90);
+    x.fillStyle='#fff';x.font='800 18px Nunito';x.textAlign='center';x.fillText('N',0,-70);x.fillText('S',0,78);x.restore();
+    // coil front
+    for(let i=0;i<loops;i++){const yy=cy+30-i*10;x.strokeStyle='#e5484d';x.beginPath();x.ellipse(cx,yy,70,20,0,0,Math.PI);x.stroke()}
+    // wires to meter and bulb
+    const mx=w*.72,my=cy-40;x.strokeStyle='#c8323c';x.lineWidth=3;x.beginPath();x.moveTo(cx+70,cy+30);x.lineTo(mx,cy+30);x.lineTo(mx,my+60);x.moveTo(cx+66,cy+20);x.lineTo(mx-40,cy+20);x.lineTo(mx-40,my+60);x.stroke();
+    // ammeter
+    x.fillStyle='#344646';x.beginPath();x.roundRect(mx-70,my-70,120,130,14);x.fill();x.fillStyle='#fff';x.beginPath();x.arc(mx-10,my-6,46,0,7);x.fill();
+    x.fillStyle='#1c2340';x.font='700 12px Nunito';x.fillText('0',mx-10,my-38);x.fillText('−',mx-44,my-16);x.fillText('+',mx+24,my-16);
+    const a=-Math.PI/2+Math.max(-1,Math.min(1,cur))*1.1;x.strokeStyle='#e5484d';x.lineWidth=3;x.beginPath();x.moveTo(mx-10,my+8);x.lineTo(mx-10+Math.cos(a)*38,my+8+Math.sin(a)*38);x.stroke();
+    // bulb
+    const bx=mx-10,by=h-48,g=Math.abs(cur);x.fillStyle=`rgba(255,214,60,${.15+.8*g})`;x.beginPath();x.arc(bx,by,18+22*g,0,7);x.fill();x.fillStyle=g>.05?'#ffd23c':'#e6e3d6';x.beginPath();x.arc(bx,by,16,0,7);x.fill();
+    // motion arrow
+    x.fillStyle='#7a3ff0';x.font='700 14px Nunito';x.fillText(sp===0?'magnet still':(vel>0?'moving down ↓':'moving up ↑'),cx,h-14);
+    t+=16;if(!reduce&&!c.closest('.slide').hidden)raf=requestAnimationFrame(draw);else raf=null}
+  [S,M,Lp,T].forEach(el=>el.oninput=e=>{upd(e);if(!raf)raf=requestAnimationFrame(draw)});
+  enterHooks[13]=()=>{upd();if(!raf)raf=requestAnimationFrame(draw)};upd()})();
+window.addEventListener('resize',()=>enterHooks[cur]&&enterHooks[cur]());
+go(fromHash(),false);
+
+// pause-and-answer questions on narrated videos (the video files are unchanged)
+$$('.vqwrap').forEach(wrap=>{const v=wrap.querySelector('video');if(!v)return;const stops=[...wrap.querySelectorAll('.vpause')];const asked=new Set();let on=true;
+  v.addEventListener('timeupdate',()=>{if(!on)return;stops.forEach((s,i)=>{const at=+s.dataset.at;if(!asked.has(i)&&v.currentTime>=at&&v.currentTime<at+1.5){asked.add(i);v.pause();if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});s.hidden=false}})});
+  v.addEventListener('seeked',()=>{stops.forEach((s,i)=>{if(v.currentTime<+s.dataset.at-0.5)asked.delete(i)})});
+  v.addEventListener('play',()=>stops.forEach(s=>s.hidden=true));
+  stops.forEach(s=>{s.querySelector('.vgo').onclick=()=>{s.hidden=true;v.play()}});
+  const tg=wrap.querySelector('.vqtoggle');if(tg)tg.onchange=e=>{on=e.target.checked;if(!on)stops.forEach(s=>s.hidden=true)};});
+
+</script>
+
+</body>
+</html>
